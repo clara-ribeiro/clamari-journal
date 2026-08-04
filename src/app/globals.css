@@ -1,0 +1,14 @@
+:root {
+  --font-body: var(--font-dm-sans), system-ui, sans-serif;
+  --font-heading: var(--font-instrument-serif), Georgia, serif;
+}
+
+html,
+body {
+  max-width: 100vw;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+}
