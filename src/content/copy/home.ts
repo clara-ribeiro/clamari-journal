@@ -12,6 +12,13 @@ export const homeCopy = {
       ],
     },
   },
+  recentEntries: {
+    titleId: "recent-entries-heading",
+    title: "Recent Entries",
+    showAllLabel: "Show All",
+    showAllHref: "/all-entries",
+    listAriaLabel: "Recent journal entries",
+  },
 } as const;
 
 export type HomeCopy = typeof homeCopy;
