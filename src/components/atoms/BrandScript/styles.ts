@@ -26,6 +26,7 @@ export const Root = styled("div", {
 
 export const Script = styled("p", {
   margin: 0,
+  width: "100%",
   fontFamily: 'var(--font-monsieur), "Segoe Script", cursive',
   fontWeight: 400,
   fontStyle: "normal",
@@ -33,4 +34,6 @@ export const Script = styled("p", {
   lineHeight: 0.85,
   color: "$brandAccent",
   textAlign: "center",
+  filter:
+    "drop-shadow(0 0.08em 0.14em rgba(0, 0, 0, 0.55)) drop-shadow(0 0.03em 0.05em rgba(0, 0, 0, 0.35))",
 });

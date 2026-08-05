@@ -30,7 +30,7 @@ export const Content = styled("div", {
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  gap: "clamp(2rem, 6vw, 5rem)",
+  gap: "clamp(7rem, 8vw, 6.5rem)",
   width: "100%",
   maxWidth: "$containerWide",
 });

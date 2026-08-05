@@ -3,7 +3,13 @@ import { styled } from "@/styles/stitches.config";
 
 export const Root = styled("div", {
   display: "inline-flex",
+  width: "auto",
   margin: 0,
+
+  "@media (max-width: 767px)": {
+    display: "flex",
+    width: "100%",
+  },
 });
 
 export const ButtonLink = styled(Link, {
@@ -12,6 +18,7 @@ export const ButtonLink = styled(Link, {
   alignItems: "center",
   justifyContent: "center",
   gap: "$sm",
+  width: "auto",
   minHeight: "$controlMin",
   paddingInline: "$lg",
   paddingBlock: "$sm",
@@ -57,6 +64,10 @@ export const ButtonLink = styled(Link, {
 
   "&:active": {
     transform: "translateY(0)",
+  },
+
+  "@media (max-width: 767px)": {
+    width: "100%",
   },
 
   "@motionReduce": {

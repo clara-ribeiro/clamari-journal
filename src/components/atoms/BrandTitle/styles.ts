@@ -33,6 +33,7 @@ export const Title = styled("h1", {
   letterSpacing: "0.02em",
   textTransform: "uppercase",
   textAlign: "center",
+  whiteSpace: "nowrap",
   color: "transparent",
   backgroundImage: "url(/images/home/hero/lettering-background.webp)",
   backgroundSize: "cover",
@@ -41,4 +42,10 @@ export const Title = styled("h1", {
   backgroundClip: "text",
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent",
+  filter:
+    "drop-shadow(0 0.12em 0.18em rgba(0, 0, 0, 0.35)) drop-shadow(0 0.04em 0.06em rgba(0, 0, 0, 0.35))",
+
+  "@media (max-width: 767px)": {
+    width: "100%",
+  },
 });

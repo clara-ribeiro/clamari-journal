@@ -8,6 +8,10 @@ export const Root = styled("div", {
   justifyContent: "center",
   width: "min(100%, 56rem)",
   margin: 0,
+
+  "@media (max-width: 767px)": {
+    width: "100%",
+  },
 });
 
 export const ScriptLayer = styled("div", {
