@@ -40,6 +40,7 @@ export const {
       cardText: "#1A1A1A",
       starOn: "#C9A227",
       starOff: "#B0B0B0",
+      cardBorder: "#F3AF50",
     },
     fonts: {
       display: "var(--font-anton), Impact, Haettenschweiler, sans-serif",

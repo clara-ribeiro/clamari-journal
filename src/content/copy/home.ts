@@ -19,6 +19,13 @@ export const homeCopy = {
     showAllHref: "/all-entries",
     listAriaLabel: "Recent journal entries",
   },
+  favorites: {
+    titleId: "favorites-heading",
+    title: "Favorites",
+    showAllLabel: "Show All",
+    showAllHref: "/favorites",
+    listAriaLabel: "Favorite journal entries",
+  },
 } as const;
 
 export type HomeCopy = typeof homeCopy;

@@ -1389,7 +1389,7 @@
     "slug": "the-office-us",
     "title": "The Office (US)",
     "status": "completed",
-    "favorite": false,
+    "favorite": true,
     "watchedEpisodes": [
       {
         "season": 1,
@@ -15289,7 +15289,7 @@
     "slug": "doctor-who-2005",
     "title": "Doctor Who (2005)",
     "status": "completed",
-    "favorite": false,
+    "favorite": true,
     "watchedEpisodes": [
       {
         "season": 1,

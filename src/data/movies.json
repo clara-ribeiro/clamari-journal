@@ -375,7 +375,8 @@
     ],
     "rating": 3,
     "tmdbId": 1579,
-    "posterPath": "/cRY25Q32kDNPFDkFkxAs6bgCq3L.jpg"
+    "posterPath": "/cRY25Q32kDNPFDkFkxAs6bgCq3L.jpg",
+    "favorite": true
   },
   {
     "tvtimeUuid": "4c1a81fe-0aa6-4f55-9744-07221938275b",
@@ -1958,7 +1959,8 @@
       "2025-01-30"
     ],
     "tmdbId": 556574,
-    "posterPath": "/h1B7tW0t399VDjAcWJh8m87469b.jpg"
+    "posterPath": "/h1B7tW0t399VDjAcWJh8m87469b.jpg",
+    "favorite": true
   },
   {
     "tvtimeUuid": "bb31313f-290b-433c-a5da-acdce14073c0",
@@ -1971,7 +1973,8 @@
       "2026-02-17"
     ],
     "tmdbId": 858024,
-    "posterPath": "/vbeyOZm2bvBXcbgPD3v6o94epPX.jpg"
+    "posterPath": "/vbeyOZm2bvBXcbgPD3v6o94epPX.jpg",
+    "favorite": true
   },
   {
     "tvtimeUuid": "8d85df5b-0ffb-450a-a32e-7eab9665366a",
@@ -2947,7 +2950,8 @@
       "2025-06-14"
     ],
     "tmdbId": 52345,
-    "posterPath": "/raCdo5Hjpd3uXbpSd1JZ7tEyE31.jpg"
+    "posterPath": "/raCdo5Hjpd3uXbpSd1JZ7tEyE31.jpg",
+    "favorite": true
   },
   {
     "tvtimeUuid": "1c7e689e-a973-4661-9c67-4b1752443bb6",
@@ -4025,7 +4029,8 @@
       "2025-06-14"
     ],
     "tmdbId": 64397,
-    "posterPath": "/oIiIV61Q2x7vE62sE1TyNGxraT2.jpg"
+    "posterPath": "/oIiIV61Q2x7vE62sE1TyNGxraT2.jpg",
+    "favorite": true
   },
   {
     "tvtimeUuid": "dafa4b7a-49da-4e0c-9a19-0c8ba2ce0e91",

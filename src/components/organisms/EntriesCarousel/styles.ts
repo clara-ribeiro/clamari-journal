@@ -10,7 +10,7 @@ export const Section = styled("section", {
   margin: 0,
   px: "$md",
   py: "clamp(3rem, 8vw, 5rem)",
-  overflow: "hidden",
+  overflowX: "clip",
   backgroundColor: "$bg",
   backgroundImage: "url(/images/shared/noise-grain.webp)",
   backgroundSize: "128px 128px",
@@ -32,34 +32,45 @@ export const Heading = styled("h2", {
   color: "$hiContrast",
 });
 
+/** Full-bleed only on mobile; constrained grid shell from tablet up. */
+export const CarouselFrame = styled("div", {
+  width: "100vw",
+  maxWidth: "100vw",
+  marginLeft: "calc(50% - 50vw)",
+  marginRight: "calc(50% - 50vw)",
+
+  "@md": {
+    width: "100%",
+    maxWidth: "56rem",
+    marginLeft: 0,
+    marginRight: 0,
+  },
+});
+
 export const List = styled("ul", {
   display: "flex",
   gap: "$sm",
   width: "100%",
-  maxWidth: "52rem",
   margin: 0,
-  padding: "0 $sm $sm",
+  paddingLeft: "$md",
+  paddingRight: "$md",
+  paddingBottom: "$sm",
   listStyle: "none",
   overflowX: "auto",
   scrollSnapType: "x mandatory",
-  scrollPaddingInline: "$sm",
+  scrollPaddingLeft: "$md",
+  scrollPaddingRight: "$md",
   WebkitOverflowScrolling: "touch",
+  scrollbarWidth: "none",
 
   "&::-webkit-scrollbar": {
-    height: "0.375rem",
-  },
-  "&::-webkit-scrollbar-thumb": {
-    backgroundColor: "$border",
-    borderRadius: "$full",
+    display: "none",
   },
 
+  // Tablet + desktop: static grid, no carousel
   "@md": {
-    gap: "$md",
-  },
-
-  "@lg": {
     display: "grid",
-    gridTemplateColumns: "repeat(4, minmax(0, 10.5rem))",
+    gridTemplateColumns: "repeat(5, minmax(0, 10.5rem))",
     justifyContent: "center",
     gap: "$md",
     overflow: "visible",
@@ -74,13 +85,11 @@ export const ListItem = styled("li", {
   minWidth: 0,
 
   "@md": {
-    flexBasis: "10.5rem",
-  },
-
-  "@lg": {
     flex: "unset",
+    width: "100%",
   },
 });
+
 export const ShowAllLink = styled(Link, {
   fontFamily: "$heading",
   fontSize: "$h4",

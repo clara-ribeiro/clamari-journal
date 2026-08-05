@@ -7,7 +7,7 @@ export const Root = styled("article", {
   minWidth: 0,
   height: "100%",
   backgroundColor: "$card",
-  borderRadius: "$lg",
+  border: "3px solid $cardBorder",
   overflow: "hidden",
 });
 

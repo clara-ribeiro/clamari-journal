@@ -24,7 +24,7 @@
     "slug": "the-titans-curse",
     "title": "The Titan's Curse",
     "status": "finished",
-    "favorite": false,
+    "favorite": true,
     "customPageCount": 320,
     "format": "physical",
     "tags": ["percy-jackson", "olympians"]

@@ -13,6 +13,7 @@ import type {
 } from "@/domain/entities";
 
 type JournalEntryBase = Omit<JournalEntry, "posterUrl"> & {
+  favorite?: boolean;
   posterPath?: string;
   googleBooksId?: string;
 };
@@ -60,6 +61,7 @@ export function collectJournalEntries(): JournalEntryBase[] {
     title: movie.title,
     activityDate: movieActivityDate(movie),
     rating: movie.rating,
+    favorite: movie.favorite,
     href: `/movies/${movie.slug}`,
     posterPath: movie.posterPath,
   }));
@@ -72,6 +74,7 @@ export function collectJournalEntries(): JournalEntryBase[] {
       title: entry.title,
       activityDate: seriesActivityDate(entry),
       rating: entry.rating,
+      favorite: entry.favorite,
       href: `/series/${entry.slug}`,
       posterPath: entry.posterPath,
     }));
@@ -82,6 +85,7 @@ export function collectJournalEntries(): JournalEntryBase[] {
     title: book.title ?? book.slug,
     activityDate: bookActivityDate(book),
     rating: book.rating,
+    favorite: book.favorite,
     href: `/books/${book.slug}`,
     googleBooksId: book.googleBooksId,
   }));
@@ -117,16 +121,11 @@ function toJournalEntryLocal(entry: JournalEntryBase): JournalEntry {
   };
 }
 
-/**
- * Newest entries for the home section.
- * Movie/series posters come from enriched `posterPath`.
- * Book covers may be fetched for this small window only.
- */
-export async function listRecentEntries(limit = 4): Promise<JournalEntry[]> {
-  const recent = collectJournalEntries().slice(0, limit);
-
+async function hydrateEntryPosters(
+  entries: JournalEntryBase[],
+): Promise<JournalEntry[]> {
   return Promise.all(
-    recent.map(async (entry) => {
+    entries.map(async (entry) => {
       const local = toJournalEntryLocal(entry);
       if (local.posterUrl) return local;
       if (entry.medium === "book" && entry.googleBooksId) {
@@ -138,6 +137,22 @@ export async function listRecentEntries(limit = 4): Promise<JournalEntry[]> {
       return local;
     }),
   );
+}
+
+/**
+ * Newest entries for the home section.
+ * Movie/series posters come from enriched `posterPath`.
+ * Book covers may be fetched for this small window only.
+ */
+export async function listRecentEntries(limit = 5): Promise<JournalEntry[]> {
+  return hydrateEntryPosters(collectJournalEntries().slice(0, limit));
+}
+
+/** Favorited entries, newest activity first. */
+export async function listFavoriteEntries(limit?: number): Promise<JournalEntry[]> {
+  const favorites = collectJournalEntries().filter((entry) => entry.favorite);
+  const selected = limit == null ? favorites : favorites.slice(0, limit);
+  return hydrateEntryPosters(selected);
 }
 
 /**

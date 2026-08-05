@@ -17,6 +17,7 @@ Only uses the files needed for personal journal entries:
   - tracking-prod-records.csv      (movies)
   - tracking-prod-records-v2.csv   (episodes)
   - ratings-live-votes.csv         (movie ratings 1–5)
+  - lists-prod-lists.csv           (favorite-movies / favorite-series)
 """
 
 from __future__ import annotations
@@ -70,6 +71,25 @@ def load_rows(source: Path, name: str) -> list[dict]:
     return list(open_csv(source, name))
 
 
+def load_favorite_lists(source: Path) -> tuple[set[str], set[str]]:
+    """Return (favorite movie uuids, favorite series tvdb ids) from lists-prod-lists.csv."""
+    movie_uuids: set[str] = set()
+    series_ids: set[str] = set()
+    try:
+        rows = load_rows(source, "lists-prod-lists.csv")
+    except (FileNotFoundError, KeyError):
+        return movie_uuids, series_ids
+
+    for row in rows:
+        key = row.get("s_key") or ""
+        objects = row.get("objects") or ""
+        if key == "favorite-movies":
+            movie_uuids.update(re.findall(r"uuid:([0-9a-f-]+)", objects))
+        elif key == "favorite-series":
+            series_ids.update(re.findall(r"id:(\d+)\s+type:series", objects))
+    return movie_uuids, series_ids
+
+
 def dedupe_episodes(eps: list[dict]) -> list[dict]:
     best: dict[tuple[int, int], dict] = {}
     for e in eps:
@@ -118,6 +138,8 @@ def build_series(source: Path) -> list[dict]:
         for r in load_rows(source, "user_show_special_status.csv")
         if r["status"] == "favorite"
     }
+    _, list_favorite_series = load_favorite_lists(source)
+    favorites |= list_favorite_series
     show_ratings = {
         r["tv_show_id"]: float(r["rating"])
         for r in load_rows(source, "tv_show_rate.csv")
@@ -201,6 +223,7 @@ def build_series(source: Path) -> list[dict]:
 
 
 def build_movies(source: Path) -> list[dict]:
+    favorite_movie_uuids, _ = load_favorite_lists(source)
     movies_by_uuid: dict[str, dict] = {}
     for row in load_rows(source, "tracking-prod-records.csv"):
         if not row.get("movie_name"):
@@ -254,6 +277,8 @@ def build_movies(source: Path) -> list[dict]:
             "title": m["title"],
             "status": status,
         }
+        if uid in favorite_movie_uuids:
+            entry["favorite"] = True
         if m["releaseDate"]:
             entry["releaseDate"] = m["releaseDate"]
         if m["runtimeSeconds"]:
