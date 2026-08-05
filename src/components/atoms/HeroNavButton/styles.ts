@@ -13,7 +13,6 @@ export const Root = styled("div", {
 });
 
 export const ButtonLink = styled(Link, {
-  position: "relative",
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
@@ -24,6 +23,8 @@ export const ButtonLink = styled(Link, {
   paddingBlock: "$sm",
   border: "none",
   borderRadius: "$full",
+  outline: "2px solid $buttonText",
+  outlineOffset: "-0.35rem",
   backgroundColor: "$buttonSurface",
   backgroundImage: "url(/images/shared/noise-grain.webp)",
   backgroundSize: "140px 140px",
@@ -36,26 +37,10 @@ export const ButtonLink = styled(Link, {
   letterSpacing: "0.01em",
   lineHeight: 1,
   textDecoration: "none",
-  isolation: "isolate",
   overflow: "hidden",
   transition:
     "transform 200ms ease, box-shadow 200ms ease, filter 200ms ease",
   boxShadow: "0 0 0 0 rgba(245, 210, 58, 0)",
-
-  "&::after": {
-    content: '""',
-    position: "absolute",
-    inset: "0.35rem",
-    borderRadius: "inherit",
-    border: "2px solid $buttonText",
-    pointerEvents: "none",
-    zIndex: 1,
-  },
-
-  "& > *": {
-    position: "relative",
-    zIndex: 2,
-  },
 
   "&:hover": {
     transform: "translateY(-0.125rem)",

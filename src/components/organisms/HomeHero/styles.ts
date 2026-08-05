@@ -1,7 +1,6 @@
 import { styled } from "@/styles/stitches.config";
 
 export const Section = styled("section", {
-  position: "relative",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -18,19 +17,25 @@ export const Section = styled("section", {
   backgroundSize: "200px 200px",
   backgroundRepeat: "repeat",
 
+  "@media (max-width: 767px)": {
+    justifyContent: "flex-start",
+  },
+
   "@md": {
     px: "$xl",
   },
 });
 
 export const Content = styled("div", {
-  position: "relative",
-  zIndex: 1,
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  gap: "clamp(7rem, 8vw, 6.5rem)",
+  gap: "clamp(6.5rem, 8vw, 7rem)",
   width: "100%",
   maxWidth: "$containerWide",
+
+  "@media (max-width: 767px)": {
+    justifyContent: "flex-start",
+  },
 });

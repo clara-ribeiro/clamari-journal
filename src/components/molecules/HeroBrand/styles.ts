@@ -1,7 +1,6 @@
 import { styled } from "@/styles/stitches.config";
 
 export const Root = styled("div", {
-  position: "relative",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -15,7 +14,6 @@ export const Root = styled("div", {
 });
 
 export const ScriptLayer = styled("div", {
-  position: "relative",
   zIndex: 1,
   marginTop: "-0.78em",
   width: "100%",
