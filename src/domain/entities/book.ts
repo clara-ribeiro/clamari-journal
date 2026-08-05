@@ -32,6 +32,7 @@ export type BookEntry = {
   currentPage?: number;
   customPageCount?: number;
   format?: BookFormat;
+  tags?: string[];
   reviewSlug?: string;
   readingHistory?: ReadingUpdate[];
   quotes?: BookQuote[];

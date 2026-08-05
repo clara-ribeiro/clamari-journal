@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getHomeSummary, getGoalProgress } from "@/application/use-cases/stats";
-import { formatHours } from "@/lib/formatters/formatDate";
+import { formatDuration } from "@/lib/formatters/formatDate";
 import { styled } from "@/styles/stitches.config";
 
 const Page = styled("main", {
@@ -86,8 +86,25 @@ export default function StatsPage() {
           <Label>Books finished</Label>
         </Card>
         <Card>
-          <Value>{formatHours(summary.movies.totalRuntimeMinutes)}</Value>
+          <Value>{summary.books.pagesRead}</Value>
+          <Label>Pages read</Label>
+        </Card>
+        <Card>
+          <Value>{formatDuration(summary.movies.totalRuntimeMinutes)}</Value>
           <Label>Movie watch time</Label>
+        </Card>
+        <Card>
+          <Value>{formatDuration(summary.series.totalRuntimeMinutes)}</Value>
+          <Label>Series watch time</Label>
+        </Card>
+        <Card>
+          <Value>
+            {formatDuration(
+              summary.movies.totalRuntimeMinutes +
+                summary.series.totalRuntimeMinutes,
+            )}
+          </Value>
+          <Label>TV watch time</Label>
         </Card>
       </Grid>
 

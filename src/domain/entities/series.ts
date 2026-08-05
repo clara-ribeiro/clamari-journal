@@ -11,6 +11,8 @@ export type WatchedEpisode = {
   episode: number;
   watchedAt?: string;
   rating?: number;
+  /** Episode length when known (from import or TMDB) */
+  runtimeMinutes?: number;
 };
 
 /**

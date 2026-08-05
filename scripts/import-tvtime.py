@@ -75,17 +75,22 @@ def dedupe_episodes(eps: list[dict]) -> list[dict]:
     for e in eps:
         key = (e["season"], e["episode"])
         if key not in best:
-            best[key] = {
+            entry = {
                 "season": e["season"],
                 "episode": e["episode"],
                 "watchedAt": e.get("watchedAt"),
             }
+            if e.get("runtimeMinutes"):
+                entry["runtimeMinutes"] = e["runtimeMinutes"]
+            best[key] = entry
         else:
             a, b = best[key].get("watchedAt"), e.get("watchedAt")
             if a and b and b < a:
                 best[key]["watchedAt"] = b
             elif not a and b:
                 best[key]["watchedAt"] = b
+            if e.get("runtimeMinutes") and not best[key].get("runtimeMinutes"):
+                best[key]["runtimeMinutes"] = e["runtimeMinutes"]
     return sorted(best.values(), key=lambda x: (x["season"], x["episode"]))
 
 
@@ -147,9 +152,11 @@ def build_series(source: Path) -> list[dict]:
             date = (row.get("created_at") or "")[:10] or None
             if season <= 0 or ep <= 0:
                 continue
-            series_eps[sid].append(
-                {"season": season, "episode": ep, "watchedAt": date}
-            )
+            episode = {"season": season, "episode": ep, "watchedAt": date}
+            runtime_raw = row.get("runtime") or ""
+            if runtime_raw.isdigit() and int(runtime_raw) > 0:
+                episode["runtimeMinutes"] = round(int(runtime_raw) / 60)
+            series_eps[sid].append(episode)
             if row.get("series_name"):
                 series_meta[sid] = row["series_name"]
         elif key.startswith("user-series") and row.get("series_name"):
