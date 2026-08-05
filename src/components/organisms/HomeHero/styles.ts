@@ -14,7 +14,7 @@ export const Section = styled("section", {
   overflow: "hidden",
   backgroundColor: "$bg",
   backgroundImage: "url(/images/shared/noise-grain.webp)",
-  backgroundSize: "200px 200px",
+  backgroundSize: "128px 128px",
   backgroundRepeat: "repeat",
 
   "@media (max-width: 767px)": {

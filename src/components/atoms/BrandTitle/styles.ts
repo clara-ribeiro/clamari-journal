@@ -1,26 +1,10 @@
-import { keyframes, styled } from "@/styles/stitches.config";
-
-const reveal = keyframes({
-  from: {
-    opacity: 0,
-    transform: "translateY(0.4rem)",
-  },
-  to: {
-    opacity: 1,
-    transform: "translateY(0)",
-  },
-});
+import { styled } from "@/styles/stitches.config";
 
 export const Root = styled("div", {
   display: "flex",
   justifyContent: "center",
   width: "100%",
   margin: 0,
-  animation: `${reveal} 700ms cubic-bezier(0.2, 0, 0, 1) both`,
-
-  "@motionReduce": {
-    animation: "none",
-  },
 });
 
 export const Title = styled("h1", {
@@ -35,7 +19,7 @@ export const Title = styled("h1", {
   textAlign: "center",
   whiteSpace: "nowrap",
   color: "transparent",
-  backgroundImage: "url(/images/home/hero/lettering-background.webp)",
+  backgroundImage: "url(/images/home/hero/lettering-background-mobile.webp)",
   backgroundSize: "cover",
   backgroundPosition: "center 28%",
   backgroundRepeat: "no-repeat",
@@ -47,5 +31,9 @@ export const Title = styled("h1", {
 
   "@media (max-width: 767px)": {
     width: "100%",
+  },
+
+  "@media (min-width: 768px)": {
+    backgroundImage: "url(/images/home/hero/lettering-background.webp)",
   },
 });

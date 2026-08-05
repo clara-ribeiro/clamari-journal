@@ -14,7 +14,7 @@ export default function HeroNavButton({
 }: HeroNavButtonProps) {
   return (
     <Root className={className}>
-      <ButtonLink href={href} aria-label={label}>
+      <ButtonLink href={href} aria-label={label} prefetch={false}>
         <SparkleIcon />
         <span>{label}</span>
         <SparkleIcon />

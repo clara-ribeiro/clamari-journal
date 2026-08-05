@@ -1,15 +1,4 @@
-import { keyframes, styled } from "@/styles/stitches.config";
-
-const reveal = keyframes({
-  from: {
-    opacity: 0,
-    transform: "translateY(0.5rem)",
-  },
-  to: {
-    opacity: 1,
-    transform: "translateY(0)",
-  },
-});
+import { styled } from "@/styles/stitches.config";
 
 export const Root = styled("div", {
   display: "flex",
@@ -17,11 +6,6 @@ export const Root = styled("div", {
   width: "100%",
   margin: 0,
   pointerEvents: "none",
-  animation: `${reveal} 700ms cubic-bezier(0.2, 0, 0, 1) 120ms both`,
-
-  "@motionReduce": {
-    animation: "none",
-  },
 });
 
 export const Script = styled("p", {

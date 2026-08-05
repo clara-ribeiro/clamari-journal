@@ -27,7 +27,7 @@ export const ButtonLink = styled(Link, {
   outlineOffset: "-0.35rem",
   backgroundColor: "$buttonSurface",
   backgroundImage: "url(/images/shared/noise-grain.webp)",
-  backgroundSize: "140px 140px",
+  backgroundSize: "128px 128px",
   backgroundRepeat: "repeat",
   backgroundBlendMode: "multiply",
   color: "$buttonText",

@@ -16,6 +16,8 @@ const monsieur = Monsieur_La_Doulaise({
   subsets: ["latin"],
   weight: "400",
   display: "swap",
+  // Secondary brand font — defer so Anton (LCP text) wins the network.
+  preload: false,
 });
 
 export const metadata: Metadata = {
