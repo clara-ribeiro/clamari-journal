@@ -26,6 +26,11 @@ export const Section = styled("section", {
     minHeight: "100dvh",
     px: "$xl",
   },
+
+  "@lg": {
+    paddingLeft: "clamp(3rem, 8vw, 5rem)",
+    paddingRight: "clamp(3rem, 8vw, 5rem)",
+  },
 });
 
 export const Content = styled("div", {

@@ -20,6 +20,11 @@ export const Section = styled("section", {
   "@md": {
     px: "$xl",
   },
+
+  "@lg": {
+    paddingLeft: "clamp(3rem, 8vw, 5rem)",
+    paddingRight: "clamp(3rem, 8vw, 5rem)",
+  },
 });
 
 export const Heading = styled("h2", {
@@ -33,7 +38,7 @@ export const Heading = styled("h2", {
   color: "$sectionHeading",
 });
 
-/** Full-bleed only on mobile; constrained grid shell from tablet up. */
+/** Full-bleed carousel on mobile; same content width as other home sections from tablet up. */
 export const CarouselFrame = styled("div", {
   width: "100vw",
   maxWidth: "100vw",
@@ -42,7 +47,7 @@ export const CarouselFrame = styled("div", {
 
   "@md": {
     width: "100%",
-    maxWidth: "56rem",
+    maxWidth: "$containerWide",
     marginLeft: 0,
     marginRight: 0,
   },
@@ -68,11 +73,11 @@ export const List = styled("ul", {
     display: "none",
   },
 
-  // Tablet + desktop: static grid, no carousel
+  // Tablet + desktop: fill the shared home content width
   "@md": {
     display: "grid",
-    gridTemplateColumns: "repeat(5, minmax(0, 11.5rem))",
-    justifyContent: "center",
+    gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
+    justifyContent: "stretch",
     gap: "$md",
     overflow: "visible",
     padding: 0,
