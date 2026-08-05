@@ -29,16 +29,16 @@ export const homeCopy = {
   statsCollage: {
     titleId: "lifetime-stats-heading",
     ariaLabel: "Lifetime reading and watching totals",
-    pagesLabel: "Páginas Lidas",
-    hoursLabel: "Horas Assistidas",
+    pagesLabel: "Pages Read",
+    hoursLabel: "Hours Watched",
     statsHref: "/stats",
     images: {
       portrait: {
-        src: "/images/home/stats/placeholder-portrait.svg",
+        src: "/images/home/stats/fahrenheit-451.webp",
         alt: "",
       },
       pages: {
-        src: "/images/home/stats/placeholder-pages.svg",
+        src: "/images/home/stats/patti-smith-easter.webp",
         alt: "",
       },
       hours: {

@@ -76,10 +76,17 @@ const cellBase = {
 const areaVariants = {
   portrait: {
     gridArea: "portrait",
+    backgroundColor: "transparent",
     minHeight: "18rem",
+    overflow: "visible",
 
     "@md": {
       minHeight: "24rem",
+    },
+
+    "& img": {
+      objectFit: "contain",
+      objectPosition: "center bottom",
     },
   },
   pages: {
@@ -88,6 +95,10 @@ const areaVariants = {
 
     "@md": {
       minHeight: "24rem",
+    },
+
+    "& img": {
+      opacity: 0.4,
     },
   },
   hours: {
@@ -125,7 +136,7 @@ export const CellLink = styled(Link, {
     transition: "transform $slow ease, filter $normal ease",
   },
 
-  "& p": {
+  "& > svg": {
     transition: "transform $normal ease",
   },
 
@@ -138,8 +149,8 @@ export const CellLink = styled(Link, {
       filter: "brightness(1.06)",
     },
 
-    "& p": {
-      transform: "scale(1.03)",
+    "& > svg": {
+      transform: "scale(1.02)",
     },
   },
 
@@ -157,7 +168,7 @@ export const CellLink = styled(Link, {
     transition: "none",
     willChange: "auto",
 
-    "& img, & p": {
+    "& img, & > svg": {
       transition: "none",
     },
 
@@ -170,7 +181,7 @@ export const CellLink = styled(Link, {
         filter: "none",
       },
 
-      "& p": {
+      "& > svg": {
         transform: "none",
       },
     },
@@ -199,27 +210,25 @@ export const Overlay = styled("div", {
   pointerEvents: "none",
 });
 
-export const StatText = styled("p", {
+/** Stretches label to the full cell width via SVG textLength. */
+export const StatFit = styled("svg", {
   position: "relative",
   zIndex: 1,
-  margin: 0,
-  px: "$md",
-  maxWidth: "18rem",
-  textAlign: "center",
-  fontFamily: "$section",
-  fontWeight: 400,
-  fontSize: "clamp(1.35rem, 3.2vw, 2rem)",
-  lineHeight: 1.15,
-  letterSpacing: "0.04em",
-  textTransform: "uppercase",
+  display: "block",
+  width: "100%",
+  maxWidth: "100%",
+  height: "auto",
+  overflow: "visible",
+  px: "$sm",
   color: "$statsText",
-  textWrap: "balance",
-});
+  transition: "transform $normal ease",
 
-export const StatValue = styled("span", {
-  display: "inline",
-});
-
-export const StatLabel = styled("span", {
-  display: "inline",
+  "& text": {
+    fill: "currentColor",
+    fontFamily: 'var(--font-instrument-serif), Georgia, "Times New Roman", serif',
+    fontWeight: 400,
+    fontSize: 110,
+    letterSpacing: "0.02em",
+    textTransform: "uppercase",
+  },
 });
