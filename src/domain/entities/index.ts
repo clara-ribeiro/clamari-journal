@@ -8,3 +8,4 @@ export type {
   BookQuote,
 } from "./book";
 export type { Goals, GoalProgress } from "./goals";
+export type { JournalEntry, JournalMedium } from "./journal-entry";

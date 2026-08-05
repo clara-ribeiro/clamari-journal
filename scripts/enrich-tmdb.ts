@@ -1,11 +1,11 @@
 /**
- * Resolve TMDB ids for imported entries (requires TMDB_ACCESS_TOKEN).
+ * Resolve TMDB ids + poster paths for imported entries (requires TMDB_ACCESS_TOKEN).
  *
  * Usage:
  *   npx tsx scripts/enrich-tmdb.ts
  *
  * Updates src/data/series.json (via tvdbId) and src/data/movies.json (via title search).
- * Safe to re-run — only fills missing tmdbId fields.
+ * Safe to re-run — only fills missing tmdbId / posterPath fields.
  */
 
 import { readFileSync, writeFileSync } from "node:fs";
@@ -17,15 +17,22 @@ const TMDB_BASE = "https://api.themoviedb.org/3";
 type SeriesEntry = {
   tvdbId: number;
   tmdbId?: number;
+  posterPath?: string;
   title: string;
   [key: string]: unknown;
 };
 
 type MovieEntry = {
   tmdbId?: number;
+  posterPath?: string;
   title: string;
   releaseDate?: string;
   [key: string]: unknown;
+};
+
+type TmdbMatch = {
+  id: number;
+  poster_path: string | null;
 };
 
 async function tmdb<T>(path: string): Promise<T> {
@@ -46,24 +53,47 @@ function sleep(ms: number) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
+function applyMatch(entry: { tmdbId?: number; posterPath?: string }, match: TmdbMatch) {
+  let changed = false;
+  if (!entry.tmdbId) {
+    entry.tmdbId = match.id;
+    changed = true;
+  }
+  if (!entry.posterPath && match.poster_path) {
+    entry.posterPath = match.poster_path;
+    changed = true;
+  }
+  return changed;
+}
+
 async function enrichSeries() {
   const path = resolve(ROOT, "src/data/series.json");
   const series = JSON.parse(readFileSync(path, "utf-8")) as SeriesEntry[];
   let updated = 0;
 
   for (const entry of series) {
-    if (entry.tmdbId) continue;
+    if (entry.tmdbId && entry.posterPath) continue;
     try {
-      const data = await tmdb<{ tv_results: Array<{ id: number }> }>(
-        `/find/${entry.tvdbId}?external_source=tvdb_id&language=en-US`,
-      );
-      const id = data.tv_results[0]?.id;
-      if (id) {
-        entry.tmdbId = id;
-        updated += 1;
-        console.log(`series ${entry.title} → ${id}`);
+      if (entry.tmdbId && !entry.posterPath) {
+        const detail = await tmdb<{ poster_path: string | null }>(
+          `/tv/${entry.tmdbId}?language=en-US`,
+        );
+        if (detail.poster_path) {
+          entry.posterPath = detail.poster_path;
+          updated += 1;
+          console.log(`series poster ${entry.title} → ${detail.poster_path}`);
+        }
       } else {
-        console.warn(`series no match: ${entry.title} (tvdb ${entry.tvdbId})`);
+        const data = await tmdb<{ tv_results: TmdbMatch[] }>(
+          `/find/${entry.tvdbId}?external_source=tvdb_id&language=en-US`,
+        );
+        const match = data.tv_results[0];
+        if (match && applyMatch(entry, match)) {
+          updated += 1;
+          console.log(`series ${entry.title} → ${match.id}`);
+        } else if (!match) {
+          console.warn(`series no match: ${entry.title} (tvdb ${entry.tvdbId})`);
+        }
       }
     } catch (error) {
       console.warn(`series fail: ${entry.title}`, error);
@@ -81,25 +111,35 @@ async function enrichMovies() {
   let updated = 0;
 
   for (const entry of movies) {
-    if (entry.tmdbId) continue;
+    if (entry.tmdbId && entry.posterPath) continue;
     try {
-      const params = new URLSearchParams({
-        query: entry.title,
-        language: "en-US",
-      });
-      if (entry.releaseDate) {
-        params.set("year", entry.releaseDate.slice(0, 4));
-      }
-      const data = await tmdb<{ results: Array<{ id: number; title: string }> }>(
-        `/search/movie?${params}`,
-      );
-      const id = data.results[0]?.id;
-      if (id) {
-        entry.tmdbId = id;
-        updated += 1;
-        console.log(`movie ${entry.title} → ${id}`);
+      if (entry.tmdbId && !entry.posterPath) {
+        const detail = await tmdb<{ poster_path: string | null }>(
+          `/movie/${entry.tmdbId}?language=en-US`,
+        );
+        if (detail.poster_path) {
+          entry.posterPath = detail.poster_path;
+          updated += 1;
+          console.log(`movie poster ${entry.title} → ${detail.poster_path}`);
+        }
       } else {
-        console.warn(`movie no match: ${entry.title}`);
+        const params = new URLSearchParams({
+          query: entry.title,
+          language: "en-US",
+        });
+        if (entry.releaseDate) {
+          params.set("year", entry.releaseDate.slice(0, 4));
+        }
+        const data = await tmdb<{ results: TmdbMatch[] }>(
+          `/search/movie?${params}`,
+        );
+        const match = data.results[0];
+        if (match && applyMatch(entry, match)) {
+          updated += 1;
+          console.log(`movie ${entry.title} → ${match.id}`);
+        } else if (!match) {
+          console.warn(`movie no match: ${entry.title}`);
+        }
       }
     } catch (error) {
       console.warn(`movie fail: ${entry.title}`, error);

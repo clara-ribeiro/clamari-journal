@@ -60,6 +60,7 @@ cp .env.example .env.local
 npx tsx scripts/enrich-tmdb.ts
 ```
 
+The enrich script writes `tmdbId` and `posterPath` into the JSON so listing pages can build poster URLs without calling TMDB per request.
 Re-import the GDPR zip (default: `src/data/gdpr-data.zip`):
 
 ```bash
@@ -76,7 +77,7 @@ npm run build          # production
 npm run lint
 npm test
 npm run import:tvtime  # regenerate movies.json / series.json
-npm run enrich:tmdb    # fill tmdbId (requires token)
+npm run enrich:tmdb    # fill tmdbId + posterPath (requires token)
 ```
 
 ## Environment variables

@@ -22,6 +22,8 @@ export type WatchedEpisode = {
 export type SeriesEntry = {
   /** TMDB TV id — filled after enrichment */
   tmdbId?: number;
+  /** Relative TMDB poster path (e.g. `/abc.jpg`) — filled after enrichment */
+  posterPath?: string;
   /** TheTVDB id from GDPR export (stable source key) */
   tvdbId: number;
   slug: string;

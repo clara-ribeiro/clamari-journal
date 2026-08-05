@@ -8,6 +8,8 @@ export type MovieStatus = "watchlist" | "watched" | "rewatch";
 export type MovieEntry = {
   /** TMDB movie id — filled after enrichment */
   tmdbId?: number;
+  /** Relative TMDB poster path (e.g. `/abc.jpg`) — filled after enrichment */
+  posterPath?: string;
   /** TV Time UUID from GDPR export (stable source key) */
   tvtimeUuid?: string;
   slug: string;

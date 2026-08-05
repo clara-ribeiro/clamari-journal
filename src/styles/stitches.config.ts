@@ -35,6 +35,11 @@ export const {
 
       overlayScrim: "rgba(15, 20, 25, 0.72)",
       overlayPoster: "rgba(15, 20, 25, 0.55)",
+
+      card: "#E4E4E4",
+      cardText: "#1A1A1A",
+      starOn: "#C9A227",
+      starOff: "#B0B0B0",
     },
     fonts: {
       display: "var(--font-anton), Impact, Haettenschweiler, sans-serif",
@@ -163,6 +168,11 @@ export const lightTheme = createTheme("light-theme", {
 
     overlayScrim: "rgba(245, 242, 237, 0.8)",
     overlayPoster: "rgba(15, 20, 25, 0.45)",
+
+    card: "#E4E4E4",
+    cardText: "#1A1A1A",
+    starOn: "#C9A227",
+    starOff: "#B0B0B0",
   },
   shadows: {
     sm: "0 1px 2px rgba(0, 0, 0, 0.06)",
