@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="Placeholder hours">
+  <defs><linearGradient id="g" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#A56B35"/><stop offset="100%" stop-color="#6E3F1C"/></linearGradient></defs>
+  <rect width="1200" height="675" fill="url(#g)"/>
+  <circle cx="300" cy="280" r="70" fill="#4A2A14" opacity="0.45"/>
+  <circle cx="480" cy="260" r="55" fill="#4A2A14" opacity="0.4"/>
+  <circle cx="650" cy="300" r="65" fill="#4A2A14" opacity="0.42"/>
+  <circle cx="820" cy="250" r="50" fill="#4A2A14" opacity="0.38"/>
+  <text x="600" y="520" text-anchor="middle" fill="#3A2414" font-family="Georgia, serif" font-size="36" opacity="0.5">PLACEHOLDER</text>
+</svg>

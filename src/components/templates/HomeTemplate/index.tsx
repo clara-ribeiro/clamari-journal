@@ -2,6 +2,7 @@
 
 import HomeHero from "@/components/organisms/HomeHero";
 import EntriesCarousel from "@/components/organisms/EntriesCarousel";
+import HomeStatsCollage from "@/components/organisms/HomeStatsCollage";
 import { homeCopy } from "@/content/copy";
 import type { JournalEntry } from "@/domain/entities";
 import { Root } from "./styles";
@@ -9,12 +10,16 @@ import { Root } from "./styles";
 export type HomeTemplateProps = {
   recentEntries: JournalEntry[];
   favoriteEntries: JournalEntry[];
+  pagesRead: number;
+  watchedHours: number;
   className?: string;
 };
 
 export default function HomeTemplate({
   recentEntries,
   favoriteEntries,
+  pagesRead,
+  watchedHours,
   className,
 }: HomeTemplateProps) {
   return (
@@ -36,6 +41,7 @@ export default function HomeTemplate({
         showAllLabel={homeCopy.favorites.showAllLabel}
         showAllHref={homeCopy.favorites.showAllHref}
       />
+      <HomeStatsCollage pagesRead={pagesRead} watchedHours={watchedHours} />
     </Root>
   );
 }

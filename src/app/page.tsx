@@ -3,6 +3,7 @@ import {
   listFavoriteEntries,
   listRecentEntries,
 } from "@/application/use-cases/entries";
+import { getLifetimeStats } from "@/application/use-cases/stats";
 import HomeTemplate from "@/components/templates/HomeTemplate";
 
 const LETTERING_BG_MOBILE = "/images/home/hero/lettering-background-mobile.webp";
@@ -27,12 +28,15 @@ export default async function HomePage() {
     listRecentEntries(HOME_FEED_LIMIT),
     listFavoriteEntries(HOME_FEED_LIMIT),
   ]);
+  const lifetimeStats = getLifetimeStats();
 
   return (
     <main id="main-content">
       <HomeTemplate
         recentEntries={recentEntries}
         favoriteEntries={favoriteEntries}
+        pagesRead={lifetimeStats.pagesRead}
+        watchedHours={lifetimeStats.watchedHours}
       />
     </main>
   );

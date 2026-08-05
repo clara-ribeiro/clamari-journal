@@ -78,3 +78,17 @@ export function getHomeSummary() {
     },
   };
 }
+
+/** Lifetime totals for the home stats collage. */
+export function getLifetimeStats() {
+  const movies = getMovieStats();
+  const series = getSeriesStats();
+  const books = getBookStats();
+  const totalRuntimeMinutes =
+    movies.totalRuntimeMinutes + series.totalRuntimeMinutes;
+
+  return {
+    pagesRead: books.pagesRead,
+    watchedHours: Math.round(totalRuntimeMinutes / 60),
+  };
+}

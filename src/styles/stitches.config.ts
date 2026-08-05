@@ -22,6 +22,8 @@ export const {
       sectionHeading: "#D8BDA5",
       buttonSurface: "#D2B48C",
       buttonText: "#0A1E3A",
+      statsSurface: "#C9A05A",
+      statsText: "#2B1C12",
 
       textPrimary: "#E8EEF4",
       hiContrast: "#F4F7FA",
@@ -158,6 +160,8 @@ export const lightTheme = createTheme("light-theme", {
     sectionHeading: "#D8BDA5",
     buttonSurface: "#D2B48C",
     buttonText: "#0A1E3A",
+    statsSurface: "#C9A05A",
+    statsText: "#2B1C12",
 
     textPrimary: "#161616",
     hiContrast: "#0F1419",
