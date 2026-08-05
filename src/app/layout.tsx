@@ -1,22 +1,36 @@
 import type { Metadata, Viewport } from "next";
+import { Anton, Monsieur_La_Doulaise } from "next/font/google";
 import "./globals.css";
-import { globalStyles } from "@/styles/stitches.config";
+import { siteCopy } from "@/content/copy";
 import StitchesRegistry from "./stitches-registry";
+
+const anton = Anton({
+  variable: "--font-anton",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
+
+const monsieur = Monsieur_La_Doulaise({
+  variable: "--font-monsieur",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
-    default: "clamari journal",
-    template: "%s · clamari journal",
+    default: siteCopy.metadata.titleDefault,
+    template: siteCopy.metadata.titleTemplate,
   },
-  description:
-    "A personal diary to track stories I've watched, followed, and read over time.",
-  authors: [{ name: "Clara" }],
+  description: siteCopy.metadata.description,
+  authors: [{ name: siteCopy.metadata.author }],
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0F1419",
+  themeColor: "#021570",
 };
 
 export default function RootLayout({
@@ -24,10 +38,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  globalStyles();
-
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${anton.variable} ${monsieur.variable}`}
+    >
       <body suppressHydrationWarning>
         <StitchesRegistry>{children}</StitchesRegistry>
       </body>

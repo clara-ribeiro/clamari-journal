@@ -1,26 +1,19 @@
 "use client";
 
-import React, { useState } from "react";
+import { type ReactNode } from "react";
 import { useServerInsertedHTML } from "next/navigation";
-import { getCssText } from "@/styles/stitches.config";
+import { getCssText, globalStyles } from "@/styles/stitches.config";
+
+globalStyles();
 
 export default function StitchesRegistry({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
-  const [isRendered, setIsRendered] = useState(false);
-
-  useServerInsertedHTML(() => {
-    if (isRendered) return null;
-    setIsRendered(true);
-    return (
-      <style
-        id="stitches"
-        dangerouslySetInnerHTML={{ __html: getCssText() }}
-      />
-    );
-  });
+  useServerInsertedHTML(() => (
+    <style id="stitches" dangerouslySetInnerHTML={{ __html: getCssText() }} />
+  ));
 
   return <>{children}</>;
 }
