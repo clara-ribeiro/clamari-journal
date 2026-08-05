@@ -1,21 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Sans, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { globalStyles } from "@/styles/stitches.config";
 import StitchesRegistry from "./stitches-registry";
-
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: {
@@ -42,10 +28,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        suppressHydrationWarning
-        className={`${dmSans.variable} ${instrumentSerif.variable}`}
-      >
+      <body suppressHydrationWarning>
         <StitchesRegistry>{children}</StitchesRegistry>
       </body>
     </html>

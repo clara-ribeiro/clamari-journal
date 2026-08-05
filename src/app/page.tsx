@@ -3,28 +3,28 @@ import { getHomeSummary } from "@/application/use-cases/stats";
 import { styled } from "@/styles/stitches.config";
 
 const Page = styled("main", {
-  minHeight: "100vh",
+  minHeight: "100dvh",
   px: "$lg",
   py: "$2xl",
-  maxWidth: "72rem",
+  maxWidth: "$containerContent",
   mx: "auto",
 });
 
 const Brand = styled("p", {
   fontFamily: "$heading",
-  fontSize: "$xl",
-  color: "$accent",
+  fontSize: "$h3",
+  color: "$primary",
   marginBottom: "$sm",
 });
 
 const Title = styled("h1", {
-  fontSize: "$3xl",
+  fontSize: "$h1",
   marginBottom: "$md",
 });
 
 const Lead = styled("p", {
-  color: "$textMuted",
-  fontSize: "$lg",
+  color: "$loContrast",
+  fontSize: "$h4",
   maxWidth: "36rem",
   marginBottom: "$2xl",
 });
@@ -39,13 +39,14 @@ const Nav = styled("nav", {
 const NavLink = styled(Link, {
   px: "$md",
   py: "$sm",
+  minHeight: "$controlMin",
   border: "1px solid $border",
   borderRadius: "$md",
-  color: "$text",
-  transition: "background 0.2s ease, border-color 0.2s ease",
+  color: "$textPrimary",
+  transition: "background 250ms ease, border-color 250ms ease",
   "&:hover": {
-    background: "$accentSoft",
-    borderColor: "$accent",
+    background: "$primarySoft",
+    borderColor: "$primary",
   },
 });
 
@@ -64,20 +65,20 @@ const StatCard = styled("div", {
 
 const StatValue = styled("p", {
   fontFamily: "$heading",
-  fontSize: "$2xl",
-  color: "$accent",
+  fontSize: "$h2",
+  color: "$primary",
 });
 
 const StatLabel = styled("p", {
-  color: "$textMuted",
-  fontSize: "$sm",
+  color: "$loContrast",
+  fontSize: "$body2",
   marginTop: "$xs",
 });
 
 const Note = styled("p", {
   marginTop: "$2xl",
-  color: "$textMuted",
-  fontSize: "$sm",
+  color: "$loContrast",
+  fontSize: "$body2",
 });
 
 export default function HomePage() {

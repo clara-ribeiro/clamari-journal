@@ -5,23 +5,23 @@ import { formatDate } from "@/lib/formatters/formatDate";
 import { styled } from "@/styles/stitches.config";
 
 const Page = styled("main", {
-  minHeight: "100vh",
+  minHeight: "100dvh",
   px: "$lg",
   py: "$2xl",
-  maxWidth: "48rem",
+  maxWidth: "$containerReading",
   mx: "auto",
 });
 
 const Back = styled(Link, {
-  color: "$textMuted",
-  fontSize: "$sm",
+  color: "$loContrast",
+  fontSize: "$body2",
   display: "inline-block",
   marginBottom: "$lg",
-  "&:hover": { color: "$accent" },
+  "&:hover": { color: "$primary" },
 });
 
 const Title = styled("h1", {
-  fontSize: "$2xl",
+  fontSize: "$h2",
   marginBottom: "$md",
 });
 
@@ -29,14 +29,14 @@ const Meta = styled("dl", {
   display: "grid",
   gridTemplateColumns: "8rem 1fr",
   gap: "$sm",
-  color: "$textMuted",
-  fontSize: "$sm",
+  color: "$loContrast",
+  fontSize: "$body2",
   marginBottom: "$xl",
 });
 
 const Note = styled("p", {
-  color: "$textMuted",
-  fontSize: "$sm",
+  color: "$loContrast",
+  fontSize: "$body2",
   padding: "$md",
   background: "$surface",
   borderRadius: "$md",

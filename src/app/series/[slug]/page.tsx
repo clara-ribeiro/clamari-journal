@@ -5,23 +5,23 @@ import { formatDate } from "@/lib/formatters/formatDate";
 import { styled } from "@/styles/stitches.config";
 
 const Page = styled("main", {
-  minHeight: "100vh",
+  minHeight: "100dvh",
   px: "$lg",
   py: "$2xl",
-  maxWidth: "48rem",
+  maxWidth: "$containerReading",
   mx: "auto",
 });
 
 const Back = styled(Link, {
-  color: "$textMuted",
-  fontSize: "$sm",
+  color: "$loContrast",
+  fontSize: "$body2",
   display: "inline-block",
   marginBottom: "$lg",
-  "&:hover": { color: "$accent" },
+  "&:hover": { color: "$primary" },
 });
 
 const Title = styled("h1", {
-  fontSize: "$2xl",
+  fontSize: "$h2",
   marginBottom: "$md",
 });
 
@@ -29,9 +29,14 @@ const Meta = styled("dl", {
   display: "grid",
   gridTemplateColumns: "10rem 1fr",
   gap: "$sm",
-  color: "$textMuted",
-  fontSize: "$sm",
+  color: "$loContrast",
+  fontSize: "$body2",
   marginBottom: "$xl",
+});
+
+const EpisodesHeading = styled("h2", {
+  fontSize: "$h4",
+  marginBottom: "$md",
 });
 
 const EpisodeList = styled("ul", {
@@ -48,8 +53,8 @@ const EpisodeList = styled("ul", {
 });
 
 const Episode = styled("li", {
-  fontSize: "$sm",
-  color: "$textMuted",
+  fontSize: "$body2",
+  color: "$loContrast",
   display: "flex",
   justifyContent: "space-between",
   gap: "$md",
@@ -91,12 +96,12 @@ export default async function SeriesDetailPage({ params }: Props) {
 
       {preview.length > 0 && (
         <>
-          <h2 style={{ marginBottom: "0.75rem", fontSize: "1.25rem" }}>
+          <EpisodesHeading>
             Watched episodes
             {entry.watchedEpisodes.length > preview.length
               ? ` (showing ${preview.length} of ${entry.watchedEpisodes.length})`
               : ""}
-          </h2>
+          </EpisodesHeading>
           <EpisodeList>
             {preview.map((ep) => (
               <Episode key={`${ep.season}-${ep.episode}`}>

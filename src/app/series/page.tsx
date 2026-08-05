@@ -3,28 +3,28 @@ import { listSeries, getSeriesStats } from "@/application/use-cases/series";
 import { styled } from "@/styles/stitches.config";
 
 const Page = styled("main", {
-  minHeight: "100vh",
+  minHeight: "100dvh",
   px: "$lg",
   py: "$2xl",
-  maxWidth: "72rem",
+  maxWidth: "$containerContent",
   mx: "auto",
 });
 
 const Back = styled(Link, {
-  color: "$textMuted",
-  fontSize: "$sm",
+  color: "$loContrast",
+  fontSize: "$body2",
   display: "inline-block",
   marginBottom: "$lg",
-  "&:hover": { color: "$accent" },
+  "&:hover": { color: "$primary" },
 });
 
 const Title = styled("h1", {
-  fontSize: "$2xl",
+  fontSize: "$h2",
   marginBottom: "$sm",
 });
 
 const Summary = styled("p", {
-  color: "$textMuted",
+  color: "$loContrast",
   marginBottom: "$xl",
 });
 
@@ -46,12 +46,12 @@ const ItemLink = styled(Link, {
   justifyContent: "space-between",
   gap: "$md",
   flexWrap: "wrap",
-  "&:hover": { color: "$accent" },
+  "&:hover": { color: "$primary" },
 });
 
 const Meta = styled("span", {
-  color: "$textMuted",
-  fontSize: "$sm",
+  color: "$loContrast",
+  fontSize: "$body2",
 });
 
 export default function SeriesPage() {

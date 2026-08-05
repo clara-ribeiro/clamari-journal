@@ -4,19 +4,19 @@ import { getBookBySlug, listBooks } from "@/application/use-cases/books";
 import { styled } from "@/styles/stitches.config";
 
 const Page = styled("main", {
-  minHeight: "100vh",
+  minHeight: "100dvh",
   px: "$lg",
   py: "$2xl",
-  maxWidth: "48rem",
+  maxWidth: "$containerReading",
   mx: "auto",
 });
 
 const Back = styled(Link, {
-  color: "$textMuted",
-  fontSize: "$sm",
+  color: "$loContrast",
+  fontSize: "$body2",
   display: "inline-block",
   marginBottom: "$lg",
-  "&:hover": { color: "$accent" },
+  "&:hover": { color: "$primary" },
 });
 
 type Props = { params: Promise<{ slug: string }> };

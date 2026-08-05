@@ -4,23 +4,23 @@ import { formatDuration } from "@/lib/formatters/formatDate";
 import { styled } from "@/styles/stitches.config";
 
 const Page = styled("main", {
-  minHeight: "100vh",
+  minHeight: "100dvh",
   px: "$lg",
   py: "$2xl",
-  maxWidth: "72rem",
+  maxWidth: "$containerContent",
   mx: "auto",
 });
 
 const Back = styled(Link, {
-  color: "$textMuted",
-  fontSize: "$sm",
+  color: "$loContrast",
+  fontSize: "$body2",
   display: "inline-block",
   marginBottom: "$lg",
-  "&:hover": { color: "$accent" },
+  "&:hover": { color: "$primary" },
 });
 
 const Title = styled("h1", {
-  fontSize: "$2xl",
+  fontSize: "$h2",
   marginBottom: "$xl",
 });
 
@@ -40,18 +40,18 @@ const Card = styled("div", {
 
 const Value = styled("p", {
   fontFamily: "$heading",
-  fontSize: "$2xl",
-  color: "$accent",
+  fontSize: "$h2",
+  color: "$primary",
 });
 
 const Label = styled("p", {
-  color: "$textMuted",
-  fontSize: "$sm",
+  color: "$loContrast",
+  fontSize: "$body2",
   marginTop: "$xs",
 });
 
 const SectionTitle = styled("h2", {
-  fontSize: "$xl",
+  fontSize: "$h3",
   marginBottom: "$md",
 });
 
