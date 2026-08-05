@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Anton, Monsieur_La_Doulaise } from "next/font/google";
+import { Anton, Instrument_Serif, Monsieur_La_Doulaise } from "next/font/google";
 import "./globals.css";
 import { siteCopy } from "@/content/copy";
 import StitchesRegistry from "./stitches-registry";
@@ -17,6 +17,14 @@ const monsieur = Monsieur_La_Doulaise({
   weight: "400",
   display: "swap",
   // Secondary brand font — defer so Anton (LCP text) wins the network.
+  preload: false,
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
   preload: false,
 });
 
@@ -44,7 +52,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${anton.variable} ${monsieur.variable}`}
+      className={`${anton.variable} ${monsieur.variable} ${instrumentSerif.variable}`}
     >
       <body suppressHydrationWarning>
         <StitchesRegistry>{children}</StitchesRegistry>

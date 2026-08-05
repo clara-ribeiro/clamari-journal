@@ -7,7 +7,6 @@ export const Section = styled("section", {
   justifyContent: "center",
   gap: "clamp(2rem, 6vw, 4rem)",
   width: "100%",
-  minHeight: "100dvh",
   margin: 0,
   px: "$md",
   py: "$3xl",
@@ -19,9 +18,12 @@ export const Section = styled("section", {
 
   "@media (max-width: 767px)": {
     justifyContent: "flex-start",
+    minHeight: "unset",
+    py: "$2xl",
   },
 
   "@md": {
+    minHeight: "100dvh",
     px: "$xl",
   },
 });

@@ -1,5 +1,12 @@
 import { styled } from "@/styles/stitches.config";
 
+const starStroke = {
+  stroke: "$buttonText",
+  strokeWidth: 2.25,
+  strokeLinejoin: "round",
+  strokeLinecap: "round",
+} as const;
+
 export const Root = styled("div", {
   display: "inline-flex",
   alignItems: "center",
@@ -11,12 +18,17 @@ export const Root = styled("div", {
     width: "0.75rem",
     height: "0.75rem",
     flexShrink: 0,
-    fill: "currentColor",
-    stroke: "currentColor",
+    overflow: "visible",
+  },
+
+  "& svg[data-state='full']": {
+    fill: "$starOn",
+    ...starStroke,
   },
 
   "& svg[data-state='empty']": {
-    color: "$starOff",
+    fill: "$starOff",
+    ...starStroke,
   },
 });
 
@@ -32,12 +44,19 @@ export const HalfRoot = styled("span", {
     display: "block",
     width: "100%",
     height: "100%",
+    overflow: "visible",
   },
 });
+
 export const EmptyIcon = styled("span", {
   position: "absolute",
   inset: 0,
   color: "$starOff",
+
+  "& svg": {
+    fill: "currentColor",
+    ...starStroke,
+  },
 });
 
 export const FillIcon = styled("span", {
@@ -46,4 +65,9 @@ export const FillIcon = styled("span", {
   width: "50%",
   overflow: "hidden",
   color: "$starOn",
+
+  "& svg": {
+    fill: "$starOn",
+    ...starStroke,
+  },
 });

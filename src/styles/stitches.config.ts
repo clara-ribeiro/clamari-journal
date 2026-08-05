@@ -19,6 +19,7 @@ export const {
       primary: "#C4A574",
       primarySoft: "rgba(196, 165, 116, 0.16)",
       brandAccent: "#F5D23A",
+      sectionHeading: "#D8BDA5",
       buttonSurface: "#D2B48C",
       buttonText: "#0A1E3A",
 
@@ -45,6 +46,7 @@ export const {
     fonts: {
       display: "var(--font-anton), Impact, Haettenschweiler, sans-serif",
       script: 'var(--font-monsieur), "Segoe Script", cursive',
+      section: 'var(--font-instrument-serif), Georgia, "Times New Roman", serif',
       heading: 'Georgia, "Times New Roman", serif',
       body: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
     },
@@ -153,6 +155,7 @@ export const lightTheme = createTheme("light-theme", {
     primary: "#C4A574",
     primarySoft: "rgba(196, 165, 116, 0.16)",
     brandAccent: "#8A4B08",
+    sectionHeading: "#D8BDA5",
     buttonSurface: "#D2B48C",
     buttonText: "#0A1E3A",
 

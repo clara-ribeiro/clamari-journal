@@ -23,7 +23,7 @@ export default function EntryCard({
               src={entry.posterUrl}
               alt=""
               fill
-              sizes="10.5rem"
+              sizes="11.5rem"
               priority={priority}
             />
           ) : (

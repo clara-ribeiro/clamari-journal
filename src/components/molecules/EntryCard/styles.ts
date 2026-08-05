@@ -6,8 +6,11 @@ export const Root = styled("article", {
   flexDirection: "column",
   minWidth: 0,
   height: "100%",
-  backgroundColor: "$card",
-  border: "3px solid $cardBorder",
+  backgroundColor: "$buttonSurface",
+  border: "none",
+  borderRadius: 0,
+  outline: "2px solid $buttonText",
+  outlineOffset: "-0.625rem",
   overflow: "hidden",
 });
 
@@ -16,7 +19,7 @@ export const CardLink = styled(Link, {
   flexDirection: "column",
   gap: "$xs",
   height: "100%",
-  padding: "0.375rem",
+  padding: "0.95rem",
   color: "$cardText",
   textDecoration: "none",
 
@@ -36,13 +39,14 @@ export const PosterFrame = styled("div", {
   width: "100%",
   aspectRatio: "2 / 3",
   overflow: "hidden",
-  borderRadius: "$sm",
+  borderRadius: 0,
   backgroundColor: "$surfaceAlt",
 
   "& img": {
     objectFit: "cover",
   },
 });
+
 export const PosterPlaceholder = styled("div", {
   size: "100%",
   background:
@@ -56,6 +60,18 @@ export const Meta = styled("div", {
   px: "$xs",
   pb: "$xs",
   minWidth: 0,
+
+  "& [role='img'] svg[data-state='empty']": {
+    fill: "$buttonText",
+    stroke: "$buttonText",
+  },
+  "& [role='img'] span:first-of-type": {
+    color: "$buttonText",
+  },
+  "& [role='img'] span:first-of-type svg": {
+    fill: "$buttonText",
+    stroke: "$buttonText",
+  },
 });
 
 export const Title = styled("h3", {

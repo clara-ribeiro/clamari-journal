@@ -9,7 +9,8 @@ export const Section = styled("section", {
   width: "100%",
   margin: 0,
   px: "$md",
-  py: "clamp(3rem, 8vw, 5rem)",
+  paddingTop: "clamp(1.5rem, 4vw, 2.5rem)",
+  paddingBottom: "clamp(3rem, 8vw, 5rem)",
   overflowX: "clip",
   backgroundColor: "$bg",
   backgroundImage: "url(/images/shared/noise-grain.webp)",
@@ -23,13 +24,13 @@ export const Section = styled("section", {
 
 export const Heading = styled("h2", {
   margin: 0,
-  fontFamily: "$heading",
+  fontFamily: "$section",
   fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
   fontWeight: 400,
   letterSpacing: "0.04em",
   textTransform: "uppercase",
   textAlign: "center",
-  color: "$hiContrast",
+  color: "$sectionHeading",
 });
 
 /** Full-bleed only on mobile; constrained grid shell from tablet up. */
@@ -70,7 +71,7 @@ export const List = styled("ul", {
   // Tablet + desktop: static grid, no carousel
   "@md": {
     display: "grid",
-    gridTemplateColumns: "repeat(5, minmax(0, 10.5rem))",
+    gridTemplateColumns: "repeat(5, minmax(0, 11.5rem))",
     justifyContent: "center",
     gap: "$md",
     overflow: "visible",
@@ -80,7 +81,7 @@ export const List = styled("ul", {
 });
 
 export const ListItem = styled("li", {
-  flex: "0 0 9.5rem",
+  flex: "0 0 10.5rem",
   scrollSnapAlign: "start",
   minWidth: 0,
 
@@ -91,14 +92,14 @@ export const ListItem = styled("li", {
 });
 
 export const ShowAllLink = styled(Link, {
-  fontFamily: "$heading",
+  fontFamily: "$section",
   fontSize: "$h4",
-  color: "$hiContrast",
+  color: "$sectionHeading",
   textDecoration: "underline",
   textUnderlineOffset: "0.2em",
   textDecorationThickness: "1px",
 
   "&:hover": {
-    color: "$primary",
+    color: "$hiContrast",
   },
 });
