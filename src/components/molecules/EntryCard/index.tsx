@@ -1,0 +1,40 @@
+import Image from "next/image";
+import StarRating from "@/components/atoms/StarRating";
+import type { JournalEntry } from "@/domain/entities";
+import { CardLink, Meta, PosterFrame, PosterPlaceholder, Root, Title } from "./styles";
+
+export type EntryCardProps = {
+  entry: JournalEntry;
+  priority?: boolean;
+  className?: string;
+};
+
+export default function EntryCard({
+  entry,
+  priority = false,
+  className,
+}: EntryCardProps) {
+  return (
+    <Root className={className}>
+      <CardLink href={entry.href} prefetch={false}>
+        <PosterFrame>
+          {entry.posterUrl ? (
+            <Image
+              src={entry.posterUrl}
+              alt=""
+              fill
+              sizes="(max-width: 1023px) 70vw, 18rem"
+              priority={priority}
+            />
+          ) : (
+            <PosterPlaceholder aria-hidden />
+          )}
+        </PosterFrame>
+        <Meta>
+          <Title>{entry.title}</Title>
+          <StarRating value={entry.rating} />
+        </Meta>
+      </CardLink>
+    </Root>
+  );
+}
