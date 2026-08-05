@@ -12,12 +12,15 @@ export const {
 } = createStitches({
   theme: {
     colors: {
-      bg: "#0F1419",
+      bg: "#021570",
       surface: "#1A222C",
       surfaceAlt: "#243040",
 
       primary: "#C4A574",
       primarySoft: "rgba(196, 165, 116, 0.16)",
+      brandAccent: "#F5D23A",
+      buttonSurface: "#D2B48C",
+      buttonText: "#0A1E3A",
 
       textPrimary: "#E8EEF4",
       hiContrast: "#F4F7FA",
@@ -34,6 +37,8 @@ export const {
       overlayPoster: "rgba(15, 20, 25, 0.55)",
     },
     fonts: {
+      display: "var(--font-anton), Impact, Haettenschweiler, sans-serif",
+      script: 'var(--font-monsieur), "Segoe Script", cursive',
       heading: 'Georgia, "Times New Roman", serif',
       body: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
     },
@@ -141,6 +146,9 @@ export const lightTheme = createTheme("light-theme", {
 
     primary: "#C4A574",
     primarySoft: "rgba(196, 165, 116, 0.16)",
+    brandAccent: "#8A4B08",
+    buttonSurface: "#D2B48C",
+    buttonText: "#0A1E3A",
 
     textPrimary: "#161616",
     hiContrast: "#0F1419",

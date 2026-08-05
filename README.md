@@ -19,6 +19,9 @@ Aligned with [devxperience](https://github.com/):
 src/
 ├── app/                      # Routes (presentation layer)
 ├── components/               # Atomic design (atoms → templates)
+├── content/
+│   ├── copy/                 # UI strings (site, pages)
+│   └── reviews/              # Reviews in MD/MDX
 ├── domain/                   # Entities and pure rules
 │   ├── entities/
 │   └── value-objects/
@@ -29,8 +32,7 @@ src/
 │   ├── persistence/          # Reads files under data/
 │   ├── tmdb/
 │   └── google-books/
-├── data/                     # Personal data (JSON)
-├── content/reviews/          # Reviews in MD/MDX
+├── data/                     # Personal journal records (JSON)
 ├── lib/                      # Shared utilities
 └── styles/                   # Stitches tokens
 ```
