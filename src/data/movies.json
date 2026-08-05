@@ -8,7 +8,9 @@
     "runtimeMinutes": 97,
     "watchedDates": [
       "2023-04-02"
-    ]
+    ],
+    "tmdbId": 4951,
+    "posterPath": "/ujERk3aKABXU3NDXOAxEQYTHe9A.jpg"
   },
   {
     "tvtimeUuid": "49074ff3-b5f8-4f4c-90b3-a210fab6b07e",
@@ -19,7 +21,9 @@
     "runtimeMinutes": 102,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 11674,
+    "posterPath": "/8o2ADoAyG796UwTjwBFjPyBz0yG.jpg"
   },
   {
     "tvtimeUuid": "e18c14b9-a619-48c8-88db-906d567f2537",
@@ -30,7 +34,9 @@
     "runtimeMinutes": 79,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 12230,
+    "posterPath": "/kSlYq6FrBUviGSEh8v4L9nrSnBT.jpg"
   },
   {
     "tvtimeUuid": "6e641852-79c7-4a3e-9c11-8f4c0f315357",
@@ -41,7 +47,9 @@
     "runtimeMinutes": 94,
     "watchedDates": [
       "2025-06-15"
-    ]
+    ],
+    "tmdbId": 44115,
+    "posterPath": "/h0RMdn0rfl9l5hWXz3tUh6QVkhi.jpg"
   },
   {
     "tvtimeUuid": "f4ffba41-7a6e-429d-ac88-d6639c96a5d4",
@@ -52,7 +60,9 @@
     "runtimeMinutes": 102,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 16996,
+    "posterPath": "/yEcfFXEWpuXcfsR9nKESVCFneqV.jpg"
   },
   {
     "tvtimeUuid": "14c59b32-6c90-4617-b940-617358c6b6d6",
@@ -63,7 +73,9 @@
     "runtimeMinutes": 158,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 14161,
+    "posterPath": "/zaqam2RNscH5ooYFWInV6hjx6y5.jpg"
   },
   {
     "tvtimeUuid": "4e16d562-c594-4ce3-b571-22bd8fe05dff",
@@ -74,7 +86,9 @@
     "runtimeMinutes": 111,
     "watchedDates": [
       "2025-02-17"
-    ]
+    ],
+    "tmdbId": 6557,
+    "posterPath": "/rEfourJfgEyKiewwH8ZkUYt9AqE.jpg"
   },
   {
     "tvtimeUuid": "2f68b166-032a-4520-8413-2cddd87812f5",
@@ -85,7 +99,9 @@
     "runtimeMinutes": 117,
     "watchedDates": [
       "2025-11-04"
-    ]
+    ],
+    "tmdbId": 1271,
+    "posterPath": "/h7Lcio0c9ohxPhSZg42eTlKIVVY.jpg"
   },
   {
     "tvtimeUuid": "1ce36979-7044-447c-894d-bbc2bad766fa",
@@ -93,7 +109,9 @@
     "title": "50 First Dates",
     "status": "watchlist",
     "releaseDate": "2004-06-30",
-    "runtimeMinutes": 99
+    "runtimeMinutes": 99,
+    "tmdbId": 1824,
+    "posterPath": "/lzUI2Cg7OMfcUNv3f7MywYNBjs6.jpg"
   },
   {
     "tvtimeUuid": "720c065b-8a0d-4e20-82f2-f6cea3d2a46a",
@@ -104,7 +122,9 @@
     "runtimeMinutes": 80,
     "watchedDates": [
       "2021-09-26"
-    ]
+    ],
+    "tmdbId": 608804,
+    "posterPath": "/7gqZyGlLjNKXIk8RBswqAGJygVz.jpg"
   },
   {
     "tvtimeUuid": "32e7f2a3-0012-4b09-b250-36ac5e3e5595",
@@ -115,7 +135,9 @@
     "runtimeMinutes": 90,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 447332,
+    "posterPath": "/nAU74GmpUk7t5iklEp3bufwDq4n.jpg"
   },
   {
     "tvtimeUuid": "e86d93fb-1e52-42f9-a6b7-0fafecb9e50a",
@@ -126,7 +148,9 @@
     "runtimeMinutes": 135,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 332562,
+    "posterPath": "/wrFpXMNBRj2PBiN4Z5kix51XaIZ.jpg"
   },
   {
     "tvtimeUuid": "d4562a9b-af48-494a-82ed-3696ba810c91",
@@ -137,7 +161,9 @@
     "runtimeMinutes": 101,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 10229,
+    "posterPath": "/8lUYMvWdHA0Q0k5F76RQCeCBUkA.jpg"
   },
   {
     "tvtimeUuid": "90162771-0478-460b-b921-5066587ba520",
@@ -149,7 +175,9 @@
     "watchedDates": [
       "2025-08-12"
     ],
-    "rating": 3.0
+    "rating": 3,
+    "tmdbId": 122906,
+    "posterPath": "/ls6zswrOZVhCXQBh96DlbnLBajM.jpg"
   },
   {
     "tvtimeUuid": "0fe23199-b27d-4af2-9ce4-b9996e680d39",
@@ -161,7 +189,9 @@
     "watchedDates": [
       "2026-02-01"
     ],
-    "rating": 3.0
+    "rating": 3,
+    "tmdbId": 1124566,
+    "posterPath": "/pz9NCWxxOk3o0W3v1Zkhawrwb4i.jpg"
   },
   {
     "tvtimeUuid": "c9881b74-3725-404c-9c4d-244c732223a4",
@@ -173,7 +203,9 @@
     "watchedDates": [
       "2025-08-15"
     ],
-    "rating": 3.0
+    "rating": 3,
+    "tmdbId": 965150,
+    "posterPath": "/evKz85EKouVbIr51zy5fOtpNRPg.jpg"
   },
   {
     "tvtimeUuid": "06403db9-013b-4884-8ea8-93a189d169e7",
@@ -183,7 +215,9 @@
     "releaseDate": "2019-05-24",
     "watchedDates": [
       "2020-12-21"
-    ]
+    ],
+    "tmdbId": 812,
+    "posterPath": "/eLFfl7vS8dkeG1hKp5mwbm37V83.jpg"
   },
   {
     "tvtimeUuid": "fe9cd0a8-8139-4748-959b-917b99a6bd65",
@@ -194,7 +228,9 @@
     "runtimeMinutes": 90,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 812,
+    "posterPath": "/eLFfl7vS8dkeG1hKp5mwbm37V83.jpg"
   },
   {
     "tvtimeUuid": "70ffc6be-cfde-4ec9-a0ac-9f48302af7de",
@@ -205,7 +241,9 @@
     "runtimeMinutes": 108,
     "watchedDates": [
       "2024-03-05"
-    ]
+    ],
+    "tmdbId": 12155,
+    "posterPath": "/o0kre9wRCZz3jjSjaru7QU0UtFz.jpg"
   },
   {
     "tvtimeUuid": "a60faf09-aa37-48ba-9864-a203239828b2",
@@ -216,7 +254,9 @@
     "runtimeMinutes": 122,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 399579,
+    "posterPath": "/xRWht48C2V8XNfzvPehyClOvDni.jpg"
   },
   {
     "tvtimeUuid": "e65b0725-8e79-445c-abeb-31f3824c2da5",
@@ -227,7 +267,9 @@
     "runtimeMinutes": 88,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 23398,
+    "posterPath": "/A2tgUeWadVJs1g6zOCZgKRs8uWC.jpg"
   },
   {
     "tvtimeUuid": "5f85fbe5-8e95-41af-a373-0164deca76d2",
@@ -239,7 +281,9 @@
     "watchedDates": [
       "2024-03-05"
     ],
-    "rating": 3.0
+    "rating": 3,
+    "tmdbId": 9444,
+    "posterPath": "/bppGWGA8zq1sRvTdDJnUzVW9GcH.jpg"
   },
   {
     "tvtimeUuid": "5c539043-3845-4f20-9ffb-f5e62c717938",
@@ -250,7 +294,9 @@
     "runtimeMinutes": 152,
     "watchedDates": [
       "2024-03-23"
-    ]
+    ],
+    "tmdbId": 915935,
+    "posterPath": "/1ho0d4LNZw3Y0voeKmSvPSgJOJ2.jpg"
   },
   {
     "tvtimeUuid": "2f818731-9e82-4c39-bce6-50f881a66bea",
@@ -261,7 +307,9 @@
     "runtimeMinutes": 90,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 15157,
+    "posterPath": "/bW957WNXiiUvIGFaUVL7wMeD776.jpg"
   },
   {
     "tvtimeUuid": "e9c52bae-c6e7-44ff-8041-0710df97fec3",
@@ -272,7 +320,9 @@
     "runtimeMinutes": 117,
     "watchedDates": [
       "2021-12-19"
-    ]
+    ],
+    "tmdbId": 102899,
+    "posterPath": "/rQRnQfUl3kfp78nCWq8Ks04vnq1.jpg"
   },
   {
     "tvtimeUuid": "e02e9914-9009-4f59-b66e-6834f5fe6afc",
@@ -283,7 +333,9 @@
     "runtimeMinutes": 118,
     "watchedDates": [
       "2022-01-25"
-    ]
+    ],
+    "tmdbId": 363088,
+    "posterPath": "/cFQEO687n1K6umXbInzocxcnAQz.jpg"
   },
   {
     "tvtimeUuid": "fdf65074-30b9-4a73-957b-0e076c443c5c",
@@ -294,7 +346,9 @@
     "runtimeMinutes": 83,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 8916,
+    "posterPath": "/lWPjxbUMpAHFkJpZHHNWhQaRsax.jpg"
   },
   {
     "tvtimeUuid": "62760786-25a6-4b64-8cf8-b75f0b7c9ddb",
@@ -305,7 +359,9 @@
     "runtimeMinutes": 104,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 1072790,
+    "posterPath": "/5qHoazZiaLe7oFBok7XlUhg96f2.jpg"
   },
   {
     "tvtimeUuid": "4b77bf5a-12c2-4333-91b1-d7c1ac31005d",
@@ -317,7 +373,9 @@
     "watchedDates": [
       "2026-05-04"
     ],
-    "rating": 3.0
+    "rating": 3,
+    "tmdbId": 1579,
+    "posterPath": "/cRY25Q32kDNPFDkFkxAs6bgCq3L.jpg"
   },
   {
     "tvtimeUuid": "4c1a81fe-0aa6-4f55-9744-07221938275b",
@@ -327,7 +385,9 @@
     "releaseDate": "0001-01-01",
     "watchedDates": [
       "2019-10-11"
-    ]
+    ],
+    "tmdbId": 297802,
+    "posterPath": "/ufl63EFcc5XpByEV2Ecdw6WJZAI.jpg"
   },
   {
     "tvtimeUuid": "a51f2623-1ecb-4ce6-bb46-494e0a8a59d8",
@@ -339,7 +399,9 @@
     "watchedDates": [
       "2025-08-10"
     ],
-    "rating": 3.0
+    "rating": 3,
+    "tmdbId": 329865,
+    "posterPath": "/x2FJsf1ElAgr63Y3PNPtJrcmpoe.jpg"
   },
   {
     "tvtimeUuid": "3476a906-dd52-4947-b184-467fcf46cbf7",
@@ -350,7 +412,9 @@
     "runtimeMinutes": 130,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 315205,
+    "posterPath": "/dFGfmI9tIWCpEZbGUhI40uznL1F.jpg"
   },
   {
     "tvtimeUuid": "866e8dc0-5ad6-476f-8680-5b9f384583ac",
@@ -361,7 +425,9 @@
     "runtimeMinutes": 110,
     "watchedDates": [
       "2024-07-14"
-    ]
+    ],
+    "tmdbId": 371445,
+    "posterPath": "/44IZLl6wD8aI8HXbJLqiMqEFtph.jpg"
   },
   {
     "tvtimeUuid": "bc5eb84f-6e5d-45b0-97c1-96bf401dd59f",
@@ -372,7 +438,9 @@
     "runtimeMinutes": 162,
     "watchedDates": [
       "2024-03-05"
-    ]
+    ],
+    "tmdbId": 19995,
+    "posterPath": "/gKY6q7SjCkAU6FqvqWybDYgUKIF.jpg"
   },
   {
     "tvtimeUuid": "8ed79c61-2216-477a-a52e-871d7895ca2b",
@@ -383,7 +451,9 @@
     "runtimeMinutes": 192,
     "watchedDates": [
       "2024-03-05"
-    ]
+    ],
+    "tmdbId": 76600,
+    "posterPath": "/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg"
   },
   {
     "tvtimeUuid": "480032ef-e2f2-4d4a-804b-edb08e08ff79",
@@ -393,7 +463,9 @@
     "releaseDate": "2015-05-01",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 99861,
+    "posterPath": "/4ssDuvEDkSArWEdyBl2X5EHvYKU.jpg"
   },
   {
     "tvtimeUuid": "08c1f0a2-581f-476c-bbd8-643a7426635f",
@@ -403,7 +475,9 @@
     "releaseDate": "0001-01-01",
     "watchedDates": [
       "2019-10-11"
-    ]
+    ],
+    "tmdbId": 299534,
+    "posterPath": "/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg"
   },
   {
     "tvtimeUuid": "bf63e3d9-ee2d-4b7d-8a33-bde06f364456",
@@ -414,7 +488,9 @@
     "runtimeMinutes": 149,
     "watchedDates": [
       "2021-12-19"
-    ]
+    ],
+    "tmdbId": 299536,
+    "posterPath": "/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg"
   },
   {
     "tvtimeUuid": "aaafe3da-d446-4677-afb2-09c81f31f505",
@@ -422,7 +498,9 @@
     "title": "Back to the Future Part II",
     "status": "watchlist",
     "releaseDate": "1989-11-22",
-    "runtimeMinutes": 108
+    "runtimeMinutes": 108,
+    "tmdbId": 165,
+    "posterPath": "/hQq8xZe5uLjFzSBt4LanNP7SQjl.jpg"
   },
   {
     "tvtimeUuid": "248717f6-7d81-4b44-9238-861d6b2cb3a3",
@@ -432,7 +510,9 @@
     "releaseDate": "2020-03-06",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 446159,
+    "posterPath": "/tBa4zMGzZUco26XT3WfZZCwQ76i.jpg"
   },
   {
     "tvtimeUuid": "ee46e16b-a8e7-48ec-adf3-a74e87583eff",
@@ -443,7 +523,9 @@
     "runtimeMinutes": 70,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 3170,
+    "posterPath": "/wV9e2y4myJ4KMFsyFfWYcUOawyK.jpg"
   },
   {
     "tvtimeUuid": "68a874be-97e4-44b4-aaa6-4387e655942a",
@@ -451,7 +533,9 @@
     "title": "Barbie as The Princess & the Pauper",
     "status": "watchlist",
     "releaseDate": "2004-09-28",
-    "runtimeMinutes": 85
+    "runtimeMinutes": 85,
+    "tmdbId": 15165,
+    "posterPath": "/xHYsUwUe4MaNc6mbNBGTkqZSnPk.jpg"
   },
   {
     "tvtimeUuid": "5661452b-e1a2-4543-9b00-32e4c34aedc6",
@@ -462,7 +546,9 @@
     "runtimeMinutes": 90,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 9907,
+    "posterPath": "/qB9jFInwUEb2VLhMeKQX17Vdrnp.jpg"
   },
   {
     "tvtimeUuid": "bd2e6693-3d05-44eb-b8a8-68ff96b636cd",
@@ -473,7 +559,9 @@
     "runtimeMinutes": 140,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 272,
+    "posterPath": "/sPX89Td70IDDjVr85jdSBb4rWGr.jpg"
   },
   {
     "tvtimeUuid": "3d914e7d-1718-45c3-ad42-689573bc0d38",
@@ -484,7 +572,9 @@
     "runtimeMinutes": 190,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 209112,
+    "posterPath": "/5UsK3grJvtQrtzEgqNlDljJW96w.jpg"
   },
   {
     "tvtimeUuid": "d122cfbc-f8f1-47ce-8d3f-4006ca373b7b",
@@ -495,7 +585,9 @@
     "runtimeMinutes": 111,
     "watchedDates": [
       "2022-12-22"
-    ]
+    ],
+    "tmdbId": 451915,
+    "posterPath": "/u2Gfv0mz3xePsgyCPHovrnFL1sB.jpg"
   },
   {
     "tvtimeUuid": "3b0539c3-f544-4d57-a066-f63614f94570",
@@ -506,7 +598,9 @@
     "runtimeMinutes": 87,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 10020,
+    "posterPath": "/hUJ0UvQ5tgE2Z9WpfuduVSdiCiU.jpg"
   },
   {
     "tvtimeUuid": "03abf30b-a122-4448-97c0-0af9facef774",
@@ -517,7 +611,9 @@
     "runtimeMinutes": 72,
     "watchedDates": [
       "2024-03-05"
-    ]
+    ],
+    "tmdbId": 13313,
+    "posterPath": "/l1Tb0fvnj9wnCgm5qnTRoO6OxDT.jpg"
   },
   {
     "tvtimeUuid": "94d96137-aac6-469e-b695-5a3796d978a2",
@@ -525,7 +621,9 @@
     "title": "Beetlejuice",
     "status": "watchlist",
     "releaseDate": "1988-09-08",
-    "runtimeMinutes": 92
+    "runtimeMinutes": 92,
+    "tmdbId": 4011,
+    "posterPath": "/nnl6OWkyPpuMm595hmAxNW3rZFn.jpg"
   },
   {
     "tvtimeUuid": "b7535b82-3374-4814-849d-980d079acc94",
@@ -536,7 +634,9 @@
     "runtimeMinutes": 101,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 76,
+    "posterPath": "/kf1Jb1c2JAOqjuzA3H4oDM263uB.jpg"
   },
   {
     "tvtimeUuid": "3bc5166e-0b1a-4322-94f8-ee71639654ce",
@@ -544,7 +644,9 @@
     "title": "Big Hero 6",
     "status": "watchlist",
     "releaseDate": "2014-12-25",
-    "runtimeMinutes": 110
+    "runtimeMinutes": 110,
+    "tmdbId": 177572,
+    "posterPath": "/2mxS4wUimwlLmI1xp6QW6NSU361.jpg"
   },
   {
     "tvtimeUuid": "8a142746-1fad-4c07-91c1-4cf970940c33",
@@ -554,7 +656,9 @@
     "releaseDate": "2018-12-13",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 405774,
+    "posterPath": "/rGfGfgL2pEPCfhIvqHXieXFn7gp.jpg"
   },
   {
     "tvtimeUuid": "a3f59c5f-15ff-4990-804a-3a3d98c8d609",
@@ -564,7 +668,9 @@
     "releaseDate": "0001-01-01",
     "watchedDates": [
       "2019-10-11"
-    ]
+    ],
+    "tmdbId": 284054,
+    "posterPath": "/uxzzxijgPIY7slzFvMotPv8wjKA.jpg"
   },
   {
     "tvtimeUuid": "d34dd0ac-2c60-4003-b75d-ea39e0e9539d",
@@ -575,7 +681,9 @@
     "runtimeMinutes": 108,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 44214,
+    "posterPath": "/viWheBd44bouiLCHgNMvahLThqx.jpg"
   },
   {
     "tvtimeUuid": "5e14cbcf-c9b3-4f82-b6df-9f68cdc0beb6",
@@ -586,7 +694,9 @@
     "runtimeMinutes": 134,
     "watchedDates": [
       "2021-07-12"
-    ]
+    ],
+    "tmdbId": 497698,
+    "posterPath": "/qAZ0pzat24kLdO3o8ejmbLxyOac.jpg"
   },
   {
     "tvtimeUuid": "c2a563b3-97dc-47f1-9dca-48be49b1ad03",
@@ -597,7 +707,9 @@
     "runtimeMinutes": 102,
     "watchedDates": [
       "2026-04-08"
-    ]
+    ],
+    "tmdbId": 807132,
+    "posterPath": "/pYjcXSRUhvYFAs5lft4d2qDEiks.jpg"
   },
   {
     "tvtimeUuid": "4273cc26-528e-463e-814e-534e3e50eceb",
@@ -607,7 +719,9 @@
     "releaseDate": "2018-10-30",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 424694,
+    "posterPath": "/lHu1wtNaczFPGFDTrjCSzeLPTKN.jpg"
   },
   {
     "tvtimeUuid": "19baa3e3-1445-405f-b331-8590acfe4271",
@@ -618,7 +732,9 @@
     "runtimeMinutes": 114,
     "watchedDates": [
       "2021-07-25"
-    ]
+    ],
+    "tmdbId": 472451,
+    "posterPath": "/oZbhTdi0ZQY7iiSQ0L7h3ya6NDF.jpg"
   },
   {
     "tvtimeUuid": "656d1272-bbee-461e-8df7-1e85cbe13481",
@@ -629,7 +745,9 @@
     "runtimeMinutes": 93,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 62177,
+    "posterPath": "/1XAuDtMWpL0sYSFK0R6EZate2Ux.jpg"
   },
   {
     "tvtimeUuid": "33d9212b-57b9-45ce-94e1-3796fa88113a",
@@ -640,7 +758,9 @@
     "runtimeMinutes": 117,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 400106,
+    "posterPath": "/whkT53Sv2vKAUiknQ13pqcWaPXB.jpg"
   },
   {
     "tvtimeUuid": "c63040f4-f54b-4288-a88f-2937a2b8dd92",
@@ -651,7 +771,9 @@
     "runtimeMinutes": 134,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 142,
+    "posterPath": "/aByfQOQBNa4CMFwIgq3QrqY2ZHh.jpg"
   },
   {
     "tvtimeUuid": "115fb902-092a-4e6a-a673-c9698eeaec0f",
@@ -659,7 +781,9 @@
     "title": "Brother Bear",
     "status": "watchlist",
     "releaseDate": "2004-01-28",
-    "runtimeMinutes": 85
+    "runtimeMinutes": 85,
+    "tmdbId": 10009,
+    "posterPath": "/otptPbEY0vBostmo95xwiiumMJm.jpg"
   },
   {
     "tvtimeUuid": "2878452f-7535-4c7a-9f11-d8e11b0085f6",
@@ -667,7 +791,9 @@
     "title": "Brother Bear 2",
     "status": "watchlist",
     "releaseDate": "2006-09-13",
-    "runtimeMinutes": 73
+    "runtimeMinutes": 73,
+    "tmdbId": 10010,
+    "posterPath": "/yaA8q2zHHUgFWdJNxXyAdU71SzM.jpg"
   },
   {
     "tvtimeUuid": "7ea4c1d3-1125-409c-9d5a-edcf8ebaa359",
@@ -678,7 +804,9 @@
     "runtimeMinutes": 160,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 310,
+    "posterPath": "/wqkWrOFtYnZSvIMu8Lsmz7WIvKC.jpg"
   },
   {
     "tvtimeUuid": "4f9c1296-9b80-4401-b053-c0a026cad394",
@@ -689,7 +817,9 @@
     "runtimeMinutes": 190,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 424783,
+    "posterPath": "/fw02ONlDhrYjTSZV8XO6hhU3ds3.jpg"
   },
   {
     "tvtimeUuid": "e2400202-14c6-426a-a564-6d7310841015",
@@ -700,7 +830,9 @@
     "runtimeMinutes": 85,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 20770,
+    "posterPath": "/8huDg3Q0EmcWuN9HgYsO8ylAp9f.jpg"
   },
   {
     "tvtimeUuid": "488b1c2a-9ace-42e7-a987-6c43d20d6af1",
@@ -711,7 +843,9 @@
     "runtimeMinutes": 132,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 398818,
+    "posterPath": "/mZ4gBdfkhP9tvLH1DO4m4HYtiyi.jpg"
   },
   {
     "tvtimeUuid": "b76dd8fe-8dfd-4a6a-b296-402dc39f077a",
@@ -722,7 +856,9 @@
     "runtimeMinutes": 147,
     "watchedDates": [
       "2021-12-18"
-    ]
+    ],
+    "tmdbId": 271110,
+    "posterPath": "/rAGiXaUfPzY7CDEyNKUofk3Kw2e.jpg"
   },
   {
     "tvtimeUuid": "d42b395b-4bba-4046-a682-d1c6a69fe663",
@@ -733,7 +869,9 @@
     "runtimeMinutes": 124,
     "watchedDates": [
       "2021-12-18"
-    ]
+    ],
+    "tmdbId": 1771,
+    "posterPath": "/vSNxAJTlD0r02V9sPYpOjqDZXUK.jpg"
   },
   {
     "tvtimeUuid": "3577ca1c-ee06-4e71-b380-5b98697c50cb",
@@ -744,7 +882,9 @@
     "runtimeMinutes": 136,
     "watchedDates": [
       "2021-12-18"
-    ]
+    ],
+    "tmdbId": 100402,
+    "posterPath": "/tVFRpFw3xTedgPGqxW0AOI8Qhh0.jpg"
   },
   {
     "tvtimeUuid": "17d0a95e-1d1e-4af9-a5a8-e17a0b638dd2",
@@ -756,7 +896,9 @@
     "watchedDates": [
       "2024-11-09"
     ],
-    "rating": 3.0
+    "rating": 3,
+    "tmdbId": 334533,
+    "posterPath": "/2sFME73GaD8UsUxPUKe60cPdLif.jpg"
   },
   {
     "tvtimeUuid": "11992369-0507-45bb-8d41-2ad22e2604b7",
@@ -766,7 +908,9 @@
     "releaseDate": "0001-01-01",
     "watchedDates": [
       "2019-10-11"
-    ]
+    ],
+    "tmdbId": 299537,
+    "posterPath": "/AtsgWhDnHTq68L0lLsUrCnM7TjG.jpg"
   },
   {
     "tvtimeUuid": "54c532de-0534-488c-b46b-e0c8e2c90441",
@@ -776,7 +920,9 @@
     "releaseDate": "2015-11-20",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 258480,
+    "posterPath": "/cJeled7EyPdur6TnCA5GYg0UVna.jpg"
   },
   {
     "tvtimeUuid": "39015588-a5e4-4258-a1d7-4ec55664ff42",
@@ -787,7 +933,9 @@
     "runtimeMinutes": 117,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 920,
+    "posterPath": "/2Touk3m5gzsqr1VsvxypdyHY5ci.jpg"
   },
   {
     "tvtimeUuid": "b483f82e-14c7-4f97-86b7-cd957ee89f87",
@@ -798,7 +946,9 @@
     "runtimeMinutes": 106,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 49013,
+    "posterPath": "/okIz1HyxeVOMzYwwHUjH2pHi74I.jpg"
   },
   {
     "tvtimeUuid": "3c0765b2-6958-401e-93eb-58ddaedf2e33",
@@ -809,7 +959,9 @@
     "runtimeMinutes": 109,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 260514,
+    "posterPath": "/zg5RDxvIIAKsucjuU2EZJIHEIvz.jpg"
   },
   {
     "tvtimeUuid": "796b2ef5-2e06-43e8-a517-d8814f616f71",
@@ -820,7 +972,9 @@
     "runtimeMinutes": 101,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 8839,
+    "posterPath": "/2ah8fNJFZVU3vcXhU5xfAYi2eym.jpg"
   },
   {
     "tvtimeUuid": "8ea55c37-f975-4a78-b27e-1651698a8f09",
@@ -831,7 +985,9 @@
     "runtimeMinutes": 104,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 314,
+    "posterPath": "/pvnPgukFyEKgCzyOxyLiwyZ8T1C.jpg"
   },
   {
     "tvtimeUuid": "5e3a85ab-12d5-4af3-8fd0-eeb5c0163d6c",
@@ -842,7 +998,9 @@
     "runtimeMinutes": 132,
     "watchedDates": [
       "2024-05-18"
-    ]
+    ],
+    "tmdbId": 937287,
+    "posterPath": "/H6vke7zGiuLsz4v4RPeReb9rsv.jpg"
   },
   {
     "tvtimeUuid": "0af2fefc-53d8-4ce3-abf8-4783a91d0ef5",
@@ -853,7 +1011,9 @@
     "runtimeMinutes": 115,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 118,
+    "posterPath": "/iKP6wg3c6COUe8gYutoGG7qcPnO.jpg"
   },
   {
     "tvtimeUuid": "3bdc1ade-d6e6-4e84-a57a-df9f11323822",
@@ -864,7 +1024,9 @@
     "runtimeMinutes": 98,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 4327,
+    "posterPath": "/iHTmZs0BmkwMCYi8rhvMWC5G4EM.jpg"
   },
   {
     "tvtimeUuid": "59b301e0-01a3-459b-9c77-31cbfb4157e3",
@@ -875,7 +1037,9 @@
     "runtimeMinutes": 119,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 458897,
+    "posterPath": "/1DPUFG6QnGqzpvEaDEv7TaepycM.jpg"
   },
   {
     "tvtimeUuid": "50f7c028-086a-4829-aa22-19d258875fda",
@@ -886,7 +1050,9 @@
     "runtimeMinutes": 84,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 7443,
+    "posterPath": "/8XgmIsbpVamdhwcNVsYzohFZTtT.jpg"
   },
   {
     "tvtimeUuid": "df2e3746-8ce7-431c-a035-08e8b37f51d4",
@@ -897,7 +1063,9 @@
     "runtimeMinutes": 113,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 593910,
+    "posterPath": "/clDFqATL4zcE7LzUwkrVj3zHvk7.jpg"
   },
   {
     "tvtimeUuid": "cc1ae299-ca74-4977-a6b2-149b3a18136e",
@@ -908,7 +1076,9 @@
     "runtimeMinutes": 74,
     "watchedDates": [
       "2025-11-04"
-    ]
+    ],
+    "tmdbId": 16119,
+    "posterPath": "/9QzKXbQfPp59iZ3rwnkKEAkPaXx.jpg"
   },
   {
     "tvtimeUuid": "b1df3260-1c28-4185-ab83-1a0f5aeca011",
@@ -919,7 +1089,9 @@
     "runtimeMinutes": 90,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 22794,
+    "posterPath": "/qhOhIKf7QEyQ5dMrRUqs5eTX1Oq.jpg"
   },
   {
     "tvtimeUuid": "cf71356f-8894-4ab2-9c8b-81831b025fc1",
@@ -931,7 +1103,9 @@
     "watchedDates": [
       "2025-02-17"
     ],
-    "rating": 3.0
+    "rating": 3,
+    "tmdbId": 974576,
+    "posterPath": "/m5x8D0bZ3eKqIVWZ5y7TnZ2oTVg.jpg"
   },
   {
     "tvtimeUuid": "aa72ab5f-74ee-4eba-8aba-217e2c22ff9b",
@@ -942,7 +1116,9 @@
     "runtimeMinutes": 101,
     "watchedDates": [
       "2024-03-05"
-    ]
+    ],
+    "tmdbId": 14836,
+    "posterPath": "/4jeFXQYytChdZYE9JYO7Un87IlW.jpg"
   },
   {
     "tvtimeUuid": "c9084c2b-bea2-4bbb-8e29-bdf22245d23b",
@@ -953,7 +1129,9 @@
     "runtimeMinutes": 138,
     "watchedDates": [
       "2021-06-22"
-    ]
+    ],
+    "tmdbId": 337404,
+    "posterPath": "/hjS9mH8KvRiGHgjk6VUZH7OT0Ng.jpg"
   },
   {
     "tvtimeUuid": "0c55a247-fdb7-4117-8973-edb27786bde9",
@@ -964,7 +1142,9 @@
     "runtimeMinutes": 90,
     "watchedDates": [
       "2023-06-24"
-    ]
+    ],
+    "tmdbId": 860159,
+    "posterPath": "/hayr56csDzCSADaejgrRMVPHyDy.jpg"
   },
   {
     "tvtimeUuid": "af4ea075-e60d-4ef7-9426-fa3ab72b38e4",
@@ -972,7 +1152,9 @@
     "title": "D.E.B.S.",
     "status": "watchlist",
     "releaseDate": "2004-01-21",
-    "runtimeMinutes": 91
+    "runtimeMinutes": 91,
+    "tmdbId": 540,
+    "posterPath": "/68BfXrFQPHg9iBWJVgp5R48gTix.jpg"
   },
   {
     "tvtimeUuid": "cd873bfc-ab18-461e-844c-f6c24a0ffb16",
@@ -983,7 +1165,9 @@
     "runtimeMinutes": 114,
     "watchedDates": [
       "2022-01-15"
-    ]
+    ],
+    "tmdbId": 320288,
+    "posterPath": "/cCTJPelKGLhALq3r51A9uMonxKj.jpg"
   },
   {
     "tvtimeUuid": "29290092-a8ff-4c0d-8a78-2473369dc50a",
@@ -993,7 +1177,9 @@
     "releaseDate": "2019-11-22",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 552178,
+    "posterPath": "/bzvzaHqKBSuGIIWhinTQPHvT0zf.jpg"
   },
   {
     "tvtimeUuid": "484ed7c2-b6cd-48e8-a65b-1fb8d8ad8792",
@@ -1004,7 +1190,9 @@
     "runtimeMinutes": 128,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 207,
+    "posterPath": "/tNvKkSnnn4Z6RCBThyK1gfCSSvv.jpg"
   },
   {
     "tvtimeUuid": "3067f4f8-c34d-4a10-a869-6c08557e869c",
@@ -1014,7 +1202,9 @@
     "releaseDate": "0001-01-01",
     "watchedDates": [
       "2019-10-11"
-    ]
+    ],
+    "tmdbId": 533535,
+    "posterPath": "/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg"
   },
   {
     "tvtimeUuid": "4ad180b8-9a7a-4212-9e7c-74a70313b36c",
@@ -1025,7 +1215,9 @@
     "runtimeMinutes": 115,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 22971,
+    "posterPath": "/2lAPv2jQ5eh54l4EttA9wjDljED.jpg"
   },
   {
     "tvtimeUuid": "5bb233e5-6f2b-469e-b899-bb61a78857a3",
@@ -1036,7 +1228,9 @@
     "runtimeMinutes": 112,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 277217,
+    "posterPath": "/65DkgHPSLVjgr6IYkpY9Aqqqid5.jpg"
   },
   {
     "tvtimeUuid": "b6e70fdc-fbb7-49ea-bc21-2ed7c4f2a777",
@@ -1047,7 +1241,9 @@
     "runtimeMinutes": 95,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 20352,
+    "posterPath": "/b1BT309QWjtFUlJPLmXmrcHOWEL.jpg"
   },
   {
     "tvtimeUuid": "0e18170a-cf5f-4652-afcc-d084a902c743",
@@ -1058,7 +1254,9 @@
     "runtimeMinutes": 98,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 93456,
+    "posterPath": "/5Fh4NdoEnCjCK9wLjdJ9DJNFl2b.jpg"
   },
   {
     "tvtimeUuid": "43e92f62-f10b-4974-8012-65302885a79b",
@@ -1069,7 +1267,9 @@
     "runtimeMinutes": 96,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 324852,
+    "posterPath": "/6t3YWl7hrr88lCEFlGVqW5yV99R.jpg"
   },
   {
     "tvtimeUuid": "1310f817-82c4-46e1-8ba7-bf6d07164e81",
@@ -1080,7 +1280,9 @@
     "runtimeMinutes": 100,
     "watchedDates": [
       "2024-03-05"
-    ]
+    ],
+    "tmdbId": 88,
+    "posterPath": "/9Jw6jys7q9gjzVX5zm1z0gC8gY9.jpg"
   },
   {
     "tvtimeUuid": "e0819c58-9f24-44b9-b576-f52fab354b7c",
@@ -1091,7 +1293,9 @@
     "runtimeMinutes": 105,
     "watchedDates": [
       "2024-08-11"
-    ]
+    ],
+    "tmdbId": 8271,
+    "posterPath": "/3f9KwSrieczuH9nRrwfOsoMoMNd.jpg"
   },
   {
     "tvtimeUuid": "d4b925c4-9e31-4998-9041-abb79fcf0ef4",
@@ -1102,7 +1306,9 @@
     "runtimeMinutes": 139,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 157350,
+    "posterPath": "/aNh4Q3iuPKDMPi2SL7GgOpiLukX.jpg"
   },
   {
     "tvtimeUuid": "98cc1928-fa5e-4c00-a0e7-762d1f73a1fc",
@@ -1113,7 +1319,9 @@
     "runtimeMinutes": 115,
     "watchedDates": [
       "2021-12-19"
-    ]
+    ],
+    "tmdbId": 284052,
+    "posterPath": "/uGBVj3bEbCoZbDjjl9wTxcygko1.jpg"
   },
   {
     "tvtimeUuid": "43a49c9f-9bc5-4e18-98b5-a93b8dca2d3f",
@@ -1124,7 +1332,9 @@
     "runtimeMinutes": 144,
     "watchedDates": [
       "2022-01-10"
-    ]
+    ],
+    "tmdbId": 646380,
+    "posterPath": "/th4E1yqsE8DGpAseLiUrI60Hf8V.jpg"
   },
   {
     "tvtimeUuid": "37fe11dc-0800-469e-a50c-3e5cfe885364",
@@ -1135,7 +1345,9 @@
     "runtimeMinutes": 64,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 11360,
+    "posterPath": "/hKDdllslMtsU9JixAv5HR9biXlp.jpg"
   },
   {
     "tvtimeUuid": "8ef12c09-c030-4ccf-ba3e-ed313393a427",
@@ -1146,7 +1358,9 @@
     "runtimeMinutes": 155,
     "watchedDates": [
       "2021-11-29"
-    ]
+    ],
+    "tmdbId": 438631,
+    "posterPath": "/gDzOcq0pfeCeqMBwKIJlSmQpjkZ.jpg"
   },
   {
     "tvtimeUuid": "11b1b419-92c5-4064-af45-4f45b7cd09f5",
@@ -1157,7 +1371,9 @@
     "runtimeMinutes": 105,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 162,
+    "posterPath": "/e0FqKFvGPdQNWG8tF9cZBtev9Em.jpg"
   },
   {
     "tvtimeUuid": "4211c259-0daf-4ebf-8848-4e06623de07c",
@@ -1168,7 +1384,9 @@
     "runtimeMinutes": 107,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 4523,
+    "posterPath": "/8KCNzCArLlvLdQoHx6npua2VSVc.jpg"
   },
   {
     "tvtimeUuid": "cf2b9c19-59d2-47bf-9b98-91eadbe62e56",
@@ -1179,7 +1397,9 @@
     "runtimeMinutes": 124,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 497582,
+    "posterPath": "/riYInlsq2kf1AWoGm80JQW5dLKp.jpg"
   },
   {
     "tvtimeUuid": "370cba4d-72f3-4e8d-bdaf-17c963df1fda",
@@ -1187,7 +1407,9 @@
     "title": "Eragon",
     "status": "watchlist",
     "releaseDate": "2006-12-20",
-    "runtimeMinutes": 104
+    "runtimeMinutes": 104,
+    "tmdbId": 2486,
+    "posterPath": "/mNu6QLUnKqPIjRA3pgEb5dkJye6.jpg"
   },
   {
     "tvtimeUuid": "1f117ad8-96e5-4ba1-bfff-87725beba767",
@@ -1195,7 +1417,9 @@
     "title": "Eternal Sunshine of the Spotless Mind",
     "status": "watchlist",
     "releaseDate": "2004-07-23",
-    "runtimeMinutes": 108
+    "runtimeMinutes": 108,
+    "tmdbId": 38,
+    "posterPath": "/5MwkWH9tYHv3mV9OdYTMR5qreIz.jpg"
   },
   {
     "tvtimeUuid": "367e1269-4e8e-4e79-80a0-5246091803cf",
@@ -1206,7 +1430,9 @@
     "runtimeMinutes": 156,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 524434,
+    "posterPath": "/lFByFSLV5WDJEv3KabbdAF959F2.jpg"
   },
   {
     "tvtimeUuid": "806dfa10-ad40-4e60-a878-ba49a8326f03",
@@ -1217,7 +1443,9 @@
     "runtimeMinutes": 140,
     "watchedDates": [
       "2023-03-25"
-    ]
+    ],
+    "tmdbId": 545611,
+    "posterPath": "/u68AjlvlutfEIcpmbYpKcdi09ut.jpg"
   },
   {
     "tvtimeUuid": "61cec70c-0290-4727-8649-efe172a9433c",
@@ -1228,7 +1456,9 @@
     "runtimeMinutes": 108,
     "watchedDates": [
       "2023-10-16"
-    ]
+    ],
+    "tmdbId": 264660,
+    "posterPath": "/dmJW8IAKHKxFNiUnoDR7JfsK7Rp.jpg"
   },
   {
     "tvtimeUuid": "1ffa50b9-6e4d-418a-b8f8-c66524150373",
@@ -1239,7 +1469,9 @@
     "runtimeMinutes": 102,
     "watchedDates": [
       "2021-11-02"
-    ]
+    ],
+    "tmdbId": 70577,
+    "posterPath": "/A3EtPBwTZe1Dfx1xvjCtReUxDsD.jpg"
   },
   {
     "tvtimeUuid": "4729ac63-1a1f-4d2c-a741-9ff46b16a382",
@@ -1250,7 +1482,9 @@
     "runtimeMinutes": 107,
     "watchedDates": [
       "2023-04-16"
-    ]
+    ],
+    "tmdbId": 985939,
+    "posterPath": "/spCAxD99U1A6jsiePFoqdEcY0dG.jpg"
   },
   {
     "tvtimeUuid": "fa601b7b-aaf0-483b-b079-f5a0df957a47",
@@ -1261,7 +1495,9 @@
     "runtimeMinutes": 90,
     "watchedDates": [
       "2024-08-29"
-    ]
+    ],
+    "tmdbId": 1058617,
+    "posterPath": "/kMOqbt2cdWryPJIrxnwzplPNmF6.jpg"
   },
   {
     "tvtimeUuid": "dc19553b-7ee7-4e0c-a302-102f11091be6",
@@ -1272,7 +1508,9 @@
     "runtimeMinutes": 134,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 338952,
+    "posterPath": "/fMMrl8fD9gRCFJvsx0SuFwkEOop.jpg"
   },
   {
     "tvtimeUuid": "da10ef2f-b343-4563-8382-8e03248b32bf",
@@ -1283,7 +1521,9 @@
     "runtimeMinutes": 143,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 338953,
+    "posterPath": "/3c5GNLB4yRSLBby0trHoA1DSQxQ.jpg"
   },
   {
     "tvtimeUuid": "495e43f9-3c6c-4761-bd88-566adf2630d3",
@@ -1294,7 +1534,9 @@
     "runtimeMinutes": 140,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 9738,
+    "posterPath": "/4YMcYEFS8sFuW3soP1HVmgR3cSm.jpg"
   },
   {
     "tvtimeUuid": "7f002dbb-25fa-48e0-97b8-476ad13e7a58",
@@ -1305,7 +1547,9 @@
     "runtimeMinutes": 150,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 166424,
+    "posterPath": "/cDroz5qSlP8xZ6tOpeYoPkBvKyL.jpg"
   },
   {
     "tvtimeUuid": "98d4f9bb-79e7-4147-b366-d3a62053b38a",
@@ -1316,7 +1560,9 @@
     "runtimeMinutes": 125,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 1979,
+    "posterPath": "/9wRfzTcMyyzkQxVDqBHv8RwuZOv.jpg"
   },
   {
     "tvtimeUuid": "fa5b623e-54d5-4547-92b9-a358b4444006",
@@ -1327,7 +1573,9 @@
     "runtimeMinutes": 145,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 82992,
+    "posterPath": "/thSmnRdrzPBBospIOJjLZBReqzo.jpg"
   },
   {
     "tvtimeUuid": "22b68765-df57-4575-85ee-0bc34e8eda95",
@@ -1338,7 +1586,9 @@
     "runtimeMinutes": 114,
     "watchedDates": [
       "2021-08-25"
-    ]
+    ],
+    "tmdbId": 591275,
+    "posterPath": "/rmEPtz3Ufzol2VWUAZYzOFaBio3.jpg"
   },
   {
     "tvtimeUuid": "5e774575-5e33-4780-8577-6e9ac7286c81",
@@ -1349,7 +1599,9 @@
     "runtimeMinutes": 109,
     "watchedDates": [
       "2021-08-25"
-    ]
+    ],
+    "tmdbId": 591274,
+    "posterPath": "/5dNTxhoGDTHHGqUTdxcr4H1dqlU.jpg"
   },
   {
     "tvtimeUuid": "80b741e4-5e30-4426-b4fc-e5625cbb3fba",
@@ -1360,7 +1612,9 @@
     "runtimeMinutes": 105,
     "watchedDates": [
       "2021-08-25"
-    ]
+    ],
+    "tmdbId": 591273,
+    "posterPath": "/9J9Wy39ZjrVmfk7yMkulpcI5sy0.jpg"
   },
   {
     "tvtimeUuid": "02541047-afa0-4d42-974a-f58a5f7a7d10",
@@ -1368,7 +1622,9 @@
     "title": "Ferdinand",
     "status": "watchlist",
     "releaseDate": "2017-12-20",
-    "runtimeMinutes": 107
+    "runtimeMinutes": 107,
+    "tmdbId": 364689,
+    "posterPath": "/rMm94JsRfcOPiPVsTRcBiiVBOhz.jpg"
   },
   {
     "tvtimeUuid": "ce626032-5db2-4570-919d-6b6aeaa95f8c",
@@ -1379,7 +1635,9 @@
     "runtimeMinutes": 139,
     "watchedDates": [
       "2024-03-05"
-    ]
+    ],
+    "tmdbId": 550,
+    "posterPath": "/jSziioSwPVrOy9Yow3XhWIBDjq1.jpg"
   },
   {
     "tvtimeUuid": "01acc7b8-ddf7-40be-be49-bb98ce47f3f2",
@@ -1390,7 +1648,9 @@
     "runtimeMinutes": 97,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 127380,
+    "posterPath": "/3UVe8NL1E2ZdUZ9EDlKGJY5UzE.jpg"
   },
   {
     "tvtimeUuid": "35d392d8-8616-4be4-a2cd-4122781a4090",
@@ -1401,7 +1661,9 @@
     "runtimeMinutes": 100,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 12,
+    "posterPath": "/5lc6nQc0VhWFYFbNv016xze8Jvy.jpg"
   },
   {
     "tvtimeUuid": "e6288109-9427-4ce7-9bfd-f0e5535ff7b5",
@@ -1412,7 +1674,9 @@
     "runtimeMinutes": 107,
     "watchedDates": [
       "2021-12-20"
-    ]
+    ],
+    "tmdbId": 797838,
+    "posterPath": "/uECWNRjCEwewHBjt0leyZiAyiXb.jpg"
   },
   {
     "tvtimeUuid": "0b9d29a6-f16a-4bcb-9386-1684bba3947b",
@@ -1423,7 +1687,9 @@
     "runtimeMinutes": 116,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 527641,
+    "posterPath": "/kreTuJBkUjVWePRfhHZuYfhNE1T.jpg"
   },
   {
     "tvtimeUuid": "0315a441-b691-4175-8422-1d12edd33773",
@@ -1434,7 +1700,9 @@
     "runtimeMinutes": 85,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 11619,
+    "posterPath": "/kgoZI4xh38RrEYEPVib6a12UPLn.jpg"
   },
   {
     "tvtimeUuid": "ec7e56de-b756-4691-908c-e5f994ec6a8b",
@@ -1444,7 +1712,9 @@
     "releaseDate": "2019-11-15",
     "watchedDates": [
       "2020-12-21"
-    ]
+    ],
+    "tmdbId": 359724,
+    "posterPath": "/dR1Ju50iudrOh3YgfwkAU1g2HZe.jpg"
   },
   {
     "tvtimeUuid": "f45eae51-04e4-4f68-89d7-29a9b8f89910",
@@ -1454,7 +1724,9 @@
     "releaseDate": "1994-07-06",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 13,
+    "posterPath": "/Cw4hIUIAmSYfK9QfaUW5igp9La.jpg"
   },
   {
     "tvtimeUuid": "2e98b178-85dd-49db-b8b4-e4b4437dcb83",
@@ -1465,7 +1737,9 @@
     "runtimeMinutes": 132,
     "watchedDates": [
       "2025-12-08"
-    ]
+    ],
+    "tmdbId": 1062722,
+    "posterPath": "/g4JtvGlQO7DByTI6frUobqvSL3R.jpg"
   },
   {
     "tvtimeUuid": "e9125678-68eb-4f9b-a16f-67ad7372e4da",
@@ -1476,7 +1750,9 @@
     "runtimeMinutes": 97,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 10330,
+    "posterPath": "/ipKcZ4Up7dp18XpsfYUc9NKZy3g.jpg"
   },
   {
     "tvtimeUuid": "a7dfa27b-e88e-4753-8625-99c44ac2235a",
@@ -1486,7 +1762,9 @@
     "releaseDate": "2015-10-02",
     "watchedDates": [
       "2021-01-11"
-    ]
+    ],
+    "tmdbId": 306745,
+    "posterPath": "/794PfYjTz3yxMRdTRmdFYt6w6ff.jpg"
   },
   {
     "tvtimeUuid": "919bfa79-f34f-470d-9472-d04016613b23",
@@ -1496,7 +1774,9 @@
     "releaseDate": "0001-01-01",
     "watchedDates": [
       "2019-10-11"
-    ]
+    ],
+    "tmdbId": 109445,
+    "posterPath": "/itAKcobTYGpYT8Phwjd8c9hleTo.jpg"
   },
   {
     "tvtimeUuid": "aa96c2e5-af6d-4135-af44-9d22b9176d92",
@@ -1507,7 +1787,9 @@
     "runtimeMinutes": 104,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 330457,
+    "posterPath": "/mINJaa34MtknCYl5AjtNJzWj8cD.jpg"
   },
   {
     "tvtimeUuid": "27fa3d0c-a2cb-47f7-b23e-dda689eaeca5",
@@ -1518,7 +1800,9 @@
     "runtimeMinutes": 137,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 168259,
+    "posterPath": "/ktofZ9Htrjiy0P6LEowsDaxd3Ri.jpg"
   },
   {
     "tvtimeUuid": "25be3a0a-e9d3-40fa-a0d4-3cd9e863efb3",
@@ -1529,7 +1813,9 @@
     "runtimeMinutes": 98,
     "watchedDates": [
       "2021-07-21"
-    ]
+    ],
+    "tmdbId": 712178,
+    "posterPath": "/5KnhgAYi62EK2RhuzgPtBw5TF7q.jpg"
   },
   {
     "tvtimeUuid": "23056092-be01-4f64-a3e9-b75308d4a1bc",
@@ -1541,7 +1827,9 @@
     "watchedDates": [
       "2023-03-25"
     ],
-    "rating": 3.0
+    "rating": 3,
+    "tmdbId": 450465,
+    "posterPath": "/svIDTNUoajS8dLEo7EosxvyAsgJ.jpg"
   },
   {
     "tvtimeUuid": "ce245077-0b88-478c-9793-e20730be9b8c",
@@ -1552,7 +1840,9 @@
     "runtimeMinutes": 139,
     "watchedDates": [
       "2025-12-22"
-    ]
+    ],
+    "tmdbId": 661374,
+    "posterPath": "/vDGr1YdrlfbU9wxTOdpf3zChmv9.jpg"
   },
   {
     "tvtimeUuid": "1fdaf5e4-9452-45ea-9b9f-4dfc2f5ed3a8",
@@ -1563,7 +1853,9 @@
     "runtimeMinutes": 149,
     "watchedDates": [
       "2021-07-24"
-    ]
+    ],
+    "tmdbId": 210577,
+    "posterPath": "/ts996lKsxvjkO2yiYG0ht4qAicO.jpg"
   },
   {
     "tvtimeUuid": "6d46fe13-36f4-4b60-86ce-40c909ba59f8",
@@ -1574,7 +1866,9 @@
     "runtimeMinutes": 127,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 489,
+    "posterPath": "/z2FnLKpFi1HPO7BEJxdkv6hpJSU.jpg"
   },
   {
     "tvtimeUuid": "2cc5479d-97f5-451e-9d87-f0eb5d0385cb",
@@ -1585,7 +1879,9 @@
     "runtimeMinutes": 99,
     "watchedDates": [
       "2023-07-15"
-    ]
+    ],
+    "tmdbId": 393519,
+    "posterPath": "/kc8jT1MAiKM0iwdjAwC5lQrTNry.jpg"
   },
   {
     "tvtimeUuid": "a2907248-d62a-4284-aea7-97c99eefd278",
@@ -1596,7 +1892,9 @@
     "runtimeMinutes": 93,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 49047,
+    "posterPath": "/kZ2nZw8D681aphje8NJi8EfbL1U.jpg"
   },
   {
     "tvtimeUuid": "f03d68f8-4c03-4c39-b952-ef4ac67e7371",
@@ -1606,7 +1904,9 @@
     "releaseDate": "2019-01-23",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 490132,
+    "posterPath": "/7BsvSuDQuoqhWmU2fL7W2GOcZHU.jpg"
   },
   {
     "tvtimeUuid": "717a64a7-8040-4c6b-88e2-3552e890fb54",
@@ -1616,7 +1916,9 @@
     "releaseDate": "2014-07-21",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 118340,
+    "posterPath": "/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg"
   },
   {
     "tvtimeUuid": "701ea1ba-34df-4fa1-b4b1-29fc283c2d0c",
@@ -1627,7 +1929,9 @@
     "runtimeMinutes": 137,
     "watchedDates": [
       "2021-12-19"
-    ]
+    ],
+    "tmdbId": 283995,
+    "posterPath": "/y4MBh0EjBlMuOzv9axM4qJlmhzz.jpg"
   },
   {
     "tvtimeUuid": "40b1a8ca-b35c-451f-9dfd-2c4186bae401",
@@ -1639,7 +1943,9 @@
     "watchedDates": [
       "2023-06-08"
     ],
-    "rating": 3.0
+    "rating": 3,
+    "tmdbId": 447365,
+    "posterPath": "/r2J02Z2OpNTctfOSN1Ydgii51I3.jpg"
   },
   {
     "tvtimeUuid": "c7dc9e5d-62bc-4114-987f-22827468a3dd",
@@ -1650,7 +1956,9 @@
     "runtimeMinutes": 160,
     "watchedDates": [
       "2025-01-30"
-    ]
+    ],
+    "tmdbId": 556574,
+    "posterPath": "/h1B7tW0t399VDjAcWJh8m87469b.jpg"
   },
   {
     "tvtimeUuid": "bb31313f-290b-433c-a5da-acdce14073c0",
@@ -1661,7 +1969,9 @@
     "runtimeMinutes": 126,
     "watchedDates": [
       "2026-02-17"
-    ]
+    ],
+    "tmdbId": 858024,
+    "posterPath": "/vbeyOZm2bvBXcbgPD3v6o94epPX.jpg"
   },
   {
     "tvtimeUuid": "8d85df5b-0ffb-450a-a32e-7eab9665366a",
@@ -1672,7 +1982,9 @@
     "runtimeMinutes": 92,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 8960,
+    "posterPath": "/7DyuV2G0hLEqHeueDfOqhZ2DVut.jpg"
   },
   {
     "tvtimeUuid": "07c4cfca-fd6a-4b13-b677-da23d37ec2b6",
@@ -1683,7 +1995,9 @@
     "runtimeMinutes": 95,
     "watchedDates": [
       "2021-10-11"
-    ]
+    ],
+    "tmdbId": 412202,
+    "posterPath": "/xlHOWQFgcGV4KcZKLzYBZ21gjGT.jpg"
   },
   {
     "tvtimeUuid": "5bf6f00a-1e99-4d8b-8cca-039faa86f448",
@@ -1694,7 +2008,9 @@
     "runtimeMinutes": 102,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 18126,
+    "posterPath": "/nZUKhfpUCFfTy24LGBHdDlK5RLx.jpg"
   },
   {
     "tvtimeUuid": "85ca3ee4-30e1-45c1-bc5e-a10331185069",
@@ -1704,7 +2020,9 @@
     "releaseDate": "2020-11-25",
     "watchedDates": [
       "2020-12-21"
-    ]
+    ],
+    "tmdbId": 520172,
+    "posterPath": "/vzec9kkOSE93tygyfOktedkeOQ.jpg"
   },
   {
     "tvtimeUuid": "1f5a284a-cd0b-492a-bdd1-a10779fc4d6c",
@@ -1715,7 +2033,9 @@
     "runtimeMinutes": 108,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 9836,
+    "posterPath": "/za41IHkj6LnkilfTzv5B2qmthKD.jpg"
   },
   {
     "tvtimeUuid": "5a432bdc-e493-410b-bee8-af93095c6fcf",
@@ -1725,7 +2045,9 @@
     "releaseDate": "0001-01-01",
     "watchedDates": [
       "2019-10-11"
-    ]
+    ],
+    "tmdbId": 672,
+    "posterPath": "/sdEOH0992YZ0QSxgXNIGLq1ToUi.jpg"
   },
   {
     "tvtimeUuid": "f00f5dda-cebe-496e-b43b-3dbcb2953dee",
@@ -1735,7 +2057,9 @@
     "releaseDate": "2010-11-15",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 12444,
+    "posterPath": "/iGoXIpQb7Pot00EEdwpwPajheZ5.jpg"
   },
   {
     "tvtimeUuid": "2c41a188-b550-44be-bb6b-c0d1c9604744",
@@ -1745,7 +2069,9 @@
     "releaseDate": "2011-07-15",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 12445,
+    "posterPath": "/c54HpQmuwXjHq2C9wmoACjxoom3.jpg"
   },
   {
     "tvtimeUuid": "fba77bbb-092b-4d99-a68a-af6a70f284e8",
@@ -1756,7 +2082,9 @@
     "runtimeMinutes": 157,
     "watchedDates": [
       "2021-12-19"
-    ]
+    ],
+    "tmdbId": 674,
+    "posterPath": "/fECBtHlr0RB3foNHDiCBXeg9Bv9.jpg"
   },
   {
     "tvtimeUuid": "0c7c7acc-d9c2-41b2-a855-42cf8c91a9e9",
@@ -1766,7 +2094,9 @@
     "releaseDate": "2009-01-08",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 767,
+    "posterPath": "/z7uo9zmQdQwU5ZJHFpv2Upl30i1.jpg"
   },
   {
     "tvtimeUuid": "8acdf7f7-88d1-4e10-92d5-296f7b64c50e",
@@ -1776,7 +2106,9 @@
     "releaseDate": "2007-07-08",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 675,
+    "posterPath": "/5aOyriWkPec0zUDxmHFP9qMmBaj.jpg"
   },
   {
     "tvtimeUuid": "14f33354-bc8d-498c-88c7-942e6d0bddee",
@@ -1787,7 +2119,9 @@
     "runtimeMinutes": 152,
     "watchedDates": [
       "2021-12-19"
-    ]
+    ],
+    "tmdbId": 671,
+    "posterPath": "/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg"
   },
   {
     "tvtimeUuid": "dfe92d1c-0125-4f6d-a9d3-35443b5a9aac",
@@ -1797,7 +2131,9 @@
     "releaseDate": "0001-01-01",
     "watchedDates": [
       "2019-10-11"
-    ]
+    ],
+    "tmdbId": 673,
+    "posterPath": "/aWxwnYoe8p2d2fcxOqtvAtJ72Rw.jpg"
   },
   {
     "tvtimeUuid": "69eac434-2b1f-48af-ab17-f4d89e0e254d",
@@ -1808,7 +2144,9 @@
     "runtimeMinutes": 126,
     "watchedDates": [
       "2023-10-16"
-    ]
+    ],
+    "tmdbId": 152601,
+    "posterPath": "/eCOtqtfvn7mxGl6nfmq4b1exJRc.jpg"
   },
   {
     "tvtimeUuid": "83d359cb-11a1-4116-947a-ba4e31eecf04",
@@ -1819,7 +2157,9 @@
     "runtimeMinutes": 101,
     "watchedDates": [
       "2025-11-04"
-    ]
+    ],
+    "tmdbId": 11451,
+    "posterPath": "/7lTfTZ8CDfXw09eAv3OOvsbCVgs.jpg"
   },
   {
     "tvtimeUuid": "86709f4d-8fd4-49b6-912c-73dc657680dd",
@@ -1829,7 +2169,9 @@
     "releaseDate": "2018-06-08",
     "watchedDates": [
       "2021-01-02"
-    ]
+    ],
+    "tmdbId": 493922,
+    "posterPath": "/4GFPuL14eXi66V96xBWY73Y9PfR.jpg"
   },
   {
     "tvtimeUuid": "cf41ad4c-4dd9-4d0e-8496-c58953a0dfa0",
@@ -1840,7 +2182,9 @@
     "runtimeMinutes": 98,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 10947,
+    "posterPath": "/1DGmWZjUJPeKGFRHGCA6VPFUBML.jpg"
   },
   {
     "tvtimeUuid": "5bc9a9e1-00de-4c23-b1b4-d7904cdbdaf6",
@@ -1851,7 +2195,9 @@
     "runtimeMinutes": 116,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 11887,
+    "posterPath": "/aq2o1wT0crBOTxof36O6KTyjpgE.jpg"
   },
   {
     "tvtimeUuid": "9df990aa-d334-4510-82d7-c30450b86d49",
@@ -1862,7 +2208,9 @@
     "runtimeMinutes": 96,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 10439,
+    "posterPath": "/by4D4Q9NlUjFSEUA1yrxq6ksXmk.jpg"
   },
   {
     "tvtimeUuid": "6e434013-35a0-4be5-b1a1-9aa17fe5a0cd",
@@ -1873,7 +2221,9 @@
     "runtimeMinutes": 76,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 13700,
+    "posterPath": "/cgKnkbO3fNWwKc9qLyLYdeZQ9Vj.jpg"
   },
   {
     "tvtimeUuid": "e6847492-b156-4348-97d0-a95b63722595",
@@ -1884,7 +2234,9 @@
     "runtimeMinutes": 88,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 12222,
+    "posterPath": "/6k47Z3A5zI2rxubTMwiLyIqQLLr.jpg"
   },
   {
     "tvtimeUuid": "8bbae3e2-0695-4c64-8951-1379f2473fb2",
@@ -1895,7 +2247,9 @@
     "runtimeMinutes": 135,
     "watchedDates": [
       "2025-02-17"
-    ]
+    ],
+    "tmdbId": 23048,
+    "posterPath": "/wjzbVXAes1acbh6k4OO5xVfy5.jpg"
   },
   {
     "tvtimeUuid": "85447af1-ac34-476c-b5f6-411bb9d7c110",
@@ -1906,7 +2260,9 @@
     "runtimeMinutes": 91,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 76492,
+    "posterPath": "/eJGvzGrsfe2sqTUPv5IwLWXjVuR.jpg"
   },
   {
     "tvtimeUuid": "388c09cf-4e0f-4c2a-9b6f-fb1a998af246",
@@ -1917,7 +2273,9 @@
     "runtimeMinutes": 97,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 400155,
+    "posterPath": "/lzE5BwGQea1nek7TPXUuC5AZ6rq.jpg"
   },
   {
     "tvtimeUuid": "42ae8f98-cf31-44b3-b903-d1e8f057ac38",
@@ -1928,7 +2286,9 @@
     "runtimeMinutes": 88,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 585083,
+    "posterPath": "/teCy1egGQa0y8ULJvlrDHQKnxBL.jpg"
   },
   {
     "tvtimeUuid": "d29cd996-9e21-426f-a265-809c968c51a2",
@@ -1939,7 +2299,9 @@
     "runtimeMinutes": 98,
     "watchedDates": [
       "2024-05-23"
-    ]
+    ],
+    "tmdbId": 1075175,
+    "posterPath": "/yQyoFCBLGJH5HXESmJAzaiXw9zU.jpg"
   },
   {
     "tvtimeUuid": "1f0f3d13-b7e2-4842-b079-76d83b7e22d0",
@@ -1950,7 +2312,9 @@
     "runtimeMinutes": 100,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 10191,
+    "posterPath": "/ygGmAO60t8GyqUo9xYeYxSZAR3b.jpg"
   },
   {
     "tvtimeUuid": "b73936fb-4e59-4e5c-8a2c-abf301376ed8",
@@ -1961,7 +2325,9 @@
     "runtimeMinutes": 102,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 82702,
+    "posterPath": "/d13Uj86LdbDLrfDoHR5aDOFYyJC.jpg"
   },
   {
     "tvtimeUuid": "4cfff357-1a0c-4224-b974-70ea245b4bd1",
@@ -1972,7 +2338,9 @@
     "runtimeMinutes": 104,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 166428,
+    "posterPath": "/xvx4Yhf0DVH8G4LzNISpMfFBDy2.jpg"
   },
   {
     "tvtimeUuid": "3a8f936a-13f2-4186-8776-20046c8f6129",
@@ -1983,7 +2351,9 @@
     "runtimeMinutes": 138,
     "watchedDates": [
       "2021-12-18"
-    ]
+    ],
+    "tmdbId": 1927,
+    "posterPath": "/UllIft2jLSBaay3zQyMV4GNdfy.jpg"
   },
   {
     "tvtimeUuid": "892577e5-13de-45db-ad3b-be59bcb6df9b",
@@ -1994,7 +2364,9 @@
     "runtimeMinutes": 100,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 6479,
+    "posterPath": "/iPDkaSdKk2jRLTM65UOEoKtsIZ8.jpg"
   },
   {
     "tvtimeUuid": "6edd950b-bdd3-49a6-89ca-b4b50ff2272c",
@@ -2004,7 +2376,9 @@
     "releaseDate": "2021-02-19",
     "watchedDates": [
       "2021-02-22"
-    ]
+    ],
+    "tmdbId": 601666,
+    "posterPath": "/gKnhEsjNefpKnUdAkn7INzIFLSu.jpg"
   },
   {
     "tvtimeUuid": "7e86e6bd-3243-47e8-b259-eea4f6a0af30",
@@ -2015,7 +2389,9 @@
     "runtimeMinutes": 114,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 2048,
+    "posterPath": "/efwv6F2lGaghjPpBRSINHtoEiZB.jpg"
   },
   {
     "tvtimeUuid": "55294da6-56da-4d4f-bf85-7a33a4a3124f",
@@ -2026,7 +2402,9 @@
     "runtimeMinutes": 94,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 278154,
+    "posterPath": "/okF78W1AcXAenlYFE3vna9Uuqjp.jpg"
   },
   {
     "tvtimeUuid": "cb30b49e-cc43-41ac-8bf2-7a56e7d870f6",
@@ -2037,7 +2415,9 @@
     "runtimeMinutes": 88,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 57800,
+    "posterPath": "/dfp1BZF7FxbBUyzHvMOI9t8NWDD.jpg"
   },
   {
     "tvtimeUuid": "2f0e0702-f693-4adb-a0e0-1e175483cfae",
@@ -2048,7 +2428,9 @@
     "runtimeMinutes": 94,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 8355,
+    "posterPath": "/cXOLaxcNjNAYmEx1trZxOTKhK3Q.jpg"
   },
   {
     "tvtimeUuid": "78bdccb1-7291-4d79-a4b3-d4e4e198348a",
@@ -2059,7 +2441,9 @@
     "runtimeMinutes": 90,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 950,
+    "posterPath": "/8vNkkk4erLGDg3UfbmSHsTdSNcY.jpg"
   },
   {
     "tvtimeUuid": "ca08c84d-1d3a-411b-a207-1ffdcf985a12",
@@ -2070,7 +2454,9 @@
     "runtimeMinutes": 106,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 249164,
+    "posterPath": "/7Twh8h3Wh7GC9npTAEUThgkxkWL.jpg"
   },
   {
     "tvtimeUuid": "e4a52c43-8016-4a97-aa24-42ffc53712d0",
@@ -2081,7 +2467,9 @@
     "runtimeMinutes": 93,
     "watchedDates": [
       "2023-12-22"
-    ]
+    ],
+    "tmdbId": 1544,
+    "posterPath": "/a7CbxY3TMwFKX6awlBxhb7Es6tS.jpg"
   },
   {
     "tvtimeUuid": "6a6f89d9-af28-4db4-81aa-77face782698",
@@ -2089,7 +2477,9 @@
     "title": "Immaculate",
     "status": "watchlist",
     "releaseDate": "2024-03-20",
-    "runtimeMinutes": 89
+    "runtimeMinutes": 89,
+    "tmdbId": 1041613,
+    "posterPath": "/zyopv7D5j7cfswG0NYiA14qAdPC.jpg"
   },
   {
     "tvtimeUuid": "a93e8a04-dad7-40bb-8c02-9fc6352532c0",
@@ -2099,7 +2489,9 @@
     "releaseDate": "2009-08-21",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 16869,
+    "posterPath": "/aupnPtagH9JVBuMrGEanf4iqXEQ.jpg"
   },
   {
     "tvtimeUuid": "c388061b-6d59-4e12-a512-dc175dc6716e",
@@ -2110,7 +2502,9 @@
     "runtimeMinutes": 95,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 150540,
+    "posterPath": "/2H1TmgdfNtsKlU9jKdeNyYL5y8T.jpg"
   },
   {
     "tvtimeUuid": "4f262f66-0bae-4456-8b35-ffb351520fd9",
@@ -2121,7 +2515,9 @@
     "runtimeMinutes": 119,
     "watchedDates": [
       "2025-11-04"
-    ]
+    ],
+    "tmdbId": 262500,
+    "posterPath": "/dP5Fb6YRfzmCQtRbHOr2kO7tJW9.jpg"
   },
   {
     "tvtimeUuid": "bc1542c4-e72f-4dd4-bb80-2d89bd6c6199",
@@ -2132,7 +2528,9 @@
     "runtimeMinutes": 169,
     "watchedDates": [
       "2024-11-03"
-    ]
+    ],
+    "tmdbId": 157336,
+    "posterPath": "/yQvGrMoipbRoddT0ZR8tPoR7NfX.jpg"
   },
   {
     "tvtimeUuid": "19715abe-817e-424f-8caa-2d6f13165f2d",
@@ -2143,7 +2541,9 @@
     "runtimeMinutes": 126,
     "watchedDates": [
       "2021-12-18"
-    ]
+    ],
+    "tmdbId": 1726,
+    "posterPath": "/78lPtwv72eTNqFW9COBYI0dWDJa.jpg"
   },
   {
     "tvtimeUuid": "df9d8522-d060-4277-b7c2-addceadf8fe3",
@@ -2154,7 +2554,9 @@
     "runtimeMinutes": 124,
     "watchedDates": [
       "2021-12-18"
-    ]
+    ],
+    "tmdbId": 10138,
+    "posterPath": "/6WBeq4fCfn7AN0o21W9qNcRF2l9.jpg"
   },
   {
     "tvtimeUuid": "1d3702a3-2863-408a-bfd8-5c8d15b5e623",
@@ -2165,7 +2567,9 @@
     "runtimeMinutes": 131,
     "watchedDates": [
       "2021-12-18"
-    ]
+    ],
+    "tmdbId": 68721,
+    "posterPath": "/qhPtAc1TKbMPqNvcdXSOn9Bn7hZ.jpg"
   },
   {
     "tvtimeUuid": "fb158f35-6e8e-4693-bddc-2d35a26a889c",
@@ -2176,7 +2580,9 @@
     "runtimeMinutes": 150,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 346364,
+    "posterPath": "/9E2y5Q7WlCVNEhP5GiVTjhEhx1o.jpg"
   },
   {
     "tvtimeUuid": "445b0250-ca75-45fe-9618-b446d1220103",
@@ -2187,7 +2593,9 @@
     "runtimeMinutes": 124,
     "watchedDates": [
       "2025-11-04"
-    ]
+    ],
+    "tmdbId": 578,
+    "posterPath": "/lxM6kqilAdpdhqUl2biYp5frUxE.jpg"
   },
   {
     "tvtimeUuid": "0f5723b2-f687-4fa2-89bd-c27d9f895c0b",
@@ -2197,7 +2605,9 @@
     "releaseDate": "2019-11-08",
     "watchedDates": [
       "2020-12-21"
-    ]
+    ],
+    "tmdbId": 515001,
+    "posterPath": "/1mqL7VG4Ix8wmxwypmCA1HTHBky.jpg"
   },
   {
     "tvtimeUuid": "78a0d677-5e7e-423d-a0ab-b669754885f1",
@@ -2207,7 +2617,9 @@
     "releaseDate": "0001-01-01",
     "watchedDates": [
       "2019-10-23"
-    ]
+    ],
+    "tmdbId": 475557,
+    "posterPath": "/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg"
   },
   {
     "tvtimeUuid": "b5a09fd3-2558-4e3c-bb63-f33348beb1b5",
@@ -2218,7 +2630,9 @@
     "runtimeMinutes": 82,
     "watchedDates": [
       "2022-06-18"
-    ]
+    ],
+    "tmdbId": 548537,
+    "posterPath": "/30qBGPnBPBW8UfqQyuSwPn3KTuH.jpg"
   },
   {
     "tvtimeUuid": "831f05ea-de4a-44a8-8f28-83b208a05da1",
@@ -2229,7 +2643,9 @@
     "runtimeMinutes": 104,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 8844,
+    "posterPath": "/bdHG5Mo83VPobeZZdlSz0Y7HQHB.jpg"
   },
   {
     "tvtimeUuid": "797850f1-71cd-438d-bde2-345337afd417",
@@ -2240,7 +2656,9 @@
     "runtimeMinutes": 123,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 512200,
+    "posterPath": "/jyw8VKYEiM1UDzPB7NsisUgBeJ8.jpg"
   },
   {
     "tvtimeUuid": "578c78b0-6510-46ec-b741-3f685d4f53d8",
@@ -2251,7 +2669,9 @@
     "runtimeMinutes": 119,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 353486,
+    "posterPath": "/pSgXKPU5h6U89ipF7HBYajvYt7j.jpg"
   },
   {
     "tvtimeUuid": "1d82c0f1-0836-4dcc-a2d9-0bece745c471",
@@ -2262,7 +2682,9 @@
     "runtimeMinutes": 147,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 507086,
+    "posterPath": "/jbAvCACjLf1ZG0unB2tdmx5HAf1.jpg"
   },
   {
     "tvtimeUuid": "f677b664-1330-4a79-ab36-2f11a3d88d9f",
@@ -2273,7 +2695,9 @@
     "runtimeMinutes": 165,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 351286,
+    "posterPath": "/x2Us3jR6ToMJjbcPbLimYoxf6xr.jpg"
   },
   {
     "tvtimeUuid": "44872b66-533a-471d-a32c-dab181c9e3bd",
@@ -2284,7 +2708,9 @@
     "runtimeMinutes": 114,
     "watchedDates": [
       "2025-08-05"
-    ]
+    ],
+    "tmdbId": 1106739,
+    "posterPath": "/ugQkpGajKFQ8eyOEhGheR0HfWQ.jpg"
   },
   {
     "tvtimeUuid": "65184f50-6f7d-448c-a85c-53cf82a96f5b",
@@ -2295,7 +2721,9 @@
     "runtimeMinutes": 137,
     "watchedDates": [
       "2021-08-28"
-    ]
+    ],
+    "tmdbId": 522212,
+    "posterPath": "/2bDZl3PzFLFWe4gaFUQnnaslqT3.jpg"
   },
   {
     "tvtimeUuid": "8b24570f-e6b1-4271-9f74-f6ea0bedb1eb",
@@ -2306,7 +2734,9 @@
     "runtimeMinutes": 160,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 141052,
+    "posterPath": "/eifGNCSDuxJeS1loAXil5bIGgvC.jpg"
   },
   {
     "tvtimeUuid": "c5278a9a-77c8-483f-9806-93559e3902e7",
@@ -2316,7 +2746,9 @@
     "releaseDate": "2019-11-29",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 546554,
+    "posterPath": "/pThyQovXQrw2m0s9x82twj48Jq4.jpg"
   },
   {
     "tvtimeUuid": "6951ba96-2fda-4bea-abb8-22d4fb6b007a",
@@ -2324,7 +2756,9 @@
     "title": "Kronk's New Groove",
     "status": "watchlist",
     "releaseDate": "2005-12-05",
-    "runtimeMinutes": 72
+    "runtimeMinutes": 72,
+    "tmdbId": 13417,
+    "posterPath": "/kyMrt0RPVC8LDpdMrk1DjN6Gqdu.jpg"
   },
   {
     "tvtimeUuid": "29d4a9a1-6d12-4428-aae7-857194f69951",
@@ -2335,7 +2769,9 @@
     "runtimeMinutes": 95,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 9502,
+    "posterPath": "/wWt4JYXTg5Wr3xBW2phBrMKgp3x.jpg"
   },
   {
     "tvtimeUuid": "1498d90c-d706-4e1f-b351-c815fb774b46",
@@ -2346,7 +2782,9 @@
     "runtimeMinutes": 91,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 49444,
+    "posterPath": "/mtqqD00vB4PGRt20gWtGqFhrkd0.jpg"
   },
   {
     "tvtimeUuid": "af628224-1fd9-4c8f-a135-b723a9dd102d",
@@ -2357,7 +2795,9 @@
     "runtimeMinutes": 95,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 140300,
+    "posterPath": "/oajNi4Su39WAByHI6EONu8G8HYn.jpg"
   },
   {
     "tvtimeUuid": "6fa44b20-3fab-4bfe-9865-4737d35f98e5",
@@ -2368,7 +2808,9 @@
     "runtimeMinutes": 129,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 313369,
+    "posterPath": "/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg"
   },
   {
     "tvtimeUuid": "f7910fed-2e12-46a8-941c-4cdd5dc3241f",
@@ -2380,7 +2822,9 @@
     "watchedDates": [
       "2024-02-14"
     ],
-    "rating": 3.0
+    "rating": 3,
+    "tmdbId": 906126,
+    "posterPath": "/2e853FDVSIso600RqAMunPxiZjq.jpg"
   },
   {
     "tvtimeUuid": "36ce635e-6472-4036-a2b8-2d3be203a291",
@@ -2390,7 +2834,9 @@
     "releaseDate": "2013-10-25",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 152584,
+    "posterPath": "/kgUk1wti2cvrptIgUz0VTAtSF6w.jpg"
   },
   {
     "tvtimeUuid": "8057d93e-9f39-450a-96b6-461b1b14e652",
@@ -2401,7 +2847,9 @@
     "runtimeMinutes": 124,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 637,
+    "posterPath": "/74hLDKjD5aGYOotO6esUVaeISa2.jpg"
   },
   {
     "tvtimeUuid": "190ed64f-7fe4-4365-8114-545db2c98dcb",
@@ -2409,7 +2857,9 @@
     "title": "Lady and the Tramp II: Scamp's Adventure",
     "status": "watchlist",
     "releaseDate": "2001-02-18",
-    "runtimeMinutes": 69
+    "runtimeMinutes": 69,
+    "tmdbId": 18269,
+    "posterPath": "/nS3nhUZUSY8dWEsRmKILfiOC3F0.jpg"
   },
   {
     "tvtimeUuid": "efc04207-77a0-4922-9d05-1c2c026a3d68",
@@ -2420,7 +2870,9 @@
     "runtimeMinutes": 94,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 391713,
+    "posterPath": "/gl66K7zRdtNYGrxyS2YDUP5ASZd.jpg"
   },
   {
     "tvtimeUuid": "a5cb13d6-384d-46c8-9bde-1f7006f5cb1b",
@@ -2431,7 +2883,9 @@
     "runtimeMinutes": 96,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 8835,
+    "posterPath": "/9ohlMrJHQqKhfUKh7Zr3JQqHNLZ.jpg"
   },
   {
     "tvtimeUuid": "bfebae4f-05ec-4180-bac1-e8c335cc12d8",
@@ -2442,7 +2896,9 @@
     "runtimeMinutes": 105,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 37056,
+    "posterPath": "/y9DdvY1IRNS2hWLq161hmP2gXn.jpg"
   },
   {
     "tvtimeUuid": "ac6e70a2-410e-45d8-8a9b-0ca12e2e3209",
@@ -2453,7 +2909,9 @@
     "runtimeMinutes": 86,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 1624,
+    "posterPath": "/p1habYSdC7oD3WygQ5lynU5G5rV.jpg"
   },
   {
     "tvtimeUuid": "88b5eeea-84da-41a2-ae5a-3cec6ec49696",
@@ -2464,7 +2922,9 @@
     "runtimeMinutes": 127,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 87827,
+    "posterPath": "/iLgRu4hhSr6V1uManX6ukDriiSc.jpg"
   },
   {
     "tvtimeUuid": "15564438-52e5-458c-a160-d5f8e6107f75",
@@ -2472,7 +2932,9 @@
     "title": "Lilo & Stitch 2: Stitch has a Glitch",
     "status": "watchlist",
     "releaseDate": "2005-01-22",
-    "runtimeMinutes": 68
+    "runtimeMinutes": 68,
+    "tmdbId": 20760,
+    "posterPath": "/p2R4mhZcikWEBlqv80VfJ7M9xql.jpg"
   },
   {
     "tvtimeUuid": "c934e915-25ab-4114-90b7-189e37329c98",
@@ -2483,7 +2945,9 @@
     "runtimeMinutes": 106,
     "watchedDates": [
       "2025-06-14"
-    ]
+    ],
+    "tmdbId": 52345,
+    "posterPath": "/raCdo5Hjpd3uXbpSd1JZ7tEyE31.jpg"
   },
   {
     "tvtimeUuid": "1c7e689e-a973-4661-9c67-4b1752443bb6",
@@ -2493,7 +2957,9 @@
     "releaseDate": "2019-12-26",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 331482,
+    "posterPath": "/yn5ihODtZ7ofn8pDYfxCmxh8AXI.jpg"
   },
   {
     "tvtimeUuid": "895851b6-d9e1-49c6-b90d-7197d651a169",
@@ -2504,7 +2970,9 @@
     "runtimeMinutes": 137,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 263115,
+    "posterPath": "/fnbjcRDYn6YviCcePDnGdyAkYsB.jpg"
   },
   {
     "tvtimeUuid": "952ec25a-a758-42af-9dda-cf12b192e91a",
@@ -2515,7 +2983,9 @@
     "runtimeMinutes": 102,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 200727,
+    "posterPath": "/2HOd431LX9ggqSpBIJ7qyYhATyo.jpg"
   },
   {
     "tvtimeUuid": "732acc39-23f3-4836-9575-623bbc5a6a73",
@@ -2526,7 +2996,9 @@
     "runtimeMinutes": 110,
     "watchedDates": [
       "2024-03-05"
-    ]
+    ],
+    "tmdbId": 449176,
+    "posterPath": "/snIsqVPmlu4LPjvToHpDotxa7Eh.jpg"
   },
   {
     "tvtimeUuid": "ee9e1c25-1a69-4654-8781-9ab23ed62280",
@@ -2537,7 +3009,9 @@
     "runtimeMinutes": 96,
     "watchedDates": [
       "2021-07-04"
-    ]
+    ],
+    "tmdbId": 508943,
+    "posterPath": "/9x4i9uKGXt8IiiIF5Ey0DIoY738.jpg"
   },
   {
     "tvtimeUuid": "f5825b9a-1ce1-48c5-8f5f-924aa558ed18",
@@ -2548,7 +3022,9 @@
     "runtimeMinutes": 112,
     "watchedDates": [
       "2022-10-12"
-    ]
+    ],
+    "tmdbId": 799546,
+    "posterPath": "/e0vrbTmTf2ZcW5CIS9qJ8FDbsU9.jpg"
   },
   {
     "tvtimeUuid": "f45c70ab-45ef-4938-8ec1-883a5e8b6fda",
@@ -2559,7 +3035,9 @@
     "runtimeMinutes": 89,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 240832,
+    "posterPath": "/kRbpUTRNm6QbLQFPFWUcNC4czEm.jpg"
   },
   {
     "tvtimeUuid": "a8f9787d-4883-4974-a02b-6ac8337a7c5b",
@@ -2570,7 +3048,9 @@
     "runtimeMinutes": 86,
     "watchedDates": [
       "2025-11-04"
-    ]
+    ],
+    "tmdbId": 953,
+    "posterPath": "/zMpJY5CJKUufG9OTw0In4eAFqPX.jpg"
   },
   {
     "tvtimeUuid": "6fccd8ba-c7b8-4976-9a28-12901af4cf36",
@@ -2581,7 +3061,9 @@
     "runtimeMinutes": 93,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 80321,
+    "posterPath": "/ekraj4ksvIKeuvQVEevEJkuybZd.jpg"
   },
   {
     "tvtimeUuid": "14a63b04-c553-4e23-a9de-4fc8064176e9",
@@ -2592,7 +3074,9 @@
     "runtimeMinutes": 90,
     "watchedDates": [
       "2025-11-04"
-    ]
+    ],
+    "tmdbId": 10527,
+    "posterPath": "/agRbLOHgN46TQO4YdKR462iR7To.jpg"
   },
   {
     "tvtimeUuid": "8524d86e-11af-42b5-9637-1fa18664e218",
@@ -2603,7 +3087,9 @@
     "runtimeMinutes": 97,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 102651,
+    "posterPath": "/ik8PugpL41s137RAWEGTAWu0dPo.jpg"
   },
   {
     "tvtimeUuid": "60f98289-c78f-4047-b21f-fa6d851d3d38",
@@ -2614,7 +3100,9 @@
     "runtimeMinutes": 108,
     "watchedDates": [
       "2025-11-04"
-    ]
+    ],
+    "tmdbId": 11631,
+    "posterPath": "/zdUA4FNHbXPadzVOJiU0Rgn6cHR.jpg"
   },
   {
     "tvtimeUuid": "0cad1698-0ded-4b2c-8bdc-474d931253ab",
@@ -2625,7 +3113,9 @@
     "runtimeMinutes": 113,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 458423,
+    "posterPath": "/aWicerX4Y7n7tUwRAVHsVcBBpj2.jpg"
   },
   {
     "tvtimeUuid": "b8f1f0c6-a24a-4c54-9056-486061b0d972",
@@ -2636,7 +3126,9 @@
     "runtimeMinutes": 115,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 14306,
+    "posterPath": "/pnB6hjTKylb0Ve2nUWt16gzkErr.jpg"
   },
   {
     "tvtimeUuid": "b68743f8-2aeb-491c-a52b-bf39abd17eaa",
@@ -2646,7 +3138,9 @@
     "releaseDate": "2019-11-06",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 492188,
+    "posterPath": "/2JRyCKaRKyJAVpsIHeLvPw5nHmw.jpg"
   },
   {
     "tvtimeUuid": "757c7e80-7d9e-4531-96c1-6746e4ac8664",
@@ -2658,7 +3152,9 @@
     "watchedDates": [
       "2024-09-18"
     ],
-    "rating": 3.0
+    "rating": 3,
+    "tmdbId": 399366,
+    "posterPath": "/iX77zMSqUv2Qt7ToEnN2mmEudEf.jpg"
   },
   {
     "tvtimeUuid": "245c0945-742d-4a2a-8c6a-136985b2d3ec",
@@ -2669,7 +3165,9 @@
     "runtimeMinutes": 150,
     "watchedDates": [
       "2026-02-15"
-    ]
+    ],
+    "tmdbId": 1317288,
+    "posterPath": "/lYWEXbQgRTR4ZQleSXAgRbxAjvq.jpg"
   },
   {
     "tvtimeUuid": "2bbcc6f1-0e87-4462-8ce8-a6d3f98e1100",
@@ -2677,7 +3175,9 @@
     "title": "May December",
     "status": "watchlist",
     "releaseDate": "2024-03-21",
-    "runtimeMinutes": 113
+    "runtimeMinutes": 113,
+    "tmdbId": 839369,
+    "posterPath": "/zhV7B610l7hjlri4ywikJ18ONuq.jpg"
   },
   {
     "tvtimeUuid": "105874b9-943b-41e1-8dfb-0fc27110c083",
@@ -2687,7 +3187,9 @@
     "releaseDate": "2016-06-03",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 296096,
+    "posterPath": "/Ia3dzj5LnCj1ZBdlVeJrbKJQxG.jpg"
   },
   {
     "tvtimeUuid": "8b7b147b-9df0-49d1-9ab2-3f01f340c813",
@@ -2698,7 +3200,9 @@
     "runtimeMinutes": 112,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 10625,
+    "posterPath": "/2ZkuQXvVhh45uSvkBej4S7Ix1NJ.jpg"
   },
   {
     "tvtimeUuid": "faa8017e-dd43-4a14-8394-fd564d9a7640",
@@ -2709,7 +3213,9 @@
     "runtimeMinutes": 97,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 38055,
+    "posterPath": "/uZ9ytt3sPTx62XTfN56ILSuYWRe.jpg"
   },
   {
     "tvtimeUuid": "40a70e76-0eaf-4bba-86cc-d3171da44c8b",
@@ -2720,7 +3226,9 @@
     "runtimeMinutes": 16,
     "watchedDates": [
       "2025-11-04"
-    ]
+    ],
+    "tmdbId": 57718,
+    "posterPath": "/xHWPPDPvtUtLtzEPAKAut7QACxo.jpg"
   },
   {
     "tvtimeUuid": "9faef59c-80ec-4a57-866e-99ad2038a3ce",
@@ -2731,7 +3239,9 @@
     "runtimeMinutes": 98,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 607,
+    "posterPath": "/uLOmOF5IzWoyrgIF5MfUnh5pa1X.jpg"
   },
   {
     "tvtimeUuid": "2fab6ee7-c4fd-4b7b-8d75-b62f8c7d81a5",
@@ -2742,7 +3252,9 @@
     "runtimeMinutes": 135,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 41154,
+    "posterPath": "/90DdoEStzeObs96fsYf4GG544iN.jpg"
   },
   {
     "tvtimeUuid": "03a14169-0625-456c-a2ae-bbd063bc1baa",
@@ -2753,7 +3265,9 @@
     "runtimeMinutes": 88,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 608,
+    "posterPath": "/enA22EPyzc2WQ1VVyY7zxresQQr.jpg"
   },
   {
     "tvtimeUuid": "9ccb2445-ef51-4a54-91c3-8885df405746",
@@ -2764,7 +3278,9 @@
     "runtimeMinutes": 115,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 479455,
+    "posterPath": "/dPrUPFcgLfNbmDL8V69vcrTyEfb.jpg"
   },
   {
     "tvtimeUuid": "dcf9538d-96b8-4879-9c50-3fc96c27e727",
@@ -2774,7 +3290,9 @@
     "releaseDate": "2019-02-14",
     "watchedDates": [
       "2020-12-31"
-    ]
+    ],
+    "tmdbId": 569071,
+    "posterPath": "/pyoeEQKLhhypfmHmppIFk8wC6Xl.jpg"
   },
   {
     "tvtimeUuid": "f4553752-87ac-41ce-b929-9d1bb0741af7",
@@ -2785,7 +3303,9 @@
     "runtimeMinutes": 120,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 211672,
+    "posterPath": "/dr02BdCNAUPVU07aOodwPYv6HCf.jpg"
   },
   {
     "tvtimeUuid": "774f22bf-0182-41da-a8d6-9ada9697a1dd",
@@ -2796,7 +3316,9 @@
     "runtimeMinutes": 127,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 283366,
+    "posterPath": "/CIlbMFOfYDj0MP23hsIYhFGrL6.jpg"
   },
   {
     "tvtimeUuid": "a0831e7e-ed0d-459e-89ae-f72b389470b5",
@@ -2807,7 +3329,9 @@
     "runtimeMinutes": 107,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 277834,
+    "posterPath": "/m5MDZOIFEFlxGiLuAzWzFSsWcye.jpg"
   },
   {
     "tvtimeUuid": "ec6e370b-399f-48a6-836b-572e39f60903",
@@ -2818,7 +3342,9 @@
     "runtimeMinutes": 91,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 9297,
+    "posterPath": "/zCRPr4bkO3ae0U1134vJ39xZnAG.jpg"
   },
   {
     "tvtimeUuid": "225db875-0f01-4d6b-ae26-d6fe5b2d41d3",
@@ -2829,7 +3355,9 @@
     "runtimeMinutes": 103,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 62211,
+    "posterPath": "/y7thwJ7z5Bplv6vwl6RI0yteaDD.jpg"
   },
   {
     "tvtimeUuid": "9f972508-2dff-4a78-b854-fe9c8d2577ef",
@@ -2841,7 +3369,9 @@
     "watchedDates": [
       "2024-03-05"
     ],
-    "rating": 3.0
+    "rating": 3,
+    "tmdbId": 15512,
+    "posterPath": "/hpHarddVj34j53T7NsoUGdKj4mP.jpg"
   },
   {
     "tvtimeUuid": "50321201-f5ab-4896-96c3-a36cc5ba1b47",
@@ -2852,7 +3382,9 @@
     "runtimeMinutes": 92,
     "watchedDates": [
       "2024-03-05"
-    ]
+    ],
+    "tmdbId": 585,
+    "posterPath": "/wFSpyMsp7H0ttERbxY7Trlv8xry.jpg"
   },
   {
     "tvtimeUuid": "453f9a0e-1e98-4ba1-8e6a-2069b27087fe",
@@ -2862,7 +3394,9 @@
     "releaseDate": "2017-09-13",
     "watchedDates": [
       "2021-01-13"
-    ]
+    ],
+    "tmdbId": 381283,
+    "posterPath": "/fjny9chXPx69ln1LMJxbwi5yHMt.jpg"
   },
   {
     "tvtimeUuid": "9e5e9ef7-8976-4b8c-8cda-8d4aad85b20a",
@@ -2873,7 +3407,9 @@
     "runtimeMinutes": 88,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 10674,
+    "posterPath": "/jAbexAtB0aSfP5Ay4TpWHARyVnG.jpg"
   },
   {
     "tvtimeUuid": "6f1e718d-4acc-46d2-870c-82574625dce7",
@@ -2884,7 +3420,9 @@
     "runtimeMinutes": 79,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 12242,
+    "posterPath": "/mIHE3BKyAKG8ocRAoZuCQN1NTv9.jpg"
   },
   {
     "tvtimeUuid": "040f5db1-32a1-4d6b-874e-3d8779375bf8",
@@ -2895,7 +3433,9 @@
     "runtimeMinutes": 109,
     "watchedDates": [
       "2022-12-01"
-    ]
+    ],
+    "tmdbId": 10024,
+    "posterPath": "/atRGqnG7pe0hZP97RWDLrT2hRGZ.jpg"
   },
   {
     "tvtimeUuid": "b92eded2-8a9f-4f12-a85b-76a7f0ae368b",
@@ -2906,7 +3446,9 @@
     "runtimeMinutes": 138,
     "watchedDates": [
       "2022-02-04"
-    ]
+    ],
+    "tmdbId": 322,
+    "posterPath": "/hCHVDbo6XJGj3r2i4hVjKhE0GKF.jpg"
   },
   {
     "tvtimeUuid": "9909b5ef-3aed-4eb0-b069-4ef096f813d6",
@@ -2916,7 +3458,9 @@
     "releaseDate": "2007-04-24",
     "watchedDates": [
       "2021-03-28"
-    ]
+    ],
+    "tmdbId": 1738,
+    "posterPath": "/wtBOCJBCP0MWNjmBwjMAzbwgtTK.jpg"
   },
   {
     "tvtimeUuid": "3e97ce2d-262b-4c1f-8612-6617664e5778",
@@ -2927,7 +3471,9 @@
     "runtimeMinutes": 145,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 1593,
+    "posterPath": "/pDsAAYf6Zn0yiAGJ6lYGs6hoZ4E.jpg"
   },
   {
     "tvtimeUuid": "c2d0dc27-179f-4ed2-91fa-41001583756c",
@@ -2938,7 +3484,9 @@
     "runtimeMinutes": 98,
     "watchedDates": [
       "2025-11-04"
-    ]
+    ],
+    "tmdbId": 181533,
+    "posterPath": "/xwgy305K6qDs3D20xUO4OZu1HPY.jpg"
   },
   {
     "tvtimeUuid": "a7a2d2a7-83a5-41a9-aecc-99221cac5d84",
@@ -2949,7 +3497,9 @@
     "runtimeMinutes": 138,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 86834,
+    "posterPath": "/vVLkHabnF5lVpCpqyhZBI5iCYMA.jpg"
   },
   {
     "tvtimeUuid": "5ffe2103-5002-472b-b667-88c64d67f07c",
@@ -2960,7 +3510,9 @@
     "runtimeMinutes": 87,
     "watchedDates": [
       "2021-09-26"
-    ]
+    ],
+    "tmdbId": 800305,
+    "posterPath": "/h9onDM7U8KCv2nXQNCCayuGzt4z.jpg"
   },
   {
     "tvtimeUuid": "b7f5338c-6d23-4982-bcac-24ba6cf3ecca",
@@ -2971,7 +3523,9 @@
     "runtimeMinutes": 110,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 402900,
+    "posterPath": "/MvYpKlpFukTivnlBhizGbkAe3v.jpg"
   },
   {
     "tvtimeUuid": "64a608a4-fe51-4c50-8f52-3f0049721669",
@@ -2982,7 +3536,9 @@
     "runtimeMinutes": 162,
     "watchedDates": [
       "2025-11-04"
-    ]
+    ],
+    "tmdbId": 1054867,
+    "posterPath": "/lbBWwxBht4JFP5PsuJ5onpMqugW.jpg"
   },
   {
     "tvtimeUuid": "23cbb3d9-91e5-4f0c-9d23-db249edc7ba3",
@@ -2993,7 +3549,9 @@
     "runtimeMinutes": 107,
     "watchedDates": [
       "2023-12-02"
-    ]
+    ],
+    "tmdbId": 51828,
+    "posterPath": "/n9jMwSg4IavdD8wqdYnyW5w3Mvp.jpg"
   },
   {
     "tvtimeUuid": "784b2d31-5def-4e7a-9eb1-2e02f8e263ae",
@@ -3004,7 +3562,9 @@
     "runtimeMinutes": 83,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 7484,
+    "posterPath": "/w5Lctmkc1yah215Luxmci4djaiW.jpg"
   },
   {
     "tvtimeUuid": "9adb5ec5-a5c7-4cc8-8b10-b69f8944bfbf",
@@ -3015,7 +3575,9 @@
     "runtimeMinutes": 189,
     "watchedDates": [
       "2025-10-19"
-    ]
+    ],
+    "tmdbId": 872585,
+    "posterPath": "/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
   },
   {
     "tvtimeUuid": "8223af5f-e0ab-4d1e-95e2-08323fc0cafb",
@@ -3026,7 +3588,9 @@
     "runtimeMinutes": 83,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 7518,
+    "posterPath": "/jtZnymorbnHY7mOiBXR14ZDJseM.jpg"
   },
   {
     "tvtimeUuid": "e33e6e56-b272-489a-822b-b12df66fa6d6",
@@ -3037,7 +3601,9 @@
     "runtimeMinutes": 130,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 286565,
+    "posterPath": "/lVW67w7eWwmBhbBCc4f983pO8m6.jpg"
   },
   {
     "tvtimeUuid": "3d7fc63e-c360-48cd-8ba9-01786ce76809",
@@ -3048,7 +3614,9 @@
     "runtimeMinutes": 116,
     "watchedDates": [
       "2022-02-18"
-    ]
+    ],
+    "tmdbId": 274870,
+    "posterPath": "/jK9S6HANSf2no64v1x1HxfcpmcA.jpg"
   },
   {
     "tvtimeUuid": "87ccba5d-e3b7-4382-a024-7221d7e5012f",
@@ -3059,7 +3627,9 @@
     "runtimeMinutes": 106,
     "watchedDates": [
       "2025-04-21"
-    ]
+    ],
+    "tmdbId": 666277,
+    "posterPath": "/k3waqVXSnvCZWfJYNtdamTgTtTA.jpg"
   },
   {
     "tvtimeUuid": "e61d6466-d456-43e8-bc3f-bcdfcc54269e",
@@ -3070,7 +3640,9 @@
     "runtimeMinutes": 145,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 76285,
+    "posterPath": "/tAu90qEpLqwqiZLsMqpaMVr55oN.jpg"
   },
   {
     "tvtimeUuid": "abf88efb-3cc4-4663-8dd3-1ffb8a7deb56",
@@ -3081,7 +3653,9 @@
     "runtimeMinutes": 77,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 10693,
+    "posterPath": "/fJJOs1iyrhKfZceANxoPxPwNGF1.jpg"
   },
   {
     "tvtimeUuid": "23fe7981-971b-43fc-abb8-2ec3aa731c0a",
@@ -3092,7 +3666,9 @@
     "watchedDates": [
       "2021-01-08"
     ],
-    "rating": 3.0
+    "rating": 3,
+    "tmdbId": 641662,
+    "posterPath": "/OgUfLlhfBFx5BPK6LzBWFvBW1w.jpg"
   },
   {
     "tvtimeUuid": "b73b013d-3616-4037-b8a2-2a86365513ef",
@@ -3103,7 +3679,9 @@
     "runtimeMinutes": 95,
     "watchedDates": [
       "2023-08-29"
-    ]
+    ],
+    "tmdbId": 12104,
+    "posterPath": "/aElHyIdF5jmctFGhlhhaPFsbBJC.jpg"
   },
   {
     "tvtimeUuid": "5e836eeb-9254-4a3b-addd-71bc366669e4",
@@ -3114,7 +3692,9 @@
     "runtimeMinutes": 169,
     "watchedDates": [
       "2025-11-04"
-    ]
+    ],
+    "tmdbId": 285,
+    "posterPath": "/jGWpG4YhpQwVmjyHEGkxEkeRf0S.jpg"
   },
   {
     "tvtimeUuid": "8b9f98b4-5ad6-4aed-b2d5-82f478dcd822",
@@ -3125,7 +3705,9 @@
     "runtimeMinutes": 151,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 58,
+    "posterPath": "/uXEqmloGyP7UXAiphJUu2v2pcuE.jpg"
   },
   {
     "tvtimeUuid": "22e5ea55-f522-415a-a870-66b3b4d3c4ae",
@@ -3136,7 +3718,9 @@
     "runtimeMinutes": 129,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 166426,
+    "posterPath": "/6lAPOAFYFWIO3SQRemEY2wInQMC.jpg"
   },
   {
     "tvtimeUuid": "5473ee4e-f9e9-4fd0-bfb4-05f463451ef9",
@@ -3147,7 +3731,9 @@
     "runtimeMinutes": 137,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 1865,
+    "posterPath": "/keGfSvCmYj7CvdRx36OdVrAEibE.jpg"
   },
   {
     "tvtimeUuid": "1dea4512-dc40-478f-967e-4268b9cd150e",
@@ -3157,7 +3743,9 @@
     "releaseDate": "2003-08-13",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 22,
+    "posterPath": "/poHwCZeWzJCShH7tOjg8RIoyjcw.jpg"
   },
   {
     "tvtimeUuid": "6327ee69-42b4-4006-8069-ab25f9d71364",
@@ -3168,7 +3756,9 @@
     "runtimeMinutes": 121,
     "watchedDates": [
       "2024-03-05"
-    ]
+    ],
+    "tmdbId": 531428,
+    "posterPath": "/rUDuOKpkKBHxx41BScqKej72iT3.jpg"
   },
   {
     "tvtimeUuid": "d276c15c-9f60-4c17-8ae2-826753a112d6",
@@ -3179,7 +3769,9 @@
     "runtimeMinutes": 119,
     "watchedDates": [
       "2024-03-05"
-    ]
+    ],
+    "tmdbId": 114,
+    "posterPath": "/hVHUfT801LQATGd26VPzhorIYza.jpg"
   },
   {
     "tvtimeUuid": "0bb12645-2313-4567-878d-6df4fbd8c910",
@@ -3190,7 +3782,9 @@
     "runtimeMinutes": 89,
     "watchedDates": [
       "2024-03-05"
-    ]
+    ],
+    "tmdbId": 19458,
+    "posterPath": "/tPKD9hmuYxclAQnfup47qLx8a5T.jpg"
   },
   {
     "tvtimeUuid": "af75e741-ed72-4ba6-9fdd-325658ac64e0",
@@ -3201,7 +3795,9 @@
     "runtimeMinutes": 113,
     "watchedDates": [
       "2021-07-25"
-    ]
+    ],
+    "tmdbId": 582014,
+    "posterPath": "/73QoFJFmUrJfDG2EynFjNc5gJxk.jpg"
   },
   {
     "tvtimeUuid": "927d1c54-aa30-48fa-964e-01170d2077cd",
@@ -3212,7 +3808,9 @@
     "runtimeMinutes": 154,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 680,
+    "posterPath": "/vQWk5YBFWF4bZaofAbv0tShwBvQ.jpg"
   },
   {
     "tvtimeUuid": "41282ce3-43fe-4367-985d-cb7b50ccfc60",
@@ -3223,7 +3821,9 @@
     "runtimeMinutes": 122,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 762975,
+    "posterPath": "/4JyNWkryifWbWXJyxcWh3pVya6N.jpg"
   },
   {
     "tvtimeUuid": "e598e977-8fe6-4e0d-8def-da1537e82549",
@@ -3234,7 +3834,9 @@
     "runtimeMinutes": 90,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 417859,
+    "posterPath": "/7a5Jzjr9TmffGy76y1SZhn3sCiz.jpg"
   },
   {
     "tvtimeUuid": "cc2fded5-c97f-4a7f-a269-8e72a904c9a2",
@@ -3245,7 +3847,9 @@
     "runtimeMinutes": 101,
     "watchedDates": [
       "2021-07-22"
-    ]
+    ],
+    "tmdbId": 728118,
+    "posterPath": "/eQy2Tgvmx0FkK8vMMqMW4aX5UXQ.jpg"
   },
   {
     "tvtimeUuid": "887200f2-0222-477b-b43d-52e8e2fb127f",
@@ -3255,7 +3859,9 @@
     "releaseDate": "2018-09-26",
     "watchedDates": [
       "2021-01-27"
-    ]
+    ],
+    "tmdbId": 517987,
+    "posterPath": "/letzgJyVmYYahcYNCYhzn75TyyE.jpg"
   },
   {
     "tvtimeUuid": "160ed8e8-2949-4eeb-adea-b7e01813e6b4",
@@ -3266,7 +3872,9 @@
     "runtimeMinutes": 112,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 404368,
+    "posterPath": "/iVCrhBcpDaHGvv7CLYbK6PuXZo1.jpg"
   },
   {
     "tvtimeUuid": "4d8fdadb-a0f0-4390-92e8-e234527286f6",
@@ -3274,7 +3882,9 @@
     "title": "Rampage",
     "status": "watchlist",
     "releaseDate": "2018-04-13",
-    "runtimeMinutes": 107
+    "runtimeMinutes": 107,
+    "tmdbId": 427641,
+    "posterPath": "/MGADip4thVSErP34FAAfzFBTZ5.jpg"
   },
   {
     "tvtimeUuid": "1533de7a-b620-4ce2-a72e-5f15ef96478d",
@@ -3285,7 +3895,9 @@
     "runtimeMinutes": 111,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 2062,
+    "posterPath": "/t3vaWRPSf6WjDSamIkKDs1iQWna.jpg"
   },
   {
     "tvtimeUuid": "d55e956e-20f4-4d9f-9bb2-186d2e999cd2",
@@ -3296,7 +3908,9 @@
     "runtimeMinutes": 135,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 1892,
+    "posterPath": "/jQYlydvHm3kUix1f8prMucrplhm.jpg"
   },
   {
     "tvtimeUuid": "c6d780c7-537d-4328-9f6f-4f432b975906",
@@ -3307,7 +3921,9 @@
     "runtimeMinutes": 95,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 46195,
+    "posterPath": "/4nJxhUknKV8Gqdhov8pU1YWDYfb.jpg"
   },
   {
     "tvtimeUuid": "75e0cdd2-b83e-4a9e-91f6-56157cfb72d3",
@@ -3318,7 +3934,9 @@
     "runtimeMinutes": 101,
     "watchedDates": [
       "2025-11-04"
-    ]
+    ],
+    "tmdbId": 172385,
+    "posterPath": "/gVNTBrjxh2YRmQFjlaqrNbHVvrd.jpg"
   },
   {
     "tvtimeUuid": "6e76fb73-0ea4-41ff-9350-2ed233a95980",
@@ -3329,7 +3947,9 @@
     "runtimeMinutes": 97,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 81188,
+    "posterPath": "/yfzmfWGjcmyugH6FZ13WcsUGiNj.jpg"
   },
   {
     "tvtimeUuid": "34a3e2ed-e29b-4221-9d2b-c5b2383061cf",
@@ -3340,7 +3960,9 @@
     "runtimeMinutes": 150,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 61791,
+    "posterPath": "/oqA45qMyyo1TtrnVEBKxqmTPhbN.jpg"
   },
   {
     "tvtimeUuid": "554efc3f-2640-45f2-8fd3-41fe03118f32",
@@ -3351,7 +3973,9 @@
     "runtimeMinutes": 133,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 330459,
+    "posterPath": "/i0yw1mFbB7sNGHCs7EXZPzFkdA1.jpg"
   },
   {
     "tvtimeUuid": "7d6c8570-5bd9-41a9-8599-1eef2b2874fc",
@@ -3362,7 +3986,9 @@
     "runtimeMinutes": 118,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 264644,
+    "posterPath": "/2hHDMeYyZjbGWn0BeNH1cTMxuM7.jpg"
   },
   {
     "tvtimeUuid": "e85a38f3-0e47-4f4d-8f88-bfb7c56370ed",
@@ -3372,7 +3998,9 @@
     "releaseDate": "1968-06-12",
     "watchedDates": [
       "2021-01-02"
-    ]
+    ],
+    "tmdbId": 805,
+    "posterPath": "/uYgvlHceRFjAFbsNeMInYcLZLUb.jpg"
   },
   {
     "tvtimeUuid": "9c762ea5-e166-441d-ab74-b050728d6021",
@@ -3382,7 +4010,9 @@
     "releaseDate": "2021-04-02",
     "watchedDates": [
       "2021-04-02"
-    ]
+    ],
+    "tmdbId": 546121,
+    "posterPath": "/ilHG4EayOVoYeKqslspY3pR4wzC.jpg"
   },
   {
     "tvtimeUuid": "328b2156-1ef6-4707-9471-79a669f2b28e",
@@ -3393,7 +4023,9 @@
     "runtimeMinutes": 112,
     "watchedDates": [
       "2025-06-14"
-    ]
+    ],
+    "tmdbId": 64397,
+    "posterPath": "/oIiIV61Q2x7vE62sE1TyNGxraT2.jpg"
   },
   {
     "tvtimeUuid": "dafa4b7a-49da-4e0c-9a19-0c8ba2ce0e91",
@@ -3404,7 +4036,9 @@
     "runtimeMinutes": 91,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 19316,
+    "posterPath": "/7XbbgkKi4nEMOu9iwiANXpjKKhe.jpg"
   },
   {
     "tvtimeUuid": "026f4082-af75-46d9-9b2a-b44bbab71cbf",
@@ -3415,7 +4049,9 @@
     "runtimeMinutes": 195,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 424,
+    "posterPath": "/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg"
   },
   {
     "tvtimeUuid": "7acb2963-aec2-46d3-a00a-0a32ce895c67",
@@ -3426,7 +4062,9 @@
     "runtimeMinutes": 86,
     "watchedDates": [
       "2025-11-04"
-    ]
+    ],
+    "tmdbId": 9637,
+    "posterPath": "/mTAiBJGg8mqEfnYHHbi37ZoRSZm.jpg"
   },
   {
     "tvtimeUuid": "79b187e2-808b-48e9-9963-d79c3f3a5406",
@@ -3437,7 +4075,9 @@
     "runtimeMinutes": 123,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 11321,
+    "posterPath": "/85zUipgVy2QbvAJ6djZXYaGckMv.jpg"
   },
   {
     "tvtimeUuid": "cd4489c7-5da3-4fd7-b8a1-47ee17bf7fc7",
@@ -3448,7 +4088,9 @@
     "runtimeMinutes": 132,
     "watchedDates": [
       "2021-11-16"
-    ]
+    ],
+    "tmdbId": 566525,
+    "posterPath": "/9f2Q0U3IOsLgrI2HkvldwSABZy5.jpg"
   },
   {
     "tvtimeUuid": "bbab1b9f-ec09-4a02-bfcb-82631c25aa98",
@@ -3459,7 +4101,9 @@
     "runtimeMinutes": 90,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 10555,
+    "posterPath": "/r08DpyPyhXcJTfNZAICNGMzcQ8l.jpg"
   },
   {
     "tvtimeUuid": "69d81cdc-d04a-4eaa-8cd8-fdaae4954260",
@@ -3467,7 +4111,9 @@
     "title": "Shazam!",
     "status": "watchlist",
     "releaseDate": "2019-04-04",
-    "runtimeMinutes": 132
+    "runtimeMinutes": 132,
+    "tmdbId": 287947,
+    "posterPath": "/xnopI5Xtky18MPhK40cZAGAOVeV.jpg"
   },
   {
     "tvtimeUuid": "4fb924c3-34ee-489d-9319-1a759454ac14",
@@ -3478,7 +4124,9 @@
     "runtimeMinutes": 77,
     "watchedDates": [
       "2023-12-22"
-    ]
+    ],
+    "tmdbId": 664300,
+    "posterPath": "/4sdqVsT6SHqtbCYZS7bhVoEftlL.jpg"
   },
   {
     "tvtimeUuid": "e0067488-637e-44fe-8192-1969e9773dd3",
@@ -3489,7 +4137,9 @@
     "runtimeMinutes": 90,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 808,
+    "posterPath": "/iB64vpL3dIObOtMZgX3RqdVdQDc.jpg"
   },
   {
     "tvtimeUuid": "4f0137c0-0c6b-41a5-a0ad-5309fdf617c1",
@@ -3500,7 +4150,9 @@
     "runtimeMinutes": 93,
     "watchedDates": [
       "2024-03-05"
-    ]
+    ],
+    "tmdbId": 809,
+    "posterPath": "/2yYP0PQjG8zVqturh1BAqu2Tixl.jpg"
   },
   {
     "tvtimeUuid": "141eb0dd-4512-4b24-9330-5c37a649679b",
@@ -3511,7 +4163,9 @@
     "runtimeMinutes": 95,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 10192,
+    "posterPath": "/6HrfPZtKcGmX2tUWW3cnciZTaSD.jpg"
   },
   {
     "tvtimeUuid": "ccb08e41-8205-47dc-87fa-899b860dc28c",
@@ -3522,7 +4176,9 @@
     "runtimeMinutes": 94,
     "watchedDates": [
       "2024-03-05"
-    ]
+    ],
+    "tmdbId": 810,
+    "posterPath": "/n4SexGGQzI26E269tfpa80MZaGV.jpg"
   },
   {
     "tvtimeUuid": "03fadba8-2f36-4b7f-89a5-9dcfa83c8c2a",
@@ -3533,7 +4189,9 @@
     "runtimeMinutes": 121,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 82693,
+    "posterPath": "/fhHB1uvfFKKFbj6bTKE8xdtsjKi.jpg"
   },
   {
     "tvtimeUuid": "a1f90731-6955-447d-9181-b2698ab16d19",
@@ -3544,7 +4202,9 @@
     "runtimeMinutes": 108,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 335797,
+    "posterPath": "/rwopfpHqPCYBSgBuZwkaXXqHp14.jpg"
   },
   {
     "tvtimeUuid": "ff46daba-4be9-440c-aabc-eae7bb69bdd5",
@@ -3555,7 +4215,9 @@
     "runtimeMinutes": 170,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 58595,
+    "posterPath": "/8HUa5kRubYbnAD5UVpnhTGGgMTW.jpg"
   },
   {
     "tvtimeUuid": "74c850ec-0aa3-442d-8b40-f2c185052e47",
@@ -3566,7 +4228,9 @@
     "runtimeMinutes": 93,
     "watchedDates": [
       "2023-07-21"
-    ]
+    ],
+    "tmdbId": 45612,
+    "posterPath": "/nTr0lvAzeQmUjgSgDEHTJpnrxTz.jpg"
   },
   {
     "tvtimeUuid": "57c5d108-710a-43fd-947b-a915b454a21f",
@@ -3577,7 +4241,9 @@
     "runtimeMinutes": 101,
     "watchedDates": [
       "2024-06-11"
-    ]
+    ],
+    "tmdbId": 1001311,
+    "posterPath": "/qZPLK5ktRKa3CL4sKRZtj8UlPYc.jpg"
   },
   {
     "tvtimeUuid": "c3b9ff21-e292-4039-8c6a-7fc9a246e825",
@@ -3588,7 +4254,9 @@
     "runtimeMinutes": 111,
     "watchedDates": [
       "2022-01-16"
-    ]
+    ],
+    "tmdbId": 716612,
+    "posterPath": "/7GcqdBKaMM9BWXWN07BirBMkcBF.jpg"
   },
   {
     "tvtimeUuid": "de398a3d-5f4d-4121-85a8-047242dd846e",
@@ -3599,7 +4267,9 @@
     "runtimeMinutes": 121,
     "watchedDates": [
       "2021-12-18"
-    ]
+    ],
+    "tmdbId": 557,
+    "posterPath": "/nXdAh5vUwERL4WGVMaee8RoDEAS.jpg"
   },
   {
     "tvtimeUuid": "63bcc9d5-b150-456e-96e6-6ea9ab042bcc",
@@ -3610,7 +4280,9 @@
     "runtimeMinutes": 127,
     "watchedDates": [
       "2021-12-18"
-    ]
+    ],
+    "tmdbId": 558,
+    "posterPath": "/aGuvNAaaZuWXYQQ6N2v7DeuP6mB.jpg"
   },
   {
     "tvtimeUuid": "37a25045-d72e-4c7f-9400-19dcf8eb8b6c",
@@ -3621,7 +4293,9 @@
     "runtimeMinutes": 139,
     "watchedDates": [
       "2021-12-18"
-    ]
+    ],
+    "tmdbId": 559,
+    "posterPath": "/qFmwhVUoUSXjkKRmca5yGDEXBIj.jpg"
   },
   {
     "tvtimeUuid": "ea2c6fa3-053f-4cc3-b34c-9bcf519b695f",
@@ -3632,7 +4306,9 @@
     "runtimeMinutes": 129,
     "watchedDates": [
       "2021-12-18"
-    ]
+    ],
+    "tmdbId": 429617,
+    "posterPath": "/4q2NNj4S5dG2RLF9CpXsej7yXl.jpg"
   },
   {
     "tvtimeUuid": "d3ff6d88-18ba-4c55-9d6e-e00b4d3f956e",
@@ -3643,7 +4319,9 @@
     "runtimeMinutes": 133,
     "watchedDates": [
       "2021-12-18"
-    ]
+    ],
+    "tmdbId": 315635,
+    "posterPath": "/c24sv2weTHPsmDa7jEMN0m2P3RT.jpg"
   },
   {
     "tvtimeUuid": "11bf414d-8d46-4ac0-81ff-06fb65451823",
@@ -3653,7 +4331,9 @@
     "releaseDate": "2018-12-14",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 324857,
+    "posterPath": "/iiZZdoQBEYBv6id8su7ImL0oCbD.jpg"
   },
   {
     "tvtimeUuid": "758d716d-5a34-4c48-8a79-4fa2416e2a91",
@@ -3663,7 +4343,9 @@
     "releaseDate": "2021-12-16",
     "watchedDates": [
       "2021-12-18"
-    ]
+    ],
+    "tmdbId": 634649,
+    "posterPath": "/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
   },
   {
     "tvtimeUuid": "06dc7623-9f63-4864-bb1d-555318d184b0",
@@ -3674,7 +4356,9 @@
     "runtimeMinutes": 117,
     "watchedDates": [
       "2023-03-18"
-    ]
+    ],
+    "tmdbId": 381288,
+    "posterPath": "/lli31lYTFpvxVBeFHWoe5PMfW5s.jpg"
   },
   {
     "tvtimeUuid": "9329597a-693d-4df9-8855-f524e347fd92",
@@ -3685,7 +4369,9 @@
     "runtimeMinutes": 121,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 11,
+    "posterPath": "/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg"
   },
   {
     "tvtimeUuid": "8727b86b-59cd-437b-89a7-40d2003155df",
@@ -3696,7 +4382,9 @@
     "runtimeMinutes": 136,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 1893,
+    "posterPath": "/6wkfovpn7Eq8dYNKaG5PY3q2oq6.jpg"
   },
   {
     "tvtimeUuid": "8fc65596-1cfd-4fe1-a263-370f2c426f81",
@@ -3707,7 +4395,9 @@
     "runtimeMinutes": 142,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 1894,
+    "posterPath": "/oZNPzxqM2s5DyVWab09NTQScDQt.jpg"
   },
   {
     "tvtimeUuid": "a3eb5217-89a9-4a5c-b699-7aadbae1865c",
@@ -3718,7 +4408,9 @@
     "runtimeMinutes": 140,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 1895,
+    "posterPath": "/xfSAoBEm9MNBjmlNcDYLvLSMlnq.jpg"
   },
   {
     "tvtimeUuid": "d356ed86-effc-4d59-a145-727ae1b23546",
@@ -3729,7 +4421,9 @@
     "runtimeMinutes": 138,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 140607,
+    "posterPath": "/wqnLdwVXoBjKibFRR5U3y0aDUhs.jpg"
   },
   {
     "tvtimeUuid": "d6423a20-d8dd-4521-8fd4-050713a7e9a3",
@@ -3740,7 +4434,9 @@
     "runtimeMinutes": 152,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 181808,
+    "posterPath": "/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg"
   },
   {
     "tvtimeUuid": "b16fc121-5f70-4ead-83ba-562583bc2af2",
@@ -3750,7 +4446,9 @@
     "releaseDate": "2015-01-16",
     "watchedDates": [
       "2021-01-10"
-    ]
+    ],
+    "tmdbId": 284293,
+    "posterPath": "/jJiGGbuLW8IkEnh5073maEmIr7V.jpg"
   },
   {
     "tvtimeUuid": "93787a9c-2a57-4db9-a8ea-1a4b4dc45624",
@@ -3761,7 +4459,9 @@
     "runtimeMinutes": 84,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 10137,
+    "posterPath": "/362lcwTJlNyAhitTlp2UraECISR.jpg"
   },
   {
     "tvtimeUuid": "70896469-17b7-4ec0-bbb5-2c4c03dd561b",
@@ -3772,7 +4472,9 @@
     "runtimeMinutes": 124,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 297761,
+    "posterPath": "/sk3FZgh3sRrmr8vyhaitNobMcfh.jpg"
   },
   {
     "tvtimeUuid": "4bcb0eb0-13a2-4066-bf1e-d423bef251ca",
@@ -3783,7 +4485,9 @@
     "runtimeMinutes": 85,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 9408,
+    "posterPath": "/tTDsCVlDA8QR4Dc6t6nERfwl5z.jpg"
   },
   {
     "tvtimeUuid": "dfb1e530-5856-44ed-824a-db46b8a20889",
@@ -3793,7 +4497,9 @@
     "releaseDate": "2008-02-27",
     "watchedDates": [
       "2021-01-21"
-    ]
+    ],
+    "tmdbId": 8681,
+    "posterPath": "/ognkaUSNgJe1a2pjB4UNdzEo5jT.jpg"
   },
   {
     "tvtimeUuid": "d9aff53e-d802-4661-9c5a-ddb1c2a5cb97",
@@ -3804,7 +4510,9 @@
     "runtimeMinutes": 100,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 38757,
+    "posterPath": "/ym7Kst6a4uodryxqbGOxmewF235.jpg"
   },
   {
     "tvtimeUuid": "8b180a17-b645-4e14-ab25-e50e7a68a7a1",
@@ -3815,7 +4523,9 @@
     "runtimeMinutes": 88,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 37135,
+    "posterPath": "/bTvHlcqiOjGa3lFtbrTLTM3zasY.jpg"
   },
   {
     "tvtimeUuid": "7c6dcdf6-9e80-4b1c-a421-3fabe6fb873c",
@@ -3826,7 +4536,9 @@
     "runtimeMinutes": 72,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 15657,
+    "posterPath": "/dI0ANmiLaqUuBrX4v8V3ZywkyZ0.jpg"
   },
   {
     "tvtimeUuid": "c6f51e16-4b6c-40b7-bd03-10a91273f018",
@@ -3837,7 +4549,9 @@
     "runtimeMinutes": 211,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 1160164,
+    "posterPath": "/jf3YO8hOqGHCupsREf5qymYq1n.jpg"
   },
   {
     "tvtimeUuid": "e469bf18-9a12-47d5-a20a-bab467874f49",
@@ -3848,7 +4562,9 @@
     "runtimeMinutes": 108,
     "watchedDates": [
       "2023-10-16"
-    ]
+    ],
+    "tmdbId": 33602,
+    "posterPath": "/gQhQ6yEkUkDDo1zugpq46PJN8xZ.jpg"
   },
   {
     "tvtimeUuid": "4583a7b9-b3b5-4ceb-9fb4-b866b9edb8bc",
@@ -3859,7 +4575,9 @@
     "runtimeMinutes": 99,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 2907,
+    "posterPath": "/qFf8anju5f2epI0my8RdwwIXFIP.jpg"
   },
   {
     "tvtimeUuid": "922db466-c197-418c-851b-b2743a1950c7",
@@ -3870,7 +4588,9 @@
     "runtimeMinutes": 87,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 481084,
+    "posterPath": "/q1epO0eO8DWu8Vo8tPfvVlzW48T.jpg"
   },
   {
     "tvtimeUuid": "6ec57699-2b16-4a41-90ee-f7b4c0601654",
@@ -3881,7 +4601,9 @@
     "runtimeMinutes": 136,
     "watchedDates": [
       "2021-12-18"
-    ]
+    ],
+    "tmdbId": 1930,
+    "posterPath": "/jexoNYnPd6vVrmygwF6QZmWPFdu.jpg"
   },
   {
     "tvtimeUuid": "15d8fe97-f5fa-4984-a79c-8df6f1db9c06",
@@ -3892,7 +4614,9 @@
     "runtimeMinutes": 142,
     "watchedDates": [
       "2021-12-18"
-    ]
+    ],
+    "tmdbId": 102382,
+    "posterPath": "/dGjoPttcbKR5VWg1jQuNFB247KL.jpg"
   },
   {
     "tvtimeUuid": "3a310a6e-adab-4029-8506-8cb193101ef9",
@@ -3903,7 +4627,9 @@
     "runtimeMinutes": 88,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 9906,
+    "posterPath": "/oFuqX0inTvbA1XAFv2x3CQnI65m.jpg"
   },
   {
     "tvtimeUuid": "1242f357-989f-47ed-8a3d-bb1c8b6aaf33",
@@ -3914,7 +4640,9 @@
     "runtimeMinutes": 143,
     "watchedDates": [
       "2021-12-19"
-    ]
+    ],
+    "tmdbId": 24428,
+    "posterPath": "/RYMX2wcKCBAr24UyPD7xwmjaTn.jpg"
   },
   {
     "tvtimeUuid": "01d4581e-5764-4597-aad9-46fadc47ae62",
@@ -3925,7 +4653,9 @@
     "runtimeMinutes": 176,
     "watchedDates": [
       "2025-11-04"
-    ]
+    ],
+    "tmdbId": 414906,
+    "posterPath": "/74xTEgt7R36Fpooo50r9T25onhq.jpg"
   },
   {
     "tvtimeUuid": "82b8898b-dd40-42a2-8fe1-15762358d540",
@@ -3936,7 +4666,9 @@
     "runtimeMinutes": 103,
     "watchedDates": [
       "2023-03-18"
-    ]
+    ],
+    "tmdbId": 756999,
+    "posterPath": "/p9ZUzCyy9wRTDuuQexkQ78R2BgF.jpg"
   },
   {
     "tvtimeUuid": "0161be20-b46d-4baf-b4ec-beff2c811175",
@@ -3947,7 +4679,9 @@
     "runtimeMinutes": 131,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 203833,
+    "posterPath": "/wj4U5sMLcJMa3WR9CpRR9e2sdgZ.jpg"
   },
   {
     "tvtimeUuid": "cc7b78f6-3551-4253-a275-6c16b9c3c36d",
@@ -3958,7 +4692,9 @@
     "runtimeMinutes": 98,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 2108,
+    "posterPath": "/gp4zlj7wgbiofLMNsTPndMuO3PN.jpg"
   },
   {
     "tvtimeUuid": "f052a7ad-a3ac-4e81-b14b-ed4ed6ba6fbc",
@@ -3969,7 +4705,9 @@
     "runtimeMinutes": 150,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 1954,
+    "posterPath": "/ea5iv7TWMh18fOKoRGgmtcg85Gx.jpg"
   },
   {
     "tvtimeUuid": "653ee760-6f47-4b47-ad03-ff285da2bbf0",
@@ -3980,7 +4718,9 @@
     "runtimeMinutes": 105,
     "watchedDates": [
       "2023-12-27"
-    ]
+    ],
+    "tmdbId": 481848,
+    "posterPath": "/33VdppGbeNxICrFUtW2WpGHvfYc.jpg"
   },
   {
     "tvtimeUuid": "65d32b7d-1b6d-4ea1-8bb8-8e317a268ed1",
@@ -3991,7 +4731,9 @@
     "runtimeMinutes": 150,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 2454,
+    "posterPath": "/qxz3WIyjZiSKUhaTIEJ3c1GcC9z.jpg"
   },
   {
     "tvtimeUuid": "82f50a08-0078-42ba-8249-fb4cbc7cc27b",
@@ -4002,7 +4744,9 @@
     "runtimeMinutes": 101,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 49519,
+    "posterPath": "/27zvjVOtOi5ped1HSlJKNsKXkFH.jpg"
   },
   {
     "tvtimeUuid": "8512b5af-18c0-488b-9c10-1b6b5af7c002",
@@ -4012,7 +4756,9 @@
     "releaseDate": "2021-01-27",
     "watchedDates": [
       "2020-12-21"
-    ]
+    ],
+    "tmdbId": 529203,
+    "posterPath": "/tbVZ3Sq88dZaCANlUcewQuHQOaE.jpg"
   },
   {
     "tvtimeUuid": "6b3b0e9a-d8b3-4fed-b95d-1b3a298d4253",
@@ -4023,7 +4769,9 @@
     "runtimeMinutes": 166,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 4922,
+    "posterPath": "/26wEWZYt6yJkwRVkjcbwJEFh9IS.jpg"
   },
   {
     "tvtimeUuid": "52a3ff7a-ffe9-40ac-97fe-2725f5129758",
@@ -4034,7 +4782,9 @@
     "runtimeMinutes": 195,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 591,
+    "posterPath": "/9ejKfNk0LBhSI9AahH4f9NJNZNM.jpg"
   },
   {
     "tvtimeUuid": "449c3ad7-e163-46d0-b5e5-39233a7b169a",
@@ -4045,7 +4795,9 @@
     "runtimeMinutes": 150,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 306819,
+    "posterPath": "/mXZZIacI5FC8thzSC0lgQBQ2uAX.jpg"
   },
   {
     "tvtimeUuid": "b6e6e8d7-15f5-419e-8f5d-8c9d33c8320f",
@@ -4056,7 +4808,9 @@
     "runtimeMinutes": 152,
     "watchedDates": [
       "2025-11-04"
-    ]
+    ],
+    "tmdbId": 155,
+    "posterPath": "/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
   },
   {
     "tvtimeUuid": "d1bcb2ec-7a87-4686-9af1-44f4510fe80f",
@@ -4067,7 +4821,9 @@
     "runtimeMinutes": 210,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 49026,
+    "posterPath": "/hr0L2aueqlP2BYUblTTjmtn0hw4.jpg"
   },
   {
     "tvtimeUuid": "74977dcf-6f07-4bd8-ac5a-4616de0cb9c8",
@@ -4078,7 +4834,9 @@
     "runtimeMinutes": 165,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 435,
+    "posterPath": "/Wr4HeYQRvwVCxzOV5TmGE7UkXq.jpg"
   },
   {
     "tvtimeUuid": "903a576e-a716-4abc-b69b-3a1003d9d5af",
@@ -4089,7 +4847,9 @@
     "runtimeMinutes": 109,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 350,
+    "posterPath": "/8912AsVuS7Sj915apArUFbv6F9L.jpg"
   },
   {
     "tvtimeUuid": "62ef0655-f373-4ceb-91b2-84442bb31009",
@@ -4097,7 +4857,9 @@
     "title": "The DUFF",
     "status": "watchlist",
     "releaseDate": "2015-02-20",
-    "runtimeMinutes": 100
+    "runtimeMinutes": 100,
+    "tmdbId": 272693,
+    "posterPath": "/A6ScveWmIPL9vSYyULD8ObqyHDQ.jpg"
   },
   {
     "tvtimeUuid": "53dd101f-95e3-45bb-9610-c392b32aa8c1",
@@ -4108,7 +4870,9 @@
     "runtimeMinutes": 132,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 156022,
+    "posterPath": "/9u4yW7yPA0BQ2pv9XwiNzItwvp8.jpg"
   },
   {
     "tvtimeUuid": "24d847c6-8f06-471e-abc6-c3c0c160c86f",
@@ -4119,7 +4883,9 @@
     "runtimeMinutes": 121,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 345887,
+    "posterPath": "/cQvc9N6JiMVKqol3wcYrGshsIdZ.jpg"
   },
   {
     "tvtimeUuid": "4d6c2fbd-d336-488b-8561-104a0ceb2c96",
@@ -4130,7 +4896,9 @@
     "runtimeMinutes": 121,
     "watchedDates": [
       "2025-11-04"
-    ]
+    ],
+    "tmdbId": 9552,
+    "posterPath": "/5x0CeVHJI8tcDx8tUUwYHQSNILq.jpg"
   },
   {
     "tvtimeUuid": "ef913269-e63e-4569-a68e-4edc68b1da2b",
@@ -4141,7 +4909,9 @@
     "runtimeMinutes": 106,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 9799,
+    "posterPath": "/gqY0ITBgT7A82poL9jv851qdnIb.jpg"
   },
   {
     "tvtimeUuid": "0fd41136-916b-4944-9c12-d1a1c2b62bfa",
@@ -4152,7 +4922,9 @@
     "runtimeMinutes": 126,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 222935,
+    "posterPath": "/kcVuktIlrn9SAN1uBmPDnocTQmF.jpg"
   },
   {
     "tvtimeUuid": "1f32050c-8efa-4874-958a-a2b58560a663",
@@ -4162,7 +4934,9 @@
     "releaseDate": "2019-02-06",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 375262,
+    "posterPath": "/cwBq0onfmeilU5xgqNNjJAMPfpw.jpg"
   },
   {
     "tvtimeUuid": "ede7cc54-93e1-4be8-b5a6-9c1a44e48865",
@@ -4170,7 +4944,9 @@
     "title": "The Fifth Element",
     "status": "watchlist",
     "releaseDate": "1997-05-02",
-    "runtimeMinutes": 126
+    "runtimeMinutes": 126,
+    "tmdbId": 18,
+    "posterPath": "/fPtlCO1yQtnoLHOwKtWz7db6RGU.jpg"
   },
   {
     "tvtimeUuid": "db753f7e-4779-4a1c-9e23-354b4c88a0b8",
@@ -4181,7 +4957,9 @@
     "runtimeMinutes": 88,
     "watchedDates": [
       "2025-02-17"
-    ]
+    ],
+    "tmdbId": 1075334,
+    "posterPath": "/o9hwOE1FeOelkNxfsGtTNrlWnyq.jpg"
   },
   {
     "tvtimeUuid": "22c3aac5-ff11-48e3-852c-b64a21ca9684",
@@ -4192,7 +4970,9 @@
     "runtimeMinutes": 105,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 316029,
+    "posterPath": "/b9CeobiihCx1uG1tpw8hXmpi7nm.jpg"
   },
   {
     "tvtimeUuid": "e31c9381-075a-417d-8053-7a38b42b1f77",
@@ -4203,7 +4983,9 @@
     "runtimeMinutes": 146,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 50014,
+    "posterPath": "/3kmfoWWEc9Vtyuaf9v5VipRgdjx.jpg"
   },
   {
     "tvtimeUuid": "d4c2ca58-f7dc-4fc5-82cf-26eff8d308ed",
@@ -4214,7 +4996,9 @@
     "runtimeMinutes": 182,
     "watchedDates": [
       "2024-03-05"
-    ]
+    ],
+    "tmdbId": 49051,
+    "posterPath": "/yHA9Fc37VmpUA5UncTxxo3rTGVA.jpg"
   },
   {
     "tvtimeUuid": "b8ee32c3-48a2-4562-8686-e2933ef20e90",
@@ -4225,7 +5009,9 @@
     "runtimeMinutes": 163,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 122917,
+    "posterPath": "/xT98tLqatZPQApyRmlPL12LtiWp.jpg"
   },
   {
     "tvtimeUuid": "5236a530-8da3-461f-aec4-2883f7c85031",
@@ -4236,7 +5022,9 @@
     "runtimeMinutes": 161,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 57158,
+    "posterPath": "/xQYiXsheRCDBA39DOrmaw1aSpbk.jpg"
   },
   {
     "tvtimeUuid": "e4610302-2218-4155-9c6c-5c7f19f221a6",
@@ -4247,7 +5035,9 @@
     "runtimeMinutes": 91,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 10545,
+    "posterPath": "/dmMBtXuFzZzLYgeQXkOkg98w2Ak.jpg"
   },
   {
     "tvtimeUuid": "6039b24b-786f-4682-a4f9-4cb1f685b466",
@@ -4258,7 +5048,9 @@
     "runtimeMinutes": 142,
     "watchedDates": [
       "2021-12-19"
-    ]
+    ],
+    "tmdbId": 70160,
+    "posterPath": "/yXCbOiVDCxO71zI7cuwBRXdftq8.jpg"
   },
   {
     "tvtimeUuid": "f8bdc653-9ab8-4fa5-a02c-5623f5166485",
@@ -4269,7 +5061,9 @@
     "runtimeMinutes": 146,
     "watchedDates": [
       "2021-12-19"
-    ]
+    ],
+    "tmdbId": 101299,
+    "posterPath": "/vrQHDXjVmbYzadOXQ0UaObunoy2.jpg"
   },
   {
     "tvtimeUuid": "0396d2d6-5f2b-4fee-9fb3-135792ef09c6",
@@ -4280,7 +5074,9 @@
     "runtimeMinutes": 123,
     "watchedDates": [
       "2021-12-19"
-    ]
+    ],
+    "tmdbId": 131631,
+    "posterPath": "/4FAA18ZIja70d1Tu5hr5cj2q1sB.jpg"
   },
   {
     "tvtimeUuid": "be9788f3-e713-4c67-a528-6bb578bd011e",
@@ -4291,7 +5087,9 @@
     "runtimeMinutes": 136,
     "watchedDates": [
       "2021-12-19"
-    ]
+    ],
+    "tmdbId": 131634,
+    "posterPath": "/lImKHDfExAulp16grYm8zD5eONE.jpg"
   },
   {
     "tvtimeUuid": "c2ea512b-eb59-4301-812c-f6f292fc6c68",
@@ -4303,7 +5101,9 @@
     "watchedDates": [
       "2023-12-29"
     ],
-    "rating": 3.0
+    "rating": 3,
+    "tmdbId": 695721,
+    "posterPath": "/mBaXZ95R2OxueZhvQbcEWy2DqyO.jpg"
   },
   {
     "tvtimeUuid": "991c2451-84de-4da0-9510-05a29811b125",
@@ -4314,7 +5114,9 @@
     "runtimeMinutes": 94,
     "watchedDates": [
       "2024-05-19"
-    ]
+    ],
+    "tmdbId": 843527,
+    "posterPath": "/Y5P4Q3q8nrruZ9aD3wXeJS2Plg.jpg"
   },
   {
     "tvtimeUuid": "7e43368d-eb1c-4e03-8ecf-86c598245419",
@@ -4325,7 +5127,9 @@
     "runtimeMinutes": 114,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 205596,
+    "posterPath": "/zSqJ1qFq8NXFfi7JeIYMlzyR0dx.jpg"
   },
   {
     "tvtimeUuid": "b6916c92-9f35-4a3e-ae6a-1edb06480e08",
@@ -4336,7 +5140,9 @@
     "runtimeMinutes": 113,
     "watchedDates": [
       "2023-09-30"
-    ]
+    ],
+    "tmdbId": 80278,
+    "posterPath": "/k0DLCiDbnYywOHiISALbl2EH2NE.jpg"
   },
   {
     "tvtimeUuid": "161087bb-37d6-49fe-9bf2-069e12375342",
@@ -4347,7 +5153,9 @@
     "runtimeMinutes": 112,
     "watchedDates": [
       "2021-12-18"
-    ]
+    ],
+    "tmdbId": 1724,
+    "posterPath": "/gKzYx79y0AQTL4UAk1cBQJ3nvrm.jpg"
   },
   {
     "tvtimeUuid": "de9f4f37-5794-434e-88db-f4ac6508ff01",
@@ -4355,7 +5163,9 @@
     "title": "The Incredibles",
     "status": "watchlist",
     "releaseDate": "2004-12-17",
-    "runtimeMinutes": 115
+    "runtimeMinutes": 115,
+    "tmdbId": 9806,
+    "posterPath": "/2LqaLgk4Z226KkgPJuiOQ58wvrm.jpg"
   },
   {
     "tvtimeUuid": "b4ccb431-1aed-43c1-ab66-5e33918b9c30",
@@ -4366,7 +5176,9 @@
     "runtimeMinutes": 121,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 257211,
+    "posterPath": "/bTQ46fupPbjBfFBHuzfD3hxxL0Q.jpg"
   },
   {
     "tvtimeUuid": "057cbbd3-1456-48dc-9992-602423789866",
@@ -4376,7 +5188,9 @@
     "releaseDate": "2020-02-26",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 570670,
+    "posterPath": "/5EufsDwXdY2CVttYOk2WtYhgKpa.jpg"
   },
   {
     "tvtimeUuid": "369e60f3-8144-415c-83cb-7c63707f279b",
@@ -4387,7 +5201,9 @@
     "runtimeMinutes": 209,
     "watchedDates": [
       "2021-11-19"
-    ]
+    ],
+    "tmdbId": 398978,
+    "posterPath": "/mbm8k3GFhXS0ROd9AD1gqYbIFbM.jpg"
   },
   {
     "tvtimeUuid": "6bdebaeb-4c2c-44d4-9029-91f62eb5d2c2",
@@ -4398,7 +5214,9 @@
     "runtimeMinutes": 140,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 38575,
+    "posterPath": "/b1RBy3l297N0c7PHjlz35cClWju.jpg"
   },
   {
     "tvtimeUuid": "15363070-5bff-42b2-94e2-17512fa81065",
@@ -4409,7 +5227,9 @@
     "runtimeMinutes": 107,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 35690,
+    "posterPath": "/76twEOHXAM2oKnvZYBI5bP6GeDu.jpg"
   },
   {
     "tvtimeUuid": "4ae4c259-b063-4330-a688-0eb3fc619855",
@@ -4420,7 +5240,9 @@
     "runtimeMinutes": 88,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 8587,
+    "posterPath": "/sKCr78MXSLixwmZ8DyJLrpMsd15.jpg"
   },
   {
     "tvtimeUuid": "b493c854-4b80-45fb-81ab-78dd92486883",
@@ -4430,7 +5252,9 @@
     "releaseDate": "0001-01-01",
     "watchedDates": [
       "2019-10-11"
-    ]
+    ],
+    "tmdbId": 8587,
+    "posterPath": "/sKCr78MXSLixwmZ8DyJLrpMsd15.jpg"
   },
   {
     "tvtimeUuid": "0c86c471-a76f-4eb1-bb92-6c69d04d392e",
@@ -4438,7 +5262,9 @@
     "title": "The Lion King 1½",
     "status": "watchlist",
     "releaseDate": "2004-02-06",
-    "runtimeMinutes": 77
+    "runtimeMinutes": 77,
+    "tmdbId": 11430,
+    "posterPath": "/u2hN0WT7Dz46HfhQbr6uzSYfVW4.jpg"
   },
   {
     "tvtimeUuid": "893c636e-f7d2-4646-875f-872940c37cdb",
@@ -4449,7 +5275,9 @@
     "runtimeMinutes": 81,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 9732,
+    "posterPath": "/sWR1x6UCMCGN9xEf8RGhPS934X0.jpg"
   },
   {
     "tvtimeUuid": "c8d407e2-a9db-4a88-b2ea-5e776dcd5f78",
@@ -4460,7 +5288,9 @@
     "runtimeMinutes": 83,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 10144,
+    "posterPath": "/plcZXvI310FkbwIptvd6rqk63LP.jpg"
   },
   {
     "tvtimeUuid": "e25be1c6-8dba-4f00-b4a6-9c80f8c7a78f",
@@ -4471,7 +5301,9 @@
     "runtimeMinutes": 86,
     "watchedDates": [
       "2024-03-05"
-    ]
+    ],
+    "tmdbId": 73723,
+    "posterPath": "/tePFnZFw5JvjwjQjaKkqDPNMLPU.jpg"
   },
   {
     "tvtimeUuid": "398a37af-09b6-4abb-8901-6279ece8e66e",
@@ -4482,7 +5314,9 @@
     "runtimeMinutes": 228,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 120,
+    "posterPath": "/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg"
   },
   {
     "tvtimeUuid": "041dd5fb-baa2-4a7d-a017-d004b605f700",
@@ -4493,7 +5327,9 @@
     "runtimeMinutes": 200,
     "watchedDates": [
       "2024-03-05"
-    ]
+    ],
+    "tmdbId": 122,
+    "posterPath": "/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg"
   },
   {
     "tvtimeUuid": "b6480723-c7ce-4cd7-b889-5b21d0dfe741",
@@ -4504,7 +5340,9 @@
     "runtimeMinutes": 235,
     "watchedDates": [
       "2024-03-05"
-    ]
+    ],
+    "tmdbId": 121,
+    "posterPath": "/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg"
   },
   {
     "tvtimeUuid": "b78de30e-5452-4dff-b770-565304d995c0",
@@ -4515,7 +5353,9 @@
     "runtimeMinutes": 134,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 330,
+    "posterPath": "/7st3JW0xpMAkwB3dYfv3iqAwD8Y.jpg"
   },
   {
     "tvtimeUuid": "8e76c65a-9440-4e12-9ffa-84a4c2fb958c",
@@ -4526,7 +5366,9 @@
     "runtimeMinutes": 101,
     "watchedDates": [
       "2025-11-04"
-    ]
+    ],
+    "tmdbId": 854,
+    "posterPath": "/jPC2eYub74zwf2tPGVtzSlBW6Oy.jpg"
   },
   {
     "tvtimeUuid": "978899c4-5194-4568-b922-0bd2874c4c1a",
@@ -4537,7 +5379,9 @@
     "runtimeMinutes": 136,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 603,
+    "posterPath": "/dXNAPwY7VrqMAo51EKhhCJfaGb5.jpg"
   },
   {
     "tvtimeUuid": "151fd66d-ca9c-409e-85e3-aa60ee573a01",
@@ -4548,7 +5392,9 @@
     "runtimeMinutes": 129,
     "watchedDates": [
       "2021-07-20"
-    ]
+    ],
+    "tmdbId": 644583,
+    "posterPath": "/lIADEa6oH74uUapjsPbNRzxus8M.jpg"
   },
   {
     "tvtimeUuid": "fe040628-4c70-4728-8eab-8d9e778b3920",
@@ -4559,7 +5405,9 @@
     "runtimeMinutes": 113,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 198663,
+    "posterPath": "/ode14q7WtDugFDp78fo9lCsmay9.jpg"
   },
   {
     "tvtimeUuid": "e54ed20b-ef94-40ce-8231-d34135d9c416",
@@ -4570,7 +5418,9 @@
     "runtimeMinutes": 113,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 345940,
+    "posterPath": "/eyWICPcxOuTcDDDbTMOZawoOn8d.jpg"
   },
   {
     "tvtimeUuid": "5824927a-da2e-4057-bb42-94cd2fb5f240",
@@ -4581,7 +5431,9 @@
     "runtimeMinutes": 108,
     "watchedDates": [
       "2024-03-05"
-    ]
+    ],
+    "tmdbId": 593643,
+    "posterPath": "/fPtUgMcLIboqlTlPrq0bQpKK8eq.jpg"
   },
   {
     "tvtimeUuid": "75a7a892-832e-4505-a1d2-6d936577f3f9",
@@ -4592,7 +5444,9 @@
     "runtimeMinutes": 103,
     "watchedDates": [
       "2024-03-05"
-    ]
+    ],
+    "tmdbId": 84892,
+    "posterPath": "/aKCvdFFF5n80P2VdS7d8YBwbCjh.jpg"
   },
   {
     "tvtimeUuid": "20f2f41c-c707-49e9-9c42-7348c760c152",
@@ -4604,7 +5458,9 @@
     "watchedDates": [
       "2024-03-25"
     ],
-    "rating": 3.0
+    "rating": 3,
+    "tmdbId": 12096,
+    "posterPath": "/th6i4TqJa5tEQaSKul2XgqSqTV9.jpg"
   },
   {
     "tvtimeUuid": "b180c0f4-9155-485a-b212-4ac35304d2aa",
@@ -4615,7 +5471,9 @@
     "runtimeMinutes": 92,
     "watchedDates": [
       "2024-03-05"
-    ]
+    ],
+    "tmdbId": 15159,
+    "posterPath": "/qWhI9kn5OtxWB208Z88xAyhOJ68.jpg"
   },
   {
     "tvtimeUuid": "da24691e-1338-415d-80a1-6009955e8182",
@@ -4626,7 +5484,9 @@
     "runtimeMinutes": 97,
     "watchedDates": [
       "2025-11-04"
-    ]
+    ],
+    "tmdbId": 10198,
+    "posterPath": "/yprv5PbnEksoVj2v6XEnDBg9joR.jpg"
   },
   {
     "tvtimeUuid": "3dbedcde-de8f-4fbc-9165-c64c2ddbf82a",
@@ -4637,7 +5497,9 @@
     "runtimeMinutes": 115,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 9880,
+    "posterPath": "/7axhsbEzFan6HQQ1aMOy7w3CFRx.jpg"
   },
   {
     "tvtimeUuid": "da2288fa-2b21-4a01-bfbc-e15b6e5027d1",
@@ -4648,7 +5510,9 @@
     "runtimeMinutes": 113,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 11130,
+    "posterPath": "/upJOyrxxSIxlSZC7KEqJfB1vlGl.jpg"
   },
   {
     "tvtimeUuid": "b3efec13-0bbe-4bd8-9c4a-f8153155bcf7",
@@ -4658,7 +5522,9 @@
     "releaseDate": "2020-12-11",
     "watchedDates": [
       "2020-12-26"
-    ]
+    ],
+    "tmdbId": 611213,
+    "posterPath": "/9oHvqd1QL5kaqt6zmCuDmM8esjV.jpg"
   },
   {
     "tvtimeUuid": "f8a3d562-3b38-4159-8db4-fa3402bb291c",
@@ -4669,7 +5535,9 @@
     "runtimeMinutes": 110,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 1584,
+    "posterPath": "/zXLXaepIBvFVLU25DH3wv4IPSbe.jpg"
   },
   {
     "tvtimeUuid": "df58ea6a-810b-4acc-b149-aac722063b27",
@@ -4680,7 +5548,9 @@
     "runtimeMinutes": 87,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 328111,
+    "posterPath": "/g3Hms6AE174doeGR1gz5zX5sVsv.jpg"
   },
   {
     "tvtimeUuid": "7679b211-0445-48ed-8c17-20744426520a",
@@ -4691,7 +5561,9 @@
     "runtimeMinutes": 123,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 399055,
+    "posterPath": "/9zfwPffUXpBrEP26yp0q1ckXDcj.jpg"
   },
   {
     "tvtimeUuid": "d348f0c0-4f92-4c20-8887-90daa3b09d5c",
@@ -4702,7 +5574,9 @@
     "runtimeMinutes": 119,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 274,
+    "posterPath": "/uS9m8OBk1A8eM9I042bx8XXpqAq.jpg"
   },
   {
     "tvtimeUuid": "d3b4fd9d-ea3a-48c6-8a02-acb24ab82539",
@@ -4713,7 +5587,9 @@
     "runtimeMinutes": 105,
     "watchedDates": [
       "2025-11-04"
-    ]
+    ],
+    "tmdbId": 77931,
+    "posterPath": "/tmjvgbEH4BKYFfHmWXjXrHgi8wT.jpg"
   },
   {
     "tvtimeUuid": "368ab60c-7c64-4d99-86a0-d82ea1a99546",
@@ -4724,7 +5600,9 @@
     "runtimeMinutes": 138,
     "watchedDates": [
       "2025-01-30"
-    ]
+    ],
+    "tmdbId": 933260,
+    "posterPath": "/uYJvxMWMb9W4zIY3cbM50sj3dpC.jpg"
   },
   {
     "tvtimeUuid": "a9b902e6-73de-41a4-a681-e71ad4ee360d",
@@ -4732,7 +5610,9 @@
     "title": "The Suicide Squad",
     "status": "watchlist",
     "releaseDate": "2021-08-05",
-    "runtimeMinutes": 133
+    "runtimeMinutes": 133,
+    "tmdbId": 436969,
+    "posterPath": "/q61qEyssk2ku3okWICKArlAdhBn.jpg"
   },
   {
     "tvtimeUuid": "03152034-a8ec-4d40-a18c-9dd1cecec6fa",
@@ -4743,7 +5623,9 @@
     "runtimeMinutes": 92,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 502356,
+    "posterPath": "/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg"
   },
   {
     "tvtimeUuid": "1da26456-1f67-4a0e-8ebd-2a4d820f9c34",
@@ -4754,7 +5636,9 @@
     "runtimeMinutes": 80,
     "watchedDates": [
       "2022-07-16"
-    ]
+    ],
+    "tmdbId": 647325,
+    "posterPath": "/sdn5NdFMcsub3QUwlovOA9fPJoW.jpg"
   },
   {
     "tvtimeUuid": "2db4155a-a00d-424d-9fa7-a08f7992773f",
@@ -4765,7 +5649,9 @@
     "watchedDates": [
       "2021-03-29"
     ],
-    "rating": 3.0
+    "rating": 3,
+    "tmdbId": 556984,
+    "posterPath": "/ahf5cVdooMAlDRiJOZQNuLqa1Is.jpg"
   },
   {
     "tvtimeUuid": "941afa5f-0402-463f-bdd5-029631e70850",
@@ -4776,7 +5662,9 @@
     "runtimeMinutes": 115,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 50619,
+    "posterPath": "/qs8LsHKYlVRmJbFUiSUhhRAygwj.jpg"
   },
   {
     "tvtimeUuid": "0b81232e-1cd9-46aa-9ff4-d2b56836c67a",
@@ -4787,7 +5675,9 @@
     "runtimeMinutes": 121,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 18239,
+    "posterPath": "/k2qTooPlHffgNABNWxeJdGMglPK.jpg"
   },
   {
     "tvtimeUuid": "491ca29f-e4c6-4733-a1a6-ac3fd6dd8f9b",
@@ -4799,7 +5689,9 @@
     "watchedDates": [
       "2025-09-12"
     ],
-    "rating": 3.0
+    "rating": 3,
+    "tmdbId": 645886,
+    "posterPath": "/1b3dNFDuE7i05TJlXrIC571yR01.jpg"
   },
   {
     "tvtimeUuid": "a3476fd1-c2a6-43a6-b50c-d124380cf5d4",
@@ -4810,7 +5702,9 @@
     "runtimeMinutes": 117,
     "watchedDates": [
       "2023-03-25"
-    ]
+    ],
+    "tmdbId": 785084,
+    "posterPath": "/jQ0gylJMxWSL490sy0RrPj1Lj7e.jpg"
   },
   {
     "tvtimeUuid": "385e8413-a9b8-4438-930c-a9a0c7794f67",
@@ -4821,7 +5715,9 @@
     "runtimeMinutes": 126,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 76170,
+    "posterPath": "/t2wVAcoRlKvEIVSbiYDb8d0QqqS.jpg"
   },
   {
     "tvtimeUuid": "2a87f153-781b-47fc-bad7-2dc7f97d89c6",
@@ -4833,7 +5729,9 @@
     "watchedDates": [
       "2024-03-31"
     ],
-    "rating": 3.0
+    "rating": 3,
+    "tmdbId": 467244,
+    "posterPath": "/hUu9zyZmDd8VZegKi1iK1Vk0RYS.jpg"
   },
   {
     "tvtimeUuid": "3e9efaa3-41f7-4380-9ed5-9541537b63aa",
@@ -4844,7 +5742,9 @@
     "runtimeMinutes": 114,
     "watchedDates": [
       "2021-12-19"
-    ]
+    ],
+    "tmdbId": 10195,
+    "posterPath": "/prSfAi1xGrhLQNxVSUFh61xQ4Qy.jpg"
   },
   {
     "tvtimeUuid": "f812aad9-24b9-42cf-8f31-2e5bd2f7a0f9",
@@ -4855,7 +5755,9 @@
     "runtimeMinutes": 130,
     "watchedDates": [
       "2021-12-19"
-    ]
+    ],
+    "tmdbId": 284053,
+    "posterPath": "/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg"
   },
   {
     "tvtimeUuid": "9095e0da-6662-4820-a3a1-4e1fe52638f4",
@@ -4866,7 +5768,9 @@
     "runtimeMinutes": 112,
     "watchedDates": [
       "2021-12-19"
-    ]
+    ],
+    "tmdbId": 76338,
+    "posterPath": "/wp6OxE4poJ4G7c0U2ZIXasTSMR7.jpg"
   },
   {
     "tvtimeUuid": "050ea6f8-fb27-46d3-b78b-4da4b6b76783",
@@ -4876,7 +5780,9 @@
     "releaseDate": "0001-01-01",
     "watchedDates": [
       "2019-10-11"
-    ]
+    ],
+    "tmdbId": 597,
+    "posterPath": "/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg"
   },
   {
     "tvtimeUuid": "573b055b-79de-4eef-b94c-4d2ebcbb06f1",
@@ -4887,7 +5793,9 @@
     "runtimeMinutes": 107,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 401104,
+    "posterPath": "/pkdxhdB3dRUqazqoy9lzUvhayjc.jpg"
   },
   {
     "tvtimeUuid": "f6987486-5380-4f63-b80c-cd7a35b616eb",
@@ -4898,7 +5806,9 @@
     "runtimeMinutes": 81,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 862,
+    "posterPath": "/uXDfjJbdP4ijW5hWSBrPrlKpxab.jpg"
   },
   {
     "tvtimeUuid": "0796722a-aa1b-4cb1-90e7-cbcf579473a8",
@@ -4909,7 +5819,9 @@
     "runtimeMinutes": 92,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 863,
+    "posterPath": "/4rbcp3ng8n1MKHjpeqW0L7Fnpzz.jpg"
   },
   {
     "tvtimeUuid": "15017f29-d16f-4141-9d04-04117b02c791",
@@ -4920,7 +5832,9 @@
     "runtimeMinutes": 100,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 301528,
+    "posterPath": "/w9kR8qbmQ01HwnvK4alvnQ2ca0L.jpg"
   },
   {
     "tvtimeUuid": "bc180014-4bd3-40a1-bd0f-01fb8fa79dc0",
@@ -4931,7 +5845,9 @@
     "runtimeMinutes": 144,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 1858,
+    "posterPath": "/lkZ9gqCEjzX85lKR6Jjd1uGAXNp.jpg"
   },
   {
     "tvtimeUuid": "1b797503-88d1-49f0-825a-70915c42cf5e",
@@ -4942,7 +5858,9 @@
     "runtimeMinutes": 164,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 91314,
+    "posterPath": "/jyzrfx2WaeY60kYZpPYepSjGz4S.jpg"
   },
   {
     "tvtimeUuid": "b32c8392-93c0-4306-90c1-0c36f554fdc0",
@@ -4953,7 +5871,9 @@
     "runtimeMinutes": 154,
     "watchedDates": [
       "2025-11-04"
-    ]
+    ],
+    "tmdbId": 38356,
+    "posterPath": "/28YlCLrFhONteYSs9hKjD1Km0Cj.jpg"
   },
   {
     "tvtimeUuid": "b7fa700c-f101-48fd-b890-9e3ebf0ecf00",
@@ -4964,7 +5884,9 @@
     "runtimeMinutes": 151,
     "watchedDates": [
       "2024-03-05"
-    ]
+    ],
+    "tmdbId": 8373,
+    "posterPath": "/pLBb0whOzVDtJvyD4DPeQyQNOqp.jpg"
   },
   {
     "tvtimeUuid": "442d1394-d0ee-410e-b728-8b55c169712c",
@@ -4972,7 +5894,9 @@
     "title": "Trapped",
     "status": "watchlist",
     "releaseDate": "2017-03-17",
-    "runtimeMinutes": 105
+    "runtimeMinutes": 105,
+    "tmdbId": 431892,
+    "posterPath": "/bkavKb2CIIJJqOx6Ta1QwBwUKqu.jpg"
   },
   {
     "tvtimeUuid": "adf72fb0-c242-4dbb-829a-87f4ee77500f",
@@ -4983,7 +5907,9 @@
     "runtimeMinutes": 87,
     "watchedDates": [
       "2023-03-09"
-    ]
+    ],
+    "tmdbId": 624825,
+    "posterPath": "/9Uc1MkysNBTSd9Vf4QneKFUBCz2.jpg"
   },
   {
     "tvtimeUuid": "30ecc384-0bd3-48bd-8f95-07d661ce6c38",
@@ -4994,7 +5920,9 @@
     "runtimeMinutes": 122,
     "watchedDates": [
       "2024-01-16"
-    ]
+    ],
+    "tmdbId": 8966,
+    "posterPath": "/3Gkb6jm6962ADUPaCBqzz9CTbn9.jpg"
   },
   {
     "tvtimeUuid": "a75842e0-5a21-4fd4-bdf8-e5495f7ca975",
@@ -5005,7 +5933,9 @@
     "runtimeMinutes": 106,
     "watchedDates": [
       "2023-03-25"
-    ]
+    ],
+    "tmdbId": 9741,
+    "posterPath": "/mLuehrGLiK5zFCyRmDDOH6gbfPf.jpg"
   },
   {
     "tvtimeUuid": "3c2857b0-a33c-4d1c-8bd8-15b3c8cdc801",
@@ -5015,7 +5945,9 @@
     "releaseDate": "2020-11-25",
     "watchedDates": [
       "2021-01-10"
-    ]
+    ],
+    "tmdbId": 634544,
+    "posterPath": "/u3yozs3oGY0ubwf4cKQKOMWqNx3.jpg"
   },
   {
     "tvtimeUuid": "780fa612-3916-40e9-a1c3-6b2e75197395",
@@ -5026,7 +5958,9 @@
     "runtimeMinutes": 96,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 14160,
+    "posterPath": "/mFvoEwSfLqbcWwFsDjQebn9bzFe.jpg"
   },
   {
     "tvtimeUuid": "c9b35df8-a4b9-4e95-b4fb-5ff199b9b6db",
@@ -5036,7 +5970,9 @@
     "releaseDate": "2006-03-17",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 752,
+    "posterPath": "/1avD1JeaRiJX5M4ahPdZPypGoGN.jpg"
   },
   {
     "tvtimeUuid": "7fb75a7c-5a36-4599-a1c4-be418f1b3ada",
@@ -5047,7 +5983,9 @@
     "runtimeMinutes": 112,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 335983,
+    "posterPath": "/2uNW4WbgBXL25BAbXGLnLqX71Sw.jpg"
   },
   {
     "tvtimeUuid": "33be00a7-655d-4e9f-9b35-393873a7001b",
@@ -5058,7 +5996,9 @@
     "runtimeMinutes": 98,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 10681,
+    "posterPath": "/hbhFnRzzg6ZDmm8YAmxBnQpQIPh.jpg"
   },
   {
     "tvtimeUuid": "a897f9eb-7583-4f46-8f90-efc07c313b17",
@@ -5069,14 +6009,18 @@
     "runtimeMinutes": 140,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 281338,
+    "posterPath": "/3vYhLLxrTtZLysXtIWktmd57Snv.jpg"
   },
   {
     "tvtimeUuid": "720bbcc3-3991-414f-806a-a16f15ef5879",
     "slug": "watchman",
     "title": "Watchman",
     "status": "watchlist",
-    "releaseDate": "2018-04-12"
+    "releaseDate": "2018-04-12",
+    "tmdbId": 528493,
+    "posterPath": "/2ggFkSRdOXF57GONlCpFPLrpNzz.jpg"
   },
   {
     "tvtimeUuid": "7e645c16-f873-4365-a602-8f54235094b8",
@@ -5087,7 +6031,9 @@
     "runtimeMinutes": 128,
     "watchedDates": [
       "2025-11-04"
-    ]
+    ],
+    "tmdbId": 1078605,
+    "posterPath": "/cpf7vsRZ0MYRQcnLWteD5jK9ymT.jpg"
   },
   {
     "tvtimeUuid": "60e2579a-d541-465f-bb09-f3d180df24db",
@@ -5099,7 +6045,9 @@
     "watchedDates": [
       "2025-01-30"
     ],
-    "rating": 3.0
+    "rating": 3,
+    "tmdbId": 682507,
+    "posterPath": "/n1el846gLDXfhOvrRCsyvaAOQWv.jpg"
   },
   {
     "tvtimeUuid": "e542ae47-4e0c-4028-abba-73df0372fd58",
@@ -5110,7 +6058,9 @@
     "runtimeMinutes": 161,
     "watchedDates": [
       "2025-02-17"
-    ]
+    ],
+    "tmdbId": 402431,
+    "posterPath": "/xDGbZ0JJ3mYaGKy4Nzd9Kph6M9L.jpg"
   },
   {
     "tvtimeUuid": "cbc0feca-e21e-4a7b-aa3d-99ad96f4a7ca",
@@ -5121,7 +6071,9 @@
     "runtimeMinutes": 113,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 406997,
+    "posterPath": "/sONh3LYGFcVDTy8pm1tbSOB13Li.jpg"
   },
   {
     "tvtimeUuid": "377b5958-f7f1-4436-bfb6-c5ac0d3900c4",
@@ -5131,7 +6083,9 @@
     "releaseDate": "2017-06-02",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 297762,
+    "posterPath": "/v4ncgZjG2Zu8ZW5al1vIZTsSjqX.jpg"
   },
   {
     "tvtimeUuid": "87a5124e-3eca-43fe-8667-7bcab6ada01e",
@@ -5141,7 +6095,9 @@
     "releaseDate": "2020-12-25",
     "watchedDates": [
       "2021-01-01"
-    ]
+    ],
+    "tmdbId": 464052,
+    "posterPath": "/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg"
   },
   {
     "tvtimeUuid": "aa3a43f2-fa9a-4a71-9298-ce0c9bfb3123",
@@ -5152,7 +6108,9 @@
     "runtimeMinutes": 117,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 787699,
+    "posterPath": "/qhb1qOilapbapxWQn9jtRCMwXJF.jpg"
   },
   {
     "tvtimeUuid": "44f6dc76-5643-4d94-83ae-5368d8f64c32",
@@ -5163,7 +6121,9 @@
     "runtimeMinutes": 116,
     "watchedDates": [
       "2024-03-27"
-    ]
+    ],
+    "tmdbId": 72190,
+    "posterPath": "/aCnVdvExw6UWSeQfr0tUH3jr4qG.jpg"
   },
   {
     "tvtimeUuid": "d7fe4629-9672-47d2-bb92-5cc0a232bc91",
@@ -5174,7 +6134,9 @@
     "runtimeMinutes": 101,
     "watchedDates": [
       "2024-03-25"
-    ]
+    ],
+    "tmdbId": 82690,
+    "posterPath": "/nrEupcBwf4O1zihCM34NoXusZDq.jpg"
   },
   {
     "tvtimeUuid": "7509b172-6138-4aec-bdd8-b3e081cc310a",
@@ -5185,7 +6147,9 @@
     "runtimeMinutes": 104,
     "watchedDates": [
       "2022-01-15"
-    ]
+    ],
+    "tmdbId": 447399,
+    "posterPath": "/vF02RqXLgtmpJM5CRLSuvN3fVHi.jpg"
   },
   {
     "tvtimeUuid": "74f75ba9-560c-417e-8be2-a375a051cb4c",
@@ -5196,7 +6160,9 @@
     "runtimeMinutes": 107,
     "watchedDates": [
       "2022-01-15"
-    ]
+    ],
+    "tmdbId": 2080,
+    "posterPath": "/yj8LbTju1p7CUJg7US2unSBk33s.jpg"
   },
   {
     "tvtimeUuid": "28acf519-c2c7-48e7-a094-b036fd551abe",
@@ -5207,7 +6173,9 @@
     "runtimeMinutes": 144,
     "watchedDates": [
       "2022-01-15"
-    ]
+    ],
+    "tmdbId": 246655,
+    "posterPath": "/ikA8UhYdTGpqbatFa93nIf6noSr.jpg"
   },
   {
     "tvtimeUuid": "b3f57d1d-2a69-440e-8259-c869e072ed0f",
@@ -5218,7 +6186,9 @@
     "runtimeMinutes": 130,
     "watchedDates": [
       "2022-01-15"
-    ]
+    ],
+    "tmdbId": 127585,
+    "posterPath": "/tYfijzolzgoMOtegh1Y7j2Enorg.jpg"
   },
   {
     "tvtimeUuid": "608aed57-d635-459e-b194-c35e5ebeba73",
@@ -5229,7 +6199,9 @@
     "runtimeMinutes": 132,
     "watchedDates": [
       "2022-01-15"
-    ]
+    ],
+    "tmdbId": 49538,
+    "posterPath": "/hNEokmUke0dazoBhttFN0o3L7Xv.jpg"
   },
   {
     "tvtimeUuid": "53e652f0-5260-4e87-ba0b-51d2e6c7fc51",
@@ -5240,7 +6212,9 @@
     "runtimeMinutes": 104,
     "watchedDates": [
       "2022-01-15"
-    ]
+    ],
+    "tmdbId": 36668,
+    "posterPath": "/a2xicU8DpKtRizOHjQLC1JyCSRS.jpg"
   },
   {
     "tvtimeUuid": "f4de6517-da04-4977-a80d-778ec335c088",
@@ -5251,7 +6225,9 @@
     "runtimeMinutes": 133,
     "watchedDates": [
       "2022-01-15"
-    ]
+    ],
+    "tmdbId": 447133,
+    "posterPath": "/fbKrtVCaTBBdgwvrLiyYFsCewlK.jpg"
   },
   {
     "tvtimeUuid": "eb58e75e-5694-41f6-bd72-eadb53611819",
@@ -5262,7 +6238,9 @@
     "runtimeMinutes": 79,
     "watchedDates": [
       "2025-11-04"
-    ]
+    ],
+    "tmdbId": 50642,
+    "posterPath": "/52nHfcXZVb3vicfJG0Xf8QgRkE4.jpg"
   },
   {
     "tvtimeUuid": "7efbdc79-87c1-4d70-b658-048a8044d89f",
@@ -5273,7 +6251,9 @@
     "runtimeMinutes": 96,
     "watchedDates": [
       "2023-12-22"
-    ]
+    ],
+    "tmdbId": 887580,
+    "posterPath": "/6JllNMDqHasBeqM5vFVxp1rB9Fk.jpg"
   },
   {
     "tvtimeUuid": "33a5696a-ccd0-4e8d-b8c7-5733f6a182b4",
@@ -5284,7 +6264,9 @@
     "runtimeMinutes": 108,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 269149,
+    "posterPath": "/hlK0e0wAQ3VLuJcsfIYPvb4JVud.jpg"
   },
   {
     "tvtimeUuid": "027aa547-d7f8-4671-822c-751a4a334463",
@@ -5295,7 +6277,9 @@
     "runtimeMinutes": 120,
     "watchedDates": [
       "2021-07-19"
-    ]
+    ],
+    "tmdbId": 587609,
+    "posterPath": "/ds7T5PEplJQeKzpLWbIvW9xpHX1.jpg"
   },
   {
     "tvtimeUuid": "0c2975f5-e12c-4752-b0c8-aa46cf7c1397",
@@ -5306,7 +6290,9 @@
     "runtimeMinutes": 125,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 129,
+    "posterPath": "/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg"
   },
   {
     "tvtimeUuid": "2f516abc-6192-46df-9c61-bcb4acec3e02",
@@ -5318,7 +6304,9 @@
     "watchedDates": [
       "2021-07-28"
     ],
-    "rating": 1.0
+    "rating": 1,
+    "tmdbId": 796849,
+    "posterPath": "/c7JzcVK4OZY1u7HYiFBOASkKPP5.jpg"
   },
   {
     "tvtimeUuid": "96e53d6d-0f77-452b-ad3b-cd321143a34d",
@@ -5328,7 +6316,9 @@
     "releaseDate": "2019-10-11",
     "watchedDates": [
       "2020-12-27"
-    ]
+    ],
+    "tmdbId": 496243,
+    "posterPath": "/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg"
   },
   {
     "tvtimeUuid": "a45de390-b393-4866-b16a-95e37c3190b4",
@@ -5339,6 +6329,8 @@
     "runtimeMinutes": 145,
     "watchedDates": [
       "2023-06-08"
-    ]
+    ],
+    "tmdbId": 290098,
+    "posterPath": "/dLlH4aNHdnmf62umnInL8xPlPzw.jpg"
   }
 ]

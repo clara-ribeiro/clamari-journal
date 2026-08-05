@@ -968,7 +968,9 @@
       }
     ],
     "startedAt": "2018-07-27",
-    "finishedAt": "2019-01-24"
+    "finishedAt": "2019-01-24",
+    "tmdbId": 4313,
+    "posterPath": "/7g0EyKsIaYjYw3gCIBKMHHE0Kcu.jpg"
   },
   {
     "tvdbId": 70533,
@@ -977,7 +979,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-01-19"
+    "startedAt": "2017-01-19",
+    "tmdbId": 1920,
+    "posterPath": "/lA9CNSdo50iQPZ8A2fyVpMvJZAf.jpg"
   },
   {
     "tvdbId": 72477,
@@ -1343,7 +1347,9 @@
       }
     ],
     "startedAt": "2018-09-04",
-    "finishedAt": "2018-10-30"
+    "finishedAt": "2018-10-30",
+    "tmdbId": 3475,
+    "posterPath": "/nuBhtv4P5nY9loJ6kXb1hsyc9EA.jpg"
   },
   {
     "tvdbId": 72521,
@@ -1352,7 +1358,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-01-31"
+    "startedAt": "2017-01-31",
+    "tmdbId": 688,
+    "posterPath": "/yqDWr5NAE7m1IWrygYwLyEB6pN0.jpg"
   },
   {
     "tvdbId": 72584,
@@ -1361,7 +1369,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2018-02-14"
+    "startedAt": "2018-02-14",
+    "tmdbId": 2327,
+    "posterPath": "/arT93dBemanftfWTcf9I0JRIlxU.jpg"
   },
   {
     "tvdbId": 72888,
@@ -1370,7 +1380,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-07-21"
+    "startedAt": "2017-07-21",
+    "tmdbId": 4500,
+    "posterPath": "/tkaduqdhFrF1vp8L55OJfB5jw8Z.jpg"
   },
   {
     "tvdbId": 73244,
@@ -2378,7 +2390,9 @@
       }
     ],
     "startedAt": "2021-01-07",
-    "finishedAt": "2023-02-25"
+    "finishedAt": "2023-02-25",
+    "tmdbId": 2316,
+    "posterPath": "/AcsDnYMUKwYepl75Uc1Hb4aKvDC.jpg"
   },
   {
     "tvdbId": 73255,
@@ -3269,7 +3283,9 @@
       }
     ],
     "startedAt": "2016-02-25",
-    "finishedAt": "2016-02-25"
+    "finishedAt": "2016-02-25",
+    "tmdbId": 1408,
+    "posterPath": "/3Cz7ySOQJmqiuTdrc6CY0r65yDI.jpg"
   },
   {
     "tvdbId": 73739,
@@ -3430,7 +3446,9 @@
       }
     ],
     "startedAt": "2021-06-15",
-    "finishedAt": "2021-06-26"
+    "finishedAt": "2021-06-26",
+    "tmdbId": 4607,
+    "posterPath": "/og6S0aTZU6YUJAbqxeKjCa3kY1E.jpg"
   },
   {
     "tvdbId": 73762,
@@ -5339,7 +5357,9 @@
         "watchedAt": "2021-04-16"
       }
     ],
-    "startedAt": "2016-03-08"
+    "startedAt": "2016-03-08",
+    "tmdbId": 1416,
+    "posterPath": "/hjJkrLXhWvGHpLeLBDFznpBTY1S.jpg"
   },
   {
     "tvdbId": 73787,
@@ -6350,7 +6370,9 @@
       }
     ],
     "startedAt": "2017-10-15",
-    "finishedAt": "2018-03-23"
+    "finishedAt": "2018-03-23",
+    "tmdbId": 52,
+    "posterPath": "/laEZvTqM80UaplUaDSCCbWhlyEV.jpg"
   },
   {
     "tvdbId": 73800,
@@ -6359,7 +6381,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2018-06-05"
+    "startedAt": "2018-06-05",
+    "tmdbId": 693,
+    "posterPath": "/sywYmV9c9Vj2U7ocqNyfDt2pz3r.jpg"
   },
   {
     "tvdbId": 74256,
@@ -7175,7 +7199,9 @@
       }
     ],
     "startedAt": "2017-10-15",
-    "finishedAt": "2018-08-12"
+    "finishedAt": "2018-08-12",
+    "tmdbId": 1848,
+    "posterPath": "/iAEh0rhHfq0oPdsZbsCSNPRBHXW.jpg"
   },
   {
     "tvdbId": 75340,
@@ -7581,7 +7607,9 @@
       }
     ],
     "startedAt": "2016-02-01",
-    "finishedAt": "2016-02-01"
+    "finishedAt": "2016-02-01",
+    "tmdbId": 2288,
+    "posterPath": "/wnmNPaLvhnMeOqnWlhNkYCZxtda.jpg"
   },
   {
     "tvdbId": 75692,
@@ -11133,7 +11161,9 @@
         "runtimeMinutes": 44
       }
     ],
-    "startedAt": "2023-04-02"
+    "startedAt": "2023-04-02",
+    "tmdbId": 2734,
+    "posterPath": "/iofokHZoUB4Qhik4PflvJl8TT6a.jpg"
   },
   {
     "tvdbId": 75710,
@@ -13267,7 +13297,9 @@
         "runtimeMinutes": 46
       }
     ],
-    "startedAt": "2019-10-11"
+    "startedAt": "2019-10-11",
+    "tmdbId": 4057,
+    "posterPath": "/hWSb4UnIjlTvnvrP98NbFSO60HA.jpg"
   },
   {
     "tvdbId": 75760,
@@ -14318,7 +14350,9 @@
       }
     ],
     "startedAt": "2017-01-05",
-    "finishedAt": "2017-02-18"
+    "finishedAt": "2017-02-18",
+    "tmdbId": 1100,
+    "posterPath": "/b34jPzmB0wZy7EjUZoleXOl2RRI.jpg"
   },
   {
     "tvdbId": 76321,
@@ -14419,7 +14453,9 @@
       }
     ],
     "startedAt": "2017-10-15",
-    "finishedAt": "2017-12-10"
+    "finishedAt": "2017-12-10",
+    "tmdbId": 2382,
+    "posterPath": "/tPqV63zcW6ZV0Hd48DMGb5UzQIG.jpg"
   },
   {
     "tvdbId": 76568,
@@ -15195,7 +15231,9 @@
       }
     ],
     "startedAt": "2017-07-20",
-    "finishedAt": "2017-08-31"
+    "finishedAt": "2017-08-31",
+    "tmdbId": 4586,
+    "posterPath": "/gwtzCwU2wdLLf8oejQu2TINiWfQ.jpg"
   },
   {
     "tvdbId": 77422,
@@ -15231,7 +15269,9 @@
       }
     ],
     "startedAt": "2020-02-12",
-    "finishedAt": "2020-02-12"
+    "finishedAt": "2020-02-12",
+    "tmdbId": 18745,
+    "posterPath": "/EfM6EHyzr2q7TWFO5uEBNssgo4.jpg"
   },
   {
     "tvdbId": 78107,
@@ -15240,7 +15280,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-09-12"
+    "startedAt": "2017-09-12",
+    "tmdbId": 2996,
+    "posterPath": "/oX2JKE1RzAONMbYlujHx0hRAJo1.jpg"
   },
   {
     "tvdbId": 78804,
@@ -15713,7 +15755,9 @@
       }
     ],
     "startedAt": "2019-08-17",
-    "finishedAt": "2021-04-30"
+    "finishedAt": "2021-04-30",
+    "tmdbId": 57243,
+    "posterPath": "/m6G92osOtSeXwjSfL21jZCUOvxe.jpg"
   },
   {
     "tvdbId": 78901,
@@ -15874,7 +15918,9 @@
       }
     ],
     "startedAt": "2016-02-10",
-    "finishedAt": "2016-06-24"
+    "finishedAt": "2016-06-24",
+    "tmdbId": 1622,
+    "posterPath": "/8iixmfGx5EIFPdpNvB2JvI3VIqX.jpg"
   },
   {
     "tvdbId": 79168,
@@ -17065,7 +17111,9 @@
       }
     ],
     "startedAt": "2017-04-18",
-    "finishedAt": "2017-07-20"
+    "finishedAt": "2017-07-20",
+    "tmdbId": 1668,
+    "posterPath": "/2koX1xLkpTQM4IZebYvKysFW1Nh.jpg"
   },
   {
     "tvdbId": 79349,
@@ -17261,7 +17309,9 @@
         "runtimeMinutes": 53
       }
     ],
-    "startedAt": "2016-06-24"
+    "startedAt": "2016-06-24",
+    "tmdbId": 1405,
+    "posterPath": "/q8dWfc4JwQuv3HayIZeO84jAXED.jpg"
   },
   {
     "tvdbId": 79481,
@@ -17270,7 +17320,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-01-27"
+    "startedAt": "2016-01-27",
+    "tmdbId": 13916,
+    "posterPath": "/tCZFfYTIwrR7n94J6G14Y4hAFU6.jpg"
   },
   {
     "tvdbId": 79925,
@@ -17279,7 +17331,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-09-15"
+    "startedAt": "2017-09-15",
+    "tmdbId": 2942,
+    "posterPath": "/7pdeNK1CUqj1yuG9VMDeynnq9xK.jpg"
   },
   {
     "tvdbId": 80337,
@@ -17288,7 +17342,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2018-08-31"
+    "startedAt": "2018-08-31",
+    "tmdbId": 1104,
+    "posterPath": "/7v8iCNzKFpdlrCMcqCoJyn74Nsa.jpg"
   },
   {
     "tvdbId": 80348,
@@ -17297,7 +17353,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-08-27"
+    "startedAt": "2016-08-27",
+    "tmdbId": 1404,
+    "posterPath": "/vEZvGVVMjk1TRs59nfypTI5lAXj.jpg"
   },
   {
     "tvdbId": 80379,
@@ -17306,7 +17364,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-01-27"
+    "startedAt": "2016-01-27",
+    "tmdbId": 1418,
+    "posterPath": "/euKFiO5M125rpngFRBbSW83beeI.jpg"
   },
   {
     "tvdbId": 80446,
@@ -17315,7 +17375,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2018-11-19"
+    "startedAt": "2018-11-19",
+    "tmdbId": 2081,
+    "posterPath": "/zGvtxSlopOuhXDjjQrSuPqW62kU.jpg"
   },
   {
     "tvdbId": 80542,
@@ -17324,7 +17386,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-07-30"
+    "startedAt": "2016-07-30",
+    "tmdbId": 3172,
+    "posterPath": "/pW20ANAGdrgreYJExduUVaWos6H.jpg"
   },
   {
     "tvdbId": 80547,
@@ -17660,7 +17724,9 @@
       }
     ],
     "startedAt": "2016-02-25",
-    "finishedAt": "2016-02-25"
+    "finishedAt": "2016-02-25",
+    "tmdbId": 1395,
+    "posterPath": "/mRvSUuU1VQQkZZ578jKJpcUCuL8.jpg"
   },
   {
     "tvdbId": 81189,
@@ -17981,7 +18047,9 @@
       }
     ],
     "startedAt": "2016-01-28",
-    "finishedAt": "2016-01-28"
+    "finishedAt": "2016-01-28",
+    "tmdbId": 1396,
+    "posterPath": "/anFx9aTOOYqgS3v7x3R84Kz67ly.jpg"
   },
   {
     "tvdbId": 82696,
@@ -17990,7 +18058,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-03-19"
+    "startedAt": "2016-03-19",
+    "tmdbId": 1409,
+    "posterPath": "/kiy8BHtIHAslh81rvFcZ4wbNGdY.jpg"
   },
   {
     "tvdbId": 82851,
@@ -18015,7 +18085,9 @@
         "watchedAt": "2019-08-04"
       }
     ],
-    "startedAt": "2019-08-04"
+    "startedAt": "2019-08-04",
+    "tmdbId": 13894,
+    "posterPath": "/o2xWfAWTh8akVaKrQ7Alsu1MhU2.jpg"
   },
   {
     "tvdbId": 85002,
@@ -18024,7 +18096,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-07-20"
+    "startedAt": "2017-07-20",
+    "tmdbId": 8514,
+    "posterPath": "/ySs9xkTfPgQCUNB2ctOzcMWP14n.jpg"
   },
   {
     "tvdbId": 95011,
@@ -19285,7 +19359,9 @@
       }
     ],
     "startedAt": "2020-08-28",
-    "finishedAt": "2021-04-02"
+    "finishedAt": "2021-04-02",
+    "tmdbId": 1421,
+    "posterPath": "/k5Qg5rgPoKdh3yTJJrLtyoyYGwC.jpg"
   },
   {
     "tvdbId": 95491,
@@ -19956,7 +20032,9 @@
       }
     ],
     "startedAt": "2016-02-01",
-    "finishedAt": "2016-02-01"
+    "finishedAt": "2016-02-01",
+    "tmdbId": 18165,
+    "posterPath": "/b3vl6wV1W8PBezFfntKTrhrehCY.jpg"
   },
   {
     "tvdbId": 95771,
@@ -19981,7 +20059,9 @@
         "watchedAt": "2018-02-12"
       }
     ],
-    "startedAt": "2018-02-12"
+    "startedAt": "2018-02-12",
+    "tmdbId": 18520,
+    "posterPath": "/fbu2O3hbU1ZROpjU01YCAMLz1sR.jpg"
   },
   {
     "tvdbId": 121361,
@@ -20357,7 +20437,9 @@
       }
     ],
     "startedAt": "2016-01-28",
-    "finishedAt": "2019-05-20"
+    "finishedAt": "2019-05-20",
+    "tmdbId": 1399,
+    "posterPath": "/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg"
   },
   {
     "tvdbId": 129261,
@@ -20366,7 +20448,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-09-15"
+    "startedAt": "2017-09-15",
+    "tmdbId": 46296,
+    "posterPath": "/c2GKN4VHCj1dnjFMANRpGkCVBae.jpg"
   },
   {
     "tvdbId": 146711,
@@ -21177,7 +21261,9 @@
       }
     ],
     "startedAt": "2016-01-27",
-    "finishedAt": "2018-02-14"
+    "finishedAt": "2018-02-14",
+    "tmdbId": 31917,
+    "posterPath": "/aUPbHiLS3hCHKjtLsncFa9g0viV.jpg"
   },
   {
     "tvdbId": 153021,
@@ -21643,7 +21729,9 @@
       }
     ],
     "startedAt": "2016-01-28",
-    "finishedAt": "2017-01-05"
+    "finishedAt": "2017-01-05",
+    "tmdbId": 1402,
+    "posterPath": "/aN29llVoCFtBTwDZFtqdD9d8dHb.jpg"
   },
   {
     "tvdbId": 161511,
@@ -22140,7 +22228,9 @@
       }
     ],
     "startedAt": "2021-11-19",
-    "finishedAt": "2022-03-14"
+    "finishedAt": "2022-03-14",
+    "tmdbId": 34307,
+    "posterPath": "/ifo31fMWLmyOVpdak9K0kY4jldQ.jpg"
   },
   {
     "tvdbId": 164541,
@@ -22149,7 +22239,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-02-24"
+    "startedAt": "2016-02-24",
+    "tmdbId": 32798,
+    "posterPath": "/sIdCKlmM2nU4akIvFQaAIiU8YES.jpg"
   },
   {
     "tvdbId": 171241,
@@ -22158,7 +22250,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2018-09-15"
+    "startedAt": "2018-09-15",
+    "tmdbId": 33054,
+    "posterPath": "/r4prOUS3LgkWjxWsrT6kHE8NFLT.jpg"
   },
   {
     "tvdbId": 175001,
@@ -22584,7 +22678,9 @@
       }
     ],
     "startedAt": "2016-01-27",
-    "finishedAt": "2017-01-05"
+    "finishedAt": "2017-01-05",
+    "tmdbId": 34524,
+    "posterPath": "/wjKBTcNy1xihmExqJI8kM2qvavP.jpg"
   },
   {
     "tvdbId": 176941,
@@ -22593,7 +22689,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-07-12"
+    "startedAt": "2016-07-12",
+    "tmdbId": 19885,
+    "posterPath": "/7WTsnHkbA0FaG6R9twfFde0I9hl.jpg"
   },
   {
     "tvdbId": 193131,
@@ -22602,7 +22700,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-03-28"
+    "startedAt": "2016-03-28",
+    "tmdbId": 33907,
+    "posterPath": "/cf9vkwFmwvdzBlcpAYEVQfsKoTp.jpg"
   },
   {
     "tvdbId": 197231,
@@ -22653,7 +22753,9 @@
       }
     ],
     "startedAt": "2019-05-12",
-    "finishedAt": "2019-05-29"
+    "finishedAt": "2019-05-29",
+    "tmdbId": 31420,
+    "posterPath": "/hgv0kvFsbyd7Sm58wIDyOGKmiFw.jpg"
   },
   {
     "tvdbId": 210171,
@@ -22662,7 +22764,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-09-24"
+    "startedAt": "2016-09-24",
+    "tmdbId": 34415,
+    "posterPath": "/3yiwAUNGn1rsPSVmFgVwPVJFtYf.jpg"
   },
   {
     "tvdbId": 247773,
@@ -22928,7 +23032,9 @@
       }
     ],
     "startedAt": "2016-02-01",
-    "finishedAt": "2016-02-01"
+    "finishedAt": "2016-02-01",
+    "tmdbId": 37632,
+    "posterPath": "/db5XnOxGcUHeNhBRNbHfqTlzXmk.jpg"
   },
   {
     "tvdbId": 247808,
@@ -22937,7 +23043,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-03-28"
+    "startedAt": "2016-03-28",
+    "tmdbId": 37680,
+    "posterPath": "/vQiryp6LioFxQThywxbC6TuoDjy.jpg"
   },
   {
     "tvdbId": 247897,
@@ -23123,7 +23231,9 @@
       }
     ],
     "startedAt": "2020-12-22",
-    "finishedAt": "2021-05-10"
+    "finishedAt": "2021-05-10",
+    "tmdbId": 1407,
+    "posterPath": "/6GAvS2e6VIRsms9FpVt33PsCoEW.jpg"
   },
   {
     "tvdbId": 248736,
@@ -23132,7 +23242,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-02-24"
+    "startedAt": "2016-02-24",
+    "tmdbId": 39351,
+    "posterPath": "/iOptnt1QHi6bIHmOq6adnZTV0bU.jpg"
   },
   {
     "tvdbId": 248812,
@@ -23273,7 +23385,9 @@
       }
     ],
     "startedAt": "2017-04-30",
-    "finishedAt": "2017-04-30"
+    "finishedAt": "2017-04-30",
+    "tmdbId": 39331,
+    "posterPath": "/ice3QRGMPs7JpwV8Fb8BpfWtYxP.jpg"
   },
   {
     "tvdbId": 248813,
@@ -23282,7 +23396,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-04-09"
+    "startedAt": "2017-04-09",
+    "tmdbId": 42067,
+    "posterPath": "/mpTqwUvfYJcLy5f9g1IPKtrjmAT.jpg"
   },
   {
     "tvdbId": 248835,
@@ -23748,7 +23864,9 @@
       }
     ],
     "startedAt": "2016-02-10",
-    "finishedAt": "2016-02-10"
+    "finishedAt": "2016-02-10",
+    "tmdbId": 39272,
+    "posterPath": "/u95scYysMZvBoekSLmMNJjeqXcY.jpg"
   },
   {
     "tvdbId": 248841,
@@ -23768,7 +23886,9 @@
         "watchedAt": "2018-02-23"
       }
     ],
-    "startedAt": "2018-02-23"
+    "startedAt": "2018-02-23",
+    "tmdbId": 39269,
+    "posterPath": "/4XmF8PMSqtHCGNoL15oHbjr5ZuO.jpg"
   },
   {
     "tvdbId": 248861,
@@ -23777,7 +23897,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-02-01"
+    "startedAt": "2016-02-01",
+    "tmdbId": 39276,
+    "posterPath": "/AvbMRqe3wSe4DBzIYl56CBlcalw.jpg"
   },
   {
     "tvdbId": 248884,
@@ -23898,7 +24020,9 @@
       }
     ],
     "startedAt": "2016-02-01",
-    "finishedAt": "2016-02-01"
+    "finishedAt": "2016-02-01",
+    "tmdbId": 37664,
+    "posterPath": "/3MwvNMhD9xpf1exlSfWgVm4sOF5.jpg"
   },
   {
     "tvdbId": 248935,
@@ -23907,7 +24031,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-11-18"
+    "startedAt": "2016-11-18",
+    "tmdbId": 39510,
+    "posterPath": "/4qreaxQD4azrRuZWdevyjVAKt8V.jpg"
   },
   {
     "tvdbId": 250487,
@@ -23916,7 +24042,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-05-28"
+    "startedAt": "2017-05-28",
+    "tmdbId": 1413,
+    "posterPath": "/x2c3AvZeTyNehRZXabTojAxfDuR.jpg"
   },
   {
     "tvdbId": 250749,
@@ -24017,7 +24145,9 @@
       }
     ],
     "startedAt": "2017-07-20",
-    "finishedAt": "2018-05-27"
+    "finishedAt": "2018-05-27",
+    "tmdbId": 68467,
+    "posterPath": "/uLBJSLuAQ8UqLIKZVWG3uNEXwjt.jpg"
   },
   {
     "tvdbId": 253463,
@@ -24083,7 +24213,9 @@
       }
     ],
     "startedAt": "2016-03-08",
-    "finishedAt": "2017-02-18"
+    "finishedAt": "2017-02-18",
+    "tmdbId": 42009,
+    "posterPath": "/seN6rRfN0I6n8iDXjlSMk1QjNcq.jpg"
   },
   {
     "tvdbId": 253573,
@@ -24092,7 +24224,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-05-28"
+    "startedAt": "2017-05-28",
+    "tmdbId": 46639,
+    "posterPath": "/3KCAZaKHmoMIN9dHutqaMtubQqD.jpg"
   },
   {
     "tvdbId": 255192,
@@ -24101,16 +24235,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2019-07-31"
-  },
-  {
-    "tvdbId": 256477,
-    "slug": "duplicate-78611",
-    "title": "***Duplicate \t78611***",
-    "status": "watchlist",
-    "favorite": false,
-    "watchedEpisodes": [],
-    "startedAt": "2017-05-28"
+    "startedAt": "2019-07-31",
+    "tmdbId": 39793,
+    "posterPath": "/b1p0nL00x563ACkcmGNIRP4ZnkA.jpg"
   },
   {
     "tvdbId": 257655,
@@ -24521,7 +24648,9 @@
       }
     ],
     "startedAt": "2016-01-28",
-    "finishedAt": "2016-02-01"
+    "finishedAt": "2016-02-01",
+    "tmdbId": 1412,
+    "posterPath": "/u8ZHFj1jC384JEkTt3vNg1DfWEb.jpg"
   },
   {
     "tvdbId": 258541,
@@ -24652,7 +24781,9 @@
       }
     ],
     "startedAt": "2016-02-25",
-    "finishedAt": "2016-02-25"
+    "finishedAt": "2016-02-25",
+    "tmdbId": 44006,
+    "posterPath": "/r915sk2JpthZSjHEgZKifWxgo6L.jpg"
   },
   {
     "tvdbId": 258959,
@@ -24883,7 +25014,9 @@
       }
     ],
     "startedAt": "2016-02-01",
-    "finishedAt": "2016-02-01"
+    "finishedAt": "2016-02-01",
+    "tmdbId": 44606,
+    "posterPath": "/6rZ2I1xRemLORb65spepVmsvnf7.jpg"
   },
   {
     "tvdbId": 259055,
@@ -24892,7 +25025,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-07-20"
+    "startedAt": "2017-07-20",
+    "tmdbId": 44549,
+    "posterPath": "/oZ2K2cPeWURnQjCxrvSEnaEcIST.jpg"
   },
   {
     "tvdbId": 259063,
@@ -24901,7 +25036,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-02-25"
+    "startedAt": "2016-02-25",
+    "tmdbId": 40008,
+    "posterPath": "/pbV2eLnKSIm1epSZt473UYfqaeZ.jpg"
   },
   {
     "tvdbId": 259765,
@@ -24910,7 +25047,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-07-12"
+    "startedAt": "2016-07-12",
+    "tmdbId": 41727,
+    "posterPath": "/5nXFiz8Rn8eezVjSTZBd7HmnF1G.jpg"
   },
   {
     "tvdbId": 260315,
@@ -25116,7 +25255,9 @@
       }
     ],
     "startedAt": "2016-02-24",
-    "finishedAt": "2016-08-02"
+    "finishedAt": "2016-08-02",
+    "tmdbId": 56296,
+    "posterPath": "/tjFYkWMafg71sihs1aa7IDx17aS.jpg"
   },
   {
     "tvdbId": 260449,
@@ -25172,7 +25313,9 @@
       }
     ],
     "startedAt": "2016-02-10",
-    "finishedAt": "2016-02-24"
+    "finishedAt": "2016-02-24",
+    "tmdbId": 44217,
+    "posterPath": "/bQLrHIRNEkE3PdIWQrZHynQZazu.jpg"
   },
   {
     "tvdbId": 262407,
@@ -25181,7 +25324,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-02-24"
+    "startedAt": "2016-02-24",
+    "tmdbId": 47665,
+    "posterPath": "/mZcSwrDdw6cdOVgXm496DgwrQcQ.jpg"
   },
   {
     "tvdbId": 262414,
@@ -25190,7 +25335,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-07-12"
+    "startedAt": "2016-07-12",
+    "tmdbId": 46786,
+    "posterPath": "/xXKcfZE7ulYxgjjYv51s0zDG69s.jpg"
   },
   {
     "tvdbId": 262980,
@@ -25199,7 +25346,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-01-27"
+    "startedAt": "2016-01-27",
+    "tmdbId": 1425,
+    "posterPath": "/hKWxWjFwnMvkWQawbhvC0Y7ygQ8.jpg"
   },
   {
     "tvdbId": 264234,
@@ -25560,7 +25709,9 @@
       }
     ],
     "startedAt": "2018-09-27",
-    "finishedAt": "2018-12-04"
+    "finishedAt": "2018-12-04",
+    "tmdbId": 44856,
+    "posterPath": "/3nikr0NE3t8UMgI1Ba6hXaeEgKr.jpg"
   },
   {
     "tvdbId": 264492,
@@ -25766,7 +25917,9 @@
       }
     ],
     "startedAt": "2016-01-27",
-    "finishedAt": "2016-01-28"
+    "finishedAt": "2016-01-28",
+    "tmdbId": 46331,
+    "posterPath": "/fwH0ePhd7m3swtCuFeubtR49ZTd.jpg"
   },
   {
     "tvdbId": 264586,
@@ -26232,7 +26385,9 @@
       }
     ],
     "startedAt": "2016-11-01",
-    "finishedAt": "2019-08-03"
+    "finishedAt": "2019-08-03",
+    "tmdbId": 1424,
+    "posterPath": "/ekaa7YjGPTkFLcPhwWXTnARuCEU.jpg"
   },
   {
     "tvdbId": 265766,
@@ -26241,7 +26396,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2018-09-03"
+    "startedAt": "2018-09-03",
+    "tmdbId": 54671,
+    "posterPath": "/hQSdrXBYTbLGHYDIseHkBOPXTgL.jpg"
   },
   {
     "tvdbId": 266091,
@@ -26250,7 +26407,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-03-28"
+    "startedAt": "2016-03-28",
+    "tmdbId": 60699,
+    "posterPath": "/syYTHCBvFlobr8eJjQMKAjrn9yV.jpg"
   },
   {
     "tvdbId": 266092,
@@ -26259,7 +26418,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-07-20"
+    "startedAt": "2017-07-20",
+    "tmdbId": 57092,
+    "posterPath": "/8dB8lh4OeQZz0A3gDu5aKwm25kU.jpg"
   },
   {
     "tvdbId": 266189,
@@ -26410,7 +26571,9 @@
       }
     ],
     "startedAt": "2016-06-24",
-    "finishedAt": "2016-08-30"
+    "finishedAt": "2016-08-30",
+    "tmdbId": 46952,
+    "posterPath": "/4HTfd1PhgFUenJxVuBDNdLmdr0c.jpg"
   },
   {
     "tvdbId": 266883,
@@ -26641,7 +26804,9 @@
       }
     ],
     "startedAt": "2016-02-01",
-    "finishedAt": "2016-02-01"
+    "finishedAt": "2016-02-01",
+    "tmdbId": 46896,
+    "posterPath": "/keJOhJXGiLL54EW6QocbyvQGquA.jpg"
   },
   {
     "tvdbId": 267014,
@@ -26650,7 +26815,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2018-02-14"
+    "startedAt": "2018-02-14",
+    "tmdbId": 61350,
+    "posterPath": "/dgzpboEMxpHVI3Isy5lZOCP2e6X.jpg"
   },
   {
     "tvdbId": 267907,
@@ -27181,7 +27348,9 @@
       }
     ],
     "startedAt": "2018-08-03",
-    "finishedAt": "2018-09-01"
+    "finishedAt": "2018-09-01",
+    "tmdbId": 46880,
+    "posterPath": "/iRCmazqaUNNsgZyR6tNDl88pXp3.jpg"
   },
   {
     "tvdbId": 268156,
@@ -27312,7 +27481,9 @@
       }
     ],
     "startedAt": "2016-01-27",
-    "finishedAt": "2018-06-22"
+    "finishedAt": "2018-06-22",
+    "tmdbId": 61664,
+    "posterPath": "/kmyvlQ9QKzgdZY31rXaUlgCnzrB.jpg"
   },
   {
     "tvdbId": 268592,
@@ -27508,7 +27679,9 @@
       }
     ],
     "startedAt": "2016-01-27",
-    "finishedAt": "2016-03-14"
+    "finishedAt": "2016-03-14",
+    "tmdbId": 48866,
+    "posterPath": "/wHIMMLFsk32wIzDmawWkYVbxFCS.jpg"
   },
   {
     "tvdbId": 269550,
@@ -27517,7 +27690,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-02-24"
+    "startedAt": "2016-02-24",
+    "tmdbId": 60556,
+    "posterPath": "/guhxl5I8J1WVEA3yeDt8hwgpYWx.jpg"
   },
   {
     "tvdbId": 269586,
@@ -28243,7 +28418,9 @@
       }
     ],
     "startedAt": "2020-07-11",
-    "finishedAt": "2020-09-06"
+    "finishedAt": "2020-09-06",
+    "tmdbId": 48891,
+    "posterPath": "/mpjlDzVjp7oyHUe2LaF9ltKe6f1.jpg"
   },
   {
     "tvdbId": 269602,
@@ -28564,7 +28741,9 @@
       }
     ],
     "startedAt": "2016-02-01",
-    "finishedAt": "2017-01-05"
+    "finishedAt": "2017-01-05",
+    "tmdbId": 48865,
+    "posterPath": "/epNfFs0gPyrpekecpzyX0XTkZgI.jpg"
   },
   {
     "tvdbId": 269613,
@@ -28573,7 +28752,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-07-20"
+    "startedAt": "2017-07-20",
+    "tmdbId": 60622,
+    "posterPath": "/a3VW6khsyUVKrG0GBCWFG3NzWPX.jpg"
   },
   {
     "tvdbId": 269641,
@@ -29699,7 +29880,9 @@
         "runtimeMinutes": 41
       }
     ],
-    "startedAt": "2026-03-27"
+    "startedAt": "2026-03-27",
+    "tmdbId": 58841,
+    "posterPath": "/bez40PgT36RUu4gstD2A6GSM0tP.jpg"
   },
   {
     "tvdbId": 269689,
@@ -29708,7 +29891,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-05-28"
+    "startedAt": "2017-05-28",
+    "tmdbId": 54344,
+    "posterPath": "/NKJdryIFHr245Umq6gXsf7oULW.jpg"
   },
   {
     "tvdbId": 270408,
@@ -29994,7 +30179,9 @@
       }
     ],
     "startedAt": "2017-01-05",
-    "finishedAt": "2020-01-25"
+    "finishedAt": "2020-01-25",
+    "tmdbId": 56570,
+    "posterPath": "/oftZNfyTVNU7IfOqoGLoT8MGvNs.jpg"
   },
   {
     "tvdbId": 270633,
@@ -30003,7 +30190,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-02-25"
+    "startedAt": "2016-02-25",
+    "tmdbId": 46648,
+    "posterPath": "/dC7jkj2g1aU8sxKqM6D4g44xA6w.jpg"
   },
   {
     "tvdbId": 270915,
@@ -30012,7 +30201,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-10-04"
+    "startedAt": "2017-10-04",
+    "tmdbId": 60574,
+    "posterPath": "/vUUqzWa2LnHIVqkaKVlVGkVcZIW.jpg"
   },
   {
     "tvdbId": 274431,
@@ -30058,7 +30249,9 @@
       }
     ],
     "startedAt": "2016-02-25",
-    "finishedAt": "2016-06-24"
+    "finishedAt": "2016-06-24",
+    "tmdbId": 60708,
+    "posterPath": "/zLpSNnVoL2bjQdc1PcaHUPUzttP.jpg"
   },
   {
     "tvdbId": 275274,
@@ -30067,7 +30260,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-10-04"
+    "startedAt": "2017-10-04",
+    "tmdbId": 60625,
+    "posterPath": "/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg"
   },
   {
     "tvdbId": 276147,
@@ -30076,7 +30271,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2021-01-02"
+    "startedAt": "2021-01-02",
+    "tmdbId": 65813,
+    "posterPath": "/rJ9lgdZd8qGabCy4HJXSy5nJjYP.jpg"
   },
   {
     "tvdbId": 277169,
@@ -30085,7 +30282,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-01-27"
+    "startedAt": "2016-01-27",
+    "tmdbId": 60705,
+    "posterPath": "/vb9J7q977HB3AmvLETpmWIyIyTP.jpg"
   },
   {
     "tvdbId": 279121,
@@ -30286,7 +30485,9 @@
       }
     ],
     "startedAt": "2016-01-27",
-    "finishedAt": "2016-02-26"
+    "finishedAt": "2016-02-26",
+    "tmdbId": 60735,
+    "posterPath": "/yZevl2vHQgmosfwUdVNzviIfaWS.jpg"
   },
   {
     "tvdbId": 280494,
@@ -30295,7 +30496,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-03-28"
+    "startedAt": "2016-03-28",
+    "tmdbId": 61345,
+    "posterPath": "/gXfeDMkEcHoYBvtkbU11g3F81b.jpg"
   },
   {
     "tvdbId": 281249,
@@ -30304,7 +30507,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-02-01"
+    "startedAt": "2016-02-01",
+    "tmdbId": 61374,
+    "posterPath": "/1m4RlC9BTCbyY549TOdVQ5NRPcR.jpg"
   },
   {
     "tvdbId": 281485,
@@ -30313,7 +30518,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-02-24"
+    "startedAt": "2016-02-24",
+    "tmdbId": 61550,
+    "posterPath": "/fe79VYyLp5ZBstpJ4oukpuUT3B.jpg"
   },
   {
     "tvdbId": 281511,
@@ -30322,7 +30529,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-09-18"
+    "startedAt": "2017-09-18",
+    "tmdbId": 61381,
+    "posterPath": "/ga1zJ6UejPIfyL8BA22pK6dqsC8.jpg"
   },
   {
     "tvdbId": 281551,
@@ -30398,7 +30607,9 @@
       }
     ],
     "startedAt": "2016-02-25",
-    "finishedAt": "2016-02-25"
+    "finishedAt": "2016-02-25",
+    "tmdbId": 61811,
+    "posterPath": "/p56xB5YJDeYaGGOaYFtsjWycTYl.jpg"
   },
   {
     "tvdbId": 281593,
@@ -30664,7 +30875,9 @@
       }
     ],
     "startedAt": "2017-12-01",
-    "finishedAt": "2019-02-07"
+    "finishedAt": "2019-02-07",
+    "tmdbId": 61671,
+    "posterPath": "/eMFHl0HyLg7k04OVeE4xPvT6XhY.jpg"
   },
   {
     "tvdbId": 281617,
@@ -30673,7 +30886,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2018-03-16"
+    "startedAt": "2018-03-16",
+    "tmdbId": 61733,
+    "posterPath": "/gTrzYR6gWMhQ8yINW9JCLeoJHvf.jpg"
   },
   {
     "tvdbId": 281620,
@@ -30984,7 +31199,9 @@
       }
     ],
     "startedAt": "2016-02-18",
-    "finishedAt": "2018-08-18"
+    "finishedAt": "2018-08-18",
+    "tmdbId": 61056,
+    "posterPath": "/bJs8Y6T88NcgksxA8UaVl4YX8p8.jpg"
   },
   {
     "tvdbId": 281630,
@@ -30993,7 +31210,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-03-28"
+    "startedAt": "2016-03-28",
+    "tmdbId": 60797,
+    "posterPath": "/hzeirSF6bRjssDh5JFrm5WRwFLd.jpg"
   },
   {
     "tvdbId": 281662,
@@ -31134,7 +31353,9 @@
       }
     ],
     "startedAt": "2016-01-28",
-    "finishedAt": "2016-04-28"
+    "finishedAt": "2016-04-28",
+    "tmdbId": 61889,
+    "posterPath": "/QWbPaDxiB6LW2LjASknzYBvjMj.jpg"
   },
   {
     "tvdbId": 281697,
@@ -31143,7 +31364,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-07-12"
+    "startedAt": "2016-07-12",
+    "tmdbId": 60796,
+    "posterPath": "/pHw8OgL3U7Ys8D8hlbOnlgH7ExM.jpg"
   },
   {
     "tvdbId": 281711,
@@ -31152,7 +31375,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-02-24"
+    "startedAt": "2016-02-24",
+    "tmdbId": 64433,
+    "posterPath": "/wxg8lxFpandLQtOiHRnTEQf7oeL.jpg"
   },
   {
     "tvdbId": 281977,
@@ -31161,7 +31386,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-02-25"
+    "startedAt": "2016-02-25",
+    "tmdbId": 61697,
+    "posterPath": "/dGuiMtUQBGxM3ZWosphO2MdYw8o.jpg"
   },
   {
     "tvdbId": 282254,
@@ -31307,7 +31534,9 @@
       }
     ],
     "startedAt": "2018-12-21",
-    "finishedAt": "2019-03-06"
+    "finishedAt": "2019-03-06",
+    "tmdbId": 61222,
+    "posterPath": "/6JFWzlChcGgLiIUo2COgNlWGFKy.jpg"
   },
   {
     "tvdbId": 282670,
@@ -31316,7 +31545,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-01-27"
+    "startedAt": "2016-01-27",
+    "tmdbId": 63351,
+    "posterPath": "/rTmal9fDbwh5F0waol2hq35U4ah.jpg"
   },
   {
     "tvdbId": 283317,
@@ -31325,7 +31556,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-09-02"
+    "startedAt": "2017-09-02",
+    "tmdbId": 62142,
+    "posterPath": "/cKp0ZDYGydWxI3v8KS3tY8W9aM7.jpg"
   },
   {
     "tvdbId": 284190,
@@ -31406,7 +31639,9 @@
       }
     ],
     "startedAt": "2016-01-28",
-    "finishedAt": "2018-03-11"
+    "finishedAt": "2018-03-11",
+    "tmdbId": 38472,
+    "posterPath": "/oxnWofiE9fHOgUfs9NJa6nG6NTR.jpg"
   },
   {
     "tvdbId": 285626,
@@ -31414,7 +31649,9 @@
     "title": "MasterChef (BR)",
     "status": "watchlist",
     "favorite": false,
-    "watchedEpisodes": []
+    "watchedEpisodes": [],
+    "tmdbId": 64203,
+    "posterPath": "/ub8zoWwcdXjgVlHQpPMbB6KsGnz.jpg"
   },
   {
     "tvdbId": 289096,
@@ -31475,7 +31712,9 @@
       }
     ],
     "startedAt": "2017-07-20",
-    "finishedAt": "2017-07-25"
+    "finishedAt": "2017-07-25",
+    "tmdbId": 64122,
+    "posterPath": "/yzoaoBSMww5D22Kfrd2LEJumIzl.jpg"
   },
   {
     "tvdbId": 289108,
@@ -31484,7 +31723,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-05-28"
+    "startedAt": "2017-05-28",
+    "tmdbId": 64513,
+    "posterPath": "/3sYPoWBtwAmd07YoJWr76ij6Iyg.jpg"
   },
   {
     "tvdbId": 289266,
@@ -31512,7 +31753,9 @@
         "runtimeMinutes": 52
       }
     ],
-    "startedAt": "2023-02-17"
+    "startedAt": "2023-02-17",
+    "tmdbId": 46126,
+    "posterPath": "/ehbB6L0gMU2ILJCScO2036crfEw.jpg"
   },
   {
     "tvdbId": 289590,
@@ -31521,7 +31764,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-11-15"
+    "startedAt": "2016-11-15",
+    "tmdbId": 62560,
+    "posterPath": "/kv1nRqgebSsREnd7vdC2pSGjpLo.jpg"
   },
   {
     "tvdbId": 292124,
@@ -31530,7 +31775,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-07-20"
+    "startedAt": "2017-07-20",
+    "tmdbId": 62822,
+    "posterPath": "/iBjjSGgnjAQBSQGO9pYIh7Gp2PO.jpg"
   },
   {
     "tvdbId": 293194,
@@ -31539,7 +31786,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-07-19"
+    "startedAt": "2016-07-19",
+    "tmdbId": 62433,
+    "posterPath": "/5MvJDbbgG3xUSsFRG9i1uG6rxAe.jpg"
   },
   {
     "tvdbId": 294417,
@@ -31660,7 +31909,9 @@
       }
     ],
     "startedAt": "2016-06-24",
-    "finishedAt": "2016-08-21"
+    "finishedAt": "2016-08-21",
+    "tmdbId": 62823,
+    "posterPath": "/cb2WD75HjajBmFtPzfU5ukGqfeo.jpg"
   },
   {
     "tvdbId": 294741,
@@ -31871,7 +32122,9 @@
       }
     ],
     "startedAt": "2019-10-29",
-    "finishedAt": "2019-12-22"
+    "finishedAt": "2019-12-22",
+    "tmdbId": 62455,
+    "posterPath": "/1kH9u5DkoDUuIlhFFWjz9VSlKhC.jpg"
   },
   {
     "tvdbId": 295515,
@@ -32032,7 +32285,9 @@
       }
     ],
     "startedAt": "2016-02-10",
-    "finishedAt": "2017-01-05"
+    "finishedAt": "2017-01-05",
+    "tmdbId": 62816,
+    "posterPath": "/3ofY2mALEiE0QDyRlVOV3sDNMYC.jpg"
   },
   {
     "tvdbId": 295647,
@@ -32041,7 +32296,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-04-24"
+    "startedAt": "2017-04-24",
+    "tmdbId": 62710,
+    "posterPath": "/4AeYzamQmd9Fa6hawDmYKbdvBSe.jpg"
   },
   {
     "tvdbId": 295685,
@@ -32050,7 +32307,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-02-09"
+    "startedAt": "2016-02-09",
+    "tmdbId": 63174,
+    "posterPath": "/ekZobS8isE6mA53RAiGDG93hBxL.jpg"
   },
   {
     "tvdbId": 295743,
@@ -32059,7 +32318,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-07-12"
+    "startedAt": "2016-07-12",
+    "tmdbId": 62687,
+    "posterPath": "/l5BERaKn3ozRTLhoylIiNwMDvax.jpg"
   },
   {
     "tvdbId": 295760,
@@ -32089,7 +32350,9 @@
         "watchedAt": "2016-02-16"
       }
     ],
-    "startedAt": "2016-02-01"
+    "startedAt": "2016-02-01",
+    "tmdbId": 62643,
+    "posterPath": "/AcEFDh272YVTR6B6zrrusk8BjJG.jpg"
   },
   {
     "tvdbId": 295777,
@@ -32098,7 +32361,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-03-01"
+    "startedAt": "2017-03-01",
+    "tmdbId": 63161,
+    "posterPath": "/pvYh3fdrRvreWmqw4onWJJmRXf5.jpg"
   },
   {
     "tvdbId": 295829,
@@ -32123,7 +32388,9 @@
         "watchedAt": "2020-04-19"
       }
     ],
-    "startedAt": "2020-04-15"
+    "startedAt": "2020-04-15",
+    "tmdbId": 62017,
+    "posterPath": "/xhoDZbMNeyCA0BGPZQsdIiO43Dp.jpg"
   },
   {
     "tvdbId": 295837,
@@ -32143,7 +32410,9 @@
         "watchedAt": "2016-01-27"
       }
     ],
-    "startedAt": "2016-01-27"
+    "startedAt": "2016-01-27",
+    "tmdbId": 63210,
+    "posterPath": "/66YHvvVduC21xcMXPpBBF0ywyVZ.jpg"
   },
   {
     "tvdbId": 296762,
@@ -32204,7 +32473,9 @@
       }
     ],
     "startedAt": "2018-03-06",
-    "finishedAt": "2018-03-21"
+    "finishedAt": "2018-03-21",
+    "tmdbId": 63247,
+    "posterPath": "/ALlSU9du9iRiKIIoY1sREGNqQ5.jpg"
   },
   {
     "tvdbId": 298566,
@@ -32213,7 +32484,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-09-15"
+    "startedAt": "2017-09-15",
+    "tmdbId": 63333,
+    "posterPath": "/8eJf0hxgIhE6QSxbtuNCekTddy1.jpg"
   },
   {
     "tvdbId": 298901,
@@ -32349,7 +32622,9 @@
       }
     ],
     "startedAt": "2021-08-13",
-    "finishedAt": "2021-09-11"
+    "finishedAt": "2021-09-11",
+    "tmdbId": 64254,
+    "posterPath": "/AcJM86PhgHAfbrF4dMKBaqO3cHV.jpg"
   },
   {
     "tvdbId": 301236,
@@ -32645,7 +32920,9 @@
       }
     ],
     "startedAt": "2019-01-24",
-    "finishedAt": "2019-02-25"
+    "finishedAt": "2019-02-25",
+    "tmdbId": 63623,
+    "posterPath": "/n4ZZB471d2UueUFEaOWnKetCxnY.jpg"
   },
   {
     "tvdbId": 301562,
@@ -32654,7 +32931,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-11-15"
+    "startedAt": "2016-11-15",
+    "tmdbId": 64339,
+    "posterPath": "/g7K7IrHzfCMbvJDahkymKugyfuZ.jpg"
   },
   {
     "tvdbId": 302419,
@@ -32663,7 +32942,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-09-11"
+    "startedAt": "2017-09-11",
+    "tmdbId": 365802,
+    "posterPath": "/8vAY5GCzCUCu1vAaE7MNEYjPqau.jpg"
   },
   {
     "tvdbId": 303210,
@@ -32672,7 +32953,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-01-27"
+    "startedAt": "2016-01-27",
+    "tmdbId": 64439,
+    "posterPath": "/sy2nV3rCcJQaRK5M0NWvvTU7CBx.jpg"
   },
   {
     "tvdbId": 303786,
@@ -32838,7 +33121,9 @@
       }
     ],
     "startedAt": "2020-10-03",
-    "finishedAt": "2020-10-06"
+    "finishedAt": "2020-10-06",
+    "tmdbId": 65320,
+    "posterPath": "/mkgQX2mRSn7aDSlFtnpUtNintbA.jpg"
   },
   {
     "tvdbId": 304219,
@@ -32847,7 +33132,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-07-12"
+    "startedAt": "2016-07-12",
+    "tmdbId": 62126,
+    "posterPath": "/yzM1hMB3PUJqbISX0f421b3xOjB.jpg"
   },
   {
     "tvdbId": 305288,
@@ -33036,7 +33323,9 @@
       }
     ],
     "startedAt": "2016-07-22",
-    "finishedAt": "2022-07-16"
+    "finishedAt": "2022-07-16",
+    "tmdbId": 66732,
+    "posterPath": "/uKYUR8GPkKRCksczYDJb3pwZauo.jpg"
   },
   {
     "tvdbId": 305327,
@@ -33045,7 +33334,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2018-02-17"
+    "startedAt": "2018-02-17",
+    "tmdbId": 65143,
+    "posterPath": "/xxGomfml0x9iyPBS4StBjbRRu65.jpg"
   },
   {
     "tvdbId": 305378,
@@ -33081,7 +33372,9 @@
       }
     ],
     "startedAt": "2018-04-21",
-    "finishedAt": "2018-04-21"
+    "finishedAt": "2018-04-21",
+    "tmdbId": 53606,
+    "posterPath": "/wvtW9YoMkovpMqyZCWUbQC6FJlg.jpg"
   },
   {
     "tvdbId": 305574,
@@ -33227,7 +33520,9 @@
       }
     ],
     "startedAt": "2020-12-24",
-    "finishedAt": "2021-01-15"
+    "finishedAt": "2021-01-15",
+    "tmdbId": 65494,
+    "posterPath": "/1M876KPjulVwppEpldhdc8V4o68.jpg"
   },
   {
     "tvdbId": 305582,
@@ -33303,7 +33598,9 @@
       }
     ],
     "startedAt": "2017-04-18",
-    "finishedAt": "2017-04-30"
+    "finishedAt": "2017-04-30",
+    "tmdbId": 65988,
+    "posterPath": "/qnIaDelA81dmFaXrhpz6M6dpGSD.jpg"
   },
   {
     "tvdbId": 305719,
@@ -33384,7 +33681,9 @@
       }
     ],
     "startedAt": "2018-01-25",
-    "finishedAt": "2019-08-03"
+    "finishedAt": "2019-08-03",
+    "tmdbId": 66292,
+    "posterPath": "/zxGkno93ExrTMsJVllH6mzQ652z.jpg"
   },
   {
     "tvdbId": 306101,
@@ -33393,7 +33692,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2020-12-27"
+    "startedAt": "2020-12-27",
+    "tmdbId": 7448,
+    "posterPath": "/sp6VyduIK2FnRQOALEAHF9D0jAb.jpg"
   },
   {
     "tvdbId": 306304,
@@ -33469,7 +33770,9 @@
       }
     ],
     "startedAt": "2017-07-20",
-    "finishedAt": "2018-05-21"
+    "finishedAt": "2018-05-21",
+    "tmdbId": 65294,
+    "posterPath": "/qg7WXAatXyQq6zO3SnWnRJEayeZ.jpg"
   },
   {
     "tvdbId": 306391,
@@ -33478,7 +33781,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2018-03-16"
+    "startedAt": "2018-03-16",
+    "tmdbId": 66830,
+    "posterPath": "/dnKwzDle0E7tHnddW9gbFf44GzH.jpg"
   },
   {
     "tvdbId": 306719,
@@ -33487,7 +33792,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-07-12"
+    "startedAt": "2016-07-12",
+    "tmdbId": 66676,
+    "posterPath": "/rzdC5EHkkKJE6OPVdh6gT1pR1c9.jpg"
   },
   {
     "tvdbId": 309130,
@@ -33748,7 +34055,9 @@
       }
     ],
     "startedAt": "2020-12-04",
-    "finishedAt": "2020-12-21"
+    "finishedAt": "2020-12-21",
+    "tmdbId": 66008,
+    "posterPath": "/kVl9dbJ2KWJ17Red01EWDC7fw11.jpg"
   },
   {
     "tvdbId": 309990,
@@ -33757,7 +34066,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-07-12"
+    "startedAt": "2016-07-12",
+    "tmdbId": 66490,
+    "posterPath": "/gRm3WojWDTXhmviAfWx8b6y8YVv.jpg"
   },
   {
     "tvdbId": 310516,
@@ -33766,7 +34077,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2021-07-03"
+    "startedAt": "2021-07-03",
+    "tmdbId": 66276,
+    "posterPath": "/q13XJHdnsmxQL9rXRcnNDrZGHjO.jpg"
   },
   {
     "tvdbId": 311711,
@@ -33913,7 +34226,9 @@
       }
     ],
     "startedAt": "2018-01-13",
-    "finishedAt": "2018-02-02"
+    "finishedAt": "2018-02-02",
+    "tmdbId": 66573,
+    "posterPath": "/qIhsuhoIYR5yTnDta0IL4senbeN.jpg"
   },
   {
     "tvdbId": 311714,
@@ -34364,7 +34679,9 @@
       }
     ],
     "startedAt": "2019-04-05",
-    "finishedAt": "2021-06-28"
+    "finishedAt": "2021-06-28",
+    "tmdbId": 67136,
+    "posterPath": "/huxmY6Dmzwpv5Q2hnNft0UMK7vf.jpg"
   },
   {
     "tvdbId": 311954,
@@ -34373,7 +34690,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-10-02"
+    "startedAt": "2017-10-02",
+    "tmdbId": 69050,
+    "posterPath": "/d8mmn9thQ5dBk2qbv6BCqGUXWK3.jpg"
   },
   {
     "tvdbId": 312505,
@@ -34382,7 +34701,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-05-28"
+    "startedAt": "2017-05-28",
+    "tmdbId": 67773,
+    "posterPath": "/q8oMpXPEAUJJ0KztsRs5K51T2lo.jpg"
   },
   {
     "tvdbId": 313589,
@@ -34391,7 +34712,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-07-20"
+    "startedAt": "2017-07-20",
+    "tmdbId": 67148,
+    "posterPath": "/kSF3AymHUK4XLuh1rzIX1TnRXAM.jpg"
   },
   {
     "tvdbId": 313999,
@@ -34447,7 +34770,9 @@
       }
     ],
     "startedAt": "2019-01-24",
-    "finishedAt": "2019-01-31"
+    "finishedAt": "2019-01-31",
+    "tmdbId": 65495,
+    "posterPath": "/8HZyGMnPLVVb00rmrh6A2SbK9NX.jpg"
   },
   {
     "tvdbId": 314572,
@@ -34680,7 +35005,9 @@
       }
     ],
     "startedAt": "2022-12-24",
-    "finishedAt": "2023-01-09"
+    "finishedAt": "2023-01-09",
+    "tmdbId": 68689,
+    "posterPath": "/4oIA7MWmCV66tSlhiaj0dWit8aX.jpg"
   },
   {
     "tvdbId": 314614,
@@ -34751,7 +35078,9 @@
       }
     ],
     "startedAt": "2019-07-23",
-    "finishedAt": "2019-07-29"
+    "finishedAt": "2019-07-29",
+    "tmdbId": 67070,
+    "posterPath": "/27vEYsRKa3eAniwmoccOoluEXQ1.jpg"
   },
   {
     "tvdbId": 314884,
@@ -34760,7 +35089,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-09-11"
+    "startedAt": "2017-09-11",
+    "tmdbId": 67780,
+    "posterPath": "/uh0pHb6JV0m6Vjmz1tGhohr9B7y.jpg"
   },
   {
     "tvdbId": 314986,
@@ -34769,7 +35100,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2018-03-16"
+    "startedAt": "2018-03-16",
+    "tmdbId": 67883,
+    "posterPath": "/sGMwPIE6m9QI3LzCRXnZG8opZtB.jpg"
   },
   {
     "tvdbId": 315460,
@@ -34839,7 +35172,9 @@
       }
     ],
     "startedAt": "2022-07-18",
-    "finishedAt": "2022-07-21"
+    "finishedAt": "2022-07-21",
+    "tmdbId": 67429,
+    "posterPath": "/wF1IwXyKsdViyEQdkxtIOyMz3Dt.jpg"
   },
   {
     "tvdbId": 316517,
@@ -34848,7 +35183,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-09-15"
+    "startedAt": "2017-09-15",
+    "tmdbId": 64555,
+    "posterPath": "/mhIeCeYgG4WJHNzaw2EyRpvmGX8.jpg"
   },
   {
     "tvdbId": 316594,
@@ -34894,7 +35231,9 @@
       }
     ],
     "startedAt": "2019-02-24",
-    "finishedAt": "2019-03-18"
+    "finishedAt": "2019-03-18",
+    "tmdbId": 67894,
+    "posterPath": "/kI2lk4D8VPRYY1LbxNOfZEkqe3f.jpg"
   },
   {
     "tvdbId": 317220,
@@ -34903,7 +35242,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2018-02-17"
+    "startedAt": "2018-02-17",
+    "tmdbId": 67915,
+    "posterPath": "/sPkxHNw5BFvuCFGWw825TS7n6X3.jpg"
   },
   {
     "tvdbId": 318363,
@@ -35109,7 +35450,9 @@
       }
     ],
     "startedAt": "2018-07-01",
-    "finishedAt": "2019-02-16"
+    "finishedAt": "2019-02-16",
+    "tmdbId": 69017,
+    "posterPath": "/yiQcmPm6pTYyAAp3Q9Ge2xMkf8b.jpg"
   },
   {
     "tvdbId": 319594,
@@ -35118,16 +35461,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-09-15"
-  },
-  {
-    "tvdbId": 320166,
-    "slug": "series-320166",
-    "title": "series-320166",
-    "status": "watchlist",
-    "favorite": false,
-    "watchedEpisodes": [],
-    "startedAt": "2017-04-24"
+    "startedAt": "2017-09-15",
+    "tmdbId": 68708,
+    "posterPath": "/uzgEzk9wve2O0uDPMy68SDLkjTl.jpg"
   },
   {
     "tvdbId": 320450,
@@ -35188,7 +35524,9 @@
       }
     ],
     "startedAt": "2017-02-19",
-    "finishedAt": "2017-02-19"
+    "finishedAt": "2017-02-19",
+    "tmdbId": 69470,
+    "posterPath": "/5rBjNm2sRubaXKBnU904NInFi7P.jpg"
   },
   {
     "tvdbId": 320724,
@@ -35197,7 +35535,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2017-05-28"
+    "startedAt": "2017-05-28",
+    "tmdbId": 67195,
+    "posterPath": "/xhJtYVTsdXQCIlB5hAXkMCPUG9y.jpg"
   },
   {
     "tvdbId": 321060,
@@ -35248,7 +35588,9 @@
       }
     ],
     "startedAt": "2017-01-05",
-    "finishedAt": "2017-01-05"
+    "finishedAt": "2017-01-05",
+    "tmdbId": 69061,
+    "posterPath": "/rueY4slMeKtTGitm0raFUJvgaa5.jpg"
   },
   {
     "tvdbId": 321239,
@@ -35489,7 +35831,9 @@
       }
     ],
     "startedAt": "2017-10-03",
-    "finishedAt": "2021-06-19"
+    "finishedAt": "2021-06-19",
+    "tmdbId": 69478,
+    "posterPath": "/eGUT7j3n3rn5yGihlCgwUnD70HV.jpg"
   },
   {
     "tvdbId": 322971,
@@ -35635,7 +35979,9 @@
       }
     ],
     "startedAt": "2017-09-10",
-    "finishedAt": "2020-01-13"
+    "finishedAt": "2020-01-13",
+    "tmdbId": 70785,
+    "posterPath": "/6P6tXhjT5tK3qOXzxF9OMLlG7iz.jpg"
   },
   {
     "tvdbId": 323168,
@@ -35711,7 +36057,9 @@
       }
     ],
     "startedAt": "2017-07-20",
-    "finishedAt": "2017-07-20"
+    "finishedAt": "2017-07-20",
+    "tmdbId": 66788,
+    "posterPath": "/nel144y4dIOdFFid6twN5mAX9Yd.jpg"
   },
   {
     "tvdbId": 323225,
@@ -35882,7 +36230,9 @@
       }
     ],
     "startedAt": "2017-09-22",
-    "finishedAt": "2019-10-11"
+    "finishedAt": "2019-10-11",
+    "tmdbId": 71225,
+    "posterPath": "/lAwLmgq1zy0xJnusszmvWTLjFlO.jpg"
   },
   {
     "tvdbId": 323385,
@@ -36138,7 +36488,9 @@
       }
     ],
     "startedAt": "2018-07-25",
-    "finishedAt": "2021-06-14"
+    "finishedAt": "2021-06-14",
+    "tmdbId": 69630,
+    "posterPath": "/cKloQpl6zE7kdFf8SUeYU2qPT9H.jpg"
   },
   {
     "tvdbId": 323855,
@@ -36249,7 +36601,9 @@
       }
     ],
     "startedAt": "2017-08-31",
-    "finishedAt": "2018-05-24"
+    "finishedAt": "2018-05-24",
+    "tmdbId": 70767,
+    "posterPath": "/thHk9AncE8g2Hsb1iK1xHnlq23j.jpg"
   },
   {
     "tvdbId": 324546,
@@ -36258,7 +36612,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2018-03-16"
+    "startedAt": "2018-03-16",
+    "tmdbId": 70490,
+    "posterPath": "/2uJWtcLq231IkwwiUonS7QhZtMk.jpg"
   },
   {
     "tvdbId": 326791,
@@ -36501,7 +36857,9 @@
       }
     ],
     "startedAt": "2018-08-16",
-    "finishedAt": "2023-06-04"
+    "finishedAt": "2023-06-04",
+    "tmdbId": 70796,
+    "posterPath": "/zS7fQiOZiKCVH2vlYSiIsFWW8hh.jpg"
   },
   {
     "tvdbId": 326866,
@@ -36552,7 +36910,9 @@
       }
     ],
     "startedAt": "2017-12-10",
-    "finishedAt": "2017-12-10"
+    "finishedAt": "2017-12-10",
+    "tmdbId": 39852,
+    "posterPath": "/rmibFGdqOe0kKKhPls0jVOdZCWw.jpg"
   },
   {
     "tvdbId": 326887,
@@ -36613,7 +36973,9 @@
       }
     ],
     "startedAt": "2017-09-13",
-    "finishedAt": "2017-09-13"
+    "finishedAt": "2017-09-13",
+    "tmdbId": 68315,
+    "posterPath": "/iwDmsffJ5qYBxiGTPdwgIKTscKu.jpg"
   },
   {
     "tvdbId": 327417,
@@ -36704,7 +37066,9 @@
       }
     ],
     "startedAt": "2018-08-10",
-    "finishedAt": "2018-10-20"
+    "finishedAt": "2018-10-20",
+    "tmdbId": 71446,
+    "posterPath": "/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg"
   },
   {
     "tvdbId": 328292,
@@ -36765,7 +37129,9 @@
       }
     ],
     "startedAt": "2017-07-20",
-    "finishedAt": "2017-07-20"
+    "finishedAt": "2017-07-20",
+    "tmdbId": 66939,
+    "posterPath": "/9dtm1ExRh6ihPGYIaAxEygOnl6G.jpg"
   },
   {
     "tvdbId": 328535,
@@ -36826,7 +37192,9 @@
       }
     ],
     "startedAt": "2018-07-15",
-    "finishedAt": "2018-07-15"
+    "finishedAt": "2018-07-15",
+    "tmdbId": 71744,
+    "posterPath": "/p0lsqyrRwV7rKBLuXAl7WgWQoRt.jpg"
   },
   {
     "tvdbId": 328577,
@@ -36892,7 +37260,9 @@
       }
     ],
     "startedAt": "2018-07-23",
-    "finishedAt": "2019-07-02"
+    "finishedAt": "2019-07-02",
+    "tmdbId": 71715,
+    "posterPath": "/wpgg6G3UHXepH2Zgpt4W60d6gxR.jpg"
   },
   {
     "tvdbId": 328634,
@@ -36933,7 +37303,9 @@
       }
     ],
     "startedAt": "2019-03-04",
-    "finishedAt": "2019-03-15"
+    "finishedAt": "2019-03-15",
+    "tmdbId": 71712,
+    "posterPath": "/luhKkdD80qe62fwop6sdrXK9jUT.jpg"
   },
   {
     "tvdbId": 328708,
@@ -36994,7 +37366,9 @@
       }
     ],
     "startedAt": "2017-10-19",
-    "finishedAt": "2017-12-17"
+    "finishedAt": "2017-12-17",
+    "tmdbId": 67744,
+    "posterPath": "/fbKE87mojpIETWepSbD5Qt741fp.jpg"
   },
   {
     "tvdbId": 329089,
@@ -37241,7 +37615,9 @@
       }
     ],
     "startedAt": "2020-09-19",
-    "finishedAt": "2022-07-03"
+    "finishedAt": "2022-07-03",
+    "tmdbId": 69740,
+    "posterPath": "/pCGyPVrI9Fzw6rE1Pvi4BIXF6ET.jpg"
   },
   {
     "tvdbId": 329204,
@@ -37266,7 +37642,9 @@
         "watchedAt": "2018-07-07"
       }
     ],
-    "startedAt": "2018-07-07"
+    "startedAt": "2018-07-07",
+    "tmdbId": 71967,
+    "posterPath": "/gomZ0inbIl5zm9jdMqcdzMvjKdp.jpg"
   },
   {
     "tvdbId": 330374,
@@ -37467,7 +37845,9 @@
       }
     ],
     "startedAt": "2017-10-03",
-    "finishedAt": "2021-08-13"
+    "finishedAt": "2021-08-13",
+    "tmdbId": 71578,
+    "posterPath": "/kNif3eZAjQ7qU3Ol9E7zo0kjPMo.jpg"
   },
   {
     "tvdbId": 330500,
@@ -37482,7 +37862,9 @@
         "watchedAt": "2017-12-02"
       }
     ],
-    "startedAt": "2017-12-02"
+    "startedAt": "2017-12-02",
+    "tmdbId": 72755,
+    "posterPath": "/t3yVaAlmCLBwbqTrKGcWHwuCmkh.jpg"
   },
   {
     "tvdbId": 331431,
@@ -37491,7 +37873,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2018-06-05"
+    "startedAt": "2018-06-05",
+    "tmdbId": 74204,
+    "posterPath": "/1Zio9w1tAd3r5Gu4d9AzTSx2hnT.jpg"
   },
   {
     "tvdbId": 331980,
@@ -37500,7 +37884,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2018-02-14"
+    "startedAt": "2018-02-14",
+    "tmdbId": 67178,
+    "posterPath": "/tM6xqRKXoloH9UchaJEyyRE9O1w.jpg"
   },
   {
     "tvdbId": 332027,
@@ -37600,7 +37986,9 @@
       }
     ],
     "startedAt": "2021-12-25",
-    "finishedAt": "2022-01-13"
+    "finishedAt": "2022-01-13",
+    "tmdbId": 67466,
+    "posterPath": "/hnHEhbzh0F7kN3Ah1lzRjtQuW16.jpg"
   },
   {
     "tvdbId": 333801,
@@ -37609,7 +37997,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2018-09-18"
+    "startedAt": "2018-09-18",
+    "tmdbId": 73467,
+    "posterPath": "/ePOD0ofGWFDTbZR84QhM7kpYMPX.jpg"
   },
   {
     "tvdbId": 334824,
@@ -37690,7 +38080,9 @@
       }
     ],
     "startedAt": "2018-01-01",
-    "finishedAt": "2020-06-27"
+    "finishedAt": "2020-06-27",
+    "tmdbId": 70523,
+    "posterPath": "/apbrbWs8M9lyOpJYU5WXrpFbk1Z.jpg"
   },
   {
     "tvdbId": 337479,
@@ -37766,7 +38158,9 @@
       }
     ],
     "startedAt": "2019-03-22",
-    "finishedAt": "2021-01-10"
+    "finishedAt": "2021-01-10",
+    "tmdbId": 86943,
+    "posterPath": "/w3S7O45AR4kEHoGpmGy9NZQ24KH.jpg"
   },
   {
     "tvdbId": 338186,
@@ -37981,7 +38375,9 @@
         "runtimeMinutes": 61
       }
     ],
-    "startedAt": "2021-09-23"
+    "startedAt": "2021-09-23",
+    "tmdbId": 76331,
+    "posterPath": "/z0XiwdrCQ9yVIr4O0pxzaAYRxdW.jpg"
   },
   {
     "tvdbId": 338947,
@@ -38047,7 +38443,9 @@
       }
     ],
     "startedAt": "2019-02-16",
-    "finishedAt": "2019-02-16"
+    "finishedAt": "2019-02-16",
+    "tmdbId": 79242,
+    "posterPath": "/yxMpoHO0CXP5o9gB7IfsciilQS4.jpg"
   },
   {
     "tvdbId": 339273,
@@ -38158,7 +38556,9 @@
       }
     ],
     "startedAt": "2018-04-09",
-    "finishedAt": "2019-05-05"
+    "finishedAt": "2019-05-05",
+    "tmdbId": 76747,
+    "posterPath": "/w6oviv65UEducvjAdH3sYYaxdu2.jpg"
   },
   {
     "tvdbId": 340959,
@@ -38249,7 +38649,9 @@
       }
     ],
     "startedAt": "2019-07-24",
-    "finishedAt": "2019-08-13"
+    "finishedAt": "2019-08-13",
+    "tmdbId": 72750,
+    "posterPath": "/4wKhTVw8aGq5AZMa0Q1spERdi7n.jpg"
   },
   {
     "tvdbId": 341282,
@@ -38309,9 +38711,11 @@
         "watchedAt": "2018-03-30"
       }
     ],
-    "rating": 5.0,
+    "rating": 5,
     "startedAt": "2018-03-30",
-    "finishedAt": "2018-03-30"
+    "finishedAt": "2018-03-30",
+    "tmdbId": 76438,
+    "posterPath": "/t1u1Ff43QnMCecao2lzx5wpR7Xg.jpg"
   },
   {
     "tvdbId": 341614,
@@ -38320,7 +38724,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2018-06-05"
+    "startedAt": "2018-06-05",
+    "tmdbId": 76922,
+    "posterPath": "/zyuQwYNTkiPpyqiA9XAZuToZRhN.jpg"
   },
   {
     "tvdbId": 341852,
@@ -38576,7 +38982,9 @@
       }
     ],
     "startedAt": "2020-08-30",
-    "finishedAt": "2021-04-09"
+    "finishedAt": "2021-04-09",
+    "tmdbId": 76773,
+    "posterPath": "/3gs9wBsvv1GJ3EzLheh5yGuTQis.jpg"
   },
   {
     "tvdbId": 343290,
@@ -38585,12 +38993,14 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2018-06-05"
+    "startedAt": "2018-06-05",
+    "tmdbId": 77791,
+    "posterPath": "/3wLAkbQu2Ld1rjiEeFvHnqmO5zN.jpg"
   },
   {
     "tvdbId": 345246,
     "slug": "the-haunting",
-    "title": "The Haunting",
+    "title": "The Haunting of Hill House",
     "status": "completed",
     "favorite": false,
     "watchedEpisodes": [
@@ -38691,7 +39101,9 @@
       }
     ],
     "startedAt": "2018-10-13",
-    "finishedAt": "2020-10-17"
+    "finishedAt": "2020-10-17",
+    "tmdbId": 72844,
+    "posterPath": "/nWPZb800NCGiDPNGsKCfY0w44Z2.jpg"
   },
   {
     "tvdbId": 346328,
@@ -38711,7 +39123,9 @@
         "watchedAt": "2018-10-22"
       }
     ],
-    "startedAt": "2018-10-22"
+    "startedAt": "2018-10-22",
+    "tmdbId": 76669,
+    "posterPath": "/3NTAbAiao4JLzFQw6YxP1YZppM8.jpg"
   },
   {
     "tvdbId": 346357,
@@ -38720,7 +39134,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2018-06-05"
+    "startedAt": "2018-06-05",
+    "tmdbId": 79932,
+    "posterPath": "/9TdpNQfW7VwUxIkrOxWzpOtlgun.jpg"
   },
   {
     "tvdbId": 346602,
@@ -38770,9 +39186,11 @@
         "watchedAt": "2018-08-31"
       }
     ],
-    "rating": 5.0,
+    "rating": 5,
     "startedAt": "2018-08-24",
-    "finishedAt": "2018-12-04"
+    "finishedAt": "2018-12-04",
+    "tmdbId": 70453,
+    "posterPath": "/1SGovj2qDdkJexvhFiXllj9EYfu.jpg"
   },
   {
     "tvdbId": 347507,
@@ -38787,7 +39205,9 @@
         "watchedAt": "2019-03-20"
       }
     ],
-    "startedAt": "2019-03-20"
+    "startedAt": "2019-03-20",
+    "tmdbId": 79410,
+    "posterPath": "/6eJf4h9XcvqK64vbx27EFlLVURm.jpg"
   },
   {
     "tvdbId": 348443,
@@ -38838,7 +39258,9 @@
       }
     ],
     "startedAt": "2019-07-15",
-    "finishedAt": "2019-07-17"
+    "finishedAt": "2019-07-17",
+    "tmdbId": 86163,
+    "posterPath": "/hLQl8LKLXdA4gF4ArR8TXzXGRYV.jpg"
   },
   {
     "tvdbId": 348598,
@@ -38879,73 +39301,9 @@
       }
     ],
     "startedAt": "2019-08-13",
-    "finishedAt": "2019-08-17"
-  },
-  {
-    "tvdbId": 349078,
-    "slug": "series-349078",
-    "title": "series-349078",
-    "status": "completed",
-    "favorite": false,
-    "watchedEpisodes": [
-      {
-        "season": 1,
-        "episode": 7,
-        "watchedAt": "2018-08-10"
-      },
-      {
-        "season": 1,
-        "episode": 8,
-        "watchedAt": "2018-08-10"
-      },
-      {
-        "season": 1,
-        "episode": 9,
-        "watchedAt": "2018-08-10"
-      },
-      {
-        "season": 1,
-        "episode": 10,
-        "watchedAt": "2018-08-10"
-      },
-      {
-        "season": 1,
-        "episode": 11,
-        "watchedAt": "2018-08-10"
-      },
-      {
-        "season": 1,
-        "episode": 12,
-        "watchedAt": "2018-08-10"
-      },
-      {
-        "season": 1,
-        "episode": 13,
-        "watchedAt": "2018-08-10"
-      },
-      {
-        "season": 2,
-        "episode": 6,
-        "watchedAt": "2018-08-10"
-      },
-      {
-        "season": 2,
-        "episode": 7,
-        "watchedAt": "2018-08-10"
-      },
-      {
-        "season": 2,
-        "episode": 8,
-        "watchedAt": "2018-08-10"
-      },
-      {
-        "season": 2,
-        "episode": 9,
-        "watchedAt": "2018-08-10"
-      }
-    ],
-    "startedAt": "2018-08-10",
-    "finishedAt": "2018-08-10"
+    "finishedAt": "2019-08-17",
+    "tmdbId": 87104,
+    "posterPath": "/u1FBsyMH9Tx7K5yzMnJsYRvNEKQ.jpg"
   },
   {
     "tvdbId": 349271,
@@ -38965,7 +39323,9 @@
         "watchedAt": "2019-12-28"
       }
     ],
-    "startedAt": "2019-12-28"
+    "startedAt": "2019-12-28",
+    "tmdbId": 79696,
+    "posterPath": "/eTemCphrglLKrXOsNRhYezHA7H9.jpg"
   },
   {
     "tvdbId": 349272,
@@ -39196,7 +39556,9 @@
       }
     ],
     "startedAt": "2021-08-04",
-    "finishedAt": "2021-09-26"
+    "finishedAt": "2021-09-26",
+    "tmdbId": 80350,
+    "posterPath": "/jsH4AeGZn5Q6h314A3OTUHKxHhR.jpg"
   },
   {
     "tvdbId": 349303,
@@ -39242,7 +39604,9 @@
       }
     ],
     "startedAt": "2021-02-18",
-    "finishedAt": "2021-03-08"
+    "finishedAt": "2021-03-08",
+    "tmdbId": 110529,
+    "posterPath": "/i6v77Rcez8BEbsQ2FbUVfzs3yT2.jpg"
   },
   {
     "tvdbId": 349826,
@@ -39351,7 +39715,9 @@
       }
     ],
     "startedAt": "2020-12-28",
-    "finishedAt": "2022-05-12"
+    "finishedAt": "2022-05-12",
+    "tmdbId": 113367,
+    "posterPath": "/gHBtyMdHbWoM3tpM8VZymer8HfF.jpg"
   },
   {
     "tvdbId": 350864,
@@ -39360,7 +39726,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2018-09-30"
+    "startedAt": "2018-09-30",
+    "tmdbId": 73411,
+    "posterPath": "/kCNl4QPstAqChFD0NnLpbDFG8ul.jpg"
   },
   {
     "tvdbId": 351504,
@@ -39369,7 +39737,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2018-09-02"
+    "startedAt": "2018-09-02",
+    "tmdbId": 80006,
+    "posterPath": "/tmB1PghtrIBbdrFAmRncuO1wQLQ.jpg"
   },
   {
     "tvdbId": 351911,
@@ -39410,7 +39780,9 @@
       }
     ],
     "startedAt": "2018-12-08",
-    "finishedAt": "2018-12-18"
+    "finishedAt": "2018-12-18",
+    "tmdbId": 82700,
+    "posterPath": "/xswkOJni9tJYda2yN1QQtgBVaVJ.jpg"
   },
   {
     "tvdbId": 352150,
@@ -39451,7 +39823,9 @@
       }
     ],
     "startedAt": "2018-12-24",
-    "finishedAt": "2018-12-26"
+    "finishedAt": "2018-12-26",
+    "tmdbId": 84052,
+    "posterPath": "/oT7Zodol33x7Z1McBXs9tyYNcxO.jpg"
   },
   {
     "tvdbId": 353764,
@@ -39557,7 +39931,9 @@
       }
     ],
     "startedAt": "2021-01-01",
-    "finishedAt": "2021-01-01"
+    "finishedAt": "2021-01-01",
+    "tmdbId": 75006,
+    "posterPath": "/qhcwrnnCnN8NE1N6XXKHFmveJR9.jpg"
   },
   {
     "tvdbId": 354509,
@@ -39608,7 +39984,9 @@
       }
     ],
     "startedAt": "2018-12-26",
-    "finishedAt": "2018-12-30"
+    "finishedAt": "2018-12-30",
+    "tmdbId": 83381,
+    "posterPath": "/tGVQa6Fym1wGkoM5o6LYFTlk6jx.jpg"
   },
   {
     "tvdbId": 354765,
@@ -39628,7 +40006,9 @@
         "watchedAt": "2019-05-26"
       }
     ],
-    "startedAt": "2019-05-26"
+    "startedAt": "2019-05-26",
+    "tmdbId": 82883,
+    "posterPath": "/vb1sQLC2MqfCPOFqHd8SyVsyDVB.jpg"
   },
   {
     "tvdbId": 355567,
@@ -39719,7 +40099,9 @@
       }
     ],
     "startedAt": "2021-01-12",
-    "finishedAt": "2021-01-29"
+    "finishedAt": "2021-01-29",
+    "tmdbId": 76479,
+    "posterPath": "/in1R2dDc421JxsoRWaIIAqVI2KE.jpg"
   },
   {
     "tvdbId": 356317,
@@ -39815,7 +40197,9 @@
       }
     ],
     "startedAt": "2019-01-17",
-    "finishedAt": "2021-09-19"
+    "finishedAt": "2021-09-19",
+    "tmdbId": 81356,
+    "posterPath": "/bc3bmTdnoKcRuO9xdQKgAbB7Y9Z.jpg"
   },
   {
     "tvdbId": 357222,
@@ -39881,7 +40265,9 @@
       }
     ],
     "startedAt": "2020-04-08",
-    "finishedAt": "2021-09-12"
+    "finishedAt": "2021-09-12",
+    "tmdbId": 91602,
+    "posterPath": "/cP9CJ9nvPT3cnnBSlGFgwq7odIR.jpg"
   },
   {
     "tvdbId": 358211,
@@ -39890,7 +40276,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2023-08-27"
+    "startedAt": "2023-08-27",
+    "tmdbId": 83631,
+    "posterPath": "/wa3ZQE9kLnqwN3vQ0NNjg1NPsCa.jpg"
   },
   {
     "tvdbId": 360115,
@@ -39899,7 +40287,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-01-27"
+    "startedAt": "2016-01-27",
+    "tmdbId": 2288,
+    "posterPath": "/wnmNPaLvhnMeOqnWlhNkYCZxtda.jpg"
   },
   {
     "tvdbId": 360261,
@@ -39996,7 +40386,9 @@
       }
     ],
     "startedAt": "2019-07-12",
-    "finishedAt": "2022-04-06"
+    "finishedAt": "2022-04-06",
+    "tmdbId": 85552,
+    "posterPath": "/ypmtwojDd751Peszi62DVLytqqC.jpg"
   },
   {
     "tvdbId": 360295,
@@ -40043,7 +40435,9 @@
       }
     ],
     "startedAt": "2022-08-12",
-    "finishedAt": "2022-09-04"
+    "finishedAt": "2022-09-04",
+    "tmdbId": 68507,
+    "posterPath": "/g6tIKGc3f1H5QMz1dcgCwADKpZ7.jpg"
   },
   {
     "tvdbId": 360388,
@@ -40073,7 +40467,9 @@
         "watchedAt": "2021-01-01"
       }
     ],
-    "startedAt": "2021-01-01"
+    "startedAt": "2021-01-01",
+    "tmdbId": 81355,
+    "posterPath": "/oPv3nNtkuc6EPEql5lgdOuQNHuG.jpg"
   },
   {
     "tvdbId": 360733,
@@ -40093,7 +40489,9 @@
         "watchedAt": "2021-07-19"
       }
     ],
-    "startedAt": "2021-07-16"
+    "startedAt": "2021-07-16",
+    "tmdbId": 79788,
+    "posterPath": "/m8rWq3j73ZGhDuSCZWMMoE9ePH1.jpg"
   },
   {
     "tvdbId": 360858,
@@ -40154,7 +40552,9 @@
       }
     ],
     "startedAt": "2020-02-09",
-    "finishedAt": "2020-02-09"
+    "finishedAt": "2020-02-09",
+    "tmdbId": 83050,
+    "posterPath": "/bAEGuEK0z4KTlrsx5UYpIvmPIPc.jpg"
   },
   {
     "tvdbId": 360893,
@@ -40195,7 +40595,9 @@
       }
     ],
     "startedAt": "2023-06-07",
-    "finishedAt": "2023-06-07"
+    "finishedAt": "2023-06-07",
+    "tmdbId": 87108,
+    "posterPath": "/hlLXt2tOPT6RRnjiUmoxyG1LTFi.jpg"
   },
   {
     "tvdbId": 361558,
@@ -40254,7 +40656,9 @@
       }
     ],
     "startedAt": "2023-03-15",
-    "finishedAt": "2023-03-17"
+    "finishedAt": "2023-03-17",
+    "tmdbId": 84647,
+    "posterPath": "/mxOlnFEQMpxjIltr9Ox06iyjjvK.jpg"
   },
   {
     "tvdbId": 361563,
@@ -40426,7 +40830,9 @@
       }
     ],
     "startedAt": "2023-09-08",
-    "finishedAt": "2023-12-06"
+    "finishedAt": "2023-12-06",
+    "tmdbId": 90282,
+    "posterPath": "/y9x2R87yt2U616736NJrP0d56dt.jpg"
   },
   {
     "tvdbId": 361566,
@@ -40456,7 +40862,9 @@
         "watchedAt": "2021-03-05"
       }
     ],
-    "startedAt": "2021-02-28"
+    "startedAt": "2021-02-28",
+    "tmdbId": 89901,
+    "posterPath": "/dDdcAfHBZ6Aalv53iR6o35CSLWA.jpg"
   },
   {
     "tvdbId": 361857,
@@ -40471,7 +40879,9 @@
         "watchedAt": "2019-05-05"
       }
     ],
-    "startedAt": "2019-05-05"
+    "startedAt": "2019-05-05",
+    "tmdbId": 81357,
+    "posterPath": "/mAj18PHeACxqcrEus4pD8pksRmB.jpg"
   },
   {
     "tvdbId": 362392,
@@ -40527,7 +40937,9 @@
       }
     ],
     "startedAt": "2021-01-24",
-    "finishedAt": "2021-03-08"
+    "finishedAt": "2021-03-08",
+    "tmdbId": 85271,
+    "posterPath": "/ijWWwINc8h71NQ8j1LTJMFSj5wr.jpg"
   },
   {
     "tvdbId": 362472,
@@ -40568,7 +40980,9 @@
       }
     ],
     "startedAt": "2021-07-14",
-    "finishedAt": "2021-07-19"
+    "finishedAt": "2021-07-19",
+    "tmdbId": 84958,
+    "posterPath": "/rX1wQMTKFqF0gvZyS0DDQqgnQPB.jpg"
   },
   {
     "tvdbId": 363194,
@@ -40619,7 +41033,9 @@
       }
     ],
     "startedAt": "2020-05-24",
-    "finishedAt": "2020-06-27"
+    "finishedAt": "2020-06-27",
+    "tmdbId": 90257,
+    "posterPath": "/kUi6ZFfGVXjFTagYYENTXYx7uS5.jpg"
   },
   {
     "tvdbId": 364082,
@@ -40680,7 +41096,9 @@
       }
     ],
     "startedAt": "2019-06-30",
-    "finishedAt": "2019-06-30"
+    "finishedAt": "2019-06-30",
+    "tmdbId": 89852,
+    "posterPath": "/1KD2zNV04SI6pvfbPnBOr6eFlam.jpg"
   },
   {
     "tvdbId": 364477,
@@ -40731,7 +41149,9 @@
       }
     ],
     "startedAt": "2020-02-18",
-    "finishedAt": "2020-02-28"
+    "finishedAt": "2020-02-28",
+    "tmdbId": 89630,
+    "posterPath": "/riq4xVG3FflKAB7JlIQPs9bkFw5.jpg"
   },
   {
     "tvdbId": 366211,
@@ -40759,7 +41179,9 @@
         "runtimeMinutes": 50
       }
     ],
-    "startedAt": "2022-09-04"
+    "startedAt": "2022-09-04",
+    "tmdbId": 90802,
+    "posterPath": "/q54qEgagGOYCq5D1903eBVMNkbo.jpg"
   },
   {
     "tvdbId": 366529,
@@ -40800,7 +41222,9 @@
       }
     ],
     "startedAt": "2022-05-02",
-    "finishedAt": "2022-05-22"
+    "finishedAt": "2022-05-22",
+    "tmdbId": 90972,
+    "posterPath": "/xWlhMOzRxUpu4uzkWcDQOaESCE.jpg"
   },
   {
     "tvdbId": 366625,
@@ -40899,7 +41323,9 @@
       }
     ],
     "startedAt": "2021-09-16",
-    "finishedAt": "2022-06-11"
+    "finishedAt": "2022-06-11",
+    "tmdbId": 93287,
+    "posterPath": "/oCK0o8CWV46Z0PUdh7CKXnjD2Po.jpg"
   },
   {
     "tvdbId": 367030,
@@ -40950,7 +41376,9 @@
       }
     ],
     "startedAt": "2019-10-17",
-    "finishedAt": "2019-10-18"
+    "finishedAt": "2019-10-18",
+    "tmdbId": 91275,
+    "posterPath": "/jHOrNJNM03Lsjdw7nsw7TlqBOhd.jpg"
   },
   {
     "tvdbId": 367146,
@@ -40997,7 +41425,9 @@
       }
     ],
     "startedAt": "2022-02-26",
-    "finishedAt": "2022-04-22"
+    "finishedAt": "2022-04-22",
+    "tmdbId": 88329,
+    "posterPath": "/ct5pNE5dDHryHLDnxyZPYcqO1sz.jpg"
   },
   {
     "tvdbId": 367147,
@@ -41036,7 +41466,9 @@
       }
     ],
     "startedAt": "2021-12-30",
-    "finishedAt": "2022-06-11"
+    "finishedAt": "2022-06-11",
+    "tmdbId": 91363,
+    "posterPath": "/zaqfFDUrSfIljdD0OBxSjcutX8n.jpg"
   },
   {
     "tvdbId": 367226,
@@ -41082,7 +41514,9 @@
       }
     ],
     "startedAt": "2021-09-28",
-    "finishedAt": "2021-09-30"
+    "finishedAt": "2021-09-30",
+    "tmdbId": 97400,
+    "posterPath": "/3eVSQJdiBin6A7F7nsg62eJFf0Y.jpg"
   },
   {
     "tvdbId": 368188,
@@ -41193,7 +41627,9 @@
       }
     ],
     "startedAt": "2021-05-21",
-    "finishedAt": "2021-06-16"
+    "finishedAt": "2021-06-16",
+    "tmdbId": 97186,
+    "posterPath": "/pcT1vivabBnBk0tZgVBO1I8aK75.jpg"
   },
   {
     "tvdbId": 369307,
@@ -41234,7 +41670,9 @@
       }
     ],
     "startedAt": "2021-06-29",
-    "finishedAt": "2021-07-03"
+    "finishedAt": "2021-07-03",
+    "tmdbId": 83851,
+    "posterPath": "/3tDbJxobPN3EI2bBebL6zmusmw5.jpg"
   },
   {
     "tvdbId": 370112,
@@ -41280,7 +41718,9 @@
       }
     ],
     "startedAt": "2021-04-21",
-    "finishedAt": "2021-06-03"
+    "finishedAt": "2021-06-03",
+    "tmdbId": 115004,
+    "posterPath": "/78aK4Msbr22A5PGa6PZV0pAvdwf.jpg"
   },
   {
     "tvdbId": 371028,
@@ -41398,7 +41838,9 @@
         "runtimeMinutes": 41
       }
     ],
-    "startedAt": "2024-09-25"
+    "startedAt": "2024-09-25",
+    "tmdbId": 94605,
+    "posterPath": "/fqldf2t8ztc9aiwn3k6mlX3tvRT.jpg"
   },
   {
     "tvdbId": 371572,
@@ -41522,7 +41964,9 @@
         "runtimeMinutes": 63
       }
     ],
-    "startedAt": "2023-01-02"
+    "startedAt": "2023-01-02",
+    "tmdbId": 94997,
+    "posterPath": "/7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg"
   },
   {
     "tvdbId": 371798,
@@ -41537,7 +41981,9 @@
         "watchedAt": "2021-01-01"
       }
     ],
-    "startedAt": "2021-01-01"
+    "startedAt": "2021-01-01",
+    "tmdbId": 102619,
+    "posterPath": "/9awmdcJsukBEY5Er8t4Vi1Ji7YX.jpg"
   },
   {
     "tvdbId": 371806,
@@ -41619,7 +42065,9 @@
         "runtimeMinutes": 29
       }
     ],
-    "startedAt": "2024-05-25"
+    "startedAt": "2024-05-25",
+    "tmdbId": 89905,
+    "posterPath": "/c4mk4EQVIM11yd3W43DDdqDazDU.jpg"
   },
   {
     "tvdbId": 371980,
@@ -41642,7 +42090,9 @@
       }
     ],
     "startedAt": "2022-12-07",
-    "finishedAt": "2022-12-10"
+    "finishedAt": "2022-12-10",
+    "tmdbId": 95396,
+    "posterPath": "/pPHpeI2X1qEd1CS1SeyrdhZ4qnT.jpg"
   },
   {
     "tvdbId": 372081,
@@ -41703,7 +42153,9 @@
       }
     ],
     "startedAt": "2020-08-07",
-    "finishedAt": "2020-08-11"
+    "finishedAt": "2020-08-11",
+    "tmdbId": 79622,
+    "posterPath": "/mjsz10d1abJXZwT9b8CTgniRJh9.jpg"
   },
   {
     "tvdbId": 372100,
@@ -41754,7 +42206,9 @@
       }
     ],
     "startedAt": "2020-11-19",
-    "finishedAt": "2021-01-04"
+    "finishedAt": "2021-01-04",
+    "tmdbId": 112468,
+    "posterPath": "/3vWANjNHJvgkwBzE2x6kWOiKSXo.jpg"
   },
   {
     "tvdbId": 375503,
@@ -41800,7 +42254,9 @@
       }
     ],
     "startedAt": "2020-05-05",
-    "finishedAt": "2020-09-14"
+    "finishedAt": "2020-09-14",
+    "tmdbId": 87050,
+    "posterPath": "/8AvVBcuCpESqdQicuX7s4WOGo1V.jpg"
   },
   {
     "tvdbId": 375605,
@@ -41820,7 +42276,9 @@
         "watchedAt": "2020-07-23"
       }
     ],
-    "startedAt": "2020-07-23"
+    "startedAt": "2020-07-23",
+    "tmdbId": 98805,
+    "posterPath": "/r571zPr9McSe4UNhh7WKigt2Hys.jpg"
   },
   {
     "tvdbId": 375998,
@@ -41866,7 +42324,9 @@
       }
     ],
     "startedAt": "2020-03-16",
-    "finishedAt": "2020-03-16"
+    "finishedAt": "2020-03-16",
+    "tmdbId": 90260,
+    "posterPath": "/kf3yX0ILNlLJ42X3lX2iYJ3QRp6.jpg"
   },
   {
     "tvdbId": 376459,
@@ -41932,7 +42392,9 @@
       }
     ],
     "startedAt": "2020-03-27",
-    "finishedAt": "2020-03-27"
+    "finishedAt": "2020-03-27",
+    "tmdbId": 99353,
+    "posterPath": "/8XhV6ke8ltRYoG4SYmibF2bGwrC.jpg"
   },
   {
     "tvdbId": 376815,
@@ -41983,7 +42445,9 @@
       }
     ],
     "startedAt": "2021-10-22",
-    "finishedAt": "2021-11-19"
+    "finishedAt": "2021-11-19",
+    "tmdbId": 88989,
+    "posterPath": "/oPcqsZIFHrv7HoGgFQnsGDiPulD.jpg"
   },
   {
     "tvdbId": 377294,
@@ -42014,7 +42478,9 @@
       }
     ],
     "startedAt": "2020-03-27",
-    "finishedAt": "2020-03-28"
+    "finishedAt": "2020-03-28",
+    "tmdbId": 99610,
+    "posterPath": "/ri3dx91b3QeRGB35gnEiHGhXxdP.jpg"
   },
   {
     "tvdbId": 379962,
@@ -42039,7 +42505,9 @@
         "watchedAt": "2020-04-25"
       }
     ],
-    "startedAt": "2020-04-25"
+    "startedAt": "2020-04-25",
+    "tmdbId": 102085,
+    "posterPath": "/jr21CagMMfglh7YVgcyov3Cj833.jpg"
   },
   {
     "tvdbId": 381493,
@@ -42130,7 +42598,9 @@
       }
     ],
     "startedAt": "2021-08-08",
-    "finishedAt": "2021-08-08"
+    "finishedAt": "2021-08-08",
+    "tmdbId": 96718,
+    "posterPath": "/k2T6PmKcTIZRvNAP5LV81MekoPf.jpg"
   },
   {
     "tvdbId": 382544,
@@ -42249,7 +42719,9 @@
       }
     ],
     "startedAt": "2023-12-24",
-    "finishedAt": "2023-12-31"
+    "finishedAt": "2023-12-31",
+    "tmdbId": 87689,
+    "posterPath": "/fLP0mA7FiERZhDP1NJUaHpm6XM8.jpg"
   },
   {
     "tvdbId": 382556,
@@ -42310,7 +42782,9 @@
       }
     ],
     "startedAt": "2021-09-03",
-    "finishedAt": "2021-09-11"
+    "finishedAt": "2021-09-11",
+    "tmdbId": 98201,
+    "posterPath": "/x7CMVS7kjWJFdt1wdtj5rdvTwss.jpg"
   },
   {
     "tvdbId": 382936,
@@ -42371,7 +42845,9 @@
       }
     ],
     "startedAt": "2021-10-08",
-    "finishedAt": "2021-10-10"
+    "finishedAt": "2021-10-10",
+    "tmdbId": 111141,
+    "posterPath": "/4brWcSXdH31BZUTtRTHj2BYFe6M.jpg"
   },
   {
     "tvdbId": 383275,
@@ -42427,7 +42903,9 @@
       }
     ],
     "startedAt": "2021-10-05",
-    "finishedAt": "2021-10-11"
+    "finishedAt": "2021-10-11",
+    "tmdbId": 93405,
+    "posterPath": "/1QdXdRYfktUSONkl1oD5gc6Be0s.jpg"
   },
   {
     "tvdbId": 383414,
@@ -42468,7 +42946,9 @@
       }
     ],
     "startedAt": "2020-07-23",
-    "finishedAt": "2020-07-24"
+    "finishedAt": "2020-07-24",
+    "tmdbId": 105213,
+    "posterPath": "/i0Gmbo25STtJBIxTFyQpqw7Thxl.jpg"
   },
   {
     "tvdbId": 384429,
@@ -42484,7 +42964,9 @@
         "runtimeMinutes": 55
       }
     ],
-    "startedAt": "2022-11-20"
+    "startedAt": "2022-11-20",
+    "tmdbId": 90669,
+    "posterPath": "/gZleGu1MQVBArH2dlpZ9CGi0hhy.jpg"
   },
   {
     "tvdbId": 386256,
@@ -42595,7 +43077,9 @@
         "runtimeMinutes": 49
       }
     ],
-    "startedAt": "2021-03-16"
+    "startedAt": "2021-03-16",
+    "tmdbId": 110115,
+    "posterPath": "/pCjXfCDnbO46N0My7rJ23zQ5K1c.jpg"
   },
   {
     "tvdbId": 387115,
@@ -42641,12 +43125,14 @@
       }
     ],
     "startedAt": "2020-11-19",
-    "finishedAt": "2020-11-19"
+    "finishedAt": "2020-11-19",
+    "tmdbId": 87739,
+    "posterPath": "/zU0htwkhNvBQdVSIKB9s6hgVeFK.jpg"
   },
   {
     "tvdbId": 389492,
     "slug": "monster-2022",
-    "title": "Monster (2022)",
+    "title": "DAHMER - Monster: The Jeffrey Dahmer Story",
     "status": "abandoned",
     "favorite": false,
     "watchedEpisodes": [
@@ -42657,7 +43143,9 @@
         "runtimeMinutes": 53
       }
     ],
-    "startedAt": "2022-09-24"
+    "startedAt": "2022-09-24",
+    "tmdbId": 113988,
+    "posterPath": "/f2PVrphK0u81ES256lw3oAZuF3x.jpg"
   },
   {
     "tvdbId": 390430,
@@ -42698,7 +43186,9 @@
       }
     ],
     "startedAt": "2021-08-29",
-    "finishedAt": "2021-10-12"
+    "finishedAt": "2021-10-12",
+    "tmdbId": 111803,
+    "posterPath": "/gbSaK9v1CbcYH1ISgbM7XObD2dW.jpg"
   },
   {
     "tvdbId": 392256,
@@ -42798,7 +43288,9 @@
         "runtimeMinutes": 57
       }
     ],
-    "startedAt": "2023-02-08"
+    "startedAt": "2023-02-08",
+    "tmdbId": 100088,
+    "posterPath": "/dmo6TYuuJgaYinXBPjrgG9mB5od.jpg"
   },
   {
     "tvdbId": 393625,
@@ -42859,7 +43351,9 @@
       }
     ],
     "startedAt": "2021-03-11",
-    "finishedAt": "2021-03-13"
+    "finishedAt": "2021-03-13",
+    "tmdbId": 117581,
+    "posterPath": "/vOwunzW4dx3n0J5mH40n9jTRSwY.jpg"
   },
   {
     "tvdbId": 393683,
@@ -42889,7 +43383,9 @@
         "watchedAt": "2021-07-30"
       }
     ],
-    "startedAt": "2021-07-30"
+    "startedAt": "2021-07-30",
+    "tmdbId": 115857,
+    "posterPath": "/lq0n5QzBA78ndUDb9SdN93P8hjY.jpg"
   },
   {
     "tvdbId": 395494,
@@ -42948,7 +43444,9 @@
       }
     ],
     "startedAt": "2022-04-24",
-    "finishedAt": "2022-04-24"
+    "finishedAt": "2022-04-24",
+    "tmdbId": 124834,
+    "posterPath": "/dQc0QbDiHjGmWxTfKtBgYtS4bj5.jpg"
   },
   {
     "tvdbId": 396115,
@@ -43001,7 +43499,9 @@
       }
     ],
     "startedAt": "2022-09-26",
-    "finishedAt": "2022-10-01"
+    "finishedAt": "2022-10-01",
+    "tmdbId": 158154,
+    "posterPath": "/1KTYMK7N2vRe8PowCyb799DbDRR.jpg"
   },
   {
     "tvdbId": 396505,
@@ -43101,7 +43601,9 @@
       }
     ],
     "startedAt": "2023-07-08",
-    "finishedAt": "2023-08-24"
+    "finishedAt": "2023-08-24",
+    "tmdbId": 194766,
+    "posterPath": "/xBIz53wYWsKfFpN0TaizVAjKJ0z.jpg"
   },
   {
     "tvdbId": 397688,
@@ -43208,7 +43710,9 @@
       }
     ],
     "startedAt": "2022-01-08",
-    "finishedAt": "2022-08-12"
+    "finishedAt": "2022-08-12",
+    "tmdbId": 134949,
+    "posterPath": "/u7xqyWcJXL0LejV6PQrkYPQbfD2.jpg"
   },
   {
     "tvdbId": 399731,
@@ -43290,7 +43794,9 @@
         "runtimeMinutes": 58
       }
     ],
-    "startedAt": "2024-01-07"
+    "startedAt": "2024-01-07",
+    "tmdbId": 117488,
+    "posterPath": "/xRnGrn7Z7SC0KIBodocoU1QgDZF.jpg"
   },
   {
     "tvdbId": 399833,
@@ -43372,7 +43878,9 @@
         "runtimeMinutes": 46
       }
     ],
-    "startedAt": "2021-07-04"
+    "startedAt": "2021-07-04",
+    "tmdbId": 125910,
+    "posterPath": "/aEW8K07BTiBRtARw6dNzTcb3TJZ.jpg"
   },
   {
     "tvdbId": 399959,
@@ -43443,7 +43951,9 @@
       }
     ],
     "startedAt": "2022-04-06",
-    "finishedAt": "2022-05-21"
+    "finishedAt": "2022-05-21",
+    "tmdbId": 107113,
+    "posterPath": "/1yjFVQZuW8aofZ5Cgol8iImsVFp.jpg"
   },
   {
     "tvdbId": 400269,
@@ -43465,7 +43975,9 @@
         "runtimeMinutes": 64
       }
     ],
-    "startedAt": "2022-06-25"
+    "startedAt": "2022-06-25",
+    "tmdbId": 122196,
+    "posterPath": "/jiAcdCyf1UbWYBImcNtVeLW0pRj.jpg"
   },
   {
     "tvdbId": 403090,
@@ -43505,7 +44017,9 @@
         "runtimeMinutes": 59
       }
     ],
-    "startedAt": "2024-07-15"
+    "startedAt": "2024-07-15",
+    "tmdbId": 125816,
+    "posterPath": "/sNeGAamuke1a2I4ndcaE0bnukh4.jpg"
   },
   {
     "tvdbId": 403294,
@@ -43564,7 +44078,9 @@
       }
     ],
     "startedAt": "2022-11-13",
-    "finishedAt": "2023-02-24"
+    "finishedAt": "2023-02-24",
+    "tmdbId": 136315,
+    "posterPath": "/eKfVzzEazSIjJMrw9ADa2x8ksLz.jpg"
   },
   {
     "tvdbId": 404833,
@@ -43616,7 +44132,9 @@
         "runtimeMinutes": 48
       }
     ],
-    "startedAt": "2022-10-28"
+    "startedAt": "2022-10-28",
+    "tmdbId": 210232,
+    "posterPath": "/6RrseODZo2e66XOzC1XMzMuecnf.jpg"
   },
   {
     "tvdbId": 407281,
@@ -43624,7 +44142,9 @@
     "title": "The Night Agent",
     "status": "watchlist",
     "favorite": false,
-    "watchedEpisodes": []
+    "watchedEpisodes": [],
+    "tmdbId": 129552,
+    "posterPath": "/4c5yUNcaff4W4aPrkXE6zr7papX.jpg"
   },
   {
     "tvdbId": 410823,
@@ -43664,7 +44184,9 @@
         "runtimeMinutes": 50
       }
     ],
-    "startedAt": "2022-07-02"
+    "startedAt": "2022-07-02",
+    "tmdbId": 135022,
+    "posterPath": "/8hoZuxGSe2uPBms6CTPuOzFJVOL.jpg"
   },
   {
     "tvdbId": 411021,
@@ -43723,7 +44245,9 @@
       }
     ],
     "startedAt": "2023-10-17",
-    "finishedAt": "2023-10-23"
+    "finishedAt": "2023-10-23",
+    "tmdbId": 157065,
+    "posterPath": "/2rl04pRCaGfz91lwfWdDQmOiGJp.jpg"
   },
   {
     "tvdbId": 415151,
@@ -43745,7 +44269,9 @@
         "runtimeMinutes": 41
       }
     ],
-    "startedAt": "2023-12-21"
+    "startedAt": "2023-12-21",
+    "tmdbId": 103540,
+    "posterPath": "/bd5ZIqiz1PRiLC7FLexzVBf8qu1.jpg"
   },
   {
     "tvdbId": 419389,
@@ -43754,7 +44280,9 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2022-06-25"
+    "startedAt": "2022-06-25",
+    "tmdbId": 202851,
+    "posterPath": "/wByI6Yg7Jtofb6H9xFlzk8w4IrQ.jpg"
   },
   {
     "tvdbId": 420341,
@@ -44467,7 +44995,9 @@
       }
     ],
     "startedAt": "2023-02-10",
-    "finishedAt": "2023-07-05"
+    "finishedAt": "2023-07-05",
+    "tmdbId": 209117,
+    "posterPath": "/wevHki0kVgbsDaTcgyTeZ9CcC40.jpg"
   },
   {
     "tvdbId": 421633,
@@ -44543,7 +45073,9 @@
         "runtimeMinutes": 49
       }
     ],
-    "startedAt": "2024-04-07"
+    "startedAt": "2024-04-07",
+    "tmdbId": 213338,
+    "posterPath": "/vbbZRlzz41JQjBOT9OEKHgonhZ3.jpg"
   },
   {
     "tvdbId": 423581,
@@ -44590,7 +45122,9 @@
       }
     ],
     "startedAt": "2022-11-15",
-    "finishedAt": "2022-11-17"
+    "finishedAt": "2022-11-17",
+    "tmdbId": 210939,
+    "posterPath": "/wVipX97HY7UYiWIR6BdmnQLKEXy.jpg"
   },
   {
     "tvdbId": 423808,
@@ -44618,7 +45152,9 @@
         "runtimeMinutes": 46
       }
     ],
-    "startedAt": "2022-10-04"
+    "startedAt": "2022-10-04",
+    "tmdbId": 158053,
+    "posterPath": "/dsHR29EQnCZcMRTc8bzDkwY9mRh.jpg"
   },
   {
     "tvdbId": 425386,
@@ -44676,7 +45212,9 @@
         "runtimeMinutes": 47
       }
     ],
-    "startedAt": "2024-06-03"
+    "startedAt": "2024-06-03",
+    "tmdbId": 211358,
+    "posterPath": "/4YMpCGsAAHXWGScHsK1sbd7wprE.jpg"
   },
   {
     "tvdbId": 438638,
@@ -44734,7 +45272,9 @@
         "runtimeMinutes": 56
       }
     ],
-    "startedAt": "2025-06-30"
+    "startedAt": "2025-06-30",
+    "tmdbId": 215522,
+    "posterPath": "/3RQoNwSkJkh92KL2TwpMlHP5FkT.jpg"
   },
   {
     "tvdbId": 440564,
@@ -44774,7 +45314,9 @@
         "runtimeMinutes": 42
       }
     ],
-    "startedAt": "2025-08-14"
+    "startedAt": "2025-08-14",
+    "tmdbId": 233256,
+    "posterPath": "/jfEEnO3zHWrJNVMQuv3TCNLrIzZ.jpg"
   },
   {
     "tvdbId": 443586,
@@ -44820,7 +45362,9 @@
         "runtimeMinutes": 47
       }
     ],
-    "startedAt": "2024-05-13"
+    "startedAt": "2024-05-13",
+    "tmdbId": 250670,
+    "posterPath": "/slKAbvY2CjAIyJFqoLSh1WICzg6.jpg"
   },
   {
     "tvdbId": 446149,
@@ -44878,7 +45422,9 @@
         "runtimeMinutes": 52
       }
     ],
-    "startedAt": "2026-01-05"
+    "startedAt": "2026-01-05",
+    "tmdbId": 246386,
+    "posterPath": "/o8vZKZlc8H4OcgpbJuqP0iK4B2.jpg"
   },
   {
     "tvdbId": 448176,
@@ -45020,7 +45566,9 @@
         "runtimeMinutes": 48
       }
     ],
-    "startedAt": "2025-06-22"
+    "startedAt": "2025-06-22",
+    "tmdbId": 250307,
+    "posterPath": "/kvFSpESyBZMjaeOJDx7RS3P1jey.jpg"
   },
   {
     "tvdbId": 449950,
@@ -45066,7 +45614,9 @@
         "runtimeMinutes": 49
       }
     ],
-    "startedAt": "2026-02-08"
+    "startedAt": "2026-02-08",
+    "tmdbId": 254071,
+    "posterPath": "/6KmlaPhsohh3Ki9XJUq0jiUYbf3.jpg"
   },
   {
     "tvdbId": 451423,
@@ -45106,7 +45656,9 @@
         "runtimeMinutes": 50
       }
     ],
-    "startedAt": "2025-11-06"
+    "startedAt": "2025-11-06",
+    "tmdbId": 279013,
+    "posterPath": "/eVqBFACBpovk0sEtjx3HEb3jOYS.jpg"
   },
   {
     "tvdbId": 452467,
@@ -45140,7 +45692,9 @@
         "runtimeMinutes": 57
       }
     ],
-    "startedAt": "2025-03-30"
+    "startedAt": "2025-03-30",
+    "tmdbId": 249042,
+    "posterPath": "/20i4nShZZg1g1VFHSB8xpaYM4r7.jpg"
   },
   {
     "tvdbId": 453614,
@@ -45270,7 +45824,9 @@
         "runtimeMinutes": 101
       }
     ],
-    "startedAt": "2024-12-06"
+    "startedAt": "2024-12-06",
+    "tmdbId": 262306,
+    "posterPath": "/wcMNYAnFGolZircBt96wi4ANTty.jpg"
   },
   {
     "tvdbId": 461305,
@@ -45550,7 +46106,9 @@
         "runtimeMinutes": 47
       }
     ],
-    "startedAt": "2025-11-04"
+    "startedAt": "2025-11-04",
+    "tmdbId": 289996,
+    "posterPath": "/euLl4ntSW4bJE5QnDk90UKGW2Tp.jpg"
   },
   {
     "tvdbId": 464461,
@@ -45596,6 +46154,8 @@
         "runtimeMinutes": 49
       }
     ],
-    "startedAt": "2026-01-12"
+    "startedAt": "2026-01-12",
+    "tmdbId": 301507,
+    "posterPath": "/3YCKbtAkYWCMDLHvkUjGhG7eWoS.jpg"
   }
 ]
