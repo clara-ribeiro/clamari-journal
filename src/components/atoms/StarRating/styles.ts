@@ -8,16 +8,11 @@ export const Root = styled("div", {
 
   "& svg": {
     display: "block",
-    width: "0.875rem",
-    height: "0.875rem",
+    width: "0.75rem",
+    height: "0.75rem",
     flexShrink: 0,
     fill: "currentColor",
     stroke: "currentColor",
-
-    "@md": {
-      width: "1rem",
-      height: "1rem",
-    },
   },
 
   "& svg[data-state='empty']": {
@@ -28,15 +23,10 @@ export const Root = styled("div", {
 export const HalfRoot = styled("span", {
   position: "relative",
   display: "inline-block",
-  width: "0.875rem",
-  height: "0.875rem",
+  width: "0.75rem",
+  height: "0.75rem",
   flexShrink: 0,
   verticalAlign: "middle",
-
-  "@md": {
-    width: "1rem",
-    height: "1rem",
-  },
 
   "& svg": {
     display: "block",
@@ -44,7 +34,6 @@ export const HalfRoot = styled("span", {
     height: "100%",
   },
 });
-
 export const EmptyIcon = styled("span", {
   position: "absolute",
   inset: 0,

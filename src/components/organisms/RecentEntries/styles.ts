@@ -34,15 +34,15 @@ export const Heading = styled("h2", {
 
 export const List = styled("ul", {
   display: "flex",
-  gap: "$md",
+  gap: "$sm",
   width: "100%",
-  maxWidth: "$containerWide",
+  maxWidth: "52rem",
   margin: 0,
-  padding: "0 $md $sm",
+  padding: "0 $sm $sm",
   listStyle: "none",
   overflowX: "auto",
   scrollSnapType: "x mandatory",
-  scrollPaddingInline: "$md",
+  scrollPaddingInline: "$sm",
   WebkitOverflowScrolling: "touch",
 
   "&::-webkit-scrollbar": {
@@ -53,10 +53,15 @@ export const List = styled("ul", {
     borderRadius: "$full",
   },
 
+  "@md": {
+    gap: "$md",
+  },
+
   "@lg": {
     display: "grid",
-    gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
-    gap: "$lg",
+    gridTemplateColumns: "repeat(4, minmax(0, 10.5rem))",
+    justifyContent: "center",
+    gap: "$md",
     overflow: "visible",
     padding: 0,
     scrollSnapType: "none",
@@ -64,19 +69,18 @@ export const List = styled("ul", {
 });
 
 export const ListItem = styled("li", {
-  flex: "0 0 min(72vw, 16rem)",
+  flex: "0 0 9.5rem",
   scrollSnapAlign: "start",
   minWidth: 0,
 
   "@md": {
-    flexBasis: "min(42vw, 18rem)",
+    flexBasis: "10.5rem",
   },
 
   "@lg": {
     flex: "unset",
   },
 });
-
 export const ShowAllLink = styled(Link, {
   fontFamily: "$heading",
   fontSize: "$h4",

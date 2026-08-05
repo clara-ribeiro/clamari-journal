@@ -14,9 +14,9 @@ export const Root = styled("article", {
 export const CardLink = styled(Link, {
   display: "flex",
   flexDirection: "column",
-  gap: "$sm",
+  gap: "$xs",
   height: "100%",
-  padding: "$sm",
+  padding: "0.375rem",
   color: "$cardText",
   textDecoration: "none",
 
@@ -34,16 +34,15 @@ export const CardLink = styled(Link, {
 export const PosterFrame = styled("div", {
   position: "relative",
   width: "100%",
-  aspectRatio: "3 / 4",
+  aspectRatio: "2 / 3",
   overflow: "hidden",
-  borderRadius: "$md",
+  borderRadius: "$sm",
   backgroundColor: "$surfaceAlt",
 
   "& img": {
     objectFit: "cover",
   },
 });
-
 export const PosterPlaceholder = styled("div", {
   size: "100%",
   background:
@@ -62,7 +61,7 @@ export const Meta = styled("div", {
 export const Title = styled("h3", {
   margin: 0,
   fontFamily: "$heading",
-  fontSize: "$body1",
+  fontSize: "$body2",
   fontWeight: 400,
   lineHeight: 1.25,
   color: "$cardText",
