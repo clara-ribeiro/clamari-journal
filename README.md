@@ -141,6 +141,7 @@ templates/   → page shells (HomeTemplate, MediumCatalogTemplate, StatsTemplate
 - `server-only` is stubbed in `vitest.config.mts` for Node tests.
 - Lint: `npm run lint`. Prefer fixing root causes over disabling rules.
 - This Next.js version may differ from training data — check `node_modules/next/dist/docs/` and `AGENTS.md` before assuming APIs.
+- **Lighthouse after major changes:** whenever you ship a meaningful change (layout, styling, data fetching, images, fonts, client JS, routing, etc.), run Lighthouse on the affected page(s) (Chrome DevTools → Lighthouse, or CI if configured) and check that scores did not regress — especially **Performance**. Also glance at Accessibility, Best Practices, and SEO. Prefer measuring a production build (`npm run build && npm start`) over `next dev`. If a category drops, investigate before merging.
 
 ### Accessibility & motion
 
