@@ -2,11 +2,8 @@ import { styled } from "@/styles/stitches.config";
 import Link from "next/link";
 
 export const Page = styled("main", {
-  minHeight: "100dvh",
   px: "$lg",
   py: "$2xl",
-  maxWidth: "$containerContent",
-  mx: "auto",
 });
 
 export const Back = styled(Link, {

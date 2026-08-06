@@ -2,11 +2,8 @@ import Link from "next/link";
 import { styled } from "@/styles/stitches.config";
 
 export const Page = styled("main", {
-  minHeight: "100dvh",
   px: "$lg",
   py: "$2xl",
-  maxWidth: "$containerReading",
-  mx: "auto",
 });
 
 export const Back = styled(Link, {
@@ -50,8 +47,6 @@ export const EpisodeList = styled("ul", {
   margin: 0,
   display: "grid",
   gap: "$xs",
-  maxHeight: "24rem",
-  overflow: "auto",
   border: "1px solid $border",
   borderRadius: "$md",
   padding: "$md",

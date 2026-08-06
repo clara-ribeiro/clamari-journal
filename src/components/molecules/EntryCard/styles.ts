@@ -4,16 +4,13 @@ import { styled } from "@/styles/stitches.config";
 export const Root = styled("article", {
   display: "flex",
   flexDirection: "column",
-  minWidth: 0,
   height: "100%",
   backgroundColor: "$buttonSurface",
   border: "none",
-  borderRadius: 0,
   outline: "2px solid $buttonText",
   outlineOffset: "-0.625rem",
   overflow: "hidden",
   transition: "transform $normal, box-shadow $normal",
-  willChange: "transform",
   boxShadow: "0 0 0 0 rgba(245, 210, 58, 0)",
 
   "& img": {
@@ -37,7 +34,6 @@ export const Root = styled("article", {
 
   "@motionReduce": {
     transition: "none",
-    willChange: "auto",
 
     "& img": {
       transition: "none",
@@ -76,14 +72,11 @@ export const CardLink = styled(Link, {
 });
 
 export const PosterFrame = styled("div", {
-  width: "100%",
   aspectRatio: "2 / 3",
   overflow: "hidden",
-  borderRadius: 0,
   backgroundColor: "$surfaceAlt",
 
   "& img": {
-    display: "block",
     width: "100%",
     height: "100%",
     objectFit: "cover",
@@ -103,7 +96,6 @@ export const Meta = styled("div", {
   gap: "$xs",
   px: "$xs",
   pb: "$xs",
-  minWidth: 0,
 
   "& [role='img'] svg[data-state='empty']": {
     fill: "$buttonText",

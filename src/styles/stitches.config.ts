@@ -196,12 +196,9 @@ export const globalStyles = globalCss({
   html: {
     fontSize: "100%",
     textSizeAdjust: "100%",
-    maxWidth: "100vw",
   },
   body: {
     margin: 0,
-    minHeight: "100dvh",
-    maxWidth: "100vw",
     backgroundColor: "$bg",
     color: "$textPrimary",
     fontFamily: "$body",
@@ -212,7 +209,6 @@ export const globalStyles = globalCss({
   },
   "img, picture, video, canvas, svg": {
     display: "block",
-    maxWidth: "100%",
   },
   "button, input, textarea, select": {
     font: "inherit",

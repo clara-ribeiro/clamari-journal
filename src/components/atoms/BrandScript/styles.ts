@@ -3,14 +3,12 @@ import { styled } from "@/styles/stitches.config";
 export const Root = styled("div", {
   display: "flex",
   justifyContent: "center",
-  width: "100%",
   margin: 0,
   pointerEvents: "none",
 });
 
 export const Script = styled("p", {
   margin: 0,
-  width: "100%",
   fontFamily: "$script",
   fontWeight: 400,
   fontStyle: "normal",

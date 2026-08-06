@@ -10,7 +10,6 @@ function dimmedPhoto(src: string) {
 }
 
 export const Section = styled("section", {
-  width: "100%",
   margin: 0,
   paddingTop: "clamp(1.5rem, 4vw, 2.5rem)",
   paddingBottom: "clamp(3rem, 8vw, 5rem)",
@@ -46,9 +45,6 @@ export const Stack = styled("div", {
   display: "flex",
   flexDirection: "column",
   gap: "$sm",
-  width: "100%",
-  maxWidth: "$containerWide",
-  mx: "auto",
 
   "@md": {
     gap: "$md",
@@ -59,7 +55,6 @@ export const Row = styled("div", {
   display: "flex",
   flexDirection: "column",
   gap: "$sm",
-  width: "100%",
 
   "@md": {
     flexDirection: "row",
@@ -68,62 +63,51 @@ export const Row = styled("div", {
   },
 });
 
-const cellBase = {
+export const PortraitCell = styled("div", {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   overflow: "hidden",
-  borderRadius: 0,
-  minWidth: 0,
-  color: "inherit",
-  textDecoration: "none",
-  backgroundColor: "$statsSurface",
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  backgroundRepeat: "no-repeat",
-} as const;
-
-export const PortraitCell = styled("div", {
-  ...cellBase,
-  backgroundColor: "transparent",
-  width: "100%",
 
   "@md": {
     flex: "3 1 0",
   },
 
   "& img": {
-    display: "block",
     width: "100%",
-    height: "100%",
-    objectFit: "contain",
-    objectPosition: "center bottom",
   },
 });
 
 export const LandscapeCell = styled("div", {
-  ...cellBase,
-  width: "100%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  overflow: "hidden",
 
   "@md": {
     flex: "3 1 0",
   },
 
   "& img": {
-    display: "block",
     width: "100%",
     height: "100%",
     objectFit: "cover",
-    objectPosition: "center",
   },
 });
 
 export const StatCell = styled(Link, {
-  ...cellBase,
-  width: "100%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  overflow: "hidden",
+  color: "inherit",
+  textDecoration: "none",
   cursor: "pointer",
+  backgroundColor: "$statsSurface",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
   transition: "transform $normal, box-shadow $normal",
-  willChange: "transform",
 
   "@md": {
     flex: "2 1 0",
@@ -165,7 +149,6 @@ export const StatCell = styled(Link, {
 
   "@motionReduce": {
     transition: "none",
-    willChange: "auto",
 
     "& > svg": {
       transition: "none",
@@ -186,12 +169,8 @@ export const StatCell = styled(Link, {
 export const StatFit = styled("svg", {
   display: "block",
   width: "100%",
-  maxWidth: "100%",
-  height: "auto",
-  overflow: "visible",
   px: "$sm",
   color: "$statsText",
-  transition: "transform $normal ease",
 
   "& text": {
     fill: "currentColor",

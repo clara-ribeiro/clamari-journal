@@ -3,7 +3,6 @@ import { styled } from "@/styles/stitches.config";
 
 export const Root = styled("div", {
   display: "inline-flex",
-  width: "auto",
   margin: 0,
 
   "@media (max-width: 767px)": {
@@ -17,8 +16,6 @@ export const ButtonLink = styled(Link, {
   alignItems: "center",
   justifyContent: "center",
   gap: "$sm",
-  width: "auto",
-  minHeight: "$controlMin",
   paddingInline: "$lg",
   paddingBlock: "$sm",
   border: "none",
