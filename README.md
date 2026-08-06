@@ -4,24 +4,39 @@ Personal diary for movies, series, and books. Read-only site: personal records l
 
 ## Stack
 
-Aligned with [devxperience](https://github.com/):
-
-- Next.js 16 (App Router) + TypeScript
+- Next.js 16 (App Router) + TypeScript — see `AGENTS.md` / `node_modules/next/dist/docs/` before assuming APIs (this Next version may differ from training data)
 - React 19
-- Stitches (`@stitches/react`)
-- Lucide React
+- Stitches (`@stitches/react`) + `StitchesRegistry` in the root layout
+- Lucide React (icons)
 - Vitest
 - Deploy planned on Vercel
+
+Fonts (via `next/font` in `src/app/layout.tsx`): Anton (`$display`), Monsieur La Doulaise (`$script`), Instrument Serif (`$section`). Prefer font tokens over raw `var(--font-…)` stacks.
+
+## Getting started
+
+```bash
+cp .env.example .env.local
+# set TMDB_ACCESS_TOKEN (and optionally GOOGLE_BOOKS_API_KEY)
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000). For production-like checks (including Lighthouse):
+
+```bash
+npm run build && npm start
+```
 
 ## Architecture
 
 ```text
 src/
-├── app/                      # Thin routes (presentation)
+├── app/                      # Thin routes + layout + StitchesRegistry
 ├── components/               # Atomic design (atoms → templates)
 ├── content/
 │   ├── copy/                 # UI strings (site, pages)
-│   └── reviews/              # Reviews in MD/MDX
+│   └── reviews/              # Reserved for MD/MDX reviews (not wired yet)
 ├── composition/              # Binds repository ports → infrastructure
 ├── domain/                   # Entities and pure rules
 │   ├── entities/
@@ -36,12 +51,27 @@ src/
 │   └── google-books/
 ├── data/                     # Personal journal records (JSON)
 ├── lib/                      # Shared utilities
-└── styles/                   # Stitches tokens
+├── styles/                   # Stitches tokens + globalCss
+└── test/                     # Test stubs (e.g. server-only)
+
+public/images/                # Static marketing assets (hero, stats, noise)
+scripts/                      # import:tvtime, enrich:tmdb
 ```
 
 Flow: `app` → `use-cases` → ports via `composition/repositories` → `infrastructure/persistence` → `data/*.json`.
 
 APIs (TMDB / Google Books) live under `infrastructure`, marked `server-only`, and must not be imported from client components.
+
+### Routes
+
+| Path | Purpose |
+|---|---|
+| `/` | Home (hero, carousels, stats collage) |
+| `/all-entries` | Full entry grid |
+| `/favorites` | Favorites grid |
+| `/movies`, `/series`, `/books` | Medium catalogs |
+| `/movies/[slug]`, `/series/[slug]`, `/books/[slug]` | Medium detail |
+| `/stats` | Lifetime stats |
 
 ## Conventions
 
@@ -78,8 +108,14 @@ Rules and patterns for keeping the codebase coherent. Follow these when adding o
 
 1. **Do not use `position: absolute` or `position: relative` anywhere** in app/UI styles. Prefer flex, aspect-ratio, overflow clipping, margins, and background-image.
 2. Do not use Next.js `Image` with the `fill` prop (it injects absolute positioning). Use explicit `width` / `height` plus CSS sizing (`width/height: 100%`, `object-fit`).
-3. Prefer flex for section layouts unless an existing polished surface already uses another approach. `HomeStatsCollage` must stay flex-only (no CSS grid).
-4. Reuse shared content width via `$containerWide` and consistent horizontal padding with the home sections.
+3. When CSS changes only one of `width` / `height` on a Next `Image`, set the other to `auto` (or both deliberately for `object-fit: cover` fill) so the aspect ratio does not break.
+4. Prefer flex for section layouts unless an existing polished surface already uses another approach. `HomeStatsCollage` must stay flex-only (no CSS grid).
+5. Reuse shared content width via `$containerWide` / `$containerContent` / `$containerReading` and consistent horizontal padding with the home sections.
+6. **Keep load-bearing sizing** where layout depends on it:
+   - `minWidth: 0` on flex/grid children that shrink or use text ellipsis (cards, carousel items, catalog grids)
+   - `minmax(0, 1fr)` (not bare `1fr`) in equal-column grids so long titles cannot widen a track
+   - Container `maxWidth` + `mx: auto` on reading/catalog page shells
+7. Breakpoints (Stitches media): `sm` 480px, `md` 768px, `lg` 1024px, `xl` 1280px; plus `@motionReduce`.
 
 ### Atomic design
 
@@ -99,6 +135,8 @@ templates/   → page shells (HomeTemplate, MediumCatalogTemplate, StatsTemplate
 - Page and section strings live under `src/content/copy/` (`siteCopy`, `homeCopy`, …), exported from `content/copy/index.ts`.
 - Use `as const` objects and `type XCopy = typeof xCopy`.
 - Image `src` / `alt` for marketing surfaces (e.g. stats collage, hero lettering) live in copy; styles may import those paths for `background-image`.
+- Static files: `public/images/home/**`, `public/images/shared/noise-grain.webp`.
+- Remote posters: allowlisted in `next.config.ts` (`image.tmdb.org`, Google Books hosts).
 
 ### Data & application layer
 
@@ -108,6 +146,7 @@ templates/   → page shells (HomeTemplate, MediumCatalogTemplate, StatsTemplate
 - Book covers: store `coverUrl` on the book entry (no per-request Google Books calls in listings).
 - Repository interfaces in `application/repositories`; wire implementations only in `composition/repositories.ts`.
 - External API clients (`tmdb`, `google-books`) import `server-only`.
+- `src/content/reviews/{movies,series,books}/` is reserved for future MD/MDX reviews; nothing reads it yet.
 
 ### Routing
 
@@ -137,10 +176,9 @@ templates/   → page shells (HomeTemplate, MediumCatalogTemplate, StatsTemplate
 
 ### Testing & tooling
 
-- Unit tests next to pure logic (`*.test.ts`) with Vitest.
-- `server-only` is stubbed in `vitest.config.mts` for Node tests.
+- Unit tests next to pure logic (`*.test.ts`) with Vitest (`npm test` watch, `npm run test:run` once).
+- `server-only` is stubbed in `vitest.config.mts` / `src/test/server-only-stub.ts` for Node tests.
 - Lint: `npm run lint`. Prefer fixing root causes over disabling rules.
-- This Next.js version may differ from training data — check `node_modules/next/dist/docs/` and `AGENTS.md` before assuming APIs.
 - **Lighthouse after major changes:** whenever you ship a meaningful change (layout, styling, data fetching, images, fonts, client JS, routing, etc.), run Lighthouse on the affected page(s) (Chrome DevTools → Lighthouse, or CI if configured) and check that scores did not regress — especially **Performance**. Also glance at Accessibility, Best Practices, and SEO. Prefer measuring a production build (`npm run build && npm start`) over `next dev`. If a category drops, investigate before merging.
 
 ### Accessibility & motion
@@ -187,10 +225,12 @@ npm run import:tvtime
 ## Scripts
 
 ```bash
-npm run dev            # development
-npm run build          # production
+npm run dev            # next dev --webpack
+npm run build          # next build --webpack
+npm start              # serve production build
 npm run lint
-npm test
+npm test               # vitest watch
+npm run test:run       # vitest run (CI-friendly)
 npm run import:tvtime  # regenerate movies.json / series.json
 npm run enrich:tmdb    # fill tmdbId + posterPath (requires token)
 ```
