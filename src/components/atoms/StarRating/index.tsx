@@ -1,5 +1,5 @@
 import { Star } from "lucide-react";
-import { EmptyIcon, FillIcon, HalfRoot, Root } from "./styles";
+import { EmptyClip, FillClip, HalfRoot, Root } from "./styles";
 
 export type StarRatingProps = {
   value?: number;
@@ -17,12 +17,12 @@ function starState(index: number, value: number): "full" | "half" | "empty" {
 function HalfStar() {
   return (
     <HalfRoot aria-hidden>
-      <EmptyIcon>
+      <FillClip data-half="fill">
         <Star aria-hidden />
-      </EmptyIcon>
-      <FillIcon>
+      </FillClip>
+      <EmptyClip data-half="empty">
         <Star aria-hidden />
-      </FillIcon>
+      </EmptyClip>
     </HalfRoot>
   );
 }

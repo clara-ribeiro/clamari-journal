@@ -33,41 +33,42 @@ export const Root = styled("div", {
 });
 
 export const HalfRoot = styled("span", {
-  position: "relative",
-  display: "inline-block",
+  display: "inline-flex",
   width: "0.75rem",
   height: "0.75rem",
   flexShrink: 0,
   verticalAlign: "middle",
-
-  "& svg": {
-    display: "block",
-    width: "100%",
-    height: "100%",
-    overflow: "visible",
-  },
 });
 
-export const EmptyIcon = styled("span", {
-  position: "absolute",
-  inset: 0,
-  color: "$starOff",
-
-  "& svg": {
-    fill: "currentColor",
-    ...starStroke,
-  },
-});
-
-export const FillIcon = styled("span", {
-  position: "absolute",
-  inset: 0,
+export const FillClip = styled("span", {
+  display: "block",
   width: "50%",
+  height: "100%",
   overflow: "hidden",
   color: "$starOn",
 
   "& svg": {
+    display: "block",
+    width: "0.75rem",
+    height: "0.75rem",
     fill: "$starOn",
+    ...starStroke,
+  },
+});
+
+export const EmptyClip = styled("span", {
+  display: "block",
+  width: "50%",
+  height: "100%",
+  overflow: "hidden",
+  color: "$starOff",
+
+  "& svg": {
+    display: "block",
+    width: "0.75rem",
+    height: "0.75rem",
+    marginLeft: "-0.375rem",
+    fill: "currentColor",
     ...starStroke,
   },
 });

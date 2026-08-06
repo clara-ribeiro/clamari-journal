@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { homeCopy } from "@/content/copy";
 import {
-  Cell,
-  CellLink,
-  Grid,
-  Media,
-  Overlay,
+  LandscapeCell,
+  PortraitCell,
+  Row,
   Section,
+  Stack,
+  StatCell,
   StatFit,
   VisuallyHidden,
 } from "./styles";
@@ -65,59 +65,41 @@ export default function HomeStatsCollage({
   return (
     <Section className={className} aria-labelledby={copy.titleId}>
       <VisuallyHidden id={copy.titleId}>{copy.ariaLabel}</VisuallyHidden>
-      <Grid aria-label={copy.ariaLabel}>
-        <Cell area="portrait">
-          <Media>
+      <Stack aria-label={copy.ariaLabel}>
+        <Row>
+          <PortraitCell>
             <Image
               src={copy.images.portrait.src}
               alt={copy.images.portrait.alt}
-              fill
+              width={1800}
+              height={1200}
               sizes="(max-width: 767px) 100vw, 60vw"
               unoptimized
             />
-          </Media>
-        </Cell>
+          </PortraitCell>
 
-        <CellLink area="pages" href={copy.statsHref} prefetch={false}>
-          <Media>
-            <Image
-              src={copy.images.pages.src}
-              alt={copy.images.pages.alt}
-              fill
-              sizes="(max-width: 767px) 100vw, 40vw"
-              unoptimized
-            />
-            <Overlay />
-          </Media>
-          <StatFitText value={pagesRead} label={copy.pagesLabel} />
-        </CellLink>
+          <StatCell tall photo="pages" href={copy.statsHref} prefetch={false}>
+            <StatFitText value={pagesRead} label={copy.pagesLabel} />
+          </StatCell>
+        </Row>
 
-        <CellLink area="hours" href={copy.statsHref} prefetch={false}>
-          <Media>
-            <Image
-              src={copy.images.hours.src}
-              alt={copy.images.hours.alt}
-              fill
-              sizes="(max-width: 767px) 100vw, 40vw"
-              unoptimized
-            />
-            <Overlay />
-          </Media>
-          <StatFitText value={watchedHours} label={copy.hoursLabel} />
-        </CellLink>
+        <Row>
+          <StatCell photo="hours" href={copy.statsHref} prefetch={false}>
+            <StatFitText value={watchedHours} label={copy.hoursLabel} />
+          </StatCell>
 
-        <Cell area="landscape">
-          <Media>
+          <LandscapeCell>
             <Image
               src={copy.images.landscape.src}
               alt={copy.images.landscape.alt}
-              fill
+              width={1800}
+              height={600}
               sizes="(max-width: 767px) 100vw, 60vw"
               unoptimized
             />
-          </Media>
-        </Cell>
-      </Grid>
+          </LandscapeCell>
+        </Row>
+      </Stack>
     </Section>
   );
 }

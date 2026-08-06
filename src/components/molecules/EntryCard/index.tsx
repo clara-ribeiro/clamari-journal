@@ -22,7 +22,8 @@ export default function EntryCard({
             <Image
               src={entry.posterUrl}
               alt=""
-              fill
+              width={400}
+              height={600}
               sizes="(max-width: 767px) 42vw, (max-width: 1279px) 18vw, 14rem"
               priority={priority}
             />

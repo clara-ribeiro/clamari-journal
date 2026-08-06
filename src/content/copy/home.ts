@@ -34,7 +34,7 @@ export const homeCopy = {
     statsHref: "/stats",
     images: {
       portrait: {
-        src: "/images/home/stats/fahrenheit-451.webp",
+        src: "/images/home/stats/clarice.webp",
         alt: "",
       },
       pages: {
@@ -42,11 +42,11 @@ export const homeCopy = {
         alt: "",
       },
       hours: {
-        src: "/images/home/stats/placeholder-hours.svg",
+        src: "/images/home/stats/o-alto-da-compadecida.webp",
         alt: "",
       },
       landscape: {
-        src: "/images/home/stats/placeholder-landscape.svg",
+        src: "/images/home/stats/lisbela-e-o-prisioneiro.webp",
         alt: "",
       },
     },

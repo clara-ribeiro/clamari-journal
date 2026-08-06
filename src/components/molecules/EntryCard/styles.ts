@@ -12,6 +12,47 @@ export const Root = styled("article", {
   outline: "2px solid $buttonText",
   outlineOffset: "-0.625rem",
   overflow: "hidden",
+  transition: "transform $normal, box-shadow $normal",
+  willChange: "transform",
+  boxShadow: "0 0 0 0 rgba(245, 210, 58, 0)",
+
+  "& img": {
+    transition: "transform $slow ease, filter $normal ease",
+  },
+
+  "&:hover": {
+    transform: "translateY(-0.2rem)",
+    boxShadow: "0 0 1.25rem 0.1rem rgba(245, 210, 58, 0.35)",
+
+    "& img": {
+      transform: "scale(1.06)",
+      filter: "brightness(1.06)",
+    },
+  },
+
+  "&:active": {
+    transform: "translateY(-0.05rem)",
+    boxShadow: "0 0 0.75rem 0.05rem rgba(245, 210, 58, 0.25)",
+  },
+
+  "@motionReduce": {
+    transition: "none",
+    willChange: "auto",
+
+    "& img": {
+      transition: "none",
+    },
+
+    "&:hover": {
+      transform: "none",
+      boxShadow: "none",
+
+      "& img": {
+        transform: "none",
+        filter: "none",
+      },
+    },
+  },
 });
 
 export const CardLink = styled(Link, {
@@ -35,7 +76,6 @@ export const CardLink = styled(Link, {
 });
 
 export const PosterFrame = styled("div", {
-  position: "relative",
   width: "100%",
   aspectRatio: "2 / 3",
   overflow: "hidden",
@@ -43,12 +83,16 @@ export const PosterFrame = styled("div", {
   backgroundColor: "$surfaceAlt",
 
   "& img": {
+    display: "block",
+    width: "100%",
+    height: "100%",
     objectFit: "cover",
   },
 });
 
 export const PosterPlaceholder = styled("div", {
-  size: "100%",
+  width: "100%",
+  height: "100%",
   background:
     "linear-gradient(145deg, $colors$surfaceAlt 0%, $colors$surface 100%)",
 });
@@ -65,10 +109,10 @@ export const Meta = styled("div", {
     fill: "$buttonText",
     stroke: "$buttonText",
   },
-  "& [role='img'] span:first-of-type": {
+  "& [role='img'] [data-half='empty']": {
     color: "$buttonText",
   },
-  "& [role='img'] span:first-of-type svg": {
+  "& [role='img'] [data-half='empty'] svg": {
     fill: "$buttonText",
     stroke: "$buttonText",
   },

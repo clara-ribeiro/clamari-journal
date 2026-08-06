@@ -1,5 +1,13 @@
 import Link from "next/link";
+import { homeCopy } from "@/content/copy";
 import { styled } from "@/styles/stitches.config";
+
+const { pages, hours } = homeCopy.statsCollage.images;
+
+/** ~0.3 photo opacity over $statsSurface (#C9A05A). */
+function dimmedPhoto(src: string) {
+  return `linear-gradient(rgba(201, 160, 90, 0.7), rgba(201, 160, 90, 0.7)), url(${src})`;
+}
 
 export const Section = styled("section", {
   width: "100%",
@@ -24,116 +32,133 @@ export const Section = styled("section", {
 });
 
 export const VisuallyHidden = styled("h2", {
-  position: "absolute",
   width: "1px",
   height: "1px",
   padding: 0,
-  margin: "-1px",
+  margin: 0,
   overflow: "hidden",
-  clip: "rect(0, 0, 0, 0)",
+  clipPath: "inset(50%)",
   whiteSpace: "nowrap",
   border: 0,
 });
 
-export const Grid = styled("div", {
-  display: "grid",
-  gridTemplateColumns: "1fr",
-  gridTemplateAreas: `
-    "portrait"
-    "pages"
-    "hours"
-    "landscape"
-  `,
+export const Stack = styled("div", {
+  display: "flex",
+  flexDirection: "column",
   gap: "$sm",
   width: "100%",
   maxWidth: "$containerWide",
   mx: "auto",
 
-  // Asymmetric collage: wide → narrow / narrow → wide
   "@md": {
-    gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
-    gridTemplateAreas: `
-      "portrait portrait portrait pages pages"
-      "hours hours landscape landscape landscape"
-    `,
+    gap: "$md",
+  },
+});
+
+export const Row = styled("div", {
+  display: "flex",
+  flexDirection: "column",
+  gap: "$sm",
+  width: "100%",
+
+  "@md": {
+    flexDirection: "row",
+    alignItems: "stretch",
     gap: "$md",
   },
 });
 
 const cellBase = {
-  position: "relative",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   overflow: "hidden",
   borderRadius: 0,
-  backgroundColor: "$statsSurface",
-  minHeight: "14rem",
+  minWidth: 0,
   color: "inherit",
   textDecoration: "none",
+  backgroundColor: "$statsSurface",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
 } as const;
 
-const areaVariants = {
-  portrait: {
-    gridArea: "portrait",
-    backgroundColor: "transparent",
-    minHeight: "18rem",
-    overflow: "visible",
-
-    "@md": {
-      minHeight: "24rem",
-    },
-
-    "& img": {
-      objectFit: "contain",
-      objectPosition: "center bottom",
-    },
-  },
-  pages: {
-    gridArea: "pages",
-    minHeight: "12rem",
-
-    "@md": {
-      minHeight: "24rem",
-    },
-
-    "& img": {
-      opacity: 0.4,
-    },
-  },
-  hours: {
-    gridArea: "hours",
-    minHeight: "12rem",
-
-    "@md": {
-      minHeight: "18rem",
-    },
-  },
-  landscape: {
-    gridArea: "landscape",
-    minHeight: "14rem",
-
-    "@md": {
-      minHeight: "18rem",
-    },
-  },
-} as const;
-
-export const Cell = styled("div", {
+export const PortraitCell = styled("div", {
   ...cellBase,
-  variants: {
-    area: areaVariants,
+  backgroundColor: "transparent",
+  minHeight: "18rem",
+  width: "100%",
+
+  "@md": {
+    flex: "3 1 0",
+    minHeight: "24rem",
+  },
+
+  "& img": {
+    display: "block",
+    width: "100%",
+    height: "100%",
+    objectFit: "contain",
+    objectPosition: "center bottom",
   },
 });
 
-export const CellLink = styled(Link, {
+export const LandscapeCell = styled("div", {
   ...cellBase,
+  minHeight: "14rem",
+  width: "100%",
+
+  "@md": {
+    flex: "3 1 0",
+    minHeight: "18rem",
+  },
+
+  "& img": {
+    display: "block",
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    objectPosition: "center",
+  },
+});
+
+export const StatCell = styled(Link, {
+  ...cellBase,
+  minHeight: "12rem",
+  width: "100%",
   cursor: "pointer",
   transition: "transform $normal, box-shadow $normal",
   willChange: "transform",
 
-  "& img": {
-    transition: "transform $slow ease, filter $normal ease",
+  "@md": {
+    flex: "2 1 0",
+  },
+
+  variants: {
+    photo: {
+      pages: {
+        backgroundImage: dimmedPhoto(pages.src),
+      },
+      hours: {
+        backgroundImage: dimmedPhoto(hours.src),
+      },
+    },
+    tall: {
+      true: {
+        "@md": {
+          minHeight: "24rem",
+        },
+      },
+      false: {
+        "@md": {
+          minHeight: "18rem",
+        },
+      },
+    },
+  },
+
+  defaultVariants: {
+    tall: false,
   },
 
   "& > svg": {
@@ -143,11 +168,6 @@ export const CellLink = styled(Link, {
   "&:hover": {
     transform: "translateY(-0.2rem)",
     boxShadow: "0 0.75rem 1.75rem rgba(43, 28, 18, 0.28)",
-
-    "& img": {
-      transform: "scale(1.06)",
-      filter: "brightness(1.06)",
-    },
 
     "& > svg": {
       transform: "scale(1.02)",
@@ -168,7 +188,7 @@ export const CellLink = styled(Link, {
     transition: "none",
     willChange: "auto",
 
-    "& img, & > svg": {
+    "& > svg": {
       transition: "none",
     },
 
@@ -176,44 +196,15 @@ export const CellLink = styled(Link, {
       transform: "none",
       boxShadow: "none",
 
-      "& img": {
-        transform: "none",
-        filter: "none",
-      },
-
       "& > svg": {
         transform: "none",
       },
     },
   },
-
-  variants: {
-    area: areaVariants,
-  },
-});
-
-export const Media = styled("div", {
-  position: "absolute",
-  inset: 0,
-
-  "& img": {
-    objectFit: "cover",
-    objectPosition: "center",
-  },
-});
-
-export const Overlay = styled("div", {
-  position: "absolute",
-  inset: 0,
-  backgroundColor: "rgba(201, 160, 90, 0.35)",
-  mixBlendMode: "multiply",
-  pointerEvents: "none",
 });
 
 /** Stretches label to the full cell width via SVG textLength. */
 export const StatFit = styled("svg", {
-  position: "relative",
-  zIndex: 1,
   display: "block",
   width: "100%",
   maxWidth: "100%",
