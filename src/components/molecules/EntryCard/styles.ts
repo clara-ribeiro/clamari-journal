@@ -4,6 +4,7 @@ import { styled } from "@/styles/stitches.config";
 export const Root = styled("article", {
   display: "flex",
   flexDirection: "column",
+  minWidth: 0,
   height: "100%",
   backgroundColor: "$buttonSurface",
   border: "none",
@@ -72,6 +73,7 @@ export const CardLink = styled(Link, {
 });
 
 export const PosterFrame = styled("div", {
+  width: "100%",
   aspectRatio: "2 / 3",
   overflow: "hidden",
   backgroundColor: "$surfaceAlt",
@@ -96,6 +98,7 @@ export const Meta = styled("div", {
   gap: "$xs",
   px: "$xs",
   pb: "$xs",
+  minWidth: 0,
 
   "& [role='img'] svg[data-state='empty']": {
     fill: "$buttonText",

@@ -16,6 +16,7 @@ export const ButtonLink = styled(Link, {
   alignItems: "center",
   justifyContent: "center",
   gap: "$sm",
+  minHeight: "$controlMin",
   paddingInline: "$lg",
   paddingBlock: "$sm",
   border: "none",

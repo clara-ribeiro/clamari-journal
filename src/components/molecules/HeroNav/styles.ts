@@ -18,12 +18,15 @@ export const Root = styled("nav", {
   alignItems: "center",
   justifyContent: "center",
   gap: "$lg",
+  width: "100%",
+  maxWidth: "40rem",
   margin: 0,
   animation: `${reveal} 700ms cubic-bezier(0.2, 0, 0, 1) 220ms both`,
 
   "@media (max-width: 767px)": {
     flexDirection: "column",
     alignItems: "stretch",
+    maxWidth: "none",
     gap: "$md",
   },
 

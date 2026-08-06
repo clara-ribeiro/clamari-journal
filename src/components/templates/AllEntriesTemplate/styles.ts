@@ -2,8 +2,11 @@ import Link from "next/link";
 import { styled } from "@/styles/stitches.config";
 
 export const Page = styled("main", {
+  minHeight: "100dvh",
   px: "$md",
   py: "$2xl",
+  maxWidth: "$containerWide",
+  mx: "auto",
   backgroundColor: "$bg",
   backgroundImage: "url(/images/shared/noise-grain.webp)",
   backgroundSize: "128px 128px",
@@ -34,6 +37,7 @@ export const Title = styled("h1", {
 export const Description = styled("p", {
   color: "$loContrast",
   marginBottom: "$xl",
+  maxWidth: "40rem",
 });
 
 export const List = styled("ul", {
@@ -42,19 +46,21 @@ export const List = styled("ul", {
   padding: 0,
   display: "grid",
   gap: "$md",
-  gridTemplateColumns: "repeat(2, 1fr)",
+  gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
 
   "@md": {
-    gridTemplateColumns: "repeat(3, 1fr)",
+    gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
     gap: "$lg",
   },
 
   "@lg": {
-    gridTemplateColumns: "repeat(4, 1fr)",
+    gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
   },
 });
 
-export const ListItem = styled("li", {});
+export const ListItem = styled("li", {
+  minWidth: 0,
+});
 
 export const Empty = styled("p", {
   color: "$loContrast",

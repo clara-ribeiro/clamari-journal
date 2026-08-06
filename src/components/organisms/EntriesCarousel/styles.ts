@@ -6,6 +6,7 @@ export const Section = styled("section", {
   flexDirection: "column",
   alignItems: "center",
   gap: "clamp(1.75rem, 4vw, 2.75rem)",
+  width: "100%",
   margin: 0,
   px: "$md",
   paddingTop: "clamp(1.5rem, 4vw, 2.5rem)",
@@ -40,11 +41,13 @@ export const Heading = styled("h2", {
 /** Full-bleed carousel on mobile; contained from tablet up. */
 export const CarouselFrame = styled("div", {
   width: "100vw",
+  maxWidth: "100vw",
   marginLeft: "calc(50% - 50vw)",
   marginRight: "calc(50% - 50vw)",
 
   "@md": {
     width: "100%",
+    maxWidth: "$containerWide",
     marginLeft: 0,
     marginRight: 0,
   },
@@ -72,7 +75,7 @@ export const List = styled("ul", {
 
   "@md": {
     display: "grid",
-    gridTemplateColumns: "repeat(5, 1fr)",
+    gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
     justifyContent: "stretch",
     gap: "$md",
     overflow: "visible",
@@ -84,6 +87,7 @@ export const List = styled("ul", {
 export const ListItem = styled("li", {
   flex: "0 0 10.5rem",
   scrollSnapAlign: "start",
+  minWidth: 0,
 
   "@md": {
     flex: "unset",

@@ -5,10 +5,16 @@ export const Root = styled("div", {
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
+  width: "min(100%, 56rem)",
   margin: 0,
+
+  "@media (max-width: 767px)": {
+    width: "100%",
+  },
 });
 
 export const ScriptLayer = styled("div", {
   zIndex: 1,
-  marginTop: "-0.78em",
+  marginTop: "-2em",
+  width: "100%",
 });
