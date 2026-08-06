@@ -24,6 +24,8 @@ export const {
       buttonText: "#0A1E3A",
       statsSurface: "#C9A05A",
       statsText: "#462304",
+      journalPanel: "#900000",
+      journalPanelText: "#D0BDA2",
 
       textPrimary: "#E8EEF4",
       hiContrast: "#F4F7FA",
@@ -160,10 +162,12 @@ export const lightTheme = createTheme("light-theme", {
     sectionHeading: "#D8BDA5",
     buttonSurface: "#D2B48C",
     buttonText: "#0A1E3A",
-    statsSurface: "#C9A05A",
-    statsText: "#462304",
+      statsSurface: "#C9A05A",
+      statsText: "#462304",
+      journalPanel: "#900000",
+      journalPanelText: "#D0BDA2",
 
-    textPrimary: "#161616",
+      textPrimary: "#161616",
     hiContrast: "#0F1419",
     loContrast: "rgba(22, 22, 22, 0.68)",
 

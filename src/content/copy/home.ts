@@ -55,6 +55,23 @@ export const homeCopy = {
       },
     },
   },
+  journalAbout: {
+    titleId: "journal-about-heading",
+    title: "My Journal",
+    paragraphs: [
+      "I am a software engineer by trade, but a profound lover of the arts at heart. For a long time, I documented my cultural journey on other platforms, but after the fall of TV Show, I decided it was time to merge my two worlds. I built this space from scratch to be my personal archive—a definitive log to record, review, and remember every movie I’ve watched, every series I’ve followed, and every book I’ve read.",
+      "This site is an open diary. I invite you to read my thoughts, explore my catalog, and step into my world. If you would like to share a recommendation, discuss a piece of work, or simply get in touch, feel free to reach out to me at",
+    ],
+    email: "claramarcelinors@gmail.com",
+    epigraph: "Vissi d'arte, vissi d'amore",
+    image: {
+      src: "/images/home/about/hereditary-background.webp",
+      alt: "",
+      /** Mouth focal point in the photo — keep Epigraph on the same % so cover crops stay aligned. */
+      focalX: "50%",
+      focalY: "83%",
+    },
+  },
 } as const;
 
 export type HomeCopy = typeof homeCopy;

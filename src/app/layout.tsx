@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Anton, Instrument_Serif, Monsieur_La_Doulaise } from "next/font/google";
 import "./globals.css";
 import SkipLink from "@/components/atoms/SkipLink";
+import SiteFooter from "@/components/organisms/SiteFooter";
+import SiteHeader from "@/components/organisms/SiteHeader";
 import { siteCopy } from "@/content/copy";
 import StitchesRegistry from "./stitches-registry";
 
@@ -58,7 +60,9 @@ export default function RootLayout({
       <body suppressHydrationWarning>
         <StitchesRegistry>
           <SkipLink />
+          <SiteHeader />
           {children}
+          <SiteFooter />
         </StitchesRegistry>
       </body>
     </html>

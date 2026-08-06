@@ -1,6 +1,6 @@
 import HeroBrand from "@/components/molecules/HeroBrand";
 import HeroNav, { type HeroNavItem } from "@/components/molecules/HeroNav";
-import { homeCopy } from "@/content/copy";
+import { homeCopy, siteCopy } from "@/content/copy";
 import { BrandStage, NavStage, Section } from "./styles";
 
 export type HomeHeroProps = {
@@ -23,7 +23,12 @@ export default function HomeHero({
   return (
     <Section className={className} aria-labelledby={titleId}>
       <BrandStage>
-        <HeroBrand titleId={titleId} title={title} script={script} />
+        <HeroBrand
+          id={siteCopy.header.brandSentinelId}
+          titleId={titleId}
+          title={title}
+          script={script}
+        />
       </BrandStage>
       <NavStage>
         <HeroNav items={navItems} ariaLabel={navAriaLabel} />

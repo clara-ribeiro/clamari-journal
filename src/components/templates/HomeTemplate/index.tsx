@@ -2,6 +2,7 @@
 
 import HomeHero from "@/components/organisms/HomeHero";
 import EntriesCarousel from "@/components/organisms/EntriesCarousel";
+import HomeJournalAbout from "@/components/organisms/HomeJournalAbout";
 import HomeStatsCollage from "@/components/organisms/HomeStatsCollage";
 import { homeCopy } from "@/content/copy";
 import type { JournalEntry } from "@/application/dto";
@@ -42,6 +43,7 @@ export default function HomeTemplate({
         showAllHref={homeCopy.favorites.showAllHref}
       />
       <HomeStatsCollage pagesRead={pagesRead} watchedHours={watchedHours} />
+      <HomeJournalAbout />
     </Root>
   );
 }
