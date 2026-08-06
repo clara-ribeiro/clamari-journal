@@ -58,7 +58,6 @@ export const Row = styled("div", {
 
   "@md": {
     flexDirection: "row",
-    alignItems: "stretch",
     gap: "$md",
   },
 });
@@ -68,13 +67,22 @@ export const PortraitCell = styled("div", {
   alignItems: "center",
   justifyContent: "center",
   overflow: "hidden",
+  width: "100%",
+  height: "15rem",
 
   "@md": {
     flex: "3 1 0",
+    height: "auto",
   },
 
   "& img": {
     width: "100%",
+    height: "100%",
+    objectFit: "cover",
+
+    "@md": {
+      height: "auto",
+    },
   },
 });
 
@@ -83,9 +91,12 @@ export const LandscapeCell = styled("div", {
   alignItems: "center",
   justifyContent: "center",
   overflow: "hidden",
+  width: "100%",
+  height: "15rem",
 
   "@md": {
     flex: "3 1 0",
+    height: "auto",
   },
 
   "& img": {
@@ -100,6 +111,8 @@ export const StatCell = styled(Link, {
   alignItems: "center",
   justifyContent: "center",
   overflow: "hidden",
+  width: "100%",
+  height: "15rem",
   color: "inherit",
   textDecoration: "none",
   cursor: "pointer",
@@ -111,6 +124,7 @@ export const StatCell = styled(Link, {
 
   "@md": {
     flex: "2 1 0",
+    height: "auto",
   },
 
   variants: {

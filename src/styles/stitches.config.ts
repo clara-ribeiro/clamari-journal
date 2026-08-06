@@ -200,6 +200,9 @@ export const globalStyles = globalCss({
   body: {
     margin: 0,
     backgroundColor: "$bg",
+    backgroundImage: "url(/images/shared/noise-grain.webp)",
+    backgroundSize: "128px 128px",
+    backgroundRepeat: "repeat",
     color: "$textPrimary",
     fontFamily: "$body",
     fontSize: "$body1",

@@ -4,8 +4,8 @@ import { styled } from "@/styles/stitches.config";
 export const SkipLink = styled("a", {
   display: "inline-block",
   zIndex: "$skipLink",
-  padding: "$sm $md",
-  margin: "$sm",
+  padding: 0,
+  margin: 0,
   backgroundColor: "$surface",
   color: "$hiContrast",
   border: "1px solid $border",
@@ -20,6 +20,8 @@ export const SkipLink = styled("a", {
   "&:focus": {
     width: "auto",
     height: "auto",
+    padding: "$sm $md",
+    margin: "$sm",
     overflow: "visible",
     clipPath: "none",
     outline: "0.1875rem solid $focus",

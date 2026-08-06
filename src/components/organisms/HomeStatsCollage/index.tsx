@@ -93,7 +93,7 @@ export default function HomeStatsCollage({
               src={copy.images.landscape.src}
               alt={copy.images.landscape.alt}
               width={1800}
-              height={600}
+              height={1200}
               sizes="(max-width: 767px) 100vw, 60vw"
               unoptimized
             />
