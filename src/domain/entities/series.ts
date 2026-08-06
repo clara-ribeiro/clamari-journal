@@ -1,3 +1,5 @@
+import type { RatingValue } from "@/domain/value-objects/rating";
+
 export type SeriesStatus =
   | "watchlist"
   | "watching"
@@ -10,7 +12,7 @@ export type WatchedEpisode = {
   season: number;
   episode: number;
   watchedAt?: string;
-  rating?: number;
+  rating?: RatingValue;
   /** Episode length when known (from import or TMDB) */
   runtimeMinutes?: number;
 };
@@ -30,7 +32,7 @@ export type SeriesEntry = {
   /** Fallback title until TMDB enrichment */
   title: string;
   status: SeriesStatus;
-  rating?: number;
+  rating?: RatingValue;
   favorite?: boolean;
   startedAt?: string;
   finishedAt?: string;

@@ -1,3 +1,5 @@
+import type { RatingValue } from "@/domain/value-objects/rating";
+
 export type BookStatus =
   | "want-to-read"
   | "reading"
@@ -25,7 +27,7 @@ export type BookEntry = {
   /** Fallback title until Google Books enrichment */
   title?: string;
   status: BookStatus;
-  rating?: number;
+  rating?: RatingValue;
   favorite?: boolean;
   startedAt?: string;
   finishedAt?: string;
@@ -34,6 +36,8 @@ export type BookEntry = {
   format?: BookFormat;
   tags?: string[];
   reviewSlug?: string;
+  /** Absolute cover URL — filled by offline enrich (no per-request API). */
+  coverUrl?: string;
   readingHistory?: ReadingUpdate[];
   quotes?: BookQuote[];
 };

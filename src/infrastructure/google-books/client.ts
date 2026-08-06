@@ -1,3 +1,5 @@
+import "server-only";
+
 /**
  * Google Books API client (server-side).
  * GOOGLE_BOOKS_API_KEY is optional for low-volume public queries.

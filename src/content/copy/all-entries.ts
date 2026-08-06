@@ -5,6 +5,6 @@ export const allEntriesCopy = {
   backLabel: "Back to home",
   listAriaLabel: "All journal entries",
   empty: "No entries yet.",
-} as const;
+} as const satisfies import("./types").CatalogCopy;
 
 export type AllEntriesCopy = typeof allEntriesCopy;

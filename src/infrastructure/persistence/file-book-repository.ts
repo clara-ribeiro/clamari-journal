@@ -1,8 +1,9 @@
 import type { BookEntry } from "@/domain/entities";
 import type { BookRepository } from "@/application/repositories/book-repository";
 import booksData from "@/data/books.json";
+import { parseBookEntries } from "./parse-json";
 
-const books = booksData as BookEntry[];
+const books: BookEntry[] = parseBookEntries(booksData);
 
 export class FileBookRepository implements BookRepository {
   findAll(): BookEntry[] {

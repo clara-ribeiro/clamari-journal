@@ -1,8 +1,8 @@
 "use client";
 
 import EntryCard from "@/components/molecules/EntryCard";
-import { allEntriesCopy } from "@/content/copy";
-import type { JournalEntry } from "@/domain/entities";
+import { allEntriesCopy, type CatalogCopy } from "@/content/copy";
+import type { JournalEntry } from "@/application/dto";
 import {
   Back,
   Description,
@@ -12,15 +12,6 @@ import {
   Page,
   Title,
 } from "./styles";
-
-export type CatalogCopy = {
-  titleId: string;
-  title: string;
-  description: string;
-  backLabel: string;
-  listAriaLabel: string;
-  empty: string;
-};
 
 export type AllEntriesTemplateProps = {
   entries: JournalEntry[];

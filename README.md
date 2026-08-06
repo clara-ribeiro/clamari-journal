@@ -17,19 +17,21 @@ Aligned with [devxperience](https://github.com/):
 
 ```text
 src/
-├── app/                      # Routes (presentation layer)
+├── app/                      # Thin routes (presentation)
 ├── components/               # Atomic design (atoms → templates)
 ├── content/
 │   ├── copy/                 # UI strings (site, pages)
 │   └── reviews/              # Reviews in MD/MDX
+├── composition/              # Binds repository ports → infrastructure
 ├── domain/                   # Entities and pure rules
 │   ├── entities/
 │   └── value-objects/
-├── application/              # Use cases + repository contracts
+├── application/              # Use cases + repository contracts + DTOs
+│   ├── dto/
 │   ├── repositories/
 │   └── use-cases/
-├── infrastructure/           # External adapters
-│   ├── persistence/          # Reads files under data/
+├── infrastructure/           # External adapters (server-only APIs)
+│   ├── persistence/          # Reads/validates files under data/
 │   ├── tmdb/
 │   └── google-books/
 ├── data/                     # Personal journal records (JSON)
@@ -37,9 +39,9 @@ src/
 └── styles/                   # Stitches tokens
 ```
 
-Flow: `app` → `use-cases` → `repositories` (interface) → `infrastructure/persistence` → `data/*.json`.
+Flow: `app` → `use-cases` → ports via `composition/repositories` → `infrastructure/persistence` → `data/*.json`.
 
-APIs (TMDB / Google Books) live under `infrastructure` and run on the server only.
+APIs (TMDB / Google Books) live under `infrastructure`, marked `server-only`, and must not be imported from client components.
 
 ## Conventions
 
@@ -52,11 +54,13 @@ Rules and patterns for keeping the codebase coherent. Follow these when adding o
 | Routes / data fetching for a page | `src/app/**/page.tsx` | Own presentation styles or assemble list DTOs |
 | UI composition | `src/components/**` | Call repositories or read JSON directly |
 | Visual styles | Co-located `styles.ts` | Inline `style={}`, `styled()` in `index.tsx` / `page.tsx` |
-| UI strings, image paths, aria labels | `src/content/copy/` | Hardcoded copy in components (except trivial a11y wiring) |
+| UI strings, image paths, aria labels | `src/content/copy/` | Hardcoded copy in components |
 | Domain types & pure rules | `src/domain/` | Know about React, Next, or file paths |
-| Use cases / ready-to-render DTOs | `src/application/use-cases/` | Import from `components/` |
+| Ready-to-render DTOs | `src/application/dto/` + use-cases | Live in `domain/` or be assembled in UI |
+| Use cases | `src/application/use-cases/` | Import from `components/` or concrete `File*` repos |
+| Port ↔ adapter binding | `src/composition/` | Be scattered across use-cases |
 | Persistence & external APIs | `src/infrastructure/` | Leak into client bundles |
-| Design tokens | `src/styles/stitches.config.ts` | One-off colors/spacing scattered in components when a token fits |
+| Design tokens | `src/styles/stitches.config.ts` | One-off colors/spacing when a token fits |
 
 ### Style isolation (mandatory)
 
@@ -65,11 +69,10 @@ Rules and patterns for keeping the codebase coherent. Follow these when adding o
 3. `index.tsx` imports styled primitives from `./styles` and only composes structure, props, and content.
 4. **No** inline `style={{ ... }}` in components or pages.
 5. **No** `styled(...)` inside `index.tsx`, templates, or route `page.tsx` files.
-6. Route pages stay thin: fetch via use-cases → pass data into a template/organism. Put page chrome in a template’s `styles.ts` (see `HomeTemplate`, `AllEntriesTemplate`).
+6. Route pages stay thin: fetch via use-cases → pass data into a template/organism.
 7. Variants and visual treatments (backgrounds, opacity overlays, hover, breakpoints) belong in `styles.ts`, even when driven by copy paths imported from `@/content/copy`.
-8. Global tokens and `globalStyles` stay in `src/styles/stitches.config.ts`. Prefer tokens (`$colors`, `$space`, `$fonts`, media queries) over raw values.
-
-**Audit (current):** polished home / all-entries / favorites follow this. Scaffold routes under `app/movies`, `app/series`, `app/books`, and `app/stats` still declare `styled()` in the page file — migrate them to templates + `styles.ts` when those screens are built out.
+8. Prefer font tokens (`$display`, `$script`, `$section`, `$heading`, `$body`) over raw `var(--font-…)` stacks.
+9. Templates that use Stitches `styled` must be Client Components (`"use client"`). `@stitches/react` registers CSS in the same runtime as `StitchesRegistry`; Server Components generate class names that never reach `getCssText()`, so the page renders unstyled.
 
 ### Layout & CSS constraints
 
@@ -81,10 +84,10 @@ Rules and patterns for keeping the codebase coherent. Follow these when adding o
 ### Atomic design
 
 ```text
-atoms/       → single-purpose UI (BrandTitle, StarRating, …)
+atoms/       → single-purpose UI (BrandTitle, StarRating, SkipLink, …)
 molecules/   → small compositions (EntryCard, HeroNav, …)
 organisms/   → sections (HomeHero, EntriesCarousel, HomeStatsCollage, …)
-templates/   → page shells that wire organisms (HomeTemplate, AllEntriesTemplate, …)
+templates/   → page shells (HomeTemplate, MediumCatalogTemplate, StatsTemplate, …)
 ```
 
 - Default-export the component; export a `{Name}Props` type.
@@ -95,20 +98,21 @@ templates/   → page shells that wire organisms (HomeTemplate, AllEntriesTempla
 
 - Page and section strings live under `src/content/copy/` (`siteCopy`, `homeCopy`, …), exported from `content/copy/index.ts`.
 - Use `as const` objects and `type XCopy = typeof xCopy`.
-- Image `src` / `alt` for marketing surfaces (e.g. stats collage) live in copy; styles may import those paths for `background-image`, but JSX must not invent visual effects.
+- Image `src` / `alt` for marketing surfaces (e.g. stats collage, hero lettering) live in copy; styles may import those paths for `background-image`.
 
 ### Data & application layer
 
-- Personal records: `src/data/*.json` via file repositories.
-- Use-cases return **ready-to-render DTOs** (e.g. `JournalEntry` with `posterUrl`, `href`). UI must not build those fields.
-- Enrichment (TMDB ids / `posterPath`) is offline (`npm run enrich:tmdb`), not per-request for full catalogs.
-- Repository interfaces in `application/repositories`; implementations in `infrastructure/persistence`.
-- External API clients (`tmdb`, `google-books`) are server-only.
+- Personal records: `src/data/*.json`, validated at load in `infrastructure/persistence/parse-json.ts`.
+- Use-cases return **ready-to-render DTOs** from `application/dto` (e.g. `JournalEntry`, `CatalogListItem`). UI must not build `href` / `posterUrl` / summary strings.
+- Movie/series art: offline `npm run enrich:tmdb` writes `tmdbId` + `posterPath`.
+- Book covers: store `coverUrl` on the book entry (no per-request Google Books calls in listings).
+- Repository interfaces in `application/repositories`; wire implementations only in `composition/repositories.ts`.
+- External API clients (`tmdb`, `google-books`) import `server-only`.
 
 ### Routing
 
 - App Router under `src/app/`.
-- Polished pages: thin `page.tsx` + template.
+- Thin `page.tsx` + template for every screen.
 - Route segments: kebab-case (`/all-entries`, `/movies/[slug]`).
 - Prefer `prefetch={false}` on dense internal link lists unless there is a reason to prefetch.
 
@@ -129,17 +133,20 @@ templates/   → page shells that wire organisms (HomeTemplate, AllEntriesTempla
 
 - Alias `@/*` → `src/*` (`tsconfig.json`).
 - Cross-module imports use `@/…`; co-located styles use `./styles` only.
+- Use-cases import ports from `@/composition/repositories`, never `File*Repository` classes.
 
 ### Testing & tooling
 
 - Unit tests next to pure logic (`*.test.ts`) with Vitest.
+- `server-only` is stubbed in `vitest.config.mts` for Node tests.
 - Lint: `npm run lint`. Prefer fixing root causes over disabling rules.
 - This Next.js version may differ from training data — check `node_modules/next/dist/docs/` and `AGENTS.md` before assuming APIs.
 
 ### Accessibility & motion
 
+- Skip link in root layout (`SkipLink` → `#main-content`).
 - Meaningful `aria-label` / headings from copy where sections need them.
-- Respect `@motionReduce` in interactive hover/transform styles (already used on cards and stats cells).
+- Respect `@motionReduce` in interactive hover/transform styles.
 - Decorative images: empty `alt=""`; informative images: real alt text in copy.
 
 ### What not to commit
@@ -153,20 +160,21 @@ The TV Time GDPR export was converted into:
 
 | File | Contents |
 |---|---|
-| `src/data/series.json` | ~325 series + watched episodes (`tvdbId`) |
-| `src/data/movies.json` | ~496 movies (`tvtimeUuid`, title, dates) |
-| `src/data/books.json` | empty (no source yet) |
+| `src/data/series.json` | 322 series + watched episodes (`tvdbId`, enriched `tmdbId` / `posterPath`) |
+| `src/data/movies.json` | 496 movies (`tvtimeUuid`, enriched `tmdbId` / `posterPath`) |
+| `src/data/books.json` | personal book entries (`googleBooksId`; optional `coverUrl`) |
 | `src/data/goals.json` | yearly goals |
 
-TMDB ids are not filled yet. After configuring the token:
+Re-run TMDB enrichment after re-importing:
 
 ```bash
 cp .env.example .env.local
 # set TMDB_ACCESS_TOKEN
-npx tsx scripts/enrich-tmdb.ts
+npm run enrich:tmdb
 ```
 
-The enrich script writes `tmdbId` and `posterPath` into the JSON so listing pages can build poster URLs without calling TMDB per request.
+The enrich script writes `tmdbId` and `posterPath` into the JSON so listing pages build poster URLs without calling TMDB per request.
+
 Re-import the GDPR zip (default: `src/data/gdpr-data.zip`):
 
 ```bash
@@ -191,6 +199,6 @@ npm run enrich:tmdb    # fill tmdbId + posterPath (requires token)
 | Variable | Usage |
 |---|---|
 | `TMDB_ACCESS_TOKEN` | Movies and series (server only) |
-| `GOOGLE_BOOKS_API_KEY` | Books (optional for low volume) |
+| `GOOGLE_BOOKS_API_KEY` | Books (optional; enrich scripts / low volume) |
 
-Never expose these tokens to the client.
+Never expose these tokens to the client. Never prefix them with `NEXT_PUBLIC_`.

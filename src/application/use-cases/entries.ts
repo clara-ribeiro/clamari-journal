@@ -2,20 +2,19 @@ import {
   bookRepository,
   movieRepository,
   seriesRepository,
-} from "@/infrastructure/persistence";
-import { getBookById } from "@/infrastructure/google-books/client";
-import { tmdbImageUrl } from "@/infrastructure/tmdb/client";
+} from "@/composition/repositories";
+import type { JournalEntry } from "@/application/dto";
 import type {
   BookEntry,
-  JournalEntry,
   MovieEntry,
   SeriesEntry,
 } from "@/domain/entities";
+import { tmdbImageUrl } from "@/lib/tmdb-image";
 
 type JournalEntryBase = Omit<JournalEntry, "posterUrl"> & {
   favorite?: boolean;
   posterPath?: string;
-  googleBooksId?: string;
+  coverUrl?: string;
 };
 
 function latestIsoDate(dates: Array<string | undefined>): string | null {
@@ -53,9 +52,12 @@ function compareEntriesNewestFirst(a: JournalEntryBase, b: JournalEntryBase) {
   return a.title.localeCompare(b.title);
 }
 
-/** Sync feed from personal records only — no external I/O. */
-export function collectJournalEntries(): JournalEntryBase[] {
-  const movies: JournalEntryBase[] = movieRepository.findAll().map((movie) => ({
+export function collectJournalEntriesFrom(
+  movies: MovieEntry[],
+  seriesList: SeriesEntry[],
+  books: BookEntry[],
+): JournalEntryBase[] {
+  const movieEntries: JournalEntryBase[] = movies.map((movie) => ({
     medium: "movie",
     slug: movie.slug,
     title: movie.title,
@@ -66,20 +68,18 @@ export function collectJournalEntries(): JournalEntryBase[] {
     posterPath: movie.posterPath,
   }));
 
-  const series: JournalEntryBase[] = seriesRepository
-    .findAll()
-    .map((entry) => ({
-      medium: "series",
-      slug: entry.slug,
-      title: entry.title,
-      activityDate: seriesActivityDate(entry),
-      rating: entry.rating,
-      favorite: entry.favorite,
-      href: `/series/${entry.slug}`,
-      posterPath: entry.posterPath,
-    }));
+  const seriesEntries: JournalEntryBase[] = seriesList.map((entry) => ({
+    medium: "series",
+    slug: entry.slug,
+    title: entry.title,
+    activityDate: seriesActivityDate(entry),
+    rating: entry.rating,
+    favorite: entry.favorite,
+    href: `/series/${entry.slug}`,
+    posterPath: entry.posterPath,
+  }));
 
-  const books: JournalEntryBase[] = bookRepository.findAll().map((book) => ({
+  const bookEntries: JournalEntryBase[] = books.map((book) => ({
     medium: "book",
     slug: book.slug,
     title: book.title ?? book.slug,
@@ -87,29 +87,28 @@ export function collectJournalEntries(): JournalEntryBase[] {
     rating: book.rating,
     favorite: book.favorite,
     href: `/books/${book.slug}`,
-    googleBooksId: book.googleBooksId,
+    coverUrl: book.coverUrl,
   }));
 
-  return [...movies, ...series, ...books].sort(compareEntriesNewestFirst);
+  return [...movieEntries, ...seriesEntries, ...bookEntries].sort(
+    compareEntriesNewestFirst,
+  );
 }
 
-/** Local poster only — listings must stay free of per-row API calls. */
-function posterUrlFromPath(posterPath?: string): string | null {
-  return posterPath ? tmdbImageUrl(posterPath, "w342") : null;
+/** Sync feed from personal records only — no external I/O. */
+export function collectJournalEntries(): JournalEntryBase[] {
+  return collectJournalEntriesFrom(
+    movieRepository.findAll(),
+    seriesRepository.findAll(),
+    bookRepository.findAll(),
+  );
 }
 
-async function fetchBookCoverUrl(googleBooksId: string): Promise<string | null> {
-  try {
-    const volume = await getBookById(googleBooksId);
-    const links = volume.volumeInfo.imageLinks;
-    const url = links?.thumbnail ?? links?.smallThumbnail ?? null;
-    return url ? url.replace("http://", "https://") : null;
-  } catch {
-    return null;
-  }
-}
+function toJournalEntry(entry: JournalEntryBase): JournalEntry {
+  const posterUrl =
+    entry.coverUrl ??
+    (entry.posterPath ? tmdbImageUrl(entry.posterPath, "w342") : null);
 
-function toJournalEntryLocal(entry: JournalEntryBase): JournalEntry {
   return {
     medium: entry.medium,
     slug: entry.slug,
@@ -117,48 +116,41 @@ function toJournalEntryLocal(entry: JournalEntryBase): JournalEntry {
     activityDate: entry.activityDate,
     rating: entry.rating,
     href: entry.href,
-    posterUrl: posterUrlFromPath(entry.posterPath),
+    posterUrl,
   };
 }
 
-async function hydrateEntryPosters(
-  entries: JournalEntryBase[],
-): Promise<JournalEntry[]> {
-  return Promise.all(
-    entries.map(async (entry) => {
-      const local = toJournalEntryLocal(entry);
-      if (local.posterUrl) return local;
-      if (entry.medium === "book" && entry.googleBooksId) {
-        return {
-          ...local,
-          posterUrl: await fetchBookCoverUrl(entry.googleBooksId),
-        };
-      }
-      return local;
-    }),
-  );
-}
-
-/**
- * Newest entries for the home section.
- * Movie/series posters come from enriched `posterPath`.
- * Book covers may be fetched for this small window only.
- */
-export async function listRecentEntries(limit = 5): Promise<JournalEntry[]> {
-  return hydrateEntryPosters(collectJournalEntries().slice(0, limit));
+/** Newest entries for the home section (local posters/covers only). */
+export function listRecentEntries(limit = 5): JournalEntry[] {
+  return collectJournalEntries().slice(0, limit).map(toJournalEntry);
 }
 
 /** Favorited entries, newest activity first. */
-export async function listFavoriteEntries(limit?: number): Promise<JournalEntry[]> {
+export function listFavoriteEntries(limit?: number): JournalEntry[] {
   const favorites = collectJournalEntries().filter((entry) => entry.favorite);
   const selected = limit == null ? favorites : favorites.slice(0, limit);
-  return hydrateEntryPosters(selected);
+  return selected.map(toJournalEntry);
 }
 
 /**
  * Full catalog, newest → oldest.
- * Sync + local posters only (run `enrich:tmdb` for movie/series art).
+ * Local posters only (run `enrich:tmdb` / store `coverUrl` for art).
  */
 export function listAllEntries(): JournalEntry[] {
-  return collectJournalEntries().map(toJournalEntryLocal);
+  return collectJournalEntries().map(toJournalEntry);
+}
+
+/** Single catalog pass for the home page feeds. */
+export function getHomeFeeds(limit = 5): {
+  recentEntries: JournalEntry[];
+  favoriteEntries: JournalEntry[];
+} {
+  const all = collectJournalEntries();
+  return {
+    recentEntries: all.slice(0, limit).map(toJournalEntry),
+    favoriteEntries: all
+      .filter((entry) => entry.favorite)
+      .slice(0, limit)
+      .map(toJournalEntry),
+  };
 }

@@ -3,6 +3,8 @@ import {
   bookActivityDate,
   movieActivityDate,
   seriesActivityDate,
+  getHomeFeeds,
+  listAllEntries,
 } from "./entries";
 import type { BookEntry, MovieEntry, SeriesEntry } from "@/domain/entities";
 
@@ -40,5 +42,26 @@ describe("activity dates", () => {
     } satisfies BookEntry;
 
     expect(bookActivityDate(book)).toBeNull();
+  });
+});
+
+describe("catalog feeds", () => {
+  it("lists all entries with href and posterUrl fields", () => {
+    const entries = listAllEntries();
+    expect(entries.length).toBeGreaterThan(0);
+    expect(entries[0]).toMatchObject({
+      medium: expect.any(String),
+      slug: expect.any(String),
+      title: expect.any(String),
+      href: expect.stringMatching(/^\//),
+    });
+    expect(entries[0]).toHaveProperty("posterUrl");
+  });
+
+  it("orders home feeds without duplicate collect passes diverging", () => {
+    const { recentEntries, favoriteEntries } = getHomeFeeds(5);
+    expect(recentEntries.length).toBeLessThanOrEqual(5);
+    expect(favoriteEntries.length).toBeLessThanOrEqual(5);
+    expect(favoriteEntries.every((entry) => entry.href.length > 0)).toBe(true);
   });
 });

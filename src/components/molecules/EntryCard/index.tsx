@@ -1,6 +1,6 @@
 import Image from "next/image";
 import StarRating from "@/components/atoms/StarRating";
-import type { JournalEntry } from "@/domain/entities";
+import type { JournalEntry } from "@/application/dto";
 import { CardLink, Meta, PosterFrame, PosterPlaceholder, Root, Title } from "./styles";
 
 export type EntryCardProps = {

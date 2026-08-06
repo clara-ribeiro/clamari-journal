@@ -15,6 +15,7 @@ export const siteCopy = {
     skipToContent: "Skip to content",
     mainContentId: "main-content",
   },
+  themeColor: "#021570",
 } as const;
 
 export type SiteCopy = typeof siteCopy;

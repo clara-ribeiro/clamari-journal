@@ -3,6 +3,10 @@ export const homeCopy = {
     titleId: "hero-heading",
     title: "CLAMARI",
     script: "Journal",
+    lettering: {
+      mobile: "/images/home/hero/lettering-background-mobile.webp",
+      desktop: "/images/home/hero/lettering-background.webp",
+    },
     nav: {
       ariaLabel: "Browse by medium",
       items: [

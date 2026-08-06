@@ -1,8 +1,9 @@
 import type { MovieEntry } from "@/domain/entities";
 import type { MovieRepository } from "@/application/repositories/movie-repository";
 import moviesData from "@/data/movies.json";
+import { parseMovieEntries } from "./parse-json";
 
-const movies = moviesData as MovieEntry[];
+const movies: MovieEntry[] = parseMovieEntries(moviesData);
 
 export class FileMovieRepository implements MovieRepository {
   findAll(): MovieEntry[] {

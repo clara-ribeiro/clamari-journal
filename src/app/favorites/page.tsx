@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   description: favoritesCopy.description,
 };
 
-export default async function FavoritesPage() {
-  const entries = await listFavoriteEntries();
+export default function FavoritesPage() {
+  const entries = listFavoriteEntries();
 
   return <AllEntriesTemplate entries={entries} copy={favoritesCopy} />;
 }

@@ -1,8 +1,9 @@
 import type { SeriesEntry } from "@/domain/entities";
 import type { SeriesRepository } from "@/application/repositories/series-repository";
 import seriesData from "@/data/series.json";
+import { parseSeriesEntries } from "./parse-json";
 
-const series = seriesData as SeriesEntry[];
+const series: SeriesEntry[] = parseSeriesEntries(seriesData);
 
 export class FileSeriesRepository implements SeriesRepository {
   findAll(): SeriesEntry[] {

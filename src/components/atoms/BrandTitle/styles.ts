@@ -1,3 +1,4 @@
+import { homeCopy } from "@/content/copy";
 import { styled } from "@/styles/stitches.config";
 
 export const Root = styled("div", {
@@ -9,7 +10,7 @@ export const Root = styled("div", {
 
 export const Title = styled("h1", {
   margin: 0,
-  fontFamily: "var(--font-anton), Impact, Haettenschweiler, sans-serif",
+  fontFamily: "$display",
   fontWeight: 400,
   fontStyle: "normal",
   fontSize: "clamp(3.25rem, 25vw, 60rem)",
@@ -19,7 +20,7 @@ export const Title = styled("h1", {
   textAlign: "center",
   whiteSpace: "nowrap",
   color: "transparent",
-  backgroundImage: "url(/images/home/hero/lettering-background-mobile.webp)",
+  backgroundImage: `url(${homeCopy.hero.lettering.mobile})`,
   backgroundSize: "cover",
   backgroundPosition: "center 28%",
   backgroundRepeat: "no-repeat",
@@ -34,6 +35,6 @@ export const Title = styled("h1", {
   },
 
   "@media (min-width: 768px)": {
-    backgroundImage: "url(/images/home/hero/lettering-background.webp)",
+    backgroundImage: `url(${homeCopy.hero.lettering.desktop})`,
   },
 });

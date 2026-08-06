@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { formatDuration } from "@/lib/formatters/formatDate";
+import { formatDuration } from "@/lib/formatters/formatDuration";
 
 describe("formatDuration", () => {
   it("formats short durations with hours and minutes", () => {

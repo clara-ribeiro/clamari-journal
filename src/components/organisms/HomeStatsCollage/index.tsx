@@ -78,7 +78,7 @@ export default function HomeStatsCollage({
             />
           </PortraitCell>
 
-          <StatCell tall photo="pages" href={copy.statsHref} prefetch={false}>
+          <StatCell photo="pages" href={copy.statsHref} prefetch={false}>
             <StatFitText value={pagesRead} label={copy.pagesLabel} />
           </StatCell>
         </Row>

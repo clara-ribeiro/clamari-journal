@@ -11,7 +11,7 @@ export const Root = styled("div", {
 export const Script = styled("p", {
   margin: 0,
   width: "100%",
-  fontFamily: 'var(--font-monsieur), "Segoe Script", cursive',
+  fontFamily: "$script",
   fontWeight: 400,
   fontStyle: "normal",
   fontSize: "clamp(2.75rem, 20vw, 15rem)",

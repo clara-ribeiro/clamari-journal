@@ -1,3 +1,5 @@
+import type { RatingValue } from "@/domain/value-objects/rating";
+
 export type MovieStatus = "watchlist" | "watched" | "rewatch";
 
 /**
@@ -16,7 +18,7 @@ export type MovieEntry = {
   /** Fallback title until TMDB enrichment */
   title: string;
   status: MovieStatus;
-  rating?: number;
+  rating?: RatingValue;
   favorite?: boolean;
   watchedDates?: string[];
   tags?: string[];

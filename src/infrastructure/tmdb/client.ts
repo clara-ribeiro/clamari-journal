@@ -1,7 +1,13 @@
+import "server-only";
+
 /**
  * TMDB API client (server-side only).
  * Requires TMDB_ACCESS_TOKEN in environment variables.
  */
+
+import { tmdbImageUrl } from "@/lib/tmdb-image";
+
+export { tmdbImageUrl };
 
 const TMDB_BASE_URL = "https://api.themoviedb.org/3";
 
@@ -92,12 +98,4 @@ export async function findSeriesByTvdbId(tvdbId: number) {
   return tmdbFetch<{ tv_results: Array<{ id: number; name: string }> }>(
     `/find/${tvdbId}?${params}`,
   );
-}
-
-export function tmdbImageUrl(
-  path: string | null | undefined,
-  size: "w185" | "w342" | "w500" | "w780" | "original" = "w500",
-): string | null {
-  if (!path) return null;
-  return `https://image.tmdb.org/t/p/${size}${path}`;
 }

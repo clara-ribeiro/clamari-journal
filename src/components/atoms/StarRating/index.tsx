@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { starRatingCopy } from "@/content/copy";
 import { EmptyClip, FillClip, HalfRoot, Root } from "./styles";
 
 export type StarRatingProps = {
@@ -34,7 +35,11 @@ export default function StarRating({
 }: StarRatingProps) {
   const clamped = Math.min(max, Math.max(0, value));
   const label =
-    clamped > 0 ? `Rated ${clamped} out of ${max}` : "No rating";
+    clamped > 0
+      ? starRatingCopy.rated
+          .replace("{value}", String(clamped))
+          .replace("{max}", String(max))
+      : starRatingCopy.noRating;
 
   return (
     <Root className={className} role="img" aria-label={label}>

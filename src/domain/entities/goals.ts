@@ -6,9 +6,9 @@ export type Goals = {
   pages: number;
 };
 
+/** Progress toward a yearly goal — labels come from content/copy at the UI edge. */
 export type GoalProgress = {
   key: keyof Omit<Goals, "year">;
-  label: string;
   current: number;
   target: number;
   percent: number;

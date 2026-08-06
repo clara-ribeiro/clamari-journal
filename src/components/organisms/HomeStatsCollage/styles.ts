@@ -86,12 +86,10 @@ const cellBase = {
 export const PortraitCell = styled("div", {
   ...cellBase,
   backgroundColor: "transparent",
-  minHeight: "18rem",
   width: "100%",
 
   "@md": {
     flex: "3 1 0",
-    minHeight: "24rem",
   },
 
   "& img": {
@@ -105,12 +103,10 @@ export const PortraitCell = styled("div", {
 
 export const LandscapeCell = styled("div", {
   ...cellBase,
-  minHeight: "14rem",
   width: "100%",
 
   "@md": {
     flex: "3 1 0",
-    minHeight: "18rem",
   },
 
   "& img": {
@@ -124,7 +120,6 @@ export const LandscapeCell = styled("div", {
 
 export const StatCell = styled(Link, {
   ...cellBase,
-  minHeight: "12rem",
   width: "100%",
   cursor: "pointer",
   transition: "transform $normal, box-shadow $normal",
@@ -143,22 +138,6 @@ export const StatCell = styled(Link, {
         backgroundImage: dimmedPhoto(hours.src),
       },
     },
-    tall: {
-      true: {
-        "@md": {
-          minHeight: "24rem",
-        },
-      },
-      false: {
-        "@md": {
-          minHeight: "18rem",
-        },
-      },
-    },
-  },
-
-  defaultVariants: {
-    tall: false,
   },
 
   "& > svg": {
@@ -216,7 +195,7 @@ export const StatFit = styled("svg", {
 
   "& text": {
     fill: "currentColor",
-    fontFamily: 'var(--font-instrument-serif), Georgia, "Times New Roman", serif',
+    fontFamily: "$section",
     fontWeight: 400,
     fontSize: 110,
     letterSpacing: "0.02em",

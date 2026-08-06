@@ -5,6 +5,6 @@ export const favoritesCopy = {
   backLabel: "Back to home",
   listAriaLabel: "Favorite journal entries",
   empty: "No favorites yet.",
-} as const;
+} as const satisfies import("./types").CatalogCopy;
 
 export type FavoritesCopy = typeof favoritesCopy;

@@ -1,5 +1,5 @@
 import EntryCard from "@/components/molecules/EntryCard";
-import type { JournalEntry } from "@/domain/entities";
+import type { JournalEntry } from "@/application/dto";
 import {
   CarouselFrame,
   Heading,

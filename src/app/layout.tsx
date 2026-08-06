@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Anton, Instrument_Serif, Monsieur_La_Doulaise } from "next/font/google";
 import "./globals.css";
+import SkipLink from "@/components/atoms/SkipLink";
 import { siteCopy } from "@/content/copy";
 import StitchesRegistry from "./stitches-registry";
 
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#021570",
+  themeColor: siteCopy.themeColor,
 };
 
 export default function RootLayout({
@@ -55,7 +56,10 @@ export default function RootLayout({
       className={`${anton.variable} ${monsieur.variable} ${instrumentSerif.variable}`}
     >
       <body suppressHydrationWarning>
-        <StitchesRegistry>{children}</StitchesRegistry>
+        <StitchesRegistry>
+          <SkipLink />
+          {children}
+        </StitchesRegistry>
       </body>
     </html>
   );
