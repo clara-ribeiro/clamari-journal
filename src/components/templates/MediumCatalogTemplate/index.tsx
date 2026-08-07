@@ -8,8 +8,6 @@ import type { MediumCatalogCopy } from "@/content/copy";
 import { catalogCopy } from "@/content/copy/catalog";
 import CatalogEntryCard from "@/components/molecules/CatalogEntryCard";
 import CatalogToolbar, {
-  type CatalogFavoriteFilter,
-  type CatalogReviewFilter,
   type CatalogSortId,
   type CatalogTone,
   type CatalogViewMode,
@@ -63,15 +61,6 @@ function compareYearNewest(a: CatalogCardItem, b: CatalogCardItem) {
   return (b.sortYear ?? -1) - (a.sortYear ?? -1);
 }
 
-/** Landing order: reviews → favorites → newest activity. Not advertised in the UI. */
-function compareDefault(a: CatalogCardItem, b: CatalogCardItem) {
-  const reviewDelta = Number(b.hasReview) - Number(a.hasReview);
-  if (reviewDelta !== 0) return reviewDelta;
-  const favoriteDelta = Number(b.favorite) - Number(a.favorite);
-  if (favoriteDelta !== 0) return favoriteDelta;
-  return compareDateNewest(a, b);
-}
-
 function sortItems(
   items: CatalogCardItem[],
   sort: CatalogSortId,
@@ -80,13 +69,12 @@ function sortItems(
   next.sort((a, b) => {
     switch (sort) {
       case "default":
-        return compareDefault(a, b);
+      case "dateNewest":
+        return compareDateNewest(a, b);
       case "titleAsc":
         return a.sortTitle.localeCompare(b.sortTitle);
       case "titleDesc":
         return b.sortTitle.localeCompare(a.sortTitle);
-      case "dateNewest":
-        return compareDateNewest(a, b);
       case "dateOldest":
         return (a.sortDate ?? "").localeCompare(b.sortDate ?? "");
       case "yearNewest":
@@ -138,9 +126,8 @@ export default function MediumCatalogTemplate({
   const tone = toneForMedium(medium);
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
-  const [reviewFilter, setReviewFilter] = useState<CatalogReviewFilter>("");
-  const [favoriteFilter, setFavoriteFilter] =
-    useState<CatalogFavoriteFilter>("");
+  const [reviewActive, setReviewActive] = useState(false);
+  const [favoriteActive, setFavoriteActive] = useState(false);
   const [sort, setSort] = useState<CatalogSortId>("default");
   const [view, setView] = useState<CatalogViewMode>("cards");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
@@ -149,18 +136,20 @@ export default function MediumCatalogTemplate({
     const query = foldSearchText(search.trim());
     const filtered = items.filter((item) => {
       if (statusFilter && item.statusKey !== statusFilter) return false;
-      if (reviewFilter === "with-review" && !item.hasReview) return false;
-      if (reviewFilter === "without-review" && item.hasReview) return false;
-      if (favoriteFilter === "favorites" && !item.favorite) return false;
+      if (reviewActive || favoriteActive) {
+        const matchesReview = reviewActive && item.hasReview;
+        const matchesFavorite = favoriteActive && item.favorite;
+        if (!matchesReview && !matchesFavorite) return false;
+      }
       if (!query) return true;
       return foldSearchText(item.title).includes(query);
     });
     return sortItems(filtered, sort);
-  }, [items, search, statusFilter, reviewFilter, favoriteFilter, sort]);
+  }, [items, search, statusFilter, reviewActive, favoriteActive, sort]);
 
   useEffect(() => {
     setVisibleCount(PAGE_SIZE);
-  }, [search, statusFilter, reviewFilter, favoriteFilter, sort, view]);
+  }, [search, statusFilter, reviewActive, favoriteActive, sort, view]);
 
   const shownItems = visibleItems.slice(0, visibleCount);
   const hasMore = visibleCount < visibleItems.length;
@@ -183,10 +172,10 @@ export default function MediumCatalogTemplate({
           statusFilter={statusFilter}
           onStatusFilterChange={setStatusFilter}
           statusOptions={statusOptionsFor(medium)}
-          reviewFilter={reviewFilter}
-          onReviewFilterChange={setReviewFilter}
-          favoriteFilter={favoriteFilter}
-          onFavoriteFilterChange={setFavoriteFilter}
+          reviewActive={reviewActive}
+          onReviewActiveChange={setReviewActive}
+          favoriteActive={favoriteActive}
+          onFavoriteActiveChange={setFavoriteActive}
           sort={sort}
           onSortChange={setSort}
           view={view}

@@ -1,10 +1,19 @@
 import { styled } from "@/styles/stitches.config";
 
+/**
+ * Desktop: one unbroken row.
+ * Mobile: search full-width on row 1, filters/sort/view share row 2.
+ */
 export const Root = styled("div", {
   display: "flex",
-  flexDirection: "column",
+  flexWrap: "wrap",
+  alignItems: "center",
   gap: "$sm",
   marginBottom: "$xl",
+
+  "@md": {
+    flexWrap: "nowrap",
+  },
 
   variants: {
     tone: {
@@ -14,25 +23,19 @@ export const Root = styled("div", {
   },
 });
 
-/** Filter / sort rows — wrap on narrow viewports instead of overflowing. */
-export const ControlsRow = styled("div", {
-  display: "flex",
-  flexWrap: "wrap",
-  alignItems: "center",
-  gap: "$sm",
-  width: "100%",
-  minWidth: 0,
-});
-
 export const SearchField = styled("label", {
   display: "flex",
   alignItems: "center",
   gap: "$sm",
-  width: "100%",
+  flex: "1 1 100%",
   minWidth: 0,
   minHeight: "$inputHeight",
   px: "$md",
   border: "2px solid",
+
+  "@md": {
+    flex: "1 1 12rem",
+  },
 
   variants: {
     tone: {
@@ -72,7 +75,7 @@ export const SearchInput = styled("input", {
 export const Control = styled("label", {
   display: "grid",
   alignItems: "center",
-  flex: "1 1 9rem",
+  flex: "1 1 0",
   minHeight: "$buttonHeight",
   minWidth: 0,
   px: "$sm",
@@ -110,12 +113,24 @@ export const ControlFace = styled("span", {
   gap: "$sm",
   pointerEvents: "none",
   minWidth: 0,
+  overflow: "hidden",
+});
+
+/** Category label — desktop only; mobile keeps icon + value to fit one row. */
+export const ControlLabel = styled("span", {
+  display: "none",
+  flexShrink: 0,
+
+  "@lg": {
+    display: "inline",
+  },
 });
 
 export const ControlValue = styled("span", {
   opacity: 0.85,
   overflow: "hidden",
   textOverflow: "ellipsis",
+  minWidth: 0,
 });
 
 export const NativeSelect = styled("select", {
@@ -167,6 +182,83 @@ export const ViewToggle = styled("button", {
         color: "$catalogTextOnDark",
       },
     },
+  },
+});
+
+/** Review / favorites chip — idle outline; active fills so only the chip “reads”. */
+export const FilterToggle = styled("button", {
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: "$sm",
+  flexShrink: 0,
+  minHeight: "$buttonHeight",
+  px: "$sm",
+  border: "2px solid",
+  cursor: "pointer",
+  fontSize: "$body2",
+  whiteSpace: "nowrap",
+  background: "transparent",
+  color: "inherit",
+
+  "@md": {
+    px: "$md",
+  },
+
+  "& svg": {
+    width: "$iconSm",
+    height: "$iconSm",
+    flexShrink: 0,
+  },
+
+  variants: {
+    tone: {
+      light: {
+        borderColor: "$catalogBorder",
+        color: "$catalogText",
+      },
+      dark: {
+        borderColor: "$catalogBorderOnDark",
+        color: "$catalogTextOnDark",
+      },
+    },
+    active: {
+      true: {},
+      false: {},
+    },
+  },
+
+  compoundVariants: [
+    {
+      tone: "light",
+      active: true,
+      css: {
+        backgroundColor: "$catalogText",
+        borderColor: "$catalogText",
+        color: "$catalogBgPaper",
+      },
+    },
+    {
+      tone: "dark",
+      active: true,
+      css: {
+        backgroundColor: "$catalogTextOnDark",
+        borderColor: "$catalogTextOnDark",
+        color: "$catalogBgFilms",
+      },
+    },
+  ],
+
+  defaultVariants: {
+    active: false,
+  },
+});
+
+export const FilterToggleLabel = styled("span", {
+  display: "none",
+
+  "@lg": {
+    display: "inline",
   },
 });
 
