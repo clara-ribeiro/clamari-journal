@@ -1,8 +1,6 @@
 export const statsCopy = {
   titleId: "stats-heading",
   title: "Stats",
-  backLabel: "← Home",
-  backHref: "/",
   goalsHeading: "Goals",
   remainingSuffix: "remaining",
   metrics: {

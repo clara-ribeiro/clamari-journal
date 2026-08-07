@@ -149,7 +149,6 @@ export function getSeriesDetail(slug: string): SeriesDetail | undefined {
 
   return {
     title: entry.title,
-    backHref: "/series",
     fields: [
       { label: seriesCopy.detail.fields.status, value: entry.status },
       {

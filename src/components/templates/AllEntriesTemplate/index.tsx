@@ -4,7 +4,6 @@ import EntryCard from "@/components/molecules/EntryCard";
 import { allEntriesCopy, type CatalogCopy } from "@/content/copy";
 import type { JournalEntry } from "@/application/dto";
 import {
-  Back,
   Description,
   Empty,
   List,
@@ -24,9 +23,6 @@ export default function AllEntriesTemplate({
 }: AllEntriesTemplateProps) {
   return (
     <Page id="main-content">
-      <Back href="/" prefetch={false}>
-        {copy.backLabel}
-      </Back>
       <Title id={copy.titleId}>{copy.title}</Title>
       <Description>{copy.description}</Description>
       {entries.length === 0 ? (

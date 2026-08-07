@@ -2,8 +2,6 @@ export const booksCopy = {
   list: {
     titleId: "books-heading",
     title: "Books",
-    backLabel: "← Home",
-    backHref: "/",
     listAriaLabel: "Book entries",
     empty: "No books yet. Add entries in src/data/books.json.",
     summary: "{finished} finished · {reading} in progress · {total} total",
@@ -18,7 +16,6 @@ export const booksCopy = {
     },
   },
   detail: {
-    backLabel: "← Books",
     fields: {
       status: "Status",
       rating: "Rating",

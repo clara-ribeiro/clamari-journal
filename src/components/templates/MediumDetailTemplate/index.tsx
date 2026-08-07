@@ -7,7 +7,6 @@ import type {
 } from "@/application/dto";
 import { Fragment } from "react";
 import {
-  Back,
   Episode,
   EpisodeList,
   EpisodesHeading,
@@ -21,27 +20,21 @@ type MediumDetailTemplateProps =
   | {
       kind: "movie";
       detail: MovieDetail;
-      backLabel: string;
     }
   | {
       kind: "series";
       detail: SeriesDetail;
-      backLabel: string;
     }
   | {
       kind: "book";
       detail: BookDetail;
-      backLabel: string;
     };
 
 export default function MediumDetailTemplate(props: MediumDetailTemplateProps) {
-  const { detail, backLabel } = props;
+  const { detail } = props;
 
   return (
     <Page id="main-content">
-      <Back href={detail.backHref} prefetch={false}>
-        {backLabel}
-      </Back>
       <Title>{detail.title}</Title>
       <Meta>
         {detail.fields.map((field) => (

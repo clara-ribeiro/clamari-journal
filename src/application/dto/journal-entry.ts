@@ -38,14 +38,12 @@ export type EpisodePreview = {
 
 export type MovieDetail = {
   title: string;
-  backHref: string;
   fields: DetailField[];
   note: string;
 };
 
 export type SeriesDetail = {
   title: string;
-  backHref: string;
   fields: DetailField[];
   episodesHeading: string;
   episodes: EpisodePreview[];
@@ -53,7 +51,6 @@ export type SeriesDetail = {
 
 export type BookDetail = {
   title: string;
-  backHref: string;
   fields: DetailField[];
 };
 

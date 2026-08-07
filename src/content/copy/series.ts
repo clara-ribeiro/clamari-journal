@@ -2,8 +2,6 @@ export const seriesCopy = {
   list: {
     titleId: "series-heading",
     title: "Series",
-    backLabel: "← Home",
-    backHref: "/",
     listAriaLabel: "Series entries",
     empty: "No series yet.",
     summary:
@@ -19,7 +17,6 @@ export const seriesCopy = {
     },
   },
   detail: {
-    backLabel: "← Series",
     pendingEnrichment: "pending enrichment",
     yes: "yes",
     no: "no",

@@ -9,6 +9,7 @@ import type {
   CatalogTone,
   CatalogViewMode,
 } from "@/components/molecules/CatalogToolbar";
+import { isTmdbImageUrl, tmdbImageLoader } from "@/lib/tmdb-image";
 import {
   Activity,
   ActivityRow,
@@ -98,14 +99,12 @@ export default function CatalogEntryCard({
               alt=""
               width={342}
               height={513}
-              sizes="(max-width: 767px) 90vw, (max-width: 1023px) 45vw, 18vw"
-              quality={60}
-              {...(priority
-                ? {
-                    fetchPriority: "high" as const,
-                    loading: "eager" as const,
-                  }
-                : {})}
+              sizes="(max-width: 767px) 45vw, (max-width: 1023px) 30vw, 18vw"
+              {...(isTmdbImageUrl(item.posterUrl)
+                ? { loader: tmdbImageLoader }
+                : { quality: 60 })}
+              loading={priority ? "eager" : "lazy"}
+              fetchPriority={priority ? "high" : "auto"}
               onError={() => setShowPlaceholder(true)}
             />
           )}

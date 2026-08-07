@@ -2,8 +2,7 @@ import { styled } from "@/styles/stitches.config";
 
 export const Root = styled("div", {
   display: "flex",
-  flexWrap: "wrap",
-  alignItems: "center",
+  flexDirection: "column",
   gap: "$sm",
   marginBottom: "$xl",
 
@@ -15,11 +14,20 @@ export const Root = styled("div", {
   },
 });
 
+/** Filters + sort + view stay on one row (no wrap under the controls). */
+export const ControlsRow = styled("div", {
+  display: "flex",
+  alignItems: "center",
+  gap: "$sm",
+  width: "100%",
+  minWidth: 0,
+});
+
 export const SearchField = styled("label", {
   display: "flex",
   alignItems: "center",
   gap: "$sm",
-  flex: "1 1 16rem",
+  width: "100%",
   minWidth: 0,
   minHeight: "$inputHeight",
   px: "$md",
@@ -63,13 +71,18 @@ export const SearchInput = styled("input", {
 export const Control = styled("label", {
   display: "grid",
   alignItems: "center",
+  flex: "1 1 0",
   minHeight: "$buttonHeight",
-  minWidth: "10rem",
-  px: "$md",
+  minWidth: 0,
+  px: "$sm",
   border: "2px solid",
   cursor: "pointer",
   fontSize: "$body2",
   whiteSpace: "nowrap",
+
+  "@md": {
+    px: "$md",
+  },
 
   "& > *": {
     gridArea: "1 / 1",

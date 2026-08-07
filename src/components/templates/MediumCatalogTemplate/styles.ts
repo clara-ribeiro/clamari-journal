@@ -1,5 +1,4 @@
 import { styled } from "@/styles/stitches.config";
-import Link from "next/link";
 
 export const Page = styled("div", {
   minHeight: "100dvh",
@@ -60,22 +59,6 @@ export const Content = styled("main", {
   },
 });
 
-export const Back = styled(Link, {
-  fontSize: "$body2",
-  display: "inline-block",
-  marginBottom: "$lg",
-  opacity: 0.62,
-  "&:hover": { opacity: 1 },
-
-  variants: {
-    medium: {
-      films: { color: "$catalogTextOnDark" },
-      books: { color: "$catalogText" },
-      series: { color: "$catalogText" },
-    },
-  },
-});
-
 export const Summary = styled("p", {
   marginBottom: "$lg",
   color: "inherit",
@@ -88,10 +71,11 @@ export const Grid = styled("ul", {
   margin: 0,
   display: "grid",
   gap: 0,
-  gridTemplateColumns: "minmax(0, 1fr)",
+  // Two columns on mobile so posters stay smaller than full-bleed.
+  gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
 
   "@md": {
-    gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+    gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
   },
 
   "@lg": {

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { styled } from "@/styles/stitches.config";
 
 export const Page = styled("main", {
@@ -7,14 +6,6 @@ export const Page = styled("main", {
   py: "$2xl",
   maxWidth: "$containerReading",
   mx: "auto",
-});
-
-export const Back = styled(Link, {
-  color: "$loContrast",
-  fontSize: "$body2",
-  display: "inline-block",
-  marginBottom: "$lg",
-  "&:hover": { color: "$primary" },
 });
 
 export const Title = styled("h1", {

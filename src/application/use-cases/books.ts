@@ -108,7 +108,6 @@ export function getBookDetail(slug: string): BookDetail | undefined {
 
   return {
     title: book.title ?? book.slug,
-    backHref: "/books",
     fields: [
       { label: booksCopy.detail.fields.status, value: book.status },
       {

@@ -5,6 +5,7 @@ import { catalogCopy } from "@/content/copy/catalog";
 import {
   Control,
   ControlFace,
+  ControlsRow,
   ControlValue,
   IconWrap,
   NativeSelect,
@@ -22,7 +23,9 @@ export type CatalogSortId =
   | "dateNewest"
   | "dateOldest"
   | "ratingHigh"
-  | "ratingLow";
+  | "ratingLow"
+  | "favoritesFirst"
+  | "reviewsFirst";
 
 export type CatalogViewMode = "cards" | "list";
 
@@ -82,63 +85,65 @@ export default function CatalogToolbar({
         />
       </SearchField>
 
-      <Control tone={tone}>
-        <ControlFace>
-          <IconWrap aria-hidden>
-            <ListFilter />
-          </IconWrap>
-          <span>{copy.filtersLabel}</span>
-          <ControlValue>{statusLabel}</ControlValue>
-        </ControlFace>
-        <NativeSelect
-          aria-label={copy.filtersAriaLabel}
-          value={statusFilter}
-          onChange={(event) => onStatusFilterChange(event.target.value)}
-        >
-          <option value="">{copy.filtersAll}</option>
-          {statusOptions.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </NativeSelect>
-      </Control>
+      <ControlsRow>
+        <Control tone={tone}>
+          <ControlFace>
+            <IconWrap aria-hidden>
+              <ListFilter />
+            </IconWrap>
+            <span>{copy.filtersLabel}</span>
+            <ControlValue>{statusLabel}</ControlValue>
+          </ControlFace>
+          <NativeSelect
+            aria-label={copy.filtersAriaLabel}
+            value={statusFilter}
+            onChange={(event) => onStatusFilterChange(event.target.value)}
+          >
+            <option value="">{copy.filtersAll}</option>
+            {statusOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </NativeSelect>
+        </Control>
 
-      <Control tone={tone}>
-        <ControlFace>
-          <IconWrap aria-hidden>
-            <ArrowUpDown />
-          </IconWrap>
-          <span>{copy.sortLabel}</span>
-          <ControlValue>{sortLabel}</ControlValue>
-        </ControlFace>
-        <NativeSelect
-          aria-label={copy.sortAriaLabel}
-          value={sort}
-          onChange={(event) =>
-            onSortChange(event.target.value as CatalogSortId)
+        <Control tone={tone}>
+          <ControlFace>
+            <IconWrap aria-hidden>
+              <ArrowUpDown />
+            </IconWrap>
+            <span>{copy.sortLabel}</span>
+            <ControlValue>{sortLabel}</ControlValue>
+          </ControlFace>
+          <NativeSelect
+            aria-label={copy.sortAriaLabel}
+            value={sort}
+            onChange={(event) =>
+              onSortChange(event.target.value as CatalogSortId)
+            }
+          >
+            {sortOptions.map(([value, label]) => (
+              <option key={value} value={value}>
+                {label}
+              </option>
+            ))}
+          </NativeSelect>
+        </Control>
+
+        <ViewToggle
+          type="button"
+          tone={tone}
+          aria-label={
+            view === "cards" ? copy.viewListAriaLabel : copy.viewCardsAriaLabel
           }
+          aria-pressed={view === "list"}
+          title={view === "cards" ? copy.viewListLabel : copy.viewCardsLabel}
+          onClick={() => onViewChange(nextView)}
         >
-          {sortOptions.map(([value, label]) => (
-            <option key={value} value={value}>
-              {label}
-            </option>
-          ))}
-        </NativeSelect>
-      </Control>
-
-      <ViewToggle
-        type="button"
-        tone={tone}
-        aria-label={
-          view === "cards" ? copy.viewListAriaLabel : copy.viewCardsAriaLabel
-        }
-        aria-pressed={view === "list"}
-        title={view === "cards" ? copy.viewListLabel : copy.viewCardsLabel}
-        onClick={() => onViewChange(nextView)}
-      >
-        {view === "cards" ? <LayoutGrid aria-hidden /> : <List aria-hidden />}
-      </ViewToggle>
+          {view === "cards" ? <LayoutGrid aria-hidden /> : <List aria-hidden />}
+        </ViewToggle>
+      </ControlsRow>
     </Root>
   );
 }

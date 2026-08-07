@@ -3,7 +3,6 @@
 import type { GoalMetric, StatsMetric } from "@/application/dto";
 import { statsCopy } from "@/content/copy";
 import {
-  Back,
   Card,
   Grid,
   Label,
@@ -21,9 +20,6 @@ export type StatsTemplateProps = {
 export default function StatsTemplate({ metrics, goals }: StatsTemplateProps) {
   return (
     <Page id="main-content">
-      <Back href={statsCopy.backHref} prefetch={false}>
-        {statsCopy.backLabel}
-      </Back>
       <Title id={statsCopy.titleId}>{statsCopy.title}</Title>
 
       <Grid>

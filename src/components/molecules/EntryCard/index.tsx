@@ -1,6 +1,7 @@
 import Image from "next/image";
 import StarRating from "@/components/atoms/StarRating";
 import type { JournalEntry } from "@/application/dto";
+import { isTmdbImageUrl, tmdbImageLoader } from "@/lib/tmdb-image";
 import { CardLink, Meta, PosterFrame, PosterPlaceholder, Root, Title } from "./styles";
 
 export type EntryCardProps = {
@@ -25,7 +26,11 @@ export default function EntryCard({
               width={400}
               height={600}
               sizes="(max-width: 767px) 42vw, (max-width: 1279px) 18vw, 14rem"
-              priority={priority}
+              {...(isTmdbImageUrl(entry.posterUrl)
+                ? { loader: tmdbImageLoader }
+                : {})}
+              loading={priority ? "eager" : "lazy"}
+              fetchPriority={priority ? "high" : "auto"}
             />
           ) : (
             <PosterPlaceholder aria-hidden />

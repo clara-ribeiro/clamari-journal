@@ -114,7 +114,6 @@ export function getMovieDetail(slug: string): MovieDetail | undefined {
 
   return {
     title: movie.title,
-    backHref: "/films",
     fields: [
       { label: filmsCopy.detail.fields.status, value: movie.status },
       {

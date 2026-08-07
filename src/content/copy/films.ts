@@ -2,8 +2,6 @@ export const filmsCopy = {
   list: {
     titleId: "films-heading",
     title: "Films",
-    backLabel: "← Home",
-    backHref: "/",
     listAriaLabel: "Film entries",
     empty: "No films yet.",
     summary: "{watched} watched · {watchlist} on the list · {total} total",
@@ -18,7 +16,6 @@ export const filmsCopy = {
     },
   },
   detail: {
-    backLabel: "← Films",
     pendingEnrichment: "pending enrichment",
     note: "Dynamic template. Posters, synopsis, and cast will load from TMDB once `tmdbId` is resolved.",
     fields: {

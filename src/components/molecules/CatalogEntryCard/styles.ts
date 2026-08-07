@@ -7,8 +7,13 @@ export const Root = styled("article", {
   gap: "$sm",
   minWidth: 0,
   height: "100%",
-  py: "$md",
-  px: "$md",
+  py: "$sm",
+  px: "$sm",
+
+  "@md": {
+    py: "$md",
+    px: "$md",
+  },
 
   variants: {
     tone: {

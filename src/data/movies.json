@@ -215,7 +215,10 @@
     "releaseDate": "2019-05-24",
     "watchedDates": [
       "2020-12-21"
-    ]
+    ],
+    "tmdbId": 420817,
+    "posterPath": "/ykUEbfpkf8d0w49pHh0AD2KrT52.jpg",
+    "runtimeMinutes": 127
   },
   {
     "tvtimeUuid": "fe9cd0a8-8139-4748-959b-917b99a6bd65",
@@ -5245,7 +5248,11 @@
     "status": "watched",
     "watchedDates": [
       "2019-10-11"
-    ]
+    ],
+    "tmdbId": 420818,
+    "posterPath": "/dzBtMocZuJbjLOXvrl4zGYigDzh.jpg",
+    "releaseDate": "2019-07-12",
+    "runtimeMinutes": 118
   },
   {
     "tvtimeUuid": "0c86c471-a76f-4eb1-bb92-6c69d04d392e",

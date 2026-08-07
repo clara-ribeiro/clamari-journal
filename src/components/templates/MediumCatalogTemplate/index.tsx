@@ -15,8 +15,8 @@ import CatalogToolbar, {
 import CatalogHero, {
   type CatalogMedium,
 } from "@/components/organisms/CatalogHero";
+import { isTmdbImageUrl, tmdbImageLoader } from "@/lib/tmdb-image";
 import {
-  Back,
   Cell,
   Content,
   Empty,
@@ -28,11 +28,11 @@ import {
   Title,
 } from "./styles";
 
-/** Mobile viewport shows ~1 card; keep hydrate cheap for TBT. */
-const PAGE_SIZE = 12;
+/** Initial paint budget — full catalogs (hundreds of cards) blow TBT on hydrate. */
+const PAGE_SIZE = 30;
 
 const POSTER_SIZES =
-  "(max-width: 767px) 90vw, (max-width: 1023px) 45vw, 18vw";
+  "(max-width: 767px) 45vw, (max-width: 1023px) 30vw, 18vw";
 
 export type MediumCatalogTemplateProps = {
   medium: CatalogMedium;
@@ -52,6 +52,10 @@ function statusOptionsFor(medium: CatalogMedium) {
   }));
 }
 
+function compareDateNewest(a: CatalogCardItem, b: CatalogCardItem) {
+  return (b.sortDate ?? "").localeCompare(a.sortDate ?? "");
+}
+
 function sortItems(
   items: CatalogCardItem[],
   sort: CatalogSortId,
@@ -63,14 +67,25 @@ function sortItems(
         return a.sortTitle.localeCompare(b.sortTitle);
       case "titleDesc":
         return b.sortTitle.localeCompare(a.sortTitle);
-      case "dateNewest":
-        return (b.sortDate ?? "").localeCompare(a.sortDate ?? "");
+      case "dateNewest": {
+        // Default: reviewed titles first, then newest activity.
+        const reviewDelta = Number(b.hasReview) - Number(a.hasReview);
+        return reviewDelta !== 0 ? reviewDelta : compareDateNewest(a, b);
+      }
       case "dateOldest":
         return (a.sortDate ?? "").localeCompare(b.sortDate ?? "");
       case "ratingHigh":
         return b.sortRating - a.sortRating;
       case "ratingLow":
         return a.sortRating - b.sortRating;
+      case "favoritesFirst": {
+        const favoriteDelta = Number(b.favorite) - Number(a.favorite);
+        return favoriteDelta !== 0 ? favoriteDelta : compareDateNewest(a, b);
+      }
+      case "reviewsFirst": {
+        const reviewDelta = Number(b.hasReview) - Number(a.hasReview);
+        return reviewDelta !== 0 ? reviewDelta : compareDateNewest(a, b);
+      }
       default:
         return 0;
     }
@@ -87,7 +102,12 @@ function preloadLcpPoster(posterUrl: string | null | undefined) {
     width: 342,
     height: 513,
     sizes: POSTER_SIZES,
-    quality: 60,
+    ...(isTmdbImageUrl(posterUrl)
+      ? { loader: tmdbImageLoader }
+      : { quality: 60 }),
+    // Must match the LCP <Image> — otherwise Next's LCP observer warns on lazy.
+    loading: "eager",
+    fetchPriority: "high",
   });
   preload(props.src, {
     as: "image",
@@ -135,9 +155,6 @@ export default function MediumCatalogTemplate({
       <CatalogHero medium={medium} copy={copy.hero} />
       <Title id={copy.titleId}>{copy.title}</Title>
       <Content id="main-content" aria-labelledby={copy.titleId}>
-        <Back href={copy.backHref} prefetch={false} medium={medium}>
-          {copy.backLabel}
-        </Back>
         <Summary>{summary}</Summary>
 
         <CatalogToolbar
@@ -169,11 +186,9 @@ export default function MediumCatalogTemplate({
               <LoadMore
                 type="button"
                 tone={tone}
-                onClick={() =>
-                  setVisibleCount((count) => count + PAGE_SIZE)
-                }
+                onClick={() => setVisibleCount(visibleItems.length)}
               >
-                {catalogCopy.toolbar.loadMore}
+                {catalogCopy.toolbar.seeAll}
               </LoadMore>
             ) : null}
           </>
@@ -195,11 +210,9 @@ export default function MediumCatalogTemplate({
               <LoadMore
                 type="button"
                 tone={tone}
-                onClick={() =>
-                  setVisibleCount((count) => count + PAGE_SIZE)
-                }
+                onClick={() => setVisibleCount(visibleItems.length)}
               >
-                {catalogCopy.toolbar.loadMore}
+                {catalogCopy.toolbar.seeAll}
               </LoadMore>
             ) : null}
           </>

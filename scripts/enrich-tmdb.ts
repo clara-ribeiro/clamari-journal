@@ -128,7 +128,7 @@ async function enrichMovies() {
           language: "en-US",
         });
         if (entry.releaseDate) {
-          params.set("year", entry.releaseDate.slice(0, 4));
+          params.set("primary_release_year", entry.releaseDate.slice(0, 4));
         }
         const data = await tmdb<{ results: TmdbMatch[] }>(
           `/search/movie?${params}`,
