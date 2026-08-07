@@ -8,6 +8,15 @@ export const seriesCopy = {
     empty: "No series yet.",
     summary:
       "{total} series · {episodes} episodes · {completed} completed · {watching} watching",
+    hero: {
+      titleId: "series-hero-heading",
+      title: "Series",
+      sentinelId: "series-catalog-hero",
+      image: {
+        src: "/images/series/fleabag-hero.webp",
+        alt: "Fleabag",
+      },
+    },
   },
   detail: {
     backLabel: "← Series",

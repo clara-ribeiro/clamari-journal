@@ -101,9 +101,9 @@ export function getStatsPageData(): {
       label: statsCopy.metrics.works,
     },
     {
-      id: "movies-watched",
+      id: "films-watched",
       value: String(movies.watched),
-      label: statsCopy.metrics.moviesWatched,
+      label: statsCopy.metrics.filmsWatched,
     },
     {
       id: "series-completed",
@@ -126,9 +126,9 @@ export function getStatsPageData(): {
       label: statsCopy.metrics.pagesRead,
     },
     {
-      id: "movie-time",
+      id: "film-time",
       value: formatDuration(movies.totalRuntimeMinutes),
-      label: statsCopy.metrics.movieWatchTime,
+      label: statsCopy.metrics.filmWatchTime,
     },
     {
       id: "series-time",

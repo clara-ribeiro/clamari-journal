@@ -3,12 +3,13 @@ import {
   listMovieCatalogItems,
 } from "@/application/use-cases/movies";
 import MediumCatalogTemplate from "@/components/templates/MediumCatalogTemplate";
-import { moviesCopy } from "@/content/copy";
+import { filmsCopy } from "@/content/copy";
 
-export default function MoviesPage() {
+export default function FilmsPage() {
   return (
     <MediumCatalogTemplate
-      copy={moviesCopy.list}
+      medium="films"
+      copy={filmsCopy.list}
       summary={getMoviesPageSummary()}
       items={listMovieCatalogItems()}
     />

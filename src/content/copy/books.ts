@@ -7,6 +7,15 @@ export const booksCopy = {
     listAriaLabel: "Book entries",
     empty: "No books yet. Add entries in src/data/books.json.",
     summary: "{finished} finished · {reading} in progress · {total} total",
+    hero: {
+      titleId: "books-hero-heading",
+      title: "Books",
+      sentinelId: "books-catalog-hero",
+      image: {
+        src: "/images/books/clarice-hero.webp",
+        alt: "",
+      },
+    },
   },
   detail: {
     backLabel: "← Books",

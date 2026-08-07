@@ -17,39 +17,54 @@ export type SiteHeaderProps = {
 };
 
 const copy = siteCopy.header;
+const revealOnScroll = new Set<string>(copy.revealOnScrollHrefs);
+const catalogSentinels = copy.catalogHeroSentinelIds;
 
 function isActivePath(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
+function resolveSentinelId(pathname: string): string | null {
+  if (pathname === copy.homeHref) return copy.brandSentinelId;
+  if (pathname in catalogSentinels) {
+    return catalogSentinels[pathname as keyof typeof catalogSentinels];
+  }
+  return null;
+}
+
 export default function SiteHeader({ className }: SiteHeaderProps) {
   const pathname = usePathname() ?? copy.homeHref;
   const isHome = pathname === copy.homeHref;
-  // Always start hidden so server HTML matches the first client render (avoids hydration mismatch).
-  const [visible, setVisible] = useState(false);
+  const usesReveal = revealOnScroll.has(pathname);
+  const [pastHero, setPastHero] = useState(false);
+  const [observedPath, setObservedPath] = useState(pathname);
+
+  if (observedPath !== pathname) {
+    setObservedPath(pathname);
+    setPastHero(false);
+  }
+
+  // Reveal pages stay hidden until the hero sentinel leaves the viewport.
+  // Other pages show the header immediately (SSR + client agree).
+  const visible = !usesReveal || pastHero;
 
   useEffect(() => {
-    if (!isHome) {
-      setVisible(true);
-      return;
-    }
+    if (!usesReveal) return;
 
-    const sentinel = document.getElementById(copy.brandSentinelId);
+    const sentinelId = resolveSentinelId(pathname);
+    if (!sentinelId) return;
+
+    const sentinel = document.getElementById(sentinelId);
     if (!sentinel) return;
 
-    const sync = (inView: boolean) => setVisible(!inView);
-
     const observer = new IntersectionObserver(
-      ([entry]) => sync(entry.isIntersecting),
+      ([entry]) => setPastHero(!entry.isIntersecting),
       { threshold: 0 },
     );
     observer.observe(sentinel);
 
-    const rect = sentinel.getBoundingClientRect();
-    sync(rect.bottom > 0 && rect.top < window.innerHeight);
-
     return () => observer.disconnect();
-  }, [isHome]);
+  }, [pathname, usesReveal]);
 
   return (
     <>
@@ -80,7 +95,7 @@ export default function SiteHeader({ className }: SiteHeaderProps) {
         )}
       </Bar>
 
-      {!isHome ? <Spacer aria-hidden /> : null}
+      {!usesReveal ? <Spacer aria-hidden /> : null}
     </>
   );
 }

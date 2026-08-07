@@ -4,7 +4,7 @@ import {
   listMovies,
 } from "@/application/use-cases/movies";
 import MediumDetailTemplate from "@/components/templates/MediumDetailTemplate";
-import { moviesCopy } from "@/content/copy";
+import { filmsCopy } from "@/content/copy";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -12,7 +12,7 @@ export function generateStaticParams() {
   return listMovies().map((movie) => ({ slug: movie.slug }));
 }
 
-export default async function MovieDetailPage({ params }: Props) {
+export default async function FilmDetailPage({ params }: Props) {
   const { slug } = await params;
   const detail = getMovieDetail(slug);
   if (!detail) notFound();
@@ -21,7 +21,7 @@ export default async function MovieDetailPage({ params }: Props) {
     <MediumDetailTemplate
       kind="movie"
       detail={detail}
-      backLabel={moviesCopy.detail.backLabel}
+      backLabel={filmsCopy.detail.backLabel}
     />
   );
 }

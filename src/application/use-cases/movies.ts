@@ -1,7 +1,7 @@
 import { movieRepository } from "@/composition/repositories";
 import type { CatalogListItem, MovieDetail } from "@/application/dto";
 import type { MovieEntry } from "@/domain/entities";
-import { moviesCopy } from "@/content/copy/movies";
+import { filmsCopy } from "@/content/copy/films";
 import { formatDate } from "@/lib/formatters/formatDate";
 
 export function listMovies(): MovieEntry[] {
@@ -45,7 +45,7 @@ export function listMovieCatalogItems(): CatalogListItem[] {
   return listMovies().map((movie) => ({
     slug: movie.slug,
     title: movie.title,
-    href: `/movies/${movie.slug}`,
+    href: `/films/${movie.slug}`,
     meta: [
       movie.status,
       movie.rating ? `★ ${movie.rating}` : null,
@@ -62,33 +62,33 @@ export function getMovieDetail(slug: string): MovieDetail | undefined {
 
   return {
     title: movie.title,
-    backHref: "/movies",
+    backHref: "/films",
     fields: [
-      { label: moviesCopy.detail.fields.status, value: movie.status },
+      { label: filmsCopy.detail.fields.status, value: movie.status },
       {
-        label: moviesCopy.detail.fields.rating,
+        label: filmsCopy.detail.fields.rating,
         value: movie.rating != null ? String(movie.rating) : "—",
       },
       {
-        label: moviesCopy.detail.fields.watched,
+        label: filmsCopy.detail.fields.watched,
         value:
           movie.watchedDates?.map((d) => formatDate(d)).join(" · ") || "—",
       },
       {
-        label: moviesCopy.detail.fields.tmdb,
+        label: filmsCopy.detail.fields.tmdb,
         value:
           movie.tmdbId != null
             ? String(movie.tmdbId)
-            : moviesCopy.detail.pendingEnrichment,
+            : filmsCopy.detail.pendingEnrichment,
       },
     ],
-    note: moviesCopy.detail.note,
+    note: filmsCopy.detail.note,
   };
 }
 
 export function getMoviesPageSummary() {
   const stats = getMovieStats();
-  return moviesCopy.list.summary
+  return filmsCopy.list.summary
     .replace("{watched}", String(stats.watched))
     .replace("{watchlist}", String(stats.watchlist))
     .replace("{total}", String(stats.total));

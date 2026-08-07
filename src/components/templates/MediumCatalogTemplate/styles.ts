@@ -1,8 +1,44 @@
 import { styled } from "@/styles/stitches.config";
 import Link from "next/link";
 
-export const Page = styled("main", {
+export const Page = styled("div", {
   minHeight: "100dvh",
+  backgroundImage: "url(/images/shared/noise-grain.webp)",
+  backgroundSize: "128px 128px",
+  backgroundRepeat: "repeat",
+
+  variants: {
+    medium: {
+      films: {
+        backgroundColor: "$catalogBgFilms",
+        color: "$catalogTextOnDark",
+      },
+      books: {
+        backgroundColor: "$catalogBgPaper",
+        color: "$catalogText",
+      },
+      series: {
+        backgroundColor: "$catalogBgPaper",
+        color: "$catalogText",
+      },
+    },
+  },
+});
+
+/** Visually hidden page title (Films / Series / Books). */
+export const Title = styled("h1", {
+  display: "inline-block",
+  width: "1px",
+  height: "1px",
+  margin: 0,
+  padding: 0,
+  overflow: "hidden",
+  clipPath: "inset(50%)",
+  whiteSpace: "nowrap",
+  border: 0,
+});
+
+export const Content = styled("main", {
   px: "$lg",
   py: "$2xl",
   maxWidth: "$containerContent",
@@ -10,21 +46,24 @@ export const Page = styled("main", {
 });
 
 export const Back = styled(Link, {
-  color: "$loContrast",
   fontSize: "$body2",
   display: "inline-block",
   marginBottom: "$lg",
-  "&:hover": { color: "$primary" },
-});
+  opacity: 0.62,
+  "&:hover": { opacity: 1 },
 
-export const Title = styled("h1", {
-  fontSize: "$h2",
-  marginBottom: "$sm",
+  variants: {
+    medium: {
+      films: { color: "$catalogTextOnDark" },
+      books: { color: "$catalogText" },
+      series: { color: "$catalogText" },
+    },
+  },
 });
 
 export const Summary = styled("p", {
-  color: "$loContrast",
   marginBottom: "$xl",
+  opacity: 0.62,
 });
 
 export const List = styled("ul", {
@@ -36,8 +75,16 @@ export const List = styled("ul", {
 });
 
 export const Item = styled("li", {
-  borderBottom: "1px solid $border",
   py: "$sm",
+  minWidth: 0,
+
+  variants: {
+    medium: {
+      films: { borderBottom: "1px solid $catalogBorderOnDark" },
+      books: { borderBottom: "1px solid $catalogBorder" },
+      series: { borderBottom: "1px solid $catalogBorder" },
+    },
+  },
 });
 
 export const ItemLink = styled(Link, {
@@ -45,18 +92,27 @@ export const ItemLink = styled(Link, {
   justifyContent: "space-between",
   gap: "$md",
   flexWrap: "wrap",
-  "&:hover": { color: "$primary" },
+  color: "inherit",
+  minWidth: 0,
+  "&:hover": { opacity: 0.72 },
 });
 
 export const Meta = styled("span", {
-  color: "$loContrast",
   fontSize: "$body2",
+  opacity: 0.62,
 });
 
 export const Empty = styled("p", {
-  color: "$loContrast",
   padding: "$xl",
-  border: "1px dashed $border",
   borderRadius: "$lg",
   textAlign: "center",
+  opacity: 0.62,
+
+  variants: {
+    medium: {
+      films: { border: "1px dashed $catalogBorderOnDark" },
+      books: { border: "1px dashed $catalogBorder" },
+      series: { border: "1px dashed $catalogBorder" },
+    },
+  },
 });

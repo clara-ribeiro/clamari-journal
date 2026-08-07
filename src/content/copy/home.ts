@@ -10,7 +10,7 @@ export const homeCopy = {
     nav: {
       ariaLabel: "Browse by medium",
       items: [
-        { href: "/movies", label: "Movies" },
+        { href: "/films", label: "Films" },
         { href: "/series", label: "Series" },
         { href: "/books", label: "Books" },
       ],
@@ -59,7 +59,7 @@ export const homeCopy = {
     titleId: "journal-about-heading",
     title: "My Journal",
     paragraphs: [
-      "I am a software engineer by trade, but a profound lover of the arts at heart. For a long time, I documented my cultural journey on other platforms, but after the fall of TV Show, I decided it was time to merge my two worlds. I built this space from scratch to be my personal archive—a definitive log to record, review, and remember every movie I’ve watched, every series I’ve followed, and every book I’ve read.",
+      "I am a software engineer by trade, but a profound lover of the arts at heart. For a long time, I documented my cultural journey on other platforms, but after the fall of TV Show, I decided it was time to merge my two worlds. I built this space from scratch to be my personal archive—a definitive log to record, review, and remember every film I’ve watched, every series I’ve followed, and every book I’ve read.",
       "This site is an open diary. I invite you to read my thoughts, explore my catalog, and step into my world. If you would like to share a recommendation, discuss a piece of work, or simply get in touch, feel free to reach out to me at",
     ],
     email: "claramarcelinors@gmail.com",

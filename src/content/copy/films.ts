@@ -1,15 +1,24 @@
-export const moviesCopy = {
+export const filmsCopy = {
   list: {
-    titleId: "movies-heading",
-    title: "Movies",
+    titleId: "films-heading",
+    title: "Films",
     backLabel: "← Home",
     backHref: "/",
-    listAriaLabel: "Movie entries",
-    empty: "No movies yet.",
+    listAriaLabel: "Film entries",
+    empty: "No films yet.",
     summary: "{watched} watched · {watchlist} on the list · {total} total",
+    hero: {
+      titleId: "films-hero-heading",
+      title: "Films",
+      sentinelId: "films-catalog-hero",
+      image: {
+        src: "/images/films/poor-things-hero.webp",
+        alt: "Poor Things",
+      },
+    },
   },
   detail: {
-    backLabel: "← Movies",
+    backLabel: "← Films",
     pendingEnrichment: "pending enrichment",
     note: "Dynamic template. Posters, synopsis, and cast will load from TMDB once `tmdbId` is resolved.",
     fields: {
@@ -21,4 +30,4 @@ export const moviesCopy = {
   },
 } as const;
 
-export type MoviesCopy = typeof moviesCopy;
+export type FilmsCopy = typeof filmsCopy;

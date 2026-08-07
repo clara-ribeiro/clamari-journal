@@ -21,9 +21,16 @@ export const siteCopy = {
     brand: "CLAMARI",
     homeHref: "/",
     brandSentinelId: "hero-brand",
+    /** List pages where the header stays hidden until the hero scrolls out of view. */
+    revealOnScrollHrefs: ["/", "/films", "/series", "/books"],
+    catalogHeroSentinelIds: {
+      "/films": "films-catalog-hero",
+      "/series": "series-catalog-hero",
+      "/books": "books-catalog-hero",
+    },
     items: [
       { href: "/stats", label: "Stats" },
-      { href: "/movies", label: "Movies" },
+      { href: "/films", label: "Films" },
       { href: "/series", label: "Series" },
       { href: "/books", label: "Books" },
     ],

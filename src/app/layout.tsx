@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Anton, Instrument_Serif, Monsieur_La_Doulaise } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import SkipLink from "@/components/atoms/SkipLink";
 import SiteFooter from "@/components/organisms/SiteFooter";
@@ -31,6 +32,14 @@ const instrumentSerif = Instrument_Serif({
   preload: false,
 });
 
+const bivaque = localFont({
+  src: "../fonts/CDTBivaque-Regular.otf",
+  variable: "--font-bivaque",
+  display: "swap",
+  weight: "400",
+  preload: false,
+});
+
 export const metadata: Metadata = {
   title: {
     default: siteCopy.metadata.titleDefault,
@@ -55,7 +64,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${anton.variable} ${monsieur.variable} ${instrumentSerif.variable}`}
+      className={`${anton.variable} ${monsieur.variable} ${instrumentSerif.variable} ${bivaque.variable}`}
     >
       <body suppressHydrationWarning>
         <StitchesRegistry>

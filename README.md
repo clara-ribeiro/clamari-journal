@@ -69,8 +69,8 @@ APIs (TMDB / Google Books) live under `infrastructure`, marked `server-only`, an
 | `/` | Home (hero, carousels, stats collage) |
 | `/all-entries` | Full entry grid |
 | `/favorites` | Favorites grid |
-| `/movies`, `/series`, `/books` | Medium catalogs |
-| `/movies/[slug]`, `/series/[slug]`, `/books/[slug]` | Medium detail |
+| `/films`, `/series`, `/books` | Medium catalogs |
+| `/films/[slug]`, `/series/[slug]`, `/books/[slug]` | Medium detail |
 | `/stats` | Lifetime stats |
 
 ## Conventions
@@ -146,7 +146,7 @@ templates/   → page shells (HomeTemplate, MediumCatalogTemplate, StatsTemplate
 - Book covers: offline `npm run enrich:google-books` writes `coverUrl` from Google Books (no per-request API in listings).
 - Repository interfaces in `application/repositories`; wire implementations only in `composition/repositories.ts`.
 - External API clients (`tmdb`, `google-books`) import `server-only`.
-- `src/content/reviews/{movies,series,books}/` is reserved for future MD/MDX reviews; nothing reads it yet.
+- `src/content/reviews/{films,series,books}/` is reserved for future MD/MDX reviews; nothing reads it yet.
 
 ### Personal JSON conventions
 
@@ -165,7 +165,7 @@ Shared rules: ratings are half-stars `0.5`–`5`; never use negative runtimes, p
 
 - App Router under `src/app/`.
 - Thin `page.tsx` + template for every screen.
-- Route segments: kebab-case (`/all-entries`, `/movies/[slug]`).
+- Route segments: kebab-case (`/all-entries`, `/films/[slug]`).
 - Prefer `prefetch={false}` on dense internal link lists unless there is a reason to prefetch.
 
 ### Naming

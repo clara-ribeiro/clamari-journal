@@ -7,17 +7,18 @@ export const statsCopy = {
   remainingSuffix: "remaining",
   metrics: {
     works: "Works logged",
-    moviesWatched: "Movies watched",
+    filmsWatched: "Films watched",
     seriesCompleted: "Series completed",
     episodesWatched: "Episodes watched",
     booksFinished: "Books finished",
     pagesRead: "Pages read",
-    movieWatchTime: "Movie watch time",
+    filmWatchTime: "Film watch time",
     seriesWatchTime: "Series watch time",
     totalWatchTime: "TV watch time",
   },
   goalLabels: {
-    movies: "Movies",
+    /** Domain key stays `movies` (goals.json); label is user-facing. */
+    movies: "Films",
     series: "Series",
     books: "Books",
     pages: "Pages",

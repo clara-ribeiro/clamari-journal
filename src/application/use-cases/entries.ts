@@ -64,7 +64,7 @@ export function collectJournalEntriesFrom(
     activityDate: movieActivityDate(movie),
     rating: movie.rating,
     favorite: movie.favorite,
-    href: `/movies/${movie.slug}`,
+    href: `/films/${movie.slug}`,
     posterPath: movie.posterPath,
   }));
 
