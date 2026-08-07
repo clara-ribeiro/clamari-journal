@@ -1,0 +1,24 @@
+{
+  "id": "ku9TsH3M1-YC",
+  "volumeInfo": {
+    "title": "The Lightning Thief",
+    "subtitle": "Percy Jackson and the Olympians, Book One",
+    "authors": ["Rick Riordan"],
+    "publisher": "Disney Hyperion",
+    "publishedDate": "2005-06-28",
+    "description": "Percy Jackson is about to be kicked out of boarding school... again.",
+    "pageCount": 377,
+    "categories": ["Juvenile Fiction / Action & Adventure"],
+    "language": "en",
+    "industryIdentifiers": [
+      { "type": "ISBN_13", "identifier": "9780786838653" },
+      { "type": "ISBN_10", "identifier": "0786838655" },
+      { "type": "OTHER", "identifier": "OL123" }
+    ],
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=ku9TsH3M1-YC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=ku9TsH3M1-YC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "large": "http://books.google.com/books/content?id=ku9TsH3M1-YC&printsec=frontcover&img=1&zoom=3&source=gbs_api"
+    }
+  }
+}

@@ -55,7 +55,7 @@ src/
 └── test/                     # Test stubs (e.g. server-only)
 
 public/images/                # Static marketing assets (hero, stats, noise)
-scripts/                      # import:tvtime, enrich:tmdb
+scripts/                      # import:tvtime, enrich:tmdb, enrich:google-books
 ```
 
 Flow: `app` → `use-cases` → ports via `composition/repositories` → `infrastructure/persistence` → `data/*.json`.
@@ -143,7 +143,7 @@ templates/   → page shells (HomeTemplate, MediumCatalogTemplate, StatsTemplate
 - Personal records: `src/data/*.json`, validated at load in `infrastructure/persistence/parse-json.ts`.
 - Use-cases return **ready-to-render DTOs** from `application/dto` (e.g. `JournalEntry`, `CatalogListItem`). UI must not build `href` / `posterUrl` / summary strings.
 - Movie/series art: offline `npm run enrich:tmdb` writes `tmdbId` + `posterPath`.
-- Book covers: store `coverUrl` on the book entry (no per-request Google Books calls in listings).
+- Book covers: offline `npm run enrich:google-books` writes `coverUrl` from Google Books (no per-request API in listings).
 - Repository interfaces in `application/repositories`; wire implementations only in `composition/repositories.ts`.
 - External API clients (`tmdb`, `google-books`) import `server-only`.
 - `src/content/reviews/{movies,series,books}/` is reserved for future MD/MDX reviews; nothing reads it yet.
@@ -245,7 +245,8 @@ npm run lint
 npm test               # vitest watch
 npm run test:run       # vitest run (CI-friendly)
 npm run import:tvtime  # regenerate movies.json / series.json
-npm run enrich:tmdb    # fill tmdbId + posterPath (requires token)
+npm run enrich:tmdb          # fill tmdbId + posterPath (requires token)
+npm run enrich:google-books  # fill coverUrl (+ title) from Google Books
 ```
 
 ## Environment variables
@@ -254,7 +255,7 @@ npm run enrich:tmdb    # fill tmdbId + posterPath (requires token)
 |---|---|
 | `TMDB_ACCESS_TOKEN` | Movies and series (server only) |
 | `TMDB_LANGUAGE` | Optional TMDB metadata language (default `en-US`), e.g. `pt-BR` |
-| `GOOGLE_BOOKS_API_KEY` | Books (optional; enrich scripts / low volume) |
+| `GOOGLE_BOOKS_API_KEY` | Optional Google Books key (server only; low-volume public queries work without it) |
 
 Never expose these tokens to the client. Never prefix them with `NEXT_PUBLIC_`.
 
@@ -270,3 +271,18 @@ Server-only module: `src/infrastructure/tmdb/`. Use cases should consume normali
 | Cache | Search revalidates hourly; detail/season/find daily (`next.revalidate` + tag `tmdb:search` / `tmdb:detail`) |
 | Images | Absolute URLs via `tmdbImageUrl` (`posterUrl`, `backdropUrl`, stills, profiles) |
 | Fixtures | Deterministic samples under `src/infrastructure/tmdb/fixtures/` for normalizer tests |
+
+### Google Books metadata adapter
+
+Server-only module: `src/infrastructure/google-books/`. Use cases should consume normalized DTOs (`GoogleBooksMetadata`, `GoogleBooksSearchPage`, …), not raw volume payloads.
+
+| Concern | Behavior |
+|---|---|
+| Search modes | `searchBooks` (free text), `searchBooksByTitle`, `searchBooksByAuthor`, `searchBooksByIsbn` |
+| Timeouts | 10s abort per request (`GoogleBooksError` code `timeout`) |
+| Errors | `GoogleBooksError` codes: `not_found`, `rate_limited`, `timeout`, `network`, `bad_response`, `upstream`, `invalid_query` |
+| Cache | Search hourly; volume detail daily (`google-books:search` / `google-books:detail`) |
+| Covers | Prefer largest `imageLinks` size; upgrade `http` → `https`; bump common `zoom=1` thumbnails to `zoom=2` |
+| Page count | `getBookById(id, { customPageCount })` / `withPersonalPageCount` apply journal overrides without inventing totals |
+| API key | Optional `GOOGLE_BOOKS_API_KEY` appended server-side only |
+| Fixtures | `src/infrastructure/google-books/fixtures/` |

@@ -1,0 +1,24 @@
+{
+  "kind": "books#volumes",
+  "totalItems": 2,
+  "items": [
+    {
+      "id": "ku9TsH3M1-YC",
+      "volumeInfo": {
+        "title": "The Lightning Thief",
+        "authors": ["Rick Riordan"],
+        "publishedDate": "2005",
+        "pageCount": 377,
+        "imageLinks": {
+          "thumbnail": "http://books.google.com/books/content?id=ku9TsH3M1-YC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        }
+      }
+    },
+    {
+      "id": "missing-title",
+      "volumeInfo": {
+        "authors": ["Nobody"]
+      }
+    }
+  ]
+}

@@ -12,6 +12,15 @@ export type {
 } from "./journal-entry";
 
 export type {
+  GoogleBooksIdentifiers,
+  GoogleBooksMetadata,
+  GoogleBooksPageCountSource,
+  GoogleBooksSearchHit,
+  GoogleBooksSearchMode,
+  GoogleBooksSearchPage,
+} from "./google-books-metadata";
+
+export type {
   TmdbEpisodeMetadata,
   TmdbGenre,
   TmdbMovieMetadata,

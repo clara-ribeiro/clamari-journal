@@ -2,51 +2,71 @@
   {
     "googleBooksId": "ku9TsH3M1-YC",
     "slug": "the-lightning-thief",
-    "title": "The Lightning Thief",
+    "title": "Percy Jackson and the Lightning Thief (Book 1)",
     "status": "finished",
     "favorite": false,
     "customPageCount": 384,
     "format": "physical",
-    "tags": ["percy-jackson", "olympians"]
+    "tags": [
+      "percy-jackson",
+      "olympians"
+    ],
+    "coverUrl": "https://books.google.com/books/content?id=ku9TsH3M1-YC&printsec=frontcover&img=1&zoom=2&source=gbs_api"
   },
   {
     "googleBooksId": "AWMxzoncFBgC",
     "slug": "the-sea-of-monsters",
-    "title": "The Sea of Monsters",
+    "title": "Percy Jackson and the Sea of Monsters (Book 2)",
     "status": "finished",
     "favorite": false,
     "customPageCount": 288,
     "format": "physical",
-    "tags": ["percy-jackson", "olympians"]
+    "tags": [
+      "percy-jackson",
+      "olympians"
+    ],
+    "coverUrl": "https://books.google.com/books/content?id=AWMxzoncFBgC&printsec=frontcover&img=1&zoom=2&source=gbs_api"
   },
   {
     "googleBooksId": "ZfEo1C04xdEC",
     "slug": "the-titans-curse",
-    "title": "The Titan's Curse",
+    "title": "Percy Jackson and the Titan's Curse (Book 3)",
     "status": "finished",
     "favorite": true,
     "customPageCount": 320,
     "format": "physical",
-    "tags": ["percy-jackson", "olympians"]
+    "tags": [
+      "percy-jackson",
+      "olympians"
+    ],
+    "coverUrl": "https://books.google.com/books/content?id=ZfEo1C04xdEC&printsec=frontcover&img=1&zoom=2&source=gbs_api"
   },
   {
     "googleBooksId": "TCKuEQAAQBAJ",
     "slug": "the-battle-of-the-labyrinth",
-    "title": "The Battle of the Labyrinth",
+    "title": "Percy Jackson and the Olympians, Book Four: The Battle of the Labyrinth",
     "status": "finished",
     "favorite": false,
     "customPageCount": 400,
     "format": "physical",
-    "tags": ["percy-jackson", "olympians"]
+    "tags": [
+      "percy-jackson",
+      "olympians"
+    ],
+    "coverUrl": "https://books.google.com/books/content?id=TCKuEQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api"
   },
   {
     "googleBooksId": "dhzuIutwYG0C",
     "slug": "the-last-olympian",
-    "title": "The Last Olympian",
+    "title": "Percy Jackson and the Last Olympian (Book 5)",
     "status": "finished",
     "favorite": false,
     "customPageCount": 368,
     "format": "physical",
-    "tags": ["percy-jackson", "olympians"]
+    "tags": [
+      "percy-jackson",
+      "olympians"
+    ],
+    "coverUrl": "https://books.google.com/books/content?id=dhzuIutwYG0C&printsec=frontcover&img=1&zoom=2&source=gbs_api"
   }
 ]

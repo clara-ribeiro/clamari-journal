@@ -10,7 +10,8 @@
     "test": "vitest -c vitest.config.mts",
     "test:run": "vitest run -c vitest.config.mts",
     "import:tvtime": "python3 scripts/import-tvtime.py src/data/gdpr-data.zip",
-    "enrich:tmdb": "tsx scripts/enrich-tmdb.ts"
+    "enrich:tmdb": "tsx scripts/enrich-tmdb.ts",
+    "enrich:google-books": "tsx scripts/enrich-google-books.ts"
   },
   "dependencies": {
     "@stitches/react": "^1.2.8",
