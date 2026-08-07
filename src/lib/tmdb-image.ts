@@ -23,7 +23,8 @@ function tmdbPosterPath(src: string): string | null {
 
 function tmdbSizeForWidth(width: number): TmdbImageSize {
   if (width <= 185) return "w185";
-  if (width <= 342) return "w342";
+  // Prefer w342 for card posters (display ~140–230px × DPR often lands ≤400)
+  if (width <= 400) return "w342";
   if (width <= 500) return "w500";
   if (width <= 780) return "w780";
   return "original";

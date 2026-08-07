@@ -1,39 +1,55 @@
-import { homeCopy } from "@/content/copy";
+import Image from "next/image";
+import { homeCopy } from "@/content/copy/home";
 import {
+  Background,
   Body,
-  EmailLink,
+  Email,
   Epigraph,
+  Frame,
   Panel,
-  PanelAnchor,
   Paragraph,
-  Section,
+  Root,
   Title,
 } from "./styles";
 
-export type HomeJournalAboutProps = {
+type HomeJournalAboutProps = {
   className?: string;
 };
 
-const copy = homeCopy.journalAbout;
-
-export default function HomeJournalAbout({ className }: HomeJournalAboutProps) {
-  const [intro, closing] = copy.paragraphs;
+export default function HomeJournalAbout({
+  className,
+}: HomeJournalAboutProps) {
+  const { titleId, title, paragraphs, email, epigraph, image } =
+    homeCopy.journalAbout;
+  const objectPosition = `${image.focalX} ${image.focalY}`;
 
   return (
-    <Section className={className} aria-labelledby={copy.titleId}>
-      <PanelAnchor>
+    <Root className={className} aria-labelledby={titleId}>
+      <Background aria-hidden="true">
+        <Image
+          src={image.src}
+          alt=""
+          fill
+          sizes="100vw"
+          quality={70}
+          loading="lazy"
+          style={{ objectPosition }}
+        />
+      </Background>
+      <Frame>
+        <Epigraph style={{ marginBlockEnd: `calc(100% - ${image.focalY})` }}>
+          {epigraph}
+        </Epigraph>
         <Panel>
-          <Title id={copy.titleId}>{copy.title}</Title>
+          <Title id={titleId}>{title}</Title>
           <Body>
-            <Paragraph>{intro}</Paragraph>
-            <Paragraph>
-              {closing}{" "}
-              <EmailLink href={`mailto:${copy.email}`}>{copy.email}</EmailLink>.
-            </Paragraph>
+            {paragraphs.map((paragraph) => (
+              <Paragraph key={paragraph}>{paragraph}</Paragraph>
+            ))}
           </Body>
+          <Email href={`mailto:${email}`}>{email}</Email>
         </Panel>
-      </PanelAnchor>
-      <Epigraph>{copy.epigraph}</Epigraph>
-    </Section>
+      </Frame>
+    </Root>
   );
 }

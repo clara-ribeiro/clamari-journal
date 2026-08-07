@@ -1,13 +1,5 @@
 import Link from "next/link";
-import { homeCopy } from "@/content/copy";
 import { styled } from "@/styles/stitches.config";
-
-const { pages, hours } = homeCopy.statsCollage.images;
-
-/** ~0.3 photo opacity over $statsSurface (#C9A05A). */
-function dimmedPhoto(src: string) {
-  return `linear-gradient(rgba(201, 160, 90, 0.7), rgba(201, 160, 90, 0.7)), url(${src})`;
-}
 
 export const Section = styled("section", {
   margin: 0,
@@ -107,6 +99,7 @@ export const LandscapeCell = styled("div", {
 });
 
 export const StatCell = styled(Link, {
+  position: "relative",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -117,9 +110,6 @@ export const StatCell = styled(Link, {
   textDecoration: "none",
   cursor: "pointer",
   backgroundColor: "$statsSurface",
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  backgroundRepeat: "no-repeat",
   transition: "transform $normal, box-shadow $normal",
 
   "@md": {
@@ -127,18 +117,9 @@ export const StatCell = styled(Link, {
     height: "auto",
   },
 
-  variants: {
-    photo: {
-      pages: {
-        backgroundImage: dimmedPhoto(pages.src),
-      },
-      hours: {
-        backgroundImage: dimmedPhoto(hours.src),
-      },
-    },
-  },
-
   "& > svg": {
+    position: "relative",
+    zIndex: 2,
     transition: "transform $normal ease",
   },
 
@@ -177,6 +158,14 @@ export const StatCell = styled(Link, {
       },
     },
   },
+});
+
+export const StatOverlay = styled("span", {
+  position: "absolute",
+  inset: 0,
+  zIndex: 1,
+  pointerEvents: "none",
+  backgroundColor: "rgba(201, 160, 90, 0.7)",
 });
 
 /** Stretches label to the full cell width via SVG textLength. */

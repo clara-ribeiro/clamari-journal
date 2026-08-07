@@ -33,6 +33,7 @@ export default function HomeTemplate({
         listAriaLabel={homeCopy.recentEntries.listAriaLabel}
         showAllLabel={homeCopy.recentEntries.showAllLabel}
         showAllHref={homeCopy.recentEntries.showAllHref}
+        priorityCount={1}
       />
       <EntriesCarousel
         entries={favoriteEntries}
@@ -41,6 +42,7 @@ export default function HomeTemplate({
         listAriaLabel={homeCopy.favorites.listAriaLabel}
         showAllLabel={homeCopy.favorites.showAllLabel}
         showAllHref={homeCopy.favorites.showAllHref}
+        priorityCount={0}
       />
       <HomeStatsCollage pagesRead={pagesRead} watchedHours={watchedHours} />
       <HomeJournalAbout />

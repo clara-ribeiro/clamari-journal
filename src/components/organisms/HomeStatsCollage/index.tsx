@@ -8,6 +8,7 @@ import {
   Stack,
   StatCell,
   StatFit,
+  StatOverlay,
   VisuallyHidden,
 } from "./styles";
 
@@ -71,20 +72,39 @@ export default function HomeStatsCollage({
             <Image
               src={copy.images.portrait.src}
               alt={copy.images.portrait.alt}
-              width={1800}
-              height={1200}
+              width={900}
+              height={600}
               sizes="(max-width: 767px) 100vw, 60vw"
-              unoptimized
+              quality={70}
+              loading="lazy"
             />
           </PortraitCell>
 
-          <StatCell photo="pages" href={copy.statsHref} prefetch={false}>
+          <StatCell href={copy.statsHref} prefetch={false}>
+            <Image
+              src={copy.images.pages.src}
+              alt=""
+              fill
+              sizes="(max-width: 767px) 100vw, 40vw"
+              quality={70}
+              loading="lazy"
+            />
+            <StatOverlay />
             <StatFitText value={pagesRead} label={copy.pagesLabel} />
           </StatCell>
         </Row>
 
         <Row>
-          <StatCell photo="hours" href={copy.statsHref} prefetch={false}>
+          <StatCell href={copy.statsHref} prefetch={false}>
+            <Image
+              src={copy.images.hours.src}
+              alt=""
+              fill
+              sizes="(max-width: 767px) 100vw, 40vw"
+              quality={70}
+              loading="lazy"
+            />
+            <StatOverlay />
             <StatFitText value={watchedHours} label={copy.hoursLabel} />
           </StatCell>
 
@@ -92,10 +112,11 @@ export default function HomeStatsCollage({
             <Image
               src={copy.images.landscape.src}
               alt={copy.images.landscape.alt}
-              width={1800}
-              height={1200}
+              width={900}
+              height={600}
               sizes="(max-width: 767px) 100vw, 60vw"
-              unoptimized
+              quality={70}
+              loading="lazy"
             />
           </LandscapeCell>
         </Row>

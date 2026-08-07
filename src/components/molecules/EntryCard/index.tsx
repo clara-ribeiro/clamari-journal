@@ -25,7 +25,7 @@ export default function EntryCard({
               alt=""
               width={400}
               height={600}
-              sizes="(max-width: 767px) 42vw, (max-width: 1279px) 18vw, 14rem"
+              sizes="(max-width: 767px) 140px, (max-width: 1279px) 160px, 224px"
               {...(isTmdbImageUrl(entry.posterUrl)
                 ? { loader: tmdbImageLoader }
                 : {})}
