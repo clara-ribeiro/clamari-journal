@@ -65,9 +65,7 @@ function toBookCatalogCard(book: BookEntry): CatalogCardItem {
     book.format ?? null,
     pagesLabel,
     ...(book.tags ?? []).slice(0, 2),
-    favorite ? catalogCopy.card.favorite : null,
     statusLabel,
-    hasReview ? catalogCopy.card.withReview : catalogCopy.card.noReview,
   ].filter((tag): tag is string => Boolean(tag));
 
   return {

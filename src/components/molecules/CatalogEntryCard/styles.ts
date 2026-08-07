@@ -345,6 +345,23 @@ export const Tag = styled("span", {
   },
 });
 
+export const FavoriteMark = styled("span", {
+  display: "inline-flex",
+  alignItems: "center",
+  alignSelf: "flex-start",
+  gap: "0.3rem",
+  marginTop: "$xs",
+  fontSize: "$caption",
+  lineHeight: 1.2,
+  color: "#C47878",
+
+  "& svg": {
+    width: "0.85rem",
+    height: "0.85rem",
+    flexShrink: 0,
+  },
+});
+
 export const RatingSlot = styled("div", {
   variants: {
     tone: {

@@ -15,6 +15,7 @@ import {
   ActivityRow,
   BadgeSlot,
   CardLink,
+  FavoriteMark,
   ListFlag,
   ListFlagSlot,
   ListFlags,
@@ -125,19 +126,14 @@ export default function CatalogEntryCard({
 
       <ActivityRow>
         <Activity tone={tone}>{item.activityLabel}</Activity>
-        <PillRow>
-          <Pill tone={tone} active={item.favorite} emphasis={item.favorite}>
-            <Heart
-              aria-hidden
-              fill={item.favorite ? "currentColor" : "none"}
-            />
-            {item.favoriteLabel}
-          </Pill>
-          <Pill tone={tone} active={item.hasReview}>
-            <PencilLine aria-hidden />
-            {item.reviewLabel}
-          </Pill>
-        </PillRow>
+        {item.hasReview ? (
+          <PillRow>
+            <Pill tone={tone} active>
+              <PencilLine aria-hidden />
+              {item.reviewLabel}
+            </Pill>
+          </PillRow>
+        ) : null}
       </ActivityRow>
 
       {item.metaTags.length > 0 ? (
@@ -148,6 +144,13 @@ export default function CatalogEntryCard({
             </Tag>
           ))}
         </TagRow>
+      ) : null}
+
+      {item.favorite ? (
+        <FavoriteMark aria-label={item.favoriteLabel}>
+          <Heart aria-hidden fill="currentColor" />
+          {item.favoriteLabel}
+        </FavoriteMark>
       ) : null}
     </Root>
   );

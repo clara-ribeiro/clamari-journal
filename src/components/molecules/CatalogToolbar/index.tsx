@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpDown, Heart, LayoutGrid, List, ListFilter, Search, TextQuote } from "lucide-react";
+import { ArrowUpDown, Heart, LayoutGrid, List, ListFilter, PencilLine, Search } from "lucide-react";
 import { catalogCopy } from "@/content/copy/catalog";
 import {
   Control,
@@ -129,7 +129,7 @@ export default function CatalogToolbar({
         title={copy.reviewLabel}
         onClick={() => onReviewActiveChange(!reviewActive)}
       >
-        <TextQuote aria-hidden />
+        <PencilLine aria-hidden />
         {reviewActive ? null : (
           <FilterToggleLabel>{copy.reviewLabel}</FilterToggleLabel>
         )}

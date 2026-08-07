@@ -103,9 +103,7 @@ function toSeriesCatalogCard(entry: SeriesEntry): CatalogCardItem {
 
   const metaTags = [
     episodeTag,
-    favorite ? catalogCopy.card.favorite : null,
     statusLabel,
-    hasReview ? catalogCopy.card.withReview : catalogCopy.card.noReview,
   ].filter((tag): tag is string => Boolean(tag));
 
   return {
