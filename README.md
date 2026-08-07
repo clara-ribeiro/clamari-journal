@@ -148,6 +148,19 @@ templates/   → page shells (HomeTemplate, MediumCatalogTemplate, StatsTemplate
 - External API clients (`tmdb`, `google-books`) import `server-only`.
 - `src/content/reviews/{movies,series,books}/` is reserved for future MD/MDX reviews; nothing reads it yet.
 
+### Personal JSON conventions
+
+Edit files under `src/data/` carefully; malformed entries fail at repository load with a path like `movies.json[12].rating`.
+
+| File | Identity | Notes |
+|---|---|---|
+| `movies.json` | unique `slug`; unique `tvtimeUuid` / `tmdbId` when set | `status`: `watchlist` \| `watched` \| `rewatch`. Dates `YYYY-MM-DD`. `tmdbId` / `posterPath` optional until enrichment. |
+| `series.json` | unique `slug`, `tvdbId`; unique `tmdbId` when set | `status`: `watchlist` \| `watching` \| `up-to-date` \| `paused` \| `completed` \| `abandoned`. `watchedEpisodes[].season` / `episode` integers ≥ 1. `startedAt` ≤ `finishedAt` when both set. |
+| `books.json` | unique `slug`, `googleBooksId` | `status`: `want-to-read` \| `reading` \| `paused` \| `finished` \| `abandoned`. Optional `format`: `physical` \| `ebook` \| `audiobook`. `currentPage` / history / quote pages cannot exceed `customPageCount` when that total is set. |
+| `goals.json` | single object | Integer `year` (1900–2100) and non-negative integer targets: `movies`, `books`, `series`, `pages`. |
+
+Shared rules: ratings are half-stars `0.5`–`5`; never use negative runtimes, page counts, or goal targets; do not invent progress percentages when page totals are unknown.
+
 ### Routing
 
 - App Router under `src/app/`.

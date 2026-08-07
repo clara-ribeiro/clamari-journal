@@ -215,9 +215,7 @@
     "releaseDate": "2019-05-24",
     "watchedDates": [
       "2020-12-21"
-    ],
-    "tmdbId": 812,
-    "posterPath": "/eLFfl7vS8dkeG1hKp5mwbm37V83.jpg"
+    ]
   },
   {
     "tvtimeUuid": "fe9cd0a8-8139-4748-959b-917b99a6bd65",
@@ -383,7 +381,6 @@
     "slug": "aquaman",
     "title": "Aquaman",
     "status": "watched",
-    "releaseDate": "0001-01-01",
     "watchedDates": [
       "2019-10-11"
     ],
@@ -473,7 +470,6 @@
     "slug": "avengers-endgame",
     "title": "Avengers: Endgame",
     "status": "watched",
-    "releaseDate": "0001-01-01",
     "watchedDates": [
       "2019-10-11"
     ],
@@ -666,7 +662,6 @@
     "slug": "black-panther",
     "title": "Black Panther",
     "status": "watched",
-    "releaseDate": "0001-01-01",
     "watchedDates": [
       "2019-10-11"
     ],
@@ -906,7 +901,6 @@
     "slug": "captain-marvel",
     "title": "Captain Marvel",
     "status": "watched",
-    "releaseDate": "0001-01-01",
     "watchedDates": [
       "2019-10-11"
     ],
@@ -1200,7 +1194,6 @@
     "slug": "deadpool",
     "title": "Deadpool",
     "status": "watched",
-    "releaseDate": "0001-01-01",
     "watchedDates": [
       "2019-10-11"
     ],
@@ -1772,7 +1765,6 @@
     "slug": "frozen",
     "title": "Frozen",
     "status": "watched",
-    "releaseDate": "0001-01-01",
     "watchedDates": [
       "2019-10-11"
     ],
@@ -2045,7 +2037,6 @@
     "slug": "harry-potter-and-the-chamber-of-secrets",
     "title": "Harry Potter and the Chamber of Secrets",
     "status": "watched",
-    "releaseDate": "0001-01-01",
     "watchedDates": [
       "2019-10-11"
     ],
@@ -2131,7 +2122,6 @@
     "slug": "harry-potter-and-the-prisoner-of-azkaban",
     "title": "Harry Potter and the Prisoner of Azkaban",
     "status": "watched",
-    "releaseDate": "0001-01-01",
     "watchedDates": [
       "2019-10-11"
     ],
@@ -2617,7 +2607,6 @@
     "slug": "joker",
     "title": "Joker",
     "status": "watched",
-    "releaseDate": "0001-01-01",
     "watchedDates": [
       "2019-10-23"
     ],
@@ -5254,12 +5243,9 @@
     "slug": "the-lion-king-2",
     "title": "The Lion King",
     "status": "watched",
-    "releaseDate": "0001-01-01",
     "watchedDates": [
       "2019-10-11"
-    ],
-    "tmdbId": 8587,
-    "posterPath": "/sKCr78MXSLixwmZ8DyJLrpMsd15.jpg"
+    ]
   },
   {
     "tvtimeUuid": "0c86c471-a76f-4eb1-bb92-6c69d04d392e",
@@ -5782,7 +5768,6 @@
     "slug": "titanic",
     "title": "Titanic",
     "status": "watched",
-    "releaseDate": "0001-01-01",
     "watchedDates": [
       "2019-10-11"
     ],
