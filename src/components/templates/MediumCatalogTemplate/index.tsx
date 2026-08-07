@@ -63,6 +63,15 @@ function compareYearNewest(a: CatalogCardItem, b: CatalogCardItem) {
   return (b.sortYear ?? -1) - (a.sortYear ?? -1);
 }
 
+/** Landing order: reviews → favorites → newest activity. Not advertised in the UI. */
+function compareDefault(a: CatalogCardItem, b: CatalogCardItem) {
+  const reviewDelta = Number(b.hasReview) - Number(a.hasReview);
+  if (reviewDelta !== 0) return reviewDelta;
+  const favoriteDelta = Number(b.favorite) - Number(a.favorite);
+  if (favoriteDelta !== 0) return favoriteDelta;
+  return compareDateNewest(a, b);
+}
+
 function sortItems(
   items: CatalogCardItem[],
   sort: CatalogSortId,
@@ -70,15 +79,14 @@ function sortItems(
   const next = [...items];
   next.sort((a, b) => {
     switch (sort) {
+      case "default":
+        return compareDefault(a, b);
       case "titleAsc":
         return a.sortTitle.localeCompare(b.sortTitle);
       case "titleDesc":
         return b.sortTitle.localeCompare(a.sortTitle);
-      case "dateNewest": {
-        // Default: reviewed titles first, then newest activity.
-        const reviewDelta = Number(b.hasReview) - Number(a.hasReview);
-        return reviewDelta !== 0 ? reviewDelta : compareDateNewest(a, b);
-      }
+      case "dateNewest":
+        return compareDateNewest(a, b);
       case "dateOldest":
         return (a.sortDate ?? "").localeCompare(b.sortDate ?? "");
       case "yearNewest":
@@ -90,14 +98,6 @@ function sortItems(
         return b.sortRating - a.sortRating;
       case "ratingLow":
         return a.sortRating - b.sortRating;
-      case "favoritesFirst": {
-        const favoriteDelta = Number(b.favorite) - Number(a.favorite);
-        return favoriteDelta !== 0 ? favoriteDelta : compareDateNewest(a, b);
-      }
-      case "reviewsFirst": {
-        const reviewDelta = Number(b.hasReview) - Number(a.hasReview);
-        return reviewDelta !== 0 ? reviewDelta : compareDateNewest(a, b);
-      }
       default:
         return 0;
     }
@@ -141,7 +141,7 @@ export default function MediumCatalogTemplate({
   const [reviewFilter, setReviewFilter] = useState<CatalogReviewFilter>("");
   const [favoriteFilter, setFavoriteFilter] =
     useState<CatalogFavoriteFilter>("");
-  const [sort, setSort] = useState<CatalogSortId>("dateNewest");
+  const [sort, setSort] = useState<CatalogSortId>("default");
   const [view, setView] = useState<CatalogViewMode>("cards");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
@@ -165,7 +165,7 @@ export default function MediumCatalogTemplate({
   const shownItems = visibleItems.slice(0, visibleCount);
   const hasMore = visibleCount < visibleItems.length;
 
-  // Default sort is newest — match that for the LCP preload target.
+  // Match the first painted card for the LCP preload target.
   preloadLcpPoster(visibleItems[0]?.posterUrl);
 
   return (

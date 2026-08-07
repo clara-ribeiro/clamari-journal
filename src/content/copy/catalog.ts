@@ -21,6 +21,7 @@ export const catalogCopy = {
     sortLabel: "Sort",
     sortAriaLabel: "Sort catalog",
     sortOptions: {
+      default: "Recently added",
       titleAsc: "Title A–Z",
       titleDesc: "Title Z–A",
       dateNewest: "Newest activity",
@@ -29,8 +30,6 @@ export const catalogCopy = {
       yearOldest: "Oldest release",
       ratingHigh: "Highest rating",
       ratingLow: "Lowest rating",
-      favoritesFirst: "Favorites first",
-      reviewsFirst: "With review first",
     },
     viewCardsLabel: "Card view",
     viewListLabel: "List view",

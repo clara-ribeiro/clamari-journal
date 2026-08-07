@@ -18,6 +18,7 @@ import {
 export type CatalogTone = "light" | "dark";
 
 export type CatalogSortId =
+  | "default"
   | "titleAsc"
   | "titleDesc"
   | "dateNewest"
@@ -25,9 +26,7 @@ export type CatalogSortId =
   | "yearNewest"
   | "yearOldest"
   | "ratingHigh"
-  | "ratingLow"
-  | "favoritesFirst"
-  | "reviewsFirst";
+  | "ratingLow";
 
 export type CatalogViewMode = "cards" | "list";
 
@@ -55,14 +54,13 @@ export type CatalogToolbarProps = {
 };
 
 const sharedSortIds: CatalogSortId[] = [
+  "default",
   "titleAsc",
   "titleDesc",
   "dateNewest",
   "dateOldest",
   "ratingHigh",
   "ratingLow",
-  "favoritesFirst",
-  "reviewsFirst",
 ];
 
 const filmOnlySortIds: CatalogSortId[] = ["yearNewest", "yearOldest"];
@@ -70,6 +68,7 @@ const filmOnlySortIds: CatalogSortId[] = ["yearNewest", "yearOldest"];
 function sortIdsFor(medium: CatalogToolbarProps["medium"]): CatalogSortId[] {
   if (medium === "films") {
     return [
+      "default",
       "titleAsc",
       "titleDesc",
       "dateNewest",
@@ -77,8 +76,6 @@ function sortIdsFor(medium: CatalogToolbarProps["medium"]): CatalogSortId[] {
       ...filmOnlySortIds,
       "ratingHigh",
       "ratingLow",
-      "favoritesFirst",
-      "reviewsFirst",
     ];
   }
   return sharedSortIds;
