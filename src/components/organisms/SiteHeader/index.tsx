@@ -36,6 +36,9 @@ export default function SiteHeader({ className }: SiteHeaderProps) {
   const pathname = usePathname() ?? copy.homeHref;
   const isHome = pathname === copy.homeHref;
   const usesReveal = revealOnScroll.has(pathname);
+  const tone = pathname === "/films" || pathname.startsWith("/films/")
+    ? "paper"
+    : "default";
   const [pastHero, setPastHero] = useState(false);
   const [observedPath, setObservedPath] = useState(pathname);
 
@@ -68,7 +71,7 @@ export default function SiteHeader({ className }: SiteHeaderProps) {
 
   return (
     <>
-      <Bar className={className} visible={visible}>
+      <Bar className={className} visible={visible} tone={tone}>
         <Nav aria-label={copy.navAriaLabel}>
           {copy.items.map((item) => (
             <NavLink
@@ -76,6 +79,7 @@ export default function SiteHeader({ className }: SiteHeaderProps) {
               href={item.href}
               prefetch={false}
               active={isActivePath(pathname, item.href)}
+              tone={tone}
             >
               {item.label}
             </NavLink>

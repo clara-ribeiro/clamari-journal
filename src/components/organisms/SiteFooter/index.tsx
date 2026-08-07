@@ -60,11 +60,15 @@ const socialIcons = {
 } as const;
 
 export default function SiteFooter({ className }: SiteFooterProps) {
-  const pathname = usePathname();
+  const pathname = usePathname() ?? copy.homeHref;
   const isHome = pathname === copy.homeHref;
+  const tone =
+    pathname === "/films" || pathname.startsWith("/films/")
+      ? "paper"
+      : "default";
 
   return (
-    <Root className={className}>
+    <Root className={className} tone={tone}>
       {isHome ? (
         <Brand>{copy.brand}</Brand>
       ) : (

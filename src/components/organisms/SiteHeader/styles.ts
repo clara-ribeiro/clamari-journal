@@ -13,11 +13,9 @@ export const Bar = styled("header", {
   gap: "$md",
   height: "$headerHeight",
   px: "$md",
-  backgroundColor: "rgba(2, 21, 112, 0.8)",
   backgroundImage: "url(/images/shared/noise-grain.webp)",
   backgroundSize: "128px 128px",
   backgroundRepeat: "repeat",
-  color: "#FFFFFF",
   transition: "transform $normal ease",
 
   variants: {
@@ -29,10 +27,21 @@ export const Bar = styled("header", {
         transform: "translateY(-100%)",
       },
     },
+    tone: {
+      default: {
+        backgroundColor: "rgba(2, 21, 112, 0.8)",
+        color: "#FFFFFF",
+      },
+      paper: {
+        backgroundColor: "rgba(248, 240, 222, 0.8)",
+        color: "$catalogText",
+      },
+    },
   },
 
   defaultVariants: {
     visible: false,
+    tone: "default",
   },
 
   "@md": {
@@ -67,7 +76,6 @@ export const NavLink = styled(Link, {
   fontSize: "clamp(1rem, 2vw, 1.25rem)",
   lineHeight: 1.2,
   letterSpacing: "0.01em",
-  color: "$sectionHeading",
   textDecoration: "none",
   textUnderlineOffset: "0.2em",
   textDecorationThickness: "1px",
@@ -89,6 +97,18 @@ export const NavLink = styled(Link, {
         textDecoration: "underline",
       },
     },
+    tone: {
+      default: {
+        color: "$sectionHeading",
+      },
+      paper: {
+        color: "$catalogText",
+      },
+    },
+  },
+
+  defaultVariants: {
+    tone: "default",
   },
 
   "@motionReduce": {

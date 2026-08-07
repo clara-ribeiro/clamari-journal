@@ -9,11 +9,26 @@ export const Root = styled("footer", {
   margin: 0,
   px: "$md",
   py: "clamp(2.5rem, 6vw, 3.5rem)",
-  backgroundColor: "$bg",
   backgroundImage: "url(/images/shared/noise-grain.webp)",
   backgroundSize: "128px 128px",
   backgroundRepeat: "repeat",
-  color: "#FFFFFF",
+
+  variants: {
+    tone: {
+      default: {
+        backgroundColor: "$bg",
+        color: "#FFFFFF",
+      },
+      paper: {
+        backgroundColor: "$catalogBgPaper",
+        color: "$catalogText",
+      },
+    },
+  },
+
+  defaultVariants: {
+    tone: "default",
+  },
 
   "@md": {
     flexDirection: "row",
