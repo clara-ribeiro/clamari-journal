@@ -23,6 +23,7 @@ export const catalogCopy = {
     viewListLabel: "List view",
     viewCardsAriaLabel: "Switch to card view",
     viewListAriaLabel: "Switch to list view",
+    loadMore: "Show more",
   },
   card: {
     favorite: "Favorite",

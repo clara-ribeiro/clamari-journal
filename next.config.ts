@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
+    // Allow lower quality for catalog posters / decorative heroes (mobile LCP).
+    qualities: [60, 75],
     remotePatterns: [
       {
         protocol: "https",

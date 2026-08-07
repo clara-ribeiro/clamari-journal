@@ -42,6 +42,7 @@ export const Section = styled("section", {
 });
 
 export const Band = styled("div", {
+  position: "relative",
   width: "100%",
   maxWidth: "$containerWide",
   aspectRatio: "2.4 / 1",

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { MediumCatalogHeroCopy } from "@/content/copy";
 import { booksCopy, filmsCopy, seriesCopy } from "@/content/copy";
 import { Band, Section } from "./styles";
@@ -25,8 +26,17 @@ export default function CatalogHero({
     <Section id={copy.sentinelId} className={className} aria-hidden medium={medium}>
       <Band>
         {/* Decorative wordmark art; page title lives in a visually hidden h1. */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={mediumHeroSrc[medium]} alt="" />
+        <Image
+          src={mediumHeroSrc[medium]}
+          alt=""
+          fill
+          sizes="(max-width: 767px) 100vw, (max-width: 1439px) 100vw, 90rem"
+          // Decorative band — on mobile LCP is the first catalog poster, so
+          // keep this out of the critical image queue.
+          fetchPriority="low"
+          quality={60}
+          style={{ objectFit: "cover" }}
+        />
       </Band>
     </Section>
   );

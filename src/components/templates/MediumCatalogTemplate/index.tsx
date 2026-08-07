@@ -1,6 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { getImageProps } from "next/image";
+import { preload } from "react-dom";
 import type { CatalogCardItem } from "@/application/dto";
 import type { MediumCatalogCopy } from "@/content/copy";
 import { catalogCopy } from "@/content/copy/catalog";
@@ -20,10 +22,17 @@ import {
   Empty,
   Grid,
   ListGrid,
+  LoadMore,
   Page,
   Summary,
   Title,
 } from "./styles";
+
+/** Mobile viewport shows ~1 card; keep hydrate cheap for TBT. */
+const PAGE_SIZE = 12;
+
+const POSTER_SIZES =
+  "(max-width: 767px) 90vw, (max-width: 1023px) 45vw, 18vw";
 
 export type MediumCatalogTemplateProps = {
   medium: CatalogMedium;
@@ -69,6 +78,25 @@ function sortItems(
   return next;
 }
 
+/** Kick off the mobile LCP poster (first card) early in the document. */
+function preloadLcpPoster(posterUrl: string | null | undefined) {
+  if (!posterUrl) return;
+  const { props } = getImageProps({
+    src: posterUrl,
+    alt: "",
+    width: 342,
+    height: 513,
+    sizes: POSTER_SIZES,
+    quality: 60,
+  });
+  preload(props.src, {
+    as: "image",
+    imageSrcSet: props.srcSet,
+    imageSizes: props.sizes,
+    fetchPriority: "high",
+  });
+}
+
 export default function MediumCatalogTemplate({
   medium,
   copy,
@@ -80,6 +108,7 @@ export default function MediumCatalogTemplate({
   const [statusFilter, setStatusFilter] = useState("");
   const [sort, setSort] = useState<CatalogSortId>("dateNewest");
   const [view, setView] = useState<CatalogViewMode>("cards");
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   const visibleItems = useMemo(() => {
     const query = search.trim().toLowerCase();
@@ -90,6 +119,16 @@ export default function MediumCatalogTemplate({
     });
     return sortItems(filtered, sort);
   }, [items, search, statusFilter, sort]);
+
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [search, statusFilter, sort, view]);
+
+  const shownItems = visibleItems.slice(0, visibleCount);
+  const hasMore = visibleCount < visibleItems.length;
+
+  // Default sort is newest — match that for the LCP preload target.
+  preloadLcpPoster(visibleItems[0]?.posterUrl);
 
   return (
     <Page medium={medium}>
@@ -118,26 +157,52 @@ export default function MediumCatalogTemplate({
         {visibleItems.length === 0 ? (
           <Empty medium={medium}>{copy.empty}</Empty>
         ) : view === "list" ? (
-          <ListGrid aria-label={copy.listAriaLabel} tone={tone}>
-            {visibleItems.map((item) => (
-              <Cell key={item.slug} tone={tone}>
-                <CatalogEntryCard item={item} tone={tone} layout="list" />
-              </Cell>
-            ))}
-          </ListGrid>
+          <>
+            <ListGrid aria-label={copy.listAriaLabel} tone={tone}>
+              {shownItems.map((item) => (
+                <Cell key={item.slug} tone={tone}>
+                  <CatalogEntryCard item={item} tone={tone} layout="list" />
+                </Cell>
+              ))}
+            </ListGrid>
+            {hasMore ? (
+              <LoadMore
+                type="button"
+                tone={tone}
+                onClick={() =>
+                  setVisibleCount((count) => count + PAGE_SIZE)
+                }
+              >
+                {catalogCopy.toolbar.loadMore}
+              </LoadMore>
+            ) : null}
+          </>
         ) : (
-          <Grid aria-label={copy.listAriaLabel} tone={tone}>
-            {visibleItems.map((item, index) => (
-              <Cell key={item.slug} tone={tone}>
-                <CatalogEntryCard
-                  item={item}
-                  tone={tone}
-                  layout="cards"
-                  priority={index < 5}
-                />
-              </Cell>
-            ))}
-          </Grid>
+          <>
+            <Grid aria-label={copy.listAriaLabel} tone={tone}>
+              {shownItems.map((item, index) => (
+                <Cell key={item.slug} tone={tone}>
+                  <CatalogEntryCard
+                    item={item}
+                    tone={tone}
+                    layout="cards"
+                    priority={index === 0}
+                  />
+                </Cell>
+              ))}
+            </Grid>
+            {hasMore ? (
+              <LoadMore
+                type="button"
+                tone={tone}
+                onClick={() =>
+                  setVisibleCount((count) => count + PAGE_SIZE)
+                }
+              >
+                {catalogCopy.toolbar.loadMore}
+              </LoadMore>
+            ) : null}
+          </>
         )}
       </Content>
     </Page>

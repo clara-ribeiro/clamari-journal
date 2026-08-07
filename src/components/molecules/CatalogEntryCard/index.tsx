@@ -40,10 +40,6 @@ export type CatalogEntryCardProps = {
   className?: string;
 };
 
-function isRemoteSrc(src: string) {
-  return src.startsWith("http://") || src.startsWith("https://");
-}
-
 export default function CatalogEntryCard({
   item,
   tone,
@@ -103,8 +99,13 @@ export default function CatalogEntryCard({
               width={342}
               height={513}
               sizes="(max-width: 767px) 90vw, (max-width: 1023px) 45vw, 18vw"
-              priority={priority}
-              unoptimized={isRemoteSrc(item.posterUrl)}
+              quality={60}
+              {...(priority
+                ? {
+                    fetchPriority: "high" as const,
+                    loading: "eager" as const,
+                  }
+                : {})}
               onError={() => setShowPlaceholder(true)}
             />
           )}

@@ -55,7 +55,7 @@ export const ListLink = styled(Link, {
   color: "inherit",
   textDecoration: "none",
 
-  "& h3": {
+  "& h2": {
     minWidth: 0,
   },
 
@@ -128,10 +128,11 @@ export const StatusBadge = styled("span", {
   variants: {
     tone: {
       positive: {
-        backgroundColor: "#3D8B6E",
+        // Darkened for WCAG AA (≥4.5:1) with white caption text.
+        backgroundColor: "#357A60",
       },
       warning: {
-        backgroundColor: "#C47A3A",
+        backgroundColor: "#A8642E",
       },
       neutral: {
         backgroundColor: "#6B7280",
@@ -199,7 +200,7 @@ export const ListFlagSlot = styled("span", {
   height: "1rem",
 });
 
-export const Title = styled("h3", {
+export const Title = styled("h2", {
   margin: 0,
   minWidth: 0,
   fontFamily: "$body",

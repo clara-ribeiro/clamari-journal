@@ -165,3 +165,36 @@ export const Empty = styled("p", {
     },
   },
 });
+
+export const LoadMore = styled("button", {
+  display: "block",
+  width: "100%",
+  marginTop: "$xl",
+  padding: "$md $lg",
+  border: "2px solid",
+  background: "transparent",
+  color: "inherit",
+  fontSize: "$body2",
+  cursor: "pointer",
+  textAlign: "center",
+
+  "&:hover": {
+    opacity: 0.85,
+  },
+
+  "&:focus-visible": {
+    outline: "2px solid $focus",
+    outlineOffset: 2,
+  },
+
+  variants: {
+    tone: {
+      light: {
+        borderColor: "$catalogBorder",
+      },
+      dark: {
+        borderColor: "$catalogBorderOnDark",
+      },
+    },
+  },
+});
