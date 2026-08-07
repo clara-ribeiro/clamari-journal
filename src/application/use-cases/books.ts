@@ -93,6 +93,7 @@ function toBookCatalogCard(book: BookEntry): CatalogCardItem {
     sortTitle: title,
     sortDate: activityDate,
     sortRating: book.rating ?? 0,
+    sortYear: null,
   };
 }
 

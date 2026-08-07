@@ -21,5 +21,7 @@ export type MediumCatalogCopy = {
   title: string;
   listAriaLabel: string;
   empty: string;
+  /** Shown when the catalog has entries but filters/search match nothing */
+  noResults: string;
   hero: MediumCatalogHeroCopy;
 };

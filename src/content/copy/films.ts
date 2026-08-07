@@ -4,6 +4,7 @@ export const filmsCopy = {
     title: "Films",
     listAriaLabel: "Film entries",
     empty: "No films yet.",
+    noResults: "No films match these filters.",
     summary: "{watched} watched · {watchlist} on the list · {total} total",
     hero: {
       titleId: "films-hero-heading",

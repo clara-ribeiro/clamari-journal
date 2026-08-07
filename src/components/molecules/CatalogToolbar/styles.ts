@@ -14,9 +14,10 @@ export const Root = styled("div", {
   },
 });
 
-/** Filters + sort + view stay on one row (no wrap under the controls). */
+/** Filter / sort rows — wrap on narrow viewports instead of overflowing. */
 export const ControlsRow = styled("div", {
   display: "flex",
+  flexWrap: "wrap",
   alignItems: "center",
   gap: "$sm",
   width: "100%",
@@ -71,7 +72,7 @@ export const SearchInput = styled("input", {
 export const Control = styled("label", {
   display: "grid",
   alignItems: "center",
-  flex: "1 1 0",
+  flex: "1 1 9rem",
   minHeight: "$buttonHeight",
   minWidth: 0,
   px: "$sm",

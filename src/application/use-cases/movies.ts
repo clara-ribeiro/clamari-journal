@@ -99,6 +99,7 @@ function toFilmCatalogCard(movie: MovieEntry): CatalogCardItem {
     sortTitle: movie.title,
     sortDate: lastWatched,
     sortRating: movie.rating ?? 0,
+    sortYear: yearLabel && /^\d{4}$/.test(yearLabel) ? Number(yearLabel) : null,
   };
 }
 

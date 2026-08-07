@@ -8,6 +8,8 @@ import type { MediumCatalogCopy } from "@/content/copy";
 import { catalogCopy } from "@/content/copy/catalog";
 import CatalogEntryCard from "@/components/molecules/CatalogEntryCard";
 import CatalogToolbar, {
+  type CatalogFavoriteFilter,
+  type CatalogReviewFilter,
   type CatalogSortId,
   type CatalogTone,
   type CatalogViewMode,
@@ -15,6 +17,7 @@ import CatalogToolbar, {
 import CatalogHero, {
   type CatalogMedium,
 } from "@/components/organisms/CatalogHero";
+import { foldSearchText } from "@/lib/search-text";
 import { isTmdbImageUrl, tmdbImageLoader } from "@/lib/tmdb-image";
 import {
   Cell,
@@ -56,6 +59,10 @@ function compareDateNewest(a: CatalogCardItem, b: CatalogCardItem) {
   return (b.sortDate ?? "").localeCompare(a.sortDate ?? "");
 }
 
+function compareYearNewest(a: CatalogCardItem, b: CatalogCardItem) {
+  return (b.sortYear ?? -1) - (a.sortYear ?? -1);
+}
+
 function sortItems(
   items: CatalogCardItem[],
   sort: CatalogSortId,
@@ -74,6 +81,11 @@ function sortItems(
       }
       case "dateOldest":
         return (a.sortDate ?? "").localeCompare(b.sortDate ?? "");
+      case "yearNewest":
+        return compareYearNewest(a, b);
+      case "yearOldest":
+        return (a.sortYear ?? Number.MAX_SAFE_INTEGER) -
+          (b.sortYear ?? Number.MAX_SAFE_INTEGER);
       case "ratingHigh":
         return b.sortRating - a.sortRating;
       case "ratingLow":
@@ -126,23 +138,29 @@ export default function MediumCatalogTemplate({
   const tone = toneForMedium(medium);
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
+  const [reviewFilter, setReviewFilter] = useState<CatalogReviewFilter>("");
+  const [favoriteFilter, setFavoriteFilter] =
+    useState<CatalogFavoriteFilter>("");
   const [sort, setSort] = useState<CatalogSortId>("dateNewest");
   const [view, setView] = useState<CatalogViewMode>("cards");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   const visibleItems = useMemo(() => {
-    const query = search.trim().toLowerCase();
+    const query = foldSearchText(search.trim());
     const filtered = items.filter((item) => {
       if (statusFilter && item.statusKey !== statusFilter) return false;
+      if (reviewFilter === "with-review" && !item.hasReview) return false;
+      if (reviewFilter === "without-review" && item.hasReview) return false;
+      if (favoriteFilter === "favorites" && !item.favorite) return false;
       if (!query) return true;
-      return item.title.toLowerCase().includes(query);
+      return foldSearchText(item.title).includes(query);
     });
     return sortItems(filtered, sort);
-  }, [items, search, statusFilter, sort]);
+  }, [items, search, statusFilter, reviewFilter, favoriteFilter, sort]);
 
   useEffect(() => {
     setVisibleCount(PAGE_SIZE);
-  }, [search, statusFilter, sort, view]);
+  }, [search, statusFilter, reviewFilter, favoriteFilter, sort, view]);
 
   const shownItems = visibleItems.slice(0, visibleCount);
   const hasMore = visibleCount < visibleItems.length;
@@ -165,6 +183,10 @@ export default function MediumCatalogTemplate({
           statusFilter={statusFilter}
           onStatusFilterChange={setStatusFilter}
           statusOptions={statusOptionsFor(medium)}
+          reviewFilter={reviewFilter}
+          onReviewFilterChange={setReviewFilter}
+          favoriteFilter={favoriteFilter}
+          onFavoriteFilterChange={setFavoriteFilter}
           sort={sort}
           onSortChange={setSort}
           view={view}
@@ -172,7 +194,9 @@ export default function MediumCatalogTemplate({
         />
 
         {visibleItems.length === 0 ? (
-          <Empty medium={medium}>{copy.empty}</Empty>
+          <Empty medium={medium}>
+            {items.length === 0 ? copy.empty : copy.noResults}
+          </Empty>
         ) : view === "list" ? (
           <>
             <ListGrid aria-label={copy.listAriaLabel} tone={tone}>

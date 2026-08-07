@@ -4,6 +4,7 @@ export const booksCopy = {
     title: "Books",
     listAriaLabel: "Book entries",
     empty: "No books yet. Add entries in src/data/books.json.",
+    noResults: "No books match these filters.",
     summary: "{finished} finished · {reading} in progress · {total} total",
     hero: {
       titleId: "books-hero-heading",

@@ -131,6 +131,7 @@ function toSeriesCatalogCard(entry: SeriesEntry): CatalogCardItem {
     sortTitle: entry.title,
     sortDate: activityDate,
     sortRating: entry.rating ?? 0,
+    sortYear: null,
   };
 }
 

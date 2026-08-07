@@ -4,6 +4,7 @@ export const seriesCopy = {
     title: "Series",
     listAriaLabel: "Series entries",
     empty: "No series yet.",
+    noResults: "No series match these filters.",
     summary:
       "{total} series · {episodes} episodes · {completed} completed · {watching} watching",
     hero: {

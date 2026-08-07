@@ -24,4 +24,6 @@ export type CatalogCardItem = {
   sortTitle: string;
   sortDate: string | null;
   sortRating: number;
+  /** Release / publication year for sorting — null when unknown */
+  sortYear: number | null;
 };
