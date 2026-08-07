@@ -1,0 +1,30 @@
+{
+  "id": 3573,
+  "name": "Season 1",
+  "overview": "High school teacher Walter White.",
+  "air_date": "2008-01-20",
+  "poster_path": "/1BP4xYv9ZG4ZVHkL7ocOziBbSYH.jpg",
+  "season_number": 1,
+  "episodes": [
+    {
+      "id": 62085,
+      "name": "Pilot",
+      "overview": "Walter White is diagnosed with cancer.",
+      "air_date": "2008-01-20",
+      "episode_number": 1,
+      "season_number": 1,
+      "runtime": 58,
+      "still_path": "/4dA3xQ5x.jpg"
+    },
+    {
+      "id": 62086,
+      "name": "Cat's in the Bag...",
+      "overview": "",
+      "air_date": "2008-01-27",
+      "episode_number": 2,
+      "season_number": 1,
+      "runtime": 48,
+      "still_path": null
+    }
+  ]
+}

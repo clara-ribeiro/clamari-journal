@@ -1,0 +1,80 @@
+{
+  "id": 550,
+  "title": "Fight Club",
+  "original_title": "Fight Club",
+  "overview": "A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy.",
+  "release_date": "1999-10-15",
+  "runtime": 139,
+  "genres": [
+    { "id": 18, "name": "Drama" },
+    { "id": 53, "name": "Thriller" }
+  ],
+  "production_countries": [{ "iso_3166_1": "US", "name": "United States of America" }],
+  "spoken_languages": [
+    { "iso_639_1": "en", "name": "English", "english_name": "English" }
+  ],
+  "original_language": "en",
+  "poster_path": "/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg",
+  "backdrop_path": "/fCayJrkfRaCRCTh8GqN30f8oyQF.jpg",
+  "credits": {
+    "cast": [
+      {
+        "id": 819,
+        "name": "Edward Norton",
+        "character": "The Narrator",
+        "order": 0,
+        "profile_path": "/5XBzD5WuTyVQZeS4SI25D5nnOoq.jpg"
+      },
+      {
+        "id": 287,
+        "name": "Brad Pitt",
+        "character": "Tyler Durden",
+        "order": 1,
+        "profile_path": "/cckcYc2v0yh1tc9QjRelptcOBko.jpg"
+      }
+    ],
+    "crew": [
+      {
+        "id": 7467,
+        "name": "David Fincher",
+        "job": "Director",
+        "department": "Directing",
+        "profile_path": "/tpEczTkbLz23trU3MGJmv5kC0v.jpg"
+      },
+      {
+        "id": 7469,
+        "name": "Jim Uhls",
+        "job": "Screenplay",
+        "department": "Writing",
+        "profile_path": null
+      },
+      {
+        "id": 123,
+        "name": "Chuck Palahniuk",
+        "job": "Novel",
+        "department": "Writing",
+        "profile_path": null
+      }
+    ]
+  },
+  "videos": {
+    "results": [
+      {
+        "id": "1",
+        "key": "qtRKdVHc-cE",
+        "name": "Fight Club | Trailer",
+        "site": "YouTube",
+        "type": "Trailer",
+        "official": true
+      },
+      {
+        "id": "2",
+        "key": "other",
+        "name": "Teaser",
+        "site": "YouTube",
+        "type": "Teaser",
+        "official": false
+      }
+    ]
+  }
+}

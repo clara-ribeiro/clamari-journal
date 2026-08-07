@@ -1,0 +1,74 @@
+{
+  "id": 1396,
+  "name": "Breaking Bad",
+  "original_name": "Breaking Bad",
+  "overview": "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine.",
+  "status": "Ended",
+  "first_air_date": "2008-01-20",
+  "last_air_date": "2013-09-29",
+  "number_of_seasons": 5,
+  "number_of_episodes": 62,
+  "episode_run_time": [47, 45],
+  "genres": [
+    { "id": 18, "name": "Drama" },
+    { "id": 80, "name": "Crime" }
+  ],
+  "production_countries": [{ "iso_3166_1": "US", "name": "United States of America" }],
+  "origin_country": ["US"],
+  "spoken_languages": [
+    { "iso_639_1": "en", "name": "English", "english_name": "English" }
+  ],
+  "original_language": "en",
+  "poster_path": "/ggFHVNu6YYI5L9pCfOacjizRGt.jpg",
+  "backdrop_path": "/tsRy63Mu5cu8etL1X7ZLyf7UP1M.jpg",
+  "created_by": [
+    {
+      "id": 66633,
+      "name": "Vince Gilligan",
+      "profile_path": "/uFh3OrBvkwKWtUD7AOEpWonder.jpg"
+    }
+  ],
+  "seasons": [
+    {
+      "id": 3572,
+      "season_number": 0,
+      "name": "Specials",
+      "episode_count": 6,
+      "air_date": "2009-02-17",
+      "poster_path": null,
+      "overview": ""
+    },
+    {
+      "id": 3573,
+      "season_number": 1,
+      "name": "Season 1",
+      "episode_count": 7,
+      "air_date": "2008-01-20",
+      "poster_path": "/1BP4xYv9ZG4ZVHkL7ocOziBbSYH.jpg",
+      "overview": "High school teacher Walter White."
+    }
+  ],
+  "credits": {
+    "cast": [
+      {
+        "id": 17419,
+        "name": "Bryan Cranston",
+        "character": "Walter White",
+        "order": 0,
+        "profile_path": "/7DbkIdBmTtuLUsS3E2t1cY3.jpg"
+      }
+    ],
+    "crew": []
+  },
+  "videos": {
+    "results": [
+      {
+        "key": "HhesaQXLuRY",
+        "name": "Trailer",
+        "site": "YouTube",
+        "type": "Trailer",
+        "official": false
+      }
+    ]
+  }
+}

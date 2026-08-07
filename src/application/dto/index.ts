@@ -10,3 +10,17 @@ export type {
   SeriesDetail,
   StatsMetric,
 } from "./journal-entry";
+
+export type {
+  TmdbEpisodeMetadata,
+  TmdbGenre,
+  TmdbMovieMetadata,
+  TmdbPersonCredit,
+  TmdbSearchHit,
+  TmdbSearchPage,
+  TmdbSeasonMetadata,
+  TmdbSeasonSummary,
+  TmdbSeriesMetadata,
+  TmdbTrailer,
+  TmdbTvdbLookup,
+} from "./tmdb-metadata";

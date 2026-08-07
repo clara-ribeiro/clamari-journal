@@ -253,6 +253,20 @@ npm run enrich:tmdb    # fill tmdbId + posterPath (requires token)
 | Variable | Usage |
 |---|---|
 | `TMDB_ACCESS_TOKEN` | Movies and series (server only) |
+| `TMDB_LANGUAGE` | Optional TMDB metadata language (default `en-US`), e.g. `pt-BR` |
 | `GOOGLE_BOOKS_API_KEY` | Books (optional; enrich scripts / low volume) |
 
 Never expose these tokens to the client. Never prefix them with `NEXT_PUBLIC_`.
+
+### TMDB metadata adapter
+
+Server-only module: `src/infrastructure/tmdb/`. Use cases should consume normalized DTOs from `@/application/dto` (`TmdbMovieMetadata`, `TmdbSeriesMetadata`, …), not raw TMDB JSON.
+
+| Concern | Behavior |
+|---|---|
+| Language | `TMDB_LANGUAGE` or default `en-US` |
+| Timeouts | 10s abort per request (`TmdbError` code `timeout`) |
+| Errors | `TmdbError` codes: `not_configured`, `not_found`, `rate_limited`, `timeout`, `network`, `bad_response`, `upstream` — messages never include provider payloads |
+| Cache | Search revalidates hourly; detail/season/find daily (`next.revalidate` + tag `tmdb:search` / `tmdb:detail`) |
+| Images | Absolute URLs via `tmdbImageUrl` (`posterUrl`, `backdropUrl`, stills, profiles) |
+| Fixtures | Deterministic samples under `src/infrastructure/tmdb/fixtures/` for normalizer tests |

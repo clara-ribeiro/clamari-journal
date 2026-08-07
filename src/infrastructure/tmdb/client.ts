@@ -1,101 +1,180 @@
 import "server-only";
 
 /**
- * TMDB API client (server-side only).
- * Requires TMDB_ACCESS_TOKEN in environment variables.
+ * TMDB API client + normalized metadata adapter (server-side only).
+ * Requires TMDB_ACCESS_TOKEN. Optional TMDB_LANGUAGE (default en-US).
  */
 
+import type {
+  TmdbMovieMetadata,
+  TmdbSearchPage,
+  TmdbSeasonMetadata,
+  TmdbSeriesMetadata,
+  TmdbTvdbLookup,
+} from "@/application/dto/tmdb-metadata";
 import { tmdbImageUrl } from "@/lib/tmdb-image";
+import {
+  getTmdbLanguage,
+  TMDB_BASE_URL,
+  TMDB_DETAIL_REVALIDATE_SECONDS,
+  TMDB_REQUEST_TIMEOUT_MS,
+  TMDB_SEARCH_REVALIDATE_SECONDS,
+} from "./config";
+import {
+  TmdbError,
+  tmdbErrorFromHttpStatus,
+  tmdbErrorFromUnknown,
+} from "./errors";
+import {
+  normalizeMovie,
+  normalizeSearchPage,
+  normalizeSeason,
+  normalizeSeries,
+  normalizeTvdbLookup,
+} from "./normalize";
+import type {
+  TmdbRawFindResponse,
+  TmdbRawMovie,
+  TmdbRawPagedResponse,
+  TmdbRawSearchResult,
+  TmdbRawSeason,
+  TmdbRawSeries,
+} from "./raw";
 
 export { tmdbImageUrl };
+export { TmdbError } from "./errors";
+export type { TmdbErrorCode } from "./errors";
+export {
+  TMDB_DEFAULT_LANGUAGE,
+  TMDB_DETAIL_REVALIDATE_SECONDS,
+  TMDB_SEARCH_REVALIDATE_SECONDS,
+  getTmdbLanguage,
+} from "./config";
 
-const TMDB_BASE_URL = "https://api.themoviedb.org/3";
+type TmdbCacheKind = "search" | "detail";
 
 function getAccessToken(): string {
   const token = process.env.TMDB_ACCESS_TOKEN;
   if (!token) {
-    throw new Error("TMDB_ACCESS_TOKEN is not configured");
+    throw new TmdbError(
+      "not_configured",
+      "TMDB_ACCESS_TOKEN is not configured",
+    );
   }
   return token;
 }
 
-async function tmdbFetch<T>(path: string, init?: RequestInit): Promise<T> {
-  const response = await fetch(`${TMDB_BASE_URL}${path}`, {
-    ...init,
-    headers: {
-      Accept: "application/json",
-      Authorization: `Bearer ${getAccessToken()}`,
-      ...init?.headers,
-    },
-    next: { revalidate: 60 * 60 * 24 },
-  });
+async function tmdbFetch<T>(
+  path: string,
+  kind: TmdbCacheKind,
+  init?: RequestInit,
+): Promise<T> {
+  const revalidate =
+    kind === "search"
+      ? TMDB_SEARCH_REVALIDATE_SECONDS
+      : TMDB_DETAIL_REVALIDATE_SECONDS;
 
-  if (!response.ok) {
-    throw new Error(`TMDB request failed: ${response.status} ${path}`);
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), TMDB_REQUEST_TIMEOUT_MS);
+
+  if (init?.signal) {
+    if (init.signal.aborted) {
+      controller.abort();
+    } else {
+      init.signal.addEventListener("abort", () => controller.abort(), {
+        once: true,
+      });
+    }
   }
 
-  return response.json() as Promise<T>;
+  try {
+    const response = await fetch(`${TMDB_BASE_URL}${path}`, {
+      ...init,
+      signal: controller.signal,
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${getAccessToken()}`,
+        ...init?.headers,
+      },
+      next: {
+        revalidate,
+        tags: [`tmdb:${kind}`],
+      },
+    });
+
+    if (!response.ok) {
+      throw tmdbErrorFromHttpStatus(response.status);
+    }
+
+    try {
+      return (await response.json()) as T;
+    } catch {
+      throw new TmdbError("bad_response", "TMDB returned malformed JSON");
+    }
+  } catch (error) {
+    throw tmdbErrorFromUnknown(error);
+  } finally {
+    clearTimeout(timeout);
+  }
 }
 
-export type TmdbSearchResult = {
-  id: number;
-  title?: string;
-  name?: string;
-  poster_path: string | null;
-  release_date?: string;
-  first_air_date?: string;
-  overview: string;
-};
+function languageParams(extra?: Record<string, string>): URLSearchParams {
+  return new URLSearchParams({
+    language: getTmdbLanguage(),
+    ...extra,
+  });
+}
 
-export type TmdbPagedResponse<T> = {
-  page: number;
-  results: T[];
-  total_results: number;
-  total_pages: number;
-};
-
-export async function searchMovies(query: string) {
-  const params = new URLSearchParams({ query, language: "en-US" });
-  return tmdbFetch<TmdbPagedResponse<TmdbSearchResult>>(
+export async function searchMovies(query: string): Promise<TmdbSearchPage> {
+  const params = languageParams({ query });
+  const raw = await tmdbFetch<TmdbRawPagedResponse<TmdbRawSearchResult>>(
     `/search/movie?${params}`,
+    "search",
   );
+  return normalizeSearchPage(raw);
 }
 
-export async function searchSeries(query: string) {
-  const params = new URLSearchParams({ query, language: "en-US" });
-  return tmdbFetch<TmdbPagedResponse<TmdbSearchResult>>(
+export async function searchSeries(query: string): Promise<TmdbSearchPage> {
+  const params = languageParams({ query });
+  const raw = await tmdbFetch<TmdbRawPagedResponse<TmdbRawSearchResult>>(
     `/search/tv?${params}`,
+    "search",
   );
+  return normalizeSearchPage(raw);
 }
 
-export async function getMovieById(id: number) {
-  const params = new URLSearchParams({
-    language: "en-US",
-    append_to_response: "credits,videos",
-  });
-  return tmdbFetch(`/movie/${id}?${params}`);
+export async function getMovieById(id: number): Promise<TmdbMovieMetadata> {
+  const params = languageParams({ append_to_response: "credits,videos" });
+  const raw = await tmdbFetch<TmdbRawMovie>(`/movie/${id}?${params}`, "detail");
+  return normalizeMovie(raw);
 }
 
-export async function getSeriesById(id: number) {
-  const params = new URLSearchParams({
-    language: "en-US",
-    append_to_response: "credits,videos",
-  });
-  return tmdbFetch(`/tv/${id}?${params}`);
+export async function getSeriesById(id: number): Promise<TmdbSeriesMetadata> {
+  const params = languageParams({ append_to_response: "credits,videos" });
+  const raw = await tmdbFetch<TmdbRawSeries>(`/tv/${id}?${params}`, "detail");
+  return normalizeSeries(raw);
 }
 
-export async function getSeason(seriesId: number, seasonNumber: number) {
-  const params = new URLSearchParams({ language: "en-US" });
-  return tmdbFetch(`/tv/${seriesId}/season/${seasonNumber}?${params}`);
+export async function getSeason(
+  seriesId: number,
+  seasonNumber: number,
+): Promise<TmdbSeasonMetadata> {
+  const params = languageParams();
+  const raw = await tmdbFetch<TmdbRawSeason>(
+    `/tv/${seriesId}/season/${seasonNumber}?${params}`,
+    "detail",
+  );
+  return normalizeSeason(raw, seriesId);
 }
 
-/** Resolve TheTVDB id → TMDB TV id */
-export async function findSeriesByTvdbId(tvdbId: number) {
-  const params = new URLSearchParams({
-    external_source: "tvdb_id",
-    language: "en-US",
-  });
-  return tmdbFetch<{ tv_results: Array<{ id: number; name: string }> }>(
+/** Resolve TheTVDB id → TMDB TV id (null when TMDB has no match). */
+export async function findSeriesByTvdbId(
+  tvdbId: number,
+): Promise<TmdbTvdbLookup | null> {
+  const params = languageParams({ external_source: "tvdb_id" });
+  const raw = await tmdbFetch<TmdbRawFindResponse>(
     `/find/${tvdbId}?${params}`,
+    "detail",
   );
+  return normalizeTvdbLookup(raw);
 }
