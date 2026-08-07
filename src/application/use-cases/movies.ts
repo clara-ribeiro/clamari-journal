@@ -1,8 +1,11 @@
 import { movieRepository } from "@/composition/repositories";
-import type { CatalogListItem, MovieDetail } from "@/application/dto";
+import type { CatalogCardItem, MovieDetail } from "@/application/dto";
 import type { MovieEntry } from "@/domain/entities";
+import { catalogCopy } from "@/content/copy/catalog";
 import { filmsCopy } from "@/content/copy/films";
 import { formatDate } from "@/lib/formatters/formatDate";
+import { formatShortRuntime } from "@/lib/formatters/formatDuration";
+import { tmdbImageUrl } from "@/lib/tmdb-image";
 
 export function listMovies(): MovieEntry[] {
   return movieRepository.findAll();
@@ -41,19 +44,68 @@ export function getMovieStats() {
   return computeMovieStats(movieRepository.findAll());
 }
 
-export function listMovieCatalogItems(): CatalogListItem[] {
-  return listMovies().map((movie) => ({
+function filmStatusTone(
+  status: MovieEntry["status"],
+): CatalogCardItem["statusTone"] {
+  if (status === "watchlist") return "warning";
+  if (status === "watched" || status === "rewatch") return "positive";
+  return "neutral";
+}
+
+function toFilmCatalogCard(movie: MovieEntry): CatalogCardItem {
+  const labels = catalogCopy.status.films;
+  const statusLabel = labels[movie.status];
+  const yearLabel = movie.releaseDate?.slice(0, 4) ?? null;
+  const lastWatched = movie.watchedDates?.at(-1) ?? null;
+  const activityLabel = lastWatched
+    ? catalogCopy.card.watchedOn.replace("{date}", formatDate(lastWatched))
+    : catalogCopy.card.noActivityDate;
+  const durationLabel =
+    movie.runtimeMinutes != null && movie.runtimeMinutes > 0
+      ? formatShortRuntime(movie.runtimeMinutes)
+      : null;
+  const hasReview = Boolean(movie.reviewSlug);
+  const favorite = Boolean(movie.favorite);
+
+  const metaTags = [
+    yearLabel,
+    ...(movie.tags ?? []).slice(0, 2),
+    durationLabel,
+    favorite ? catalogCopy.card.favorite : null,
+    statusLabel,
+    hasReview ? catalogCopy.card.withReview : catalogCopy.card.noReview,
+  ].filter((tag): tag is string => Boolean(tag));
+
+  return {
     slug: movie.slug,
     title: movie.title,
     href: `/films/${movie.slug}`,
-    meta: [
-      movie.status,
-      movie.rating ? `★ ${movie.rating}` : null,
-      movie.watchedDates?.at(-1) ?? null,
-    ]
-      .filter(Boolean)
-      .join(" · "),
-  }));
+    posterUrl: tmdbImageUrl(movie.posterPath, "w342"),
+    rating: movie.rating,
+    favorite,
+    hasReview,
+    statusLabel,
+    statusTone: filmStatusTone(movie.status),
+    yearLabel,
+    activityLabel,
+    favoriteLabel: favorite
+      ? catalogCopy.card.favorite
+      : catalogCopy.card.notFavorite,
+    reviewLabel: hasReview
+      ? catalogCopy.card.withReview
+      : catalogCopy.card.noReview,
+    metaTags,
+    statusKey: movie.status,
+    sortTitle: movie.title,
+    sortDate: lastWatched,
+    sortRating: movie.rating ?? 0,
+  };
+}
+
+export function listMovieCatalogItems(): CatalogCardItem[] {
+  return listMovies()
+    .map(toFilmCatalogCard)
+    .sort((a, b) => a.sortTitle.localeCompare(b.sortTitle));
 }
 
 export function getMovieDetail(slug: string): MovieDetail | undefined {

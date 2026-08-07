@@ -7,6 +7,7 @@ export { seriesCopy, type SeriesCopy } from "./series";
 export { booksCopy, type BooksCopy } from "./books";
 export { statsCopy, type StatsCopy } from "./stats";
 export { starRatingCopy, type StarRatingCopy } from "./star-rating";
+export { catalogCopy, type CatalogUiCopy } from "./catalog";
 export type {
   CatalogCopy,
   MediumCatalogCopy,

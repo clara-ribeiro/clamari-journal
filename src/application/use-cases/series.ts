@@ -1,8 +1,10 @@
 import { seriesRepository } from "@/composition/repositories";
-import type { CatalogListItem, SeriesDetail } from "@/application/dto";
+import type { CatalogCardItem, SeriesDetail } from "@/application/dto";
 import type { SeriesEntry } from "@/domain/entities";
+import { catalogCopy } from "@/content/copy/catalog";
 import { seriesCopy } from "@/content/copy/series";
 import { formatDate } from "@/lib/formatters/formatDate";
+import { tmdbImageUrl } from "@/lib/tmdb-image";
 
 /** Used when an episode has no known runtime (common for older TV Time rows). */
 export const DEFAULT_EPISODE_RUNTIME_MINUTES = 45;
@@ -58,21 +60,78 @@ export function getSeriesStats() {
   return computeSeriesStats(seriesRepository.findAll());
 }
 
-export function listSeriesCatalogItems(): CatalogListItem[] {
-  return listSeries().map((entry) => ({
+export function listSeriesCatalogItems(): CatalogCardItem[] {
+  return listSeries()
+    .map(toSeriesCatalogCard)
+    .sort((a, b) => a.sortTitle.localeCompare(b.sortTitle));
+}
+
+function seriesStatusTone(
+  status: SeriesEntry["status"],
+): CatalogCardItem["statusTone"] {
+  if (status === "watchlist") return "warning";
+  if (
+    status === "completed" ||
+    status === "watching" ||
+    status === "up-to-date"
+  ) {
+    return "positive";
+  }
+  return "neutral";
+}
+
+function toSeriesCatalogCard(entry: SeriesEntry): CatalogCardItem {
+  const statusLabel = catalogCopy.status.series[entry.status];
+  const hasReview = Boolean(entry.reviewSlug);
+  const favorite = Boolean(entry.favorite);
+  const activityDate = entry.finishedAt ?? entry.startedAt ?? null;
+  const activityLabel = entry.finishedAt
+    ? catalogCopy.card.finishedOn.replace(
+        "{date}",
+        formatDate(entry.finishedAt),
+      )
+    : entry.startedAt
+      ? catalogCopy.card.startedOn.replace(
+          "{date}",
+          formatDate(entry.startedAt),
+        )
+      : catalogCopy.card.noActivityDate;
+  const episodeTag =
+    entry.watchedEpisodes.length > 0
+      ? `${entry.watchedEpisodes.length} eps`
+      : null;
+
+  const metaTags = [
+    episodeTag,
+    favorite ? catalogCopy.card.favorite : null,
+    statusLabel,
+    hasReview ? catalogCopy.card.withReview : catalogCopy.card.noReview,
+  ].filter((tag): tag is string => Boolean(tag));
+
+  return {
     slug: entry.slug,
     title: entry.title,
     href: `/series/${entry.slug}`,
-    meta: [
-      entry.status,
-      entry.favorite ? "♥" : null,
-      entry.watchedEpisodes.length
-        ? `${entry.watchedEpisodes.length} eps`
-        : null,
-    ]
-      .filter(Boolean)
-      .join(" · "),
-  }));
+    posterUrl: tmdbImageUrl(entry.posterPath, "w342"),
+    rating: entry.rating,
+    favorite,
+    hasReview,
+    statusLabel,
+    statusTone: seriesStatusTone(entry.status),
+    yearLabel: null,
+    activityLabel,
+    favoriteLabel: favorite
+      ? catalogCopy.card.favorite
+      : catalogCopy.card.notFavorite,
+    reviewLabel: hasReview
+      ? catalogCopy.card.withReview
+      : catalogCopy.card.noReview,
+    metaTags,
+    statusKey: entry.status,
+    sortTitle: entry.title,
+    sortDate: activityDate,
+    sortRating: entry.rating ?? 0,
+  };
 }
 
 export function getSeriesDetail(slug: string): SeriesDetail | undefined {

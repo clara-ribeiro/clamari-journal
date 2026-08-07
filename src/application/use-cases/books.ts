@@ -1,7 +1,9 @@
 import { bookRepository } from "@/composition/repositories";
-import type { BookDetail, CatalogListItem } from "@/application/dto";
+import type { BookDetail, CatalogCardItem } from "@/application/dto";
 import type { BookEntry } from "@/domain/entities";
 import { booksCopy } from "@/content/copy/books";
+import { catalogCopy } from "@/content/copy/catalog";
+import { formatDate } from "@/lib/formatters/formatDate";
 
 export function listBooks(): BookEntry[] {
   return bookRepository.findAll();
@@ -31,13 +33,73 @@ export function getBookStats() {
   return computeBookStats(bookRepository.findAll());
 }
 
-export function listBookCatalogItems(): CatalogListItem[] {
-  return listBooks().map((book) => ({
+function bookStatusTone(
+  status: BookEntry["status"],
+): CatalogCardItem["statusTone"] {
+  if (status === "want-to-read") return "warning";
+  if (status === "finished" || status === "reading") return "positive";
+  return "neutral";
+}
+
+function toBookCatalogCard(book: BookEntry): CatalogCardItem {
+  const title = book.title ?? book.slug;
+  const statusLabel = catalogCopy.status.books[book.status];
+  const hasReview = Boolean(book.reviewSlug);
+  const favorite = Boolean(book.favorite);
+  const activityDate = book.finishedAt ?? book.startedAt ?? null;
+  const activityLabel = book.finishedAt
+    ? catalogCopy.card.finishedOn.replace(
+        "{date}",
+        formatDate(book.finishedAt),
+      )
+    : book.startedAt
+      ? catalogCopy.card.startedOn.replace(
+          "{date}",
+          formatDate(book.startedAt),
+        )
+      : catalogCopy.card.noActivityDate;
+  const pagesLabel =
+    book.customPageCount != null ? `${book.customPageCount} pages` : null;
+
+  const metaTags = [
+    book.format ?? null,
+    pagesLabel,
+    ...(book.tags ?? []).slice(0, 2),
+    favorite ? catalogCopy.card.favorite : null,
+    statusLabel,
+    hasReview ? catalogCopy.card.withReview : catalogCopy.card.noReview,
+  ].filter((tag): tag is string => Boolean(tag));
+
+  return {
     slug: book.slug,
-    title: book.title ?? book.slug,
+    title,
     href: `/books/${book.slug}`,
-    meta: book.status,
-  }));
+    posterUrl: book.coverUrl ?? null,
+    rating: book.rating,
+    favorite,
+    hasReview,
+    statusLabel,
+    statusTone: bookStatusTone(book.status),
+    yearLabel: null,
+    activityLabel,
+    favoriteLabel: favorite
+      ? catalogCopy.card.favorite
+      : catalogCopy.card.notFavorite,
+    reviewLabel: hasReview
+      ? catalogCopy.card.withReview
+      : catalogCopy.card.noReview,
+    metaTags,
+    statusKey: book.status,
+    sortTitle: title,
+    sortDate: activityDate,
+    sortRating: book.rating ?? 0,
+  };
+}
+
+export function listBookCatalogItems(): CatalogCardItem[] {
+  return listBooks()
+    .map(toBookCatalogCard)
+    .sort((a, b) => a.sortTitle.localeCompare(b.sortTitle));
 }
 
 export function getBookDetail(slug: string): BookDetail | undefined {

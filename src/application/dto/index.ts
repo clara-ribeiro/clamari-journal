@@ -12,6 +12,11 @@ export type {
 } from "./journal-entry";
 
 export type {
+  CatalogCardItem,
+  CatalogStatusTone,
+} from "./catalog-card";
+
+export type {
   GoogleBooksIdentifiers,
   GoogleBooksMetadata,
   GoogleBooksPageCountSource,

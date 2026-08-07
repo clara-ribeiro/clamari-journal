@@ -1,13 +1,6 @@
-import { booksCopy, filmsCopy, seriesCopy } from "@/content/copy";
 import { styled } from "@/styles/stitches.config";
 
 const grain = "url(/images/shared/noise-grain.webp)";
-
-const mediumPhoto = {
-  films: filmsCopy.list.hero.image.src,
-  books: booksCopy.list.hero.image.src,
-  series: seriesCopy.list.hero.image.src,
-} as const;
 
 export const Section = styled("section", {
   display: "flex",
@@ -52,21 +45,13 @@ export const Band = styled("div", {
   width: "100%",
   maxWidth: "$containerWide",
   aspectRatio: "2.4 / 1",
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  backgroundRepeat: "no-repeat",
+  display: "flex",
+  alignItems: "stretch",
+  justifyContent: "center",
 
-  variants: {
-    medium: {
-      films: {
-        backgroundImage: `url(${mediumPhoto.films})`,
-      },
-      books: {
-        backgroundImage: `url(${mediumPhoto.books})`,
-      },
-      series: {
-        backgroundImage: `url(${mediumPhoto.series})`,
-      },
-    },
+  "& img": {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
   },
 });

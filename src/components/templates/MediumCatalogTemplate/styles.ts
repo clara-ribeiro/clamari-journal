@@ -7,6 +7,10 @@ export const Page = styled("div", {
   backgroundSize: "128px 128px",
   backgroundRepeat: "repeat",
 
+  "& *, & *::before, & *::after": {
+    borderRadius: "0 !important",
+  },
+
   variants: {
     medium: {
       films: {
@@ -39,10 +43,21 @@ export const Title = styled("h1", {
 });
 
 export const Content = styled("main", {
-  px: "$lg",
-  py: "$2xl",
-  maxWidth: "$containerContent",
+  px: "$md",
+  py: "$xl",
+  maxWidth: "$containerWide",
   mx: "auto",
+  width: "100%",
+
+  "@md": {
+    px: "$xl",
+  },
+
+  "@lg": {
+    paddingLeft: "clamp(3rem, 8vw, 5rem)",
+    paddingRight: "clamp(3rem, 8vw, 5rem)",
+    py: "$2xl",
+  },
 });
 
 export const Back = styled(Link, {
@@ -62,49 +77,83 @@ export const Back = styled(Link, {
 });
 
 export const Summary = styled("p", {
-  marginBottom: "$xl",
-  opacity: 0.62,
+  marginBottom: "$lg",
+  color: "inherit",
+  opacity: 0.85,
 });
 
-export const List = styled("ul", {
+export const Grid = styled("ul", {
   listStyle: "none",
   padding: 0,
   margin: 0,
   display: "grid",
-  gap: "$sm",
-});
+  gap: 0,
+  gridTemplateColumns: "minmax(0, 1fr)",
 
-export const Item = styled("li", {
-  py: "$sm",
-  minWidth: 0,
+  "@md": {
+    gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+  },
+
+  "@lg": {
+    gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
+  },
 
   variants: {
-    medium: {
-      films: { borderBottom: "1px solid $catalogBorderOnDark" },
-      books: { borderBottom: "1px solid $catalogBorder" },
-      series: { borderBottom: "1px solid $catalogBorder" },
+    tone: {
+      light: {
+        borderTop: "2px solid $catalogBorder",
+        borderLeft: "2px solid $catalogBorder",
+      },
+      dark: {
+        borderTop: "2px solid $catalogBorderOnDark",
+        borderLeft: "2px solid $catalogBorderOnDark",
+      },
     },
   },
 });
 
-export const ItemLink = styled(Link, {
-  display: "flex",
-  justifyContent: "space-between",
-  gap: "$md",
-  flexWrap: "wrap",
-  color: "inherit",
-  minWidth: 0,
-  "&:hover": { opacity: 0.72 },
+/** Single-column list — base columns so CSS always applies. */
+export const ListGrid = styled("ul", {
+  listStyle: "none",
+  padding: 0,
+  margin: 0,
+  display: "grid",
+  gap: 0,
+  gridTemplateColumns: "minmax(0, 1fr)",
+
+  variants: {
+    tone: {
+      light: {
+        borderTop: "2px solid $catalogBorder",
+        borderLeft: "2px solid $catalogBorder",
+      },
+      dark: {
+        borderTop: "2px solid $catalogBorderOnDark",
+        borderLeft: "2px solid $catalogBorderOnDark",
+      },
+    },
+  },
 });
 
-export const Meta = styled("span", {
-  fontSize: "$body2",
-  opacity: 0.62,
+export const Cell = styled("li", {
+  minWidth: 0,
+
+  variants: {
+    tone: {
+      light: {
+        borderRight: "2px solid $catalogBorder",
+        borderBottom: "2px solid $catalogBorder",
+      },
+      dark: {
+        borderRight: "2px solid $catalogBorderOnDark",
+        borderBottom: "2px solid $catalogBorderOnDark",
+      },
+    },
+  },
 });
 
 export const Empty = styled("p", {
   padding: "$xl",
-  borderRadius: "$lg",
   textAlign: "center",
   opacity: 0.62,
 
