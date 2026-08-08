@@ -1,18 +1,21 @@
 import { styled } from "@/styles/stitches.config";
 
 /**
- * Desktop: one unbroken row.
- * Mobile: search full-width on row 1, filters/sort/view share row 2.
+ * Mobile / tablet (incl. iPad Pro 1024): search + icons on row 1; dropdowns on row 2.
+ * Wide desktop (xl+): one unbroken row.
  */
 export const Root = styled("div", {
   display: "flex",
-  flexWrap: "wrap",
-  alignItems: "center",
+  flexDirection: "column",
+  alignItems: "stretch",
   gap: "$sm",
+  width: "100%",
   marginBottom: "$xl",
 
-  "@md": {
+  "@xl": {
+    flexDirection: "row",
     flexWrap: "nowrap",
+    alignItems: "center",
   },
 
   variants: {
@@ -23,18 +26,53 @@ export const Root = styled("div", {
   },
 });
 
+export const SearchRow = styled("div", {
+  display: "flex",
+  alignItems: "center",
+  gap: "$sm",
+  width: "100%",
+  minWidth: 0,
+
+  "@xl": {
+    flex: "1 1 auto",
+    width: "auto",
+    minWidth: 0,
+  },
+});
+
+export const IconActions = styled("div", {
+  display: "flex",
+  alignItems: "center",
+  gap: "$sm",
+  flexShrink: 0,
+});
+
+export const DropdownRow = styled("div", {
+  display: "flex",
+  alignItems: "center",
+  gap: "$sm",
+  width: "100%",
+  minWidth: 0,
+
+  "@xl": {
+    width: "auto",
+    flex: "0 0 auto",
+  },
+});
+
 export const SearchField = styled("label", {
   display: "flex",
   alignItems: "center",
   gap: "$sm",
-  flex: "1 1 100%",
+  flex: "1 1 auto",
   minWidth: 0,
-  minHeight: "$inputHeight",
+  height: "$inputHeight",
   px: "$md",
   border: "2px solid",
+  boxSizing: "border-box",
 
-  "@md": {
-    flex: "1 1 12rem",
+  "@xl": {
+    minWidth: "12rem",
   },
 
   variants: {
@@ -76,15 +114,17 @@ export const Control = styled("label", {
   display: "grid",
   alignItems: "center",
   flex: "1 1 0",
-  minHeight: "$buttonHeight",
+  height: "$inputHeight",
   minWidth: 0,
   px: "$sm",
   border: "2px solid",
   cursor: "pointer",
   fontSize: "$body2",
   whiteSpace: "nowrap",
+  boxSizing: "border-box",
 
-  "@md": {
+  "@xl": {
+    flex: "0 0 auto",
     px: "$md",
   },
 
@@ -116,12 +156,12 @@ export const ControlFace = styled("span", {
   overflow: "hidden",
 });
 
-/** Category label — desktop only; mobile keeps icon + value to fit one row. */
+/** Category label — wide desktop only; narrower viewports keep icon + value. */
 export const ControlLabel = styled("span", {
   display: "none",
   flexShrink: 0,
 
-  "@lg": {
+  "@xl": {
     display: "inline",
   },
 });
@@ -136,7 +176,6 @@ export const ControlValue = styled("span", {
 export const NativeSelect = styled("select", {
   width: "100%",
   height: "100%",
-  minHeight: "$buttonHeight",
   margin: 0,
   padding: 0,
   border: "none",
@@ -157,14 +196,15 @@ export const ViewToggle = styled("button", {
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
-  width: "$buttonHeight",
-  height: "$buttonHeight",
+  width: "$inputHeight",
+  height: "$inputHeight",
   padding: 0,
   border: "2px solid",
   cursor: "pointer",
   background: "transparent",
   color: "inherit",
   flexShrink: 0,
+  boxSizing: "border-box",
 
   "& svg": {
     width: "$iconMd",
@@ -185,23 +225,77 @@ export const ViewToggle = styled("button", {
   },
 });
 
-/** Review / favorites chip — idle outline; active fills so only the chip “reads”. */
-export const FilterToggle = styled("button", {
+/** Shown only when search / filters / sort differ from defaults. */
+export const ClearAllButton = styled("button", {
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
   gap: "$sm",
   flexShrink: 0,
-  minHeight: "$buttonHeight",
-  px: "$sm",
+  width: "$inputHeight",
+  height: "$inputHeight",
+  padding: 0,
   border: "2px solid",
   cursor: "pointer",
   fontSize: "$body2",
   whiteSpace: "nowrap",
   background: "transparent",
   color: "inherit",
+  boxSizing: "border-box",
 
-  "@md": {
+  "@xl": {
+    width: "auto",
+    px: "$md",
+  },
+
+  "& svg": {
+    width: "$iconSm",
+    height: "$iconSm",
+    flexShrink: 0,
+  },
+
+  variants: {
+    tone: {
+      light: {
+        borderColor: "$catalogBorder",
+        color: "$catalogText",
+      },
+      dark: {
+        borderColor: "$catalogBorderOnDark",
+        color: "$catalogTextOnDark",
+      },
+    },
+  },
+});
+
+export const ClearAllLabel = styled("span", {
+  display: "none",
+
+  "@xl": {
+    display: "inline",
+  },
+});
+
+/** Review / favorites chip — square until xl; labeled on wide desktop when idle. */
+export const FilterToggle = styled("button", {
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: "$sm",
+  flexShrink: 0,
+  width: "$inputHeight",
+  height: "$inputHeight",
+  padding: 0,
+  border: "2px solid",
+  cursor: "pointer",
+  fontSize: "$body2",
+  whiteSpace: "nowrap",
+  background: "transparent",
+  color: "inherit",
+  boxSizing: "border-box",
+
+  "@xl": {
+    width: "auto",
     px: "$md",
   },
 
@@ -257,7 +351,7 @@ export const FilterToggle = styled("button", {
 export const FilterToggleLabel = styled("span", {
   display: "none",
 
-  "@lg": {
+  "@xl": {
     display: "inline",
   },
 });

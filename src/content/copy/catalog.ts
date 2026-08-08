@@ -8,7 +8,7 @@ export const catalogCopy = {
     },
     filtersLabel: "Status",
     filtersAriaLabel: "Filter by status",
-    filtersAll: "All statuses",
+    filtersAll: "All",
     yearLabel: "Year",
     yearAriaLabel: "Filter by finished year",
     yearAll: "All years",
@@ -33,6 +33,8 @@ export const catalogCopy = {
     viewListLabel: "List view",
     viewCardsAriaLabel: "Switch to card view",
     viewListAriaLabel: "Switch to list view",
+    clearAllLabel: "Clear",
+    clearAllAriaLabel: "Clear search, filters, and sorting",
     seeAll: "See all",
   },
   card: {

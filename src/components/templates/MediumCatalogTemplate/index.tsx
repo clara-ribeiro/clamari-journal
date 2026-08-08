@@ -215,6 +215,15 @@ export default function MediumCatalogTemplate({
   // Match the first painted card for the LCP preload target.
   preloadLcpPoster(visibleItems[0]?.posterUrl);
 
+  function clearAllControls() {
+    setSearch("");
+    setStatusFilter("");
+    setYearFilter(null);
+    setReviewActive(false);
+    setFavoriteActive(false);
+    setSort("default");
+  }
+
   return (
     <Page medium={medium}>
       <CatalogHero medium={medium} copy={copy.hero} />
@@ -239,6 +248,7 @@ export default function MediumCatalogTemplate({
           onSortChange={setSort}
           view={view}
           onViewChange={setView}
+          onClearAll={clearAllControls}
         />
 
         {visibleItems.length === 0 ? (

@@ -1,19 +1,34 @@
 "use client";
 
-import { ArrowUpDown, Calendar, Heart, LayoutGrid, List, ListFilter, PencilLine, Search } from "lucide-react";
+import {
+  ArrowUpDown,
+  Calendar,
+  FilterX,
+  Heart,
+  LayoutGrid,
+  List,
+  ListFilter,
+  PencilLine,
+  Search,
+} from "lucide-react";
 import { catalogCopy } from "@/content/copy/catalog";
 import {
+  ClearAllButton,
+  ClearAllLabel,
   Control,
   ControlFace,
   ControlLabel,
   ControlValue,
+  DropdownRow,
   FilterToggle,
   FilterToggleLabel,
+  IconActions,
   IconWrap,
   NativeSelect,
   Root,
   SearchField,
   SearchInput,
+  SearchRow,
   ViewToggle,
 } from "./styles";
 
@@ -51,6 +66,7 @@ export type CatalogToolbarProps = {
   onSortChange: (value: CatalogSortId) => void;
   view: CatalogViewMode;
   onViewChange: (value: CatalogViewMode) => void;
+  onClearAll: () => void;
   className?: string;
 };
 
@@ -101,6 +117,7 @@ export default function CatalogToolbar({
   onSortChange,
   view,
   onViewChange,
+  onClearAll,
   className,
 }: CatalogToolbarProps) {
   const copy = catalogCopy.toolbar;
@@ -112,134 +129,164 @@ export default function CatalogToolbar({
     yearFilter != null ? String(yearFilter) : copy.yearAll;
   const sortLabel = copy.sortOptions[sort];
   const nextView: CatalogViewMode = view === "cards" ? "list" : "cards";
+  const canClear =
+    search.trim() !== "" ||
+    statusFilter !== "" ||
+    yearFilter != null ||
+    reviewActive ||
+    favoriteActive ||
+    sort !== "default";
 
   return (
     <Root className={className} tone={tone}>
-      <SearchField tone={tone}>
-        <IconWrap aria-hidden>
-          <Search />
-        </IconWrap>
-        <SearchInput
-          type="search"
-          value={search}
-          onChange={(event) => onSearchChange(event.target.value)}
-          placeholder={copy.searchPlaceholder[medium]}
-          aria-label={copy.searchAriaLabel}
-        />
-      </SearchField>
-
-      <FilterToggle
-        type="button"
-        tone={tone}
-        active={reviewActive}
-        aria-pressed={reviewActive}
-        aria-label={copy.reviewAriaLabel}
-        title={copy.reviewLabel}
-        onClick={() => onReviewActiveChange(!reviewActive)}
-      >
-        <PencilLine aria-hidden />
-        {reviewActive ? null : (
-          <FilterToggleLabel>{copy.reviewLabel}</FilterToggleLabel>
-        )}
-      </FilterToggle>
-
-      <FilterToggle
-        type="button"
-        tone={tone}
-        active={favoriteActive}
-        aria-pressed={favoriteActive}
-        aria-label={copy.favoriteAriaLabel}
-        title={copy.favoriteLabel}
-        onClick={() => onFavoriteActiveChange(!favoriteActive)}
-      >
-        <Heart aria-hidden fill={favoriteActive ? "currentColor" : "none"} />
-        {favoriteActive ? null : (
-          <FilterToggleLabel>{copy.favoriteLabel}</FilterToggleLabel>
-        )}
-      </FilterToggle>
-
-      <Control tone={tone}>
-        <ControlFace>
+      <SearchRow>
+        <SearchField tone={tone}>
           <IconWrap aria-hidden>
-            <ArrowUpDown />
+            <Search />
           </IconWrap>
-          <ControlLabel>{copy.sortLabel}</ControlLabel>
-          <ControlValue>{sortLabel}</ControlValue>
-        </ControlFace>
-        <NativeSelect
-          aria-label={copy.sortAriaLabel}
-          value={sort}
-          onChange={(event) =>
-            onSortChange(event.target.value as CatalogSortId)
+          <SearchInput
+            type="search"
+            value={search}
+            onChange={(event) => onSearchChange(event.target.value)}
+            placeholder={copy.searchPlaceholder[medium]}
+            aria-label={copy.searchAriaLabel}
+          />
+        </SearchField>
+
+        <IconActions>
+          <FilterToggle
+            type="button"
+            tone={tone}
+            active={reviewActive}
+            aria-pressed={reviewActive}
+            aria-label={copy.reviewAriaLabel}
+            title={copy.reviewLabel}
+            onClick={() => onReviewActiveChange(!reviewActive)}
+          >
+            <PencilLine aria-hidden />
+            {reviewActive ? null : (
+              <FilterToggleLabel>{copy.reviewLabel}</FilterToggleLabel>
+            )}
+          </FilterToggle>
+
+          <FilterToggle
+            type="button"
+            tone={tone}
+            active={favoriteActive}
+            aria-pressed={favoriteActive}
+            aria-label={copy.favoriteAriaLabel}
+            title={copy.favoriteLabel}
+            onClick={() => onFavoriteActiveChange(!favoriteActive)}
+          >
+            <Heart aria-hidden fill={favoriteActive ? "currentColor" : "none"} />
+            {favoriteActive ? null : (
+              <FilterToggleLabel>{copy.favoriteLabel}</FilterToggleLabel>
+            )}
+          </FilterToggle>
+
+          {canClear ? (
+            <ClearAllButton
+              type="button"
+              tone={tone}
+              aria-label={copy.clearAllAriaLabel}
+              title={copy.clearAllLabel}
+              onClick={onClearAll}
+            >
+              <FilterX aria-hidden />
+              <ClearAllLabel>{copy.clearAllLabel}</ClearAllLabel>
+            </ClearAllButton>
+          ) : null}
+        </IconActions>
+      </SearchRow>
+
+      <DropdownRow>
+        <Control tone={tone}>
+          <ControlFace>
+            <IconWrap aria-hidden>
+              <ArrowUpDown />
+            </IconWrap>
+            <ControlLabel>{copy.sortLabel}</ControlLabel>
+            <ControlValue>{sortLabel}</ControlValue>
+          </ControlFace>
+          <NativeSelect
+            aria-label={copy.sortAriaLabel}
+            value={sort}
+            onChange={(event) =>
+              onSortChange(event.target.value as CatalogSortId)
+            }
+          >
+            {sortIdsFor(medium).map((value) => (
+              <option key={value} value={value}>
+                {copy.sortOptions[value]}
+              </option>
+            ))}
+          </NativeSelect>
+        </Control>
+
+        <Control tone={tone}>
+          <ControlFace>
+            <IconWrap aria-hidden>
+              <ListFilter />
+            </IconWrap>
+            <ControlLabel>{copy.filtersLabel}</ControlLabel>
+            <ControlValue>{statusLabel}</ControlValue>
+          </ControlFace>
+          <NativeSelect
+            aria-label={copy.filtersAriaLabel}
+            value={statusFilter}
+            onChange={(event) => onStatusFilterChange(event.target.value)}
+          >
+            <option value="">{copy.filtersAll}</option>
+            {statusOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </NativeSelect>
+        </Control>
+
+        <Control tone={tone}>
+          <ControlFace>
+            <IconWrap aria-hidden>
+              <Calendar />
+            </IconWrap>
+            <ControlLabel>{copy.yearLabel}</ControlLabel>
+            <ControlValue>{yearLabel}</ControlValue>
+          </ControlFace>
+          <NativeSelect
+            aria-label={copy.yearAriaLabel}
+            value={yearFilter == null ? "" : String(yearFilter)}
+            onChange={(event) => {
+              const value = event.target.value;
+              onYearFilterChange(value ? Number(value) : null);
+            }}
+          >
+            <option value="">{copy.yearAll}</option>
+            {yearOptions.map((year) => (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            ))}
+          </NativeSelect>
+        </Control>
+
+        <ViewToggle
+          type="button"
+          tone={tone}
+          aria-label={
+            view === "cards" ? copy.viewListAriaLabel : copy.viewCardsAriaLabel
           }
+          aria-pressed={view === "list"}
+          title={view === "cards" ? copy.viewListLabel : copy.viewCardsLabel}
+          onClick={() => onViewChange(nextView)}
         >
-          {sortIdsFor(medium).map((value) => (
-            <option key={value} value={value}>
-              {copy.sortOptions[value]}
-            </option>
-          ))}
-        </NativeSelect>
-      </Control>
-
-      <Control tone={tone}>
-        <ControlFace>
-          <IconWrap aria-hidden>
-            <ListFilter />
-          </IconWrap>
-          <ControlLabel>{copy.filtersLabel}</ControlLabel>
-          <ControlValue>{statusLabel}</ControlValue>
-        </ControlFace>
-        <NativeSelect
-          aria-label={copy.filtersAriaLabel}
-          value={statusFilter}
-          onChange={(event) => onStatusFilterChange(event.target.value)}
-        >
-          <option value="">{copy.filtersAll}</option>
-          {statusOptions.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </NativeSelect>
-      </Control>
-
-      <Control tone={tone}>
-        <ControlFace>
-          <IconWrap aria-hidden>
-            <Calendar />
-          </IconWrap>
-          <ControlLabel>{copy.yearLabel}</ControlLabel>
-          <ControlValue>{yearLabel}</ControlValue>
-        </ControlFace>
-        <NativeSelect
-          aria-label={copy.yearAriaLabel}
-          value={yearFilter == null ? "" : String(yearFilter)}
-          onChange={(event) => {
-            const value = event.target.value;
-            onYearFilterChange(value ? Number(value) : null);
-          }}
-        >
-          <option value="">{copy.yearAll}</option>
-          {yearOptions.map((year) => (
-            <option key={year} value={year}>
-              {year}
-            </option>
-          ))}
-        </NativeSelect>
-      </Control>
-
-      <ViewToggle
-        type="button"
-        tone={tone}
-        aria-label={
-          view === "cards" ? copy.viewListAriaLabel : copy.viewCardsAriaLabel
-        }
-        aria-pressed={view === "list"}
-        title={view === "cards" ? copy.viewListLabel : copy.viewCardsLabel}
-        onClick={() => onViewChange(nextView)}
-      >
-        {view === "cards" ? <LayoutGrid aria-hidden /> : <List aria-hidden />}
-      </ViewToggle>
+          {view === "cards" ? (
+            <LayoutGrid aria-hidden />
+          ) : (
+            <List aria-hidden />
+          )}
+        </ViewToggle>
+      </DropdownRow>
     </Root>
   );
 }
