@@ -108,6 +108,7 @@ function toSeriesCatalogCard(entry: SeriesEntry): CatalogCardItem {
   ].filter((tag): tag is string => Boolean(tag));
 
   return {
+    medium: "series",
     slug: entry.slug,
     title: entry.title,
     href: `/series/${entry.slug}`,

@@ -5,6 +5,7 @@ export const catalogCopy = {
       films: "Search films",
       series: "Search series",
       books: "Search books",
+      all: "Search entries",
     },
     filtersLabel: "Status",
     filtersAriaLabel: "Filter by status",

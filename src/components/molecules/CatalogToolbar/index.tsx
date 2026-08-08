@@ -49,7 +49,7 @@ export type CatalogViewMode = "cards" | "list";
 
 export type CatalogToolbarProps = {
   tone: CatalogTone;
-  medium: "films" | "series" | "books";
+  medium: "films" | "series" | "books" | "all";
   search: string;
   onSearchChange: (value: string) => void;
   statusFilter: string;
@@ -60,8 +60,12 @@ export type CatalogToolbarProps = {
   yearOptions: readonly number[];
   reviewActive: boolean;
   onReviewActiveChange: (value: boolean) => void;
+  /** Hide when the page is already a reviews-only feed. Default true. */
+  showReviewFilter?: boolean;
   favoriteActive: boolean;
   onFavoriteActiveChange: (value: boolean) => void;
+  /** Hide when the page is already a favorites-only feed. Default true. */
+  showFavoriteFilter?: boolean;
   sort: CatalogSortId;
   onSortChange: (value: CatalogSortId) => void;
   view: CatalogViewMode;
@@ -80,17 +84,17 @@ const sharedSortIds: CatalogSortId[] = [
   "ratingLow",
 ];
 
-const filmOnlySortIds: CatalogSortId[] = ["yearNewest", "yearOldest"];
+const yearSortIds: CatalogSortId[] = ["yearNewest", "yearOldest"];
 
 function sortIdsFor(medium: CatalogToolbarProps["medium"]): CatalogSortId[] {
-  if (medium === "films") {
+  if (medium === "films" || medium === "all") {
     return [
       "default",
       "titleAsc",
       "titleDesc",
       "dateNewest",
       "dateOldest",
-      ...filmOnlySortIds,
+      ...yearSortIds,
       "ratingHigh",
       "ratingLow",
     ];
@@ -111,8 +115,10 @@ export default function CatalogToolbar({
   yearOptions,
   reviewActive,
   onReviewActiveChange,
+  showReviewFilter = true,
   favoriteActive,
   onFavoriteActiveChange,
+  showFavoriteFilter = true,
   sort,
   onSortChange,
   view,
@@ -133,8 +139,8 @@ export default function CatalogToolbar({
     search.trim() !== "" ||
     statusFilter !== "" ||
     yearFilter != null ||
-    reviewActive ||
-    favoriteActive ||
+    (showReviewFilter && reviewActive) ||
+    (showFavoriteFilter && favoriteActive) ||
     sort !== "default";
 
   return (
@@ -154,35 +160,42 @@ export default function CatalogToolbar({
         </SearchField>
 
         <IconActions>
-          <FilterToggle
-            type="button"
-            tone={tone}
-            active={reviewActive}
-            aria-pressed={reviewActive}
-            aria-label={copy.reviewAriaLabel}
-            title={copy.reviewLabel}
-            onClick={() => onReviewActiveChange(!reviewActive)}
-          >
-            <PencilLine aria-hidden />
-            {reviewActive ? null : (
-              <FilterToggleLabel>{copy.reviewLabel}</FilterToggleLabel>
-            )}
-          </FilterToggle>
+          {showReviewFilter ? (
+            <FilterToggle
+              type="button"
+              tone={tone}
+              active={reviewActive}
+              aria-pressed={reviewActive}
+              aria-label={copy.reviewAriaLabel}
+              title={copy.reviewLabel}
+              onClick={() => onReviewActiveChange(!reviewActive)}
+            >
+              <PencilLine aria-hidden />
+              {reviewActive ? null : (
+                <FilterToggleLabel>{copy.reviewLabel}</FilterToggleLabel>
+              )}
+            </FilterToggle>
+          ) : null}
 
-          <FilterToggle
-            type="button"
-            tone={tone}
-            active={favoriteActive}
-            aria-pressed={favoriteActive}
-            aria-label={copy.favoriteAriaLabel}
-            title={copy.favoriteLabel}
-            onClick={() => onFavoriteActiveChange(!favoriteActive)}
-          >
-            <Heart aria-hidden fill={favoriteActive ? "currentColor" : "none"} />
-            {favoriteActive ? null : (
-              <FilterToggleLabel>{copy.favoriteLabel}</FilterToggleLabel>
-            )}
-          </FilterToggle>
+          {showFavoriteFilter ? (
+            <FilterToggle
+              type="button"
+              tone={tone}
+              active={favoriteActive}
+              aria-pressed={favoriteActive}
+              aria-label={copy.favoriteAriaLabel}
+              title={copy.favoriteLabel}
+              onClick={() => onFavoriteActiveChange(!favoriteActive)}
+            >
+              <Heart
+                aria-hidden
+                fill={favoriteActive ? "currentColor" : "none"}
+              />
+              {favoriteActive ? null : (
+                <FilterToggleLabel>{copy.favoriteLabel}</FilterToggleLabel>
+              )}
+            </FilterToggle>
+          ) : null}
 
           {canClear ? (
             <ClearAllButton

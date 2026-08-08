@@ -59,9 +59,15 @@ describe("catalog feeds", () => {
   });
 
   it("orders home feeds without duplicate collect passes diverging", () => {
-    const { recentEntries, favoriteEntries } = getHomeFeeds(5);
+    const { recentEntries, reviewEntries, favoriteEntries } = getHomeFeeds(5);
     expect(recentEntries.length).toBeLessThanOrEqual(5);
+    expect(reviewEntries.length).toBeLessThanOrEqual(5);
     expect(favoriteEntries.length).toBeLessThanOrEqual(5);
     expect(favoriteEntries.every((entry) => entry.href.length > 0)).toBe(true);
+  });
+
+  it("lists review entries only when reviewSlug is present", () => {
+    const { reviewEntries } = getHomeFeeds(50);
+    expect(reviewEntries.length).toBeGreaterThan(0);
   });
 });

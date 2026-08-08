@@ -20,13 +20,15 @@ export default function HomePage() {
     media: "(min-width: 768px)",
   });
 
-  const { recentEntries, favoriteEntries } = getHomeFeeds(HOME_FEED_LIMIT);
+  const { recentEntries, reviewEntries, favoriteEntries } =
+    getHomeFeeds(HOME_FEED_LIMIT);
   const lifetimeStats = getLifetimeStats();
 
   return (
     <main id="main-content">
       <HomeTemplate
         recentEntries={recentEntries}
+        reviewEntries={reviewEntries}
         favoriteEntries={favoriteEntries}
         pagesRead={lifetimeStats.pagesRead}
         watchedHours={lifetimeStats.watchedHours}

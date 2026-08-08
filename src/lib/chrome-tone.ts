@@ -41,6 +41,6 @@ export function chromeForPath(pathname: string): PageChrome {
     return { header: "paper", footer: "paper" };
   }
 
-  // all-entries, favorites, and anything else on the navy body field
+  // all-entries, reviews, favorites, and anything else on the navy body field
   return { header: "navy", footer: "navy" };
 }

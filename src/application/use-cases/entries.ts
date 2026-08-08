@@ -13,6 +13,7 @@ import { tmdbImageUrl } from "@/lib/tmdb-image";
 
 type JournalEntryBase = Omit<JournalEntry, "posterUrl"> & {
   favorite?: boolean;
+  hasReview?: boolean;
   posterPath?: string;
   coverUrl?: string;
 };
@@ -64,6 +65,7 @@ export function collectJournalEntriesFrom(
     activityDate: movieActivityDate(movie),
     rating: movie.rating,
     favorite: movie.favorite,
+    hasReview: Boolean(movie.reviewSlug),
     href: `/films/${movie.slug}`,
     posterPath: movie.posterPath,
   }));
@@ -75,6 +77,7 @@ export function collectJournalEntriesFrom(
     activityDate: seriesActivityDate(entry),
     rating: entry.rating,
     favorite: entry.favorite,
+    hasReview: Boolean(entry.reviewSlug),
     href: `/series/${entry.slug}`,
     posterPath: entry.posterPath,
   }));
@@ -86,6 +89,7 @@ export function collectJournalEntriesFrom(
     activityDate: bookActivityDate(book),
     rating: book.rating,
     favorite: book.favorite,
+    hasReview: Boolean(book.reviewSlug),
     href: `/books/${book.slug}`,
     coverUrl: book.coverUrl,
   }));
@@ -132,6 +136,13 @@ export function listFavoriteEntries(limit?: number): JournalEntry[] {
   return selected.map(toJournalEntry);
 }
 
+/** Entries with a review, newest activity first. */
+export function listReviewEntries(limit?: number): JournalEntry[] {
+  const reviews = collectJournalEntries().filter((entry) => entry.hasReview);
+  const selected = limit == null ? reviews : reviews.slice(0, limit);
+  return selected.map(toJournalEntry);
+}
+
 /**
  * Full catalog, newest → oldest.
  * Local posters only (run `enrich:tmdb` / store `coverUrl` for art).
@@ -143,11 +154,16 @@ export function listAllEntries(): JournalEntry[] {
 /** Single catalog pass for the home page feeds. */
 export function getHomeFeeds(limit = 5): {
   recentEntries: JournalEntry[];
+  reviewEntries: JournalEntry[];
   favoriteEntries: JournalEntry[];
 } {
   const all = collectJournalEntries();
   return {
     recentEntries: all.slice(0, limit).map(toJournalEntry),
+    reviewEntries: all
+      .filter((entry) => entry.hasReview)
+      .slice(0, limit)
+      .map(toJournalEntry),
     favoriteEntries: all
       .filter((entry) => entry.favorite)
       .slice(0, limit)

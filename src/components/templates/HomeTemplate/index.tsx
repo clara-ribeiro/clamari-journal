@@ -10,6 +10,7 @@ import { Root } from "./styles";
 
 export type HomeTemplateProps = {
   recentEntries: JournalEntry[];
+  reviewEntries: JournalEntry[];
   favoriteEntries: JournalEntry[];
   pagesRead: number;
   watchedHours: number;
@@ -22,6 +23,7 @@ function formatCount(value: number) {
 
 export default function HomeTemplate({
   recentEntries,
+  reviewEntries,
   favoriteEntries,
   pagesRead,
   watchedHours,
@@ -40,6 +42,16 @@ export default function HomeTemplate({
         showAllLabel={homeCopy.recentEntries.showAllLabel}
         showAllHref={homeCopy.recentEntries.showAllHref}
         priorityCount={1}
+      />
+      <HomeJournalAbout />
+      <EntriesCarousel
+        entries={reviewEntries}
+        titleId={homeCopy.reviews.titleId}
+        title={homeCopy.reviews.title}
+        listAriaLabel={homeCopy.reviews.listAriaLabel}
+        showAllLabel={homeCopy.reviews.showAllLabel}
+        showAllHref={homeCopy.reviews.showAllHref}
+        priorityCount={0}
       />
       <EntriesCarousel
         entries={favoriteEntries}
@@ -68,7 +80,6 @@ export default function HomeTemplate({
         ariaLabel={collage.ariaLabel}
         statsHref={collage.statsHref}
       />
-      <HomeJournalAbout />
     </Root>
   );
 }

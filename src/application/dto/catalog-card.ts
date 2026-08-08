@@ -1,3 +1,5 @@
+import type { JournalMedium } from "./journal-entry";
+
 export type CatalogStatusTone = "positive" | "warning" | "neutral";
 
 /**
@@ -5,6 +7,7 @@ export type CatalogStatusTone = "positive" | "warning" | "neutral";
  * Assembled in use-cases — UI must not derive labels from raw entities.
  */
 export type CatalogCardItem = {
+  medium: JournalMedium;
   slug: string;
   title: string;
   href: string;

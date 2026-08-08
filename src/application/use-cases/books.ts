@@ -70,6 +70,7 @@ function toBookCatalogCard(book: BookEntry): CatalogCardItem {
   ].filter((tag): tag is string => Boolean(tag));
 
   return {
+    medium: "book",
     slug: book.slug,
     title,
     href: `/books/${book.slug}`,

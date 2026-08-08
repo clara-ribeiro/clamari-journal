@@ -76,6 +76,7 @@ function toFilmCatalogCard(movie: MovieEntry): CatalogCardItem {
   ].filter((tag): tag is string => Boolean(tag));
 
   return {
+    medium: "movie",
     slug: movie.slug,
     title: movie.title,
     href: `/films/${movie.slug}`,

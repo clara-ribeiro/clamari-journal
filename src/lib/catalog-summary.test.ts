@@ -6,6 +6,7 @@ function item(
   overrides: Partial<CatalogCardItem> & Pick<CatalogCardItem, "slug" | "statusKey">,
 ): CatalogCardItem {
   return {
+    medium: "movie",
     title: overrides.slug,
     href: "/",
     posterUrl: null,

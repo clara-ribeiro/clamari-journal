@@ -23,6 +23,13 @@ export const homeCopy = {
     showAllHref: "/all-entries",
     listAriaLabel: "Recent journal entries",
   },
+  reviews: {
+    titleId: "reviews-heading",
+    title: "Reviews",
+    showAllLabel: "Show All",
+    showAllHref: "/reviews",
+    listAriaLabel: "Journal entries with reviews",
+  },
   favorites: {
     titleId: "favorites-heading",
     title: "Favorites",

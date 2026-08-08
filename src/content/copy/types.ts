@@ -4,6 +4,12 @@ export type CatalogCopy = {
   description: string;
   listAriaLabel: string;
   empty: string;
+  /** Shown when the collection has entries but filters/search match nothing */
+  noResults: string;
+  /** Visible count when exactly one item matches — `{total}` */
+  summaryOne: string;
+  /** Visible count when zero or many items match — `{total}` */
+  summary: string;
 };
 
 export type MediumCatalogHeroCopy = {

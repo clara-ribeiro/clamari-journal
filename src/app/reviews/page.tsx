@@ -1,30 +1,30 @@
 import type { Metadata } from "next";
-import { listFavoriteCatalogItems } from "@/application/use-cases/mixed-catalog";
+import { listReviewCatalogItems } from "@/application/use-cases/mixed-catalog";
 import AllEntriesTemplate from "@/components/templates/AllEntriesTemplate";
-import { favoritesCopy } from "@/content/copy";
+import { reviewsCopy } from "@/content/copy";
 import { parseCatalogSearchParams } from "@/lib/catalog-search-params";
 
 export const metadata: Metadata = {
-  title: favoritesCopy.title,
-  description: favoritesCopy.description,
+  title: reviewsCopy.title,
+  description: reviewsCopy.description,
 };
 
-type FavoritesPageProps = {
+type ReviewsPageProps = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
 
-export default async function FavoritesPage({
+export default async function ReviewsPage({
   searchParams,
-}: FavoritesPageProps) {
+}: ReviewsPageProps) {
   const initialFilters = parseCatalogSearchParams(await searchParams);
 
   return (
     <AllEntriesTemplate
-      items={listFavoriteCatalogItems()}
-      copy={favoritesCopy}
+      items={listReviewCatalogItems()}
+      copy={reviewsCopy}
       initialStatus={initialFilters.status}
       initialYear={initialFilters.year}
-      showFavoriteFilter={false}
+      showReviewFilter={false}
     />
   );
 }
