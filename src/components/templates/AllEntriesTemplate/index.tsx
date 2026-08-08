@@ -22,7 +22,7 @@ export default function AllEntriesTemplate({
   copy = allEntriesCopy,
 }: AllEntriesTemplateProps) {
   return (
-    <Page id="main-content">
+    <Page id="main-content" aria-labelledby={copy.titleId}>
       <Title id={copy.titleId}>{copy.title}</Title>
       <Description>{copy.description}</Description>
       {entries.length === 0 ? (

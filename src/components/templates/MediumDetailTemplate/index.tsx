@@ -32,10 +32,11 @@ type MediumDetailTemplateProps =
 
 export default function MediumDetailTemplate(props: MediumDetailTemplateProps) {
   const { detail } = props;
+  const titleId = "detail-heading";
 
   return (
-    <Page id="main-content">
-      <Title>{detail.title}</Title>
+    <Page id="main-content" aria-labelledby={titleId}>
+      <Title id={titleId}>{detail.title}</Title>
       <Meta>
         {detail.fields.map((field) => (
           <Fragment key={field.label}>
