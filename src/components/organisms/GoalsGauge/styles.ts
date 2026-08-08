@@ -34,6 +34,10 @@ export const Title = styled("h2", {
   fontSize: "clamp(1.5rem, 3vw, 2rem)",
   color: "$sectionHeading",
   textAlign: "center",
+
+  "@media (max-width: 767px)": {
+    marginBottom: "$2xl",
+  },
 });
 
 export const Row = styled("ul", {
@@ -41,13 +45,14 @@ export const Row = styled("ul", {
   listStyle: "none",
   margin: 0,
   padding: 0,
-  gap: "clamp(1rem, 3vw, 2rem)",
-  gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+  gap: 0,
+  gridTemplateColumns: "minmax(0, 1fr)",
   justifyItems: "center",
   maxWidth: "$containerContent",
   mx: "auto",
 
   "@md": {
+    gap: "clamp(1rem, 3vw, 2rem)",
     gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
   },
 });
@@ -59,6 +64,24 @@ export const Gauge = styled("li", {
   width: "100%",
   maxWidth: "11rem",
   textAlign: "center",
+  paddingBottom: "$xl",
+  borderBottom: "1px solid $border",
+
+  "&:last-child": {
+    borderBottom: "none",
+  },
+
+  "@media (max-width: 767px)": {
+    maxWidth: "14rem",
+    paddingTop: "$lg",
+    paddingBottom: "$2xl",
+  },
+
+  "@md": {
+    paddingTop: 0,
+    paddingBottom: 0,
+    borderBottom: "none",
+  },
 });
 
 export const Stage = styled("div", {
@@ -67,9 +90,39 @@ export const Stage = styled("div", {
   justifyItems: "center",
   alignItems: "start",
   width: "100%",
-  aspectRatio: GAUGE_ASPECT,
-  // Room for figures perched on the rim (person-2 hangs inside instead).
   paddingTop: "22%",
+
+  /** Equal drip reserve + label baseline — tablet/desktop only. */
+  "@md": {
+    aspectRatio: GAUGE_ASPECT,
+    boxSizing: "content-box",
+    flexShrink: 0,
+    paddingTop: "22%",
+  },
+
+  variants: {
+    room: {
+      rim: {
+        "@media (max-width: 767px)": {
+          paddingTop: "36%",
+        },
+      },
+      rimTall: {
+        "@media (max-width: 767px)": {
+          paddingTop: "42%",
+        },
+      },
+      inside: {
+        "@media (max-width: 767px)": {
+          paddingTop: "12%",
+        },
+      },
+    },
+  },
+
+  defaultVariants: {
+    room: "rim",
+  },
 });
 
 export const Circle = styled("div", {
@@ -90,6 +143,12 @@ export const Overflow = styled("img", {
   width: "100%",
   height: "auto",
   display: "block",
+
+  "@md": {
+    maxHeight: "100%",
+    objectFit: "contain",
+    objectPosition: "top center",
+  },
 });
 
 export const Figure = styled("img", {
@@ -105,6 +164,10 @@ export const Figure = styled("img", {
       /** Standing / walking figures perch on the rim. */
       above: {
         marginTop: "-43%",
+      },
+      /** person-4 — a bit more empty space above the figure. */
+      aboveTall: {
+        marginTop: "-38%",
       },
       /** person-3 walks further left along the rim. */
       aboveLeft: {

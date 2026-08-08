@@ -11,7 +11,7 @@ export type GoalProgress = {
   key: keyof Omit<Goals, "year">;
   current: number;
   target: number;
-  /** Fill amount for the gauge, clamped 0–100. */
+  /** Progress ratio as a percent — may exceed 100 when the goal is surpassed. */
   percent: number;
   /** True when current is strictly above the target. */
   exceeded: boolean;

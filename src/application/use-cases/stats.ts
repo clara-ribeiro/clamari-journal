@@ -34,9 +34,8 @@ export function computeGoalProgress(
   ];
 
   return items.map((item) => {
-    const ratio =
-      item.target > 0 ? item.current / item.target : 0;
-    const percent = Math.min(100, Math.round(ratio * 100));
+    const percent =
+      item.target > 0 ? Math.round((item.current / item.target) * 100) : 0;
     return {
       ...item,
       percent,

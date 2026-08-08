@@ -25,6 +25,8 @@ const people = statsCopy.goals.people;
 const hangingKeys = new Set(["series"]);
 /** person-3 (books) sits further left on the rim. */
 const leftShiftKeys = new Set(["books"]);
+/** person-4 (pages) sits slightly lower for more space above. */
+const tallRimKeys = new Set(["pages"]);
 
 function personSrc(key: string) {
   if (key in people) {
@@ -36,7 +38,14 @@ function personSrc(key: string) {
 function figurePlacement(key: string) {
   if (hangingKeys.has(key)) return "hanging" as const;
   if (leftShiftKeys.has(key)) return "aboveLeft" as const;
+  if (tallRimKeys.has(key)) return "aboveTall" as const;
   return "above" as const;
+}
+
+function stageRoom(key: string) {
+  if (hangingKeys.has(key)) return "inside" as const;
+  if (tallRimKeys.has(key)) return "rimTall" as const;
+  return "rim" as const;
 }
 
 export default function GoalsGauge({ goals, className }: GoalsGaugeProps) {
@@ -44,9 +53,11 @@ export default function GoalsGauge({ goals, className }: GoalsGaugeProps) {
     <Section className={className} aria-labelledby={statsCopy.goalsHeadingId}>
       <Title id={statsCopy.goalsHeadingId}>{statsCopy.goalsHeading}</Title>
       <Row>
-        {goals.map((goal) => (
+        {goals.map((goal) => {
+          const placement = figurePlacement(goal.key);
+          return (
           <Gauge key={goal.key}>
-            <Stage>
+            <Stage room={stageRoom(goal.key)}>
               {goal.exceeded ? (
                 <Overflow
                   src={statsCopy.goals.fullCircleSrc}
@@ -59,7 +70,7 @@ export default function GoalsGauge({ goals, className }: GoalsGaugeProps) {
                 <Circle
                   style={
                     {
-                      "--goal-fill": `${goal.percent}%`,
+                      "--goal-fill": `${Math.min(100, goal.percent)}%`,
                     } as CSSProperties
                   }
                   aria-hidden
@@ -71,13 +82,14 @@ export default function GoalsGauge({ goals, className }: GoalsGaugeProps) {
                 width={300}
                 height={300}
                 decoding="async"
-                placement={figurePlacement(goal.key)}
+                placement={placement}
               />
             </Stage>
             <Value>{goal.value}</Value>
             <Label>{goal.label}</Label>
           </Gauge>
-        ))}
+          );
+        })}
       </Row>
     </Section>
   );

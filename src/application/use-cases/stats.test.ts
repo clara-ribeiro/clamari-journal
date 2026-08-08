@@ -55,7 +55,7 @@ describe("computeGoalProgress", () => {
     });
   });
 
-  it("clamps percent at 100, flags exceeded, and avoids divide-by-zero", () => {
+  it("reports real percent above 100, flags exceeded, and avoids divide-by-zero", () => {
     const progress = computeGoalProgress(
       { year: 2026, movies: 0, series: 1, books: 1, pages: 1 },
       {
@@ -94,7 +94,7 @@ describe("computeGoalProgress", () => {
       remaining: 0,
     });
     expect(progress.find((g) => g.key === "series")).toMatchObject({
-      percent: 100,
+      percent: 400,
       exceeded: true,
       remaining: 0,
     });
