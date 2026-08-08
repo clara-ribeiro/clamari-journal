@@ -137,9 +137,6 @@ export function getStatsPageData(): {
     bookEntries,
   );
 
-  const totalWatch =
-    movies.totalRuntimeMinutes + series.totalRuntimeMinutes;
-
   const formatCount = (value: number) => value.toLocaleString("en-US");
 
   /** Collage order matches the stats page layout (alternating image/stat rows). */
@@ -150,9 +147,14 @@ export function getStatsPageData(): {
       label: statsCopy.metrics.works,
     },
     {
-      id: "total-time",
-      value: formatDuration(totalWatch),
-      label: statsCopy.metrics.totalWatchTime,
+      id: "film-time",
+      value: formatDuration(movies.totalRuntimeMinutes),
+      label: statsCopy.metrics.filmWatchTime,
+    },
+    {
+      id: "series-time",
+      value: formatDuration(series.totalRuntimeMinutes),
+      label: statsCopy.metrics.seriesWatchTime,
     },
     {
       id: "pages",

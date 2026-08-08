@@ -55,7 +55,6 @@ export const statsCopy = {
     pagesRead: "Pages read",
     filmWatchTime: "Film watch time",
     seriesWatchTime: "Series watch time",
-    totalWatchTime: "TV watch time",
   },
   goalLabels: {
     /** Domain key stays `movies` (goals.json); label is user-facing. */
