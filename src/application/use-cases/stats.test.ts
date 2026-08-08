@@ -44,16 +44,18 @@ describe("computeGoalProgress", () => {
       current: 40,
       target: 100,
       percent: 40,
+      exceeded: false,
       remaining: 60,
     });
     expect(progress.find((g) => g.key === "pages")).toMatchObject({
       current: 250,
       percent: 25,
+      exceeded: false,
       remaining: 750,
     });
   });
 
-  it("clamps percent at 100 and avoids divide-by-zero", () => {
+  it("clamps percent at 100, flags exceeded, and avoids divide-by-zero", () => {
     const progress = computeGoalProgress(
       { year: 2026, movies: 0, series: 1, books: 1, pages: 1 },
       {
@@ -68,7 +70,7 @@ describe("computeGoalProgress", () => {
       {
         total: 0,
         watching: 0,
-        completed: 0,
+        completed: 4,
         paused: 0,
         abandoned: 0,
         watchlist: 0,
@@ -88,6 +90,12 @@ describe("computeGoalProgress", () => {
 
     expect(progress.find((g) => g.key === "movies")).toMatchObject({
       percent: 0,
+      exceeded: false,
+      remaining: 0,
+    });
+    expect(progress.find((g) => g.key === "series")).toMatchObject({
+      percent: 100,
+      exceeded: true,
       remaining: 0,
     });
   });

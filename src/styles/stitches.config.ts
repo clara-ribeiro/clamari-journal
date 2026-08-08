@@ -25,6 +25,7 @@ export const {
       statsSurface: "#C9A05A",
       statsText: "#462304",
       statsHeroBg: "#131313",
+      goalInk: "#A5271C",
       journalPanel: "#900000",
       journalPanelText: "#D0BDA2",
 
@@ -177,6 +178,7 @@ export const lightTheme = createTheme("light-theme", {
       statsSurface: "#C9A05A",
       statsText: "#462304",
       statsHeroBg: "#131313",
+      goalInk: "#A5271C",
       journalPanel: "#900000",
       journalPanelText: "#D0BDA2",
 

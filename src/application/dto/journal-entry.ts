@@ -64,4 +64,8 @@ export type GoalMetric = {
   key: string;
   value: string;
   label: string;
+  current: number;
+  target: number;
+  percent: number;
+  exceeded: boolean;
 };

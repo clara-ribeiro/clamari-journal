@@ -34,13 +34,13 @@ export function computeGoalProgress(
   ];
 
   return items.map((item) => {
-    const percent =
-      item.target > 0
-        ? Math.min(100, Math.round((item.current / item.target) * 100))
-        : 0;
+    const ratio =
+      item.target > 0 ? item.current / item.target : 0;
+    const percent = Math.min(100, Math.round(ratio * 100));
     return {
       ...item,
       percent,
+      exceeded: item.target > 0 && item.current > item.target,
       remaining: Math.max(0, item.target - item.current),
     };
   });
@@ -148,6 +148,10 @@ export function getStatsPageData(): {
       key: goal.key,
       value: `${goal.current}/${goal.target}`,
       label: `${statsCopy.goalLabels[goal.key]} · ${goal.percent}% · ${goal.remaining} ${statsCopy.remainingSuffix}`,
+      current: goal.current,
+      target: goal.target,
+      percent: goal.percent,
+      exceeded: goal.exceeded,
     })),
   };
 }

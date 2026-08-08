@@ -10,7 +10,17 @@ export const statsCopy = {
     },
   },
   goalsHeading: "Goals",
+  goalsHeadingId: "goals-heading",
   remainingSuffix: "remaining",
+  goals: {
+    fullCircleSrc: "/images/stats/full-circle.svg",
+    people: {
+      movies: "/images/stats/person-1.svg",
+      series: "/images/stats/person-2.svg",
+      books: "/images/stats/person-3.svg",
+      pages: "/images/stats/person-4.svg",
+    },
+  },
   metrics: {
     works: "Works logged",
     filmsWatched: "Films watched",

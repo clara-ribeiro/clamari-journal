@@ -32,8 +32,3 @@ export const Label = styled("p", {
   fontSize: "$body2",
   marginTop: "$xs",
 });
-
-export const SectionTitle = styled("h2", {
-  fontSize: "$h3",
-  marginBottom: "$md",
-});
