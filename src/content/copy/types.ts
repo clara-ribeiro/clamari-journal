@@ -23,5 +23,7 @@ export type MediumCatalogCopy = {
   empty: string;
   /** Shown when the catalog has entries but filters/search match nothing */
   noResults: string;
+  /** Placeholders filled from the visible (filtered) catalog set */
+  summary: string;
   hero: MediumCatalogHeroCopy;
 };

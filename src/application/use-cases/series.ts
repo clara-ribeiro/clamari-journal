@@ -132,6 +132,7 @@ function toSeriesCatalogCard(entry: SeriesEntry): CatalogCardItem {
     sortRating: entry.rating ?? 0,
     sortYear: null,
     goalYears: yearsSeriesCountsToward(entry),
+    watchedEpisodeCount: entry.watchedEpisodes.length,
   };
 }
 
@@ -186,13 +187,4 @@ export function getSeriesDetail(slug: string): SeriesDetail | undefined {
       date: formatDate(ep.watchedAt),
     })),
   };
-}
-
-export function getSeriesPageSummary() {
-  const stats = getSeriesStats();
-  return seriesCopy.list.summary
-    .replace("{total}", String(stats.total))
-    .replace("{episodes}", String(stats.watchedEpisodes))
-    .replace("{completed}", String(stats.completed))
-    .replace("{watching}", String(stats.watching));
 }

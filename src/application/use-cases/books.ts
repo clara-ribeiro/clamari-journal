@@ -94,6 +94,7 @@ function toBookCatalogCard(book: BookEntry): CatalogCardItem {
     sortRating: book.rating ?? 0,
     sortYear: null,
     goalYears: yearsBookCountsToward(book, goalsRepository.get().year),
+    watchedEpisodeCount: 0,
   };
 }
 
@@ -128,12 +129,4 @@ export function getBookDetail(slug: string): BookDetail | undefined {
       },
     ],
   };
-}
-
-export function getBooksPageSummary() {
-  const stats = getBookStats();
-  return booksCopy.list.summary
-    .replace("{finished}", String(stats.finished))
-    .replace("{reading}", String(stats.reading))
-    .replace("{total}", String(stats.total));
 }

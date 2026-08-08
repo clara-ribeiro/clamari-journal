@@ -31,4 +31,6 @@ export type CatalogCardItem = {
    * (finished / caught-up activity). Used by `?year=` catalog filter.
    */
   goalYears: number[];
+  /** Watched episode count — used by series catalog summaries */
+  watchedEpisodeCount: number;
 };

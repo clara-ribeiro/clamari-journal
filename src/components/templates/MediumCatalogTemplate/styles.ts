@@ -61,7 +61,8 @@ export const Content = styled("main", {
 });
 
 export const Summary = styled("p", {
-  marginBottom: "$lg",
+  margin: 0,
+  marginTop: "$xl",
   color: "inherit",
   opacity: 0.85,
 });

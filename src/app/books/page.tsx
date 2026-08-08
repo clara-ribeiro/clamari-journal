@@ -1,7 +1,4 @@
-import {
-  getBooksPageSummary,
-  listBookCatalogItems,
-} from "@/application/use-cases/books";
+import { listBookCatalogItems } from "@/application/use-cases/books";
 import MediumCatalogTemplate from "@/components/templates/MediumCatalogTemplate";
 import { booksCopy } from "@/content/copy";
 import { parseCatalogSearchParams } from "@/lib/catalog-search-params";
@@ -17,7 +14,6 @@ export default async function BooksPage({ searchParams }: BooksPageProps) {
     <MediumCatalogTemplate
       medium="books"
       copy={booksCopy.list}
-      summary={getBooksPageSummary()}
       items={listBookCatalogItems()}
       initialStatus={initialFilters.status}
       initialYear={initialFilters.year}

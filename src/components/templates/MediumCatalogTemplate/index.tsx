@@ -17,6 +17,7 @@ import CatalogHero, {
   type CatalogMedium,
 } from "@/components/organisms/CatalogHero";
 import { catalogQueryString } from "@/lib/catalog-search-params";
+import { formatCatalogSummary } from "@/lib/catalog-summary";
 import { foldSearchText } from "@/lib/search-text";
 import { isTmdbImageUrl, tmdbImageLoader } from "@/lib/tmdb-image";
 import {
@@ -40,7 +41,6 @@ const POSTER_SIZES =
 export type MediumCatalogTemplateProps = {
   medium: CatalogMedium;
   copy: MediumCatalogCopy;
-  summary: string;
   items: CatalogCardItem[];
   initialStatus?: string;
   initialYear?: number | null;
@@ -124,7 +124,6 @@ function preloadLcpPoster(posterUrl: string | null | undefined) {
 export default function MediumCatalogTemplate({
   medium,
   copy,
-  summary,
   items,
   initialStatus = "",
   initialYear = null,
@@ -211,6 +210,7 @@ export default function MediumCatalogTemplate({
 
   const shownItems = visibleItems.slice(0, visibleCount);
   const hasMore = visibleCount < visibleItems.length;
+  const liveSummary = formatCatalogSummary(medium, copy.summary, visibleItems);
 
   // Match the first painted card for the LCP preload target.
   preloadLcpPoster(visibleItems[0]?.posterUrl);
@@ -220,8 +220,6 @@ export default function MediumCatalogTemplate({
       <CatalogHero medium={medium} copy={copy.hero} />
       <Title id={copy.titleId}>{copy.title}</Title>
       <Content id="main-content" aria-labelledby={copy.titleId}>
-        <Summary>{summary}</Summary>
-
         <CatalogToolbar
           tone={tone}
           medium={medium}
@@ -291,6 +289,8 @@ export default function MediumCatalogTemplate({
             ) : null}
           </>
         )}
+
+        <Summary>{liveSummary}</Summary>
       </Content>
     </Page>
   );

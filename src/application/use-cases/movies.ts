@@ -100,6 +100,7 @@ function toFilmCatalogCard(movie: MovieEntry): CatalogCardItem {
     sortRating: movie.rating ?? 0,
     sortYear: yearLabel && /^\d{4}$/.test(yearLabel) ? Number(yearLabel) : null,
     goalYears: yearsMovieCountsToward(movie),
+    watchedEpisodeCount: 0,
   };
 }
 
@@ -136,12 +137,4 @@ export function getMovieDetail(slug: string): MovieDetail | undefined {
     ],
     note: filmsCopy.detail.note,
   };
-}
-
-export function getMoviesPageSummary() {
-  const stats = getMovieStats();
-  return filmsCopy.list.summary
-    .replace("{watched}", String(stats.watched))
-    .replace("{watchlist}", String(stats.watchlist))
-    .replace("{total}", String(stats.total));
 }
