@@ -134,9 +134,11 @@ function StatBlock({
         src={image.src}
         alt=""
         fill
-        sizes="(max-width: 767px) 100vw, 40vw"
+        sizes="(max-width: 767px) 100vw, 35vw"
         quality={60}
         loading="lazy"
+        decoding="async"
+        fetchPriority="low"
       />
       <StatOverlay />
       <StatFitText value={value} label={label} />
@@ -170,6 +172,8 @@ function MediaImage({
       sizes={sizes}
       quality={60}
       loading="lazy"
+      decoding="async"
+      fetchPriority="low"
     />
   );
 }

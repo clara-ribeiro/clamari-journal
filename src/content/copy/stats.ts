@@ -33,36 +33,36 @@ export const statsCopy = {
     images: {
       rows: [
         {
-          left: { src: "/images/stats/collage/01-left.png", alt: "" },
-          right: { src: "/images/stats/collage/01-right.png", alt: "" },
+          left: { src: "/images/stats/collage/01-left.webp", alt: "" },
+          right: { src: "/images/stats/collage/01-right.webp", alt: "" },
         },
         {
-          left: { src: "/images/stats/collage/02-left.png", alt: "" },
-          right: { src: "/images/stats/collage/02-right.png", alt: "" },
+          left: { src: "/images/stats/collage/02-left.webp", alt: "" },
+          right: { src: "/images/stats/collage/02-right.webp", alt: "" },
         },
         {
-          left: { src: "/images/stats/collage/03-left.png", alt: "" },
-          right: { src: "/images/stats/collage/03-right.png", alt: "" },
+          left: { src: "/images/stats/collage/03-left.webp", alt: "" },
+          right: { src: "/images/stats/collage/03-right.webp", alt: "" },
         },
         {
-          left: { src: "/images/stats/collage/04-left.png", alt: "" },
-          right: { src: "/images/stats/collage/04-right.png", alt: "" },
+          left: { src: "/images/stats/collage/04-left.webp", alt: "" },
+          right: { src: "/images/stats/collage/04-right.webp", alt: "" },
         },
         {
-          left: { src: "/images/stats/collage/05-left.png", alt: "" },
-          right: { src: "/images/stats/collage/05-right.png", alt: "" },
+          left: { src: "/images/stats/collage/05-left.webp", alt: "" },
+          right: { src: "/images/stats/collage/05-right.webp", alt: "" },
         },
         {
-          left: { src: "/images/stats/collage/06-left.png", alt: "" },
-          right: { src: "/images/stats/collage/06-right.png", alt: "" },
+          left: { src: "/images/stats/collage/06-left.webp", alt: "" },
+          right: { src: "/images/stats/collage/06-right.webp", alt: "" },
         },
         {
-          left: { src: "/images/stats/collage/07-left.png", alt: "" },
-          right: { src: "/images/stats/collage/07-right.png", alt: "" },
+          left: { src: "/images/stats/collage/07-left.webp", alt: "" },
+          right: { src: "/images/stats/collage/07-right.webp", alt: "" },
         },
         {
-          left: { src: "/images/stats/collage/08-left.png", alt: "" },
-          right: { src: "/images/stats/collage/08-right.png", alt: "" },
+          left: { src: "/images/stats/collage/08-left.webp", alt: "" },
+          right: { src: "/images/stats/collage/08-right.webp", alt: "" },
         },
       ],
     },
