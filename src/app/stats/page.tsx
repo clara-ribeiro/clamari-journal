@@ -1,5 +1,6 @@
 import { getStatsPageData } from "@/application/use-cases/stats";
 import StatsTemplate from "@/components/templates/StatsTemplate";
+import { statsCopy } from "@/content/copy";
 import { preload } from "react-dom";
 
 export default function StatsPage() {
@@ -15,5 +16,9 @@ export default function StatsPage() {
   });
 
   const { metrics, goals } = getStatsPageData();
-  return <StatsTemplate metrics={metrics} goals={goals} />;
+  return (
+    <main id="main-content" aria-labelledby={statsCopy.hero.titleId}>
+      <StatsTemplate metrics={metrics} goals={goals} />
+    </main>
+  );
 }

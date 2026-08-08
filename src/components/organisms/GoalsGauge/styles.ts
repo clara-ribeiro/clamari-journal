@@ -28,6 +28,18 @@ export const Section = styled("section", {
   },
 });
 
+/** Section label for AT — not shown visually. */
+export const Title = styled("h2", {
+  width: "1px",
+  height: "1px",
+  padding: 0,
+  margin: 0,
+  overflow: "hidden",
+  clipPath: "inset(50%)",
+  whiteSpace: "nowrap",
+  border: 0,
+});
+
 export const Row = styled("ul", {
   display: "grid",
   listStyle: "none",

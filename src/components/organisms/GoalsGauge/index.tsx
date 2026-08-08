@@ -15,8 +15,10 @@ import {
   Row,
   Section,
   Stage,
+  Title,
   Value,
 } from "./styles";
+
 
 const FILL_MS = 1400;
 
@@ -159,8 +161,12 @@ function GoalItem({ goal }: { goal: GoalMetric }) {
         scroll={false}
         aria-label={goalLinkLabel(goal)}
       >
-        <Stage room={stageRoom(goal.key)} reserve={goal.exceeded}>
-          <Circle aria-hidden>
+        <Stage
+          aria-hidden
+          room={stageRoom(goal.key)}
+          reserve={goal.exceeded}
+        >
+          <Circle>
             <Fill style={{ height: `${fillPercent}%` }} />
           </Circle>
           {goal.exceeded ? (
@@ -184,10 +190,10 @@ function GoalItem({ goal }: { goal: GoalMetric }) {
             placement={placement}
           />
         </Stage>
-        <Value>
+        <Value aria-hidden>
           {displayCurrent}/{goal.target}
         </Value>
-        <Label>{goal.label}</Label>
+        <Label aria-hidden>{goal.label}</Label>
       </GaugeLink>
     </Gauge>
   );
@@ -198,8 +204,9 @@ export default function GoalsGauge({ goals, className }: GoalsGaugeProps) {
     <Section
       id="goals-section"
       className={className}
-      aria-label={statsCopy.goalsAriaLabel}
+      aria-labelledby={statsCopy.goalsHeadingId}
     >
+      <Title id={statsCopy.goalsHeadingId}>{statsCopy.goalsAriaLabel}</Title>
       <Row>
         {goals.map((goal) => (
           <GoalItem key={goal.key} goal={goal} />

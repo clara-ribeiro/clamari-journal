@@ -10,6 +10,7 @@ export const statsCopy = {
       src: "/images/stats/ballerina-720.webp",
     },
   },
+  goalsHeadingId: "goals-heading",
   goalsAriaLabel: "Goals",
   remainingSuffix: "remaining",
   goals: {

@@ -199,7 +199,7 @@ export default function StatsCollage({
   return (
     <Section className={className} tone={tone} aria-labelledby={titleId}>
       <VisuallyHidden id={titleId}>{ariaLabel}</VisuallyHidden>
-      <Stack aria-label={ariaLabel}>
+      <Stack>
         {stats.map((stat, index) => {
           const row = rowImagesAt(images.rows, index);
           if (!row) return null;
