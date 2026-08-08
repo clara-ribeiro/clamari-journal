@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { statsCopy } from "@/content/copy";
 import { Figure, Section, Title } from "./styles";
 
@@ -12,6 +11,20 @@ export type StatsHeroProps = {
 
 const copy = statsCopy.hero;
 
+/** Intrinsic aspect from source art (3558×1848). */
+const BALLERINA_W = 720;
+const BALLERINA_H = 374;
+
+const BALLERINA_SRCSET = [
+  "/images/stats/ballerina-480.webp 480w",
+  "/images/stats/ballerina-720.webp 720w",
+  "/images/stats/ballerina-1080.webp 1080w",
+  "/images/stats/ballerina-1600.webp 1600w",
+].join(", ");
+
+/** Figure is `width: 60%` of the viewport / container. */
+const BALLERINA_SIZES = "(max-width: 1023px) 60vw, min(60vw, 48rem)";
+
 export default function StatsHero({
   titleId = copy.titleId,
   title = copy.title,
@@ -23,17 +36,20 @@ export default function StatsHero({
     <Section id={sentinelId} className={className} aria-labelledby={titleId}>
       <Title id={titleId}>{title}</Title>
       <Figure>
-        <Image
+        {/*
+          Native img + srcSet: Next Image `unoptimized` cannot emit a
+          responsive set, and the optimizer strips WebP alpha. Sizes match
+          the 60%-wide figure so mobile does not download the full asset.
+        */}
+        <img
           src={imageSrc}
+          srcSet={BALLERINA_SRCSET}
+          sizes={BALLERINA_SIZES}
           alt=""
-          width={1600}
-          height={1066}
-          sizes="(max-width: 767px) 100vw, (max-width: 1023px) 100vw, min(100vw, 80rem)"
-          priority
+          width={BALLERINA_W}
+          height={BALLERINA_H}
           fetchPriority="high"
-          // Next's optimizer strips alpha from WebP sources; serve the
-          // transparent asset directly.
-          unoptimized
+          decoding="async"
         />
       </Figure>
     </Section>

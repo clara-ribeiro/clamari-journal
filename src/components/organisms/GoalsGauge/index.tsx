@@ -168,18 +168,20 @@ function GoalItem({ goal }: { goal: GoalMetric }) {
             <Overflow
               src={statsCopy.goals.fullCircleSrc}
               alt=""
-              width={300}
-              height={382}
+              width={400}
+              height={509}
               decoding="async"
+              loading="lazy"
               style={{ opacity: showSpill ? 1 : 0 }}
             />
           ) : null}
           <Figure
             src={personSrc(goal.key)}
             alt=""
-            width={300}
-            height={300}
+            width={360}
+            height={360}
             decoding="async"
+            loading="lazy"
             placement={placement}
           />
         </Stage>

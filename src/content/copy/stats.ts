@@ -6,19 +6,20 @@ export const statsCopy = {
     title: "STATS",
     sentinelId: "stats-hero",
     image: {
-      src: "/images/stats/ballerina.webp",
+      /** Default / fallback; hero also serves a responsive srcSet. */
+      src: "/images/stats/ballerina-720.webp",
     },
   },
   goalsHeading: "Goals",
   goalsHeadingId: "goals-heading",
   remainingSuffix: "remaining",
   goals: {
-    fullCircleSrc: "/images/stats/full-circle.svg",
+    fullCircleSrc: "/images/stats/full-circle.webp",
     people: {
-      movies: "/images/stats/person-1.svg",
-      series: "/images/stats/person-2.svg",
-      books: "/images/stats/person-3.svg",
-      pages: "/images/stats/person-4.svg",
+      movies: "/images/stats/person-1.webp",
+      series: "/images/stats/person-2.webp",
+      books: "/images/stats/person-3.webp",
+      pages: "/images/stats/person-4.webp",
     },
   },
   metrics: {
