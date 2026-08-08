@@ -5,7 +5,13 @@ import {
   seriesRepository,
 } from "@/composition/repositories";
 import type { GoalMetric, StatsMetric } from "@/application/dto";
-import type { GoalProgress, Goals } from "@/domain/entities";
+import type {
+  BookEntry,
+  GoalProgress,
+  Goals,
+  MovieEntry,
+  SeriesEntry,
+} from "@/domain/entities";
 import { statsCopy } from "@/content/copy/stats";
 import { formatDuration } from "@/lib/formatters/formatDuration";
 import { computeBookStats } from "./books";
@@ -16,21 +22,135 @@ export function getGoals(): Goals {
   return goalsRepository.get();
 }
 
+function isoYear(iso?: string | null): number | null {
+  if (!iso || iso.length < 4) return null;
+  const year = Number(iso.slice(0, 4));
+  return Number.isFinite(year) ? year : null;
+}
+
+export function movieCountsTowardYearGoal(
+  movie: MovieEntry,
+  year: number,
+): boolean {
+  if (movie.status !== "watched" && movie.status !== "rewatch") return false;
+  return (movie.watchedDates ?? []).some((date) => isoYear(date) === year);
+}
+
+/** Regular (non-special) watched episodes, unique by season+episode. */
+function regularWatchedEpisodeKeys(series: SeriesEntry): Set<string> {
+  const keys = new Set<string>();
+  for (const episode of series.watchedEpisodes) {
+    if (episode.season <= 0) continue;
+    keys.add(`${episode.season}-${episode.episode}`);
+  }
+  return keys;
+}
+
+/**
+ * Caught up with everything released so far: finished show, marked up-to-date,
+ * or watched at least as many regular episodes as TMDB reports (preferred),
+ * else every season number through `numberOfSeasons`.
+ * When a new season/episode lands in TMDB, catch-up fails until watched again.
+ */
+export function isSeriesCaughtUp(series: SeriesEntry): boolean {
+  if (series.status === "completed" || series.status === "up-to-date") {
+    return true;
+  }
+  if (
+    series.status === "abandoned" ||
+    series.status === "watchlist" ||
+    series.status === "paused"
+  ) {
+    return false;
+  }
+
+  const watched = regularWatchedEpisodeKeys(series);
+  if (series.numberOfEpisodes !== undefined) {
+    return watched.size >= series.numberOfEpisodes;
+  }
+  if (series.numberOfSeasons !== undefined) {
+    const seasons = new Set(
+      [...watched].map((key) => Number(key.split("-")[0])),
+    );
+    for (let season = 1; season <= series.numberOfSeasons; season += 1) {
+      if (!seasons.has(season)) return false;
+    }
+    return series.numberOfSeasons > 0;
+  }
+  return false;
+}
+
+export function seriesCountsTowardYearGoal(
+  series: SeriesEntry,
+  year: number,
+): boolean {
+  if (!isSeriesCaughtUp(series)) return false;
+
+  const lastRegularWatch = series.watchedEpisodes
+    .filter((episode) => episode.season > 0 && episode.watchedAt)
+    .map((episode) => episode.watchedAt as string)
+    .sort()
+    .at(-1);
+
+  const completedAt = series.finishedAt ?? lastRegularWatch;
+  return isoYear(completedAt) === year;
+}
+
+export function bookCountsTowardYearGoal(
+  book: BookEntry,
+  year: number,
+): boolean {
+  if (book.status !== "finished") return false;
+
+  // Books often lack finishedAt in the catalog — fall back to reading history /
+  // startedAt, and count undated finished books toward the active goals year.
+  const activityDate =
+    book.finishedAt ??
+    book.readingHistory
+      ?.map((entry) => entry.date)
+      .filter((date): date is string => Boolean(date))
+      .sort()
+      .at(-1) ??
+    book.startedAt ??
+    null;
+
+  if (!activityDate) return true;
+  return isoYear(activityDate) === year;
+}
+
 export function computeGoalProgress(
   goals: Goals,
-  movies: ReturnType<typeof computeMovieStats>,
-  series: ReturnType<typeof computeSeriesStats>,
-  books: ReturnType<typeof computeBookStats>,
+  movies: MovieEntry[],
+  series: SeriesEntry[],
+  books: BookEntry[],
 ): GoalProgress[] {
+  const year = goals.year;
+  const yearMovies = movies.filter((movie) =>
+    movieCountsTowardYearGoal(movie, year),
+  );
+  const yearSeries = series.filter((entry) =>
+    seriesCountsTowardYearGoal(entry, year),
+  );
+  const yearBooks = books.filter((book) =>
+    bookCountsTowardYearGoal(book, year),
+  );
+
   const items: Array<{
     key: GoalProgress["key"];
     current: number;
     target: number;
   }> = [
-    { key: "movies", current: movies.watched, target: goals.movies },
-    { key: "series", current: series.completed, target: goals.series },
-    { key: "books", current: books.finished, target: goals.books },
-    { key: "pages", current: books.pagesRead, target: goals.pages },
+    { key: "movies", current: yearMovies.length, target: goals.movies },
+    { key: "series", current: yearSeries.length, target: goals.series },
+    { key: "books", current: yearBooks.length, target: goals.books },
+    {
+      key: "pages",
+      current: yearBooks.reduce(
+        (sum, book) => sum + (book.customPageCount ?? book.currentPage ?? 0),
+        0,
+      ),
+      target: goals.pages,
+    },
   ];
 
   return items.map((item) => {
@@ -48,9 +168,9 @@ export function computeGoalProgress(
 export function getGoalProgress(): GoalProgress[] {
   return computeGoalProgress(
     getGoals(),
-    computeMovieStats(movieRepository.findAll()),
-    computeSeriesStats(seriesRepository.findAll()),
-    computeBookStats(bookRepository.findAll()),
+    movieRepository.findAll(),
+    seriesRepository.findAll(),
+    bookRepository.findAll(),
   );
 }
 
@@ -88,7 +208,12 @@ export function getStatsPageData(): {
   const movies = computeMovieStats(movieEntries);
   const series = computeSeriesStats(seriesEntries);
   const books = computeBookStats(bookEntries);
-  const goals = computeGoalProgress(getGoals(), movies, series, books);
+  const goals = computeGoalProgress(
+    getGoals(),
+    movieEntries,
+    seriesEntries,
+    bookEntries,
+  );
 
   const totalWatch =
     movies.totalRuntimeMinutes + series.totalRuntimeMinutes;

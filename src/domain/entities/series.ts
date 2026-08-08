@@ -26,6 +26,10 @@ export type SeriesEntry = {
   tmdbId?: number;
   /** Relative TMDB poster path (e.g. `/abc.jpg`) — filled after enrichment */
   posterPath?: string;
+  /** Regular seasons so far (TMDB) — used for catch-up goals */
+  numberOfSeasons?: number;
+  /** Regular episodes so far (TMDB) — preferred catch-up signal */
+  numberOfEpisodes?: number;
   /** TheTVDB id from GDPR export (stable source key) */
   tvdbId: number;
   slug: string;

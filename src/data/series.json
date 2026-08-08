@@ -970,7 +970,9 @@
     "startedAt": "2018-07-27",
     "finishedAt": "2019-01-24",
     "tmdbId": 4313,
-    "posterPath": "/7g0EyKsIaYjYw3gCIBKMHHE0Kcu.jpg"
+    "posterPath": "/7g0EyKsIaYjYw3gCIBKMHHE0Kcu.jpg",
+    "numberOfSeasons": 8,
+    "numberOfEpisodes": 192
   },
   {
     "tvdbId": 70533,
@@ -981,7 +983,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-01-19",
     "tmdbId": 1920,
-    "posterPath": "/lA9CNSdo50iQPZ8A2fyVpMvJZAf.jpg"
+    "posterPath": "/lA9CNSdo50iQPZ8A2fyVpMvJZAf.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 48
   },
   {
     "tvdbId": 72477,
@@ -1349,7 +1353,9 @@
     "startedAt": "2018-09-04",
     "finishedAt": "2018-10-30",
     "tmdbId": 3475,
-    "posterPath": "/nuBhtv4P5nY9loJ6kXb1hsyc9EA.jpg"
+    "posterPath": "/nuBhtv4P5nY9loJ6kXb1hsyc9EA.jpg",
+    "numberOfSeasons": 6,
+    "numberOfEpisodes": 71
   },
   {
     "tvdbId": 72521,
@@ -1360,7 +1366,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-01-31",
     "tmdbId": 688,
-    "posterPath": "/yqDWr5NAE7m1IWrygYwLyEB6pN0.jpg"
+    "posterPath": "/yqDWr5NAE7m1IWrygYwLyEB6pN0.jpg",
+    "numberOfSeasons": 7,
+    "numberOfEpisodes": 154
   },
   {
     "tvdbId": 72584,
@@ -1371,7 +1379,9 @@
     "watchedEpisodes": [],
     "startedAt": "2018-02-14",
     "tmdbId": 2327,
-    "posterPath": "/arT93dBemanftfWTcf9I0JRIlxU.jpg"
+    "posterPath": "/arT93dBemanftfWTcf9I0JRIlxU.jpg",
+    "numberOfSeasons": 6,
+    "numberOfEpisodes": 128
   },
   {
     "tvdbId": 72888,
@@ -1382,7 +1392,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-07-21",
     "tmdbId": 4500,
-    "posterPath": "/tkaduqdhFrF1vp8L55OJfB5jw8Z.jpg"
+    "posterPath": "/tkaduqdhFrF1vp8L55OJfB5jw8Z.jpg",
+    "numberOfSeasons": 6,
+    "numberOfEpisodes": 115
   },
   {
     "tvdbId": 73244,
@@ -2392,7 +2404,9 @@
     "startedAt": "2021-01-07",
     "finishedAt": "2023-02-25",
     "tmdbId": 2316,
-    "posterPath": "/AcsDnYMUKwYepl75Uc1Hb4aKvDC.jpg"
+    "posterPath": "/AcsDnYMUKwYepl75Uc1Hb4aKvDC.jpg",
+    "numberOfSeasons": 9,
+    "numberOfEpisodes": 186
   },
   {
     "tvdbId": 73255,
@@ -3285,7 +3299,9 @@
     "startedAt": "2016-02-25",
     "finishedAt": "2016-02-25",
     "tmdbId": 1408,
-    "posterPath": "/3Cz7ySOQJmqiuTdrc6CY0r65yDI.jpg"
+    "posterPath": "/3Cz7ySOQJmqiuTdrc6CY0r65yDI.jpg",
+    "numberOfSeasons": 8,
+    "numberOfEpisodes": 176
   },
   {
     "tvdbId": 73739,
@@ -3448,7 +3464,9 @@
     "startedAt": "2021-06-15",
     "finishedAt": "2021-06-26",
     "tmdbId": 4607,
-    "posterPath": "/og6S0aTZU6YUJAbqxeKjCa3kY1E.jpg"
+    "posterPath": "/og6S0aTZU6YUJAbqxeKjCa3kY1E.jpg",
+    "numberOfSeasons": 6,
+    "numberOfEpisodes": 118
   },
   {
     "tvdbId": 73762,
@@ -5359,7 +5377,9 @@
     ],
     "startedAt": "2016-03-08",
     "tmdbId": 1416,
-    "posterPath": "/hjJkrLXhWvGHpLeLBDFznpBTY1S.jpg"
+    "posterPath": "/hjJkrLXhWvGHpLeLBDFznpBTY1S.jpg",
+    "numberOfSeasons": 23,
+    "numberOfEpisodes": 466
   },
   {
     "tvdbId": 73787,
@@ -6372,7 +6392,9 @@
     "startedAt": "2017-10-15",
     "finishedAt": "2018-03-23",
     "tmdbId": 52,
-    "posterPath": "/laEZvTqM80UaplUaDSCCbWhlyEV.jpg"
+    "posterPath": "/laEZvTqM80UaplUaDSCCbWhlyEV.jpg",
+    "numberOfSeasons": 8,
+    "numberOfEpisodes": 200
   },
   {
     "tvdbId": 73800,
@@ -6383,7 +6405,9 @@
     "watchedEpisodes": [],
     "startedAt": "2018-06-05",
     "tmdbId": 693,
-    "posterPath": "/sywYmV9c9Vj2U7ocqNyfDt2pz3r.jpg"
+    "posterPath": "/sywYmV9c9Vj2U7ocqNyfDt2pz3r.jpg",
+    "numberOfSeasons": 8,
+    "numberOfEpisodes": 179
   },
   {
     "tvdbId": 74256,
@@ -7201,7 +7225,9 @@
     "startedAt": "2017-10-15",
     "finishedAt": "2018-08-12",
     "tmdbId": 1848,
-    "posterPath": "/iAEh0rhHfq0oPdsZbsCSNPRBHXW.jpg"
+    "posterPath": "/iAEh0rhHfq0oPdsZbsCSNPRBHXW.jpg",
+    "numberOfSeasons": 8,
+    "numberOfEpisodes": 208
   },
   {
     "tvdbId": 75340,
@@ -7609,7 +7635,9 @@
     "startedAt": "2016-02-01",
     "finishedAt": "2016-02-01",
     "tmdbId": 2288,
-    "posterPath": "/wnmNPaLvhnMeOqnWlhNkYCZxtda.jpg"
+    "posterPath": "/wnmNPaLvhnMeOqnWlhNkYCZxtda.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 88
   },
   {
     "tvdbId": 75692,
@@ -11163,7 +11191,9 @@
     ],
     "startedAt": "2023-04-02",
     "tmdbId": 2734,
-    "posterPath": "/iofokHZoUB4Qhik4PflvJl8TT6a.jpg"
+    "posterPath": "/iofokHZoUB4Qhik4PflvJl8TT6a.jpg",
+    "numberOfSeasons": 28,
+    "numberOfEpisodes": 595
   },
   {
     "tvdbId": 75710,
@@ -13299,7 +13329,9 @@
     ],
     "startedAt": "2019-10-11",
     "tmdbId": 4057,
-    "posterPath": "/hWSb4UnIjlTvnvrP98NbFSO60HA.jpg"
+    "posterPath": "/hWSb4UnIjlTvnvrP98NbFSO60HA.jpg",
+    "numberOfSeasons": 19,
+    "numberOfEpisodes": 364
   },
   {
     "tvdbId": 75760,
@@ -14352,7 +14384,9 @@
     "startedAt": "2017-01-05",
     "finishedAt": "2017-02-18",
     "tmdbId": 1100,
-    "posterPath": "/b34jPzmB0wZy7EjUZoleXOl2RRI.jpg"
+    "posterPath": "/b34jPzmB0wZy7EjUZoleXOl2RRI.jpg",
+    "numberOfSeasons": 9,
+    "numberOfEpisodes": 208
   },
   {
     "tvdbId": 76321,
@@ -14455,7 +14489,9 @@
     "startedAt": "2017-10-15",
     "finishedAt": "2017-12-10",
     "tmdbId": 2382,
-    "posterPath": "/tPqV63zcW6ZV0Hd48DMGb5UzQIG.jpg"
+    "posterPath": "/tPqV63zcW6ZV0Hd48DMGb5UzQIG.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 18
   },
   {
     "tvdbId": 76568,
@@ -15233,7 +15269,9 @@
     "startedAt": "2017-07-20",
     "finishedAt": "2017-08-31",
     "tmdbId": 4586,
-    "posterPath": "/gwtzCwU2wdLLf8oejQu2TINiWfQ.jpg"
+    "posterPath": "/gwtzCwU2wdLLf8oejQu2TINiWfQ.jpg",
+    "numberOfSeasons": 7,
+    "numberOfEpisodes": 153
   },
   {
     "tvdbId": 77422,
@@ -15271,7 +15309,9 @@
     "startedAt": "2020-02-12",
     "finishedAt": "2020-02-12",
     "tmdbId": 18745,
-    "posterPath": "/EfM6EHyzr2q7TWFO5uEBNssgo4.jpg"
+    "posterPath": "/EfM6EHyzr2q7TWFO5uEBNssgo4.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 5
   },
   {
     "tvdbId": 78107,
@@ -15282,7 +15322,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-09-12",
     "tmdbId": 2996,
-    "posterPath": "/oX2JKE1RzAONMbYlujHx0hRAJo1.jpg"
+    "posterPath": "/oX2JKE1RzAONMbYlujHx0hRAJo1.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 12
   },
   {
     "tvdbId": 78804,
@@ -15757,7 +15799,9 @@
     "startedAt": "2019-08-17",
     "finishedAt": "2021-04-30",
     "tmdbId": 57243,
-    "posterPath": "/m6G92osOtSeXwjSfL21jZCUOvxe.jpg"
+    "posterPath": "/m6G92osOtSeXwjSfL21jZCUOvxe.jpg",
+    "numberOfSeasons": 13,
+    "numberOfEpisodes": 153
   },
   {
     "tvdbId": 78901,
@@ -15920,7 +15964,9 @@
     "startedAt": "2016-02-10",
     "finishedAt": "2016-06-24",
     "tmdbId": 1622,
-    "posterPath": "/8iixmfGx5EIFPdpNvB2JvI3VIqX.jpg"
+    "posterPath": "/8iixmfGx5EIFPdpNvB2JvI3VIqX.jpg",
+    "numberOfSeasons": 15,
+    "numberOfEpisodes": 327
   },
   {
     "tvdbId": 79168,
@@ -17113,7 +17159,9 @@
     "startedAt": "2017-04-18",
     "finishedAt": "2017-07-20",
     "tmdbId": 1668,
-    "posterPath": "/2koX1xLkpTQM4IZebYvKysFW1Nh.jpg"
+    "posterPath": "/2koX1xLkpTQM4IZebYvKysFW1Nh.jpg",
+    "numberOfSeasons": 10,
+    "numberOfEpisodes": 228
   },
   {
     "tvdbId": 79349,
@@ -17311,7 +17359,9 @@
     ],
     "startedAt": "2016-06-24",
     "tmdbId": 1405,
-    "posterPath": "/q8dWfc4JwQuv3HayIZeO84jAXED.jpg"
+    "posterPath": "/q8dWfc4JwQuv3HayIZeO84jAXED.jpg",
+    "numberOfSeasons": 8,
+    "numberOfEpisodes": 96
   },
   {
     "tvdbId": 79481,
@@ -17322,7 +17372,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-01-27",
     "tmdbId": 13916,
-    "posterPath": "/tCZFfYTIwrR7n94J6G14Y4hAFU6.jpg"
+    "posterPath": "/tCZFfYTIwrR7n94J6G14Y4hAFU6.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 37
   },
   {
     "tvdbId": 79925,
@@ -17333,7 +17385,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-09-15",
     "tmdbId": 2942,
-    "posterPath": "/7pdeNK1CUqj1yuG9VMDeynnq9xK.jpg"
+    "posterPath": "/7pdeNK1CUqj1yuG9VMDeynnq9xK.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 38
   },
   {
     "tvdbId": 80337,
@@ -17344,7 +17398,9 @@
     "watchedEpisodes": [],
     "startedAt": "2018-08-31",
     "tmdbId": 1104,
-    "posterPath": "/7v8iCNzKFpdlrCMcqCoJyn74Nsa.jpg"
+    "posterPath": "/7v8iCNzKFpdlrCMcqCoJyn74Nsa.jpg",
+    "numberOfSeasons": 7,
+    "numberOfEpisodes": 92
   },
   {
     "tvdbId": 80348,
@@ -17355,7 +17411,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-08-27",
     "tmdbId": 1404,
-    "posterPath": "/vEZvGVVMjk1TRs59nfypTI5lAXj.jpg"
+    "posterPath": "/vEZvGVVMjk1TRs59nfypTI5lAXj.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 91
   },
   {
     "tvdbId": 80379,
@@ -17366,7 +17424,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-01-27",
     "tmdbId": 1418,
-    "posterPath": "/euKFiO5M125rpngFRBbSW83beeI.jpg"
+    "posterPath": "/euKFiO5M125rpngFRBbSW83beeI.jpg",
+    "numberOfSeasons": 12,
+    "numberOfEpisodes": 279
   },
   {
     "tvdbId": 80446,
@@ -17377,7 +17437,9 @@
     "watchedEpisodes": [],
     "startedAt": "2018-11-19",
     "tmdbId": 2081,
-    "posterPath": "/zGvtxSlopOuhXDjjQrSuPqW62kU.jpg"
+    "posterPath": "/zGvtxSlopOuhXDjjQrSuPqW62kU.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 40
   },
   {
     "tvdbId": 80542,
@@ -17388,7 +17450,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-07-30",
     "tmdbId": 3172,
-    "posterPath": "/pW20ANAGdrgreYJExduUVaWos6H.jpg"
+    "posterPath": "/pW20ANAGdrgreYJExduUVaWos6H.jpg",
+    "numberOfSeasons": 6,
+    "numberOfEpisodes": 111
   },
   {
     "tvdbId": 80547,
@@ -17726,7 +17790,9 @@
     "startedAt": "2016-02-25",
     "finishedAt": "2016-02-25",
     "tmdbId": 1395,
-    "posterPath": "/mRvSUuU1VQQkZZ578jKJpcUCuL8.jpg"
+    "posterPath": "/mRvSUuU1VQQkZZ578jKJpcUCuL8.jpg",
+    "numberOfSeasons": 6,
+    "numberOfEpisodes": 121
   },
   {
     "tvdbId": 81189,
@@ -18049,7 +18115,9 @@
     "startedAt": "2016-01-28",
     "finishedAt": "2016-01-28",
     "tmdbId": 1396,
-    "posterPath": "/anFx9aTOOYqgS3v7x3R84Kz67ly.jpg"
+    "posterPath": "/anFx9aTOOYqgS3v7x3R84Kz67ly.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 62
   },
   {
     "tvdbId": 82696,
@@ -18060,7 +18128,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-03-19",
     "tmdbId": 1409,
-    "posterPath": "/kiy8BHtIHAslh81rvFcZ4wbNGdY.jpg"
+    "posterPath": "/kiy8BHtIHAslh81rvFcZ4wbNGdY.jpg",
+    "numberOfSeasons": 7,
+    "numberOfEpisodes": 92
   },
   {
     "tvdbId": 82851,
@@ -18087,7 +18157,9 @@
     ],
     "startedAt": "2019-08-04",
     "tmdbId": 13894,
-    "posterPath": "/o2xWfAWTh8akVaKrQ7Alsu1MhU2.jpg"
+    "posterPath": "/o2xWfAWTh8akVaKrQ7Alsu1MhU2.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 3
   },
   {
     "tvdbId": 85002,
@@ -18098,7 +18170,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-07-20",
     "tmdbId": 8514,
-    "posterPath": "/ySs9xkTfPgQCUNB2ctOzcMWP14n.jpg"
+    "posterPath": "/ySs9xkTfPgQCUNB2ctOzcMWP14n.jpg",
+    "numberOfSeasons": 18,
+    "numberOfEpisodes": 255
   },
   {
     "tvdbId": 95011,
@@ -19361,7 +19435,9 @@
     "startedAt": "2020-08-28",
     "finishedAt": "2021-04-02",
     "tmdbId": 1421,
-    "posterPath": "/k5Qg5rgPoKdh3yTJJrLtyoyYGwC.jpg"
+    "posterPath": "/k5Qg5rgPoKdh3yTJJrLtyoyYGwC.jpg",
+    "numberOfSeasons": 11,
+    "numberOfEpisodes": 250
   },
   {
     "tvdbId": 95491,
@@ -20034,7 +20110,9 @@
     "startedAt": "2016-02-01",
     "finishedAt": "2016-02-01",
     "tmdbId": 18165,
-    "posterPath": "/b3vl6wV1W8PBezFfntKTrhrehCY.jpg"
+    "posterPath": "/b3vl6wV1W8PBezFfntKTrhrehCY.jpg",
+    "numberOfSeasons": 8,
+    "numberOfEpisodes": 171
   },
   {
     "tvdbId": 95771,
@@ -20061,7 +20139,9 @@
     ],
     "startedAt": "2018-02-12",
     "tmdbId": 18520,
-    "posterPath": "/fbu2O3hbU1ZROpjU01YCAMLz1sR.jpg"
+    "posterPath": "/fbu2O3hbU1ZROpjU01YCAMLz1sR.jpg",
+    "numberOfSeasons": 6,
+    "numberOfEpisodes": 78
   },
   {
     "tvdbId": 121361,
@@ -20439,7 +20519,9 @@
     "startedAt": "2016-01-28",
     "finishedAt": "2019-05-20",
     "tmdbId": 1399,
-    "posterPath": "/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg"
+    "posterPath": "/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg",
+    "numberOfSeasons": 8,
+    "numberOfEpisodes": 73
   },
   {
     "tvdbId": 129261,
@@ -20450,7 +20532,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-09-15",
     "tmdbId": 46296,
-    "posterPath": "/c2GKN4VHCj1dnjFMANRpGkCVBae.jpg"
+    "posterPath": "/c2GKN4VHCj1dnjFMANRpGkCVBae.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 33
   },
   {
     "tvdbId": 146711,
@@ -21263,7 +21347,9 @@
     "startedAt": "2016-01-27",
     "finishedAt": "2018-02-14",
     "tmdbId": 31917,
-    "posterPath": "/aUPbHiLS3hCHKjtLsncFa9g0viV.jpg"
+    "posterPath": "/aUPbHiLS3hCHKjtLsncFa9g0viV.jpg",
+    "numberOfSeasons": 7,
+    "numberOfEpisodes": 161
   },
   {
     "tvdbId": 153021,
@@ -21731,7 +21817,9 @@
     "startedAt": "2016-01-28",
     "finishedAt": "2017-01-05",
     "tmdbId": 1402,
-    "posterPath": "/aN29llVoCFtBTwDZFtqdD9d8dHb.jpg"
+    "posterPath": "/aN29llVoCFtBTwDZFtqdD9d8dHb.jpg",
+    "numberOfSeasons": 11,
+    "numberOfEpisodes": 177
   },
   {
     "tvdbId": 161511,
@@ -22230,7 +22318,9 @@
     "startedAt": "2021-11-19",
     "finishedAt": "2022-03-14",
     "tmdbId": 34307,
-    "posterPath": "/ifo31fMWLmyOVpdak9K0kY4jldQ.jpg"
+    "posterPath": "/ifo31fMWLmyOVpdak9K0kY4jldQ.jpg",
+    "numberOfSeasons": 11,
+    "numberOfEpisodes": 134
   },
   {
     "tvdbId": 164541,
@@ -22241,7 +22331,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-02-24",
     "tmdbId": 32798,
-    "posterPath": "/sIdCKlmM2nU4akIvFQaAIiU8YES.jpg"
+    "posterPath": "/sIdCKlmM2nU4akIvFQaAIiU8YES.jpg",
+    "numberOfSeasons": 10,
+    "numberOfEpisodes": 240
   },
   {
     "tvdbId": 171241,
@@ -22252,7 +22344,9 @@
     "watchedEpisodes": [],
     "startedAt": "2018-09-15",
     "tmdbId": 33054,
-    "posterPath": "/r4prOUS3LgkWjxWsrT6kHE8NFLT.jpg"
+    "posterPath": "/r4prOUS3LgkWjxWsrT6kHE8NFLT.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 27
   },
   {
     "tvdbId": 175001,
@@ -22680,7 +22774,9 @@
     "startedAt": "2016-01-27",
     "finishedAt": "2017-01-05",
     "tmdbId": 34524,
-    "posterPath": "/wjKBTcNy1xihmExqJI8kM2qvavP.jpg"
+    "posterPath": "/wjKBTcNy1xihmExqJI8kM2qvavP.jpg",
+    "numberOfSeasons": 6,
+    "numberOfEpisodes": 100
   },
   {
     "tvdbId": 176941,
@@ -22691,7 +22787,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-07-12",
     "tmdbId": 19885,
-    "posterPath": "/7WTsnHkbA0FaG6R9twfFde0I9hl.jpg"
+    "posterPath": "/7WTsnHkbA0FaG6R9twfFde0I9hl.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 12
   },
   {
     "tvdbId": 193131,
@@ -22702,7 +22800,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-03-28",
     "tmdbId": 33907,
-    "posterPath": "/cf9vkwFmwvdzBlcpAYEVQfsKoTp.jpg"
+    "posterPath": "/cf9vkwFmwvdzBlcpAYEVQfsKoTp.jpg",
+    "numberOfSeasons": 6,
+    "numberOfEpisodes": 47
   },
   {
     "tvdbId": 197231,
@@ -22755,7 +22855,9 @@
     "startedAt": "2019-05-12",
     "finishedAt": "2019-05-29",
     "tmdbId": 31420,
-    "posterPath": "/hgv0kvFsbyd7Sm58wIDyOGKmiFw.jpg"
+    "posterPath": "/hgv0kvFsbyd7Sm58wIDyOGKmiFw.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 12
   },
   {
     "tvdbId": 210171,
@@ -22766,7 +22868,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-09-24",
     "tmdbId": 34415,
-    "posterPath": "/3yiwAUNGn1rsPSVmFgVwPVJFtYf.jpg"
+    "posterPath": "/3yiwAUNGn1rsPSVmFgVwPVJFtYf.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 44
   },
   {
     "tvdbId": 247773,
@@ -23034,7 +23138,9 @@
     "startedAt": "2016-02-01",
     "finishedAt": "2016-02-01",
     "tmdbId": 37632,
-    "posterPath": "/db5XnOxGcUHeNhBRNbHfqTlzXmk.jpg"
+    "posterPath": "/db5XnOxGcUHeNhBRNbHfqTlzXmk.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 103
   },
   {
     "tvdbId": 247808,
@@ -23045,7 +23151,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-03-28",
     "tmdbId": 37680,
-    "posterPath": "/vQiryp6LioFxQThywxbC6TuoDjy.jpg"
+    "posterPath": "/vQiryp6LioFxQThywxbC6TuoDjy.jpg",
+    "numberOfSeasons": 9,
+    "numberOfEpisodes": 134
   },
   {
     "tvdbId": 247897,
@@ -23233,7 +23341,9 @@
     "startedAt": "2020-12-22",
     "finishedAt": "2021-05-10",
     "tmdbId": 1407,
-    "posterPath": "/6GAvS2e6VIRsms9FpVt33PsCoEW.jpg"
+    "posterPath": "/6GAvS2e6VIRsms9FpVt33PsCoEW.jpg",
+    "numberOfSeasons": 8,
+    "numberOfEpisodes": 96
   },
   {
     "tvdbId": 248736,
@@ -23244,7 +23354,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-02-24",
     "tmdbId": 39351,
-    "posterPath": "/iOptnt1QHi6bIHmOq6adnZTV0bU.jpg"
+    "posterPath": "/iOptnt1QHi6bIHmOq6adnZTV0bU.jpg",
+    "numberOfSeasons": 6,
+    "numberOfEpisodes": 122
   },
   {
     "tvdbId": 248812,
@@ -23387,7 +23499,9 @@
     "startedAt": "2017-04-30",
     "finishedAt": "2017-04-30",
     "tmdbId": 39331,
-    "posterPath": "/ice3QRGMPs7JpwV8Fb8BpfWtYxP.jpg"
+    "posterPath": "/ice3QRGMPs7JpwV8Fb8BpfWtYxP.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 18
   },
   {
     "tvdbId": 248813,
@@ -23398,7 +23512,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-04-09",
     "tmdbId": 42067,
-    "posterPath": "/mpTqwUvfYJcLy5f9g1IPKtrjmAT.jpg"
+    "posterPath": "/mpTqwUvfYJcLy5f9g1IPKtrjmAT.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 12
   },
   {
     "tvdbId": 248835,
@@ -23866,7 +23982,9 @@
     "startedAt": "2016-02-10",
     "finishedAt": "2016-02-10",
     "tmdbId": 39272,
-    "posterPath": "/u95scYysMZvBoekSLmMNJjeqXcY.jpg"
+    "posterPath": "/u95scYysMZvBoekSLmMNJjeqXcY.jpg",
+    "numberOfSeasons": 7,
+    "numberOfEpisodes": 156
   },
   {
     "tvdbId": 248841,
@@ -23888,7 +24006,9 @@
     ],
     "startedAt": "2018-02-23",
     "tmdbId": 39269,
-    "posterPath": "/4XmF8PMSqtHCGNoL15oHbjr5ZuO.jpg"
+    "posterPath": "/4XmF8PMSqtHCGNoL15oHbjr5ZuO.jpg",
+    "numberOfSeasons": 7,
+    "numberOfEpisodes": 124
   },
   {
     "tvdbId": 248861,
@@ -23899,7 +24019,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-02-01",
     "tmdbId": 39276,
-    "posterPath": "/AvbMRqe3wSe4DBzIYl56CBlcalw.jpg"
+    "posterPath": "/AvbMRqe3wSe4DBzIYl56CBlcalw.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 61
   },
   {
     "tvdbId": 248884,
@@ -24022,7 +24144,9 @@
     "startedAt": "2016-02-01",
     "finishedAt": "2016-02-01",
     "tmdbId": 37664,
-    "posterPath": "/3MwvNMhD9xpf1exlSfWgVm4sOF5.jpg"
+    "posterPath": "/3MwvNMhD9xpf1exlSfWgVm4sOF5.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 22
   },
   {
     "tvdbId": 248935,
@@ -24033,7 +24157,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-11-18",
     "tmdbId": 39510,
-    "posterPath": "/4qreaxQD4azrRuZWdevyjVAKt8V.jpg"
+    "posterPath": "/4qreaxQD4azrRuZWdevyjVAKt8V.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 26
   },
   {
     "tvdbId": 250487,
@@ -24044,7 +24170,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-05-28",
     "tmdbId": 1413,
-    "posterPath": "/x2c3AvZeTyNehRZXabTojAxfDuR.jpg"
+    "posterPath": "/x2c3AvZeTyNehRZXabTojAxfDuR.jpg",
+    "numberOfSeasons": 13,
+    "numberOfEpisodes": 133
   },
   {
     "tvdbId": 250749,
@@ -24147,7 +24275,9 @@
     "startedAt": "2017-07-20",
     "finishedAt": "2018-05-27",
     "tmdbId": 68467,
-    "posterPath": "/uLBJSLuAQ8UqLIKZVWG3uNEXwjt.jpg"
+    "posterPath": "/uLBJSLuAQ8UqLIKZVWG3uNEXwjt.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 33
   },
   {
     "tvdbId": 253463,
@@ -24215,7 +24345,9 @@
     "startedAt": "2016-03-08",
     "finishedAt": "2017-02-18",
     "tmdbId": 42009,
-    "posterPath": "/seN6rRfN0I6n8iDXjlSMk1QjNcq.jpg"
+    "posterPath": "/seN6rRfN0I6n8iDXjlSMk1QjNcq.jpg",
+    "numberOfSeasons": 7,
+    "numberOfEpisodes": 33
   },
   {
     "tvdbId": 253573,
@@ -24226,7 +24358,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-05-28",
     "tmdbId": 46639,
-    "posterPath": "/3KCAZaKHmoMIN9dHutqaMtubQqD.jpg"
+    "posterPath": "/3KCAZaKHmoMIN9dHutqaMtubQqD.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 26
   },
   {
     "tvdbId": 255192,
@@ -24237,7 +24371,9 @@
     "watchedEpisodes": [],
     "startedAt": "2019-07-31",
     "tmdbId": 39793,
-    "posterPath": "/b1p0nL00x563ACkcmGNIRP4ZnkA.jpg"
+    "posterPath": "/b1p0nL00x563ACkcmGNIRP4ZnkA.jpg",
+    "numberOfSeasons": 15,
+    "numberOfEpisodes": 117
   },
   {
     "tvdbId": 257655,
@@ -24650,7 +24786,9 @@
     "startedAt": "2016-01-28",
     "finishedAt": "2016-02-01",
     "tmdbId": 1412,
-    "posterPath": "/u8ZHFj1jC384JEkTt3vNg1DfWEb.jpg"
+    "posterPath": "/u8ZHFj1jC384JEkTt3vNg1DfWEb.jpg",
+    "numberOfSeasons": 8,
+    "numberOfEpisodes": 170
   },
   {
     "tvdbId": 258541,
@@ -24783,7 +24921,9 @@
     "startedAt": "2016-02-25",
     "finishedAt": "2016-02-25",
     "tmdbId": 44006,
-    "posterPath": "/r915sk2JpthZSjHEgZKifWxgo6L.jpg"
+    "posterPath": "/r915sk2JpthZSjHEgZKifWxgo6L.jpg",
+    "numberOfSeasons": 15,
+    "numberOfEpisodes": 296
   },
   {
     "tvdbId": 258959,
@@ -25016,7 +25156,9 @@
     "startedAt": "2016-02-01",
     "finishedAt": "2016-02-01",
     "tmdbId": 44606,
-    "posterPath": "/6rZ2I1xRemLORb65spepVmsvnf7.jpg"
+    "posterPath": "/6rZ2I1xRemLORb65spepVmsvnf7.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 70
   },
   {
     "tvdbId": 259055,
@@ -25027,7 +25169,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-07-20",
     "tmdbId": 44549,
-    "posterPath": "/oZ2K2cPeWURnQjCxrvSEnaEcIST.jpg"
+    "posterPath": "/oZ2K2cPeWURnQjCxrvSEnaEcIST.jpg",
+    "numberOfSeasons": 6,
+    "numberOfEpisodes": 124
   },
   {
     "tvdbId": 259063,
@@ -25038,7 +25182,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-02-25",
     "tmdbId": 40008,
-    "posterPath": "/pbV2eLnKSIm1epSZt473UYfqaeZ.jpg"
+    "posterPath": "/pbV2eLnKSIm1epSZt473UYfqaeZ.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 39
   },
   {
     "tvdbId": 259765,
@@ -25049,7 +25195,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-07-12",
     "tmdbId": 41727,
-    "posterPath": "/5nXFiz8Rn8eezVjSTZBd7HmnF1G.jpg"
+    "posterPath": "/5nXFiz8Rn8eezVjSTZBd7HmnF1G.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 38
   },
   {
     "tvdbId": 260315,
@@ -25257,7 +25405,9 @@
     "startedAt": "2016-02-24",
     "finishedAt": "2016-08-02",
     "tmdbId": 56296,
-    "posterPath": "/tjFYkWMafg71sihs1aa7IDx17aS.jpg"
+    "posterPath": "/tjFYkWMafg71sihs1aa7IDx17aS.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 50
   },
   {
     "tvdbId": 260449,
@@ -25315,7 +25465,9 @@
     "startedAt": "2016-02-10",
     "finishedAt": "2016-02-24",
     "tmdbId": 44217,
-    "posterPath": "/bQLrHIRNEkE3PdIWQrZHynQZazu.jpg"
+    "posterPath": "/bQLrHIRNEkE3PdIWQrZHynQZazu.jpg",
+    "numberOfSeasons": 6,
+    "numberOfEpisodes": 89
   },
   {
     "tvdbId": 262407,
@@ -25326,7 +25478,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-02-24",
     "tmdbId": 47665,
-    "posterPath": "/mZcSwrDdw6cdOVgXm496DgwrQcQ.jpg"
+    "posterPath": "/mZcSwrDdw6cdOVgXm496DgwrQcQ.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 38
   },
   {
     "tvdbId": 262414,
@@ -25337,7 +25491,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-07-12",
     "tmdbId": 46786,
-    "posterPath": "/xXKcfZE7ulYxgjjYv51s0zDG69s.jpg"
+    "posterPath": "/xXKcfZE7ulYxgjjYv51s0zDG69s.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 50
   },
   {
     "tvdbId": 262980,
@@ -25348,7 +25504,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-01-27",
     "tmdbId": 1425,
-    "posterPath": "/hKWxWjFwnMvkWQawbhvC0Y7ygQ8.jpg"
+    "posterPath": "/hKWxWjFwnMvkWQawbhvC0Y7ygQ8.jpg",
+    "numberOfSeasons": 6,
+    "numberOfEpisodes": 73
   },
   {
     "tvdbId": 264234,
@@ -25711,7 +25869,9 @@
     "startedAt": "2018-09-27",
     "finishedAt": "2018-12-04",
     "tmdbId": 44856,
-    "posterPath": "/3nikr0NE3t8UMgI1Ba6hXaeEgKr.jpg"
+    "posterPath": "/3nikr0NE3t8UMgI1Ba6hXaeEgKr.jpg",
+    "numberOfSeasons": 9,
+    "numberOfEpisodes": 100
   },
   {
     "tvdbId": 264492,
@@ -25919,7 +26079,9 @@
     "startedAt": "2016-01-27",
     "finishedAt": "2016-01-28",
     "tmdbId": 46331,
-    "posterPath": "/fwH0ePhd7m3swtCuFeubtR49ZTd.jpg"
+    "posterPath": "/fwH0ePhd7m3swtCuFeubtR49ZTd.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 39
   },
   {
     "tvdbId": 264586,
@@ -26387,7 +26549,9 @@
     "startedAt": "2016-11-01",
     "finishedAt": "2019-08-03",
     "tmdbId": 1424,
-    "posterPath": "/ekaa7YjGPTkFLcPhwWXTnARuCEU.jpg"
+    "posterPath": "/ekaa7YjGPTkFLcPhwWXTnARuCEU.jpg",
+    "numberOfSeasons": 7,
+    "numberOfEpisodes": 91
   },
   {
     "tvdbId": 265766,
@@ -26398,7 +26562,9 @@
     "watchedEpisodes": [],
     "startedAt": "2018-09-03",
     "tmdbId": 54671,
-    "posterPath": "/hQSdrXBYTbLGHYDIseHkBOPXTgL.jpg"
+    "posterPath": "/hQSdrXBYTbLGHYDIseHkBOPXTgL.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 27
   },
   {
     "tvdbId": 266091,
@@ -26409,7 +26575,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-03-28",
     "tmdbId": 60699,
-    "posterPath": "/syYTHCBvFlobr8eJjQMKAjrn9yV.jpg"
+    "posterPath": "/syYTHCBvFlobr8eJjQMKAjrn9yV.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 20
   },
   {
     "tvdbId": 266092,
@@ -26420,7 +26588,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-07-20",
     "tmdbId": 57092,
-    "posterPath": "/8dB8lh4OeQZz0A3gDu5aKwm25kU.jpg"
+    "posterPath": "/8dB8lh4OeQZz0A3gDu5aKwm25kU.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 10
   },
   {
     "tvdbId": 266189,
@@ -26573,7 +26743,9 @@
     "startedAt": "2016-06-24",
     "finishedAt": "2016-08-30",
     "tmdbId": 46952,
-    "posterPath": "/4HTfd1PhgFUenJxVuBDNdLmdr0c.jpg"
+    "posterPath": "/4HTfd1PhgFUenJxVuBDNdLmdr0c.jpg",
+    "numberOfSeasons": 10,
+    "numberOfEpisodes": 218
   },
   {
     "tvdbId": 266883,
@@ -26806,7 +26978,9 @@
     "startedAt": "2016-02-01",
     "finishedAt": "2016-02-01",
     "tmdbId": 46896,
-    "posterPath": "/keJOhJXGiLL54EW6QocbyvQGquA.jpg"
+    "posterPath": "/keJOhJXGiLL54EW6QocbyvQGquA.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 92
   },
   {
     "tvdbId": 267014,
@@ -26817,7 +26991,9 @@
     "watchedEpisodes": [],
     "startedAt": "2018-02-14",
     "tmdbId": 61350,
-    "posterPath": "/dgzpboEMxpHVI3Isy5lZOCP2e6X.jpg"
+    "posterPath": "/dgzpboEMxpHVI3Isy5lZOCP2e6X.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 32
   },
   {
     "tvdbId": 267907,
@@ -27350,7 +27526,9 @@
     "startedAt": "2018-08-03",
     "finishedAt": "2018-09-01",
     "tmdbId": 46880,
-    "posterPath": "/iRCmazqaUNNsgZyR6tNDl88pXp3.jpg"
+    "posterPath": "/iRCmazqaUNNsgZyR6tNDl88pXp3.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 104
   },
   {
     "tvdbId": 268156,
@@ -27483,7 +27661,9 @@
     "startedAt": "2016-01-27",
     "finishedAt": "2018-06-22",
     "tmdbId": 61664,
-    "posterPath": "/kmyvlQ9QKzgdZY31rXaUlgCnzrB.jpg"
+    "posterPath": "/kmyvlQ9QKzgdZY31rXaUlgCnzrB.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 24
   },
   {
     "tvdbId": 268592,
@@ -27681,7 +27861,9 @@
     "startedAt": "2016-01-27",
     "finishedAt": "2016-03-14",
     "tmdbId": 48866,
-    "posterPath": "/wHIMMLFsk32wIzDmawWkYVbxFCS.jpg"
+    "posterPath": "/wHIMMLFsk32wIzDmawWkYVbxFCS.jpg",
+    "numberOfSeasons": 7,
+    "numberOfEpisodes": 100
   },
   {
     "tvdbId": 269550,
@@ -27692,7 +27874,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-02-24",
     "tmdbId": 60556,
-    "posterPath": "/guhxl5I8J1WVEA3yeDt8hwgpYWx.jpg"
+    "posterPath": "/guhxl5I8J1WVEA3yeDt8hwgpYWx.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 33
   },
   {
     "tvdbId": 269586,
@@ -28420,7 +28604,9 @@
     "startedAt": "2020-07-11",
     "finishedAt": "2020-09-06",
     "tmdbId": 48891,
-    "posterPath": "/mpjlDzVjp7oyHUe2LaF9ltKe6f1.jpg"
+    "posterPath": "/mpjlDzVjp7oyHUe2LaF9ltKe6f1.jpg",
+    "numberOfSeasons": 8,
+    "numberOfEpisodes": 152
   },
   {
     "tvdbId": 269602,
@@ -28743,7 +28929,9 @@
     "startedAt": "2016-02-01",
     "finishedAt": "2017-01-05",
     "tmdbId": 48865,
-    "posterPath": "/epNfFs0gPyrpekecpzyX0XTkZgI.jpg"
+    "posterPath": "/epNfFs0gPyrpekecpzyX0XTkZgI.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 78
   },
   {
     "tvdbId": 269613,
@@ -28754,7 +28942,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-07-20",
     "tmdbId": 60622,
-    "posterPath": "/a3VW6khsyUVKrG0GBCWFG3NzWPX.jpg"
+    "posterPath": "/a3VW6khsyUVKrG0GBCWFG3NzWPX.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 51
   },
   {
     "tvdbId": 269641,
@@ -29882,7 +30072,9 @@
     ],
     "startedAt": "2026-03-27",
     "tmdbId": 58841,
-    "posterPath": "/bez40PgT36RUu4gstD2A6GSM0tP.jpg"
+    "posterPath": "/bez40PgT36RUu4gstD2A6GSM0tP.jpg",
+    "numberOfSeasons": 14,
+    "numberOfEpisodes": 265
   },
   {
     "tvdbId": 269689,
@@ -29893,7 +30085,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-05-28",
     "tmdbId": 54344,
-    "posterPath": "/NKJdryIFHr245Umq6gXsf7oULW.jpg"
+    "posterPath": "/NKJdryIFHr245Umq6gXsf7oULW.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 28
   },
   {
     "tvdbId": 270408,
@@ -30181,7 +30375,9 @@
     "startedAt": "2017-01-05",
     "finishedAt": "2020-01-25",
     "tmdbId": 56570,
-    "posterPath": "/oftZNfyTVNU7IfOqoGLoT8MGvNs.jpg"
+    "posterPath": "/oftZNfyTVNU7IfOqoGLoT8MGvNs.jpg",
+    "numberOfSeasons": 8,
+    "numberOfEpisodes": 101
   },
   {
     "tvdbId": 270633,
@@ -30192,7 +30388,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-02-25",
     "tmdbId": 46648,
-    "posterPath": "/dC7jkj2g1aU8sxKqM6D4g44xA6w.jpg"
+    "posterPath": "/dC7jkj2g1aU8sxKqM6D4g44xA6w.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 30
   },
   {
     "tvdbId": 270915,
@@ -30203,7 +30401,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-10-04",
     "tmdbId": 60574,
-    "posterPath": "/vUUqzWa2LnHIVqkaKVlVGkVcZIW.jpg"
+    "posterPath": "/vUUqzWa2LnHIVqkaKVlVGkVcZIW.jpg",
+    "numberOfSeasons": 6,
+    "numberOfEpisodes": 36
   },
   {
     "tvdbId": 274431,
@@ -30251,7 +30451,9 @@
     "startedAt": "2016-02-25",
     "finishedAt": "2016-06-24",
     "tmdbId": 60708,
-    "posterPath": "/zLpSNnVoL2bjQdc1PcaHUPUzttP.jpg"
+    "posterPath": "/zLpSNnVoL2bjQdc1PcaHUPUzttP.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 100
   },
   {
     "tvdbId": 275274,
@@ -30262,7 +30464,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-10-04",
     "tmdbId": 60625,
-    "posterPath": "/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg"
+    "posterPath": "/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg",
+    "numberOfSeasons": 9,
+    "numberOfEpisodes": 91
   },
   {
     "tvdbId": 276147,
@@ -30273,7 +30477,9 @@
     "watchedEpisodes": [],
     "startedAt": "2021-01-02",
     "tmdbId": 65813,
-    "posterPath": "/rJ9lgdZd8qGabCy4HJXSy5nJjYP.jpg"
+    "posterPath": "/rJ9lgdZd8qGabCy4HJXSy5nJjYP.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 2
   },
   {
     "tvdbId": 277169,
@@ -30284,7 +30490,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-01-27",
     "tmdbId": 60705,
-    "posterPath": "/vb9J7q977HB3AmvLETpmWIyIyTP.jpg"
+    "posterPath": "/vb9J7q977HB3AmvLETpmWIyIyTP.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 38
   },
   {
     "tvdbId": 279121,
@@ -30487,7 +30695,9 @@
     "startedAt": "2016-01-27",
     "finishedAt": "2016-02-26",
     "tmdbId": 60735,
-    "posterPath": "/yZevl2vHQgmosfwUdVNzviIfaWS.jpg"
+    "posterPath": "/yZevl2vHQgmosfwUdVNzviIfaWS.jpg",
+    "numberOfSeasons": 9,
+    "numberOfEpisodes": 184
   },
   {
     "tvdbId": 280494,
@@ -30498,7 +30708,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-03-28",
     "tmdbId": 61345,
-    "posterPath": "/gXfeDMkEcHoYBvtkbU11g3F81b.jpg"
+    "posterPath": "/gXfeDMkEcHoYBvtkbU11g3F81b.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 68
   },
   {
     "tvdbId": 281249,
@@ -30509,7 +30721,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-02-01",
     "tmdbId": 61374,
-    "posterPath": "/1m4RlC9BTCbyY549TOdVQ5NRPcR.jpg"
+    "posterPath": "/1m4RlC9BTCbyY549TOdVQ5NRPcR.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 48
   },
   {
     "tvdbId": 281485,
@@ -30520,7 +30734,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-02-24",
     "tmdbId": 61550,
-    "posterPath": "/fe79VYyLp5ZBstpJ4oukpuUT3B.jpg"
+    "posterPath": "/fe79VYyLp5ZBstpJ4oukpuUT3B.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 18
   },
   {
     "tvdbId": 281511,
@@ -30531,7 +30747,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-09-18",
     "tmdbId": 61381,
-    "posterPath": "/ga1zJ6UejPIfyL8BA22pK6dqsC8.jpg"
+    "posterPath": "/ga1zJ6UejPIfyL8BA22pK6dqsC8.jpg",
+    "numberOfSeasons": 8,
+    "numberOfEpisodes": 175
   },
   {
     "tvdbId": 281551,
@@ -30609,7 +30827,9 @@
     "startedAt": "2016-02-25",
     "finishedAt": "2016-02-25",
     "tmdbId": 61811,
-    "posterPath": "/p56xB5YJDeYaGGOaYFtsjWycTYl.jpg"
+    "posterPath": "/p56xB5YJDeYaGGOaYFtsjWycTYl.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 31
   },
   {
     "tvdbId": 281593,
@@ -30877,7 +31097,9 @@
     "startedAt": "2017-12-01",
     "finishedAt": "2019-02-07",
     "tmdbId": 61671,
-    "posterPath": "/eMFHl0HyLg7k04OVeE4xPvT6XhY.jpg"
+    "posterPath": "/eMFHl0HyLg7k04OVeE4xPvT6XhY.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 51
   },
   {
     "tvdbId": 281617,
@@ -30888,7 +31110,9 @@
     "watchedEpisodes": [],
     "startedAt": "2018-03-16",
     "tmdbId": 61733,
-    "posterPath": "/gTrzYR6gWMhQ8yINW9JCLeoJHvf.jpg"
+    "posterPath": "/gTrzYR6gWMhQ8yINW9JCLeoJHvf.jpg",
+    "numberOfSeasons": 6,
+    "numberOfEpisodes": 102
   },
   {
     "tvdbId": 281620,
@@ -31201,7 +31425,9 @@
     "startedAt": "2016-02-18",
     "finishedAt": "2018-08-18",
     "tmdbId": 61056,
-    "posterPath": "/bJs8Y6T88NcgksxA8UaVl4YX8p8.jpg"
+    "posterPath": "/bJs8Y6T88NcgksxA8UaVl4YX8p8.jpg",
+    "numberOfSeasons": 6,
+    "numberOfEpisodes": 90
   },
   {
     "tvdbId": 281630,
@@ -31212,7 +31438,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-03-28",
     "tmdbId": 60797,
-    "posterPath": "/hzeirSF6bRjssDh5JFrm5WRwFLd.jpg"
+    "posterPath": "/hzeirSF6bRjssDh5JFrm5WRwFLd.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 93
   },
   {
     "tvdbId": 281662,
@@ -31355,7 +31583,9 @@
     "startedAt": "2016-01-28",
     "finishedAt": "2016-04-28",
     "tmdbId": 61889,
-    "posterPath": "/QWbPaDxiB6LW2LjASknzYBvjMj.jpg"
+    "posterPath": "/QWbPaDxiB6LW2LjASknzYBvjMj.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 39
   },
   {
     "tvdbId": 281697,
@@ -31366,7 +31596,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-07-12",
     "tmdbId": 60796,
-    "posterPath": "/pHw8OgL3U7Ys8D8hlbOnlgH7ExM.jpg"
+    "posterPath": "/pHw8OgL3U7Ys8D8hlbOnlgH7ExM.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 20
   },
   {
     "tvdbId": 281711,
@@ -31377,7 +31609,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-02-24",
     "tmdbId": 64433,
-    "posterPath": "/wxg8lxFpandLQtOiHRnTEQf7oeL.jpg"
+    "posterPath": "/wxg8lxFpandLQtOiHRnTEQf7oeL.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 36
   },
   {
     "tvdbId": 281977,
@@ -31388,7 +31622,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-02-25",
     "tmdbId": 61697,
-    "posterPath": "/dGuiMtUQBGxM3ZWosphO2MdYw8o.jpg"
+    "posterPath": "/dGuiMtUQBGxM3ZWosphO2MdYw8o.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 12
   },
   {
     "tvdbId": 282254,
@@ -31536,7 +31772,9 @@
     "startedAt": "2018-12-21",
     "finishedAt": "2019-03-06",
     "tmdbId": 61222,
-    "posterPath": "/6JFWzlChcGgLiIUo2COgNlWGFKy.jpg"
+    "posterPath": "/6JFWzlChcGgLiIUo2COgNlWGFKy.jpg",
+    "numberOfSeasons": 6,
+    "numberOfEpisodes": 76
   },
   {
     "tvdbId": 282670,
@@ -31547,7 +31785,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-01-27",
     "tmdbId": 63351,
-    "posterPath": "/rTmal9fDbwh5F0waol2hq35U4ah.jpg"
+    "posterPath": "/rTmal9fDbwh5F0waol2hq35U4ah.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 30
   },
   {
     "tvdbId": 283317,
@@ -31558,7 +31798,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-09-02",
     "tmdbId": 62142,
-    "posterPath": "/cKp0ZDYGydWxI3v8KS3tY8W9aM7.jpg"
+    "posterPath": "/cKp0ZDYGydWxI3v8KS3tY8W9aM7.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 10
   },
   {
     "tvdbId": 284190,
@@ -31641,7 +31883,9 @@
     "startedAt": "2016-01-28",
     "finishedAt": "2018-03-11",
     "tmdbId": 38472,
-    "posterPath": "/oxnWofiE9fHOgUfs9NJa6nG6NTR.jpg"
+    "posterPath": "/oxnWofiE9fHOgUfs9NJa6nG6NTR.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 39
   },
   {
     "tvdbId": 285626,
@@ -31651,7 +31895,9 @@
     "favorite": false,
     "watchedEpisodes": [],
     "tmdbId": 64203,
-    "posterPath": "/ub8zoWwcdXjgVlHQpPMbB6KsGnz.jpg"
+    "posterPath": "/ub8zoWwcdXjgVlHQpPMbB6KsGnz.jpg",
+    "numberOfSeasons": 13,
+    "numberOfEpisodes": 269
   },
   {
     "tvdbId": 289096,
@@ -31714,7 +31960,9 @@
     "startedAt": "2017-07-20",
     "finishedAt": "2017-07-25",
     "tmdbId": 64122,
-    "posterPath": "/yzoaoBSMww5D22Kfrd2LEJumIzl.jpg"
+    "posterPath": "/yzoaoBSMww5D22Kfrd2LEJumIzl.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 20
   },
   {
     "tvdbId": 289108,
@@ -31725,7 +31973,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-05-28",
     "tmdbId": 64513,
-    "posterPath": "/3sYPoWBtwAmd07YoJWr76ij6Iyg.jpg"
+    "posterPath": "/3sYPoWBtwAmd07YoJWr76ij6Iyg.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 29
   },
   {
     "tvdbId": 289266,
@@ -31755,7 +32005,9 @@
     ],
     "startedAt": "2023-02-17",
     "tmdbId": 46126,
-    "posterPath": "/ehbB6L0gMU2ILJCScO2036crfEw.jpg"
+    "posterPath": "/ehbB6L0gMU2ILJCScO2036crfEw.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 179
   },
   {
     "tvdbId": 289590,
@@ -31766,7 +32018,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-11-15",
     "tmdbId": 62560,
-    "posterPath": "/kv1nRqgebSsREnd7vdC2pSGjpLo.jpg"
+    "posterPath": "/kv1nRqgebSsREnd7vdC2pSGjpLo.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 45
   },
   {
     "tvdbId": 292124,
@@ -31777,7 +32031,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-07-20",
     "tmdbId": 62822,
-    "posterPath": "/iBjjSGgnjAQBSQGO9pYIh7Gp2PO.jpg"
+    "posterPath": "/iBjjSGgnjAQBSQGO9pYIh7Gp2PO.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 24
   },
   {
     "tvdbId": 293194,
@@ -31788,7 +32044,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-07-19",
     "tmdbId": 62433,
-    "posterPath": "/5MvJDbbgG3xUSsFRG9i1uG6rxAe.jpg"
+    "posterPath": "/5MvJDbbgG3xUSsFRG9i1uG6rxAe.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 12
   },
   {
     "tvdbId": 294417,
@@ -31911,7 +32169,9 @@
     "startedAt": "2016-06-24",
     "finishedAt": "2016-08-21",
     "tmdbId": 62823,
-    "posterPath": "/cb2WD75HjajBmFtPzfU5ukGqfeo.jpg"
+    "posterPath": "/cb2WD75HjajBmFtPzfU5ukGqfeo.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 29
   },
   {
     "tvdbId": 294741,
@@ -32124,7 +32384,9 @@
     "startedAt": "2019-10-29",
     "finishedAt": "2019-12-22",
     "tmdbId": 62455,
-    "posterPath": "/1kH9u5DkoDUuIlhFFWjz9VSlKhC.jpg"
+    "posterPath": "/1kH9u5DkoDUuIlhFFWjz9VSlKhC.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 40
   },
   {
     "tvdbId": 295515,
@@ -32287,7 +32549,9 @@
     "startedAt": "2016-02-10",
     "finishedAt": "2017-01-05",
     "tmdbId": 62816,
-    "posterPath": "/3ofY2mALEiE0QDyRlVOV3sDNMYC.jpg"
+    "posterPath": "/3ofY2mALEiE0QDyRlVOV3sDNMYC.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 57
   },
   {
     "tvdbId": 295647,
@@ -32298,7 +32562,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-04-24",
     "tmdbId": 62710,
-    "posterPath": "/4AeYzamQmd9Fa6hawDmYKbdvBSe.jpg"
+    "posterPath": "/4AeYzamQmd9Fa6hawDmYKbdvBSe.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 100
   },
   {
     "tvdbId": 295685,
@@ -32309,7 +32575,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-02-09",
     "tmdbId": 63174,
-    "posterPath": "/ekZobS8isE6mA53RAiGDG93hBxL.jpg"
+    "posterPath": "/ekZobS8isE6mA53RAiGDG93hBxL.jpg",
+    "numberOfSeasons": 6,
+    "numberOfEpisodes": 93
   },
   {
     "tvdbId": 295743,
@@ -32320,7 +32588,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-07-12",
     "tmdbId": 62687,
-    "posterPath": "/l5BERaKn3ozRTLhoylIiNwMDvax.jpg"
+    "posterPath": "/l5BERaKn3ozRTLhoylIiNwMDvax.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 22
   },
   {
     "tvdbId": 295760,
@@ -32352,7 +32622,9 @@
     ],
     "startedAt": "2016-02-01",
     "tmdbId": 62643,
-    "posterPath": "/AcEFDh272YVTR6B6zrrusk8BjJG.jpg"
+    "posterPath": "/AcEFDh272YVTR6B6zrrusk8BjJG.jpg",
+    "numberOfSeasons": 7,
+    "numberOfEpisodes": 110
   },
   {
     "tvdbId": 295777,
@@ -32363,7 +32635,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-03-01",
     "tmdbId": 63161,
-    "posterPath": "/pvYh3fdrRvreWmqw4onWJJmRXf5.jpg"
+    "posterPath": "/pvYh3fdrRvreWmqw4onWJJmRXf5.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 62
   },
   {
     "tvdbId": 295829,
@@ -32390,7 +32664,9 @@
     ],
     "startedAt": "2020-04-15",
     "tmdbId": 62017,
-    "posterPath": "/xhoDZbMNeyCA0BGPZQsdIiO43Dp.jpg"
+    "posterPath": "/xhoDZbMNeyCA0BGPZQsdIiO43Dp.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 40
   },
   {
     "tvdbId": 295837,
@@ -32412,7 +32688,9 @@
     ],
     "startedAt": "2016-01-27",
     "tmdbId": 63210,
-    "posterPath": "/66YHvvVduC21xcMXPpBBF0ywyVZ.jpg"
+    "posterPath": "/66YHvvVduC21xcMXPpBBF0ywyVZ.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 55
   },
   {
     "tvdbId": 296762,
@@ -32475,7 +32753,9 @@
     "startedAt": "2018-03-06",
     "finishedAt": "2018-03-21",
     "tmdbId": 63247,
-    "posterPath": "/ALlSU9du9iRiKIIoY1sREGNqQ5.jpg"
+    "posterPath": "/ALlSU9du9iRiKIIoY1sREGNqQ5.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 36
   },
   {
     "tvdbId": 298566,
@@ -32486,7 +32766,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-09-15",
     "tmdbId": 63333,
-    "posterPath": "/8eJf0hxgIhE6QSxbtuNCekTddy1.jpg"
+    "posterPath": "/8eJf0hxgIhE6QSxbtuNCekTddy1.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 46
   },
   {
     "tvdbId": 298901,
@@ -32624,7 +32906,9 @@
     "startedAt": "2021-08-13",
     "finishedAt": "2021-09-11",
     "tmdbId": 64254,
-    "posterPath": "/AcJM86PhgHAfbrF4dMKBaqO3cHV.jpg"
+    "posterPath": "/AcJM86PhgHAfbrF4dMKBaqO3cHV.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 25
   },
   {
     "tvdbId": 301236,
@@ -32922,7 +33206,9 @@
     "startedAt": "2019-01-24",
     "finishedAt": "2019-02-25",
     "tmdbId": 63623,
-    "posterPath": "/n4ZZB471d2UueUFEaOWnKetCxnY.jpg"
+    "posterPath": "/n4ZZB471d2UueUFEaOWnKetCxnY.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 75
   },
   {
     "tvdbId": 301562,
@@ -32933,7 +33219,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-11-15",
     "tmdbId": 64339,
-    "posterPath": "/g7K7IrHzfCMbvJDahkymKugyfuZ.jpg"
+    "posterPath": "/g7K7IrHzfCMbvJDahkymKugyfuZ.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 12
   },
   {
     "tvdbId": 302419,
@@ -32955,7 +33243,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-01-27",
     "tmdbId": 64439,
-    "posterPath": "/sy2nV3rCcJQaRK5M0NWvvTU7CBx.jpg"
+    "posterPath": "/sy2nV3rCcJQaRK5M0NWvvTU7CBx.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 20
   },
   {
     "tvdbId": 303786,
@@ -33123,7 +33413,9 @@
     "startedAt": "2020-10-03",
     "finishedAt": "2020-10-06",
     "tmdbId": 65320,
-    "posterPath": "/mkgQX2mRSn7aDSlFtnpUtNintbA.jpg"
+    "posterPath": "/mkgQX2mRSn7aDSlFtnpUtNintbA.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 43
   },
   {
     "tvdbId": 304219,
@@ -33134,7 +33426,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-07-12",
     "tmdbId": 62126,
-    "posterPath": "/yzM1hMB3PUJqbISX0f421b3xOjB.jpg"
+    "posterPath": "/yzM1hMB3PUJqbISX0f421b3xOjB.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 26
   },
   {
     "tvdbId": 305288,
@@ -33325,7 +33619,9 @@
     "startedAt": "2016-07-22",
     "finishedAt": "2022-07-16",
     "tmdbId": 66732,
-    "posterPath": "/uKYUR8GPkKRCksczYDJb3pwZauo.jpg"
+    "posterPath": "/uKYUR8GPkKRCksczYDJb3pwZauo.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 42
   },
   {
     "tvdbId": 305327,
@@ -33336,7 +33632,9 @@
     "watchedEpisodes": [],
     "startedAt": "2018-02-17",
     "tmdbId": 65143,
-    "posterPath": "/xxGomfml0x9iyPBS4StBjbRRu65.jpg"
+    "posterPath": "/xxGomfml0x9iyPBS4StBjbRRu65.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 16
   },
   {
     "tvdbId": 305378,
@@ -33374,7 +33672,9 @@
     "startedAt": "2018-04-21",
     "finishedAt": "2018-04-21",
     "tmdbId": 53606,
-    "posterPath": "/wvtW9YoMkovpMqyZCWUbQC6FJlg.jpg"
+    "posterPath": "/wvtW9YoMkovpMqyZCWUbQC6FJlg.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 34
   },
   {
     "tvdbId": 305574,
@@ -33522,7 +33822,9 @@
     "startedAt": "2020-12-24",
     "finishedAt": "2021-01-15",
     "tmdbId": 65494,
-    "posterPath": "/1M876KPjulVwppEpldhdc8V4o68.jpg"
+    "posterPath": "/1M876KPjulVwppEpldhdc8V4o68.jpg",
+    "numberOfSeasons": 6,
+    "numberOfEpisodes": 60
   },
   {
     "tvdbId": 305582,
@@ -33600,7 +33902,9 @@
     "startedAt": "2017-04-18",
     "finishedAt": "2017-04-30",
     "tmdbId": 65988,
-    "posterPath": "/qnIaDelA81dmFaXrhpz6M6dpGSD.jpg"
+    "posterPath": "/qnIaDelA81dmFaXrhpz6M6dpGSD.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 49
   },
   {
     "tvdbId": 305719,
@@ -33683,7 +33987,9 @@
     "startedAt": "2018-01-25",
     "finishedAt": "2019-08-03",
     "tmdbId": 66292,
-    "posterPath": "/zxGkno93ExrTMsJVllH6mzQ652z.jpg"
+    "posterPath": "/zxGkno93ExrTMsJVllH6mzQ652z.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 14
   },
   {
     "tvdbId": 306101,
@@ -33694,7 +34000,9 @@
     "watchedEpisodes": [],
     "startedAt": "2020-12-27",
     "tmdbId": 7448,
-    "posterPath": "/sp6VyduIK2FnRQOALEAHF9D0jAb.jpg"
+    "posterPath": "/sp6VyduIK2FnRQOALEAHF9D0jAb.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 197
   },
   {
     "tvdbId": 306304,
@@ -33772,7 +34080,9 @@
     "startedAt": "2017-07-20",
     "finishedAt": "2018-05-21",
     "tmdbId": 65294,
-    "posterPath": "/qg7WXAatXyQq6zO3SnWnRJEayeZ.jpg"
+    "posterPath": "/qg7WXAatXyQq6zO3SnWnRJEayeZ.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 25
   },
   {
     "tvdbId": 306391,
@@ -33783,7 +34093,9 @@
     "watchedEpisodes": [],
     "startedAt": "2018-03-16",
     "tmdbId": 66830,
-    "posterPath": "/dnKwzDle0E7tHnddW9gbFf44GzH.jpg"
+    "posterPath": "/dnKwzDle0E7tHnddW9gbFf44GzH.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 61
   },
   {
     "tvdbId": 306719,
@@ -33794,7 +34106,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-07-12",
     "tmdbId": 66676,
-    "posterPath": "/rzdC5EHkkKJE6OPVdh6gT1pR1c9.jpg"
+    "posterPath": "/rzdC5EHkkKJE6OPVdh6gT1pR1c9.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 62
   },
   {
     "tvdbId": 309130,
@@ -34057,7 +34371,9 @@
     "startedAt": "2020-12-04",
     "finishedAt": "2020-12-21",
     "tmdbId": 66008,
-    "posterPath": "/kVl9dbJ2KWJ17Red01EWDC7fw11.jpg"
+    "posterPath": "/kVl9dbJ2KWJ17Red01EWDC7fw11.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 50
   },
   {
     "tvdbId": 309990,
@@ -34068,7 +34384,9 @@
     "watchedEpisodes": [],
     "startedAt": "2016-07-12",
     "tmdbId": 66490,
-    "posterPath": "/gRm3WojWDTXhmviAfWx8b6y8YVv.jpg"
+    "posterPath": "/gRm3WojWDTXhmviAfWx8b6y8YVv.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 10
   },
   {
     "tvdbId": 310516,
@@ -34079,7 +34397,9 @@
     "watchedEpisodes": [],
     "startedAt": "2021-07-03",
     "tmdbId": 66276,
-    "posterPath": "/q13XJHdnsmxQL9rXRcnNDrZGHjO.jpg"
+    "posterPath": "/q13XJHdnsmxQL9rXRcnNDrZGHjO.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 8
   },
   {
     "tvdbId": 311711,
@@ -34228,7 +34548,9 @@
     "startedAt": "2018-01-13",
     "finishedAt": "2018-02-02",
     "tmdbId": 66573,
-    "posterPath": "/qIhsuhoIYR5yTnDta0IL4senbeN.jpg"
+    "posterPath": "/qIhsuhoIYR5yTnDta0IL4senbeN.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 50
   },
   {
     "tvdbId": 311714,
@@ -34681,7 +35003,9 @@
     "startedAt": "2019-04-05",
     "finishedAt": "2021-06-28",
     "tmdbId": 67136,
-    "posterPath": "/huxmY6Dmzwpv5Q2hnNft0UMK7vf.jpg"
+    "posterPath": "/huxmY6Dmzwpv5Q2hnNft0UMK7vf.jpg",
+    "numberOfSeasons": 6,
+    "numberOfEpisodes": 105
   },
   {
     "tvdbId": 311954,
@@ -34692,7 +35016,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-10-02",
     "tmdbId": 69050,
-    "posterPath": "/d8mmn9thQ5dBk2qbv6BCqGUXWK3.jpg"
+    "posterPath": "/d8mmn9thQ5dBk2qbv6BCqGUXWK3.jpg",
+    "numberOfSeasons": 7,
+    "numberOfEpisodes": 137
   },
   {
     "tvdbId": 312505,
@@ -34703,7 +35029,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-05-28",
     "tmdbId": 67773,
-    "posterPath": "/q8oMpXPEAUJJ0KztsRs5K51T2lo.jpg"
+    "posterPath": "/q8oMpXPEAUJJ0KztsRs5K51T2lo.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 18
   },
   {
     "tvdbId": 313589,
@@ -34714,7 +35042,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-07-20",
     "tmdbId": 67148,
-    "posterPath": "/kSF3AymHUK4XLuh1rzIX1TnRXAM.jpg"
+    "posterPath": "/kSF3AymHUK4XLuh1rzIX1TnRXAM.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 16
   },
   {
     "tvdbId": 313999,
@@ -34772,7 +35102,9 @@
     "startedAt": "2019-01-24",
     "finishedAt": "2019-01-31",
     "tmdbId": 65495,
-    "posterPath": "/8HZyGMnPLVVb00rmrh6A2SbK9NX.jpg"
+    "posterPath": "/8HZyGMnPLVVb00rmrh6A2SbK9NX.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 41
   },
   {
     "tvdbId": 314572,
@@ -35007,7 +35339,9 @@
     "startedAt": "2022-12-24",
     "finishedAt": "2023-01-09",
     "tmdbId": 68689,
-    "posterPath": "/4oIA7MWmCV66tSlhiaj0dWit8aX.jpg"
+    "posterPath": "/4oIA7MWmCV66tSlhiaj0dWit8aX.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 60
   },
   {
     "tvdbId": 314614,
@@ -35080,7 +35414,9 @@
     "startedAt": "2019-07-23",
     "finishedAt": "2019-07-29",
     "tmdbId": 67070,
-    "posterPath": "/27vEYsRKa3eAniwmoccOoluEXQ1.jpg"
+    "posterPath": "/27vEYsRKa3eAniwmoccOoluEXQ1.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 12
   },
   {
     "tvdbId": 314884,
@@ -35091,7 +35427,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-09-11",
     "tmdbId": 67780,
-    "posterPath": "/uh0pHb6JV0m6Vjmz1tGhohr9B7y.jpg"
+    "posterPath": "/uh0pHb6JV0m6Vjmz1tGhohr9B7y.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 25
   },
   {
     "tvdbId": 314986,
@@ -35102,7 +35440,9 @@
     "watchedEpisodes": [],
     "startedAt": "2018-03-16",
     "tmdbId": 67883,
-    "posterPath": "/sGMwPIE6m9QI3LzCRXnZG8opZtB.jpg"
+    "posterPath": "/sGMwPIE6m9QI3LzCRXnZG8opZtB.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 44
   },
   {
     "tvdbId": 315460,
@@ -35174,7 +35514,9 @@
     "startedAt": "2022-07-18",
     "finishedAt": "2022-07-21",
     "tmdbId": 67429,
-    "posterPath": "/wF1IwXyKsdViyEQdkxtIOyMz3Dt.jpg"
+    "posterPath": "/wF1IwXyKsdViyEQdkxtIOyMz3Dt.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 10
   },
   {
     "tvdbId": 316517,
@@ -35185,7 +35527,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-09-15",
     "tmdbId": 64555,
-    "posterPath": "/mhIeCeYgG4WJHNzaw2EyRpvmGX8.jpg"
+    "posterPath": "/mhIeCeYgG4WJHNzaw2EyRpvmGX8.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 18
   },
   {
     "tvdbId": 316594,
@@ -35233,7 +35577,9 @@
     "startedAt": "2019-02-24",
     "finishedAt": "2019-03-18",
     "tmdbId": 67894,
-    "posterPath": "/kI2lk4D8VPRYY1LbxNOfZEkqe3f.jpg"
+    "posterPath": "/kI2lk4D8VPRYY1LbxNOfZEkqe3f.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 7
   },
   {
     "tvdbId": 317220,
@@ -35244,7 +35590,9 @@
     "watchedEpisodes": [],
     "startedAt": "2018-02-17",
     "tmdbId": 67915,
-    "posterPath": "/sPkxHNw5BFvuCFGWw825TS7n6X3.jpg"
+    "posterPath": "/sPkxHNw5BFvuCFGWw825TS7n6X3.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 16
   },
   {
     "tvdbId": 318363,
@@ -35452,7 +35800,9 @@
     "startedAt": "2018-07-01",
     "finishedAt": "2019-02-16",
     "tmdbId": 69017,
-    "posterPath": "/yiQcmPm6pTYyAAp3Q9Ge2xMkf8b.jpg"
+    "posterPath": "/yiQcmPm6pTYyAAp3Q9Ge2xMkf8b.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 46
   },
   {
     "tvdbId": 319594,
@@ -35463,7 +35813,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-09-15",
     "tmdbId": 68708,
-    "posterPath": "/uzgEzk9wve2O0uDPMy68SDLkjTl.jpg"
+    "posterPath": "/uzgEzk9wve2O0uDPMy68SDLkjTl.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 15
   },
   {
     "tvdbId": 320450,
@@ -35526,7 +35878,9 @@
     "startedAt": "2017-02-19",
     "finishedAt": "2017-02-19",
     "tmdbId": 69470,
-    "posterPath": "/5rBjNm2sRubaXKBnU904NInFi7P.jpg"
+    "posterPath": "/5rBjNm2sRubaXKBnU904NInFi7P.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 30
   },
   {
     "tvdbId": 320724,
@@ -35537,7 +35891,9 @@
     "watchedEpisodes": [],
     "startedAt": "2017-05-28",
     "tmdbId": 67195,
-    "posterPath": "/xhJtYVTsdXQCIlB5hAXkMCPUG9y.jpg"
+    "posterPath": "/xhJtYVTsdXQCIlB5hAXkMCPUG9y.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 27
   },
   {
     "tvdbId": 321060,
@@ -35590,7 +35946,9 @@
     "startedAt": "2017-01-05",
     "finishedAt": "2017-01-05",
     "tmdbId": 69061,
-    "posterPath": "/rueY4slMeKtTGitm0raFUJvgaa5.jpg"
+    "posterPath": "/rueY4slMeKtTGitm0raFUJvgaa5.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 16
   },
   {
     "tvdbId": 321239,
@@ -35833,7 +36191,9 @@
     "startedAt": "2017-10-03",
     "finishedAt": "2021-06-19",
     "tmdbId": 69478,
-    "posterPath": "/eGUT7j3n3rn5yGihlCgwUnD70HV.jpg"
+    "posterPath": "/eGUT7j3n3rn5yGihlCgwUnD70HV.jpg",
+    "numberOfSeasons": 6,
+    "numberOfEpisodes": 66
   },
   {
     "tvdbId": 322971,
@@ -35981,7 +36341,9 @@
     "startedAt": "2017-09-10",
     "finishedAt": "2020-01-13",
     "tmdbId": 70785,
-    "posterPath": "/6P6tXhjT5tK3qOXzxF9OMLlG7iz.jpg"
+    "posterPath": "/6P6tXhjT5tK3qOXzxF9OMLlG7iz.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 27
   },
   {
     "tvdbId": 323168,
@@ -36059,7 +36421,9 @@
     "startedAt": "2017-07-20",
     "finishedAt": "2017-07-20",
     "tmdbId": 66788,
-    "posterPath": "/nel144y4dIOdFFid6twN5mAX9Yd.jpg"
+    "posterPath": "/nel144y4dIOdFFid6twN5mAX9Yd.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 49
   },
   {
     "tvdbId": 323225,
@@ -36232,7 +36596,9 @@
     "startedAt": "2017-09-22",
     "finishedAt": "2019-10-11",
     "tmdbId": 71225,
-    "posterPath": "/lAwLmgq1zy0xJnusszmvWTLjFlO.jpg"
+    "posterPath": "/lAwLmgq1zy0xJnusszmvWTLjFlO.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 42
   },
   {
     "tvdbId": 323385,
@@ -36490,7 +36856,9 @@
     "startedAt": "2018-07-25",
     "finishedAt": "2021-06-14",
     "tmdbId": 69630,
-    "posterPath": "/cKloQpl6zE7kdFf8SUeYU2qPT9H.jpg"
+    "posterPath": "/cKloQpl6zE7kdFf8SUeYU2qPT9H.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 52
   },
   {
     "tvdbId": 323855,
@@ -36603,7 +36971,9 @@
     "startedAt": "2017-08-31",
     "finishedAt": "2018-05-24",
     "tmdbId": 70767,
-    "posterPath": "/thHk9AncE8g2Hsb1iK1xHnlq23j.jpg"
+    "posterPath": "/thHk9AncE8g2Hsb1iK1xHnlq23j.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 40
   },
   {
     "tvdbId": 324546,
@@ -36614,7 +36984,9 @@
     "watchedEpisodes": [],
     "startedAt": "2018-03-16",
     "tmdbId": 70490,
-    "posterPath": "/2uJWtcLq231IkwwiUonS7QhZtMk.jpg"
+    "posterPath": "/2uJWtcLq231IkwwiUonS7QhZtMk.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 6
   },
   {
     "tvdbId": 326791,
@@ -36859,7 +37231,9 @@
     "startedAt": "2018-08-16",
     "finishedAt": "2023-06-04",
     "tmdbId": 70796,
-    "posterPath": "/zS7fQiOZiKCVH2vlYSiIsFWW8hh.jpg"
+    "posterPath": "/zS7fQiOZiKCVH2vlYSiIsFWW8hh.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 43
   },
   {
     "tvdbId": 326866,
@@ -36912,7 +37286,9 @@
     "startedAt": "2017-12-10",
     "finishedAt": "2017-12-10",
     "tmdbId": 39852,
-    "posterPath": "/rmibFGdqOe0kKKhPls0jVOdZCWw.jpg"
+    "posterPath": "/rmibFGdqOe0kKKhPls0jVOdZCWw.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 32
   },
   {
     "tvdbId": 326887,
@@ -36975,7 +37351,9 @@
     "startedAt": "2017-09-13",
     "finishedAt": "2017-09-13",
     "tmdbId": 68315,
-    "posterPath": "/iwDmsffJ5qYBxiGTPdwgIKTscKu.jpg"
+    "posterPath": "/iwDmsffJ5qYBxiGTPdwgIKTscKu.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 10
   },
   {
     "tvdbId": 327417,
@@ -37068,7 +37446,9 @@
     "startedAt": "2018-08-10",
     "finishedAt": "2018-10-20",
     "tmdbId": 71446,
-    "posterPath": "/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg"
+    "posterPath": "/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 41
   },
   {
     "tvdbId": 328292,
@@ -37131,7 +37511,9 @@
     "startedAt": "2017-07-20",
     "finishedAt": "2017-07-20",
     "tmdbId": 66939,
-    "posterPath": "/9dtm1ExRh6ihPGYIaAxEygOnl6G.jpg"
+    "posterPath": "/9dtm1ExRh6ihPGYIaAxEygOnl6G.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 10
   },
   {
     "tvdbId": 328535,
@@ -37194,7 +37576,9 @@
     "startedAt": "2018-07-15",
     "finishedAt": "2018-07-15",
     "tmdbId": 71744,
-    "posterPath": "/p0lsqyrRwV7rKBLuXAl7WgWQoRt.jpg"
+    "posterPath": "/p0lsqyrRwV7rKBLuXAl7WgWQoRt.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 10
   },
   {
     "tvdbId": 328577,
@@ -37262,7 +37646,9 @@
     "startedAt": "2018-07-23",
     "finishedAt": "2019-07-02",
     "tmdbId": 71715,
-    "posterPath": "/wpgg6G3UHXepH2Zgpt4W60d6gxR.jpg"
+    "posterPath": "/wpgg6G3UHXepH2Zgpt4W60d6gxR.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 50
   },
   {
     "tvdbId": 328634,
@@ -37305,7 +37691,9 @@
     "startedAt": "2019-03-04",
     "finishedAt": "2019-03-15",
     "tmdbId": 71712,
-    "posterPath": "/luhKkdD80qe62fwop6sdrXK9jUT.jpg"
+    "posterPath": "/luhKkdD80qe62fwop6sdrXK9jUT.jpg",
+    "numberOfSeasons": 7,
+    "numberOfEpisodes": 126
   },
   {
     "tvdbId": 328708,
@@ -37368,7 +37756,9 @@
     "startedAt": "2017-10-19",
     "finishedAt": "2017-12-17",
     "tmdbId": 67744,
-    "posterPath": "/fbKE87mojpIETWepSbD5Qt741fp.jpg"
+    "posterPath": "/fbKE87mojpIETWepSbD5Qt741fp.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 19
   },
   {
     "tvdbId": 329089,
@@ -37617,7 +38007,9 @@
     "startedAt": "2020-09-19",
     "finishedAt": "2022-07-03",
     "tmdbId": 69740,
-    "posterPath": "/pCGyPVrI9Fzw6rE1Pvi4BIXF6ET.jpg"
+    "posterPath": "/pCGyPVrI9Fzw6rE1Pvi4BIXF6ET.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 44
   },
   {
     "tvdbId": 329204,
@@ -37644,7 +38036,9 @@
     ],
     "startedAt": "2018-07-07",
     "tmdbId": 71967,
-    "posterPath": "/gomZ0inbIl5zm9jdMqcdzMvjKdp.jpg"
+    "posterPath": "/gomZ0inbIl5zm9jdMqcdzMvjKdp.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 6
   },
   {
     "tvdbId": 330374,
@@ -37847,7 +38241,9 @@
     "startedAt": "2017-10-03",
     "finishedAt": "2021-08-13",
     "tmdbId": 71578,
-    "posterPath": "/kNif3eZAjQ7qU3Ol9E7zo0kjPMo.jpg"
+    "posterPath": "/kNif3eZAjQ7qU3Ol9E7zo0kjPMo.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 38
   },
   {
     "tvdbId": 330500,
@@ -37864,7 +38260,9 @@
     ],
     "startedAt": "2017-12-02",
     "tmdbId": 72755,
-    "posterPath": "/t3yVaAlmCLBwbqTrKGcWHwuCmkh.jpg"
+    "posterPath": "/t3yVaAlmCLBwbqTrKGcWHwuCmkh.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 30
   },
   {
     "tvdbId": 331431,
@@ -37875,7 +38273,9 @@
     "watchedEpisodes": [],
     "startedAt": "2018-06-05",
     "tmdbId": 74204,
-    "posterPath": "/1Zio9w1tAd3r5Gu4d9AzTSx2hnT.jpg"
+    "posterPath": "/1Zio9w1tAd3r5Gu4d9AzTSx2hnT.jpg",
+    "numberOfSeasons": 8,
+    "numberOfEpisodes": 81
   },
   {
     "tvdbId": 331980,
@@ -37886,7 +38286,9 @@
     "watchedEpisodes": [],
     "startedAt": "2018-02-14",
     "tmdbId": 67178,
-    "posterPath": "/tM6xqRKXoloH9UchaJEyyRE9O1w.jpg"
+    "posterPath": "/tM6xqRKXoloH9UchaJEyyRE9O1w.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 26
   },
   {
     "tvdbId": 332027,
@@ -37988,7 +38390,9 @@
     "startedAt": "2021-12-25",
     "finishedAt": "2022-01-13",
     "tmdbId": 67466,
-    "posterPath": "/hnHEhbzh0F7kN3Ah1lzRjtQuW16.jpg"
+    "posterPath": "/hnHEhbzh0F7kN3Ah1lzRjtQuW16.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 33
   },
   {
     "tvdbId": 333801,
@@ -37999,7 +38403,9 @@
     "watchedEpisodes": [],
     "startedAt": "2018-09-18",
     "tmdbId": 73467,
-    "posterPath": "/ePOD0ofGWFDTbZR84QhM7kpYMPX.jpg"
+    "posterPath": "/ePOD0ofGWFDTbZR84QhM7kpYMPX.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 7
   },
   {
     "tvdbId": 334824,
@@ -38082,7 +38488,9 @@
     "startedAt": "2018-01-01",
     "finishedAt": "2020-06-27",
     "tmdbId": 70523,
-    "posterPath": "/apbrbWs8M9lyOpJYU5WXrpFbk1Z.jpg"
+    "posterPath": "/apbrbWs8M9lyOpJYU5WXrpFbk1Z.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 26
   },
   {
     "tvdbId": 337479,
@@ -38160,7 +38568,9 @@
     "startedAt": "2019-03-22",
     "finishedAt": "2021-01-10",
     "tmdbId": 86943,
-    "posterPath": "/w3S7O45AR4kEHoGpmGy9NZQ24KH.jpg"
+    "posterPath": "/w3S7O45AR4kEHoGpmGy9NZQ24KH.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 13
   },
   {
     "tvdbId": 338186,
@@ -38377,7 +38787,9 @@
     ],
     "startedAt": "2021-09-23",
     "tmdbId": 76331,
-    "posterPath": "/z0XiwdrCQ9yVIr4O0pxzaAYRxdW.jpg"
+    "posterPath": "/z0XiwdrCQ9yVIr4O0pxzaAYRxdW.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 39
   },
   {
     "tvdbId": 338947,
@@ -38445,7 +38857,9 @@
     "startedAt": "2019-02-16",
     "finishedAt": "2019-02-16",
     "tmdbId": 79242,
-    "posterPath": "/yxMpoHO0CXP5o9gB7IfsciilQS4.jpg"
+    "posterPath": "/yxMpoHO0CXP5o9gB7IfsciilQS4.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 36
   },
   {
     "tvdbId": 339273,
@@ -38558,7 +38972,9 @@
     "startedAt": "2018-04-09",
     "finishedAt": "2019-05-05",
     "tmdbId": 76747,
-    "posterPath": "/w6oviv65UEducvjAdH3sYYaxdu2.jpg"
+    "posterPath": "/w6oviv65UEducvjAdH3sYYaxdu2.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 38
   },
   {
     "tvdbId": 340959,
@@ -38651,7 +39067,9 @@
     "startedAt": "2019-07-24",
     "finishedAt": "2019-08-13",
     "tmdbId": 72750,
-    "posterPath": "/4wKhTVw8aGq5AZMa0Q1spERdi7n.jpg"
+    "posterPath": "/4wKhTVw8aGq5AZMa0Q1spERdi7n.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 32
   },
   {
     "tvdbId": 341282,
@@ -38715,7 +39133,9 @@
     "startedAt": "2018-03-30",
     "finishedAt": "2018-03-30",
     "tmdbId": 76438,
-    "posterPath": "/t1u1Ff43QnMCecao2lzx5wpR7Xg.jpg"
+    "posterPath": "/t1u1Ff43QnMCecao2lzx5wpR7Xg.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 10
   },
   {
     "tvdbId": 341614,
@@ -38726,7 +39146,9 @@
     "watchedEpisodes": [],
     "startedAt": "2018-06-05",
     "tmdbId": 76922,
-    "posterPath": "/zyuQwYNTkiPpyqiA9XAZuToZRhN.jpg"
+    "posterPath": "/zyuQwYNTkiPpyqiA9XAZuToZRhN.jpg",
+    "numberOfSeasons": 10,
+    "numberOfEpisodes": 80
   },
   {
     "tvdbId": 341852,
@@ -38984,7 +39406,9 @@
     "startedAt": "2020-08-30",
     "finishedAt": "2021-04-09",
     "tmdbId": 76773,
-    "posterPath": "/3gs9wBsvv1GJ3EzLheh5yGuTQis.jpg"
+    "posterPath": "/3gs9wBsvv1GJ3EzLheh5yGuTQis.jpg",
+    "numberOfSeasons": 7,
+    "numberOfEpisodes": 105
   },
   {
     "tvdbId": 343290,
@@ -38995,7 +39419,9 @@
     "watchedEpisodes": [],
     "startedAt": "2018-06-05",
     "tmdbId": 77791,
-    "posterPath": "/3wLAkbQu2Ld1rjiEeFvHnqmO5zN.jpg"
+    "posterPath": "/3wLAkbQu2Ld1rjiEeFvHnqmO5zN.jpg",
+    "numberOfSeasons": 7,
+    "numberOfEpisodes": 43
   },
   {
     "tvdbId": 345246,
@@ -39103,7 +39529,9 @@
     "startedAt": "2018-10-13",
     "finishedAt": "2020-10-17",
     "tmdbId": 72844,
-    "posterPath": "/nWPZb800NCGiDPNGsKCfY0w44Z2.jpg"
+    "posterPath": "/nWPZb800NCGiDPNGsKCfY0w44Z2.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 10
   },
   {
     "tvdbId": 346328,
@@ -39125,7 +39553,9 @@
     ],
     "startedAt": "2018-10-22",
     "tmdbId": 76669,
-    "posterPath": "/3NTAbAiao4JLzFQw6YxP1YZppM8.jpg"
+    "posterPath": "/3NTAbAiao4JLzFQw6YxP1YZppM8.jpg",
+    "numberOfSeasons": 8,
+    "numberOfEpisodes": 64
   },
   {
     "tvdbId": 346357,
@@ -39136,7 +39566,9 @@
     "watchedEpisodes": [],
     "startedAt": "2018-06-05",
     "tmdbId": 79932,
-    "posterPath": "/9TdpNQfW7VwUxIkrOxWzpOtlgun.jpg"
+    "posterPath": "/9TdpNQfW7VwUxIkrOxWzpOtlgun.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 3
   },
   {
     "tvdbId": 346602,
@@ -39190,7 +39622,9 @@
     "startedAt": "2018-08-24",
     "finishedAt": "2018-12-04",
     "tmdbId": 70453,
-    "posterPath": "/1SGovj2qDdkJexvhFiXllj9EYfu.jpg"
+    "posterPath": "/1SGovj2qDdkJexvhFiXllj9EYfu.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 8
   },
   {
     "tvdbId": 347507,
@@ -39207,7 +39641,9 @@
     ],
     "startedAt": "2019-03-20",
     "tmdbId": 79410,
-    "posterPath": "/6eJf4h9XcvqK64vbx27EFlLVURm.jpg"
+    "posterPath": "/6eJf4h9XcvqK64vbx27EFlLVURm.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 18
   },
   {
     "tvdbId": 348443,
@@ -39260,7 +39696,9 @@
     "startedAt": "2019-07-15",
     "finishedAt": "2019-07-17",
     "tmdbId": 86163,
-    "posterPath": "/hLQl8LKLXdA4gF4ArR8TXzXGRYV.jpg"
+    "posterPath": "/hLQl8LKLXdA4gF4ArR8TXzXGRYV.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 16
   },
   {
     "tvdbId": 348598,
@@ -39303,7 +39741,9 @@
     "startedAt": "2019-08-13",
     "finishedAt": "2019-08-17",
     "tmdbId": 87104,
-    "posterPath": "/u1FBsyMH9Tx7K5yzMnJsYRvNEKQ.jpg"
+    "posterPath": "/u1FBsyMH9Tx7K5yzMnJsYRvNEKQ.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 6
   },
   {
     "tvdbId": 349271,
@@ -39325,7 +39765,9 @@
     ],
     "startedAt": "2019-12-28",
     "tmdbId": 79696,
-    "posterPath": "/eTemCphrglLKrXOsNRhYezHA7H9.jpg"
+    "posterPath": "/eTemCphrglLKrXOsNRhYezHA7H9.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 62
   },
   {
     "tvdbId": 349272,
@@ -39558,7 +40000,9 @@
     "startedAt": "2021-08-04",
     "finishedAt": "2021-09-26",
     "tmdbId": 80350,
-    "posterPath": "/jsH4AeGZn5Q6h314A3OTUHKxHhR.jpg"
+    "posterPath": "/jsH4AeGZn5Q6h314A3OTUHKxHhR.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 89
   },
   {
     "tvdbId": 349303,
@@ -39606,7 +40050,9 @@
     "startedAt": "2021-02-18",
     "finishedAt": "2021-03-08",
     "tmdbId": 110529,
-    "posterPath": "/i6v77Rcez8BEbsQ2FbUVfzs3yT2.jpg"
+    "posterPath": "/i6v77Rcez8BEbsQ2FbUVfzs3yT2.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 12
   },
   {
     "tvdbId": 349826,
@@ -39717,7 +40163,9 @@
     "startedAt": "2020-12-28",
     "finishedAt": "2022-05-12",
     "tmdbId": 113367,
-    "posterPath": "/gHBtyMdHbWoM3tpM8VZymer8HfF.jpg"
+    "posterPath": "/gHBtyMdHbWoM3tpM8VZymer8HfF.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 18
   },
   {
     "tvdbId": 350864,
@@ -39728,7 +40176,9 @@
     "watchedEpisodes": [],
     "startedAt": "2018-09-30",
     "tmdbId": 73411,
-    "posterPath": "/kCNl4QPstAqChFD0NnLpbDFG8ul.jpg"
+    "posterPath": "/kCNl4QPstAqChFD0NnLpbDFG8ul.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 10
   },
   {
     "tvdbId": 351504,
@@ -39739,7 +40189,9 @@
     "watchedEpisodes": [],
     "startedAt": "2018-09-02",
     "tmdbId": 80006,
-    "posterPath": "/tmB1PghtrIBbdrFAmRncuO1wQLQ.jpg"
+    "posterPath": "/tmB1PghtrIBbdrFAmRncuO1wQLQ.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 88
   },
   {
     "tvdbId": 351911,
@@ -39782,7 +40234,9 @@
     "startedAt": "2018-12-08",
     "finishedAt": "2018-12-18",
     "tmdbId": 82700,
-    "posterPath": "/xswkOJni9tJYda2yN1QQtgBVaVJ.jpg"
+    "posterPath": "/xswkOJni9tJYda2yN1QQtgBVaVJ.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 18
   },
   {
     "tvdbId": 352150,
@@ -39825,7 +40279,9 @@
     "startedAt": "2018-12-24",
     "finishedAt": "2018-12-26",
     "tmdbId": 84052,
-    "posterPath": "/oT7Zodol33x7Z1McBXs9tyYNcxO.jpg"
+    "posterPath": "/oT7Zodol33x7Z1McBXs9tyYNcxO.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 6
   },
   {
     "tvdbId": 353764,
@@ -39933,7 +40389,9 @@
     "startedAt": "2021-01-01",
     "finishedAt": "2021-01-01",
     "tmdbId": 75006,
-    "posterPath": "/qhcwrnnCnN8NE1N6XXKHFmveJR9.jpg"
+    "posterPath": "/qhcwrnnCnN8NE1N6XXKHFmveJR9.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 36
   },
   {
     "tvdbId": 354509,
@@ -39986,7 +40444,9 @@
     "startedAt": "2018-12-26",
     "finishedAt": "2018-12-30",
     "tmdbId": 83381,
-    "posterPath": "/tGVQa6Fym1wGkoM5o6LYFTlk6jx.jpg"
+    "posterPath": "/tGVQa6Fym1wGkoM5o6LYFTlk6jx.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 8
   },
   {
     "tvdbId": 354765,
@@ -40008,7 +40468,9 @@
     ],
     "startedAt": "2019-05-26",
     "tmdbId": 82883,
-    "posterPath": "/vb1sQLC2MqfCPOFqHd8SyVsyDVB.jpg"
+    "posterPath": "/vb1sQLC2MqfCPOFqHd8SyVsyDVB.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 8
   },
   {
     "tvdbId": 355567,
@@ -40101,7 +40563,9 @@
     "startedAt": "2021-01-12",
     "finishedAt": "2021-01-29",
     "tmdbId": 76479,
-    "posterPath": "/in1R2dDc421JxsoRWaIIAqVI2KE.jpg"
+    "posterPath": "/in1R2dDc421JxsoRWaIIAqVI2KE.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 40
   },
   {
     "tvdbId": 356317,
@@ -40199,7 +40663,9 @@
     "startedAt": "2019-01-17",
     "finishedAt": "2021-09-19",
     "tmdbId": 81356,
-    "posterPath": "/bc3bmTdnoKcRuO9xdQKgAbB7Y9Z.jpg"
+    "posterPath": "/bc3bmTdnoKcRuO9xdQKgAbB7Y9Z.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 32
   },
   {
     "tvdbId": 357222,
@@ -40267,7 +40733,9 @@
     "startedAt": "2020-04-08",
     "finishedAt": "2021-09-12",
     "tmdbId": 91602,
-    "posterPath": "/cP9CJ9nvPT3cnnBSlGFgwq7odIR.jpg"
+    "posterPath": "/cP9CJ9nvPT3cnnBSlGFgwq7odIR.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 16
   },
   {
     "tvdbId": 358211,
@@ -40278,7 +40746,9 @@
     "watchedEpisodes": [],
     "startedAt": "2023-08-27",
     "tmdbId": 83631,
-    "posterPath": "/wa3ZQE9kLnqwN3vQ0NNjg1NPsCa.jpg"
+    "posterPath": "/wa3ZQE9kLnqwN3vQ0NNjg1NPsCa.jpg",
+    "numberOfSeasons": 6,
+    "numberOfEpisodes": 61
   },
   {
     "tvdbId": 360115,
@@ -40287,8 +40757,7 @@
     "status": "watchlist",
     "favorite": false,
     "watchedEpisodes": [],
-    "startedAt": "2016-01-27",
-    "posterPath": "/wnmNPaLvhnMeOqnWlhNkYCZxtda.jpg"
+    "startedAt": "2016-01-27"
   },
   {
     "tvdbId": 360261,
@@ -40387,7 +40856,9 @@
     "startedAt": "2019-07-12",
     "finishedAt": "2022-04-06",
     "tmdbId": 85552,
-    "posterPath": "/ypmtwojDd751Peszi62DVLytqqC.jpg"
+    "posterPath": "/ypmtwojDd751Peszi62DVLytqqC.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 24
   },
   {
     "tvdbId": 360295,
@@ -40436,7 +40907,9 @@
     "startedAt": "2022-08-12",
     "finishedAt": "2022-09-04",
     "tmdbId": 68507,
-    "posterPath": "/g6tIKGc3f1H5QMz1dcgCwADKpZ7.jpg"
+    "posterPath": "/g6tIKGc3f1H5QMz1dcgCwADKpZ7.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 23
   },
   {
     "tvdbId": 360388,
@@ -40468,7 +40941,9 @@
     ],
     "startedAt": "2021-01-01",
     "tmdbId": 81355,
-    "posterPath": "/oPv3nNtkuc6EPEql5lgdOuQNHuG.jpg"
+    "posterPath": "/oPv3nNtkuc6EPEql5lgdOuQNHuG.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 4
   },
   {
     "tvdbId": 360733,
@@ -40490,7 +40965,9 @@
     ],
     "startedAt": "2021-07-16",
     "tmdbId": 79788,
-    "posterPath": "/m8rWq3j73ZGhDuSCZWMMoE9ePH1.jpg"
+    "posterPath": "/m8rWq3j73ZGhDuSCZWMMoE9ePH1.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 9
   },
   {
     "tvdbId": 360858,
@@ -40553,7 +41030,9 @@
     "startedAt": "2020-02-09",
     "finishedAt": "2020-02-09",
     "tmdbId": 83050,
-    "posterPath": "/bAEGuEK0z4KTlrsx5UYpIvmPIPc.jpg"
+    "posterPath": "/bAEGuEK0z4KTlrsx5UYpIvmPIPc.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 10
   },
   {
     "tvdbId": 360893,
@@ -40596,7 +41075,9 @@
     "startedAt": "2023-06-07",
     "finishedAt": "2023-06-07",
     "tmdbId": 87108,
-    "posterPath": "/hlLXt2tOPT6RRnjiUmoxyG1LTFi.jpg"
+    "posterPath": "/hlLXt2tOPT6RRnjiUmoxyG1LTFi.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 5
   },
   {
     "tvdbId": 361558,
@@ -40657,7 +41138,9 @@
     "startedAt": "2023-03-15",
     "finishedAt": "2023-03-17",
     "tmdbId": 84647,
-    "posterPath": "/mxOlnFEQMpxjIltr9Ox06iyjjvK.jpg"
+    "posterPath": "/mxOlnFEQMpxjIltr9Ox06iyjjvK.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 10
   },
   {
     "tvdbId": 361563,
@@ -40831,7 +41314,9 @@
     "startedAt": "2023-09-08",
     "finishedAt": "2023-12-06",
     "tmdbId": 90282,
-    "posterPath": "/y9x2R87yt2U616736NJrP0d56dt.jpg"
+    "posterPath": "/y9x2R87yt2U616736NJrP0d56dt.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 40
   },
   {
     "tvdbId": 361566,
@@ -40863,7 +41348,9 @@
     ],
     "startedAt": "2021-02-28",
     "tmdbId": 89901,
-    "posterPath": "/dDdcAfHBZ6Aalv53iR6o35CSLWA.jpg"
+    "posterPath": "/dDdcAfHBZ6Aalv53iR6o35CSLWA.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 30
   },
   {
     "tvdbId": 361857,
@@ -40880,7 +41367,9 @@
     ],
     "startedAt": "2019-05-05",
     "tmdbId": 81357,
-    "posterPath": "/mAj18PHeACxqcrEus4pD8pksRmB.jpg"
+    "posterPath": "/mAj18PHeACxqcrEus4pD8pksRmB.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 30
   },
   {
     "tvdbId": 362392,
@@ -40938,7 +41427,9 @@
     "startedAt": "2021-01-24",
     "finishedAt": "2021-03-08",
     "tmdbId": 85271,
-    "posterPath": "/ijWWwINc8h71NQ8j1LTJMFSj5wr.jpg"
+    "posterPath": "/ijWWwINc8h71NQ8j1LTJMFSj5wr.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 9
   },
   {
     "tvdbId": 362472,
@@ -40981,7 +41472,9 @@
     "startedAt": "2021-07-14",
     "finishedAt": "2021-07-19",
     "tmdbId": 84958,
-    "posterPath": "/rX1wQMTKFqF0gvZyS0DDQqgnQPB.jpg"
+    "posterPath": "/rX1wQMTKFqF0gvZyS0DDQqgnQPB.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 12
   },
   {
     "tvdbId": 363194,
@@ -41034,7 +41527,9 @@
     "startedAt": "2020-05-24",
     "finishedAt": "2020-06-27",
     "tmdbId": 90257,
-    "posterPath": "/kUi6ZFfGVXjFTagYYENTXYx7uS5.jpg"
+    "posterPath": "/kUi6ZFfGVXjFTagYYENTXYx7uS5.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 8
   },
   {
     "tvdbId": 364082,
@@ -41097,7 +41592,9 @@
     "startedAt": "2019-06-30",
     "finishedAt": "2019-06-30",
     "tmdbId": 89852,
-    "posterPath": "/1KD2zNV04SI6pvfbPnBOr6eFlam.jpg"
+    "posterPath": "/1KD2zNV04SI6pvfbPnBOr6eFlam.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 20
   },
   {
     "tvdbId": 364477,
@@ -41150,7 +41647,9 @@
     "startedAt": "2020-02-18",
     "finishedAt": "2020-02-28",
     "tmdbId": 89630,
-    "posterPath": "/riq4xVG3FflKAB7JlIQPs9bkFw5.jpg"
+    "posterPath": "/riq4xVG3FflKAB7JlIQPs9bkFw5.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 28
   },
   {
     "tvdbId": 366211,
@@ -41180,7 +41679,9 @@
     ],
     "startedAt": "2022-09-04",
     "tmdbId": 90802,
-    "posterPath": "/q54qEgagGOYCq5D1903eBVMNkbo.jpg"
+    "posterPath": "/q54qEgagGOYCq5D1903eBVMNkbo.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 23
   },
   {
     "tvdbId": 366529,
@@ -41223,7 +41724,9 @@
     "startedAt": "2022-05-02",
     "finishedAt": "2022-05-22",
     "tmdbId": 90972,
-    "posterPath": "/xWlhMOzRxUpu4uzkWcDQOaESCE.jpg"
+    "posterPath": "/xWlhMOzRxUpu4uzkWcDQOaESCE.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 10
   },
   {
     "tvdbId": 366625,
@@ -41324,7 +41827,9 @@
     "startedAt": "2021-09-16",
     "finishedAt": "2022-06-11",
     "tmdbId": 93287,
-    "posterPath": "/oCK0o8CWV46Z0PUdh7CKXnjD2Po.jpg"
+    "posterPath": "/oCK0o8CWV46Z0PUdh7CKXnjD2Po.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 16
   },
   {
     "tvdbId": 367030,
@@ -41377,7 +41882,9 @@
     "startedAt": "2019-10-17",
     "finishedAt": "2019-10-18",
     "tmdbId": 91275,
-    "posterPath": "/jHOrNJNM03Lsjdw7nsw7TlqBOhd.jpg"
+    "posterPath": "/jHOrNJNM03Lsjdw7nsw7TlqBOhd.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 8
   },
   {
     "tvdbId": 367146,
@@ -41426,7 +41933,9 @@
     "startedAt": "2022-02-26",
     "finishedAt": "2022-04-22",
     "tmdbId": 88329,
-    "posterPath": "/ct5pNE5dDHryHLDnxyZPYcqO1sz.jpg"
+    "posterPath": "/ct5pNE5dDHryHLDnxyZPYcqO1sz.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 6
   },
   {
     "tvdbId": 367147,
@@ -41467,7 +41976,9 @@
     "startedAt": "2021-12-30",
     "finishedAt": "2022-06-11",
     "tmdbId": 91363,
-    "posterPath": "/zaqfFDUrSfIljdD0OBxSjcutX8n.jpg"
+    "posterPath": "/zaqfFDUrSfIljdD0OBxSjcutX8n.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 26
   },
   {
     "tvdbId": 367226,
@@ -41515,7 +42026,9 @@
     "startedAt": "2021-09-28",
     "finishedAt": "2021-09-30",
     "tmdbId": 97400,
-    "posterPath": "/3eVSQJdiBin6A7F7nsg62eJFf0Y.jpg"
+    "posterPath": "/3eVSQJdiBin6A7F7nsg62eJFf0Y.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 7
   },
   {
     "tvdbId": 368188,
@@ -41628,7 +42141,9 @@
     "startedAt": "2021-05-21",
     "finishedAt": "2021-06-16",
     "tmdbId": 97186,
-    "posterPath": "/pcT1vivabBnBk0tZgVBO1I8aK75.jpg"
+    "posterPath": "/pcT1vivabBnBk0tZgVBO1I8aK75.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 28
   },
   {
     "tvdbId": 369307,
@@ -41671,7 +42186,9 @@
     "startedAt": "2021-06-29",
     "finishedAt": "2021-07-03",
     "tmdbId": 83851,
-    "posterPath": "/3tDbJxobPN3EI2bBebL6zmusmw5.jpg"
+    "posterPath": "/3tDbJxobPN3EI2bBebL6zmusmw5.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 6
   },
   {
     "tvdbId": 370112,
@@ -41719,7 +42236,9 @@
     "startedAt": "2021-04-21",
     "finishedAt": "2021-06-03",
     "tmdbId": 115004,
-    "posterPath": "/78aK4Msbr22A5PGa6PZV0pAvdwf.jpg"
+    "posterPath": "/78aK4Msbr22A5PGa6PZV0pAvdwf.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 7
   },
   {
     "tvdbId": 371028,
@@ -41839,7 +42358,9 @@
     ],
     "startedAt": "2024-09-25",
     "tmdbId": 94605,
-    "posterPath": "/fqldf2t8ztc9aiwn3k6mlX3tvRT.jpg"
+    "posterPath": "/fqldf2t8ztc9aiwn3k6mlX3tvRT.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 18
   },
   {
     "tvdbId": 371572,
@@ -41965,7 +42486,9 @@
     ],
     "startedAt": "2023-01-02",
     "tmdbId": 94997,
-    "posterPath": "/7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg"
+    "posterPath": "/7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 26
   },
   {
     "tvdbId": 371798,
@@ -41982,7 +42505,9 @@
     ],
     "startedAt": "2021-01-01",
     "tmdbId": 102619,
-    "posterPath": "/9awmdcJsukBEY5Er8t4Vi1Ji7YX.jpg"
+    "posterPath": "/9awmdcJsukBEY5Er8t4Vi1Ji7YX.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 12
   },
   {
     "tvdbId": 371806,
@@ -42066,7 +42591,9 @@
     ],
     "startedAt": "2024-05-25",
     "tmdbId": 89905,
-    "posterPath": "/c4mk4EQVIM11yd3W43DDdqDazDU.jpg"
+    "posterPath": "/c4mk4EQVIM11yd3W43DDdqDazDU.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 12
   },
   {
     "tvdbId": 371980,
@@ -42091,7 +42618,9 @@
     "startedAt": "2022-12-07",
     "finishedAt": "2022-12-10",
     "tmdbId": 95396,
-    "posterPath": "/pPHpeI2X1qEd1CS1SeyrdhZ4qnT.jpg"
+    "posterPath": "/pPHpeI2X1qEd1CS1SeyrdhZ4qnT.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 19
   },
   {
     "tvdbId": 372081,
@@ -42154,7 +42683,9 @@
     "startedAt": "2020-08-07",
     "finishedAt": "2020-08-11",
     "tmdbId": 79622,
-    "posterPath": "/mjsz10d1abJXZwT9b8CTgniRJh9.jpg"
+    "posterPath": "/mjsz10d1abJXZwT9b8CTgniRJh9.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 18
   },
   {
     "tvdbId": 372100,
@@ -42207,7 +42738,9 @@
     "startedAt": "2020-11-19",
     "finishedAt": "2021-01-04",
     "tmdbId": 112468,
-    "posterPath": "/3vWANjNHJvgkwBzE2x6kWOiKSXo.jpg"
+    "posterPath": "/3vWANjNHJvgkwBzE2x6kWOiKSXo.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 26
   },
   {
     "tvdbId": 375503,
@@ -42255,7 +42788,9 @@
     "startedAt": "2020-05-05",
     "finishedAt": "2020-09-14",
     "tmdbId": 87050,
-    "posterPath": "/8AvVBcuCpESqdQicuX7s4WOGo1V.jpg"
+    "posterPath": "/8AvVBcuCpESqdQicuX7s4WOGo1V.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 7
   },
   {
     "tvdbId": 375605,
@@ -42277,7 +42812,9 @@
     ],
     "startedAt": "2020-07-23",
     "tmdbId": 98805,
-    "posterPath": "/r571zPr9McSe4UNhh7WKigt2Hys.jpg"
+    "posterPath": "/r571zPr9McSe4UNhh7WKigt2Hys.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 20
   },
   {
     "tvdbId": 375998,
@@ -42325,7 +42862,9 @@
     "startedAt": "2020-03-16",
     "finishedAt": "2020-03-16",
     "tmdbId": 90260,
-    "posterPath": "/kf3yX0ILNlLJ42X3lX2iYJ3QRp6.jpg"
+    "posterPath": "/kf3yX0ILNlLJ42X3lX2iYJ3QRp6.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 7
   },
   {
     "tvdbId": 376459,
@@ -42393,7 +42932,9 @@
     "startedAt": "2020-03-27",
     "finishedAt": "2020-03-27",
     "tmdbId": 99353,
-    "posterPath": "/8XhV6ke8ltRYoG4SYmibF2bGwrC.jpg"
+    "posterPath": "/8XhV6ke8ltRYoG4SYmibF2bGwrC.jpg",
+    "numberOfSeasons": 10,
+    "numberOfEpisodes": 135
   },
   {
     "tvdbId": 376815,
@@ -42446,7 +42987,9 @@
     "startedAt": "2021-10-22",
     "finishedAt": "2021-11-19",
     "tmdbId": 88989,
-    "posterPath": "/oPcqsZIFHrv7HoGgFQnsGDiPulD.jpg"
+    "posterPath": "/oPcqsZIFHrv7HoGgFQnsGDiPulD.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 16
   },
   {
     "tvdbId": 377294,
@@ -42479,7 +43022,9 @@
     "startedAt": "2020-03-27",
     "finishedAt": "2020-03-28",
     "tmdbId": 99610,
-    "posterPath": "/ri3dx91b3QeRGB35gnEiHGhXxdP.jpg"
+    "posterPath": "/ri3dx91b3QeRGB35gnEiHGhXxdP.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 12
   },
   {
     "tvdbId": 379962,
@@ -42506,7 +43051,9 @@
     ],
     "startedAt": "2020-04-25",
     "tmdbId": 102085,
-    "posterPath": "/jr21CagMMfglh7YVgcyov3Cj833.jpg"
+    "posterPath": "/jr21CagMMfglh7YVgcyov3Cj833.jpg",
+    "numberOfSeasons": 6,
+    "numberOfEpisodes": 59
   },
   {
     "tvdbId": 381493,
@@ -42599,7 +43146,9 @@
     "startedAt": "2021-08-08",
     "finishedAt": "2021-08-08",
     "tmdbId": 96718,
-    "posterPath": "/k2T6PmKcTIZRvNAP5LV81MekoPf.jpg"
+    "posterPath": "/k2T6PmKcTIZRvNAP5LV81MekoPf.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 16
   },
   {
     "tvdbId": 382544,
@@ -42720,7 +43269,9 @@
     "startedAt": "2023-12-24",
     "finishedAt": "2023-12-31",
     "tmdbId": 87689,
-    "posterPath": "/fLP0mA7FiERZhDP1NJUaHpm6XM8.jpg"
+    "posterPath": "/fLP0mA7FiERZhDP1NJUaHpm6XM8.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 18
   },
   {
     "tvdbId": 382556,
@@ -42783,7 +43334,9 @@
     "startedAt": "2021-09-03",
     "finishedAt": "2021-09-11",
     "tmdbId": 98201,
-    "posterPath": "/x7CMVS7kjWJFdt1wdtj5rdvTwss.jpg"
+    "posterPath": "/x7CMVS7kjWJFdt1wdtj5rdvTwss.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 20
   },
   {
     "tvdbId": 382936,
@@ -42846,7 +43399,9 @@
     "startedAt": "2021-10-08",
     "finishedAt": "2021-10-10",
     "tmdbId": 111141,
-    "posterPath": "/4brWcSXdH31BZUTtRTHj2BYFe6M.jpg"
+    "posterPath": "/4brWcSXdH31BZUTtRTHj2BYFe6M.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 10
   },
   {
     "tvdbId": 383275,
@@ -42904,7 +43459,9 @@
     "startedAt": "2021-10-05",
     "finishedAt": "2021-10-11",
     "tmdbId": 93405,
-    "posterPath": "/1QdXdRYfktUSONkl1oD5gc6Be0s.jpg"
+    "posterPath": "/1QdXdRYfktUSONkl1oD5gc6Be0s.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 22
   },
   {
     "tvdbId": 383414,
@@ -42947,7 +43504,9 @@
     "startedAt": "2020-07-23",
     "finishedAt": "2020-07-24",
     "tmdbId": 105213,
-    "posterPath": "/i0Gmbo25STtJBIxTFyQpqw7Thxl.jpg"
+    "posterPath": "/i0Gmbo25STtJBIxTFyQpqw7Thxl.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 6
   },
   {
     "tvdbId": 384429,
@@ -42965,7 +43524,9 @@
     ],
     "startedAt": "2022-11-20",
     "tmdbId": 90669,
-    "posterPath": "/gZleGu1MQVBArH2dlpZ9CGi0hhy.jpg"
+    "posterPath": "/gZleGu1MQVBArH2dlpZ9CGi0hhy.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 8
   },
   {
     "tvdbId": 386256,
@@ -43078,7 +43639,9 @@
     ],
     "startedAt": "2021-03-16",
     "tmdbId": 110115,
-    "posterPath": "/pCjXfCDnbO46N0My7rJ23zQ5K1c.jpg"
+    "posterPath": "/pCjXfCDnbO46N0My7rJ23zQ5K1c.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 17
   },
   {
     "tvdbId": 387115,
@@ -43126,7 +43689,9 @@
     "startedAt": "2020-11-19",
     "finishedAt": "2020-11-19",
     "tmdbId": 87739,
-    "posterPath": "/zU0htwkhNvBQdVSIKB9s6hgVeFK.jpg"
+    "posterPath": "/zU0htwkhNvBQdVSIKB9s6hgVeFK.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 7
   },
   {
     "tvdbId": 389492,
@@ -43144,7 +43709,9 @@
     ],
     "startedAt": "2022-09-24",
     "tmdbId": 113988,
-    "posterPath": "/f2PVrphK0u81ES256lw3oAZuF3x.jpg"
+    "posterPath": "/f2PVrphK0u81ES256lw3oAZuF3x.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 10
   },
   {
     "tvdbId": 390430,
@@ -43187,7 +43754,9 @@
     "startedAt": "2021-08-29",
     "finishedAt": "2021-10-12",
     "tmdbId": 111803,
-    "posterPath": "/gbSaK9v1CbcYH1ISgbM7XObD2dW.jpg"
+    "posterPath": "/gbSaK9v1CbcYH1ISgbM7XObD2dW.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 21
   },
   {
     "tvdbId": 392256,
@@ -43289,7 +43858,9 @@
     ],
     "startedAt": "2023-02-08",
     "tmdbId": 100088,
-    "posterPath": "/dmo6TYuuJgaYinXBPjrgG9mB5od.jpg"
+    "posterPath": "/dmo6TYuuJgaYinXBPjrgG9mB5od.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 16
   },
   {
     "tvdbId": 393625,
@@ -43352,7 +43923,9 @@
     "startedAt": "2021-03-11",
     "finishedAt": "2021-03-13",
     "tmdbId": 117581,
-    "posterPath": "/vOwunzW4dx3n0J5mH40n9jTRSwY.jpg"
+    "posterPath": "/vOwunzW4dx3n0J5mH40n9jTRSwY.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 30
   },
   {
     "tvdbId": 393683,
@@ -43384,7 +43957,9 @@
     ],
     "startedAt": "2021-07-30",
     "tmdbId": 115857,
-    "posterPath": "/lq0n5QzBA78ndUDb9SdN93P8hjY.jpg"
+    "posterPath": "/lq0n5QzBA78ndUDb9SdN93P8hjY.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 27
   },
   {
     "tvdbId": 395494,
@@ -43445,7 +44020,9 @@
     "startedAt": "2022-04-24",
     "finishedAt": "2022-04-24",
     "tmdbId": 124834,
-    "posterPath": "/dQc0QbDiHjGmWxTfKtBgYtS4bj5.jpg"
+    "posterPath": "/dQc0QbDiHjGmWxTfKtBgYtS4bj5.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 24
   },
   {
     "tvdbId": 396115,
@@ -43500,7 +44077,9 @@
     "startedAt": "2022-09-26",
     "finishedAt": "2022-10-01",
     "tmdbId": 158154,
-    "posterPath": "/1KTYMK7N2vRe8PowCyb799DbDRR.jpg"
+    "posterPath": "/1KTYMK7N2vRe8PowCyb799DbDRR.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 24
   },
   {
     "tvdbId": 396505,
@@ -43602,7 +44181,9 @@
     "startedAt": "2023-07-08",
     "finishedAt": "2023-08-24",
     "tmdbId": 194766,
-    "posterPath": "/xBIz53wYWsKfFpN0TaizVAjKJ0z.jpg"
+    "posterPath": "/xBIz53wYWsKfFpN0TaizVAjKJ0z.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 26
   },
   {
     "tvdbId": 397688,
@@ -43711,7 +44292,9 @@
     "startedAt": "2022-01-08",
     "finishedAt": "2022-08-12",
     "tmdbId": 134949,
-    "posterPath": "/u7xqyWcJXL0LejV6PQrkYPQbfD2.jpg"
+    "posterPath": "/u7xqyWcJXL0LejV6PQrkYPQbfD2.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 16
   },
   {
     "tvdbId": 399731,
@@ -43795,7 +44378,9 @@
     ],
     "startedAt": "2024-01-07",
     "tmdbId": 117488,
-    "posterPath": "/xRnGrn7Z7SC0KIBodocoU1QgDZF.jpg"
+    "posterPath": "/xRnGrn7Z7SC0KIBodocoU1QgDZF.jpg",
+    "numberOfSeasons": 4,
+    "numberOfEpisodes": 29
   },
   {
     "tvdbId": 399833,
@@ -43879,7 +44464,9 @@
     ],
     "startedAt": "2021-07-04",
     "tmdbId": 125910,
-    "posterPath": "/aEW8K07BTiBRtARw6dNzTcb3TJZ.jpg"
+    "posterPath": "/aEW8K07BTiBRtARw6dNzTcb3TJZ.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 18
   },
   {
     "tvdbId": 399959,
@@ -43952,7 +44539,9 @@
     "startedAt": "2022-04-06",
     "finishedAt": "2022-05-21",
     "tmdbId": 107113,
-    "posterPath": "/1yjFVQZuW8aofZ5Cgol8iImsVFp.jpg"
+    "posterPath": "/1yjFVQZuW8aofZ5Cgol8iImsVFp.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 50
   },
   {
     "tvdbId": 400269,
@@ -43976,7 +44565,9 @@
     ],
     "startedAt": "2022-06-25",
     "tmdbId": 122196,
-    "posterPath": "/jiAcdCyf1UbWYBImcNtVeLW0pRj.jpg"
+    "posterPath": "/jiAcdCyf1UbWYBImcNtVeLW0pRj.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 8
   },
   {
     "tvdbId": 403090,
@@ -44018,7 +44609,9 @@
     ],
     "startedAt": "2024-07-15",
     "tmdbId": 125816,
-    "posterPath": "/sNeGAamuke1a2I4ndcaE0bnukh4.jpg"
+    "posterPath": "/sNeGAamuke1a2I4ndcaE0bnukh4.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 7
   },
   {
     "tvdbId": 403294,
@@ -44079,7 +44672,9 @@
     "startedAt": "2022-11-13",
     "finishedAt": "2023-02-24",
     "tmdbId": 136315,
-    "posterPath": "/eKfVzzEazSIjJMrw9ADa2x8ksLz.jpg"
+    "posterPath": "/eKfVzzEazSIjJMrw9ADa2x8ksLz.jpg",
+    "numberOfSeasons": 5,
+    "numberOfEpisodes": 46
   },
   {
     "tvdbId": 404833,
@@ -44133,7 +44728,9 @@
     ],
     "startedAt": "2022-10-28",
     "tmdbId": 210232,
-    "posterPath": "/6RrseODZo2e66XOzC1XMzMuecnf.jpg"
+    "posterPath": "/6RrseODZo2e66XOzC1XMzMuecnf.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 7
   },
   {
     "tvdbId": 407281,
@@ -44143,7 +44740,9 @@
     "favorite": false,
     "watchedEpisodes": [],
     "tmdbId": 129552,
-    "posterPath": "/4c5yUNcaff4W4aPrkXE6zr7papX.jpg"
+    "posterPath": "/4c5yUNcaff4W4aPrkXE6zr7papX.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 30
   },
   {
     "tvdbId": 410823,
@@ -44185,7 +44784,9 @@
     ],
     "startedAt": "2022-07-02",
     "tmdbId": 135022,
-    "posterPath": "/8hoZuxGSe2uPBms6CTPuOzFJVOL.jpg"
+    "posterPath": "/8hoZuxGSe2uPBms6CTPuOzFJVOL.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 24
   },
   {
     "tvdbId": 411021,
@@ -44246,7 +44847,9 @@
     "startedAt": "2023-10-17",
     "finishedAt": "2023-10-23",
     "tmdbId": 157065,
-    "posterPath": "/2rl04pRCaGfz91lwfWdDQmOiGJp.jpg"
+    "posterPath": "/2rl04pRCaGfz91lwfWdDQmOiGJp.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 8
   },
   {
     "tvdbId": 415151,
@@ -44270,7 +44873,9 @@
     ],
     "startedAt": "2023-12-21",
     "tmdbId": 103540,
-    "posterPath": "/bd5ZIqiz1PRiLC7FLexzVBf8qu1.jpg"
+    "posterPath": "/bd5ZIqiz1PRiLC7FLexzVBf8qu1.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 24
   },
   {
     "tvdbId": 419389,
@@ -44281,7 +44886,9 @@
     "watchedEpisodes": [],
     "startedAt": "2022-06-25",
     "tmdbId": 202851,
-    "posterPath": "/wByI6Yg7Jtofb6H9xFlzk8w4IrQ.jpg"
+    "posterPath": "/wByI6Yg7Jtofb6H9xFlzk8w4IrQ.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 18
   },
   {
     "tvdbId": 420341,
@@ -44996,7 +45603,9 @@
     "startedAt": "2023-02-10",
     "finishedAt": "2023-07-05",
     "tmdbId": 209117,
-    "posterPath": "/wevHki0kVgbsDaTcgyTeZ9CcC40.jpg"
+    "posterPath": "/wevHki0kVgbsDaTcgyTeZ9CcC40.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 179
   },
   {
     "tvdbId": 421633,
@@ -45074,7 +45683,9 @@
     ],
     "startedAt": "2024-04-07",
     "tmdbId": 213338,
-    "posterPath": "/vbbZRlzz41JQjBOT9OEKHgonhZ3.jpg"
+    "posterPath": "/vbbZRlzz41JQjBOT9OEKHgonhZ3.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 16
   },
   {
     "tvdbId": 423581,
@@ -45123,7 +45734,9 @@
     "startedAt": "2022-11-15",
     "finishedAt": "2022-11-17",
     "tmdbId": 210939,
-    "posterPath": "/wVipX97HY7UYiWIR6BdmnQLKEXy.jpg"
+    "posterPath": "/wVipX97HY7UYiWIR6BdmnQLKEXy.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 20
   },
   {
     "tvdbId": 423808,
@@ -45153,7 +45766,9 @@
     ],
     "startedAt": "2022-10-04",
     "tmdbId": 158053,
-    "posterPath": "/dsHR29EQnCZcMRTc8bzDkwY9mRh.jpg"
+    "posterPath": "/dsHR29EQnCZcMRTc8bzDkwY9mRh.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 16
   },
   {
     "tvdbId": 425386,
@@ -45213,7 +45828,9 @@
     ],
     "startedAt": "2024-06-03",
     "tmdbId": 211358,
-    "posterPath": "/4YMpCGsAAHXWGScHsK1sbd7wprE.jpg"
+    "posterPath": "/4YMpCGsAAHXWGScHsK1sbd7wprE.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 8
   },
   {
     "tvdbId": 438638,
@@ -45273,7 +45890,9 @@
     ],
     "startedAt": "2025-06-30",
     "tmdbId": 215522,
-    "posterPath": "/3RQoNwSkJkh92KL2TwpMlHP5FkT.jpg"
+    "posterPath": "/3RQoNwSkJkh92KL2TwpMlHP5FkT.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 8
   },
   {
     "tvdbId": 440564,
@@ -45315,7 +45934,9 @@
     ],
     "startedAt": "2025-08-14",
     "tmdbId": 233256,
-    "posterPath": "/jfEEnO3zHWrJNVMQuv3TCNLrIzZ.jpg"
+    "posterPath": "/jfEEnO3zHWrJNVMQuv3TCNLrIzZ.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 5
   },
   {
     "tvdbId": 443586,
@@ -45363,7 +45984,9 @@
     ],
     "startedAt": "2024-05-13",
     "tmdbId": 250670,
-    "posterPath": "/slKAbvY2CjAIyJFqoLSh1WICzg6.jpg"
+    "posterPath": "/slKAbvY2CjAIyJFqoLSh1WICzg6.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 12
   },
   {
     "tvdbId": 446149,
@@ -45423,7 +46046,9 @@
     ],
     "startedAt": "2026-01-05",
     "tmdbId": 246386,
-    "posterPath": "/o8vZKZlc8H4OcgpbJuqP0iK4B2.jpg"
+    "posterPath": "/o8vZKZlc8H4OcgpbJuqP0iK4B2.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 8
   },
   {
     "tvdbId": 448176,
@@ -45567,7 +46192,9 @@
     ],
     "startedAt": "2025-06-22",
     "tmdbId": 250307,
-    "posterPath": "/kvFSpESyBZMjaeOJDx7RS3P1jey.jpg"
+    "posterPath": "/kvFSpESyBZMjaeOJDx7RS3P1jey.jpg",
+    "numberOfSeasons": 3,
+    "numberOfEpisodes": 30
   },
   {
     "tvdbId": 449950,
@@ -45615,7 +46242,9 @@
     ],
     "startedAt": "2026-02-08",
     "tmdbId": 254071,
-    "posterPath": "/6KmlaPhsohh3Ki9XJUq0jiUYbf3.jpg"
+    "posterPath": "/6KmlaPhsohh3Ki9XJUq0jiUYbf3.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 6
   },
   {
     "tvdbId": 451423,
@@ -45657,7 +46286,9 @@
     ],
     "startedAt": "2025-11-06",
     "tmdbId": 279013,
-    "posterPath": "/eVqBFACBpovk0sEtjx3HEb3jOYS.jpg"
+    "posterPath": "/eVqBFACBpovk0sEtjx3HEb3jOYS.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 5
   },
   {
     "tvdbId": 452467,
@@ -45693,7 +46324,9 @@
     ],
     "startedAt": "2025-03-30",
     "tmdbId": 249042,
-    "posterPath": "/20i4nShZZg1g1VFHSB8xpaYM4r7.jpg"
+    "posterPath": "/20i4nShZZg1g1VFHSB8xpaYM4r7.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 4
   },
   {
     "tvdbId": 453614,
@@ -45825,7 +46458,9 @@
     ],
     "startedAt": "2024-12-06",
     "tmdbId": 262306,
-    "posterPath": "/wcMNYAnFGolZircBt96wi4ANTty.jpg"
+    "posterPath": "/wcMNYAnFGolZircBt96wi4ANTty.jpg",
+    "numberOfSeasons": 2,
+    "numberOfEpisodes": 20
   },
   {
     "tvdbId": 461305,
@@ -46107,7 +46742,9 @@
     ],
     "startedAt": "2025-11-04",
     "tmdbId": 289996,
-    "posterPath": "/euLl4ntSW4bJE5QnDk90UKGW2Tp.jpg"
+    "posterPath": "/euLl4ntSW4bJE5QnDk90UKGW2Tp.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 179
   },
   {
     "tvdbId": 464461,
@@ -46155,6 +46792,8 @@
     ],
     "startedAt": "2026-01-12",
     "tmdbId": 301507,
-    "posterPath": "/3YCKbtAkYWCMDLHvkUjGhG7eWoS.jpg"
+    "posterPath": "/3YCKbtAkYWCMDLHvkUjGhG7eWoS.jpg",
+    "numberOfSeasons": 1,
+    "numberOfEpisodes": 6
   }
 ]

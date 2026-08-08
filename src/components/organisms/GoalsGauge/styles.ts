@@ -4,6 +4,8 @@ const grain = "url(/images/shared/noise-grain.webp)";
 
 /** Matches full-circle.svg viewBox — reserves drip space so tops stay aligned. */
 const GAUGE_ASPECT = "224.88 / 286.5";
+const FILL_MS = 1400;
+const SPILL_MS = 900;
 
 export const Section = styled("section", {
   margin: 0,
@@ -118,42 +120,73 @@ export const Stage = styled("div", {
         },
       },
     },
+    /** Exceeded goals reserve drip height on mobile too (spill animates in later). */
+    reserve: {
+      true: {
+        aspectRatio: GAUGE_ASPECT,
+        boxSizing: "content-box",
+        flexShrink: 0,
+      },
+    },
   },
 
   defaultVariants: {
     room: "rim",
+    reserve: false,
   },
 });
 
 export const Circle = styled("div", {
   gridArea: "stack",
+  position: "relative",
   zIndex: 1,
   width: "100%",
   aspectRatio: "1",
   borderRadius: "50%",
   boxSizing: "border-box",
   border: "0.14rem solid $goalInk",
-  backgroundImage:
-    "linear-gradient(to top, $goalInk 0%, $goalInk var(--goal-fill, 0%), transparent var(--goal-fill, 0%))",
+  overflow: "hidden",
+  backgroundColor: "transparent",
+});
+
+export const Fill = styled("div", {
+  position: "absolute",
+  left: 0,
+  right: 0,
+  bottom: 0,
+  height: "0%",
+  backgroundColor: "$goalInk",
+  transition: `height ${FILL_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
+
+  "@motionReduce": {
+    transition: "none",
+  },
 });
 
 export const Overflow = styled("img", {
   gridArea: "stack",
-  zIndex: 1,
+  zIndex: 2,
   width: "100%",
   height: "auto",
   display: "block",
+  opacity: 0,
+  transition: `opacity ${SPILL_MS}ms ease`,
+  pointerEvents: "none",
 
   "@md": {
     maxHeight: "100%",
     objectFit: "contain",
     objectPosition: "top center",
   },
+
+  "@motionReduce": {
+    transition: "none",
+  },
 });
 
 export const Figure = styled("img", {
   gridArea: "stack",
-  zIndex: 2,
+  zIndex: 3,
   width: "46%",
   height: "auto",
   pointerEvents: "none",

@@ -455,6 +455,8 @@ export function parseSeriesEntries(data: unknown): SeriesEntry[] {
     return {
       tmdbId: optionalPositiveInteger(item, "tmdbId", path),
       posterPath: optionalString(item, "posterPath", path),
+      numberOfSeasons: optionalPositiveInteger(item, "numberOfSeasons", path),
+      numberOfEpisodes: optionalPositiveInteger(item, "numberOfEpisodes", path),
       tvdbId: requirePositiveInteger(item, "tvdbId", path),
       slug: requireString(item, "slug", path),
       title: requireString(item, "title", path),
