@@ -109,7 +109,7 @@ export function computeLifetimeStats(
   };
 }
 
-/** Lifetime totals for the home stats collage. */
+/** Lifetime totals for the home stats collage teaser. */
 export function getLifetimeStats() {
   return computeLifetimeStats(
     computeMovieStats(movieRepository.findAll()),
@@ -140,51 +140,44 @@ export function getStatsPageData(): {
   const totalWatch =
     movies.totalRuntimeMinutes + series.totalRuntimeMinutes;
 
+  const formatCount = (value: number) => value.toLocaleString("en-US");
+
+  /** Collage order matches the stats page layout (alternating image/stat rows). */
   const metrics: StatsMetric[] = [
     {
       id: "works",
-      value: String(movies.total + series.total + books.total),
+      value: formatCount(movies.total + series.total + books.total),
       label: statsCopy.metrics.works,
-    },
-    {
-      id: "films-watched",
-      value: String(movies.watched),
-      label: statsCopy.metrics.filmsWatched,
-    },
-    {
-      id: "series-completed",
-      value: String(series.completed),
-      label: statsCopy.metrics.seriesCompleted,
-    },
-    {
-      id: "episodes",
-      value: String(series.watchedEpisodes),
-      label: statsCopy.metrics.episodesWatched,
-    },
-    {
-      id: "books-finished",
-      value: String(books.finished),
-      label: statsCopy.metrics.booksFinished,
-    },
-    {
-      id: "pages",
-      value: String(books.pagesRead),
-      label: statsCopy.metrics.pagesRead,
-    },
-    {
-      id: "film-time",
-      value: formatDuration(movies.totalRuntimeMinutes),
-      label: statsCopy.metrics.filmWatchTime,
-    },
-    {
-      id: "series-time",
-      value: formatDuration(series.totalRuntimeMinutes),
-      label: statsCopy.metrics.seriesWatchTime,
     },
     {
       id: "total-time",
       value: formatDuration(totalWatch),
       label: statsCopy.metrics.totalWatchTime,
+    },
+    {
+      id: "pages",
+      value: formatCount(books.pagesRead),
+      label: statsCopy.metrics.pagesRead,
+    },
+    {
+      id: "films-watched",
+      value: formatCount(movies.watched),
+      label: statsCopy.metrics.filmsWatched,
+    },
+    {
+      id: "series-completed",
+      value: formatCount(series.completed),
+      label: statsCopy.metrics.seriesCompleted,
+    },
+    {
+      id: "episodes",
+      value: formatCount(series.watchedEpisodes),
+      label: statsCopy.metrics.episodesWatched,
+    },
+    {
+      id: "books-finished",
+      value: formatCount(books.finished),
+      label: statsCopy.metrics.booksFinished,
     },
   ];
 

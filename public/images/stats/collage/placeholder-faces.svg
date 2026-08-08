@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" role="img" aria-label="Faces placeholder">
+  <defs>
+    <linearGradient id="f" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c45a28"/>
+      <stop offset="100%" stop-color="#5c1c0c"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="600" fill="url(#f)"/>
+  <circle cx="180" cy="160" r="90" fill="#e0894a" opacity="0.55"/>
+  <circle cx="420" cy="220" r="110" fill="#8b2e14" opacity="0.65"/>
+  <circle cx="680" cy="150" r="95" fill="#d4723a" opacity="0.5"/>
+  <circle cx="300" cy="420" r="120" fill="#a33d1c" opacity="0.6"/>
+  <circle cx="560" cy="400" r="100" fill="#6e2410" opacity="0.7"/>
+  <circle cx="780" cy="380" r="80" fill="#c45a28" opacity="0.45"/>
+</svg>

@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { siteCopy } from "@/content/copy";
+import { chromeForPath } from "@/lib/chrome-tone";
 import {
   Brand,
   BrandLink,
@@ -62,10 +63,7 @@ const socialIcons = {
 export default function SiteFooter({ className }: SiteFooterProps) {
   const pathname = usePathname() ?? copy.homeHref;
   const isHome = pathname === copy.homeHref;
-  const tone =
-    pathname === "/films" || pathname.startsWith("/films/")
-      ? "paper"
-      : "default";
+  const tone = chromeForPath(pathname).footer;
 
   return (
     <Root className={className} tone={tone}>

@@ -28,9 +28,17 @@ export const Bar = styled("header", {
       },
     },
     tone: {
-      default: {
+      navy: {
         backgroundColor: "rgba(2, 21, 112, 0.8)",
         color: "#FFFFFF",
+      },
+      stats: {
+        backgroundColor: "rgba(19, 19, 19, 0.8)",
+        color: "#FFFFFF",
+      },
+      films: {
+        backgroundColor: "rgba(42, 34, 28, 0.8)",
+        color: "$catalogTextOnDark",
       },
       paper: {
         backgroundColor: "rgba(248, 240, 222, 0.8)",
@@ -41,7 +49,7 @@ export const Bar = styled("header", {
 
   defaultVariants: {
     visible: false,
-    tone: "default",
+    tone: "navy",
   },
 
   "@md": {
@@ -98,8 +106,14 @@ export const NavLink = styled(Link, {
       },
     },
     tone: {
-      default: {
+      navy: {
         color: "$sectionHeading",
+      },
+      stats: {
+        color: "$sectionHeading",
+      },
+      films: {
+        color: "$catalogTextOnDark",
       },
       paper: {
         color: "$catalogText",
@@ -108,7 +122,7 @@ export const NavLink = styled(Link, {
   },
 
   defaultVariants: {
-    tone: "default",
+    tone: "navy",
   },
 
   "@motionReduce": {

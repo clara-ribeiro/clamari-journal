@@ -22,6 +22,30 @@ export const statsCopy = {
       pages: "/images/stats/person-4.webp",
     },
   },
+  collage: {
+    titleId: "stats-collage-heading",
+    ariaLabel: "Lifetime reading and watching totals",
+    images: {
+      portrait: {
+        src: "/images/stats/collage/placeholder-portrait.svg",
+        alt: "",
+      },
+      landscape: {
+        src: "/images/stats/collage/placeholder-landscape.svg",
+        alt: "",
+      },
+      stats: [
+        {
+          src: "/images/stats/collage/placeholder-landscape.svg",
+          alt: "",
+        },
+        {
+          src: "/images/stats/collage/placeholder-faces.svg",
+          alt: "",
+        },
+      ],
+    },
+  },
   metrics: {
     works: "Works logged",
     filmsWatched: "Films watched",

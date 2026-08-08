@@ -6,11 +6,31 @@ export const Section = styled("section", {
   paddingTop: "clamp(1.5rem, 4vw, 2.5rem)",
   paddingBottom: "clamp(3rem, 8vw, 5rem)",
   px: "$md",
-  backgroundColor: "$statsSurface",
-  backgroundImage: "url(/images/shared/noise-grain.webp)",
-  backgroundSize: "128px 128px",
-  backgroundRepeat: "repeat",
-  backgroundBlendMode: "multiply",
+
+  variants: {
+    tone: {
+      /** Home teaser — warm gold field. */
+      gold: {
+        backgroundColor: "$statsSurface",
+        backgroundImage: "url(/images/shared/noise-grain.webp)",
+        backgroundSize: "128px 128px",
+        backgroundRepeat: "repeat",
+        backgroundBlendMode: "multiply",
+      },
+      /** Stats page — top half black, bottom half white. */
+      split: {
+        backgroundColor: "$statsHeroBg",
+        backgroundImage:
+          "url(/images/shared/noise-grain.webp), linear-gradient(to bottom, $statsHeroBg 50%, $statsLightBg 50%)",
+        backgroundSize: "128px 128px, 100% 100%",
+        backgroundRepeat: "repeat, no-repeat",
+      },
+    },
+  },
+
+  defaultVariants: {
+    tone: "gold",
+  },
 
   "@md": {
     px: "$xl",
@@ -98,7 +118,7 @@ export const LandscapeCell = styled("div", {
   },
 });
 
-export const StatCell = styled(Link, {
+const statCellStyles = {
   position: "relative",
   display: "flex",
   alignItems: "center",
@@ -108,9 +128,7 @@ export const StatCell = styled(Link, {
   height: "15rem",
   color: "inherit",
   textDecoration: "none",
-  cursor: "pointer",
   backgroundColor: "$statsSurface",
-  transition: "transform $normal, box-shadow $normal",
 
   "@md": {
     flex: "2 1 0",
@@ -120,6 +138,21 @@ export const StatCell = styled(Link, {
   "& > svg": {
     position: "relative",
     zIndex: 2,
+  },
+} as const;
+
+export const StatCell = styled("div", {
+  ...statCellStyles,
+  cursor: "default",
+});
+
+export const StatCellLink = styled(Link, {
+  ...statCellStyles,
+  cursor: "pointer",
+  transition: "transform $normal, box-shadow $normal",
+
+  "& > svg": {
+    ...statCellStyles["& > svg"],
     transition: "transform $normal ease",
   },
 
@@ -179,7 +212,6 @@ export const StatFit = styled("svg", {
     fill: "currentColor",
     fontFamily: "$section",
     fontWeight: 400,
-    fontSize: 110,
     letterSpacing: "0.02em",
     textTransform: "uppercase",
   },

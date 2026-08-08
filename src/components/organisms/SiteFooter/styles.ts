@@ -15,19 +15,36 @@ export const Root = styled("footer", {
 
   variants: {
     tone: {
-      default: {
+      navy: {
         backgroundColor: "$bg",
         color: "#FFFFFF",
+      },
+      stats: {
+        backgroundColor: "$statsHeroBg",
+        color: "#FFFFFF",
+      },
+      films: {
+        backgroundColor: "$catalogBgFilms",
+        color: "$catalogTextOnDark",
       },
       paper: {
         backgroundColor: "$catalogBgPaper",
         color: "$catalogText",
       },
+      white: {
+        backgroundColor: "$statsLightBg",
+        color: "$catalogText",
+      },
+      /** Matches HomeJournalAbout’s closing field. */
+      ink: {
+        backgroundColor: "#0a0606",
+        color: "#FFFFFF",
+      },
     },
   },
 
   defaultVariants: {
-    tone: "default",
+    tone: "navy",
   },
 
   "@md": {

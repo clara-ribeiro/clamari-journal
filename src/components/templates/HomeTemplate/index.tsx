@@ -3,7 +3,7 @@
 import HomeHero from "@/components/organisms/HomeHero";
 import EntriesCarousel from "@/components/organisms/EntriesCarousel";
 import HomeJournalAbout from "@/components/organisms/HomeJournalAbout";
-import HomeStatsCollage from "@/components/organisms/HomeStatsCollage";
+import StatsCollage from "@/components/organisms/StatsCollage";
 import { homeCopy } from "@/content/copy";
 import type { JournalEntry } from "@/application/dto";
 import { Root } from "./styles";
@@ -16,6 +16,10 @@ export type HomeTemplateProps = {
   className?: string;
 };
 
+function formatCount(value: number) {
+  return value.toLocaleString("en-US");
+}
+
 export default function HomeTemplate({
   recentEntries,
   favoriteEntries,
@@ -23,6 +27,8 @@ export default function HomeTemplate({
   watchedHours,
   className,
 }: HomeTemplateProps) {
+  const collage = homeCopy.statsCollage;
+
   return (
     <Root className={className}>
       <HomeHero />
@@ -44,7 +50,28 @@ export default function HomeTemplate({
         showAllHref={homeCopy.favorites.showAllHref}
         priorityCount={0}
       />
-      <HomeStatsCollage pagesRead={pagesRead} watchedHours={watchedHours} />
+      <StatsCollage
+        stats={[
+          {
+            id: "pages",
+            value: formatCount(pagesRead),
+            label: collage.pagesLabel,
+          },
+          {
+            id: "hours",
+            value: formatCount(watchedHours),
+            label: collage.hoursLabel,
+          },
+        ]}
+        images={{
+          portrait: collage.images.portrait,
+          landscape: collage.images.landscape,
+          stats: [collage.images.pages, collage.images.hours],
+        }}
+        titleId={collage.titleId}
+        ariaLabel={collage.ariaLabel}
+        statsHref={collage.statsHref}
+      />
       <HomeJournalAbout />
     </Root>
   );

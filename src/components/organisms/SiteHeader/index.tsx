@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { siteCopy } from "@/content/copy";
+import { chromeForPath } from "@/lib/chrome-tone";
 import {
   Bar,
   Brand,
@@ -36,9 +37,7 @@ export default function SiteHeader({ className }: SiteHeaderProps) {
   const pathname = usePathname() ?? copy.homeHref;
   const isHome = pathname === copy.homeHref;
   const usesReveal = revealOnScroll.has(pathname);
-  const tone = pathname === "/films" || pathname.startsWith("/films/")
-    ? "paper"
-    : "default";
+  const tone = chromeForPath(pathname).header;
   const [pastHero, setPastHero] = useState(false);
   const [observedPath, setObservedPath] = useState(pathname);
 

@@ -109,7 +109,7 @@ Rules and patterns for keeping the codebase coherent. Follow these when adding o
 1. **Do not use `position: absolute` or `position: relative` anywhere** in app/UI styles. Prefer flex, aspect-ratio, overflow clipping, margins, and background-image.
 2. Do not use Next.js `Image` with the `fill` prop (it injects absolute positioning). Use explicit `width` / `height` plus CSS sizing (`width/height: 100%`, `object-fit`).
 3. When CSS changes only one of `width` / `height` on a Next `Image`, set the other to `auto` (or both deliberately for `object-fit: cover` fill) so the aspect ratio does not break.
-4. Prefer flex for section layouts unless an existing polished surface already uses another approach. `HomeStatsCollage` must stay flex-only (no CSS grid).
+4. Prefer flex for section layouts unless an existing polished surface already uses another approach. `StatsCollage` must stay flex-only (no CSS grid).
 5. Reuse shared content width via `$containerWide` / `$containerContent` / `$containerReading` and consistent horizontal padding with the home sections.
 6. **Keep load-bearing sizing** where layout depends on it:
    - `minWidth: 0` on flex/grid children that shrink or use text ellipsis (cards, carousel items, catalog grids)
@@ -122,7 +122,7 @@ Rules and patterns for keeping the codebase coherent. Follow these when adding o
 ```text
 atoms/       → single-purpose UI (BrandTitle, StarRating, SkipLink, …)
 molecules/   → small compositions (EntryCard, HeroNav, …)
-organisms/   → sections (HomeHero, EntriesCarousel, HomeStatsCollage, …)
+organisms/   → sections (HomeHero, EntriesCarousel, StatsCollage, …)
 templates/   → page shells (HomeTemplate, MediumCatalogTemplate, StatsTemplate, …)
 ```
 
@@ -172,7 +172,7 @@ Shared rules: ratings are half-stars `0.5`–`5`; never use negative runtimes, p
 
 | Kind | Convention |
 |---|---|
-| Components / folders | PascalCase (`HomeStatsCollage`) |
+| Components / folders | PascalCase (`StatsCollage`) |
 | Props | `{Name}Props` |
 | Copy modules | `{area}Copy` |
 | Entities | `{Thing}Entry` where applicable |

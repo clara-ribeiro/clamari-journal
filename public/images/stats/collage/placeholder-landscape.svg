@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" role="img" aria-label="Landscape placeholder">
+  <defs>
+    <linearGradient id="l" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d4893a"/>
+      <stop offset="45%" stop-color="#b85a22"/>
+      <stop offset="100%" stop-color="#2a1208"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="600" fill="url(#l)"/>
+  <rect x="80" y="0" width="70" height="600" fill="#1a0c06" opacity="0.55"/>
+  <rect x="220" y="0" width="55" height="600" fill="#1a0c06" opacity="0.4"/>
+  <rect x="600" y="0" width="90" height="600" fill="#1a0c06" opacity="0.5"/>
+  <rect x="760" y="0" width="40" height="600" fill="#1a0c06" opacity="0.35"/>
+  <rect x="0" y="80" width="900" height="36" fill="#2a1208" opacity="0.45"/>
+  <rect x="0" y="200" width="900" height="28" fill="#2a1208" opacity="0.35"/>
+</svg>
