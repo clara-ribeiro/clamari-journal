@@ -1,9 +1,10 @@
-import { bookRepository } from "@/composition/repositories";
+import { bookRepository, goalsRepository } from "@/composition/repositories";
 import type { BookDetail, CatalogCardItem } from "@/application/dto";
 import type { BookEntry } from "@/domain/entities";
 import { booksCopy } from "@/content/copy/books";
 import { catalogCopy } from "@/content/copy/catalog";
 import { formatDate } from "@/lib/formatters/formatDate";
+import { yearsBookCountsToward } from "./goal-years";
 
 export function listBooks(): BookEntry[] {
   return bookRepository.findAll();
@@ -92,6 +93,7 @@ function toBookCatalogCard(book: BookEntry): CatalogCardItem {
     sortDate: activityDate,
     sortRating: book.rating ?? 0,
     sortYear: null,
+    goalYears: yearsBookCountsToward(book, goalsRepository.get().year),
   };
 }
 

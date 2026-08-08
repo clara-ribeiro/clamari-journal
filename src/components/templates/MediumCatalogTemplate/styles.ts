@@ -47,6 +47,7 @@ export const Content = styled("main", {
   maxWidth: "$containerWide",
   mx: "auto",
   width: "100%",
+  scrollMarginBlockStart: "$headerHeight",
 
   "@md": {
     px: "$xl",

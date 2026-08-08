@@ -68,4 +68,8 @@ export type GoalMetric = {
   target: number;
   percent: number;
   exceeded: boolean;
+  /** Goal calendar year from goals.json */
+  year: number;
+  /** Catalog deep-link with year filter for this goal */
+  href: string;
 };

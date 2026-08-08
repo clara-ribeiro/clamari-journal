@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpDown, Heart, LayoutGrid, List, ListFilter, PencilLine, Search } from "lucide-react";
+import { ArrowUpDown, Calendar, Heart, LayoutGrid, List, ListFilter, PencilLine, Search } from "lucide-react";
 import { catalogCopy } from "@/content/copy/catalog";
 import {
   Control,
@@ -40,6 +40,9 @@ export type CatalogToolbarProps = {
   statusFilter: string;
   onStatusFilterChange: (value: string) => void;
   statusOptions: readonly { value: string; label: string }[];
+  yearFilter: number | null;
+  onYearFilterChange: (value: number | null) => void;
+  yearOptions: readonly number[];
   reviewActive: boolean;
   onReviewActiveChange: (value: boolean) => void;
   favoriteActive: boolean;
@@ -87,6 +90,9 @@ export default function CatalogToolbar({
   statusFilter,
   onStatusFilterChange,
   statusOptions,
+  yearFilter,
+  onYearFilterChange,
+  yearOptions,
   reviewActive,
   onReviewActiveChange,
   favoriteActive,
@@ -102,6 +108,8 @@ export default function CatalogToolbar({
   const statusLabel =
     statusOptions.find((option) => option.value === statusFilter)?.label ??
     copy.filtersAll;
+  const yearLabel =
+    yearFilter != null ? String(yearFilter) : copy.yearAll;
   const sortLabel = copy.sortOptions[sort];
   const nextView: CatalogViewMode = view === "cards" ? "list" : "cards";
 
@@ -190,6 +198,31 @@ export default function CatalogToolbar({
           {statusOptions.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
+            </option>
+          ))}
+        </NativeSelect>
+      </Control>
+
+      <Control tone={tone}>
+        <ControlFace>
+          <IconWrap aria-hidden>
+            <Calendar />
+          </IconWrap>
+          <ControlLabel>{copy.yearLabel}</ControlLabel>
+          <ControlValue>{yearLabel}</ControlValue>
+        </ControlFace>
+        <NativeSelect
+          aria-label={copy.yearAriaLabel}
+          value={yearFilter == null ? "" : String(yearFilter)}
+          onChange={(event) => {
+            const value = event.target.value;
+            onYearFilterChange(value ? Number(value) : null);
+          }}
+        >
+          <option value="">{copy.yearAll}</option>
+          {yearOptions.map((year) => (
+            <option key={year} value={year}>
+              {year}
             </option>
           ))}
         </NativeSelect>

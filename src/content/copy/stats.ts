@@ -39,6 +39,7 @@ export const statsCopy = {
     books: "Books",
     pages: "Pages",
   },
+  goalLinkAriaLabel: "Open {label} finished in {year}",
 } as const;
 
 export type StatsCopy = typeof statsCopy;

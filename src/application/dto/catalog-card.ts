@@ -26,4 +26,9 @@ export type CatalogCardItem = {
   sortRating: number;
   /** Release / publication year for sorting — null when unknown */
   sortYear: number | null;
+  /**
+   * Calendar years this entry counts toward yearly goals
+   * (finished / caught-up activity). Used by `?year=` catalog filter.
+   */
+  goalYears: number[];
 };

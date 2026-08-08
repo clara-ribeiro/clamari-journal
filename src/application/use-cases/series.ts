@@ -5,6 +5,7 @@ import { catalogCopy } from "@/content/copy/catalog";
 import { seriesCopy } from "@/content/copy/series";
 import { formatDate } from "@/lib/formatters/formatDate";
 import { tmdbImageUrl } from "@/lib/tmdb-image";
+import { yearsSeriesCountsToward } from "./goal-years";
 
 /** Used when an episode has no known runtime (common for older TV Time rows). */
 export const DEFAULT_EPISODE_RUNTIME_MINUTES = 45;
@@ -130,6 +131,7 @@ function toSeriesCatalogCard(entry: SeriesEntry): CatalogCardItem {
     sortDate: activityDate,
     sortRating: entry.rating ?? 0,
     sortYear: null,
+    goalYears: yearsSeriesCountsToward(entry),
   };
 }
 

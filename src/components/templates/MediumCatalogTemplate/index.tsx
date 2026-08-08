@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { getImageProps } from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 import { preload } from "react-dom";
 import type { CatalogCardItem } from "@/application/dto";
 import type { MediumCatalogCopy } from "@/content/copy";
@@ -15,6 +16,7 @@ import CatalogToolbar, {
 import CatalogHero, {
   type CatalogMedium,
 } from "@/components/organisms/CatalogHero";
+import { catalogQueryString } from "@/lib/catalog-search-params";
 import { foldSearchText } from "@/lib/search-text";
 import { isTmdbImageUrl, tmdbImageLoader } from "@/lib/tmdb-image";
 import {
@@ -40,6 +42,8 @@ export type MediumCatalogTemplateProps = {
   copy: MediumCatalogCopy;
   summary: string;
   items: CatalogCardItem[];
+  initialStatus?: string;
+  initialYear?: number | null;
 };
 
 function toneForMedium(medium: CatalogMedium): CatalogTone {
@@ -122,20 +126,66 @@ export default function MediumCatalogTemplate({
   copy,
   summary,
   items,
+  initialStatus = "",
+  initialYear = null,
 }: MediumCatalogTemplateProps) {
   const tone = toneForMedium(medium);
+  const router = useRouter();
+  const pathname = usePathname();
   const [search, setSearch] = useState("");
-  const [statusFilter, setStatusFilter] = useState("");
+  const [statusFilter, setStatusFilter] = useState(initialStatus);
+  const [yearFilter, setYearFilter] = useState<number | null>(initialYear);
   const [reviewActive, setReviewActive] = useState(false);
   const [favoriteActive, setFavoriteActive] = useState(false);
   const [sort, setSort] = useState<CatalogSortId>("default");
   const [view, setView] = useState<CatalogViewMode>("cards");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
+  useEffect(() => {
+    setStatusFilter(initialStatus);
+    setYearFilter(initialYear);
+  }, [initialStatus, initialYear]);
+
+  useEffect(() => {
+    const query = catalogQueryString({
+      status: statusFilter,
+      year: yearFilter,
+    });
+    const hash = yearFilter != null ? "#main-content" : "";
+    const nextUrl = `${pathname}${query}${hash}`;
+    const current =
+      typeof window !== "undefined"
+        ? `${window.location.pathname}${window.location.search}${window.location.hash}`
+        : nextUrl;
+    if (current !== nextUrl) {
+      router.replace(nextUrl, { scroll: false });
+    }
+  }, [pathname, router, statusFilter, yearFilter]);
+
+  // Goal deep-links (and `?year=`) should land on the catalog, not the hero.
+  useEffect(() => {
+    if (initialYear == null) return;
+    const node = document.getElementById("main-content");
+    if (!node) return;
+    node.scrollIntoView({ behavior: "auto", block: "start" });
+  }, [initialYear, pathname]);
+
+  const yearOptions = useMemo(() => {
+    const years = new Set<number>();
+    for (const item of items) {
+      for (const year of item.goalYears) years.add(year);
+    }
+    if (yearFilter != null) years.add(yearFilter);
+    return [...years].sort((a, b) => b - a);
+  }, [items, yearFilter]);
+
   const visibleItems = useMemo(() => {
     const query = foldSearchText(search.trim());
     const filtered = items.filter((item) => {
       if (statusFilter && item.statusKey !== statusFilter) return false;
+      if (yearFilter != null && !item.goalYears.includes(yearFilter)) {
+        return false;
+      }
       if (reviewActive || favoriteActive) {
         const matchesReview = reviewActive && item.hasReview;
         const matchesFavorite = favoriteActive && item.favorite;
@@ -145,11 +195,19 @@ export default function MediumCatalogTemplate({
       return foldSearchText(item.title).includes(query);
     });
     return sortItems(filtered, sort);
-  }, [items, search, statusFilter, reviewActive, favoriteActive, sort]);
+  }, [
+    items,
+    search,
+    statusFilter,
+    yearFilter,
+    reviewActive,
+    favoriteActive,
+    sort,
+  ]);
 
   useEffect(() => {
     setVisibleCount(PAGE_SIZE);
-  }, [search, statusFilter, reviewActive, favoriteActive, sort, view]);
+  }, [search, statusFilter, yearFilter, reviewActive, favoriteActive, sort, view]);
 
   const shownItems = visibleItems.slice(0, visibleCount);
   const hasMore = visibleCount < visibleItems.length;
@@ -172,6 +230,9 @@ export default function MediumCatalogTemplate({
           statusFilter={statusFilter}
           onStatusFilterChange={setStatusFilter}
           statusOptions={statusOptionsFor(medium)}
+          yearFilter={yearFilter}
+          onYearFilterChange={setYearFilter}
+          yearOptions={yearOptions}
           reviewActive={reviewActive}
           onReviewActiveChange={setReviewActive}
           favoriteActive={favoriteActive}

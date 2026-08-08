@@ -6,6 +6,7 @@ import { filmsCopy } from "@/content/copy/films";
 import { formatDate } from "@/lib/formatters/formatDate";
 import { formatShortRuntime } from "@/lib/formatters/formatDuration";
 import { tmdbImageUrl } from "@/lib/tmdb-image";
+import { yearsMovieCountsToward } from "./goal-years";
 
 export function listMovies(): MovieEntry[] {
   return movieRepository.findAll();
@@ -98,6 +99,7 @@ function toFilmCatalogCard(movie: MovieEntry): CatalogCardItem {
     sortDate: lastWatched,
     sortRating: movie.rating ?? 0,
     sortYear: yearLabel && /^\d{4}$/.test(yearLabel) ? Number(yearLabel) : null,
+    goalYears: yearsMovieCountsToward(movie),
   };
 }
 

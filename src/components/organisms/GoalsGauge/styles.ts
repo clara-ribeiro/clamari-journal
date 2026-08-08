@@ -86,6 +86,26 @@ export const Gauge = styled("li", {
   },
 });
 
+export const GaugeLink = styled("a", {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  width: "100%",
+  color: "inherit",
+  textDecoration: "none",
+  borderRadius: "$sm",
+  outlineOffset: "0.35rem",
+  transition: "opacity 160ms ease",
+
+  "&:hover": {
+    opacity: 0.88,
+  },
+
+  "&:focus-visible": {
+    outline: "2px solid $goalInk",
+  },
+});
+
 export const Stage = styled("div", {
   display: "grid",
   gridTemplateAreas: '"stack"',
@@ -198,9 +218,9 @@ export const Figure = styled("img", {
       above: {
         marginTop: "-43%",
       },
-      /** person-4 — a bit more empty space above the figure. */
+      /** person-4 — slightly higher on the rim than the default tall offset. */
       aboveTall: {
-        marginTop: "-38%",
+        marginTop: "-43%",
       },
       /** person-3 walks further left along the rim. */
       aboveLeft: {

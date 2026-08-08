@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import type { GoalMetric } from "@/application/dto";
 import { statsCopy } from "@/content/copy";
 import {
@@ -8,6 +9,7 @@ import {
   Figure,
   Fill,
   Gauge,
+  GaugeLink,
   Label,
   Overflow,
   Row,
@@ -96,6 +98,15 @@ function useCountUp(target: number, active: boolean, durationMs: number) {
   return value;
 }
 
+function goalLinkLabel(goal: GoalMetric) {
+  const label =
+    statsCopy.goalLabels[goal.key as keyof typeof statsCopy.goalLabels] ??
+    goal.key;
+  return statsCopy.goalLinkAriaLabel
+    .replace("{label}", label)
+    .replace("{year}", String(goal.year));
+}
+
 function GoalItem({ goal }: { goal: GoalMetric }) {
   const itemRef = useRef<HTMLLIElement | null>(null);
   const startedRef = useRef(false);
@@ -142,33 +153,41 @@ function GoalItem({ goal }: { goal: GoalMetric }) {
 
   return (
     <Gauge ref={itemRef}>
-      <Stage room={stageRoom(goal.key)} reserve={goal.exceeded}>
-        <Circle aria-hidden>
-          <Fill style={{ height: `${fillPercent}%` }} />
-        </Circle>
-        {goal.exceeded ? (
-          <Overflow
-            src={statsCopy.goals.fullCircleSrc}
+      <GaugeLink
+        as={Link}
+        href={goal.href}
+        prefetch={false}
+        scroll={false}
+        aria-label={goalLinkLabel(goal)}
+      >
+        <Stage room={stageRoom(goal.key)} reserve={goal.exceeded}>
+          <Circle aria-hidden>
+            <Fill style={{ height: `${fillPercent}%` }} />
+          </Circle>
+          {goal.exceeded ? (
+            <Overflow
+              src={statsCopy.goals.fullCircleSrc}
+              alt=""
+              width={300}
+              height={382}
+              decoding="async"
+              style={{ opacity: showSpill ? 1 : 0 }}
+            />
+          ) : null}
+          <Figure
+            src={personSrc(goal.key)}
             alt=""
             width={300}
-            height={382}
+            height={300}
             decoding="async"
-            style={{ opacity: showSpill ? 1 : 0 }}
+            placement={placement}
           />
-        ) : null}
-        <Figure
-          src={personSrc(goal.key)}
-          alt=""
-          width={300}
-          height={300}
-          decoding="async"
-          placement={placement}
-        />
-      </Stage>
-      <Value>
-        {displayCurrent}/{goal.target}
-      </Value>
-      <Label>{goal.label}</Label>
+        </Stage>
+        <Value>
+          {displayCurrent}/{goal.target}
+        </Value>
+        <Label>{goal.label}</Label>
+      </GaugeLink>
     </Gauge>
   );
 }

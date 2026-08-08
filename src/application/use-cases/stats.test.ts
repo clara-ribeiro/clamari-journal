@@ -87,6 +87,14 @@ describe("year goal filters", () => {
     ).toBe(false);
   });
 
+  it("builds catalog deep-links for goal gauges", async () => {
+    const { goalCatalogHref } = await import("./goal-years");
+    expect(goalCatalogHref("movies", 2026)).toBe("/films?year=2026#main-content");
+    expect(goalCatalogHref("series", 2026)).toBe("/series?year=2026#main-content");
+    expect(goalCatalogHref("books", 2026)).toBe("/books?year=2026#main-content");
+    expect(goalCatalogHref("pages", 2026)).toBe("/books?year=2026#main-content");
+  });
+
   it("counts watching series caught up with released episodes in the goal year", () => {
     const steal = seriesEntry({
       tvdbId: 3,
