@@ -24,23 +24,45 @@ export const statsCopy = {
   collage: {
     titleId: "stats-collage-heading",
     ariaLabel: "Lifetime reading and watching totals",
+    /**
+     * One left/right pair per metric row (order matches getStatsPageData
+     * metrics). Swap each `src` for the real photo — nothing is cycled.
+     *
+     * Row layout: odd rows = media | stat, even rows = stat | media.
+     */
     images: {
-      portrait: {
-        src: "/images/stats/collage/placeholder-portrait.svg",
-        alt: "",
-      },
-      landscape: {
-        src: "/images/stats/collage/placeholder-landscape.svg",
-        alt: "",
-      },
-      stats: [
+      rows: [
         {
-          src: "/images/stats/collage/placeholder-landscape.svg",
-          alt: "",
+          left: { src: "/images/stats/collage/01-left.png", alt: "" },
+          right: { src: "/images/stats/collage/01-right.png", alt: "" },
         },
         {
-          src: "/images/stats/collage/placeholder-faces.svg",
-          alt: "",
+          left: { src: "/images/stats/collage/02-left.png", alt: "" },
+          right: { src: "/images/stats/collage/02-right.png", alt: "" },
+        },
+        {
+          left: { src: "/images/stats/collage/03-left.png", alt: "" },
+          right: { src: "/images/stats/collage/03-right.png", alt: "" },
+        },
+        {
+          left: { src: "/images/stats/collage/04-left.png", alt: "" },
+          right: { src: "/images/stats/collage/04-right.png", alt: "" },
+        },
+        {
+          left: { src: "/images/stats/collage/05-left.png", alt: "" },
+          right: { src: "/images/stats/collage/05-right.png", alt: "" },
+        },
+        {
+          left: { src: "/images/stats/collage/06-left.png", alt: "" },
+          right: { src: "/images/stats/collage/06-right.png", alt: "" },
+        },
+        {
+          left: { src: "/images/stats/collage/07-left.png", alt: "" },
+          right: { src: "/images/stats/collage/07-right.png", alt: "" },
+        },
+        {
+          left: { src: "/images/stats/collage/08-left.png", alt: "" },
+          right: { src: "/images/stats/collage/08-right.png", alt: "" },
         },
       ],
     },

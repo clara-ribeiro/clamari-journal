@@ -91,8 +91,10 @@ export const PortraitCell = styled("div", {
     width: "100%",
     height: "100%",
     objectFit: "cover",
+    objectPosition: "center",
 
     "@md": {
+      // Keep intrinsic aspect — never stretch to the sibling cell height.
       height: "auto",
     },
   },
@@ -115,6 +117,11 @@ export const LandscapeCell = styled("div", {
     width: "100%",
     height: "100%",
     objectFit: "cover",
+    objectPosition: "center",
+
+    "@md": {
+      height: "auto",
+    },
   },
 });
 
@@ -138,6 +145,12 @@ const statCellStyles = {
   "& > svg": {
     position: "relative",
     zIndex: 2,
+  },
+
+  /** `fill` defaults to stretch — force cover so photos keep their ratio. */
+  "& img": {
+    objectFit: "cover",
+    objectPosition: "center",
   },
 } as const;
 

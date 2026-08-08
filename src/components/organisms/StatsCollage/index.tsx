@@ -18,11 +18,17 @@ export type StatsCollageImage = {
   alt: string;
 };
 
+/** One image pair per collage row (left cell + right cell). */
+export type StatsCollageRowImages = {
+  left: StatsCollageImage;
+  right: StatsCollageImage;
+};
+
 export type StatsCollageImages = {
-  portrait: StatsCollageImage;
-  landscape: StatsCollageImage;
-  /** Backgrounds for stat cells, cycled by index (odd/even pattern). */
-  stats: readonly StatsCollageImage[];
+  /** Same order as `stats` — each row gets its own photos. */
+  rows: readonly StatsCollageRowImages[];
+  /** Trailing decorative row when there is an odd number of stats. */
+  closing?: StatsCollageRowImages;
 };
 
 export type StatsCollageProps = {
@@ -168,6 +174,13 @@ function MediaImage({
   );
 }
 
+function rowImagesAt(
+  rows: readonly StatsCollageRowImages[],
+  index: number,
+): StatsCollageRowImages | null {
+  return rows[index] ?? null;
+}
+
 export default function StatsCollage({
   stats,
   images,
@@ -177,17 +190,16 @@ export default function StatsCollage({
   tone = "gold",
   className,
 }: StatsCollageProps) {
-  const statImages =
-    images.stats.length > 0 ? images.stats : [images.landscape];
-  const closingLeftImage = statImages[1] ?? statImages[0] ?? images.portrait;
-  const showClosingRow = stats.length % 2 === 1;
+  const showClosingRow = stats.length % 2 === 1 && images.closing != null;
 
   return (
     <Section className={className} tone={tone} aria-labelledby={titleId}>
       <VisuallyHidden id={titleId}>{ariaLabel}</VisuallyHidden>
       <Stack aria-label={ariaLabel}>
         {stats.map((stat, index) => {
-          const statImage = statImages[index % statImages.length]!;
+          const row = rowImagesAt(images.rows, index);
+          if (!row) return null;
+
           const isOddRow = index % 2 === 0;
 
           if (isOddRow) {
@@ -195,13 +207,13 @@ export default function StatsCollage({
               <Row key={stat.id}>
                 <PortraitCell>
                   <MediaImage
-                    image={images.portrait}
+                    image={row.left}
                     sizes="(max-width: 767px) 100vw, 60vw"
                   />
                 </PortraitCell>
                 <StatBlock
                   href={statsHref}
-                  image={statImage}
+                  image={row.right}
                   value={stat.value}
                   label={stat.label}
                 />
@@ -213,13 +225,13 @@ export default function StatsCollage({
             <Row key={stat.id}>
               <StatBlock
                 href={statsHref}
-                image={statImage}
+                image={row.left}
                 value={stat.value}
                 label={stat.label}
               />
               <LandscapeCell>
                 <MediaImage
-                  image={images.landscape}
+                  image={row.right}
                   sizes="(max-width: 767px) 100vw, 60vw"
                 />
               </LandscapeCell>
@@ -227,17 +239,17 @@ export default function StatsCollage({
           );
         })}
 
-        {showClosingRow ? (
+        {showClosingRow && images.closing ? (
           <Row>
             <PortraitCell>
               <MediaImage
-                image={closingLeftImage}
+                image={images.closing.left}
                 sizes="(max-width: 767px) 100vw, 60vw"
               />
             </PortraitCell>
             <LandscapeCell>
               <MediaImage
-                image={images.landscape}
+                image={images.closing.right}
                 sizes="(max-width: 767px) 100vw, 60vw"
               />
             </LandscapeCell>

@@ -63,11 +63,7 @@ export default function HomeTemplate({
             label: collage.hoursLabel,
           },
         ]}
-        images={{
-          portrait: collage.images.portrait,
-          landscape: collage.images.landscape,
-          stats: [collage.images.pages, collage.images.hours],
-        }}
+        images={collage.images}
         titleId={collage.titleId}
         ariaLabel={collage.ariaLabel}
         statsHref={collage.statsHref}

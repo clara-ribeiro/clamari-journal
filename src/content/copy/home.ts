@@ -37,22 +37,28 @@ export const homeCopy = {
     hoursLabel: "Hours Watched",
     statsHref: "/stats",
     images: {
-      portrait: {
-        src: "/images/home/stats/clarice.webp",
-        alt: "",
-      },
-      pages: {
-        src: "/images/home/stats/patti-smith-easter.webp",
-        alt: "",
-      },
-      hours: {
-        src: "/images/home/stats/o-alto-da-compadecida.webp",
-        alt: "",
-      },
-      landscape: {
-        src: "/images/home/stats/lisbela-e-o-prisioneiro.webp",
-        alt: "",
-      },
+      rows: [
+        {
+          left: {
+            src: "/images/home/stats/clarice.webp",
+            alt: "",
+          },
+          right: {
+            src: "/images/home/stats/patti-smith-easter.webp",
+            alt: "",
+          },
+        },
+        {
+          left: {
+            src: "/images/home/stats/o-alto-da-compadecida.webp",
+            alt: "",
+          },
+          right: {
+            src: "/images/home/stats/lisbela-e-o-prisioneiro.webp",
+            alt: "",
+          },
+        },
+      ],
     },
   },
   journalAbout: {
