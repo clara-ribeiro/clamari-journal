@@ -1,6 +1,14 @@
 export const statsCopy = {
   titleId: "stats-heading",
   title: "Stats",
+  hero: {
+    titleId: "stats-heading",
+    title: "STATS",
+    sentinelId: "stats-hero",
+    image: {
+      src: "/images/stats/ballerina.webp",
+    },
+  },
   goalsHeading: "Goals",
   remainingSuffix: "remaining",
   metrics: {

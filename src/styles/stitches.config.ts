@@ -24,6 +24,7 @@ export const {
       buttonText: "#0A1E3A",
       statsSurface: "#C9A05A",
       statsText: "#462304",
+      statsHeroBg: "#131313",
       journalPanel: "#900000",
       journalPanelText: "#D0BDA2",
 
@@ -175,6 +176,7 @@ export const lightTheme = createTheme("light-theme", {
     buttonText: "#0A1E3A",
       statsSurface: "#C9A05A",
       statsText: "#462304",
+      statsHeroBg: "#131313",
       journalPanel: "#900000",
       journalPanelText: "#D0BDA2",
 

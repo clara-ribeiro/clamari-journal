@@ -1,16 +1,10 @@
 import { styled } from "@/styles/stitches.config";
 
 export const Page = styled("main", {
-  minHeight: "100dvh",
   px: "$lg",
   py: "$2xl",
   maxWidth: "$containerContent",
   mx: "auto",
-});
-
-export const Title = styled("h1", {
-  fontSize: "$h2",
-  marginBottom: "$xl",
 });
 
 export const Grid = styled("section", {
