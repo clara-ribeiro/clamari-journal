@@ -28,20 +28,6 @@ export const Section = styled("section", {
   },
 });
 
-export const Title = styled("h2", {
-  margin: 0,
-  marginBottom: "$xl",
-  fontFamily: "$section",
-  fontWeight: 400,
-  fontSize: "clamp(1.5rem, 3vw, 2rem)",
-  color: "$sectionHeading",
-  textAlign: "center",
-
-  "@media (max-width: 767px)": {
-    marginBottom: "$2xl",
-  },
-});
-
 export const Row = styled("ul", {
   display: "grid",
   listStyle: "none",

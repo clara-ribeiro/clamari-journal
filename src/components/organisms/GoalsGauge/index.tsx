@@ -15,7 +15,6 @@ import {
   Row,
   Section,
   Stage,
-  Title,
   Value,
 } from "./styles";
 
@@ -199,9 +198,8 @@ export default function GoalsGauge({ goals, className }: GoalsGaugeProps) {
     <Section
       id="goals-section"
       className={className}
-      aria-labelledby={statsCopy.goalsHeadingId}
+      aria-label={statsCopy.goalsAriaLabel}
     >
-      <Title id={statsCopy.goalsHeadingId}>{statsCopy.goalsHeading}</Title>
       <Row>
         {goals.map((goal) => (
           <GoalItem key={goal.key} goal={goal} />

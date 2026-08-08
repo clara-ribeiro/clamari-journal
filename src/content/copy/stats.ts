@@ -10,8 +10,7 @@ export const statsCopy = {
       src: "/images/stats/ballerina-720.webp",
     },
   },
-  goalsHeading: "Goals",
-  goalsHeadingId: "goals-heading",
+  goalsAriaLabel: "Goals",
   remainingSuffix: "remaining",
   goals: {
     fullCircleSrc: "/images/stats/full-circle.webp",

@@ -25,6 +25,7 @@ export const Section = styled("section", {
   margin: 0,
   width: "100%",
   paddingTop: "clamp(1rem, 3vw, 2rem)",
+  paddingBottom: "clamp(2rem, 6vw, 7rem)",
   backgroundColor: "$statsHeroBg",
   backgroundImage: grain,
   backgroundSize: "128px 128px",
