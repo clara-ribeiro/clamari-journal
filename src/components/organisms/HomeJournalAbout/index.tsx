@@ -1,55 +1,39 @@
-import Image from "next/image";
-import { homeCopy } from "@/content/copy/home";
+import { homeCopy } from "@/content/copy";
 import {
-  Background,
   Body,
-  Email,
+  EmailLink,
   Epigraph,
-  Frame,
   Panel,
+  PanelAnchor,
   Paragraph,
-  Root,
+  Section,
   Title,
 } from "./styles";
 
-type HomeJournalAboutProps = {
+export type HomeJournalAboutProps = {
   className?: string;
 };
 
-export default function HomeJournalAbout({
-  className,
-}: HomeJournalAboutProps) {
-  const { titleId, title, paragraphs, email, epigraph, image } =
-    homeCopy.journalAbout;
-  const objectPosition = `${image.focalX} ${image.focalY}`;
+const copy = homeCopy.journalAbout;
+
+export default function HomeJournalAbout({ className }: HomeJournalAboutProps) {
+  const [intro, closing] = copy.paragraphs;
 
   return (
-    <Root className={className} aria-labelledby={titleId}>
-      <Background aria-hidden="true">
-        <Image
-          src={image.src}
-          alt=""
-          fill
-          sizes="100vw"
-          quality={70}
-          loading="lazy"
-          style={{ objectPosition }}
-        />
-      </Background>
-      <Frame>
-        <Epigraph style={{ marginBlockEnd: `calc(100% - ${image.focalY})` }}>
-          {epigraph}
-        </Epigraph>
+    <Section className={className} aria-labelledby={copy.titleId}>
+      <PanelAnchor>
         <Panel>
-          <Title id={titleId}>{title}</Title>
+          <Title id={copy.titleId}>{copy.title}</Title>
           <Body>
-            {paragraphs.map((paragraph) => (
-              <Paragraph key={paragraph}>{paragraph}</Paragraph>
-            ))}
+            <Paragraph>{intro}</Paragraph>
+            <Paragraph>
+              {closing}{" "}
+              <EmailLink href={`mailto:${copy.email}`}>{copy.email}</EmailLink>.
+            </Paragraph>
           </Body>
-          <Email href={`mailto:${email}`}>{email}</Email>
         </Panel>
-      </Frame>
-    </Root>
+      </PanelAnchor>
+      <Epigraph>{copy.epigraph}</Epigraph>
+    </Section>
   );
 }
