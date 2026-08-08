@@ -24,7 +24,8 @@ export const Section = styled("section", {
   alignItems: "center",
   margin: 0,
   width: "100%",
-  paddingTop: "clamp(1rem, 3vw, 2rem)",
+  overflowX: "hidden",
+  paddingTop: "$2xl",
   paddingBottom: "clamp(2rem, 6vw, 7rem)",
   backgroundColor: "$statsHeroBg",
   backgroundImage: grain,
@@ -32,6 +33,10 @@ export const Section = styled("section", {
   backgroundRepeat: "repeat",
   color: "$hiContrast",
   isolation: "isolate",
+
+  "@md": {
+    paddingTop: "$xl",
+  },
 });
 
 export const Title = styled("h1", {
@@ -42,7 +47,7 @@ export const Title = styled("h1", {
   fontFamily: "$bivaque",
   fontWeight: 400,
   fontStyle: "normal",
-  fontSize: "clamp(3.5rem, 18vw, 15rem)",
+  fontSize: "clamp(3.5rem, 22vw, 7rem)",
   lineHeight: 0.82,
   letterSpacing: "0.01em",
   textTransform: "uppercase",
@@ -54,6 +59,7 @@ export const Title = styled("h1", {
 
   "@md": {
     paddingInline: "$xl",
+    fontSize: "clamp(5rem, 18vw, 15rem)",
   },
 
   "@motionReduce": {
@@ -63,11 +69,17 @@ export const Title = styled("h1", {
 
 export const Figure = styled("div", {
   zIndex: 2,
-  width: "60%",
+  width: "90%",
   maxWidth: "$containerWide",
   animation: `${fadeRise} $slow ease-out both`,
   animationDelay: "120ms",
   pointerEvents: "none",
+  marginTop: "-0.5rem",
+
+  "@md": {
+    marginTop: "-2.5rem",
+    width: "60%",
+  },
 
   "& img": {
     width: "100%",

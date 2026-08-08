@@ -217,12 +217,12 @@ export const globalStyles = globalCss({
   html: {
     fontSize: "100%",
     textSizeAdjust: "100%",
-    maxWidth: "100vw",
+    overflowX: "hidden",
   },
   body: {
     margin: 0,
     minHeight: "100dvh",
-    maxWidth: "100vw",
+    overflowX: "hidden",
     backgroundColor: "$bg",
     backgroundImage: "url(/images/shared/noise-grain.webp)",
     backgroundSize: "128px 128px",
