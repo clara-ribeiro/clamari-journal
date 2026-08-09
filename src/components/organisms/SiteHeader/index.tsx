@@ -63,9 +63,7 @@ export default function SiteHeader({ className }: SiteHeaderProps) {
     setPastHero(false);
   }
 
-  // Reveal pages stay hidden until the hero sentinel leaves the viewport.
-  // Other pages show the header immediately (SSR + client agree).
-  // Status chrome (404/error/loading) always shows over the scene.
+  // Reveal-on-scroll pages stay hidden until the hero sentinel leaves; status chrome always shows.
   const visible = statusChrome || !usesReveal || pastHero;
 
   useEffect(() => {

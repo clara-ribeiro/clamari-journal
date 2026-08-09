@@ -1,7 +1,3 @@
-/**
- * Melancholic stills for loading / 404 / error.
- * Drop new images in `public/images/states/` (prefer webp) and add them here.
- */
 export const stateScenes = [
   { src: "/images/states/1.webp", alt: "" },
   { src: "/images/states/2.webp", alt: "" },

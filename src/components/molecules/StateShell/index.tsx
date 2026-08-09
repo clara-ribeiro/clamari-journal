@@ -14,9 +14,7 @@ export type StateShellProps = {
   "aria-labelledby"?: string;
   "aria-live"?: "polite" | "off" | "assertive";
   "aria-busy"?: boolean;
-  /** Keep cycling through the pool while the shell is mounted (loading). */
   rotate?: boolean;
-  /** Interval between scene changes when `rotate` is on. */
   rotateMs?: number;
 };
 
@@ -31,10 +29,6 @@ function pickSceneIndex(length: number, avoid?: number) {
   return next;
 }
 
-/**
- * Full-bleed melancholic still behind status / loading UI.
- * Picks from `public/images/states/` via `stateScenes`.
- */
 export default function StateShell({
   children,
   className,

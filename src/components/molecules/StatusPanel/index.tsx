@@ -16,13 +16,11 @@ export type StatusPanelProps = {
   titleId?: string;
   homeHref?: string;
   homeLabel?: string;
-  /** When set, shows a retry control (error boundaries / refreshable failures). */
   onRetry?: () => void;
   retryLabel?: string;
   className?: string;
 };
 
-/** Shared empty / error / not-found panel over a random melancholic still. */
 export default function StatusPanel({
   title,
   message,

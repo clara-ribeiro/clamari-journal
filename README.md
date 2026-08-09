@@ -189,9 +189,16 @@ Shared rules: ratings are half-stars `0.5`–`5`; never use negative runtimes, p
 
 ### Testing & tooling
 
-- Unit tests next to pure logic (`*.test.ts`) with Vitest (`npm test` watch, `npm run test:run` once).
-- `server-only` is stubbed in `vitest.config.mts` / `src/test/server-only-stub.ts` for Node tests.
-- Lint: `npm run lint`. Prefer fixing root causes over disabling rules.
+- Unit and component tests live next to the code (`*.test.ts` / `*.test.tsx`) and run with Vitest.
+- Local commands:
+  - `npm test` — watch mode
+  - `npm run test:run` — single CI-friendly run (no live external API calls; `fetch` is blocked in the test setup)
+  - `npm run lint` — ESLint
+  - `npm run typecheck` — `tsc --noEmit`
+  - `npm run build` — production build
+- CI (GitHub Actions, `.github/workflows/ci.yml`) runs lint → typecheck → tests → build on pushes and pull requests to `main` / `master`.
+- `server-only` is stubbed in `vitest.config.mts` / `src/test/server-only-stub.ts` for Node/jsdom tests.
+- Prefer fixing root causes over disabling lint rules.
 - **Lighthouse after major changes:** whenever you ship a meaningful change (layout, styling, data fetching, images, fonts, client JS, routing, etc.), run Lighthouse on the affected page(s) (Chrome DevTools → Lighthouse, or CI if configured) and check that scores did not regress — especially **Performance**. Also glance at Accessibility, Best Practices, and SEO. Prefer measuring a production build (`npm run build && npm start`) over `next dev`. If a category drops, investigate before merging.
 
 ### Accessibility & motion
@@ -242,13 +249,15 @@ npm run dev            # next dev --webpack
 npm run build          # next build --webpack
 npm start              # serve production build
 npm run lint
+npm run typecheck      # tsc --noEmit
 npm test               # vitest watch
-npm run test:run       # vitest run (CI-friendly)
+npm run test:run       # vitest run (CI-friendly; no live APIs)
 npm run import:tvtime  # regenerate movies.json / series.json
 npm run enrich:tmdb          # fill tmdbId + posterPath (requires token)
 npm run enrich:google-books  # fill coverUrl (+ title) from Google Books
 ```
 
+GitHub Actions (`.github/workflows/ci.yml`) runs `lint`, `typecheck`, `test:run`, and `build` on every push/PR to `main` or `master`.
 ## Environment variables
 
 | Variable | Usage |

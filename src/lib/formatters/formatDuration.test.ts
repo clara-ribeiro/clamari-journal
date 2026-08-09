@@ -1,5 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { formatDuration } from "@/lib/formatters/formatDuration";
+import {
+  formatDuration,
+  formatShortRuntime,
+} from "@/lib/formatters/formatDuration";
 
 describe("formatDuration", () => {
   it("formats short durations with hours and minutes", () => {
@@ -20,5 +23,25 @@ describe("formatDuration", () => {
   it("handles zero and negatives", () => {
     expect(formatDuration(0)).toBe("0m");
     expect(formatDuration(-10)).toBe("0m");
+  });
+});
+
+describe("formatShortRuntime", () => {
+  it("pads minutes under an hour as Xm", () => {
+    expect(formatShortRuntime(45)).toBe("45m");
+  });
+
+  it("formats whole hours without minutes", () => {
+    expect(formatShortRuntime(120)).toBe("2h");
+  });
+
+  it("zero-pads remaining minutes", () => {
+    expect(formatShortRuntime(139)).toBe("2h 19m");
+    expect(formatShortRuntime(65)).toBe("1h 05m");
+  });
+
+  it("handles zero and non-finite input", () => {
+    expect(formatShortRuntime(0)).toBe("0m");
+    expect(formatShortRuntime(Number.NaN)).toBe("0m");
   });
 });

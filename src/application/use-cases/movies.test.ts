@@ -3,8 +3,11 @@ import type { MovieEntry } from "@/domain/entities";
 import type { TmdbMovieMetadata } from "@/application/dto/tmdb-metadata";
 import {
   buildMovieViewings,
+  computeMovieStats,
+  listMovieCatalogItems,
   mapMovieDetail,
 } from "@/application/use-cases/movies";
+import { catalogCopy } from "@/content/copy/catalog";
 import { filmsCopy } from "@/content/copy/films";
 
 const baseMovie: MovieEntry = {
@@ -62,6 +65,78 @@ const baseMetadata: TmdbMovieMetadata = {
     url: "https://www.youtube.com/watch?v=abc",
   },
 };
+
+describe("computeMovieStats", () => {
+  it("aggregates watched, watchlist, favorites, reviews, and runtime", () => {
+    const stats = computeMovieStats([
+      {
+        slug: "a",
+        title: "A",
+        status: "watched",
+        rating: 4,
+        favorite: true,
+        reviewSlug: "a",
+        runtimeMinutes: 100,
+      },
+      {
+        slug: "b",
+        title: "B",
+        status: "rewatch",
+        rating: 5,
+        runtimeMinutes: 120,
+      },
+      {
+        slug: "c",
+        title: "C",
+        status: "watchlist",
+        favorite: true,
+      },
+      {
+        slug: "d",
+        title: "D",
+        status: "watched",
+      },
+    ]);
+
+    expect(stats).toEqual({
+      total: 4,
+      watched: 3,
+      watchlist: 1,
+      favorites: 2,
+      withReview: 1,
+      averageRating: 4.5,
+      totalRuntimeMinutes: 220,
+    });
+  });
+
+  it("returns null average when no ratings exist", () => {
+    expect(
+      computeMovieStats([
+        { slug: "a", title: "A", status: "watchlist" },
+      ]).averageRating,
+    ).toBeNull();
+  });
+});
+
+describe("listMovieCatalogItems", () => {
+  it("maps live catalog entries into sorted cards with goal years", () => {
+    const items = listMovieCatalogItems();
+    expect(items.length).toBeGreaterThan(0);
+    expect(items).toEqual(
+      [...items].sort((a, b) => a.sortTitle.localeCompare(b.sortTitle)),
+    );
+
+    const sample = items.find((item) => item.slug === "10-things-i-hate-about-you");
+    expect(sample).toMatchObject({
+      medium: "movie",
+      href: "/films/10-things-i-hate-about-you",
+      statusLabel: catalogCopy.status.films.watched,
+      statusTone: "positive",
+    });
+    expect(sample?.goalYears.length).toBeGreaterThan(0);
+    expect(sample?.posterUrl).toContain("image.tmdb.org");
+  });
+});
 
 describe("buildMovieViewings", () => {
   it("sorts chronologically and labels first viewing vs rewatches", () => {

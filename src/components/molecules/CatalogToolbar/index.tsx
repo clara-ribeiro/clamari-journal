@@ -12,6 +12,7 @@ import {
   Search,
 } from "lucide-react";
 import { catalogCopy } from "@/content/copy/catalog";
+import type { CatalogSortId } from "@/lib/catalog-items";
 import {
   ClearAllButton,
   ClearAllLabel,
@@ -32,18 +33,9 @@ import {
   ViewToggle,
 } from "./styles";
 
-export type CatalogTone = "light" | "dark";
+export type { CatalogSortId } from "@/lib/catalog-items";
 
-export type CatalogSortId =
-  | "default"
-  | "titleAsc"
-  | "titleDesc"
-  | "dateNewest"
-  | "dateOldest"
-  | "yearNewest"
-  | "yearOldest"
-  | "ratingHigh"
-  | "ratingLow";
+export type CatalogTone = "light" | "dark";
 
 export type CatalogViewMode = "cards" | "list";
 
@@ -60,11 +52,9 @@ export type CatalogToolbarProps = {
   yearOptions: readonly number[];
   reviewActive: boolean;
   onReviewActiveChange: (value: boolean) => void;
-  /** Hide when the page is already a reviews-only feed. Default true. */
   showReviewFilter?: boolean;
   favoriteActive: boolean;
   onFavoriteActiveChange: (value: boolean) => void;
-  /** Hide when the page is already a favorites-only feed. Default true. */
   showFavoriteFilter?: boolean;
   sort: CatalogSortId;
   onSortChange: (value: CatalogSortId) => void;

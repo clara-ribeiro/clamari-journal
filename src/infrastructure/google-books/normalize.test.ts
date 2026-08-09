@@ -8,7 +8,6 @@ import {
   coverUrlFromVolumeId,
   normalizeSearchPage,
   normalizeVolume,
-  selectCoverUrl,
   toSecureCoverUrl,
   withPersonalPageCount,
 } from "./normalize";

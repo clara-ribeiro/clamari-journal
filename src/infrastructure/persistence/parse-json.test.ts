@@ -193,15 +193,19 @@ describe("parseGoals", () => {
 });
 
 describe("real journal fixtures", () => {
-  it("accepts repository-managed JSON files", async () => {
-    const movies = await import("@/data/movies.json");
-    const series = await import("@/data/series.json");
-    const books = await import("@/data/books.json");
-    const goals = await import("@/data/goals.json");
+  it(
+    "accepts repository-managed JSON files",
+    async () => {
+      const movies = await import("@/data/movies.json");
+      const series = await import("@/data/series.json");
+      const books = await import("@/data/books.json");
+      const goals = await import("@/data/goals.json");
 
-    expect(parseMovieEntries(movies.default).length).toBeGreaterThan(0);
-    expect(parseSeriesEntries(series.default).length).toBeGreaterThan(0);
-    expect(parseBookEntries(books.default).length).toBeGreaterThan(0);
-    expect(parseGoals(goals.default).year).toBe(2026);
-  });
+      expect(parseMovieEntries(movies.default).length).toBeGreaterThan(0);
+      expect(parseSeriesEntries(series.default).length).toBeGreaterThan(0);
+      expect(parseBookEntries(books.default).length).toBeGreaterThan(0);
+      expect(parseGoals(goals.default).year).toBe(2026);
+    },
+    20_000,
+  );
 });

@@ -1,6 +1,6 @@
 import { styled } from "@/styles/stitches.config";
 
-/** Flex column shell so short pages (404/error/loading) fit one viewport with the footer. */
+/** Flex column shell: status pages fit one viewport with the footer. */
 export const AppFrame = styled("div", {
   display: "flex",
   flexDirection: "column",

@@ -16,9 +16,9 @@ import CatalogToolbar, {
 import CatalogHero, {
   type CatalogMedium,
 } from "@/components/organisms/CatalogHero";
+import { selectCatalogItems } from "@/lib/catalog-items";
 import { catalogQueryString } from "@/lib/catalog-search-params";
 import { formatCatalogSummary } from "@/lib/catalog-summary";
-import { foldSearchText } from "@/lib/search-text";
 import { isTmdbImageUrl, tmdbImageLoader } from "@/lib/tmdb-image";
 import {
   Cell,
@@ -32,7 +32,6 @@ import {
   Title,
 } from "./styles";
 
-/** Initial paint budget — full catalogs (hundreds of cards) blow TBT on hydrate. */
 const PAGE_SIZE = 30;
 
 const POSTER_SIZES =
@@ -57,47 +56,6 @@ function statusOptionsFor(medium: CatalogMedium) {
   }));
 }
 
-function compareDateNewest(a: CatalogCardItem, b: CatalogCardItem) {
-  return (b.sortDate ?? "").localeCompare(a.sortDate ?? "");
-}
-
-function compareYearNewest(a: CatalogCardItem, b: CatalogCardItem) {
-  return (b.sortYear ?? -1) - (a.sortYear ?? -1);
-}
-
-function sortItems(
-  items: CatalogCardItem[],
-  sort: CatalogSortId,
-): CatalogCardItem[] {
-  const next = [...items];
-  next.sort((a, b) => {
-    switch (sort) {
-      case "default":
-      case "dateNewest":
-        return compareDateNewest(a, b);
-      case "titleAsc":
-        return a.sortTitle.localeCompare(b.sortTitle);
-      case "titleDesc":
-        return b.sortTitle.localeCompare(a.sortTitle);
-      case "dateOldest":
-        return (a.sortDate ?? "").localeCompare(b.sortDate ?? "");
-      case "yearNewest":
-        return compareYearNewest(a, b);
-      case "yearOldest":
-        return (a.sortYear ?? Number.MAX_SAFE_INTEGER) -
-          (b.sortYear ?? Number.MAX_SAFE_INTEGER);
-      case "ratingHigh":
-        return b.sortRating - a.sortRating;
-      case "ratingLow":
-        return a.sortRating - b.sortRating;
-      default:
-        return 0;
-    }
-  });
-  return next;
-}
-
-/** Kick off the mobile LCP poster (first card) early in the document. */
 function preloadLcpPoster(posterUrl: string | null | undefined) {
   if (!posterUrl) return;
   const { props } = getImageProps({
@@ -161,7 +119,6 @@ export default function MediumCatalogTemplate({
     }
   }, [pathname, router, statusFilter, yearFilter]);
 
-  // Goal deep-links (and `?year=`) should land on the catalog, not the hero.
   useEffect(() => {
     if (initialYear == null) return;
     const node = document.getElementById("main-content");
@@ -178,31 +135,29 @@ export default function MediumCatalogTemplate({
     return [...years].sort((a, b) => b - a);
   }, [items, yearFilter]);
 
-  const visibleItems = useMemo(() => {
-    const query = foldSearchText(search.trim());
-    const filtered = items.filter((item) => {
-      if (statusFilter && item.statusKey !== statusFilter) return false;
-      if (yearFilter != null && !item.goalYears.includes(yearFilter)) {
-        return false;
-      }
-      if (reviewActive || favoriteActive) {
-        const matchesReview = reviewActive && item.hasReview;
-        const matchesFavorite = favoriteActive && item.favorite;
-        if (!matchesReview && !matchesFavorite) return false;
-      }
-      if (!query) return true;
-      return foldSearchText(item.title).includes(query);
-    });
-    return sortItems(filtered, sort);
-  }, [
-    items,
-    search,
-    statusFilter,
-    yearFilter,
-    reviewActive,
-    favoriteActive,
-    sort,
-  ]);
+  const visibleItems = useMemo(
+    () =>
+      selectCatalogItems(
+        items,
+        {
+          search,
+          statusFilter,
+          yearFilter,
+          reviewActive,
+          favoriteActive,
+        },
+        sort,
+      ),
+    [
+      items,
+      search,
+      statusFilter,
+      yearFilter,
+      reviewActive,
+      favoriteActive,
+      sort,
+    ],
+  );
 
   useEffect(() => {
     setVisibleCount(PAGE_SIZE);

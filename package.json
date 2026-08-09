@@ -7,6 +7,7 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
+    "typecheck": "tsc --noEmit",
     "test": "vitest -c vitest.config.mts",
     "test:run": "vitest run -c vitest.config.mts",
     "import:tvtime": "python3 scripts/import-tvtime.py src/data/gdpr-data.zip",
@@ -22,6 +23,10 @@
     "server-only": "^0.0.1"
   },
   "devDependencies": {
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

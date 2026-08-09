@@ -3,10 +3,13 @@ import type { BookEntry } from "@/domain/entities";
 import type { GoogleBooksMetadata } from "@/application/dto/google-books-metadata";
 import {
   buildHeroExcerpt,
+  computeBookStats,
+  listBookCatalogItems,
   mapBookDetail,
   stripHtml,
 } from "@/application/use-cases/books";
 import { booksCopy } from "@/content/copy/books";
+import { catalogCopy } from "@/content/copy/catalog";
 
 const baseEntry: BookEntry = {
   googleBooksId: "ZfEo1C04xdEC",
@@ -113,5 +116,81 @@ describe("mapBookDetail", () => {
     expect(detail.metadataNotice).toBe(
       booksCopy.detail.metadata.unavailable,
     );
+  });
+
+  it("computes in-progress page percent from current page", () => {
+    const detail = mapBookDetail(
+      {
+        ...baseEntry,
+        status: "reading",
+        finishedAt: undefined,
+        currentPage: 80,
+        customPageCount: 320,
+      },
+      { ...baseMetadata, pageCount: 320 },
+      null,
+    );
+
+    expect(detail.progressPercent).toBe(25);
+    expect(detail.currentPageLabel).toBe("80 / 320");
+  });
+});
+
+describe("computeBookStats", () => {
+  it("sums finished pages preferring customPageCount", () => {
+    const stats = computeBookStats([
+      {
+        googleBooksId: "1",
+        slug: "a",
+        status: "finished",
+        favorite: true,
+        customPageCount: 200,
+      },
+      {
+        googleBooksId: "2",
+        slug: "b",
+        status: "finished",
+        currentPage: 150,
+      },
+      {
+        googleBooksId: "3",
+        slug: "c",
+        status: "reading",
+        currentPage: 40,
+      },
+      {
+        googleBooksId: "4",
+        slug: "d",
+        status: "want-to-read",
+      },
+    ]);
+
+    expect(stats).toEqual({
+      total: 4,
+      finished: 2,
+      reading: 1,
+      favorites: 1,
+      pagesRead: 350,
+    });
+  });
+});
+
+describe("listBookCatalogItems", () => {
+  it("maps live catalog entries into sorted cards with activity labels", () => {
+    const items = listBookCatalogItems();
+    expect(items.length).toBeGreaterThan(0);
+    expect(items).toEqual(
+      [...items].sort((a, b) => a.sortTitle.localeCompare(b.sortTitle)),
+    );
+
+    const sample = items.find((item) => item.slug === "the-lightning-thief");
+    expect(sample).toMatchObject({
+      medium: "book",
+      href: "/books/the-lightning-thief",
+      statusLabel: catalogCopy.status.books.finished,
+      statusTone: "positive",
+    });
+    expect(sample?.sortTitle.length).toBeGreaterThan(0);
+    expect(Array.isArray(sample?.goalYears)).toBe(true);
   });
 });

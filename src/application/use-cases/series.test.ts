@@ -5,9 +5,14 @@ import type {
   TmdbSeriesMetadata,
 } from "@/application/dto/tmdb-metadata";
 import {
+  computeSeriesStats,
   findNextUnwatchedEpisode,
+  getEpisodeRuntimeMinutes,
+  listSeriesCatalogItems,
   mapSeriesDetail,
+  DEFAULT_EPISODE_RUNTIME_MINUTES,
 } from "@/application/use-cases/series";
+import { catalogCopy } from "@/content/copy/catalog";
 import { seriesCopy } from "@/content/copy/series";
 
 const baseEntry: SeriesEntry = {
@@ -161,5 +166,95 @@ describe("mapSeriesDetail", () => {
     expect(detail.metadataNotice).toBe(
       seriesCopy.detail.metadata.unresolved,
     );
+  });
+});
+
+describe("getEpisodeRuntimeMinutes", () => {
+  it("falls back to the default when runtime is missing or invalid", () => {
+    expect(getEpisodeRuntimeMinutes(58)).toBe(58);
+    expect(getEpisodeRuntimeMinutes(undefined)).toBe(
+      DEFAULT_EPISODE_RUNTIME_MINUTES,
+    );
+    expect(getEpisodeRuntimeMinutes(0)).toBe(DEFAULT_EPISODE_RUNTIME_MINUTES);
+  });
+});
+
+describe("computeSeriesStats", () => {
+  it("counts statuses, episodes, and runtime with the default fallback", () => {
+    const stats = computeSeriesStats([
+      {
+        tvdbId: 1,
+        slug: "watching",
+        title: "Watching",
+        status: "watching",
+        favorite: true,
+        watchedEpisodes: [
+          { season: 1, episode: 1, runtimeMinutes: 40 },
+          { season: 1, episode: 2 },
+        ],
+      },
+      {
+        tvdbId: 2,
+        slug: "done",
+        title: "Done",
+        status: "completed",
+        watchedEpisodes: [{ season: 1, episode: 1, runtimeMinutes: 50 }],
+      },
+      {
+        tvdbId: 3,
+        slug: "list",
+        title: "List",
+        status: "watchlist",
+        watchedEpisodes: [],
+      },
+      {
+        tvdbId: 4,
+        slug: "paused",
+        title: "Paused",
+        status: "paused",
+        watchedEpisodes: [{ season: 1, episode: 1, runtimeMinutes: 30 }],
+      },
+      {
+        tvdbId: 5,
+        slug: "abandoned",
+        title: "Abandoned",
+        status: "abandoned",
+        watchedEpisodes: [],
+      },
+    ]);
+
+    expect(stats).toMatchObject({
+      total: 5,
+      watching: 1,
+      completed: 1,
+      paused: 1,
+      abandoned: 1,
+      watchlist: 1,
+      favorites: 1,
+      watchedEpisodes: 4,
+      withProgress: 3,
+      totalRuntimeMinutes: 40 + DEFAULT_EPISODE_RUNTIME_MINUTES + 50 + 30,
+    });
+  });
+});
+
+describe("listSeriesCatalogItems", () => {
+  it("maps live catalog entries into sorted cards", () => {
+    const items = listSeriesCatalogItems();
+    expect(items.length).toBeGreaterThan(0);
+    expect(items).toEqual(
+      [...items].sort((a, b) => a.sortTitle.localeCompare(b.sortTitle)),
+    );
+
+    const sample = items.find((item) => item.slug === "full-house");
+    expect(sample).toMatchObject({
+      medium: "series",
+      href: "/series/full-house",
+      statusTone: expect.stringMatching(/positive|warning|neutral/),
+    });
+    expect(sample?.statusLabel).toBeTruthy();
+    expect(
+      Object.values(catalogCopy.status.series),
+    ).toContain(sample?.statusLabel);
   });
 });

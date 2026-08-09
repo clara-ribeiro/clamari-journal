@@ -5,7 +5,7 @@ const drift = keyframes({
   to: { transform: "scale(1.06)" },
 });
 
-/** Full-viewport scene — header/footer sit transparent on top when status chrome is on. */
+/** Full-viewport scene behind status / loading UI. */
 export const Root = styled("div", {
   display: "grid",
   width: "100%",
@@ -79,7 +79,6 @@ export const Backdrop = styled("div", {
 export const Scrim = styled("div", {
   width: "100%",
   height: "100%",
-  // Lighter at the chrome bands so the still reads behind transparent header/footer.
   backgroundImage:
     "linear-gradient(180deg, rgba(42, 34, 28, 0.45) 0%, rgba(42, 34, 28, 0.78) 18%, rgba(42, 34, 28, 0.86) 50%, rgba(42, 34, 28, 0.72) 82%, rgba(42, 34, 28, 0.5) 100%)",
 });
@@ -104,7 +103,6 @@ export const Body = styled("div", {
   height: "100%",
   minHeight: 0,
   px: "$md",
-  // Keep copy clear of the transparent header / footer bands.
   pt: "calc($headerHeight + $lg)",
   pb: "clamp(6rem, 18vh, 10rem)",
   textAlign: "center",
