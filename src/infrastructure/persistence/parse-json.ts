@@ -393,6 +393,8 @@ export function parseMovieEntries(data: unknown): MovieEntry[] {
       favorite: optionalBoolean(item, "favorite", path),
       watchedDates: optionalIsoDateArray(item, "watchedDates", path),
       tags: optionalStringArray(item, "tags", path),
+      watchLocation: optionalString(item, "watchLocation", path),
+      streamingService: optionalString(item, "streamingService", path),
       reviewSlug: optionalString(item, "reviewSlug", path),
       releaseDate: optionalIsoDate(item, "releaseDate", path),
       runtimeMinutes,

@@ -22,6 +22,10 @@ export type MovieEntry = {
   favorite?: boolean;
   watchedDates?: string[];
   tags?: string[];
+  /** Where the film was watched, when recorded */
+  watchLocation?: string;
+  /** Streaming service used, when recorded */
+  streamingService?: string;
   reviewSlug?: string;
   /** ISO date from source, helps TMDB matching */
   releaseDate?: string;

@@ -36,10 +36,61 @@ export type EpisodePreview = {
   date: string;
 };
 
+/** Chronological personal viewing row for film detail. */
+export type MovieViewingRecord = {
+  dateLabel: string;
+  kindLabel: string;
+};
+
+/** Principal cast row ready for the film detail template. */
+export type MovieCastMember = {
+  id: number;
+  name: string;
+  role: string;
+  profileUrl: string | null;
+};
+
+/**
+ * Complete film detail DTO — TMDB metadata + personal journal fields.
+ * Built by `getMovieDetail`; UI must not assemble URLs or summary strings.
+ */
 export type MovieDetail = {
+  slug: string;
   title: string;
-  fields: DetailField[];
-  note: string;
+  originalTitle: string | null;
+  yearLabel: string | null;
+  runtimeLabel: string | null;
+  genres: string[];
+  synopsis: string | null;
+  posterUrl: string | null;
+  backdropUrl: string | null;
+  directorsLabel: string | null;
+  writersLabel: string | null;
+  cast: MovieCastMember[];
+  countriesLabel: string | null;
+  languagesLabel: string | null;
+  trailer: { name: string; url: string } | null;
+  /** Present when TMDB id is missing or the provider call failed */
+  metadataNotice: string | null;
+
+  statusLabel: string;
+  rating?: number;
+  favorite: boolean;
+  favoriteLabel: string;
+  tags: string[];
+  watchLocation: string | null;
+  streamingService: string | null;
+  viewingCount: number;
+  viewingCountLabel: string;
+  viewings: MovieViewingRecord[];
+  viewingsEmptyLabel: string;
+
+  /** `reviewSlug` when set — content rendered once issue #26 lands */
+  reviewSlug: string | null;
+  reviewEmptyLabel: string;
+
+  metaTitle: string;
+  metaDescription: string;
 };
 
 export type SeriesDetail = {

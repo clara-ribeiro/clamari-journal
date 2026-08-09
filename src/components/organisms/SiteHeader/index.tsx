@@ -19,10 +19,16 @@ export type SiteHeaderProps = {
 
 const copy = siteCopy.header;
 const revealOnScroll = new Set<string>(copy.revealOnScrollHrefs);
+const revealPrefixes = copy.revealOnScrollPrefixes;
 const catalogSentinels = copy.catalogHeroSentinelIds;
 
 function isActivePath(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
+}
+
+function usesRevealOnScroll(pathname: string) {
+  if (revealOnScroll.has(pathname)) return true;
+  return revealPrefixes.some((prefix) => pathname.startsWith(prefix));
 }
 
 function resolveSentinelId(pathname: string): string | null {
@@ -30,13 +36,16 @@ function resolveSentinelId(pathname: string): string | null {
   if (pathname in catalogSentinels) {
     return catalogSentinels[pathname as keyof typeof catalogSentinels];
   }
+  if (pathname.startsWith("/films/")) {
+    return copy.filmDetailHeroSentinelId;
+  }
   return null;
 }
 
 export default function SiteHeader({ className }: SiteHeaderProps) {
   const pathname = usePathname() ?? copy.homeHref;
   const isHome = pathname === copy.homeHref;
-  const usesReveal = revealOnScroll.has(pathname);
+  const usesReveal = usesRevealOnScroll(pathname);
   const tone = chromeForPath(pathname).header;
   const [pastHero, setPastHero] = useState(false);
   const [observedPath, setObservedPath] = useState(pathname);

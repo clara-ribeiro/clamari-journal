@@ -6,7 +6,9 @@ export type {
   GoalMetric,
   JournalEntry,
   JournalMedium,
+  MovieCastMember,
   MovieDetail,
+  MovieViewingRecord,
   SeriesDetail,
   StatsMetric,
 } from "./journal-entry";

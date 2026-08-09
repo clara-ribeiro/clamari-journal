@@ -1,26 +1,17 @@
 "use client";
 
-import type {
-  BookDetail,
-  MovieDetail,
-  SeriesDetail,
-} from "@/application/dto";
+import type { BookDetail, SeriesDetail } from "@/application/dto";
 import { Fragment } from "react";
 import {
   Episode,
   EpisodeList,
   EpisodesHeading,
   Meta,
-  Note,
   Page,
   Title,
 } from "./styles";
 
 type MediumDetailTemplateProps =
-  | {
-      kind: "movie";
-      detail: MovieDetail;
-    }
   | {
       kind: "series";
       detail: SeriesDetail;
@@ -45,7 +36,6 @@ export default function MediumDetailTemplate(props: MediumDetailTemplateProps) {
           </Fragment>
         ))}
       </Meta>
-      {props.kind === "movie" ? <Note>{props.detail.note}</Note> : null}
       {props.kind === "series" && props.detail.episodes.length > 0 ? (
         <>
           <EpisodesHeading>{props.detail.episodesHeading}</EpisodesHeading>

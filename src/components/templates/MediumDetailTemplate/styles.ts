@@ -22,15 +22,6 @@ export const Meta = styled("dl", {
   marginBottom: "$xl",
 });
 
-export const Note = styled("p", {
-  color: "$loContrast",
-  fontSize: "$body2",
-  padding: "$md",
-  background: "$surface",
-  borderRadius: "$md",
-  border: "1px solid $border",
-});
-
 export const EpisodesHeading = styled("h2", {
   fontSize: "$h4",
   marginBottom: "$md",
