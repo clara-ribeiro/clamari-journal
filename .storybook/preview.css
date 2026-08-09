@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "CDT Bivaque";
+  src: url("../src/fonts/CDTBivaque-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*
+ * Match app layout font CSS variables (next/font sets these on <html>).
+ * Family names come from preview-head.html + the local Bivaque face above.
+ */
+:root {
+  --font-anton: "Anton", Impact, Haettenschweiler, sans-serif;
+  --font-monsieur: "Monsieur La Doulaise", "Segoe Script", cursive;
+  --font-instrument-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-bivaque: "CDT Bivaque", Impact, Haettenschweiler, sans-serif;
+}
+
+/*
+ * globalStyles() paints the site navy on body. In Storybook that bleeds under
+ * short stories (e.g. StatsHero). Keep the canvas transparent so the addon
+ * background (or the component’s own surface) owns the frame.
+ */
+html,
+body {
+  background-color: transparent !important;
+  background-image: none !important;
+  min-height: 100%;
+}
+
+.sb-root {
+  min-height: 100%;
+}

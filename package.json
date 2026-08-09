@@ -8,11 +8,14 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "test": "vitest -c vitest.config.mts",
-    "test:run": "vitest run -c vitest.config.mts",
+    "test": "vitest -c vitest.config.mts --project=unit",
+    "test:run": "vitest run -c vitest.config.mts --project=unit",
+    "test:storybook": "vitest run -c vitest.config.mts --project=storybook",
     "import:tvtime": "python3 scripts/import-tvtime.py src/data/gdpr-data.zip",
     "enrich:tmdb": "tsx scripts/enrich-tmdb.ts",
-    "enrich:google-books": "tsx scripts/enrich-google-books.ts"
+    "enrich:google-books": "tsx scripts/enrich-google-books.ts",
+    "storybook": "storybook dev -p 6006 --host 0.0.0.0",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@stitches/react": "^1.2.8",
@@ -37,6 +40,18 @@
     "tsx": "^4.23.5",
     "typescript": "^5",
     "vite-tsconfig-paths": "^6.1.1",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.10",
+    "storybook": "^10.5.7",
+    "@storybook/nextjs-vite": "^10.5.7",
+    "@chromatic-com/storybook": "latest",
+    "@storybook/addon-vitest": "^10.5.7",
+    "@storybook/addon-a11y": "^10.5.7",
+    "@storybook/addon-docs": "^10.5.7",
+    "@storybook/addon-mcp": "latest",
+    "vite": "latest",
+    "eslint-plugin-storybook": "^10.5.7",
+    "@vitest/browser-playwright": "4.1.10",
+    "@vitest/coverage-v8": "4.1.10",
+    "playwright": "latest"
   }
 }

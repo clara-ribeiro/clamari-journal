@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { getImageProps } from "next/image";
 import { usePathname, useRouter } from "next/navigation";
+import { isStorybookRuntime } from "@/lib/is-storybook";
 import { preload } from "react-dom";
 import type { CatalogCardItem } from "@/application/dto";
 import type { MediumCatalogCopy } from "@/content/copy";
@@ -89,6 +90,7 @@ export default function MediumCatalogTemplate({
   const tone = toneForMedium(medium);
   const router = useRouter();
   const pathname = usePathname();
+  const lastSyncedUrl = useRef<string | null>(null);
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState(initialStatus);
   const [yearFilter, setYearFilter] = useState<number | null>(initialYear);
@@ -104,23 +106,39 @@ export default function MediumCatalogTemplate({
   }, [initialStatus, initialYear]);
 
   useEffect(() => {
+    // Docs autodocs mounts every story on one page; shared URL + replace
+    // fights between variants (e.g. Films vs FilteredInitial) and shakes.
+    if (isStorybookRuntime()) return;
+
     const query = catalogQueryString({
       status: statusFilter,
       year: yearFilter,
     });
     const hash = yearFilter != null ? "#main-content" : "";
     const nextUrl = `${pathname}${query}${hash}`;
-    const current =
-      typeof window !== "undefined"
-        ? `${window.location.pathname}${window.location.search}${window.location.hash}`
-        : nextUrl;
-    if (current !== nextUrl) {
-      router.replace(nextUrl, { scroll: false });
+
+    // Read only catalog keys — Storybook’s iframe adds `id` / `viewMode` to
+    // window.location.search, which must not trigger a replace loop.
+    const live = new URLSearchParams(
+      typeof window !== "undefined" ? window.location.search : "",
+    );
+    const liveStatus = live.get("status")?.trim() ?? "";
+    const liveYearRaw = live.get("year")?.trim();
+    const liveYear =
+      liveYearRaw && /^\d{4}$/.test(liveYearRaw) ? Number(liveYearRaw) : null;
+
+    if (liveStatus === statusFilter && liveYear === yearFilter) {
+      lastSyncedUrl.current = nextUrl;
+      return;
     }
+
+    if (lastSyncedUrl.current === nextUrl) return;
+    lastSyncedUrl.current = nextUrl;
+    router.replace(nextUrl, { scroll: false });
   }, [pathname, router, statusFilter, yearFilter]);
 
   useEffect(() => {
-    if (initialYear == null) return;
+    if (isStorybookRuntime() || initialYear == null) return;
     const node = document.getElementById("main-content");
     if (!node) return;
     node.scrollIntoView({ behavior: "auto", block: "start" });

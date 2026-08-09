@@ -70,10 +70,17 @@ export default function SiteHeader({ className }: SiteHeaderProps) {
     if (statusChrome || !usesReveal) return;
 
     const sentinelId = resolveSentinelId(pathname);
-    if (!sentinelId) return;
+    if (!sentinelId) {
+      setPastHero(true);
+      return;
+    }
 
     const sentinel = document.getElementById(sentinelId);
-    if (!sentinel) return;
+    // No hero on the page (e.g. Storybook isolation) — show the bar.
+    if (!sentinel) {
+      setPastHero(true);
+      return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => setPastHero(!entry.isIntersecting),

@@ -43,3 +43,6 @@ next-env.d.ts
 
 # TV Time GDPR export (personal data — keep local only)
 src/data/gdpr-data.zip
+
+*storybook.log
+storybook-static
