@@ -1,10 +1,27 @@
+import { cache } from "react";
 import { bookRepository, goalsRepository } from "@/composition/repositories";
-import type { BookDetail, CatalogCardItem } from "@/application/dto";
-import type { BookEntry } from "@/domain/entities";
+import type {
+  BookDetail,
+  BookHistoryRecord,
+  BookNoteRecord,
+  BookQuoteRecord,
+  CatalogCardItem,
+} from "@/application/dto";
+import type { GoogleBooksMetadata } from "@/application/dto/google-books-metadata";
+import type { BookEntry, BookFormat } from "@/domain/entities";
 import { booksCopy } from "@/content/copy/books";
 import { catalogCopy } from "@/content/copy/catalog";
+import {
+  getBookById,
+  GoogleBooksError,
+} from "@/infrastructure/google-books/client";
 import { formatDate } from "@/lib/formatters/formatDate";
 import { yearsBookCountsToward } from "./goal-years";
+
+/** Cap for the typographic hero backdrop — keeps DOM/paint light. */
+export const HERO_EXCERPT_MAX = 500;
+
+const META_DESCRIPTION_MAX = 160;
 
 export function listBooks(): BookEntry[] {
   return bookRepository.findAll();
@@ -105,29 +122,210 @@ export function listBookCatalogItems(): CatalogCardItem[] {
     .sort((a, b) => a.sortTitle.localeCompare(b.sortTitle));
 }
 
-export function getBookDetail(slug: string): BookDetail | undefined {
-  const book = getBookBySlug(slug);
-  if (!book) return undefined;
+function joinNames(names: string[]): string | null {
+  const cleaned = names.map((name) => name.trim()).filter(Boolean);
+  if (cleaned.length === 0) return null;
+  return cleaned.join(", ");
+}
+
+function truncateDescription(text: string, max = META_DESCRIPTION_MAX): string {
+  const normalized = text.replace(/\s+/g, " ").trim();
+  if (normalized.length <= max) return normalized;
+  const slice = normalized.slice(0, max - 1);
+  const lastSpace = slice.lastIndexOf(" ");
+  const clipped = lastSpace > 40 ? slice.slice(0, lastSpace) : slice;
+  return `${clipped}…`;
+}
+
+/** Strip HTML tags / entities from Google Books descriptions. */
+export function stripHtml(value: string): string {
+  return value
+    .replace(/<[^>]*>/g, " ")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&lt;/gi, "<")
+    .replace(/&gt;/gi, ">")
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/** Short plain excerpt for the typographic hero — capped for paint cost. */
+export function buildHeroExcerpt(
+  description: string | null | undefined,
+  max = HERO_EXCERPT_MAX,
+): string | null {
+  if (!description) return null;
+  const plain = stripHtml(description);
+  if (!plain) return null;
+  if (plain.length <= max) return plain;
+  const slice = plain.slice(0, max - 1);
+  const lastSpace = slice.lastIndexOf(" ");
+  const clipped = lastSpace > 80 ? slice.slice(0, lastSpace) : slice;
+  return `${clipped}…`;
+}
+
+function formatLabel(format: BookFormat | undefined): string | null {
+  if (!format) return null;
+  return booksCopy.detail.format[format];
+}
+
+function pageLabel(page: number | undefined): string | null {
+  if (page == null) return null;
+  return booksCopy.detail.history.page.replace("{page}", String(page));
+}
+
+function buildQuotes(entry: BookEntry): BookQuoteRecord[] {
+  return (entry.quotes ?? []).map((quote, index) => ({
+    id: `quote-${index}`,
+    text: quote.text,
+    pageLabel: pageLabel(quote.page),
+    note: quote.note?.trim() || null,
+  }));
+}
+
+function buildHistory(entry: BookEntry): BookHistoryRecord[] {
+  const rows = [...(entry.readingHistory ?? [])].sort((a, b) =>
+    a.date.localeCompare(b.date),
+  );
+  return rows.map((row, index) => ({
+    id: `history-${index}-${row.date}`,
+    dateLabel: formatDate(row.date),
+    pageLabel: pageLabel(row.page),
+    note: row.note?.trim() || null,
+  }));
+}
+
+function buildNotes(entry: BookEntry): BookNoteRecord[] {
+  const rows = [...(entry.readingHistory ?? [])]
+    .filter((row) => Boolean(row.note?.trim()))
+    .sort((a, b) => a.date.localeCompare(b.date));
+  return rows.map((row, index) => ({
+    id: `note-${index}-${row.date}`,
+    dateLabel: formatDate(row.date),
+    text: row.note!.trim(),
+  }));
+}
+
+export function mapBookDetail(
+  entry: BookEntry,
+  metadata: GoogleBooksMetadata | null,
+  metadataNotice: string | null,
+): BookDetail {
+  const copy = booksCopy.detail;
+  const title =
+    metadata?.title?.trim() || entry.title?.trim() || entry.slug;
+  const subtitle = metadata?.subtitle?.trim() || null;
+  const synopsisRaw = metadata?.description
+    ? stripHtml(metadata.description)
+    : null;
+  const synopsis = synopsisRaw || null;
+  const heroExcerpt = buildHeroExcerpt(metadata?.description);
+  const coverUrl = metadata?.coverUrl ?? entry.coverUrl ?? null;
+  const favorite = Boolean(entry.favorite);
+  const reviewSlug = entry.reviewSlug ?? null;
+
+  const pageCount = metadata?.pageCount ?? entry.customPageCount ?? null;
+  const currentPage = entry.currentPage ?? null;
+  const progressPercent =
+    pageCount != null && pageCount > 0 && currentPage != null
+      ? Math.min(100, Math.round((currentPage / pageCount) * 100))
+      : entry.status === "finished" && pageCount != null
+        ? 100
+        : null;
+
+  const synopsisForMeta = synopsis
+    ? copy.meta.descriptionFromSynopsis.replace("{synopsis}", synopsis)
+    : copy.meta.descriptionFallback.replace("{title}", title);
 
   return {
-    title: book.title ?? book.slug,
-    fields: [
-      { label: booksCopy.detail.fields.status, value: book.status },
-      {
-        label: booksCopy.detail.fields.rating,
-        value: book.rating != null ? String(book.rating) : "—",
-      },
-      {
-        label: booksCopy.detail.fields.pages,
-        value:
-          book.customPageCount != null
-            ? String(book.customPageCount)
-            : "—",
-      },
-      {
-        label: booksCopy.detail.fields.format,
-        value: book.format ?? "—",
-      },
-    ],
+    slug: entry.slug,
+    title,
+    subtitle,
+    authorsLabel: joinNames(metadata?.authors ?? []),
+    yearLabel: metadata?.year != null ? String(metadata.year) : null,
+    categories: (metadata?.categories ?? []).slice(0, 4),
+    synopsis,
+    heroExcerpt,
+    coverUrl,
+    publisherLabel: metadata?.publisher?.trim() || null,
+    pageCountLabel: pageCount != null ? String(pageCount) : null,
+    languageLabel: metadata?.language?.trim() || null,
+    isbn10Label: metadata?.identifiers.isbn10 ?? null,
+    isbn13Label: metadata?.identifiers.isbn13 ?? null,
+    metadataNotice,
+    statusLabel: catalogCopy.status.books[entry.status],
+    rating: entry.rating,
+    favorite,
+    favoriteLabel: favorite
+      ? catalogCopy.card.favorite
+      : catalogCopy.card.notFavorite,
+    formatLabel: formatLabel(entry.format),
+    tags: entry.tags ?? [],
+    startedLabel: entry.startedAt ? formatDate(entry.startedAt) : null,
+    finishedLabel: entry.finishedAt ? formatDate(entry.finishedAt) : null,
+    currentPageLabel:
+      currentPage != null
+        ? pageCount != null
+          ? `${currentPage} / ${pageCount}`
+          : String(currentPage)
+        : null,
+    progressLabel:
+      progressPercent != null ? `${progressPercent}%` : null,
+    progressPercent,
+    quotes: buildQuotes(entry),
+    quotesEmptyLabel: copy.quotes.empty,
+    history: buildHistory(entry),
+    historyEmptyLabel: copy.history.empty,
+    notes: buildNotes(entry),
+    notesEmptyLabel: copy.notes.empty,
+    reviewSlug,
+    reviewEmptyLabel: reviewSlug ? copy.review.pending : copy.review.empty,
+    metaTitle: title,
+    metaDescription: truncateDescription(synopsisForMeta),
   };
 }
+
+async function loadBookMetadata(
+  googleBooksId: string,
+  customPageCount: number | undefined,
+): Promise<{
+  metadata: GoogleBooksMetadata | null;
+  notice: string | null;
+}> {
+  try {
+    const metadata = await getBookById(googleBooksId, {
+      customPageCount: customPageCount ?? null,
+    });
+    return { metadata, notice: null };
+  } catch (error) {
+    if (error instanceof GoogleBooksError && error.code === "not_found") {
+      return {
+        metadata: null,
+        notice: booksCopy.detail.metadata.unresolved,
+      };
+    }
+    return {
+      metadata: null,
+      notice: booksCopy.detail.metadata.unavailable,
+    };
+  }
+}
+
+/**
+ * Book detail for `/books/[slug]`. Cached per request so metadata
+ * and the page share one Google Books fetch.
+ */
+export const getBookDetail = cache(
+  async (slug: string): Promise<BookDetail | undefined> => {
+    const entry = getBookBySlug(slug);
+    if (!entry) return undefined;
+
+    const { metadata, notice } = await loadBookMetadata(
+      entry.googleBooksId,
+      entry.customPageCount,
+    );
+    return mapBookDetail(entry, metadata, notice);
+  },
+);

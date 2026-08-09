@@ -1,17 +1,31 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getBookDetail, listBooks } from "@/application/use-cases/books";
-import MediumDetailTemplate from "@/components/templates/MediumDetailTemplate";
+import BookDetailTemplate from "@/components/templates/BookDetailTemplate";
 
 type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return listBooks().map((book) => ({ slug: book.slug }));
+  return listBooks().map((entry) => ({ slug: entry.slug }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const detail = await getBookDetail(slug);
+  if (!detail) {
+    return { title: "Book not found" };
+  }
+
+  return {
+    title: detail.metaTitle,
+    description: detail.metaDescription,
+  };
 }
 
 export default async function BookDetailPage({ params }: Props) {
   const { slug } = await params;
-  const detail = getBookDetail(slug);
+  const detail = await getBookDetail(slug);
   if (!detail) notFound();
 
-  return <MediumDetailTemplate kind="book" detail={detail} />;
+  return <BookDetailTemplate detail={detail} />;
 }

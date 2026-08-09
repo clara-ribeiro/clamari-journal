@@ -164,9 +164,75 @@ export type SeriesDetail = {
   metaDescription: string;
 };
 
+/** Chronological reading-history row for book detail. */
+export type BookHistoryRecord = {
+  id: string;
+  dateLabel: string;
+  pageLabel: string | null;
+  note: string | null;
+};
+
+/** Favorite quotation row for book detail. */
+export type BookQuoteRecord = {
+  id: string;
+  text: string;
+  pageLabel: string | null;
+  note: string | null;
+};
+
+/** Personal note extracted from reading history. */
+export type BookNoteRecord = {
+  id: string;
+  dateLabel: string;
+  text: string;
+};
+
+/**
+ * Complete book detail DTO — Google Books metadata + personal reading record.
+ * Built by `getBookDetail`; UI must not assemble URLs or summary strings.
+ */
 export type BookDetail = {
+  slug: string;
   title: string;
-  fields: DetailField[];
+  subtitle: string | null;
+  authorsLabel: string | null;
+  yearLabel: string | null;
+  categories: string[];
+  synopsis: string | null;
+  /** Short plain-text excerpt for the typographic hero backdrop */
+  heroExcerpt: string | null;
+  coverUrl: string | null;
+  publisherLabel: string | null;
+  pageCountLabel: string | null;
+  languageLabel: string | null;
+  isbn10Label: string | null;
+  isbn13Label: string | null;
+  metadataNotice: string | null;
+
+  statusLabel: string;
+  rating?: number;
+  favorite: boolean;
+  favoriteLabel: string;
+  formatLabel: string | null;
+  tags: string[];
+  startedLabel: string | null;
+  finishedLabel: string | null;
+  currentPageLabel: string | null;
+  progressLabel: string | null;
+  progressPercent: number | null;
+
+  quotes: BookQuoteRecord[];
+  quotesEmptyLabel: string;
+  history: BookHistoryRecord[];
+  historyEmptyLabel: string;
+  notes: BookNoteRecord[];
+  notesEmptyLabel: string;
+
+  reviewSlug: string | null;
+  reviewEmptyLabel: string;
+
+  metaTitle: string;
+  metaDescription: string;
 };
 
 export type StatsMetric = {

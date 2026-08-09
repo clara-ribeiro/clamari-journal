@@ -1,5 +1,8 @@
 export type {
   BookDetail,
+  BookHistoryRecord,
+  BookNoteRecord,
+  BookQuoteRecord,
   CatalogListItem,
   DetailField,
   EpisodePreview,
