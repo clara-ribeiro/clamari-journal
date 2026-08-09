@@ -620,7 +620,10 @@ export const EpisodeWatched = styled("div", {
   },
 });
 
-export const MetaNotice = styled("p", {
+export const MetaNotice = styled("div", {
+  display: "flex",
+  flexDirection: "column",
+  gap: "$sm",
   margin: 0,
   fontSize: "$body2",
   lineHeight: 1.5,

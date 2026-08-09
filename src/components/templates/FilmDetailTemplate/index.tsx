@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Heart } from "lucide-react";
 import type { MovieCastMember, MovieDetail } from "@/application/dto";
+import RefreshButton from "@/components/atoms/RefreshButton";
 import StarRating from "@/components/atoms/StarRating";
 import ReviewRenderer from "@/components/molecules/ReviewRenderer";
 import { filmsCopy } from "@/content/copy/films";
@@ -253,7 +254,12 @@ export default function FilmDetailTemplate({
 
       <Shell>
         {detail.metadataNotice ? (
-          <MetaNotice role="status">{detail.metadataNotice}</MetaNotice>
+          <MetaNotice role="status">
+            <span>{detail.metadataNotice}</span>
+            {detail.metadataNotice === copy.metadata.unavailable ? (
+              <RefreshButton />
+            ) : null}
+          </MetaNotice>
         ) : null}
 
         <SplitRow>

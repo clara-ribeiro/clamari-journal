@@ -13,9 +13,6 @@ export const Bar = styled("header", {
   gap: "$md",
   height: "$headerHeight",
   px: "$md",
-  backgroundImage: "url(/images/shared/noise-grain.webp)",
-  backgroundSize: "128px 128px",
-  backgroundRepeat: "repeat",
   transition: "transform $normal ease",
 
   variants: {
@@ -30,19 +27,36 @@ export const Bar = styled("header", {
     tone: {
       navy: {
         backgroundColor: "rgba(2, 21, 112, 0.8)",
+        backgroundImage: "url(/images/shared/noise-grain.webp)",
+        backgroundSize: "128px 128px",
+        backgroundRepeat: "repeat",
         color: "#FFFFFF",
       },
       stats: {
         backgroundColor: "rgba(19, 19, 19, 0.8)",
+        backgroundImage: "url(/images/shared/noise-grain.webp)",
+        backgroundSize: "128px 128px",
+        backgroundRepeat: "repeat",
         color: "#FFFFFF",
       },
       films: {
         backgroundColor: "rgba(42, 34, 28, 0.8)",
+        backgroundImage: "url(/images/shared/noise-grain.webp)",
+        backgroundSize: "128px 128px",
+        backgroundRepeat: "repeat",
         color: "$catalogTextOnDark",
       },
       paper: {
         backgroundColor: "rgba(248, 240, 222, 0.8)",
+        backgroundImage: "url(/images/shared/noise-grain.webp)",
+        backgroundSize: "128px 128px",
+        backgroundRepeat: "repeat",
         color: "$catalogText",
+      },
+      clear: {
+        backgroundColor: "transparent",
+        backgroundImage: "none",
+        color: "$catalogTextOnDark",
       },
     },
   },
@@ -117,6 +131,9 @@ export const NavLink = styled(Link, {
       },
       paper: {
         color: "$catalogText",
+      },
+      clear: {
+        color: "$catalogTextOnDark",
       },
     },
   },

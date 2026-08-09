@@ -8,6 +8,7 @@ import type {
   SeriesDetail,
   SeriesSeasonDetail,
 } from "@/application/dto";
+import RefreshButton from "@/components/atoms/RefreshButton";
 import StarRating from "@/components/atoms/StarRating";
 import ReviewRenderer from "@/components/molecules/ReviewRenderer";
 import { seriesCopy } from "@/content/copy/series";
@@ -329,7 +330,12 @@ export default function SeriesDetailTemplate({
 
       <Shell>
         {detail.metadataNotice ? (
-          <MetaNotice role="status">{detail.metadataNotice}</MetaNotice>
+          <MetaNotice role="status">
+            <span>{detail.metadataNotice}</span>
+            {detail.metadataNotice === copy.metadata.unavailable ? (
+              <RefreshButton />
+            ) : null}
+          </MetaNotice>
         ) : null}
 
         <SplitRow>

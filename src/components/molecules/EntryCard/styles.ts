@@ -88,8 +88,11 @@ export const PosterFrame = styled("div", {
 export const PosterPlaceholder = styled("div", {
   width: "100%",
   height: "100%",
-  background:
-    "linear-gradient(145deg, $colors$surfaceAlt 0%, $colors$surface 100%)",
+  backgroundColor: "#CDBFA8",
+  backgroundImage: "url(/images/shared/cover-placeholder.svg)",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
 });
 
 export const Meta = styled("div", {

@@ -4,6 +4,7 @@ import { useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Heart } from "lucide-react";
 import type { BookDetail } from "@/application/dto";
+import RefreshButton from "@/components/atoms/RefreshButton";
 import StarRating from "@/components/atoms/StarRating";
 import ReviewRenderer from "@/components/molecules/ReviewRenderer";
 import { booksCopy } from "@/content/copy/books";
@@ -182,7 +183,12 @@ export default function BookDetailTemplate({
 
       <Shell>
         {detail.metadataNotice ? (
-          <MetaNotice role="status">{detail.metadataNotice}</MetaNotice>
+          <MetaNotice role="status">
+            <span>{detail.metadataNotice}</span>
+            {detail.metadataNotice === copy.metadata.unavailable ? (
+              <RefreshButton />
+            ) : null}
+          </MetaNotice>
         ) : null}
 
         <SplitRow>

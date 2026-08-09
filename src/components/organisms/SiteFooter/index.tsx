@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { siteCopy } from "@/content/copy";
 import { chromeForPath } from "@/lib/chrome-tone";
+import { useStatusChrome } from "@/components/providers/StatusChromeProvider";
 import {
   Brand,
   BrandLink,
@@ -63,7 +64,8 @@ const socialIcons = {
 export default function SiteFooter({ className }: SiteFooterProps) {
   const pathname = usePathname() ?? copy.homeHref;
   const isHome = pathname === copy.homeHref;
-  const tone = chromeForPath(pathname).footer;
+  const { active: statusChrome } = useStatusChrome();
+  const tone = statusChrome ? "clear" : chromeForPath(pathname).footer;
 
   return (
     <Root className={className} tone={tone}>

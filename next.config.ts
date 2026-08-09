@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
     // until `rm -rf .next/cache/images` or a production rebuild.
     ...(isDev ? { maximumDiskCacheSize: 0, minimumCacheTTL: 0 } : {}),
     // Allow lower quality for catalog posters / decorative heroes (mobile LCP).
-    qualities: [60, 75],
+    qualities: [60, 65, 75],
     remotePatterns: [
       {
         protocol: "https",

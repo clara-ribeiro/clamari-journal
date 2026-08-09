@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { siteCopy } from "@/content/copy";
 import { chromeForPath } from "@/lib/chrome-tone";
+import { useStatusChrome } from "@/components/providers/StatusChromeProvider";
 import {
   Bar,
   Brand,
@@ -52,7 +53,8 @@ export default function SiteHeader({ className }: SiteHeaderProps) {
   const pathname = usePathname() ?? copy.homeHref;
   const isHome = pathname === copy.homeHref;
   const usesReveal = usesRevealOnScroll(pathname);
-  const tone = chromeForPath(pathname).header;
+  const { active: statusChrome } = useStatusChrome();
+  const tone = statusChrome ? "clear" : chromeForPath(pathname).header;
   const [pastHero, setPastHero] = useState(false);
   const [observedPath, setObservedPath] = useState(pathname);
 
@@ -63,10 +65,11 @@ export default function SiteHeader({ className }: SiteHeaderProps) {
 
   // Reveal pages stay hidden until the hero sentinel leaves the viewport.
   // Other pages show the header immediately (SSR + client agree).
-  const visible = !usesReveal || pastHero;
+  // Status chrome (404/error/loading) always shows over the scene.
+  const visible = statusChrome || !usesReveal || pastHero;
 
   useEffect(() => {
-    if (!usesReveal) return;
+    if (statusChrome || !usesReveal) return;
 
     const sentinelId = resolveSentinelId(pathname);
     if (!sentinelId) return;
@@ -81,7 +84,7 @@ export default function SiteHeader({ className }: SiteHeaderProps) {
     observer.observe(sentinel);
 
     return () => observer.disconnect();
-  }, [pathname, usesReveal]);
+  }, [pathname, usesReveal, statusChrome]);
 
   return (
     <>
@@ -113,7 +116,7 @@ export default function SiteHeader({ className }: SiteHeaderProps) {
         )}
       </Bar>
 
-      {!usesReveal ? <Spacer aria-hidden /> : null}
+      {!statusChrome && !usesReveal ? <Spacer aria-hidden /> : null}
     </>
   );
 }

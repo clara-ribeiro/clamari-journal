@@ -9,36 +9,57 @@ export const Root = styled("footer", {
   margin: 0,
   px: "$md",
   py: "clamp(2.5rem, 6vw, 3.5rem)",
-  backgroundImage: "url(/images/shared/noise-grain.webp)",
-  backgroundSize: "128px 128px",
-  backgroundRepeat: "repeat",
 
   variants: {
     tone: {
       navy: {
         backgroundColor: "$bg",
+        backgroundImage: "url(/images/shared/noise-grain.webp)",
+        backgroundSize: "128px 128px",
+        backgroundRepeat: "repeat",
         color: "#FFFFFF",
       },
       stats: {
         backgroundColor: "$statsHeroBg",
+        backgroundImage: "url(/images/shared/noise-grain.webp)",
+        backgroundSize: "128px 128px",
+        backgroundRepeat: "repeat",
         color: "#FFFFFF",
       },
       films: {
         backgroundColor: "$catalogBgFilms",
+        backgroundImage: "url(/images/shared/noise-grain.webp)",
+        backgroundSize: "128px 128px",
+        backgroundRepeat: "repeat",
         color: "$catalogTextOnDark",
       },
       paper: {
         backgroundColor: "$catalogBgPaper",
+        backgroundImage: "url(/images/shared/noise-grain.webp)",
+        backgroundSize: "128px 128px",
+        backgroundRepeat: "repeat",
         color: "$catalogText",
       },
       white: {
         backgroundColor: "$statsLightBg",
+        backgroundImage: "url(/images/shared/noise-grain.webp)",
+        backgroundSize: "128px 128px",
+        backgroundRepeat: "repeat",
         color: "$catalogText",
       },
       /** Matches HomeJournalAbout’s closing field. */
       ink: {
         backgroundColor: "#0a0606",
+        backgroundImage: "url(/images/shared/noise-grain.webp)",
+        backgroundSize: "128px 128px",
+        backgroundRepeat: "repeat",
         color: "#FFFFFF",
+      },
+      clear: {
+        backgroundColor: "transparent",
+        backgroundImage: "none",
+        color: "$catalogTextOnDark",
+        py: "$lg",
       },
     },
   },
