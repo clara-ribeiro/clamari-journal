@@ -24,7 +24,7 @@ export const siteCopy = {
     /** List pages where the header stays hidden until the hero scrolls out of view. */
     revealOnScrollHrefs: ["/", "/films", "/series", "/books", "/stats"],
     /** Detail route prefixes that also reveal the header after the first scroll. */
-    revealOnScrollPrefixes: ["/films/"],
+    revealOnScrollPrefixes: ["/films/", "/series/"],
     catalogHeroSentinelIds: {
       "/films": "films-catalog-hero",
       "/series": "series-catalog-hero",
@@ -32,6 +32,7 @@ export const siteCopy = {
       "/stats": "stats-hero",
     },
     filmDetailHeroSentinelId: "film-detail-hero",
+    seriesDetailHeroSentinelId: "series-detail-hero",
     items: [
       { href: "/stats", label: "Stats" },
       { href: "/films", label: "Films" },

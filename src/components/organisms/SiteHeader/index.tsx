@@ -39,6 +39,9 @@ function resolveSentinelId(pathname: string): string | null {
   if (pathname.startsWith("/films/")) {
     return copy.filmDetailHeroSentinelId;
   }
+  if (pathname.startsWith("/series/")) {
+    return copy.seriesDetailHeroSentinelId;
+  }
   return null;
 }
 

@@ -10,6 +10,8 @@ export type {
   MovieDetail,
   MovieViewingRecord,
   SeriesDetail,
+  SeriesEpisodeDetail,
+  SeriesSeasonDetail,
   StatsMetric,
 } from "./journal-entry";
 

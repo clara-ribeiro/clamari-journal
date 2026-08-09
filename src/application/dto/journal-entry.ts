@@ -93,11 +93,75 @@ export type MovieDetail = {
   metaDescription: string;
 };
 
-export type SeriesDetail = {
+/** Episode row for series detail season accordions. */
+export type SeriesEpisodeDetail = {
+  id: string;
+  seasonNumber: number;
+  episodeNumber: number;
+  codeLabel: string;
   title: string;
-  fields: DetailField[];
-  episodesHeading: string;
-  episodes: EpisodePreview[];
+  runtimeLabel: string | null;
+  airDateLabel: string | null;
+  watched: boolean;
+  watchedDateLabel: string | null;
+  rating?: number;
+  isNext: boolean;
+};
+
+/** Season accordion payload for series detail. */
+export type SeriesSeasonDetail = {
+  id: string;
+  seasonNumber: number;
+  title: string;
+  isSpecials: boolean;
+  progressLabel: string;
+  episodeCount: number;
+  watchedCount: number;
+  episodes: SeriesEpisodeDetail[];
+};
+
+/**
+ * Complete series detail DTO — TMDB metadata + personal progress.
+ * Built by `getSeriesDetail`; UI must not assemble URLs or summary strings.
+ */
+export type SeriesDetail = {
+  slug: string;
+  title: string;
+  originalTitle: string | null;
+  yearLabel: string | null;
+  genres: string[];
+  synopsis: string | null;
+  posterUrl: string | null;
+  backdropUrl: string | null;
+  creatorsLabel: string | null;
+  writersLabel: string | null;
+  cast: MovieCastMember[];
+  countriesLabel: string | null;
+  languagesLabel: string | null;
+  productionStatusLabel: string | null;
+  trailer: { name: string; url: string } | null;
+  metadataNotice: string | null;
+
+  statusLabel: string;
+  rating?: number;
+  favorite: boolean;
+  favoriteLabel: string;
+  startedLabel: string | null;
+  finishedLabel: string | null;
+  watchedEpisodesLabel: string;
+  watchedTimeLabel: string | null;
+  progressLabel: string | null;
+  progressPercent: number | null;
+  nextEpisodeLabel: string | null;
+
+  seasons: SeriesSeasonDetail[];
+  seasonsEmptyLabel: string;
+
+  reviewSlug: string | null;
+  reviewEmptyLabel: string;
+
+  metaTitle: string;
+  metaDescription: string;
 };
 
 export type BookDetail = {
