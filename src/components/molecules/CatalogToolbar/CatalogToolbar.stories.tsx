@@ -86,12 +86,11 @@ function InteractiveToolbar(
 
 const meta = {
   title: "Molecules/CatalogToolbar",
-  component: CatalogToolbar,
+  component: InteractiveToolbar,
   tags: ["autodocs"],
   parameters: {
     backgrounds: { value: "films" },
   },
-  render: (args) => <InteractiveToolbar {...args} />,
   args: {
     tone: "dark",
     medium: "films",
@@ -100,7 +99,7 @@ const meta = {
     showReviewFilter: true,
     showFavoriteFilter: true,
   },
-} satisfies Meta<typeof CatalogToolbar>;
+} satisfies Meta<typeof InteractiveToolbar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

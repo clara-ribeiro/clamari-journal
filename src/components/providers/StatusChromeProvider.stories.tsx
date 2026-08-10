@@ -22,23 +22,18 @@ const meta = {
   title: "Providers/StatusChromeProvider",
   component: StatusChromeProvider,
   tags: ["autodocs"],
+  args: {
+    children: <ActiveFlag active={false} />,
+  },
 } satisfies Meta<typeof StatusChromeProvider>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Inactive: Story = {
-  render: () => (
-    <StatusChromeProvider>
-      <ActiveFlag active={false} />
-    </StatusChromeProvider>
-  ),
-};
+export const Inactive: Story = {};
 
 export const Active: Story = {
-  render: () => (
-    <StatusChromeProvider>
-      <ActiveFlag active />
-    </StatusChromeProvider>
-  ),
+  args: {
+    children: <ActiveFlag active />,
+  },
 };
