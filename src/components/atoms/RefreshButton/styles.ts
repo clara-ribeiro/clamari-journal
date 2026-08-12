@@ -4,6 +4,7 @@ export const Button = styled("button", {
   alignSelf: "flex-start",
   margin: 0,
   marginTop: "$sm",
+  minHeight: "$buttonHeight",
   padding: "$sm $md",
   fontSize: "$body2",
   letterSpacing: "0.04em",

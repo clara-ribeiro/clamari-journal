@@ -75,6 +75,11 @@ export const SearchField = styled("label", {
     minWidth: "12rem",
   },
 
+  "&:focus-within": {
+    outline: "0.1875rem solid $focus",
+    outlineOffset: "0.1875rem",
+  },
+
   variants: {
     tone: {
       light: {
@@ -93,7 +98,9 @@ export const SearchField = styled("label", {
 
 export const SearchInput = styled("input", {
   flex: 1,
+  alignSelf: "stretch",
   minWidth: 0,
+  minHeight: "100%",
   border: "none",
   outline: "none",
   background: "transparent",
@@ -131,6 +138,11 @@ export const Control = styled("label", {
   "& > *": {
     gridArea: "1 / 1",
     minWidth: 0,
+  },
+
+  "&:focus-within": {
+    outline: "0.1875rem solid $focus",
+    outlineOffset: "0.1875rem",
   },
 
   variants: {

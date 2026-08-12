@@ -17,7 +17,7 @@ export default function StatsPage() {
 
   const { metrics, goals } = getStatsPageData();
   return (
-    <main id="main-content" aria-labelledby={statsCopy.hero.titleId}>
+    <main id="main-content" tabIndex={-1} aria-labelledby={statsCopy.hero.titleId}>
       <StatsTemplate metrics={metrics} goals={goals} />
     </main>
   );

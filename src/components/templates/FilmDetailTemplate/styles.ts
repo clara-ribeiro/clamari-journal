@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { styled } from "@/styles/stitches.config";
 
-export const Page = styled("div", {
+export const Page = styled("main", {
   minHeight: "100dvh",
   backgroundColor: "$catalogBgFilms",
   backgroundImage: "url(/images/shared/noise-grain.webp)",
@@ -456,6 +456,7 @@ export const CastToggle = styled("button", {
   alignSelf: "flex-start",
   margin: 0,
   marginTop: "auto",
+  minHeight: "$buttonHeight",
   padding: "$sm $md",
   fontSize: "$body2",
   letterSpacing: "0.04em",

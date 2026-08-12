@@ -25,7 +25,7 @@ export default function HomePage() {
   const lifetimeStats = getLifetimeStats();
 
   return (
-    <main id="main-content">
+    <main id="main-content" tabIndex={-1}>
       <HomeTemplate
         recentEntries={recentEntries}
         reviewEntries={reviewEntries}

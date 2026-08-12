@@ -62,7 +62,7 @@ export const CardLink = styled(Link, {
   color: "$cardText",
   textDecoration: "none",
 
-  "&:hover h3": {
+  "&:hover h2": {
     textDecoration: "underline",
     textUnderlineOffset: "0.15em",
   },
@@ -166,7 +166,7 @@ export const TitleRow = styled("div", {
   minWidth: 0,
 });
 
-export const Title = styled("h3", {
+export const Title = styled("h2", {
   margin: 0,
   minWidth: 0,
   fontFamily: "$heading",
@@ -183,13 +183,14 @@ export const Year = styled("span", {
   flexShrink: 0,
   fontSize: "$caption",
   fontVariantNumeric: "tabular-nums",
-  color: "rgba(26, 26, 26, 0.62)",
+  // Solid tone for WCAG AA (≥4.5:1) on $buttonSurface / hover-darkened tan.
+  color: "#3D342C",
 });
 
 export const Activity = styled("p", {
   margin: 0,
   fontSize: "$caption",
-  color: "rgba(26, 26, 26, 0.62)",
+  color: "#3D342C",
 });
 
 export const PillRow = styled("div", {
@@ -229,7 +230,7 @@ export const Tag = styled("span", {
   fontSize: "$caption",
   lineHeight: 1.2,
   backgroundColor: "rgba(10, 30, 58, 0.08)",
-  color: "rgba(26, 26, 26, 0.72)",
+  color: "#3D342C",
 });
 
 export const FavoriteMark = styled("span", {
@@ -239,7 +240,8 @@ export const FavoriteMark = styled("span", {
   gap: "0.3rem",
   fontSize: "$caption",
   lineHeight: 1.2,
-  color: "#C47878",
+  // Darkened rose for WCAG AA (≥4.5:1) on $buttonSurface.
+  color: "#7A3030",
 
   "& svg": {
     width: "0.85rem",

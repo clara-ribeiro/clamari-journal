@@ -6,7 +6,7 @@ const drift = keyframes({
 });
 
 /** Full-viewport scene behind status / loading UI. */
-export const Root = styled("div", {
+export const Root = styled("main", {
   display: "grid",
   width: "100%",
   flex: 1,

@@ -10,6 +10,7 @@ export type StateShellProps = {
   children: ReactNode;
   className?: string;
   id?: string;
+  tabIndex?: number;
   role?: string;
   "aria-labelledby"?: string;
   "aria-live"?: "polite" | "off" | "assertive";
@@ -33,6 +34,7 @@ export default function StateShell({
   children,
   className,
   id,
+  tabIndex,
   role,
   "aria-labelledby": ariaLabelledBy,
   "aria-live": ariaLive,
@@ -96,6 +98,7 @@ export default function StateShell({
     <Root
       className={className}
       id={id}
+      tabIndex={tabIndex}
       role={role}
       aria-labelledby={ariaLabelledBy}
       aria-live={ariaLive}

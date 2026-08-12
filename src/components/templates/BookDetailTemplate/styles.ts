@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { styled } from "@/styles/stitches.config";
 
-export const Page = styled("div", {
+export const Page = styled("main", {
   minHeight: "100dvh",
   backgroundColor: "$catalogBgFilms",
   backgroundImage: "url(/images/shared/noise-grain.webp)",

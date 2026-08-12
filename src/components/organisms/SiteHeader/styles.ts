@@ -93,6 +93,9 @@ export const Nav = styled("nav", {
 });
 
 export const NavLink = styled(Link, {
+  display: "inline-flex",
+  alignItems: "center",
+  minHeight: "$controlMin",
   fontFamily: "$section",
   fontWeight: 400,
   fontSize: "clamp(1rem, 2vw, 1.25rem)",

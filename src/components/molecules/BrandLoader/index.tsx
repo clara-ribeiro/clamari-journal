@@ -15,15 +15,10 @@ export default function BrandLoader({
   className,
 }: BrandLoaderProps) {
   return (
-    <StateShell
-      className={className}
-      id="main-content"
-      role="status"
-      aria-live="polite"
-      aria-busy={true}
-      rotate
-    >
-      <Label>{label}</Label>
+    <StateShell className={className} id="main-content" tabIndex={-1} rotate>
+      <Label role="status" aria-live="polite" aria-busy={true}>
+        {label}
+      </Label>
     </StateShell>
   );
 }

@@ -35,6 +35,7 @@ export default function StatusPanel({
     <StateShell
       className={className}
       id="main-content"
+      tabIndex={-1}
       aria-labelledby={titleId}
     >
       <Title id={titleId}>{title}</Title>

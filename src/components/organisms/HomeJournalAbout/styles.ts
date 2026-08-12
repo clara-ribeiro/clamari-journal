@@ -87,6 +87,8 @@ export const Paragraph = styled("p", {
 });
 
 export const EmailLink = styled("a", {
+  display: "inline",
+  paddingBlock: "0.35em",
   color: "inherit",
   textDecoration: "underline",
   textUnderlineOffset: "0.2em",

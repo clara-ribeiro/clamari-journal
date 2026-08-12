@@ -52,13 +52,18 @@ export const CardLink = styled(Link, {
 /** Single-row list entry — grid columns keep rows aligned across the list. */
 export const ListLink = styled(Link, {
   display: "grid",
-  gridTemplateColumns: "minmax(0, 1fr) 3.5rem max-content 2.75rem",
+  gridTemplateColumns: "minmax(0, 1fr) minmax(2.75rem, max-content) max-content 2.75rem",
   alignItems: "center",
-  columnGap: "$md",
+  columnGap: "$sm",
   width: "100%",
   minWidth: 0,
   color: "inherit",
   textDecoration: "none",
+
+  "@sm": {
+    gridTemplateColumns: "minmax(0, 1fr) 3.5rem max-content 2.75rem",
+    columnGap: "$md",
+  },
 
   "& h2": {
     minWidth: 0,
@@ -147,8 +152,15 @@ export const StatusBadge = styled("span", {
       default: {},
       list: {
         justifyContent: "center",
-        minWidth: "5.5rem",
+        minWidth: "3.25rem",
+        maxWidth: "100%",
         textAlign: "center",
+        px: "$xs",
+
+        "@sm": {
+          minWidth: "5.5rem",
+          px: "$sm",
+        },
       },
     },
   },

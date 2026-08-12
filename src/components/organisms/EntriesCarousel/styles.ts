@@ -38,18 +38,20 @@ export const Heading = styled("h2", {
   color: "$sectionHeading",
 });
 
-/** Full-bleed carousel on mobile; contained from tablet up. */
+/** Full-bleed carousel on mobile; contained from tablet up.
+ * Negative margins cancel section padding (avoids 100vw scrollbar overflow). */
 export const CarouselFrame = styled("div", {
-  width: "100vw",
-  maxWidth: "100vw",
-  marginLeft: "calc(50% - 50vw)",
-  marginRight: "calc(50% - 50vw)",
+  alignSelf: "stretch",
+  width: "auto",
+  marginLeft: "-$md",
+  marginRight: "-$md",
 
   "@md": {
     width: "100%",
     maxWidth: "$containerWide",
     marginLeft: 0,
     marginRight: 0,
+    alignSelf: "center",
   },
 });
 
@@ -96,6 +98,9 @@ export const ListItem = styled("li", {
 });
 
 export const ShowAllLink = styled(Link, {
+  display: "inline-flex",
+  alignItems: "center",
+  minHeight: "$controlMin",
   fontFamily: "$section",
   fontSize: "$h4",
   color: "$sectionHeading",
@@ -105,5 +110,10 @@ export const ShowAllLink = styled(Link, {
 
   "&:hover": {
     color: "$hiContrast",
+  },
+
+  "&:focus-visible": {
+    outline: "0.1875rem solid $focus",
+    outlineOffset: "0.25rem",
   },
 });

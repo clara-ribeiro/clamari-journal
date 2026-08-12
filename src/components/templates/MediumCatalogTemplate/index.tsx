@@ -219,7 +219,7 @@ export default function MediumCatalogTemplate({
   return (
     <Page medium={medium}>
       <CatalogHero medium={medium} copy={copy.hero} />
-      <Content id="main-content" aria-labelledby={copy.titleId}>
+      <Content id="main-content" tabIndex={-1} aria-labelledby={copy.titleId}>
         <Title id={copy.titleId}>{copy.title}</Title>
         <CatalogToolbar
           tone={tone}

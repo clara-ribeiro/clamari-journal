@@ -113,11 +113,12 @@ function CastSection({
 
   const visible = expanded ? cast : cast.slice(0, limit);
   const canToggle = cast.length > limit;
+  const listId = `${headingId}-list`;
 
   return (
     <Panel aria-labelledby={headingId}>
       <SectionHeading id={headingId}>{heading}</SectionHeading>
-      <CastGrid>
+      <CastGrid id={listId}>
         {visible.map((person) => (
           <CastItem key={person.id}>
             <CastPhoto>
@@ -148,6 +149,7 @@ function CastSection({
           type="button"
           onClick={() => setExpanded((value) => !value)}
           aria-expanded={expanded}
+          aria-controls={listId}
         >
           {expanded ? showLessLabel : showMoreLabel}
         </CastToggle>
@@ -171,7 +173,7 @@ export default function FilmDetailTemplate({
   const hasReview = Boolean(detail.reviewSlug);
 
   return (
-    <Page className={className} id="main-content" aria-labelledby={titleId}>
+    <Page className={className} id="main-content" tabIndex={-1} aria-labelledby={titleId}>
       <HeroSentinel id={copy.heroSentinelId} aria-hidden />
       <Hero>
         <HeroMedia aria-hidden>

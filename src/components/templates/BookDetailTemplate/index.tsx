@@ -114,7 +114,7 @@ export default function BookDetailTemplate({
     .join(" · ");
 
   return (
-    <Page className={className} id="main-content" aria-labelledby={titleId}>
+    <Page className={className} id="main-content" tabIndex={-1} aria-labelledby={titleId}>
       <HeroSentinel id={copy.heroSentinelId} aria-hidden />
       <Hero>
         <HeroMedia aria-hidden>

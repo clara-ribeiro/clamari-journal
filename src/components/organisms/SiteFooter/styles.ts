@@ -180,6 +180,8 @@ export const SocialLink = styled("a", {
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
+  minWidth: "$controlMin",
+  minHeight: "$controlMin",
   color: "inherit",
   transition: "opacity $fast ease",
 

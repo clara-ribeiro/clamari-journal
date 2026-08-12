@@ -222,7 +222,7 @@ export default function AllEntriesTemplate({
   }
 
   return (
-    <Page id="main-content" aria-labelledby={copy.titleId}>
+    <Page id="main-content" tabIndex={-1} aria-labelledby={copy.titleId}>
       <Title id={copy.titleId}>{copy.title}</Title>
       <Description>{copy.description}</Description>
       <CatalogToolbar
