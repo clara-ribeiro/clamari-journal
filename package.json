@@ -2,6 +2,9 @@
   "name": "clamari-journal",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
@@ -10,6 +13,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest -c vitest.config.mts --project=unit",
     "test:run": "vitest run -c vitest.config.mts --project=unit",
+    "test:coverage": "vitest run -c vitest.config.mts --project=unit --coverage",
     "test:storybook": "vitest run -c vitest.config.mts --project=storybook",
     "import:tvtime": "python3 scripts/import-tvtime.py src/data/gdpr-data.zip",
     "enrich:tmdb": "tsx scripts/enrich-tmdb.ts",

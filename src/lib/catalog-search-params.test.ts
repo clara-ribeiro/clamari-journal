@@ -11,6 +11,12 @@ describe("parseCatalogSearchParams", () => {
     ).toEqual({ status: "finished", year: 2026 });
   });
 
+  it("uses the first value when status is an array and trims whitespace", () => {
+    expect(
+      parseCatalogSearchParams({ status: [" watching ", "paused"] }),
+    ).toEqual({ status: "watching", year: null });
+  });
+
   it("ignores invalid year values", () => {
     expect(parseCatalogSearchParams({ year: "20" })).toEqual({
       status: "",
@@ -29,5 +35,9 @@ describe("catalogQueryString", () => {
     expect(catalogQueryString({ status: "watching", year: 2026 })).toBe(
       "?status=watching&year=2026",
     );
+    expect(catalogQueryString({ status: "paused", year: null })).toBe(
+      "?status=paused",
+    );
+    expect(catalogQueryString({ status: "", year: 2024 })).toBe("?year=2024");
   });
 });

@@ -89,6 +89,21 @@ describe("filterCatalogItems", () => {
     expect(
       filterCatalogItems(items, { search: "ALI" }).map((i) => i.slug),
     ).toEqual(["alien"]);
+    expect(
+      filterCatalogItems(items, {
+        statusFilter: "watched",
+        yearFilter: 2024,
+        search: "heat",
+      }).map((i) => i.slug),
+    ).toEqual(["heat"]);
+  });
+
+  it("returns every item when filters are empty", () => {
+    expect(filterCatalogItems(items).map((i) => i.slug)).toEqual([
+      "heat",
+      "alien",
+      "zodiac",
+    ]);
   });
 
   it("ORs review and favorite when both toggles are on", () => {
@@ -125,6 +140,44 @@ describe("sortCatalogItems", () => {
       "alien",
       "zodiac",
     ]);
+    expect(sortCatalogItems(items, "titleDesc").map((i) => i.slug)).toEqual([
+      "zodiac",
+      "heat",
+      "alien",
+    ]);
+    expect(sortCatalogItems(items, "dateOldest").map((i) => i.slug)).toEqual([
+      "alien",
+      "heat",
+      "zodiac",
+    ]);
+    expect(sortCatalogItems(items, "yearNewest").map((i) => i.slug)).toEqual([
+      "zodiac",
+      "heat",
+      "alien",
+    ]);
+    expect(sortCatalogItems(items, "ratingLow").map((i) => i.slug)).toEqual([
+      "zodiac",
+      "alien",
+      "heat",
+    ]);
+    expect(sortCatalogItems(items, "default").map((i) => i.slug)).toEqual(
+      sortCatalogItems(items, "dateNewest").map((i) => i.slug),
+    );
+  });
+
+  it("treats missing dates and years as oldest when sorting newest-first", () => {
+    const undated = card({
+      slug: "undated",
+      title: "Undated",
+      sortDate: null,
+      sortYear: null,
+    });
+    expect(
+      sortCatalogItems([undated, heat], "dateNewest").map((i) => i.slug),
+    ).toEqual(["heat", "undated"]);
+    expect(
+      sortCatalogItems([undated, heat], "yearNewest").map((i) => i.slug),
+    ).toEqual(["heat", "undated"]);
   });
 });
 

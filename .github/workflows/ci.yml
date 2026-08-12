@@ -5,14 +5,24 @@ on:
     branches: [master, main]
   pull_request:
 
+# Required check name on the default branch: "CI / quality"
+permissions:
+  contents: read
+  actions: write
+
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   quality:
+    name: quality
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    env:
+      # CI must not call live providers or print tokens.
+      TMDB_ACCESS_TOKEN: ""
+      GOOGLE_BOOKS_API_KEY: ""
 
     steps:
       - name: Checkout
@@ -21,11 +31,19 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "22"
+          node-version-file: .nvmrc
           cache: npm
 
       - name: Install
         run: npm ci
+
+      - name: Guard public secret prefixes
+        run: |
+          if grep -RInE --include='*.ts' --include='*.tsx' --include='*.mjs' --include='*.js' \
+            'NEXT_PUBLIC_(TMDB_|GOOGLE_BOOKS_)' src next.config.ts; then
+            echo "::error::Provider secrets must not be exposed via NEXT_PUBLIC_*"
+            exit 1
+          fi
 
       - name: Lint
         run: npm run lint
@@ -34,11 +52,15 @@ jobs:
         run: npm run typecheck
 
       - name: Test
-        run: npm run test:run
+        run: npm run test:coverage
+
+      - name: Upload coverage summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-summary
+          path: coverage/coverage-summary.json
+          if-no-files-found: ignore
 
       - name: Build
         run: npm run build
-        env:
-          # Detail pages tolerate missing tokens (metadata notices); avoid live API dependency.
-          TMDB_ACCESS_TOKEN: ""
-          GOOGLE_BOOKS_API_KEY: ""

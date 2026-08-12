@@ -62,4 +62,17 @@ describe("formatCatalogSummary", () => {
     );
     expect(text).toBe("2 series · 13 episodes · 1 completed · 1 watching");
   });
+
+  it("counts book statuses in the filtered set", () => {
+    const text = formatCatalogSummary(
+      "books",
+      "{finished} finished · {reading} reading · {total} total",
+      [
+        item({ slug: "a", statusKey: "finished" }),
+        item({ slug: "b", statusKey: "reading" }),
+        item({ slug: "c", statusKey: "paused" }),
+      ],
+    );
+    expect(text).toBe("1 finished · 1 reading · 3 total");
+  });
 });

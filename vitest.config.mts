@@ -21,6 +21,28 @@ export default defineConfig({
     },
   },
   test: {
+    coverage: {
+      provider: "v8",
+      include: [
+        "src/domain/**",
+        "src/application/**",
+        "src/infrastructure/persistence/**",
+        "src/lib/**",
+      ],
+      exclude: [
+        "**/*.{test,spec}.{ts,tsx}",
+        "**/*.stories.{ts,tsx}",
+        "src/stories/**",
+      ],
+      reporter: ["text-summary", "json-summary"],
+      reportsDirectory: "./coverage",
+      thresholds: {
+        lines: 80,
+        statements: 80,
+        functions: 80,
+        branches: 70,
+      },
+    },
     projects: [
       {
         extends: true,

@@ -166,6 +166,19 @@ describe("mapSeriesDetail", () => {
     expect(detail.metadataNotice).toBe(
       seriesCopy.detail.metadata.unresolved,
     );
+    expect(detail.reviewEmptyLabel).toBe(seriesCopy.detail.review.empty);
+  });
+
+  it("uses the pending review label when a reviewSlug is set", () => {
+    const detail = mapSeriesDetail(
+      { ...baseEntry, reviewSlug: "breaking-bad" },
+      baseMetadata,
+      [seasonOne],
+      null,
+    );
+
+    expect(detail.reviewSlug).toBe("breaking-bad");
+    expect(detail.reviewEmptyLabel).toBe(seriesCopy.detail.review.pending);
   });
 });
 
