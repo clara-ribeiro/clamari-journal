@@ -51,8 +51,12 @@ export default function StateShell({
   }, [setActive]);
 
   useEffect(() => {
-    setIndex(pickSceneIndex(pool.length));
-    setVisible(true);
+    // Defer so the first paint can hydrate on index 0, then reveal a random scene.
+    const frame = requestAnimationFrame(() => {
+      setIndex(pickSceneIndex(pool.length));
+      setVisible(true);
+    });
+    return () => cancelAnimationFrame(frame);
   }, [pool.length]);
 
   useEffect(() => {

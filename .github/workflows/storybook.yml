@@ -1,0 +1,31 @@
+name: Storybook
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+
+concurrency:
+  group: storybook-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build Storybook
+        run: npm run build-storybook

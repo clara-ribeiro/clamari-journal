@@ -106,11 +106,34 @@ export default function AllEntriesTemplate({
   const [sort, setSort] = useState<CatalogSortId>("default");
   const [view, setView] = useState<CatalogViewMode>("cards");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const [syncedInitial, setSyncedInitial] = useState({
+    status: initialStatus,
+    year: initialYear,
+  });
+  const filterKey = [
+    search,
+    statusFilter,
+    yearFilter,
+    reviewActive,
+    favoriteActive,
+    sort,
+    view,
+  ].join("\0");
+  const [resetFilterKey, setResetFilterKey] = useState(filterKey);
 
-  useEffect(() => {
+  if (
+    syncedInitial.status !== initialStatus ||
+    syncedInitial.year !== initialYear
+  ) {
+    setSyncedInitial({ status: initialStatus, year: initialYear });
     setStatusFilter(initialStatus);
     setYearFilter(initialYear);
-  }, [initialStatus, initialYear]);
+  }
+
+  if (resetFilterKey !== filterKey) {
+    setResetFilterKey(filterKey);
+    setVisibleCount(PAGE_SIZE);
+  }
 
   useEffect(() => {
     // Same Docs autodocs conflict as MediumCatalogTemplate — skip in Storybook.
@@ -180,10 +203,6 @@ export default function AllEntriesTemplate({
       sort,
     ],
   );
-
-  useEffect(() => {
-    setVisibleCount(PAGE_SIZE);
-  }, [search, statusFilter, yearFilter, reviewActive, favoriteActive, sort, view]);
 
   const shownItems = visibleItems.slice(0, visibleCount);
   const hasMore = visibleCount < visibleItems.length;

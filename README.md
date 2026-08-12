@@ -9,7 +9,7 @@ Personal diary for movies, series, and books. Read-only site: personal records l
 - Stitches (`@stitches/react`) + `StitchesRegistry` in the root layout
 - Lucide React (icons)
 - Vitest
-- Deploy planned on Vercel
+- Deploy: Vercel (app) + Storybook on a subdomain (separate Vercel project)
 
 Fonts (via `next/font` in `src/app/layout.tsx`): Anton (`$display`), Monsieur La Doulaise (`$script`), Instrument Serif (`$section`). Prefer font tokens over raw `var(--font-…)` stacks.
 
@@ -255,9 +255,46 @@ npm run test:run       # vitest run (CI-friendly; no live APIs)
 npm run import:tvtime  # regenerate movies.json / series.json
 npm run enrich:tmdb          # fill tmdbId + posterPath (requires token)
 npm run enrich:google-books  # fill coverUrl (+ title) from Google Books
+npm run storybook            # Storybook dev server (:6006)
+npm run build-storybook      # static Storybook → storybook-static/
 ```
 
-GitHub Actions (`.github/workflows/ci.yml`) runs `lint`, `typecheck`, `test:run`, and `build` on every push/PR to `main` or `master`.
+GitHub Actions:
+
+- `.github/workflows/ci.yml` — `lint`, `typecheck`, `test:run`, and Next `build` on every push/PR to `main` / `master`
+- `.github/workflows/storybook.yml` — `build-storybook` (catches broken stories before deploy)
+
+```bash
+npm run storybook        # local Storybook (port 6006)
+npm run build-storybook  # static export → storybook-static/
+```
+
+## Deploy
+
+### App (production site)
+
+1. Import this repository into a Vercel project (Framework: Next.js).
+2. Set env vars for **Production** and **Preview**, available at **Build** time: `TMDB_ACCESS_TOKEN` (required for live TMDB metadata / hero backdrops), optional `TMDB_LANGUAGE`, `GOOGLE_BOOKS_API_KEY`. Never use `NEXT_PUBLIC_*` for secrets.
+3. Deploy the default branch. Attach the apex / `www` domain in **Settings → Domains**.
+
+Detail pages are statically generated at build time; without `TMDB_ACCESS_TOKEN` during the build, posters from `posterPath` still work but synopsis / credits / backdrop stay empty.
+
+### Storybook (`storybook.<your-domain>`)
+
+Use a **second** Vercel project on the **same** GitHub repo so the Next app and Storybook do not share one `vercel.json`.
+
+1. [vercel.com/new](https://vercel.com/new) → import `clara-ribeiro/clamari-journal` again → name it e.g. `clamari-journal-storybook`.
+2. **Settings → General → Build & Development Settings** (override):
+   - Framework Preset: **Other**
+   - Build Command: `npm run build-storybook`
+   - Output Directory: `storybook-static`
+   - Install Command: `npm ci`
+3. Optional: paste the contents of `vercel.storybook.json` into that project’s **Settings → JSON**, or keep overrides only in the dashboard (do **not** rename it to `vercel.json` on `master` — that would break the Next app project).
+4. **Settings → Domains** → add `storybook.<your-domain>` (e.g. `storybook.clamari.com.br`) and create the DNS record Vercel shows (usually a CNAME).
+5. Each push to the default branch rebuilds Storybook on that project (same as the app project).
+
+Local check: `npm run build-storybook` then serve `storybook-static/` with any static server.
+
 ## Environment variables
 
 | Variable | Usage |

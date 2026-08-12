@@ -69,14 +69,11 @@ function useCountUp(target: number, active: boolean, durationMs: number) {
   const [value, setValue] = useState(0);
 
   useEffect(() => {
-    if (!active) {
-      setValue(0);
-      return;
-    }
+    if (!active) return;
 
     if (prefersReducedMotion() || target <= 0) {
-      setValue(target);
-      return;
+      const frame = requestAnimationFrame(() => setValue(target));
+      return () => cancelAnimationFrame(frame);
     }
 
     let frame = 0;
@@ -96,7 +93,7 @@ function useCountUp(target: number, active: boolean, durationMs: number) {
     return () => cancelAnimationFrame(frame);
   }, [active, target, durationMs]);
 
-  return value;
+  return active ? value : 0;
 }
 
 function goalLinkLabel(goal: GoalMetric) {
@@ -117,9 +114,11 @@ function GoalItem({ goal }: { goal: GoalMetric }) {
 
   useEffect(() => {
     if (prefersReducedMotion()) {
-      setFilling(true);
-      setSpilling(true);
-      return;
+      const frame = requestAnimationFrame(() => {
+        setFilling(true);
+        setSpilling(true);
+      });
+      return () => cancelAnimationFrame(frame);
     }
 
     const node = itemRef.current;

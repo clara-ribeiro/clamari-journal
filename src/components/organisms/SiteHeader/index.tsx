@@ -63,23 +63,20 @@ export default function SiteHeader({ className }: SiteHeaderProps) {
     setPastHero(false);
   }
 
+  const sentinelId = resolveSentinelId(pathname);
   // Reveal-on-scroll pages stay hidden until the hero sentinel leaves; status chrome always shows.
-  const visible = statusChrome || !usesReveal || pastHero;
+  // No sentinel id means there is nothing to wait for — show immediately.
+  const visible =
+    statusChrome || !usesReveal || pastHero || (usesReveal && !sentinelId);
 
   useEffect(() => {
-    if (statusChrome || !usesReveal) return;
-
-    const sentinelId = resolveSentinelId(pathname);
-    if (!sentinelId) {
-      setPastHero(true);
-      return;
-    }
+    if (statusChrome || !usesReveal || !sentinelId) return;
 
     const sentinel = document.getElementById(sentinelId);
     // No hero on the page (e.g. Storybook isolation) — show the bar.
     if (!sentinel) {
-      setPastHero(true);
-      return;
+      const frame = requestAnimationFrame(() => setPastHero(true));
+      return () => cancelAnimationFrame(frame);
     }
 
     const observer = new IntersectionObserver(
@@ -89,7 +86,7 @@ export default function SiteHeader({ className }: SiteHeaderProps) {
     observer.observe(sentinel);
 
     return () => observer.disconnect();
-  }, [pathname, usesReveal, statusChrome]);
+  }, [pathname, usesReveal, statusChrome, sentinelId]);
 
   return (
     <>
