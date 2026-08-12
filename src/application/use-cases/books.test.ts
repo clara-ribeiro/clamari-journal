@@ -134,6 +134,17 @@ describe("mapBookDetail", () => {
     expect(detail.progressPercent).toBe(25);
     expect(detail.currentPageLabel).toBe("80 / 320");
   });
+
+  it("uses the pending review label when a reviewSlug is set", () => {
+    const detail = mapBookDetail(
+      { ...baseEntry, reviewSlug: "the-titans-curse" },
+      baseMetadata,
+      null,
+    );
+
+    expect(detail.reviewSlug).toBe("the-titans-curse");
+    expect(detail.reviewEmptyLabel).toBe(booksCopy.detail.review.pending);
+  });
 });
 
 describe("computeBookStats", () => {

@@ -225,4 +225,18 @@ describe("mapMovieDetail", () => {
     expect(detail.title).toBe("Clube da Luta");
     expect(detail.originalTitle).toBe("Fight Club");
   });
+
+  it("labels a single viewing and omits empty credit lists", () => {
+    const detail = mapMovieDetail(
+      { ...baseMovie, watchedDates: ["2024-06-01"] },
+      { ...baseMetadata, directors: [], writers: [], countries: [] },
+      null,
+    );
+
+    expect(detail.viewingCount).toBe(1);
+    expect(detail.viewingCountLabel).toBe(filmsCopy.detail.viewings.countOne);
+    expect(detail.directorsLabel).toBeNull();
+    expect(detail.writersLabel).toBeNull();
+    expect(detail.countriesLabel).toBeNull();
+  });
 });

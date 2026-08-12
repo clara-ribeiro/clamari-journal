@@ -15,6 +15,8 @@ Fonts (via `next/font` in `src/app/layout.tsx`): Anton (`$display`), Monsieur La
 
 ## Getting started
 
+Requires **Node 22** (see `.nvmrc`; `engines.node` allows `>=20.9.0` for local work). Vercel reads `.nvmrc` for Production and Preview.
+
 ```bash
 cp .env.example .env.local
 # set TMDB_ACCESS_TOKEN (and optionally GOOGLE_BOOKS_API_KEY)
@@ -193,10 +195,11 @@ Shared rules: ratings are half-stars `0.5`–`5`; never use negative runtimes, p
 - Local commands:
   - `npm test` — watch mode
   - `npm run test:run` — single CI-friendly run (no live external API calls; `fetch` is blocked in the test setup)
+  - `npm run test:coverage` — unit tests plus v8 coverage (fails if high-value layers drop below the thresholds in `vitest.config.mts`)
   - `npm run lint` — ESLint
   - `npm run typecheck` — `tsc --noEmit`
   - `npm run build` — production build
-- CI (GitHub Actions, `.github/workflows/ci.yml`) runs lint → typecheck → tests → build on pushes and pull requests to `main` / `master`.
+- CI (GitHub Actions, `.github/workflows/ci.yml`) is the required quality gate: lint → typecheck → coverage tests → production `build` on every pull request and every push to `main` / `master`. The check name is **`CI / quality`**.
 - `server-only` is stubbed in `vitest.config.mts` / `src/test/server-only-stub.ts` for Node/jsdom tests.
 - Prefer fixing root causes over disabling lint rules.
 - **Lighthouse after major changes:** whenever you ship a meaningful change (layout, styling, data fetching, images, fonts, client JS, routing, etc.), run Lighthouse on the affected page(s) (Chrome DevTools → Lighthouse, or CI if configured) and check that scores did not regress — especially **Performance**. Also glance at Accessibility, Best Practices, and SEO. Prefer measuring a production build (`npm run build && npm start`) over `next dev`. If a category drops, investigate before merging.
@@ -252,6 +255,7 @@ npm run lint
 npm run typecheck      # tsc --noEmit
 npm test               # vitest watch
 npm run test:run       # vitest run (CI-friendly; no live APIs)
+npm run test:coverage  # unit tests + coverage thresholds
 npm run import:tvtime  # regenerate movies.json / series.json
 npm run enrich:tmdb          # fill tmdbId + posterPath (requires token)
 npm run enrich:google-books  # fill coverUrl (+ title) from Google Books
@@ -261,8 +265,8 @@ npm run build-storybook      # static Storybook → storybook-static/
 
 GitHub Actions:
 
-- `.github/workflows/ci.yml` — `lint`, `typecheck`, `test:run`, and Next `build` on every push/PR to `main` / `master`
-- `.github/workflows/storybook.yml` — `build-storybook` (catches broken stories before deploy)
+- `.github/workflows/ci.yml` — required check **`CI / quality`**: `npm ci`, lint, typecheck, `test:coverage`, and Next `build` (empty provider tokens) on every push/PR to `main` / `master`. Superseded runs cancel in progress.
+- `.github/workflows/storybook.yml` — check **`Storybook / build`**: `build-storybook` (catches broken stories before deploy)
 
 ```bash
 npm run storybook        # local Storybook (port 6006)
@@ -271,11 +275,29 @@ npm run build-storybook  # static export → storybook-static/
 
 ## Deploy
 
+### CI/CD flow
+
+```text
+push / pull request
+        │
+        ├─ GitHub Actions  CI / quality     (lint, types, coverage, build)
+        ├─ GitHub Actions  Storybook / build
+        │
+        └─ Vercel Git integration
+              ├─ Preview  → every pull request
+              └─ Production → default branch (master / main) after merge
+```
+
+1. **CI is the merge gate.** Mark **`CI / quality`** as a required status check on the default branch (GitHub **Settings → Rules → Rulesets**, or classic branch protection). Do not merge or treat a commit as production-ready without a green run. Optionally also require **`Storybook / build`**.
+2. **Vercel is the CD surface.** With Git integration enabled, Preview Deployments build each PR and Production builds the default branch. Leave **Ignored Build Step** unset — skipping docs-only paths is not worth hiding app risk at launch.
+3. **Env vars on both Preview and Production** (available at **Build** time): `TMDB_ACCESS_TOKEN`, optional `TMDB_LANGUAGE`, optional `GOOGLE_BOOKS_API_KEY`. Never `NEXT_PUBLIC_*` for secrets. CI itself uses empty tokens so the pipeline does not call live APIs or print credentials.
+4. **Broken commits stay off production.** A failed `CI / quality` run blocks merge when the check is required. A failed Vercel Production build does not promote that commit. Do not deploy Production from a branch that skipped CI.
+
 ### App (production site)
 
 1. Import this repository into a Vercel project (Framework: Next.js).
-2. Set env vars for **Production** and **Preview**, available at **Build** time: `TMDB_ACCESS_TOKEN` (required for live TMDB metadata / hero backdrops), optional `TMDB_LANGUAGE`, `GOOGLE_BOOKS_API_KEY`. Never use `NEXT_PUBLIC_*` for secrets.
-3. Deploy the default branch. Attach the apex / `www` domain in **Settings → Domains**.
+2. Set env vars for **Production** and **Preview**, available at **Build** time: `TMDB_ACCESS_TOKEN` (required for live TMDB metadata / hero backdrops), optional `TMDB_LANGUAGE`, `GOOGLE_BOOKS_API_KEY`. Never use `NEXT_PUBLIC_*` for secrets. Confirm both environments have the same keys (values may differ).
+3. Deploy the default branch. Attach the apex / `www` domain in **Settings → Domains**. Node version comes from `.nvmrc` (`22`).
 
 Detail pages are statically generated at build time; without `TMDB_ACCESS_TOKEN` during the build, posters from `posterPath` still work but synopsis / credits / backdrop stay empty.
 
