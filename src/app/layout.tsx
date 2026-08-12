@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Anton, Instrument_Serif, Monsieur_La_Doulaise } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -68,6 +69,7 @@ export default function RootLayout({
         <StitchesRegistry>
           <AppShell>{children}</AppShell>
         </StitchesRegistry>
+        <Analytics />
       </body>
     </html>
   );
