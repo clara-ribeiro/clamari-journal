@@ -10,6 +10,8 @@ export const siteCopy = {
     description:
       "A personal diary to track stories I've watched, followed, and read over time.",
     author: "Clara",
+    ogImage: "/images/home/hero/lettering-background.webp",
+    ogImageAlt: "CLAMARI Journal lettering",
   },
   a11y: {
     skipToContent: "Skip to content",

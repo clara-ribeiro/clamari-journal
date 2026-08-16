@@ -5,6 +5,8 @@ import {
   listMovies,
 } from "@/application/use-cases/movies";
 import FilmDetailTemplate from "@/components/templates/FilmDetailTemplate";
+import { detailPageMetadata, pageMetadata } from "@/lib/page-metadata";
+import { statesCopy } from "@/content/copy/states";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -16,13 +18,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const detail = await getMovieDetail(slug);
   if (!detail) {
-    return { title: "Film not found" };
+    return pageMetadata({
+      title: statesCopy.notFound.title,
+      description: statesCopy.notFound.description,
+      path: `/films/${slug}`,
+      index: false,
+    });
   }
 
-  return {
+  return detailPageMetadata({
     title: detail.metaTitle,
     description: detail.metaDescription,
-  };
+    path: `/films/${detail.slug}`,
+    imageUrl: detail.posterUrl ?? detail.backdropUrl,
+  });
 }
 
 export default async function FilmDetailPage({ params }: Props) {

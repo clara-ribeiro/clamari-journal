@@ -2,6 +2,8 @@ export const booksCopy = {
   list: {
     titleId: "books-heading",
     title: "Books",
+    description:
+      "Books logged in the clamari journal — reading, finished, paused, and still on the shelf.",
     listAriaLabel: "Book entries",
     empty: "No books yet. Add entries in src/data/books.json.",
     noResults: "No books match these filters.",

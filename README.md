@@ -74,6 +74,7 @@ APIs (TMDB / Google Books) live under `infrastructure`, marked `server-only`, an
 | `/films`, `/series`, `/books` | Medium catalogs |
 | `/films/[slug]`, `/series/[slug]`, `/books/[slug]` | Medium detail |
 | `/stats` | Lifetime stats |
+| `/sitemap.xml`, `/robots.txt` | Generated crawl files (`src/app/sitemap.ts`, `src/app/robots.ts`) |
 
 ## Conventions
 
@@ -298,8 +299,18 @@ push / pull request
 1. Import this repository into a Vercel project (Framework: Next.js).
 2. Set env vars for **Production** and **Preview**, available at **Build** time: `TMDB_ACCESS_TOKEN` (required for live TMDB metadata / hero backdrops), optional `TMDB_LANGUAGE`, `GOOGLE_BOOKS_API_KEY`. Never use `NEXT_PUBLIC_*` for secrets. Confirm both environments have the same keys (values may differ).
 3. Deploy the default branch. Attach the apex / `www` domain in **Settings → Domains**. Node version comes from `.nvmrc` (`22`).
+4. Optional: set `SITE_URL` (e.g. `https://clamari.com.br`) for Production so canonicals and the sitemap use the public domain. If unset, the build uses `VERCEL_PROJECT_PRODUCTION_URL`.
 
 Detail pages are statically generated at build time; without `TMDB_ACCESS_TOKEN` during the build, posters from `posterPath` still work but synopsis / credits / backdrop stay empty.
+
+### SEO and analytics
+
+- **Canonicals:** `metadataBase` comes from `SITE_URL` (or Vercel’s production host). List and detail pages set `alternates.canonical` to the clean path (filter query strings are not canonical).
+- **Indexing:** Production allows crawlers (`src/app/robots.ts` + `robots` metadata). Vercel Preview sets `VERCEL_ENV=preview` and is `noindex`.
+- **Sitemap:** `src/app/sitemap.ts` lists home, catalogs, stats, feeds (`/all-entries`, `/favorites`, `/reviews`), and every film/series/book detail slug.
+- **Open Graph / Twitter:** site defaults in the root layout; film/series/book detail pages prefer poster or cover images.
+- **Analytics:** `@vercel/analytics` and `@vercel/speed-insights` load in the root layout. They need **no env vars and no tokens**. In the Vercel project: **Analytics** and **Speed Insights** → enable for Production (and Preview if you want Web Vitals there).
+- Provider secrets (`TMDB_ACCESS_TOKEN`, `GOOGLE_BOOKS_API_KEY`) stay server-only (`import "server-only"`). Never prefix them with `NEXT_PUBLIC_`.
 
 ### Storybook (`storybook.<your-domain>`)
 
@@ -324,8 +335,9 @@ Local check: `npm run build-storybook` then serve `storybook-static/` with any s
 | `TMDB_ACCESS_TOKEN` | Movies and series (server only) |
 | `TMDB_LANGUAGE` | Optional TMDB metadata language (default `en-US`), e.g. `pt-BR` |
 | `GOOGLE_BOOKS_API_KEY` | Optional Google Books key (server only; low-volume public queries work without it) |
+| `SITE_URL` | Optional canonical origin for `metadataBase`, sitemap, and robots (e.g. `https://clamari.com.br`). Not a secret. On Vercel, omit to use `VERCEL_PROJECT_PRODUCTION_URL`. |
 
-Never expose these tokens to the client. Never prefix them with `NEXT_PUBLIC_`.
+Never expose provider tokens to the client. Never prefix them with `NEXT_PUBLIC_`. Vercel Analytics and Speed Insights do not use project env vars.
 
 ### TMDB metadata adapter
 
