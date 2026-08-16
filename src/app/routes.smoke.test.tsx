@@ -265,6 +265,10 @@ describe("detail route slugs", () => {
     expect(
       screen.getAllByRole("heading", { name: "Heat" }).length,
     ).toBeGreaterThan(0);
+    const jsonLd = document.querySelector('script[type="application/ld+json"]');
+    expect(jsonLd).toBeTruthy();
+    expect(jsonLd?.textContent).toContain('"Movie"');
+    expect(jsonLd?.textContent).toContain("Heat");
   });
 
   it("calls notFound for invalid series and book slugs", async () => {

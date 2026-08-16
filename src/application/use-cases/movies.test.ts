@@ -9,6 +9,7 @@ import {
 } from "@/application/use-cases/movies";
 import { catalogCopy } from "@/content/copy/catalog";
 import { filmsCopy } from "@/content/copy/films";
+import { reviewContentCopy } from "@/content/copy/review-content";
 
 const baseMovie: MovieEntry = {
   slug: "fight-club",
@@ -186,6 +187,7 @@ describe("mapMovieDetail", () => {
     expect(detail.metadataNotice).toBeNull();
     expect(detail.metaTitle).toBe("Fight Club");
     expect(detail.metaDescription.length).toBeGreaterThan(0);
+    expect(detail.metaDescription).toContain("insomniac");
   });
 
   it("falls back to local fields and surfaces a metadata notice", () => {
@@ -227,6 +229,10 @@ describe("mapMovieDetail", () => {
 
     expect(detail.reviewHtml).toBe("<p>A quiet masterpiece.</p>");
     expect(detail.reviewEmptyLabel).toBe(filmsCopy.detail.review.pending);
+    expect(detail.metaTitle).toBe(
+      reviewContentCopy.seo.titleWithReview.replace("{title}", "Fight Club"),
+    );
+    expect(detail.metaDescription).toBe("A quiet masterpiece.");
   });
 
   it("keeps original title when it differs from the localized title", () => {

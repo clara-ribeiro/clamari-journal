@@ -65,15 +65,30 @@ describe("detailPageMetadata", () => {
       imageUrl: "https://image.tmdb.org/t/p/w500/heat.jpg",
     });
 
-    expect(metadata.openGraph?.images).toEqual([
-      {
-        url: "https://image.tmdb.org/t/p/w500/heat.jpg",
-        alt: "Heat",
-      },
-    ]);
+    expect(metadata.openGraph).toMatchObject({
+      images: [
+        {
+          url: "https://image.tmdb.org/t/p/w500/heat.jpg",
+          alt: "Heat",
+        },
+      ],
+      type: "website",
+    });
     expect(metadata.twitter?.images).toEqual([
       "https://image.tmdb.org/t/p/w500/heat.jpg",
     ]);
+  });
+
+  it("uses Open Graph article when a review is published", () => {
+    const metadata = detailPageMetadata({
+      title: "Heat review",
+      description: "Precision first.",
+      path: "/films/heat",
+      imageUrl: "https://image.tmdb.org/t/p/w500/heat.jpg",
+      hasReview: true,
+    });
+
+    expect(metadata.openGraph).toMatchObject({ type: "article" });
   });
 
   it("falls back to the site OG image when no poster exists", () => {

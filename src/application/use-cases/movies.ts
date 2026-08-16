@@ -13,11 +13,10 @@ import { filmsCopy } from "@/content/copy/films";
 import { getMovieById, TmdbError } from "@/infrastructure/tmdb/client";
 import { formatDate } from "@/lib/formatters/formatDate";
 import { formatShortRuntime } from "@/lib/formatters/formatDuration";
+import { buildDetailMeta } from "@/lib/detail-meta";
 import { tmdbImageUrl } from "@/lib/tmdb-image";
 import { yearsMovieCountsToward } from "./goal-years";
 import { getReviewHtml } from "./reviews";
-
-const META_DESCRIPTION_MAX = 160;
 
 export function listMovies(): MovieEntry[] {
   return movieRepository.findAll();
@@ -128,15 +127,6 @@ function joinNames(names: string[]): string | null {
   return cleaned.join(", ");
 }
 
-function truncateDescription(text: string, max = META_DESCRIPTION_MAX): string {
-  const normalized = text.replace(/\s+/g, " ").trim();
-  if (normalized.length <= max) return normalized;
-  const slice = normalized.slice(0, max - 1);
-  const lastSpace = slice.lastIndexOf(" ");
-  const clipped = lastSpace > 40 ? slice.slice(0, lastSpace) : slice;
-  return `${clipped}…`;
-}
-
 /** Pure — chronological viewing rows with first/rewatch labels. */
 export function buildMovieViewings(
   watchedDates: string[] | undefined,
@@ -209,9 +199,12 @@ export function mapMovieDetail(
   const favorite = Boolean(movie.favorite);
   const reviewSlug = movie.reviewSlug ?? null;
 
-  const synopsisForMeta = synopsis
-    ? copy.meta.descriptionFromSynopsis.replace("{synopsis}", synopsis)
-    : copy.meta.descriptionFallback.replace("{title}", title);
+  const { metaTitle, metaDescription } = buildDetailMeta({
+    title,
+    synopsis,
+    reviewHtml,
+    copy: copy.meta,
+  });
 
   return {
     slug: movie.slug,
@@ -254,8 +247,8 @@ export function mapMovieDetail(
     reviewSlug,
     reviewHtml,
     reviewEmptyLabel: reviewSlug ? copy.review.pending : copy.review.empty,
-    metaTitle: title,
-    metaDescription: truncateDescription(synopsisForMeta),
+    metaTitle,
+    metaDescription,
   };
 }
 

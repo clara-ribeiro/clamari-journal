@@ -146,6 +146,19 @@ describe("mapBookDetail", () => {
     expect(detail.reviewHtml).toBeNull();
     expect(detail.reviewEmptyLabel).toBe(booksCopy.detail.review.pending);
   });
+
+  it("uses a review-aware title and excerpt when html is present", () => {
+    const detail = mapBookDetail(
+      { ...baseEntry, reviewSlug: "the-titans-curse" },
+      baseMetadata,
+      null,
+      "<p>Percy at his most human.</p>",
+    );
+
+    expect(detail.reviewHtml).toBe("<p>Percy at his most human.</p>");
+    expect(detail.metaTitle).toBe(`${detail.title} review`);
+    expect(detail.metaDescription).toBe("Percy at his most human.");
+  });
 });
 
 describe("computeBookStats", () => {

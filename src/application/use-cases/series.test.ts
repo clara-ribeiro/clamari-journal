@@ -181,6 +181,20 @@ describe("mapSeriesDetail", () => {
     expect(detail.reviewHtml).toBeNull();
     expect(detail.reviewEmptyLabel).toBe(seriesCopy.detail.review.pending);
   });
+
+  it("uses a review-aware title and excerpt when html is present", () => {
+    const detail = mapSeriesDetail(
+      { ...baseEntry, reviewSlug: "breaking-bad" },
+      baseMetadata,
+      [seasonOne],
+      null,
+      "<p>The best show on television.</p>",
+    );
+
+    expect(detail.reviewHtml).toBe("<p>The best show on television.</p>");
+    expect(detail.metaTitle).toBe("Breaking Bad review");
+    expect(detail.metaDescription).toBe("The best show on television.");
+  });
 });
 
 describe("getEpisodeRuntimeMinutes", () => {

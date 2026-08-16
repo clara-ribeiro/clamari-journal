@@ -10,6 +10,8 @@ export type PageMetadataInput = {
   /** When true, skip the root title template (home). */
   absoluteTitle?: boolean;
   index?: boolean;
+  /** Open Graph type; detail pages with a published review use `article`. */
+  ogType?: "website" | "article";
 };
 
 function defaultImages(title: string) {
@@ -42,7 +44,7 @@ export function pageMetadata(input: PageMetadataInput): Metadata {
       url: input.path,
       siteName: siteCopy.brand.fullName,
       locale: "en_US",
-      type: "website",
+      type: input.ogType ?? "website",
       images,
     },
     twitter: {
@@ -59,6 +61,7 @@ export function detailPageMetadata(input: {
   description: string;
   path: string;
   imageUrl: string | null;
+  hasReview?: boolean;
 }): Metadata {
   return pageMetadata({
     title: input.title,
@@ -67,5 +70,6 @@ export function detailPageMetadata(input: {
     images: input.imageUrl
       ? [{ url: input.imageUrl, alt: input.title }]
       : undefined,
+    ogType: input.hasReview ? "article" : "website",
   });
 }

@@ -159,6 +159,8 @@ Until a database exists, reviews ship with the Git deploy:
 2. Add `src/content/reviews/{films,series,books}/{reviewSlug}.md`.
 3. Commit and deploy.
 
+Spoiler blocks (`:::spoiler`) stay collapsed on the page and are **omitted** from the meta description and JSON-LD `reviewBody`.
+
 Supported Markdown: headings, paragraphs, emphasis, strong, block quotes, lists, links, images, and separators (`---`). Raw HTML and scripts are stripped. Images allow `https://…` URLs or site-root paths (`/images/reviews/still.webp` in `public/`). Spoilers use a container directive (collapsed `<details>` / `<summary>`):
 
 ```md
@@ -328,7 +330,8 @@ Detail pages are statically generated at build time; without `TMDB_ACCESS_TOKEN`
 - **Canonicals:** `metadataBase` comes from `SITE_URL` (or Vercel’s production host). List and detail pages set `alternates.canonical` to the clean path (filter query strings are not canonical).
 - **Indexing:** Production allows crawlers (`src/app/robots.ts` + `robots` metadata). Vercel Preview sets `VERCEL_ENV=preview` and is `noindex`.
 - **Sitemap:** `src/app/sitemap.ts` lists home, catalogs, stats, feeds (`/all-entries`, `/favorites`, `/reviews`), and every film/series/book detail slug.
-- **Open Graph / Twitter:** site defaults in the root layout; film/series/book detail pages prefer poster or cover images.
+- **Open Graph / Twitter:** site defaults in the root layout; film/series/book detail pages prefer poster or cover images. A published review switches the detail Open Graph type to `article` and uses `{title} review` plus a spoiler-free excerpt.
+- **JSON-LD:** detail pages emit `Movie` / `TVSeries` / `Book` structured data. When review markdown exists, the page is a personal `Review` of that work (`reviewRating` only if the journal has stars). Never `AggregateRating`.
 - **Analytics:** `@vercel/analytics` and `@vercel/speed-insights` load in the root layout. They need **no env vars and no tokens**. In the Vercel project: **Analytics** and **Speed Insights** → enable for Production (and Preview if you want Web Vitals there).
 - Provider secrets (`TMDB_ACCESS_TOKEN`, `GOOGLE_BOOKS_API_KEY`) stay server-only (`import "server-only"`). Never prefix them with `NEXT_PUBLIC_`.
 
