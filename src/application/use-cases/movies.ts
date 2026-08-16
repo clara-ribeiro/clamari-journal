@@ -15,6 +15,7 @@ import { formatDate } from "@/lib/formatters/formatDate";
 import { formatShortRuntime } from "@/lib/formatters/formatDuration";
 import { tmdbImageUrl } from "@/lib/tmdb-image";
 import { yearsMovieCountsToward } from "./goal-years";
+import { getReviewHtml } from "./reviews";
 
 const META_DESCRIPTION_MAX = 160;
 
@@ -173,6 +174,7 @@ export function mapMovieDetail(
   movie: MovieEntry,
   metadata: TmdbMovieMetadata | null,
   metadataNotice: string | null,
+  reviewHtml: string | null = null,
 ): MovieDetail {
   const copy = filmsCopy.detail;
   const title = metadata?.title?.trim() || movie.title;
@@ -250,6 +252,7 @@ export function mapMovieDetail(
     viewings,
     viewingsEmptyLabel: copy.viewings.empty,
     reviewSlug,
+    reviewHtml,
     reviewEmptyLabel: reviewSlug ? copy.review.pending : copy.review.empty,
     metaTitle: title,
     metaDescription: truncateDescription(synopsisForMeta),
@@ -293,6 +296,11 @@ export const getMovieDetail = cache(
     if (!movie) return undefined;
 
     const { metadata, notice } = await loadMovieMetadata(movie.tmdbId);
-    return mapMovieDetail(movie, metadata, notice);
+    return mapMovieDetail(
+      movie,
+      metadata,
+      notice,
+      getReviewHtml("films", movie.reviewSlug),
+    );
   },
 );

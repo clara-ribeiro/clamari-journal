@@ -28,7 +28,7 @@ describe("sitemap", () => {
 });
 
 describe("provider secrets stay server-only", () => {
-  it("marks TMDB and Google Books clients as server-only", () => {
+  it("marks TMDB, Google Books, and review file adapters as server-only", () => {
     const tmdb = readFileSync("src/infrastructure/tmdb/client.ts", "utf8");
     const books = readFileSync(
       "src/infrastructure/google-books/client.ts",
@@ -37,6 +37,11 @@ describe("provider secrets stay server-only", () => {
 
     expect(tmdb.startsWith('import "server-only"')).toBe(true);
     expect(books.startsWith('import "server-only"')).toBe(true);
+    const reviews = readFileSync(
+      "src/infrastructure/persistence/file-review-repository.ts",
+      "utf8",
+    );
+    expect(reviews.startsWith('import "server-only"')).toBe(true);
   });
 
   it("does not expose provider tokens via NEXT_PUBLIC_* in app code", () => {

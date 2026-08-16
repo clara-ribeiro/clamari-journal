@@ -181,6 +181,7 @@ describe("mapMovieDetail", () => {
       filmsCopy.detail.viewings.first,
     );
     expect(detail.reviewSlug).toBe("fight-club");
+    expect(detail.reviewHtml).toBeNull();
     expect(detail.reviewEmptyLabel).toBe(filmsCopy.detail.review.pending);
     expect(detail.metadataNotice).toBeNull();
     expect(detail.metaTitle).toBe("Fight Club");
@@ -210,9 +211,22 @@ describe("mapMovieDetail", () => {
     expect(detail.cast).toEqual([]);
     expect(detail.metadataNotice).toBe(filmsCopy.detail.metadata.unresolved);
     expect(detail.reviewEmptyLabel).toBe(filmsCopy.detail.review.empty);
+    expect(detail.reviewHtml).toBeNull();
     expect(detail.viewingCountLabel).toBe(
       filmsCopy.detail.viewings.countNone,
     );
+  });
+
+  it("attaches compiled review html when provided", () => {
+    const detail = mapMovieDetail(
+      baseMovie,
+      baseMetadata,
+      null,
+      "<p>A quiet masterpiece.</p>",
+    );
+
+    expect(detail.reviewHtml).toBe("<p>A quiet masterpiece.</p>");
+    expect(detail.reviewEmptyLabel).toBe(filmsCopy.detail.review.pending);
   });
 
   it("keeps original title when it differs from the localized title", () => {

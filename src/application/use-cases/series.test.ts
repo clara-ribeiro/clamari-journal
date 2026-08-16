@@ -178,6 +178,7 @@ describe("mapSeriesDetail", () => {
     );
 
     expect(detail.reviewSlug).toBe("breaking-bad");
+    expect(detail.reviewHtml).toBeNull();
     expect(detail.reviewEmptyLabel).toBe(seriesCopy.detail.review.pending);
   });
 });

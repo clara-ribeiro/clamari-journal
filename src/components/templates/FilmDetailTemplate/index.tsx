@@ -406,6 +406,7 @@ export default function FilmDetailTemplate({
               heading={copy.review.heading}
               headingId={copy.review.headingId}
               emptyLabel={detail.reviewEmptyLabel}
+              html={detail.reviewHtml}
             />
           </Panel>
         ) : null}

@@ -81,6 +81,7 @@ function bookDetail(overrides: Partial<BookDetail> = {}): BookDetail {
     ],
     notesEmptyLabel: booksCopy.detail.notes.empty,
     reviewSlug: null,
+    reviewHtml: null,
     reviewEmptyLabel: booksCopy.detail.review.empty,
     metaTitle: "The Titan's Curse",
     metaDescription: "Artemis goes missing.",

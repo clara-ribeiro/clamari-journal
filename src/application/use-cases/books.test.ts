@@ -143,6 +143,7 @@ describe("mapBookDetail", () => {
     );
 
     expect(detail.reviewSlug).toBe("the-titans-curse");
+    expect(detail.reviewHtml).toBeNull();
     expect(detail.reviewEmptyLabel).toBe(booksCopy.detail.review.pending);
   });
 });

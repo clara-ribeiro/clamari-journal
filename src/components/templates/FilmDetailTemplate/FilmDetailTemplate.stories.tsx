@@ -45,3 +45,14 @@ export const NoViewings: Story = {
     },
   },
 };
+
+export const WithReview: Story = {
+  args: {
+    detail: {
+      ...movieDetail,
+      reviewSlug: "heat",
+      reviewHtml:
+        "<p>A cold, precise heist thriller that still feels human.</p><details class=\"review-spoiler\"><summary>The ending</summary><p>They almost make it.</p></details>",
+    },
+  },
+};

@@ -374,6 +374,7 @@ export default function BookDetailTemplate({
               heading={copy.review.heading}
               headingId={copy.review.headingId}
               emptyLabel={detail.reviewEmptyLabel}
+              html={detail.reviewHtml}
             />
           </Panel>
         ) : null}

@@ -85,8 +85,10 @@ export type MovieDetail = {
   viewings: MovieViewingRecord[];
   viewingsEmptyLabel: string;
 
-  /** `reviewSlug` when set — content rendered once issue #26 lands */
+  /** Filename stem under `src/content/reviews/films/` when a review is planned */
   reviewSlug: string | null;
+  /** Sanitized HTML from the review file; null when the file is missing */
+  reviewHtml: string | null;
   reviewEmptyLabel: string;
 
   metaTitle: string;
@@ -158,6 +160,7 @@ export type SeriesDetail = {
   seasonsEmptyLabel: string;
 
   reviewSlug: string | null;
+  reviewHtml: string | null;
   reviewEmptyLabel: string;
 
   metaTitle: string;
@@ -229,6 +232,7 @@ export type BookDetail = {
   notesEmptyLabel: string;
 
   reviewSlug: string | null;
+  reviewHtml: string | null;
   reviewEmptyLabel: string;
 
   metaTitle: string;

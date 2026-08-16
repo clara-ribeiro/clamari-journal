@@ -95,6 +95,7 @@ function seriesDetail(overrides: Partial<SeriesDetail> = {}): SeriesDetail {
     ],
     seasonsEmptyLabel: "No seasons",
     reviewSlug: null,
+    reviewHtml: null,
     reviewEmptyLabel: "No review yet",
     metaTitle: "The Wire",
     metaDescription: "A look at Baltimore.",
