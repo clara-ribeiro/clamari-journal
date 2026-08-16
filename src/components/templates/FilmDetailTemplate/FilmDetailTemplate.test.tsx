@@ -62,6 +62,7 @@ function movieDetail(overrides: Partial<MovieDetail> = {}): MovieDetail {
     viewings: [],
     viewingsEmptyLabel: "No viewings",
     reviewSlug: null,
+    reviewHtml: null,
     reviewEmptyLabel: "No review yet",
     metaTitle: "Heat",
     metaDescription: "A group of professional bank robbers.",
@@ -119,5 +120,39 @@ describe("FilmDetailTemplate cast disclosure", () => {
     expect(
       screen.getByText(filmsCopy.detail.metadata.noCast),
     ).toBeInTheDocument();
+  });
+
+  it("shows the pending review label when a slug is set without html", () => {
+    render(
+      <FilmDetailTemplate
+        detail={movieDetail({
+          reviewSlug: "heat",
+          reviewHtml: null,
+          reviewEmptyLabel: filmsCopy.detail.review.pending,
+        })}
+      />,
+    );
+    expect(
+      screen.getByRole("heading", { name: filmsCopy.detail.review.heading }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(filmsCopy.detail.review.pending),
+    ).toBeInTheDocument();
+  });
+
+  it("renders compiled review html when present", () => {
+    render(
+      <FilmDetailTemplate
+        detail={movieDetail({
+          reviewSlug: "heat",
+          reviewHtml: "<p>A quiet masterpiece.</p>",
+          reviewEmptyLabel: filmsCopy.detail.review.pending,
+        })}
+      />,
+    );
+    expect(screen.getByText("A quiet masterpiece.")).toBeInTheDocument();
+    expect(
+      screen.queryByText(filmsCopy.detail.review.pending),
+    ).toBeNull();
   });
 });

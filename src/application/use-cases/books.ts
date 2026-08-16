@@ -17,6 +17,7 @@ import {
 } from "@/infrastructure/google-books/client";
 import { formatDate } from "@/lib/formatters/formatDate";
 import { yearsBookCountsToward } from "./goal-years";
+import { getReviewHtml } from "./reviews";
 
 /** Cap for the typographic hero backdrop — keeps DOM/paint light. */
 export const HERO_EXCERPT_MAX = 500;
@@ -212,6 +213,7 @@ export function mapBookDetail(
   entry: BookEntry,
   metadata: GoogleBooksMetadata | null,
   metadataNotice: string | null,
+  reviewHtml: string | null = null,
 ): BookDetail {
   const copy = booksCopy.detail;
   const title =
@@ -281,6 +283,7 @@ export function mapBookDetail(
     notes: buildNotes(entry),
     notesEmptyLabel: copy.notes.empty,
     reviewSlug,
+    reviewHtml,
     reviewEmptyLabel: reviewSlug ? copy.review.pending : copy.review.empty,
     metaTitle: title,
     metaDescription: truncateDescription(synopsisForMeta),
@@ -326,6 +329,11 @@ export const getBookDetail = cache(
       entry.googleBooksId,
       entry.customPageCount,
     );
-    return mapBookDetail(entry, metadata, notice);
+    return mapBookDetail(
+      entry,
+      metadata,
+      notice,
+      getReviewHtml("books", entry.reviewSlug),
+    );
   },
 );

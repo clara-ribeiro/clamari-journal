@@ -33,6 +33,7 @@ export default defineConfig({
         "**/*.{test,spec}.{ts,tsx}",
         "**/*.stories.{ts,tsx}",
         "src/stories/**",
+        "src/infrastructure/persistence/fixtures/**",
       ],
       reporter: ["text-summary", "json-summary"],
       reportsDirectory: "./coverage",

@@ -38,7 +38,7 @@ src/
 ├── components/               # Atomic design (atoms → templates)
 ├── content/
 │   ├── copy/                 # UI strings (site, pages)
-│   └── reviews/              # Reserved for MD/MDX reviews (not wired yet)
+│   └── reviews/              # Local Markdown reviews (`{films,series,books}/{slug}.md`)
 ├── composition/              # Binds repository ports → infrastructure
 ├── domain/                   # Entities and pure rules
 │   ├── entities/
@@ -60,7 +60,7 @@ public/images/                # Static marketing assets (hero, stats, noise)
 scripts/                      # import:tvtime, enrich:tmdb, enrich:google-books
 ```
 
-Flow: `app` → `use-cases` → ports via `composition/repositories` → `infrastructure/persistence` → `data/*.json`.
+Flow: `app` → `use-cases` → ports via `composition/repositories` → `infrastructure/persistence` → `data/*.json` and `content/reviews/**/*.md`.
 
 APIs (TMDB / Google Books) live under `infrastructure`, marked `server-only`, and must not be imported from client components.
 
@@ -149,7 +149,27 @@ templates/   → page shells (HomeTemplate, MediumCatalogTemplate, StatsTemplate
 - Book covers: offline `npm run enrich:google-books` writes `coverUrl` from Google Books (no per-request API in listings).
 - Repository interfaces in `application/repositories`; wire implementations only in `composition/repositories.ts`.
 - External API clients (`tmdb`, `google-books`) import `server-only`.
-- `src/content/reviews/{films,series,books}/` is reserved for future MD/MDX reviews; nothing reads it yet.
+- Reviews: `src/content/reviews/{films,series,books}/{reviewSlug}.md`. `FileReviewRepository` compiles Markdown to sanitized HTML; `ReviewRenderer` shows the body or the empty/pending label.
+
+### Publishing a review
+
+Until a database exists, reviews ship with the Git deploy:
+
+1. Set `reviewSlug` on the journal entry in `movies.json` / `series.json` / `books.json` (kebab-case, matching the filename).
+2. Add `src/content/reviews/{films,series,books}/{reviewSlug}.md`.
+3. Commit and deploy.
+
+Supported Markdown: headings, paragraphs, emphasis, strong, block quotes, lists, links, images, and separators (`---`). Raw HTML and scripts are stripped. Images allow `https://…` URLs or site-root paths (`/images/reviews/still.webp` in `public/`). Spoilers use a container directive (collapsed `<details>` / `<summary>`):
+
+```md
+![Still from the film](/images/reviews/hereditary-still.webp)
+
+:::spoiler[The ending]
+They almost make it.
+:::
+```
+
+Omit the `[label]` to use the default “Spoilers” summary. If `reviewSlug` is set but the file is missing, the detail page shows the pending label. Detail routes stay in `sitemap.xml`; review HTML is part of the statically generated page.
 
 ### Personal JSON conventions
 
@@ -157,9 +177,9 @@ Edit files under `src/data/` carefully; malformed entries fail at repository loa
 
 | File | Identity | Notes |
 |---|---|---|
-| `movies.json` | unique `slug`; unique `tvtimeUuid` / `tmdbId` when set | `status`: `watchlist` \| `watched` \| `rewatch`. Dates `YYYY-MM-DD`. `tmdbId` / `posterPath` optional until enrichment. |
-| `series.json` | unique `slug`, `tvdbId`; unique `tmdbId` when set | `status`: `watchlist` \| `watching` \| `up-to-date` \| `paused` \| `completed` \| `abandoned`. `watchedEpisodes[].season` / `episode` integers ≥ 1. `startedAt` ≤ `finishedAt` when both set. |
-| `books.json` | unique `slug`, `googleBooksId` | `status`: `want-to-read` \| `reading` \| `paused` \| `finished` \| `abandoned`. Optional `format`: `physical` \| `ebook` \| `audiobook`. `currentPage` / history / quote pages cannot exceed `customPageCount` when that total is set. |
+| `movies.json` | unique `slug`; unique `tvtimeUuid` / `tmdbId` when set | `status`: `watchlist` \| `watched` \| `rewatch`. Dates `YYYY-MM-DD`. `tmdbId` / `posterPath` optional until enrichment. Optional `reviewSlug` matches `src/content/reviews/films/{slug}.md`. |
+| `series.json` | unique `slug`, `tvdbId`; unique `tmdbId` when set | `status`: `watchlist` \| `watching` \| `up-to-date` \| `paused` \| `completed` \| `abandoned`. `watchedEpisodes[].season` / `episode` integers ≥ 1. `startedAt` ≤ `finishedAt` when both set. Optional `reviewSlug` matches `src/content/reviews/series/{slug}.md`. |
+| `books.json` | unique `slug`, `googleBooksId` | `status`: `want-to-read` \| `reading` \| `paused` \| `finished` \| `abandoned`. Optional `format`: `physical` \| `ebook` \| `audiobook`. `currentPage` / history / quote pages cannot exceed `customPageCount` when that total is set. Optional `reviewSlug` matches `src/content/reviews/books/{slug}.md`. |
 | `goals.json` | single object | Integer `year` (1900–2100) and non-negative integer targets: `movies`, `books`, `series`, `pages`. |
 
 Shared rules: ratings are half-stars `0.5`–`5`; never use negative runtimes, page counts, or goal targets; do not invent progress percentages when page totals are unknown.

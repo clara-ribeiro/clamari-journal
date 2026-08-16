@@ -248,6 +248,7 @@ describe("detail route slugs", () => {
       viewings: [],
       viewingsEmptyLabel: "None",
       reviewSlug: null,
+      reviewHtml: null,
       reviewEmptyLabel: "No review",
       metaTitle: "Heat",
       metaDescription: "Heat",

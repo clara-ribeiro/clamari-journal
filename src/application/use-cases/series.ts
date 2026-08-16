@@ -26,6 +26,7 @@ import {
 } from "@/lib/formatters/formatDuration";
 import { tmdbImageUrl } from "@/lib/tmdb-image";
 import { yearsSeriesCountsToward } from "./goal-years";
+import { getReviewHtml } from "./reviews";
 
 /** Used when an episode has no known runtime (common for older TV Time rows). */
 export const DEFAULT_EPISODE_RUNTIME_MINUTES = 45;
@@ -303,6 +304,7 @@ export function mapSeriesDetail(
   metadata: TmdbSeriesMetadata | null,
   seasons: TmdbSeasonMetadata[],
   metadataNotice: string | null,
+  reviewHtml: string | null = null,
 ): SeriesDetail {
   const copy = seriesCopy.detail;
   const title = metadata?.title?.trim() || entry.title;
@@ -414,6 +416,7 @@ export function mapSeriesDetail(
     seasons: seasonDetails,
     seasonsEmptyLabel: copy.seasons.empty,
     reviewSlug,
+    reviewHtml,
     reviewEmptyLabel: reviewSlug ? copy.review.pending : copy.review.empty,
     metaTitle: title,
     metaDescription: truncateDescription(synopsisForMeta),
@@ -491,6 +494,12 @@ export const getSeriesDetail = cache(
     const { metadata, seasons, notice } = await loadSeriesMetadata(
       entry.tmdbId,
     );
-    return mapSeriesDetail(entry, metadata, seasons, notice);
+    return mapSeriesDetail(
+      entry,
+      metadata,
+      seasons,
+      notice,
+      getReviewHtml("series", entry.reviewSlug),
+    );
   },
 );
