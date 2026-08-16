@@ -5,6 +5,8 @@ export const Root = styled("div", {
   flexDirection: "column",
   gap: "$md",
   minWidth: 0,
+  width: "100%",
+  maxWidth: "$containerReading",
 });
 
 export const Title = styled("h2", {

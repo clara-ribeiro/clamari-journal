@@ -4,8 +4,10 @@ import {
   getMovieDetail,
   listMovies,
 } from "@/application/use-cases/movies";
+import JsonLdScript from "@/components/atoms/JsonLdScript";
 import FilmDetailTemplate from "@/components/templates/FilmDetailTemplate";
 import { detailPageMetadata, pageMetadata } from "@/lib/page-metadata";
+import { buildMovieJsonLd } from "@/lib/json-ld";
 import { statesCopy } from "@/content/copy/states";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -31,13 +33,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: detail.metaDescription,
     path: `/films/${detail.slug}`,
     imageUrl: detail.posterUrl ?? detail.backdropUrl,
+    hasReview: Boolean(detail.reviewHtml?.trim()),
   });
 }
 
 export default async function FilmDetailPage({ params }: Props) {
   const { slug } = await params;
   const detail = await getMovieDetail(slug);
-  if (!detail) notFound();
+  if (!detail) {
+    notFound();
+    return null;
+  }
 
-  return <FilmDetailTemplate detail={detail} />;
+  return (
+    <>
+      <JsonLdScript data={buildMovieJsonLd(detail)} />
+      <FilmDetailTemplate detail={detail} />
+    </>
+  );
 }

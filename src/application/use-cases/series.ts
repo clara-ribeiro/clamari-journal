@@ -24,14 +24,13 @@ import {
   formatDuration,
   formatShortRuntime,
 } from "@/lib/formatters/formatDuration";
+import { buildDetailMeta } from "@/lib/detail-meta";
 import { tmdbImageUrl } from "@/lib/tmdb-image";
 import { yearsSeriesCountsToward } from "./goal-years";
 import { getReviewHtml } from "./reviews";
 
 /** Used when an episode has no known runtime (common for older TV Time rows). */
 export const DEFAULT_EPISODE_RUNTIME_MINUTES = 45;
-
-const META_DESCRIPTION_MAX = 160;
 
 export function listSeries(): SeriesEntry[] {
   return seriesRepository.findAll();
@@ -163,15 +162,6 @@ function joinNames(names: string[]): string | null {
   const cleaned = names.map((name) => name.trim()).filter(Boolean);
   if (cleaned.length === 0) return null;
   return cleaned.join(", ");
-}
-
-function truncateDescription(text: string, max = META_DESCRIPTION_MAX): string {
-  const normalized = text.replace(/\s+/g, " ").trim();
-  if (normalized.length <= max) return normalized;
-  const slice = normalized.slice(0, max - 1);
-  const lastSpace = slice.lastIndexOf(" ");
-  const clipped = lastSpace > 40 ? slice.slice(0, lastSpace) : slice;
-  return `${clipped}…`;
 }
 
 function episodeKey(season: number, episode: number) {
@@ -364,9 +354,12 @@ export function mapSeriesDetail(
     next,
   );
 
-  const synopsisForMeta = synopsis
-    ? copy.meta.descriptionFromSynopsis.replace("{synopsis}", synopsis)
-    : copy.meta.descriptionFallback.replace("{title}", title);
+  const { metaTitle, metaDescription } = buildDetailMeta({
+    title,
+    synopsis,
+    reviewHtml,
+    copy: copy.meta,
+  });
 
   return {
     slug: entry.slug,
@@ -418,8 +411,8 @@ export function mapSeriesDetail(
     reviewSlug,
     reviewHtml,
     reviewEmptyLabel: reviewSlug ? copy.review.pending : copy.review.empty,
-    metaTitle: title,
-    metaDescription: truncateDescription(synopsisForMeta),
+    metaTitle,
+    metaDescription,
   };
 }
 

@@ -4,8 +4,10 @@ import {
   getSeriesDetail,
   listSeries,
 } from "@/application/use-cases/series";
+import JsonLdScript from "@/components/atoms/JsonLdScript";
 import SeriesDetailTemplate from "@/components/templates/SeriesDetailTemplate";
 import { detailPageMetadata, pageMetadata } from "@/lib/page-metadata";
+import { buildSeriesJsonLd } from "@/lib/json-ld";
 import { statesCopy } from "@/content/copy/states";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -31,13 +33,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: detail.metaDescription,
     path: `/series/${detail.slug}`,
     imageUrl: detail.posterUrl ?? detail.backdropUrl,
+    hasReview: Boolean(detail.reviewHtml?.trim()),
   });
 }
 
 export default async function SeriesDetailPage({ params }: Props) {
   const { slug } = await params;
   const detail = await getSeriesDetail(slug);
-  if (!detail) notFound();
+  if (!detail) {
+    notFound();
+    return null;
+  }
 
-  return <SeriesDetailTemplate detail={detail} />;
+  return (
+    <>
+      <JsonLdScript data={buildSeriesJsonLd(detail)} />
+      <SeriesDetailTemplate detail={detail} />
+    </>
+  );
 }

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getBookDetail, listBooks } from "@/application/use-cases/books";
+import JsonLdScript from "@/components/atoms/JsonLdScript";
 import BookDetailTemplate from "@/components/templates/BookDetailTemplate";
 import { detailPageMetadata, pageMetadata } from "@/lib/page-metadata";
+import { buildBookJsonLd } from "@/lib/json-ld";
 import { statesCopy } from "@/content/copy/states";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -28,13 +30,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: detail.metaDescription,
     path: `/books/${detail.slug}`,
     imageUrl: detail.coverUrl,
+    hasReview: Boolean(detail.reviewHtml?.trim()),
   });
 }
 
 export default async function BookDetailPage({ params }: Props) {
   const { slug } = await params;
   const detail = await getBookDetail(slug);
-  if (!detail) notFound();
+  if (!detail) {
+    notFound();
+    return null;
+  }
 
-  return <BookDetailTemplate detail={detail} />;
+  return (
+    <>
+      <JsonLdScript data={buildBookJsonLd(detail)} />
+      <BookDetailTemplate detail={detail} />
+    </>
+  );
 }

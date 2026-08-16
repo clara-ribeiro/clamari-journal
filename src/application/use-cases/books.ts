@@ -16,13 +16,15 @@ import {
   GoogleBooksError,
 } from "@/infrastructure/google-books/client";
 import { formatDate } from "@/lib/formatters/formatDate";
+import { buildDetailMeta } from "@/lib/detail-meta";
+import { stripHtml } from "@/lib/plain-text";
 import { yearsBookCountsToward } from "./goal-years";
 import { getReviewHtml } from "./reviews";
 
 /** Cap for the typographic hero backdrop — keeps DOM/paint light. */
 export const HERO_EXCERPT_MAX = 500;
 
-const META_DESCRIPTION_MAX = 160;
+export { stripHtml };
 
 export function listBooks(): BookEntry[] {
   return bookRepository.findAll();
@@ -129,29 +131,6 @@ function joinNames(names: string[]): string | null {
   return cleaned.join(", ");
 }
 
-function truncateDescription(text: string, max = META_DESCRIPTION_MAX): string {
-  const normalized = text.replace(/\s+/g, " ").trim();
-  if (normalized.length <= max) return normalized;
-  const slice = normalized.slice(0, max - 1);
-  const lastSpace = slice.lastIndexOf(" ");
-  const clipped = lastSpace > 40 ? slice.slice(0, lastSpace) : slice;
-  return `${clipped}…`;
-}
-
-/** Strip HTML tags / entities from Google Books descriptions. */
-export function stripHtml(value: string): string {
-  return value
-    .replace(/<[^>]*>/g, " ")
-    .replace(/&nbsp;/gi, " ")
-    .replace(/&amp;/gi, "&")
-    .replace(/&lt;/gi, "<")
-    .replace(/&gt;/gi, ">")
-    .replace(/&quot;/gi, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
 /** Short plain excerpt for the typographic hero — capped for paint cost. */
 export function buildHeroExcerpt(
   description: string | null | undefined,
@@ -237,9 +216,12 @@ export function mapBookDetail(
         ? 100
         : null;
 
-  const synopsisForMeta = synopsis
-    ? copy.meta.descriptionFromSynopsis.replace("{synopsis}", synopsis)
-    : copy.meta.descriptionFallback.replace("{title}", title);
+  const { metaTitle, metaDescription } = buildDetailMeta({
+    title,
+    synopsis,
+    reviewHtml,
+    copy: copy.meta,
+  });
 
   return {
     slug: entry.slug,
@@ -285,8 +267,8 @@ export function mapBookDetail(
     reviewSlug,
     reviewHtml,
     reviewEmptyLabel: reviewSlug ? copy.review.pending : copy.review.empty,
-    metaTitle: title,
-    metaDescription: truncateDescription(synopsisForMeta),
+    metaTitle,
+    metaDescription,
   };
 }
 
