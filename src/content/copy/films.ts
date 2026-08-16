@@ -2,6 +2,8 @@ export const filmsCopy = {
   list: {
     titleId: "films-heading",
     title: "Films",
+    description:
+      "Films logged in the clamari journal — watched, rewatched, and still on the list.",
     listAriaLabel: "Film entries",
     empty: "No films yet.",
     noResults: "No films match these filters.",

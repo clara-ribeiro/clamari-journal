@@ -2,6 +2,8 @@ export const seriesCopy = {
   list: {
     titleId: "series-heading",
     title: "Series",
+    description:
+      "Series logged in the clamari journal — watching, caught up, paused, and completed.",
     listAriaLabel: "Series entries",
     empty: "No series yet.",
     noResults: "No series match these filters.",

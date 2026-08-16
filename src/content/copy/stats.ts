@@ -1,6 +1,8 @@
 export const statsCopy = {
   titleId: "stats-heading",
   title: "Stats",
+  description:
+    "Lifetime totals for films, series, books, and pages logged in the clamari journal.",
   hero: {
     titleId: "stats-heading",
     title: "STATS",

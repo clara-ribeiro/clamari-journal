@@ -1,7 +1,14 @@
 import { listMovieCatalogItems } from "@/application/use-cases/movies";
 import MediumCatalogTemplate from "@/components/templates/MediumCatalogTemplate";
 import { filmsCopy } from "@/content/copy";
+import { pageMetadata } from "@/lib/page-metadata";
 import { parseCatalogSearchParams } from "@/lib/catalog-search-params";
+
+export const metadata = pageMetadata({
+  title: filmsCopy.list.title,
+  description: filmsCopy.list.description,
+  path: "/films",
+});
 
 type FilmsPageProps = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;

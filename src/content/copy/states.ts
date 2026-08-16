@@ -26,6 +26,7 @@ export const statesCopy = {
   notFound: {
     titleId: "not-found-heading",
     title: "Page not found",
+    description: "That page is not in the clamari journal.",
     message:
       "That page is not in the journal. Check the address or return home.",
   },

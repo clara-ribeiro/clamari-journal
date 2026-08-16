@@ -25,6 +25,8 @@ export type MediumCatalogHeroCopy = {
 export type MediumCatalogCopy = {
   titleId: string;
   title: string;
+  /** Search / social description for the catalog route */
+  description: string;
   listAriaLabel: string;
   empty: string;
   /** Shown when the catalog has entries but filters/search match nothing */

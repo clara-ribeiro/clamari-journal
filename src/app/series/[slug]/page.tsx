@@ -5,6 +5,8 @@ import {
   listSeries,
 } from "@/application/use-cases/series";
 import SeriesDetailTemplate from "@/components/templates/SeriesDetailTemplate";
+import { detailPageMetadata, pageMetadata } from "@/lib/page-metadata";
+import { statesCopy } from "@/content/copy/states";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -16,13 +18,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const detail = await getSeriesDetail(slug);
   if (!detail) {
-    return { title: "Series not found" };
+    return pageMetadata({
+      title: statesCopy.notFound.title,
+      description: statesCopy.notFound.description,
+      path: `/series/${slug}`,
+      index: false,
+    });
   }
 
-  return {
+  return detailPageMetadata({
     title: detail.metaTitle,
     description: detail.metaDescription,
-  };
+    path: `/series/${detail.slug}`,
+    imageUrl: detail.posterUrl ?? detail.backdropUrl,
+  });
 }
 
 export default async function SeriesDetailPage({ params }: Props) {

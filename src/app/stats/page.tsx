@@ -1,7 +1,14 @@
 import { getStatsPageData } from "@/application/use-cases/stats";
 import StatsTemplate from "@/components/templates/StatsTemplate";
 import { statsCopy } from "@/content/copy";
+import { pageMetadata } from "@/lib/page-metadata";
 import { preload } from "react-dom";
+
+export const metadata = pageMetadata({
+  title: statsCopy.title,
+  description: statsCopy.description,
+  path: "/stats",
+});
 
 export default function StatsPage() {
   // Match StatsHero sizes: ~60vw. Mobile Lighthouse uses ~412 CSS px → ~247px
