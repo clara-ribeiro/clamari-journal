@@ -37,5 +37,9 @@ describe("FileReviewRepository", () => {
       "cat-on-a-hot-tin-roof",
     );
     expect(review?.html).toContain("drowning man");
+    expect(review?.html).toContain("<figure>");
+    expect(review?.html).toContain(
+      "<figcaption>Maggie keeps reaching for Brick while he keeps finding ways to stay out of reach.</figcaption>",
+    );
   });
 });

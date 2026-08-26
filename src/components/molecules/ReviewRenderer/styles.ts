@@ -137,6 +137,7 @@ export const Prose = styled("div", {
   "& figure": {
     display: "flex",
     flexDirection: "column",
+    alignItems: "center",
     gap: "$sm",
     margin: 0,
     width: "min(100%, 32rem)",
@@ -159,6 +160,7 @@ export const Prose = styled("div", {
     lineHeight: 1.45,
     fontStyle: "italic",
     textAlign: "center",
+    textWrap: "balance",
     opacity: 0.78,
   },
 

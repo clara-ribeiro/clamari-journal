@@ -8,9 +8,9 @@ Brick is very clearly going through a difficult time, and he seems to hurt Maggi
 
 One of the scenes that stuck with me is the one where Brick points his crutch at her almost as if it were a gun. It is not exactly frightening, but it is definitely disturbing, especially because Maggie seems to read the moment partly as an expression of desire. I honestly couldn’t tell whether he wanted her or wanted to kill her. Regardless, the following scenes show just how thirsty she is for his love — both emotionally and physically. His constant rejection makes his anger toward her impossible to ignore.
 
-![Maggie Pollitt (Elizabeth Taylor) looks into an oval vanity mirror while Brick Pollitt (Paul Newman) reclines behind her with a cast on his leg and a drink in his hand.](/images/reviews/films/cat-on-a-hot-tin-roof/maggie-and-brick-bedroom.webp) "Maggie and Brick in the bedroom")
+![Maggie Pollitt (Elizabeth Taylor) looks into an oval vanity mirror while Brick Pollitt (Paul Newman) reclines behind her with a cast on his leg and a drink in his hand.](/images/reviews/films/cat-on-a-hot-tin-roof/maggie-and-brick-bedroom.webp) Maggie keeps reaching for Brick while he keeps finding ways to stay out of reach.
 
-![Brick Pollitt (Paul Newman) lies on a sofa holding a wooden crutch across his chest, looking away with a closed-off expression.](/images/reviews/films/cat-on-a-hot-tin-roof/brick-paul-newman-crutch.webp) "Brick with his crutch")
+![Brick Pollitt (Paul Newman) lies on a sofa holding a wooden crutch across his chest, looking away with a closed-off expression.](/images/reviews/films/cat-on-a-hot-tin-roof/brick-paul-newman-crutch.webp) Even his crutch becomes another way of keeping Maggie at a distance.
 
 While Maggie is desperately looking for Brick’s attention and affection, he seems completely lost. He is clearly bothered not only by his marriage but by his whole family. Later, we find out that his biggest problem is actually with himself. Another funny moment from Elizabeth Taylor comes from Maggie’s frustration that Brick is always drunk and unpleasant, but, unlike other alcoholics, somehow remains extremely attractive.
 
@@ -29,7 +29,7 @@ Brick is trapped in a relationship with someone he currently seems to despise, w
 
 During their conversations, the impression that remains is that Brick genuinely detests her. But then we get a scene where he goes into the bathroom to escape from her and breaks down while holding one of her gowns.
 
-![Brick Pollitt (Paul Newman), in a bathrobe and leaning on a crutch, presses his face into a ruffled shower curtain in the bathroom.](/images/reviews/films/cat-on-a-hot-tin-roof/brick-paul-newman-bathroom.webp) "Brick in the bathroom")
+![Brick Pollitt (Paul Newman), in a bathrobe and leaning on a crutch, presses his face into a ruffled shower curtain in the bathroom.](/images/reviews/films/cat-on-a-hot-tin-roof/brick-paul-newman-bathroom.webp) Brick’s indifference starts to crack.
 
 It is very clear that this family has problems expressing love. Even Big Mama, who is completely devoted to her husband, calls desperately for Brick in front of Gooper, screaming, “Where’s my only son?” — which is particularly cruel considering that Gooper has spent his entire life trying to be the son his parents wanted.
 
@@ -106,7 +106,7 @@ It also feels like Maggie’s final way of refusing to jump off the hot tin roof
 
 The movie doesn’t rely on complex scenes or elaborate settings, but it has incredible dialogue brought to life by amazing actors. Elizabeth Taylor, Paul Newman and Burl Ives play their characters with such intensity that we can see the internal fight happening inside each of them. The pain in their faces and eyes often says as much as their dialogue does.
 
-![Brick and Maggie: side-by-side portraits of Elizabeth Taylor as Maggie Pollitt and Paul Newman as Brick Pollitt in Cat on a Hot Tin Roof.](/images/reviews/films/cat-on-a-hot-tin-roof/brick-and-maggie-elizabeth-taylor-paul-newman.webp) "Brick and Maggie — Elizabeth Taylor and Paul Newman")
+![Brick and Maggie: side-by-side portraits of Elizabeth Taylor as Maggie Pollitt and Paul Newman as Brick Pollitt in Cat on a Hot Tin Roof.](/images/reviews/films/cat-on-a-hot-tin-roof/brick-and-maggie-elizabeth-taylor-paul-newman.webp) Brick and Maggie — Elizabeth Taylor and Paul Newman
 
 The combination of the characters, the dialogue and the limited setting gives the movie an almost theatrical feeling, as though it trusts the actors and their delivery much more than elaborate scenery or spectacle.
 
