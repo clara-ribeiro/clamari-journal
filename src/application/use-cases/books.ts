@@ -216,8 +216,11 @@ export function mapBookDetail(
         ? 100
         : null;
 
+  const yearLabel = metadata?.year != null ? String(metadata.year) : null;
+
   const { metaTitle, metaDescription } = buildDetailMeta({
     title,
+    year: yearLabel,
     synopsis,
     reviewHtml,
     copy: copy.meta,
@@ -228,7 +231,7 @@ export function mapBookDetail(
     title,
     subtitle,
     authorsLabel: joinNames(metadata?.authors ?? []),
-    yearLabel: metadata?.year != null ? String(metadata.year) : null,
+    yearLabel,
     categories: (metadata?.categories ?? []).slice(0, 4),
     synopsis,
     heroExcerpt,

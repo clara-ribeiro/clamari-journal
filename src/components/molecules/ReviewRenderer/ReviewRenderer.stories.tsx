@@ -4,7 +4,9 @@ import { compileReviewMarkdown } from "@/infrastructure/persistence/compile-revi
 import ReviewRenderer from "./index";
 
 const sampleHtml = compileReviewMarkdown(`
-A cold, precise heist thriller that still feels human.
+# A quiet masterpiece
+
+A cold, precise heist thriller that still feels human. The downtown shootout remains one of the great set pieces in American cinema.
 
 ## Set piece
 
@@ -37,7 +39,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div style={{ width: 480, color: "#1A1410" }}>
+      <div style={{ width: "min(100%, 52rem)", color: "#1A1410" }}>
         <Story />
       </div>
     ),

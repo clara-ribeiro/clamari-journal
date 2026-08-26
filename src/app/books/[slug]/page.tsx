@@ -4,6 +4,7 @@ import { getBookDetail, listBooks } from "@/application/use-cases/books";
 import JsonLdScript from "@/components/atoms/JsonLdScript";
 import BookDetailTemplate from "@/components/templates/BookDetailTemplate";
 import { detailPageMetadata, pageMetadata } from "@/lib/page-metadata";
+import { reviewStillMetadata } from "@/lib/review-images";
 import { buildBookJsonLd } from "@/lib/json-ld";
 import { statesCopy } from "@/content/copy/states";
 
@@ -30,6 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: detail.metaDescription,
     path: `/books/${detail.slug}`,
     imageUrl: detail.coverUrl,
+    extraImages: reviewStillMetadata(detail.reviewHtml),
     hasReview: Boolean(detail.reviewHtml?.trim()),
   });
 }

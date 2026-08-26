@@ -192,8 +192,10 @@ describe("mapSeriesDetail", () => {
     );
 
     expect(detail.reviewHtml).toBe("<p>The best show on television.</p>");
-    expect(detail.metaTitle).toBe("Breaking Bad review");
-    expect(detail.metaDescription).toBe("The best show on television.");
+    expect(detail.metaTitle).toBe("Breaking Bad (2008) review");
+    expect(detail.metaDescription).toBe(
+      "A personal review of Breaking Bad (2008). The best show on television.",
+    );
   });
 });
 

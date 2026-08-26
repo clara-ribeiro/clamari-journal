@@ -151,6 +151,30 @@ templates/   → page shells (HomeTemplate, MediumCatalogTemplate, StatsTemplate
 - External API clients (`tmdb`, `google-books`) import `server-only`.
 - Reviews: `src/content/reviews/{films,series,books}/{reviewSlug}.md`. `FileReviewRepository` compiles Markdown to sanitized HTML; `ReviewRenderer` shows the body or the empty/pending label.
 
+### Adding a film
+
+The catalog is file-based (no admin UI). In a terminal, with `TMDB_ACCESS_TOKEN` in `.env.local`:
+
+```bash
+npm run add:movie
+```
+
+The script asks for the title, searches TMDB, lets you pick when several films match, and writes API metadata (`tmdbId`, poster, runtime, release date) into `src/data/movies.json`. It does **not** collect rating, watch dates, or review text.
+
+After it saves, it prints how to finish the journal row by hand:
+
+1. In `src/data/movies.json`, find the new object (`slug`) and add personal fields: `rating` (whole stars `1`–`5`), `watchedDates` (`YYYY-MM-DD`; one date per viewing), optional `favorite`, `tags`, `watchLocation`, `streamingService`.
+2. For a review, create `src/content/reviews/films/{slug}.md`. The script already sets `reviewSlug` to that filename. Until the markdown exists, the detail page shows the pending label.
+
+Pass the title to skip the first prompt:
+
+```bash
+npm run add:movie -- "Poor Things"
+npm run add:movie -- "Heat (1995)" --yes
+```
+
+`--yes` disables prompts (fails if the title is ambiguous).
+
 ### Publishing a review
 
 Until a database exists, reviews ship with the Git deploy:
@@ -184,7 +208,7 @@ Edit files under `src/data/` carefully; malformed entries fail at repository loa
 | `books.json` | unique `slug`, `googleBooksId` | `status`: `want-to-read` \| `reading` \| `paused` \| `finished` \| `abandoned`. Optional `format`: `physical` \| `ebook` \| `audiobook`. `currentPage` / history / quote pages cannot exceed `customPageCount` when that total is set. Optional `reviewSlug` matches `src/content/reviews/books/{slug}.md`. |
 | `goals.json` | single object | Integer `year` (1900–2100) and non-negative integer targets: `movies`, `books`, `series`, `pages`. |
 
-Shared rules: ratings are half-stars `0.5`–`5`; never use negative runtimes, page counts, or goal targets; do not invent progress percentages when page totals are unknown.
+Shared rules: ratings are whole stars `1`–`5`; never use negative runtimes, page counts, or goal targets; do not invent progress percentages when page totals are unknown.
 
 ### Routing
 
@@ -280,6 +304,7 @@ npm test               # vitest watch
 npm run test:run       # vitest run (CI-friendly; no live APIs)
 npm run test:coverage  # unit tests + coverage thresholds
 npm run import:tvtime  # regenerate movies.json / series.json
+npm run add:movie            # interactive: search TMDB and add a watched film
 npm run enrich:tmdb          # fill tmdbId + posterPath (requires token)
 npm run enrich:google-books  # fill coverUrl (+ title) from Google Books
 npm run storybook            # Storybook dev server (:6006)

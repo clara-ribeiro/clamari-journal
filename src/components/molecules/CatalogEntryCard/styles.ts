@@ -386,14 +386,6 @@ export const RatingSlot = styled("div", {
           fill: "transparent",
           stroke: "$catalogText",
         },
-        "& [role='img'] [data-half='fill'] svg": {
-          fill: "$catalogText",
-          stroke: "$catalogText",
-        },
-        "& [role='img'] [data-half='empty'] svg": {
-          fill: "transparent",
-          stroke: "$catalogText",
-        },
       },
       dark: {
         "& [role='img'] svg[data-state='full']": {
@@ -401,14 +393,6 @@ export const RatingSlot = styled("div", {
           stroke: "$catalogTextOnDark",
         },
         "& [role='img'] svg[data-state='empty']": {
-          fill: "transparent",
-          stroke: "$catalogTextOnDark",
-        },
-        "& [role='img'] [data-half='fill'] svg": {
-          fill: "$catalogTextOnDark",
-          stroke: "$catalogTextOnDark",
-        },
-        "& [role='img'] [data-half='empty'] svg": {
           fill: "transparent",
           stroke: "$catalogTextOnDark",
         },

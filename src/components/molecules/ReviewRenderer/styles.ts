@@ -1,50 +1,77 @@
 import { styled } from "@/styles/stitches.config";
 
-export const Root = styled("div", {
+export const Root = styled("section", {
   display: "flex",
   flexDirection: "column",
-  gap: "$md",
+  gap: "$xl",
   minWidth: 0,
   width: "100%",
-  maxWidth: "$containerReading",
+  paddingTop: "$xl",
+  borderTop: "1px solid $catalogBorderOnDark",
 });
 
+/** Kept for landmarks / SEO; the review markdown supplies the visible title. */
 export const Title = styled("h2", {
-  fontFamily: "$section",
-  fontSize: "$h3",
-  color: "inherit",
+  display: "block",
+  width: 0,
+  height: 0,
   margin: 0,
+  padding: 0,
+  overflow: "hidden",
+  clipPath: "inset(50%)",
+  whiteSpace: "nowrap",
+  border: 0,
+  fontSize: 0,
+  lineHeight: 0,
 });
 
 export const Empty = styled("p", {
   margin: 0,
   fontSize: "$body1",
-  lineHeight: 1.6,
+  lineHeight: 1.7,
   opacity: 0.72,
 });
 
 export const Prose = styled("div", {
-  fontFamily: "$body",
-  fontSize: "$body1",
-  lineHeight: 1.7,
+  display: "flex",
+  flexDirection: "column",
+  gap: "$xl",
+  width: "100%",
   minWidth: 0,
+  fontFamily: "$body",
+  fontSize: "1.125rem",
+  lineHeight: 1.8,
   color: "inherit",
-
-  "& > * + *": {
-    marginTop: "$md",
-  },
+  textAlign: "left",
 
   "& h3, & h4, & h5, & h6": {
     margin: 0,
+    width: "100%",
     fontFamily: "$section",
     fontWeight: 400,
-    lineHeight: 1.3,
+    lineHeight: 1.2,
+    textAlign: "center",
     color: "inherit",
+    textWrap: "balance",
   },
 
-  "& h3": { fontSize: "$h3" },
-  "& h4": { fontSize: "$h4" },
-  "& h5, & h6": { fontSize: "$body1" },
+  "& h3": {
+    fontSize: "clamp(2rem, 4.8vw, 3.25rem)",
+    paddingBottom: "$sm",
+  },
+
+  "& h4": {
+    fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
+  },
+
+  "& h5": {
+    fontSize: "clamp(1.35rem, 2.4vw, 1.85rem)",
+    paddingTop: "$md",
+  },
+
+  "& h6": {
+    fontSize: "$h3",
+  },
 
   "& p": {
     margin: 0,
@@ -55,16 +82,33 @@ export const Prose = styled("div", {
   },
 
   "& strong": {
-    fontWeight: 600,
+    fontWeight: 700,
   },
 
   "& blockquote": {
     margin: 0,
-    paddingLeft: "$md",
-    borderLeft: "0.1875rem solid currentColor",
+    padding: "$lg $xl",
+    borderLeft: "0.35rem solid currentColor",
+    backgroundColor: "rgba(241, 223, 194, 0.1)",
     fontFamily: "$section",
-    fontStyle: "italic",
-    opacity: 0.92,
+    fontSize: "clamp(1.2rem, 2vw, 1.5rem)",
+    fontStyle: "normal",
+    fontWeight: 700,
+    lineHeight: 1.45,
+    letterSpacing: "0.01em",
+
+    "& p": {
+      margin: 0,
+      fontWeight: 700,
+    },
+
+    "& p + p": {
+      marginTop: "$md",
+    },
+
+    "& p:empty": {
+      display: "none",
+    },
   },
 
   "& ul, & ol": {
@@ -73,7 +117,7 @@ export const Prose = styled("div", {
   },
 
   "& li + li": {
-    marginTop: "$xs",
+    marginTop: "$sm",
   },
 
   "& a": {
@@ -83,16 +127,39 @@ export const Prose = styled("div", {
   },
 
   "& hr": {
-    margin: "$lg 0",
+    margin: 0,
+    width: "100%",
     border: "none",
     borderTop: "1px solid currentColor",
     opacity: 0.28,
   },
 
+  "& figure": {
+    display: "flex",
+    flexDirection: "column",
+    gap: "$sm",
+    margin: 0,
+    width: "min(100%, 32rem)",
+    mx: "auto",
+  },
+
   "& img": {
-    maxWidth: "100%",
+    display: "block",
+    width: "100%",
     height: "auto",
     objectFit: "contain",
+    backgroundColor: "rgba(241, 223, 194, 0.08)",
+    border: "1px solid $catalogBorderOnDark",
+  },
+
+  "& figcaption": {
+    margin: 0,
+    width: "100%",
+    fontSize: "$body2",
+    lineHeight: 1.45,
+    fontStyle: "italic",
+    textAlign: "center",
+    opacity: 0.78,
   },
 
   "& details": {

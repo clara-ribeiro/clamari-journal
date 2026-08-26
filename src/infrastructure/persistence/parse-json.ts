@@ -164,7 +164,7 @@ function optionalRating(
   const value = optionalNumber(record, "rating", path);
   if (value === undefined) return undefined;
   if (!isValidRating(value)) {
-    fail(path, `rating must be a half-star value from 0.5 to 5`);
+    fail(path, `rating must be a whole-star value from 1 to 5`);
   }
   return value;
 }

@@ -1,5 +1,4 @@
 import { describe, expect, it } from "vitest";
-import { reviewContentCopy } from "@/content/copy/review-content";
 import { buildDetailMeta } from "./detail-meta";
 
 const copy = {
@@ -39,10 +38,25 @@ describe("buildDetailMeta", () => {
       copy,
     });
 
-    expect(meta.metaTitle).toBe(
-      reviewContentCopy.seo.titleWithReview.replace("{title}", "Hereditary"),
+    expect(meta.metaTitle).toBe("Hereditary review");
+    expect(meta.metaDescription).toBe(
+      "A personal review of Hereditary. Grief as architecture.",
     );
-    expect(meta.metaDescription).toBe("Grief as architecture.");
+  });
+
+  it("adds the year to a published review title and description", () => {
+    const meta = buildDetailMeta({
+      title: "Hereditary",
+      year: "2018",
+      synopsis: "A family is haunted after the death of their secretive grandmother.",
+      reviewHtml: "<p>Grief as architecture.</p>",
+      copy,
+    });
+
+    expect(meta.metaTitle).toBe("Hereditary (2018) review");
+    expect(meta.metaDescription).toBe(
+      "A personal review of Hereditary (2018). Grief as architecture.",
+    );
   });
 
   it("keeps the work title when the slug is pending (empty html)", () => {
@@ -66,7 +80,9 @@ describe("buildDetailMeta", () => {
       copy,
     });
 
-    expect(meta.metaDescription).toBe("Precision first.");
+    expect(meta.metaDescription).toBe(
+      "A personal review of Heat. Precision first.",
+    );
     expect(meta.metaDescription).not.toContain("almost make it");
   });
 });

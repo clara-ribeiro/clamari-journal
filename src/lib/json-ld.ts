@@ -1,6 +1,10 @@
 import type { BookDetail, MovieDetail, SeriesDetail } from "@/application/dto";
 import { siteCopy } from "@/content/copy";
 import { reviewPlainText } from "@/lib/plain-text";
+import {
+  extractReviewImages,
+  isLocalSiteImage,
+} from "@/lib/review-images";
 import { absoluteUrl } from "@/lib/site-url";
 
 export type JsonLd = Record<string, unknown>;
@@ -43,7 +47,7 @@ function personalRating(rating: number | undefined) {
     "@type": "Rating",
     ratingValue: rating,
     bestRating: 5,
-    worstRating: 0.5,
+    worstRating: 1,
   };
 }
 
@@ -88,6 +92,7 @@ type WorkJsonLdInput = {
   reviewHtml?: string | null;
   reviewName: string;
   rating?: number;
+  actors?: string[];
 };
 
 function buildWorkNode(input: WorkJsonLdInput): JsonLd {
@@ -104,6 +109,7 @@ function buildWorkNode(input: WorkJsonLdInput): JsonLd {
     [dateKey]: year,
     genre: input.genres?.length ? input.genres : undefined,
     director: personNodes(splitNames(input.director ?? null)),
+    actor: personNodes(input.actors ?? []),
     creator: personNodes(splitNames(input.creator ?? null)),
     author: personNodes(splitNames(input.author ?? null)),
     isbn: input.isbn?.trim() || undefined,
@@ -115,6 +121,26 @@ function buildWorkNode(input: WorkJsonLdInput): JsonLd {
   });
 }
 
+function reviewImageObjects(html: string | null | undefined): JsonLd[] {
+  return extractReviewImages(html)
+    .filter((image) => isLocalSiteImage(image.src))
+    .flatMap((image) => {
+      const url = absoluteImage(image.src);
+      if (!url) return [];
+      const label = image.caption || image.alt;
+      return [
+        omitEmpty({
+          "@type": "ImageObject",
+          contentUrl: url,
+          url,
+          name: label || undefined,
+          description: image.alt || image.caption || undefined,
+          caption: image.caption || undefined,
+        }),
+      ];
+    });
+}
+
 function buildDetailJsonLd(input: WorkJsonLdInput): JsonLd {
   const work = buildWorkNode(input);
   if (!input.reviewHtml?.trim()) {
@@ -122,11 +148,13 @@ function buildDetailJsonLd(input: WorkJsonLdInput): JsonLd {
   }
 
   const reviewBody = reviewPlainText(input.reviewHtml);
+  const stills = reviewImageObjects(input.reviewHtml);
 
   return omitEmpty({
     "@context": "https://schema.org",
     "@type": "Review",
     name: input.reviewName,
+    headline: input.reviewName,
     url: absoluteUrl(input.path),
     inLanguage: "en",
     author: {
@@ -134,6 +162,7 @@ function buildDetailJsonLd(input: WorkJsonLdInput): JsonLd {
       name: siteCopy.metadata.author,
     },
     itemReviewed: work,
+    image: stills.length ? stills : undefined,
     reviewBody: reviewBody || undefined,
     reviewRating: personalRating(input.rating),
   });
@@ -150,6 +179,7 @@ export function buildMovieJsonLd(detail: MovieDetail): JsonLd {
     year: detail.yearLabel,
     genres: detail.genres,
     director: detail.directorsLabel,
+    actors: detail.cast.map((person) => person.name),
     reviewHtml: detail.reviewHtml,
     reviewName: detail.metaTitle,
     rating: detail.rating,
@@ -167,6 +197,7 @@ export function buildSeriesJsonLd(detail: SeriesDetail): JsonLd {
     year: detail.yearLabel,
     genres: detail.genres,
     creator: detail.creatorsLabel,
+    actors: detail.cast.map((person) => person.name),
     reviewHtml: detail.reviewHtml,
     reviewName: detail.metaTitle,
     rating: detail.rating,

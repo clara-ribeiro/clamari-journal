@@ -18,8 +18,14 @@ const DISALLOWED_TAGS = new Set(["picture", "source", "input"]);
 
 const reviewSanitizeSchema: SanitizeSchema = {
   ...defaultSchema,
-  tagNames: (defaultSchema.tagNames ?? []).filter(
-    (tag) => !DISALLOWED_TAGS.has(tag),
+  tagNames: Array.from(
+    new Set([
+      ...(defaultSchema.tagNames ?? []).filter(
+        (tag) => !DISALLOWED_TAGS.has(tag),
+      ),
+      "figure",
+      "figcaption",
+    ]),
   ),
   attributes: {
     ...defaultSchema.attributes,
@@ -114,11 +120,59 @@ function rehypeDemoteHeadings() {
 
 const SAFE_IMAGE_SRC = /^(https?:\/\/|\/)[^\s]*$/i;
 
-function isSafeImageSrc(value: unknown): boolean {
-  if (typeof value !== "string") return false;
-  const src = value.trim();
-  if (!src || src.startsWith("//")) return false;
-  return SAFE_IMAGE_SRC.test(src);
+/** Keep http(s) and site-root paths; rewrite `public/images/…` to `/images/…`. */
+export function rewriteReviewImageSrc(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  const src = value.trim().replace(/\\/g, "/");
+  if (!src || src.startsWith("//")) return null;
+
+  if (/^https?:\/\//i.test(src)) {
+    return SAFE_IMAGE_SRC.test(src) ? src : null;
+  }
+
+  const fromPublic = /(?:^|\/)public(\/images\/[^?\s#]*)/i.exec(src);
+  if (fromPublic) {
+    return SAFE_IMAGE_SRC.test(fromPublic[1]) ? fromPublic[1] : null;
+  }
+
+  if (/^images\//i.test(src)) {
+    const rooted = `/${src}`;
+    return SAFE_IMAGE_SRC.test(rooted) ? rooted : null;
+  }
+
+  return SAFE_IMAGE_SRC.test(src) ? src : null;
+}
+
+function stringProp(node: Element, key: string): string {
+  const value = node.properties?.[key];
+  return typeof value === "string" ? value.trim() : "";
+}
+
+function toFigure(img: Element): Element {
+  const alt = stringProp(img, "alt");
+  const caption = stringProp(img, "title") || alt;
+  const properties = { ...img.properties };
+  delete properties.title;
+  const nextImg: Element = { ...img, properties };
+  const children: Element["children"] = [nextImg];
+  if (caption) {
+    children.push({
+      type: "element",
+      tagName: "figcaption",
+      properties: {},
+      children: [{ type: "text", value: caption }],
+    });
+  }
+  return {
+    type: "element",
+    tagName: "figure",
+    properties: {},
+    children,
+  };
+}
+
+function isIgnorable(node: HastRoot["children"][number]): boolean {
+  return node.type === "text" && !node.value.trim();
 }
 
 /** Keep http(s) and site-root paths; drop javascript/data/protocol-relative src. */
@@ -126,8 +180,21 @@ function rehypeSafeReviewImages() {
   return (tree: HastRoot) => {
     visit(tree, "element", (node: Element, index, parent) => {
       if (node.tagName !== "img" || index == null || !parent) return;
-      if (isSafeImageSrc(node.properties?.src)) return;
-      parent.children.splice(index, 1);
+      const src = rewriteReviewImageSrc(node.properties?.src);
+      if (!src) {
+        parent.children.splice(index, 1);
+        return index;
+      }
+      node.properties = { ...node.properties, src };
+    });
+
+    visit(tree, "element", (node: Element, index, parent) => {
+      if (node.tagName !== "p" || index == null || !parent) return;
+      const significant = node.children.filter((child) => !isIgnorable(child));
+      if (significant.length !== 1) return;
+      const only = significant[0];
+      if (only.type !== "element" || only.tagName !== "img") return;
+      parent.children[index] = toFigure(only);
     });
   };
 }

@@ -7,6 +7,7 @@ import {
 import JsonLdScript from "@/components/atoms/JsonLdScript";
 import SeriesDetailTemplate from "@/components/templates/SeriesDetailTemplate";
 import { detailPageMetadata, pageMetadata } from "@/lib/page-metadata";
+import { reviewStillMetadata } from "@/lib/review-images";
 import { buildSeriesJsonLd } from "@/lib/json-ld";
 import { statesCopy } from "@/content/copy/states";
 
@@ -33,6 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: detail.metaDescription,
     path: `/series/${detail.slug}`,
     imageUrl: detail.posterUrl ?? detail.backdropUrl,
+    extraImages: reviewStillMetadata(detail.reviewHtml),
     hasReview: Boolean(detail.reviewHtml?.trim()),
   });
 }

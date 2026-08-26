@@ -16,6 +16,7 @@
     "test:coverage": "vitest run -c vitest.config.mts --project=unit --coverage",
     "test:storybook": "vitest run -c vitest.config.mts --project=storybook",
     "import:tvtime": "python3 scripts/import-tvtime.py src/data/gdpr-data.zip",
+    "add:movie": "tsx scripts/add-movie.ts",
     "enrich:tmdb": "tsx scripts/enrich-tmdb.ts",
     "enrich:google-books": "tsx scripts/enrich-google-books.ts",
     "storybook": "storybook dev -p 6006 --host 0.0.0.0",

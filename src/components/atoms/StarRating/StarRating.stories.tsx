@@ -6,7 +6,7 @@ const meta = {
   component: StarRating,
   tags: ["autodocs"],
   args: {
-    value: 3.5,
+    value: 4,
     max: 5,
   },
   parameters: {
@@ -22,8 +22,8 @@ export const Empty: Story = {
   args: { value: 0 },
 };
 
-export const Half: Story = {
-  args: { value: 3.5 },
+export const Four: Story = {
+  args: { value: 4 },
 };
 
 export const Full: Story = {

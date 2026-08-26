@@ -135,6 +135,10 @@ describe("serializeJsonLd", () => {
 });
 
 describe("buildMovieJsonLd", () => {
+  afterEach(() => {
+    vi.unstubAllEnvs();
+  });
+
   it("describes the film without claiming a review or aggregate rating", () => {
     const jsonLd = buildMovieJsonLd(movie());
 
@@ -154,7 +158,7 @@ describe("buildMovieJsonLd", () => {
         reviewHtml:
           "<p>Precision first.</p><details class=\"review-spoiler\"><p>They almost make it.</p></details>",
         metaTitle: "Heat review",
-        rating: 4.5,
+        rating: 4,
       }),
     );
 
@@ -168,11 +172,52 @@ describe("buildMovieJsonLd", () => {
     expect(jsonLd.reviewBody).not.toContain("almost make it");
     expect(jsonLd.reviewRating).toEqual({
       "@type": "Rating",
-      ratingValue: 4.5,
+      ratingValue: 4,
       bestRating: 5,
-      worstRating: 0.5,
+      worstRating: 1,
     });
     expect((jsonLd.itemReviewed as JsonLdLike)["@type"]).toBe("Movie");
+  });
+
+  it("describes review stills and names the principal cast", () => {
+    vi.stubEnv("SITE_URL", "https://clamari.com.br");
+    const jsonLd = buildMovieJsonLd(
+      movie({
+        reviewHtml:
+          '<figure><img src="/images/reviews/films/heat/pacino-de-niro.png" alt="Vincent Hanna and Neil McCauley face to face."><figcaption>Pacino and De Niro</figcaption></figure><p>Precision first.</p>',
+        metaTitle: "Heat (1995) review",
+        cast: [
+          {
+            id: 1,
+            name: "Al Pacino",
+            role: "Vincent Hanna",
+            profileUrl: null,
+          },
+          {
+            id: 2,
+            name: "Robert De Niro",
+            role: "Neil McCauley",
+            profileUrl: null,
+          },
+        ],
+      }),
+    );
+
+    expect((jsonLd.itemReviewed as JsonLdLike).actor).toEqual([
+      { "@type": "Person", name: "Al Pacino" },
+      { "@type": "Person", name: "Robert De Niro" },
+    ]);
+    expect(jsonLd.image).toEqual([
+      {
+        "@type": "ImageObject",
+        contentUrl:
+          "https://clamari.com.br/images/reviews/films/heat/pacino-de-niro.png",
+        url: "https://clamari.com.br/images/reviews/films/heat/pacino-de-niro.png",
+        name: "Pacino and De Niro",
+        description: "Vincent Hanna and Neil McCauley face to face.",
+        caption: "Pacino and De Niro",
+      },
+    ]);
   });
 
   it("omits reviewRating when the journal has no stars", () => {
@@ -269,4 +314,4 @@ describe("buildBookJsonLd", () => {
   });
 });
 
-type JsonLdLike = { "@type"?: string };
+type JsonLdLike = { "@type"?: string; actor?: unknown };

@@ -29,7 +29,7 @@ export default function ReviewRenderer({
   const hasHtml = compiled.length > 0;
 
   return (
-    <Root className={className}>
+    <Root className={className} aria-labelledby={headingId}>
       <Title id={headingId}>{heading}</Title>
       {hasHtml ? (
         <Prose dangerouslySetInnerHTML={{ __html: compiled }} />

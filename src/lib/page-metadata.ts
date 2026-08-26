@@ -62,14 +62,19 @@ export function detailPageMetadata(input: {
   path: string;
   imageUrl: string | null;
   hasReview?: boolean;
+  extraImages?: readonly { url: string; alt?: string }[];
 }): Metadata {
+  const extras = [...(input.extraImages ?? [])];
+  const poster = input.imageUrl
+    ? [{ url: input.imageUrl, alt: input.title }]
+    : [];
+  const images = [...extras, ...poster];
+
   return pageMetadata({
     title: input.title,
     description: input.description,
     path: input.path,
-    images: input.imageUrl
-      ? [{ url: input.imageUrl, alt: input.title }]
-      : undefined,
+    images: images.length ? images : undefined,
     ogType: input.hasReview ? "article" : "website",
   });
 }

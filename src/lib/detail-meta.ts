@@ -12,6 +12,7 @@ export type DetailMetaCopy = {
 
 export type DetailMetaInput = {
   title: string;
+  year?: string | null;
   synopsis: string | null;
   reviewHtml: string | null;
   copy: DetailMetaCopy;
@@ -27,16 +28,27 @@ export type DetailMeta = {
  * is called out in the title; the description prefers a spoiler-free excerpt.
  * Pending slugs with no file keep the work title and synopsis fallback.
  */
+function workTitle(title: string, year?: string | null): string {
+  const yearLabel = year?.trim();
+  if (yearLabel && /^\d{4}$/.test(yearLabel)) {
+    return `${title} (${yearLabel})`;
+  }
+  return title;
+}
+
 export function buildDetailMeta(input: DetailMetaInput): DetailMeta {
   const publishedReview = Boolean(input.reviewHtml?.trim());
   const excerpt = input.reviewHtml ? reviewExcerpt(input.reviewHtml) : null;
+  const reviewedAs = workTitle(input.title, input.year);
 
   const metaTitle = publishedReview
-    ? reviewContentCopy.seo.titleWithReview.replace("{title}", input.title)
+    ? reviewContentCopy.seo.titleWithReview.replace("{title}", reviewedAs)
     : input.title;
 
   const descriptionSource = excerpt
-    ? reviewContentCopy.seo.descriptionFromReview.replace("{excerpt}", excerpt)
+    ? reviewContentCopy.seo.descriptionFromReview
+        .replace("{title}", reviewedAs)
+        .replace("{excerpt}", excerpt)
     : input.synopsis
       ? input.copy.descriptionFromSynopsis.replace("{synopsis}", input.synopsis)
       : input.copy.descriptionFallback.replace("{title}", input.title);

@@ -149,13 +149,6 @@ export const Meta = styled("div", {
     fill: "$buttonText",
     stroke: "$buttonText",
   },
-  "& [role='img'] [data-half='empty']": {
-    color: "$buttonText",
-  },
-  "& [role='img'] [data-half='empty'] svg": {
-    fill: "$buttonText",
-    stroke: "$buttonText",
-  },
 });
 
 export const TitleRow = styled("div", {

@@ -91,6 +91,33 @@ describe("detailPageMetadata", () => {
     expect(metadata.openGraph).toMatchObject({ type: "article" });
   });
 
+  it("lists review stills ahead of the poster", () => {
+    const metadata = detailPageMetadata({
+      title: "Heat (1995) review",
+      description: "A personal review of Heat (1995). Precision first.",
+      path: "/films/heat",
+      imageUrl: "https://image.tmdb.org/t/p/w500/heat.jpg",
+      extraImages: [
+        {
+          url: "/images/reviews/films/heat/pacino-de-niro.png",
+          alt: "Vincent Hanna and Neil McCauley face to face.",
+        },
+      ],
+      hasReview: true,
+    });
+
+    expect(metadata.openGraph?.images).toEqual([
+      {
+        url: "/images/reviews/films/heat/pacino-de-niro.png",
+        alt: "Vincent Hanna and Neil McCauley face to face.",
+      },
+      {
+        url: "https://image.tmdb.org/t/p/w500/heat.jpg",
+        alt: "Heat (1995) review",
+      },
+    ]);
+  });
+
   it("falls back to the site OG image when no poster exists", () => {
     const metadata = detailPageMetadata({
       title: "Local Title",

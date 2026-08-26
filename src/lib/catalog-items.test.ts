@@ -65,7 +65,7 @@ const zodiac = card({
   statusKey: "watched",
   sortDate: "2025-03-01",
   sortYear: 2007,
-  sortRating: 3.5,
+  sortRating: 3,
   goalYears: [2025],
   hasReview: true,
 });
