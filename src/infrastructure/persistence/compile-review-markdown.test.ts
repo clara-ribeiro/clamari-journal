@@ -72,11 +72,11 @@ Hidden plot.
 
   it("rewrites public-folder image paths to site-root URLs", () => {
     const html = compileReviewMarkdown(`
-![Still](../../../../public/images/reviews/films/cat-on-a-hot-tin-roof/Actors.png)
+![Still](../../../../public/images/reviews/films/cat-on-a-hot-tin-roof/brick-and-maggie-elizabeth-taylor-paul-newman.webp)
 `);
 
     expect(html).toContain(
-      'src="/images/reviews/films/cat-on-a-hot-tin-roof/Actors.png"',
+      'src="/images/reviews/films/cat-on-a-hot-tin-roof/brick-and-maggie-elizabeth-taylor-paul-newman.webp"',
     );
     expect(html).toContain("<figcaption>Still</figcaption>");
     expect(html).not.toContain("public/images");

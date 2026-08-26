@@ -9,7 +9,6 @@ import {
 } from "@/application/use-cases/movies";
 import { catalogCopy } from "@/content/copy/catalog";
 import { filmsCopy } from "@/content/copy/films";
-import { reviewContentCopy } from "@/content/copy/review-content";
 
 const baseMovie: MovieEntry = {
   slug: "fight-club",
@@ -229,10 +228,10 @@ describe("mapMovieDetail", () => {
 
     expect(detail.reviewHtml).toBe("<p>A quiet masterpiece.</p>");
     expect(detail.reviewEmptyLabel).toBe(filmsCopy.detail.review.pending);
-    expect(detail.metaTitle).toBe(
-      reviewContentCopy.seo.titleWithReview.replace("{title}", "Fight Club"),
+    expect(detail.metaTitle).toBe("Fight Club (1999) review");
+    expect(detail.metaDescription).toBe(
+      "A personal review of Fight Club (1999). A quiet masterpiece.",
     );
-    expect(detail.metaDescription).toBe("A quiet masterpiece.");
   });
 
   it("keeps original title when it differs from the localized title", () => {

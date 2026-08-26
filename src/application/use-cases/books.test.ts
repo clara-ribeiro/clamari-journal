@@ -156,8 +156,10 @@ describe("mapBookDetail", () => {
     );
 
     expect(detail.reviewHtml).toBe("<p>Percy at his most human.</p>");
-    expect(detail.metaTitle).toBe(`${detail.title} review`);
-    expect(detail.metaDescription).toBe("Percy at his most human.");
+    expect(detail.metaTitle).toBe(`${detail.title} (2007) review`);
+    expect(detail.metaDescription).toBe(
+      `A personal review of ${detail.title} (2007). Percy at his most human.`,
+    );
   });
 });
 

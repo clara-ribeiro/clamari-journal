@@ -356,6 +356,7 @@ export function mapSeriesDetail(
 
   const { metaTitle, metaDescription } = buildDetailMeta({
     title,
+    year: yearLabel,
     synopsis,
     reviewHtml,
     copy: copy.meta,

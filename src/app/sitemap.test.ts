@@ -25,6 +25,20 @@ describe("sitemap", () => {
     expect(urls.some((path) => path.startsWith("/books/"))).toBe(true);
     expect(urls.length).toBeGreaterThan(INDEXABLE_STATIC_PATHS.length);
   });
+
+  it("advertises local review stills on the film that has them", () => {
+    const film = sitemap().find((entry) =>
+      entry.url.includes("/films/cat-on-a-hot-tin-roof"),
+    );
+
+    expect(film?.priority).toBe(0.8);
+    expect(film?.images?.some((url) => url.endsWith(".webp"))).toBe(true);
+    expect(
+      film?.images?.some((url) =>
+        url.includes("brick-and-maggie-elizabeth-taylor-paul-newman"),
+      ),
+    ).toBe(true);
+  });
 });
 
 describe("provider secrets stay server-only", () => {

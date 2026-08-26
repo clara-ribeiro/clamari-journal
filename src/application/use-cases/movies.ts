@@ -201,6 +201,7 @@ export function mapMovieDetail(
 
   const { metaTitle, metaDescription } = buildDetailMeta({
     title,
+    year: yearLabel,
     synopsis,
     reviewHtml,
     copy: copy.meta,
