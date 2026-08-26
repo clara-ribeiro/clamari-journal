@@ -1,6 +1,6 @@
 # How does one drowning man help another drowning man?
 
-I admit that this is probably the oldest movie I have ever watched — besides Charlie Chaplin’s films. Imagine my surprise when I finished it and my first reaction was, “Oh, I need to see this again!” *Cat on a Hot Tin Roof*  is a very dramatic film, but it gifts us with splashes of comedy, and some of the line deliveries are incredibly funny. The story revolves around Brick and Maggie, a married couple with serious marital issues. What exactly caused their relationship to fall apart is something we only discover later in the movie.
+I admit that this is probably the oldest movie I have ever watched — besides Charlie Chaplin’s. Imagine my surprise when I finished it and my first reaction was, “Oh, I need to see this again!” *Cat on a Hot Tin Roof* is a very dramatic film, but it gifts us with splashes of comedy, and some of the line deliveries are incredibly funny. The story revolves around Brick and Maggie, a married couple with serious marital issues. What exactly caused their relationship to fall apart is something we only discover later in the movie.
 
 Most of their problems seem to come from Brick, a former football player with a drinking problem. The opening scene shows him longing for his golden days — especially the crowds cheering for him. He goes to a football field at night, drunk, and tries to jump hurdles. Obviously, that is not an activity meant to be done under the influence — especially after retirement — and he ends up falling and hurting his ankle. Just to give us an idea of how relevant he and his family are, the injury is important enough to appear in the local newspaper.
 
@@ -14,7 +14,7 @@ One of the scenes that stuck with me is the one where Brick points his crutch at
 
 While Maggie is desperately looking for Brick’s attention and affection, he seems completely lost. He is clearly bothered not only by his marriage but by his whole family. Later, we find out that his biggest problem is actually with himself. Another funny moment from Elizabeth Taylor comes from Maggie’s frustration that Brick is always drunk and unpleasant, but, unlike other alcoholics, somehow remains extremely attractive.
 
-Parallel to this storyline, we have another one involving the entire family: the imminent death of Brick’s father, known as Big Daddy. At first, everyone believes he is dying. Then the doctor tells them he will live, only to later admit that Big Daddy is, in fact, dying and that he lied because of “professional ethics.” As if Big Daddy hadn’t been thrilled by the news of his supposedly good health, immediately making plans for his future.
+Parallel to this storyline, we have another one involving the entire family: the imminent death of Brick’s father, known as Big Daddy. At first, everyone believes he is dying. Then the doctor tells them he will live, only to later admit that Big Daddy is, in fact, dying and that he lied because of “professional ethics.” All this after Big Daddy had been thrilled by the news of his supposedly good health and had immediately started making plans for his future.
 
 If a family can lie to someone about his own death and almost everybody believes it is the right thing to do, it makes us wonder how present lies are in their everyday lives. As the movie goes on, everyone seems to be living inside some kind of lie, and this deeply bothers Brick, who repeatedly gives this behavior a name: **mendacity**. The lie about Big Daddy’s diagnosis also makes mendacity more than just an individual flaw. The entire family participates in it together, which makes dishonesty feel almost like the language they use to keep the family functioning.
 
@@ -31,7 +31,7 @@ During their conversations, the impression that remains is that Brick genuinely 
 
 ![Brick Pollitt (Paul Newman), in a bathrobe and leaning on a crutch, presses his face into a ruffled shower curtain in the bathroom.](/images/reviews/films/cat-on-a-hot-tin-roof/Brick_Over_Her_Gown.png "Brick in the bathroom")
 
-It is very clear that this family has problems expressing love. Even Big Mama, who is completely devoted to her husband, calls desperately for Brick in front of Gooper, screaming, “Where’s my only son?” Which is particularly cruel considering that Gooper has spent his entire life trying to be the son his parents wanted.
+It is very clear that this family has problems expressing love. Even Big Mama, who is completely devoted to her husband, calls desperately for Brick in front of Gooper, screaming, “Where’s my only son?” — which is particularly cruel considering that Gooper has spent his entire life trying to be the son his parents wanted.
 
 I don’t know if it was intentional, but I could almost physically feel the discomfort that the children and Mae caused Big Daddy. I actually had to turn the volume down to get through some of those scenes. His birthday party was torture for him; he wanted nothing but peace and quiet. He could barely stand his family, not even his own wife.
 
@@ -50,11 +50,11 @@ Brick and Skipper’s relationship is much deeper than a fight over a woman. Eve
 
 The movie doesn’t explore this directly, but Tennessee Williams’s original play gives the relationship between Brick and Skipper much stronger romantic and sexual undertones, adding another layer to Brick’s self-hatred. That part was heavily softened in the film adaptation. Even without it, though, Brick still carries an enormous amount of disgust toward himself.
 
-That becomes clear when we learn what happened on the night Skipper killed himself. After drinking all night and trying to kiss Maggie, Skipper calls Brick and tells him that Maggie slept with him. Brick hangs up. Skipper calls again. And again. And again. Brick never answers.
+That becomes clear when we learn what happened on the night Skipper killed himself. After drinking all night and trying to kiss Maggie, Skipper calls Brick and tells him that he had slept with Maggie. Brick hangs up. Skipper calls again. And again. And again. Brick never answers.
 
 Then Skipper commits suicide.
 
-When Brick drinks, that is the sound he is trying to escape: the ringing phone. He has been directing his pain toward Maggie and blaming her for his friend’s death when, in reality, the person he hates most seems to be himself.
+When Brick drinks, the sound he is trying to escape from is the ringing phone. He has been directing his pain toward Maggie and blaming her for his friend’s death when, in reality, the person he hates most seems to be himself.
 
 When his father questions him about his drinking, Brick explains:
 
@@ -79,13 +79,13 @@ To avoid admitting that he was drowning too, Brick hung up the phone and refused
 
 The mendacity Brick keeps bringing up changes meaning at this point. Before, he used it to accuse everyone around him, but now it becomes something that applies directly to him. He says he drinks because he is disgusted by mendacity, but isn’t he just as dishonest as the other members of his family?
 
-He kept his wife in an emotional cage because he was too afraid to face the facts and confront his own actions. He was the one who ignored his friend’s calls. He was the one who drank every day and every night to escape his own mind. He relied on alcohol to hide from the truth - the very thing he claimed to value above everything else.
+He kept his wife in an emotional cage because he was too afraid to face the facts and confront his own actions. He was the one who ignored his friend’s calls. He was the one who drank every day and every night to escape his own mind. He relied on alcohol to hide from the truth — the very thing he claimed to value above everything else.
 
 Brick hates mendacity in everyone else, but his entire way of coping with life depends on running from reality.
 
-Maybe that is because life isn’t black and white. As Maggie says, **the truth is as dirty as lies.** Brick claims to want the truth, but he refuses to face it. He refuses to listen, to talk, to feel and, most importantly, to acknowledge his own responsibility. His mendacity is therefore not always about telling literal lies. Sometimes it is simply refusal: refusing to listen to Maggie, refusing to answer Skipper, refusing to face his guilt and eventually drinking until he no longer has to feel anything at all.
+Maybe that is because life isn’t black and white. As Maggie says, **the truth is as dirty as lies.** Brick claims to want the truth, but he refuses to face it. He refuses to listen, to talk, to feel, and, most importantly, to acknowledge his own responsibility. His mendacity is therefore not always about telling literal lies. Sometimes it is simply refusal: refusing to listen to Maggie, refusing to answer Skipper, refusing to face his guilt and eventually drinking until he no longer has to feel anything at all.
 
-After the whole Skipper situation becomes clearer, we reach another climax - if we can even call it that, considering how many emotional climaxes this movie has. This time, it is the tense conversation between Brick and his father.
+After the whole Skipper situation becomes clearer, we reach another climax — if we can even call it that, considering how many emotional climaxes this movie has. This time, it is the tense conversation between Brick and his father.
 
 It becomes clear that neither son ever truly felt loved by Big Daddy. Gooper did everything his father asked of him: became a lawyer, got married and had children, and somehow it still wasn’t enough. At some point, he stopped begging for his father’s love and started fighting for his money and his empire instead. But Brick reacts differently. He still wants his father’s love. He can barely stand watching Big Daddy in pain. In fact, one of the only moments in which Brick shows genuine tenderness toward another person is when he cares for his father while he is hurting.
 
@@ -96,7 +96,7 @@ And it all comes back to Brick’s relationship with Skipper. Brick relied so he
 
 Big Daddy had his own father’s love, even though his father had almost nothing material to give him. Somehow, Big Daddy couldn’t pass that same certainty of being loved on to his own children. That makes the contrast between money and love even more interesting. Big Daddy built an enormous empire and seems to believe that providing wealth is proof of love, while Brick makes it clear that none of it can replace the affection he actually wanted. Gooper and Brick then become two different reactions to the same wound: Gooper couldn’t get his father’s love, so he fights for his money; Brick couldn’t get his father’s love, so he rejects the money and keeps asking for the love.
 
-My favorite part of the film is when Maggie announces her pregnancy - a blatant lie - and Brick supports her. Their intention from that moment on is basically to make the lie true, and I think that is really beautiful.
+My favorite part of the film is when Maggie announces her pregnancy — a blatant lie — and Brick supports her. Their intention from that moment on is basically to make the lie true, and I think that is really beautiful.
 
 It is funny that a movie so obsessed with the hypocrisy and danger of lies manages to end with a lie that I actually support. Brick backing Maggie shows that some of his love for her is finally coming back, and together they intend to turn that lie into reality.
 
