@@ -154,7 +154,7 @@ describe("buildMovieJsonLd", () => {
         reviewHtml:
           "<p>Precision first.</p><details class=\"review-spoiler\"><p>They almost make it.</p></details>",
         metaTitle: "Heat review",
-        rating: 4.5,
+        rating: 4,
       }),
     );
 
@@ -168,9 +168,9 @@ describe("buildMovieJsonLd", () => {
     expect(jsonLd.reviewBody).not.toContain("almost make it");
     expect(jsonLd.reviewRating).toEqual({
       "@type": "Rating",
-      ratingValue: 4.5,
+      ratingValue: 4,
       bestRating: 5,
-      worstRating: 0.5,
+      worstRating: 1,
     });
     expect((jsonLd.itemReviewed as JsonLdLike)["@type"]).toBe("Movie");
   });

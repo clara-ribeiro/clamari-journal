@@ -46,3 +46,5 @@ src/data/gdpr-data.zip
 
 *storybook.log
 storybook-static
+
+.cursor

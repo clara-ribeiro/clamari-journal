@@ -1,6 +1,6 @@
 import { Star } from "lucide-react";
 import { starRatingCopy } from "@/content/copy";
-import { EmptyClip, FillClip, HalfRoot, Root } from "./styles";
+import { Root } from "./styles";
 
 export type StarRatingProps = {
   value?: number;
@@ -8,51 +8,28 @@ export type StarRatingProps = {
   className?: string;
 };
 
-function starState(index: number, value: number): "full" | "half" | "empty" {
-  const threshold = index + 1;
-  if (value >= threshold) return "full";
-  if (value >= threshold - 0.5) return "half";
-  return "empty";
-}
-
-function HalfStar() {
-  return (
-    <HalfRoot aria-hidden>
-      <FillClip data-half="fill">
-        <Star aria-hidden />
-      </FillClip>
-      <EmptyClip data-half="empty">
-        <Star aria-hidden />
-      </EmptyClip>
-    </HalfRoot>
-  );
-}
-
 export default function StarRating({
   value = 0,
   max = 5,
   className,
 }: StarRatingProps) {
-  const clamped = Math.min(max, Math.max(0, value));
+  const stars = Math.round(Math.min(max, Math.max(0, value)));
   const label =
-    clamped > 0
+    stars > 0
       ? starRatingCopy.rated
-          .replace("{value}", String(clamped))
+          .replace("{value}", String(stars))
           .replace("{max}", String(max))
       : starRatingCopy.noRating;
 
   return (
     <Root className={className} role="img" aria-label={label}>
-      {Array.from({ length: max }, (_, index) => {
-        const state = starState(index, clamped);
-        if (state === "full") {
-          return <Star key={index} aria-hidden data-state="full" />;
-        }
-        if (state === "half") {
-          return <HalfStar key={index} />;
-        }
-        return <Star key={index} aria-hidden data-state="empty" />;
-      })}
+      {Array.from({ length: max }, (_, index) => (
+        <Star
+          key={index}
+          aria-hidden
+          data-state={index < stars ? "full" : "empty"}
+        />
+      ))}
     </Root>
   );
 }

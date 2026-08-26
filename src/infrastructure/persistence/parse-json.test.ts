@@ -45,7 +45,7 @@ describe("parseMovieEntries", () => {
         ...base,
         tmdbId: 949,
         tvtimeUuid: "abc",
-        rating: 4.5,
+        rating: 4,
         favorite: true,
         watchedDates: ["2024-01-02"],
         releaseDate: "1995-12-15",
@@ -53,7 +53,7 @@ describe("parseMovieEntries", () => {
       },
     ]);
     expect(movie.slug).toBe("heat");
-    expect(movie.rating).toBe(4.5);
+    expect(movie.rating).toBe(4);
     expect(movie.watchedDates).toEqual(["2024-01-02"]);
   });
 
@@ -61,7 +61,7 @@ describe("parseMovieEntries", () => {
     expect(() =>
       parseMovieEntries([{ ...base, status: "finished" }]),
     ).toThrow(/status/);
-    expect(() => parseMovieEntries([{ ...base, rating: 4.25 }])).toThrow(
+    expect(() => parseMovieEntries([{ ...base, rating: 4.5 }])).toThrow(
       /rating/,
     );
     expect(() =>

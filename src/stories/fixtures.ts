@@ -33,7 +33,7 @@ export const journalTitans: JournalEntry = {
   slug: "the-titans-curse",
   title: "The Titan's Curse",
   activityDate: "2020-02-01",
-  rating: 4.5,
+  rating: 4,
   href: "/books/the-titans-curse",
   posterUrl: null,
 };
@@ -133,8 +133,8 @@ export const catalogTitans = catalogCard({
   sortDate: "2020-02-01",
   goalYears: [2020],
   metaTags: ["physical", "320 pages"],
-  rating: 4.5,
-  sortRating: 4.5,
+  rating: 4,
+  sortRating: 4,
   hasReview: true,
 });
 

@@ -17,7 +17,7 @@ const baseMovie: MovieEntry = {
   status: "watched",
   tmdbId: 550,
   posterPath: "/poster.jpg",
-  rating: 4.5,
+  rating: 4,
   favorite: true,
   watchedDates: ["2024-06-01", "2020-01-15"],
   tags: ["mind-bender"],

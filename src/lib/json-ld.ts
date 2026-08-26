@@ -43,7 +43,7 @@ function personalRating(rating: number | undefined) {
     "@type": "Rating",
     ratingValue: rating,
     bestRating: 5,
-    worstRating: 0.5,
+    worstRating: 1,
   };
 }
 
