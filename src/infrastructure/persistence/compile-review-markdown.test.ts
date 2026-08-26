@@ -62,10 +62,36 @@ Hidden plot.
 ![Local still](/images/reviews/hereditary.webp)
 `);
 
+    expect(html).toContain("<figure>");
     expect(html).toContain("<img");
     expect(html).toContain('src="https://image.tmdb.org/t/p/w500/poster.jpg"');
     expect(html).toContain('alt="Poster"');
+    expect(html).toContain("<figcaption>Poster</figcaption>");
     expect(html).toContain('src="/images/reviews/hereditary.webp"');
+  });
+
+  it("rewrites public-folder image paths to site-root URLs", () => {
+    const html = compileReviewMarkdown(`
+![Still](../../../../public/images/reviews/films/cat-on-a-hot-tin-roof/Actors.png)
+`);
+
+    expect(html).toContain(
+      'src="/images/reviews/films/cat-on-a-hot-tin-roof/Actors.png"',
+    );
+    expect(html).toContain("<figcaption>Still</figcaption>");
+    expect(html).not.toContain("public/images");
+  });
+
+  it("uses the image title as a visible caption when one is given", () => {
+    const html = compileReviewMarkdown(`
+![Brick leaning on a crutch](/images/reviews/brick.webp "Brick, already trying to disappear")
+`);
+
+    expect(html).toContain('alt="Brick leaning on a crutch"');
+    expect(html).toContain(
+      "<figcaption>Brick, already trying to disappear</figcaption>",
+    );
+    expect(html).not.toContain(" title=");
   });
 
   it("strips scripts, javascript URLs, and unsafe image sources", () => {

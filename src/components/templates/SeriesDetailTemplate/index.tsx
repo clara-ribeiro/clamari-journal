@@ -469,14 +469,12 @@ export default function SeriesDetailTemplate({
         </SplitRow>
 
         {hasReview ? (
-          <Panel aria-labelledby={copy.review.headingId}>
-            <ReviewRenderer
-              heading={copy.review.heading}
-              headingId={copy.review.headingId}
-              emptyLabel={detail.reviewEmptyLabel}
-              html={detail.reviewHtml}
-            />
-          </Panel>
+          <ReviewRenderer
+            heading={copy.review.heading}
+            headingId={copy.review.headingId}
+            emptyLabel={detail.reviewEmptyLabel}
+            html={detail.reviewHtml}
+          />
         ) : null}
 
         <BackLink href={copy.backHref} prefetch={false}>

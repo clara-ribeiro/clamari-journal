@@ -13,6 +13,7 @@ describe("ReviewRenderer", () => {
       />,
     );
     expect(screen.getByRole("heading", { name: "Review" })).toBeInTheDocument();
+    expect(screen.getByRole("region", { name: "Review" })).toBeInTheDocument();
     expect(screen.getByText("No review yet")).toBeInTheDocument();
   });
 
