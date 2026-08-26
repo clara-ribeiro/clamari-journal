@@ -3,6 +3,14 @@ import type { NextConfig } from "next";
 const isDev = process.env.NODE_ENV === "development";
 
 const nextConfig: NextConfig = {
+  // Markdown reviews are read from disk (`readFileSync`), so NFT cannot
+  // see them. Without this, production prerenders as "Review on the way."
+  outputFileTracingIncludes: {
+    "/films/[slug]": ["./src/content/reviews/films/**/*.md"],
+    "/series/[slug]": ["./src/content/reviews/series/**/*.md"],
+    "/books/[slug]": ["./src/content/reviews/books/**/*.md"],
+    "/sitemap.xml": ["./src/content/reviews/**/*.md"],
+  },
   images: {
     // Dev: don't keep optimized copies on disk — replacing a file under
     // `public/` at the same path otherwise keeps serving the stale encode

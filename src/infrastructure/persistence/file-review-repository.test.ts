@@ -30,4 +30,12 @@ describe("FileReviewRepository", () => {
     expect(repository.findByMediumAndSlug("films", "../heat")).toBeUndefined();
     expect(repository.findByMediumAndSlug("films", "heat.md")).toBeUndefined();
   });
+
+  it("loads journal reviews from src/content when cwd is the project root", () => {
+    const review = new FileReviewRepository().findByMediumAndSlug(
+      "films",
+      "cat-on-a-hot-tin-roof",
+    );
+    expect(review?.html).toContain("drowning man");
+  });
 });

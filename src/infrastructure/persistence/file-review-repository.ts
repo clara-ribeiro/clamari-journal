@@ -2,7 +2,6 @@ import "server-only";
 
 import { readFileSync } from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 import type {
   ReviewDocument,
   ReviewMedium,
@@ -11,10 +10,13 @@ import type {
 import { isReviewSlug } from "@/domain/value-objects/review-slug";
 import { compileReviewMarkdown } from "./compile-review-markdown";
 
-const DEFAULT_ROOT = path.resolve(
-  path.dirname(fileURLToPath(import.meta.url)),
-  "../../content/reviews",
-);
+/**
+ * Reviews live on disk, not in the JS bundle. After `next build`,
+ * `import.meta.url` points at a compiled chunk, so a relative path from
+ * this file misses `src/content/reviews`. `process.cwd()` is the project
+ * root in `next dev`, `next build`, and on Vercel.
+ */
+const DEFAULT_ROOT = path.join(process.cwd(), "src/content/reviews");
 
 export class FileReviewRepository implements ReviewRepository {
   constructor(private readonly root: string = DEFAULT_ROOT) {}
