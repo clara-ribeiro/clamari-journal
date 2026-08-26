@@ -148,20 +148,31 @@ function stringProp(node: Element, key: string): string {
   return typeof value === "string" ? value.trim() : "";
 }
 
-function toFigure(img: Element): Element {
+function toFigure(img: Element, captionNodes?: Element["children"]): Element {
   const alt = stringProp(img, "alt");
-  const caption = stringProp(img, "title") || alt;
+  const titleCaption = stringProp(img, "title");
   const properties = { ...img.properties };
   delete properties.title;
   const nextImg: Element = { ...img, properties };
   const children: Element["children"] = [nextImg];
-  if (caption) {
+  const fromTrailing = captionNodes ? trimCaptionChildren(captionNodes) : [];
+  if (fromTrailing.length > 0) {
     children.push({
       type: "element",
       tagName: "figcaption",
       properties: {},
-      children: [{ type: "text", value: caption }],
+      children: fromTrailing,
     });
+  } else {
+    const caption = titleCaption || alt;
+    if (caption) {
+      children.push({
+        type: "element",
+        tagName: "figcaption",
+        properties: {},
+        children: [{ type: "text", value: caption }],
+      });
+    }
   }
   return {
     type: "element",
@@ -173,6 +184,27 @@ function toFigure(img: Element): Element {
 
 function isIgnorable(node: HastRoot["children"][number]): boolean {
   return node.type === "text" && !node.value.trim();
+}
+
+function isImageElement(
+  node: HastRoot["children"][number],
+): node is Element {
+  return node.type === "element" && node.tagName === "img";
+}
+
+function trimCaptionChildren(nodes: Element["children"]): Element["children"] {
+  const next = [...nodes];
+  while (next.length > 0 && isIgnorable(next[0])) next.shift();
+  const first = next[0];
+  if (first?.type === "text") {
+    next[0] = { ...first, value: first.value.replace(/^\s+/, "") };
+  }
+  while (next.length > 0 && isIgnorable(next[next.length - 1])) next.pop();
+  const last = next[next.length - 1];
+  if (last?.type === "text") {
+    next[next.length - 1] = { ...last, value: last.value.replace(/\s+$/, "") };
+  }
+  return next;
 }
 
 /** Keep http(s) and site-root paths; drop javascript/data/protocol-relative src. */
@@ -191,10 +223,11 @@ function rehypeSafeReviewImages() {
     visit(tree, "element", (node: Element, index, parent) => {
       if (node.tagName !== "p" || index == null || !parent) return;
       const significant = node.children.filter((child) => !isIgnorable(child));
-      if (significant.length !== 1) return;
-      const only = significant[0];
-      if (only.type !== "element" || only.tagName !== "img") return;
-      parent.children[index] = toFigure(only);
+      const img = significant[0];
+      if (!img || !isImageElement(img)) return;
+      if (significant.slice(1).some(isImageElement)) return;
+      const imgIndex = node.children.indexOf(img);
+      parent.children[index] = toFigure(img, node.children.slice(imgIndex + 1));
     });
   };
 }
