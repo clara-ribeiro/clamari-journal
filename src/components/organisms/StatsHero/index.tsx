@@ -41,6 +41,7 @@ export default function StatsHero({
           responsive set, and the optimizer strips WebP alpha. Sizes match
           the 60%-wide figure so mobile does not download the full asset.
         */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={imageSrc}
           srcSet={BALLERINA_SRCSET}

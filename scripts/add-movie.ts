@@ -421,7 +421,7 @@ function nextStepsText(entry: MovieEntry): string {
     `  "watchedDates": ["2026-08-25"],`,
     `  "favorite": true,`,
     ``,
-    `rating usa números inteiros de 1 a 5. Cada data em watchedDates é uma sessão`,`,
+    `rating usa números inteiros de 1 a 5. Cada data em watchedDates é uma sessão`,
     `(uma data = assistiu uma vez; duas datas = rewatch, e assim por diante).`,
     `status pode ser watched, watchlist ou rewatch. Campos opcionais: tags,`,
     `watchLocation, streamingService.`,
