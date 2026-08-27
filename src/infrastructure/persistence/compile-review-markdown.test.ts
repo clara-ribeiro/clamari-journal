@@ -94,6 +94,31 @@ Hidden plot.
     expect(html).not.toContain(" title=");
   });
 
+  it("uses trailing paragraph text as the visible caption", () => {
+    const html = compileReviewMarkdown(`
+![Maggie Pollitt looks into a vanity mirror.](/images/reviews/films/cat-on-a-hot-tin-roof/maggie-and-brick-bedroom.webp) Maggie keeps reaching for Brick while he keeps finding ways to stay out of reach.
+`);
+
+    expect(html).toContain("<figure>");
+    expect(html).toContain('alt="Maggie Pollitt looks into a vanity mirror."');
+    expect(html).toContain(
+      "<figcaption>Maggie keeps reaching for Brick while he keeps finding ways to stay out of reach.</figcaption>",
+    );
+    expect(html).not.toContain(
+      "<p>Maggie keeps reaching for Brick while he keeps finding ways to stay out of reach.</p>",
+    );
+  });
+
+  it("prefers trailing text over the image title for the caption", () => {
+    const html = compileReviewMarkdown(`
+![Alt text](/images/reviews/brick.webp "Unused title") Visible caption
+`);
+
+    expect(html).toContain("<figcaption>Visible caption</figcaption>");
+    expect(html).not.toContain("Unused title");
+    expect(html).not.toContain(" title=");
+  });
+
   it("strips scripts, javascript URLs, and unsafe image sources", () => {
     const html = compileReviewMarkdown(`
 <script>alert(1)</script>
