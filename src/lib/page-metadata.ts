@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { siteCopy } from "@/content/copy";
 import { allowSearchIndexing } from "@/lib/site-url";
+import {
+  DEFAULT_REVIEW_LOCALE,
+  ogAlternateLocale,
+  ogLocale,
+  type ReviewLocale,
+} from "@/lib/review-locale";
 
 export type PageMetadataInput = {
   title: string;
@@ -12,6 +18,8 @@ export type PageMetadataInput = {
   index?: boolean;
   /** Open Graph type; detail pages with a published review use `article`. */
   ogType?: "website" | "article";
+  locale?: ReviewLocale;
+  languages?: Record<string, string>;
 };
 
 function defaultImages(title: string) {
@@ -32,18 +40,28 @@ export function pageMetadata(input: PageMetadataInput): Metadata {
     url: image.url,
     alt: image.alt ?? input.title,
   }));
+  const locale = input.locale ?? DEFAULT_REVIEW_LOCALE;
+  const hasLanguages = Boolean(
+    input.languages && Object.keys(input.languages).length > 0,
+  );
 
   return {
     title: input.absoluteTitle ? { absolute: input.title } : input.title,
     description: input.description,
-    alternates: { canonical: input.path },
+    alternates: {
+      canonical: input.path,
+      ...(hasLanguages ? { languages: input.languages } : {}),
+    },
     robots: { index, follow: index },
     openGraph: {
       title: input.title,
       description: input.description,
       url: input.path,
       siteName: siteCopy.brand.fullName,
-      locale: "en_US",
+      locale: ogLocale(locale),
+      ...(hasLanguages
+        ? { alternateLocale: [ogAlternateLocale(locale)] }
+        : {}),
       type: input.ogType ?? "website",
       images,
     },
@@ -63,6 +81,8 @@ export function detailPageMetadata(input: {
   imageUrl: string | null;
   hasReview?: boolean;
   extraImages?: readonly { url: string; alt?: string }[];
+  locale?: ReviewLocale;
+  languages?: Record<string, string>;
 }): Metadata {
   const extras = [...(input.extraImages ?? [])];
   const poster = input.imageUrl
@@ -76,5 +96,7 @@ export function detailPageMetadata(input: {
     path: input.path,
     images: images.length ? images : undefined,
     ogType: input.hasReview ? "article" : "website",
+    locale: input.locale,
+    languages: input.languages,
   });
 }

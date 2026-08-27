@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
     "/films/[slug]": ["./src/content/reviews/films/**/*.md"],
     "/series/[slug]": ["./src/content/reviews/series/**/*.md"],
     "/books/[slug]": ["./src/content/reviews/books/**/*.md"],
+    "/pt/films/[slug]": ["./src/content/reviews/films/**/*.md"],
+    "/pt/series/[slug]": ["./src/content/reviews/series/**/*.md"],
+    "/pt/books/[slug]": ["./src/content/reviews/books/**/*.md"],
     "/sitemap.xml": ["./src/content/reviews/**/*.md"],
   },
   images: {

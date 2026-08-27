@@ -3,10 +3,11 @@ import { notFound } from "next/navigation";
 import { getBookDetail, listBooks } from "@/application/use-cases/books";
 import JsonLdScript from "@/components/atoms/JsonLdScript";
 import BookDetailTemplate from "@/components/templates/BookDetailTemplate";
-import { detailPageMetadata, pageMetadata } from "@/lib/page-metadata";
-import { reviewStillMetadata } from "@/lib/review-images";
 import { buildBookJsonLd } from "@/lib/json-ld";
-import { statesCopy } from "@/content/copy/states";
+import {
+  missingDetailMetadata,
+  reviewDetailMetadata,
+} from "@/lib/review-detail-metadata";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -18,21 +19,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const detail = await getBookDetail(slug);
   if (!detail) {
-    return pageMetadata({
-      title: statesCopy.notFound.title,
-      description: statesCopy.notFound.description,
-      path: `/books/${slug}`,
-      index: false,
-    });
+    return missingDetailMetadata("books", slug, "en");
   }
 
-  return detailPageMetadata({
-    title: detail.metaTitle,
-    description: detail.metaDescription,
-    path: `/books/${detail.slug}`,
+  return reviewDetailMetadata("books", {
+    slug: detail.slug,
+    metaTitle: detail.metaTitle,
+    metaDescription: detail.metaDescription,
     imageUrl: detail.coverUrl,
-    extraImages: reviewStillMetadata(detail.reviewHtml),
-    hasReview: Boolean(detail.reviewHtml?.trim()),
+    reviewHtml: detail.reviewHtml,
+    reviewLocale: detail.reviewLocale,
+    alternateReviewHref: detail.alternateReviewHref,
   });
 }
 

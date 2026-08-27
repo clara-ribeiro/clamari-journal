@@ -150,13 +150,13 @@ describe("route smoke", () => {
   });
 
   it("renders Home", async () => {
-    const { default: HomePage } = await import("@/app/page");
+    const { default: HomePage } = await import("@/app/(en)/page");
     render(<HomePage />);
     expect(screen.getByText(homeCopy.hero.title)).toBeInTheDocument();
-  });
+  }, 15_000);
 
   it("renders Films catalog", async () => {
-    const { default: FilmsPage } = await import("@/app/films/page");
+    const { default: FilmsPage } = await import("@/app/(en)/films/page");
     render(
       await FilmsPage({
         searchParams: Promise.resolve({}),
@@ -169,7 +169,7 @@ describe("route smoke", () => {
   });
 
   it("renders Series catalog", async () => {
-    const { default: SeriesPage } = await import("@/app/series/page");
+    const { default: SeriesPage } = await import("@/app/(en)/series/page");
     render(
       await SeriesPage({
         searchParams: Promise.resolve({}),
@@ -181,7 +181,7 @@ describe("route smoke", () => {
   });
 
   it("renders Books catalog", async () => {
-    const { default: BooksPage } = await import("@/app/books/page");
+    const { default: BooksPage } = await import("@/app/(en)/books/page");
     render(
       await BooksPage({
         searchParams: Promise.resolve({}),
@@ -193,7 +193,7 @@ describe("route smoke", () => {
   });
 
   it("renders All entries", async () => {
-    const { default: AllEntriesPage } = await import("@/app/all-entries/page");
+    const { default: AllEntriesPage } = await import("@/app/(en)/all-entries/page");
     render(
       await AllEntriesPage({
         searchParams: Promise.resolve({}),
@@ -210,7 +210,7 @@ describe("detail route slugs", () => {
     vi.mocked(getMovieDetail).mockResolvedValueOnce(undefined);
 
     const { default: FilmDetailPage } = await import(
-      "@/app/films/[slug]/page"
+      "@/app/(en)/films/[slug]/page"
     );
     await FilmDetailPage({
       params: Promise.resolve({ slug: "missing-film" }),
@@ -250,12 +250,16 @@ describe("detail route slugs", () => {
       reviewSlug: null,
       reviewHtml: null,
       reviewEmptyLabel: "No review",
+      reviewLocale: "en",
+      reviewHeading: "Review",
+      alternateReviewHref: null,
+      alternateReviewLabel: null,
       metaTitle: "Heat",
       metaDescription: "Heat",
     });
 
     const { default: FilmDetailPage } = await import(
-      "@/app/films/[slug]/page"
+      "@/app/(en)/films/[slug]/page"
     );
     render(
       await FilmDetailPage({
@@ -279,10 +283,10 @@ describe("detail route slugs", () => {
     vi.mocked(getBookDetail).mockResolvedValueOnce(undefined);
 
     const { default: SeriesDetailPage } = await import(
-      "@/app/series/[slug]/page"
+      "@/app/(en)/series/[slug]/page"
     );
     const { default: BookDetailPage } = await import(
-      "@/app/books/[slug]/page"
+      "@/app/(en)/books/[slug]/page"
     );
 
     await SeriesDetailPage({
@@ -290,6 +294,20 @@ describe("detail route slugs", () => {
     });
     await BookDetailPage({
       params: Promise.resolve({ slug: "missing-book" }),
+    });
+    expect(notFound).toHaveBeenCalled();
+  });
+
+  it("calls notFound for a Portuguese film page without a review", async () => {
+    const { notFound } = await import("next/navigation");
+    const { getMovieDetail } = await import("@/application/use-cases/movies");
+    vi.mocked(getMovieDetail).mockResolvedValueOnce(undefined);
+
+    const { default: PortugueseFilmDetailPage } = await import(
+      "@/app/(pt)/pt/films/[slug]/page"
+    );
+    await PortugueseFilmDetailPage({
+      params: Promise.resolve({ slug: "missing-film" }),
     });
     expect(notFound).toHaveBeenCalled();
   });

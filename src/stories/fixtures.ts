@@ -273,6 +273,10 @@ export const movieDetail: MovieDetail = {
   reviewSlug: null,
   reviewHtml: null,
   reviewEmptyLabel: "No review yet.",
+  reviewLocale: "en",
+  reviewHeading: "Review",
+  alternateReviewHref: null,
+  alternateReviewLabel: null,
   metaTitle: "Heat",
   metaDescription: "A group of professional bank robbers.",
 };
@@ -349,6 +353,10 @@ export const seriesDetail: SeriesDetail = {
   reviewSlug: null,
   reviewHtml: null,
   reviewEmptyLabel: "No review yet.",
+  reviewLocale: "en",
+  reviewHeading: "Review",
+  alternateReviewHref: null,
+  alternateReviewLabel: null,
   metaTitle: "The Wire",
   metaDescription: "Baltimore drug scene.",
 };
@@ -417,6 +425,10 @@ export const bookDetail: BookDetail = {
   reviewSlug: null,
   reviewHtml: null,
   reviewEmptyLabel: "No review yet.",
+  reviewLocale: "en",
+  reviewHeading: "Review",
+  alternateReviewHref: null,
+  alternateReviewLabel: null,
   metaTitle: "The Titan's Curse",
   metaDescription: "When the goddess Artemis goes missing.",
 };

@@ -39,6 +39,26 @@ describe("sitemap", () => {
       ),
     ).toBe(true);
   });
+
+  it("lists the Portuguese sibling and reciprocal hreflang when a .pt.md exists", () => {
+    const entries = sitemap();
+    const pt = entries.find((entry) =>
+      entry.url.includes("/pt/films/cat-on-a-hot-tin-roof"),
+    );
+    const en = entries.find(
+      (entry) =>
+        entry.url.includes("/films/cat-on-a-hot-tin-roof") &&
+        !entry.url.includes("/pt/"),
+    );
+
+    expect(pt?.priority).toBe(0.8);
+    expect(en?.alternates?.languages?.["pt-BR"]).toMatch(
+      /\/pt\/films\/cat-on-a-hot-tin-roof$/,
+    );
+    expect(pt?.alternates?.languages?.en).toMatch(
+      /\/films\/cat-on-a-hot-tin-roof$/,
+    );
+  });
 });
 
 describe("provider secrets stay server-only", () => {
@@ -59,7 +79,7 @@ describe("provider secrets stay server-only", () => {
   });
 
   it("does not expose provider tokens via NEXT_PUBLIC_* in app code", () => {
-    const layout = readFileSync("src/app/layout.tsx", "utf8");
+    const layout = readFileSync("src/app/root-document.tsx", "utf8");
     expect(layout).not.toMatch(/NEXT_PUBLIC_(TMDB_|GOOGLE_BOOKS_)/);
     expect(layout).not.toMatch(/TMDB_ACCESS_TOKEN/);
     expect(layout).not.toMatch(/GOOGLE_BOOKS_API_KEY/);

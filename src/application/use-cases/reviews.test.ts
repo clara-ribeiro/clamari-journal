@@ -21,8 +21,16 @@ describe("getReviewHtml", () => {
     expect(html).toContain("<summary>The ending</summary>");
   });
 
+  it("returns Portuguese html from the sibling file", () => {
+    const html = getReviewHtml("films", "heat", "pt-BR");
+    expect(html).toContain("<strong>strong</strong>");
+    expect(html).toContain("<summary>Alerta de spoilers</summary>");
+  });
+
   it("returns null when the slug is missing or the file is absent", () => {
     expect(getReviewHtml("films", null)).toBeNull();
     expect(getReviewHtml("films", "missing-review")).toBeNull();
+    expect(getReviewHtml("films", "heat", "pt-BR")).toBeTruthy();
+    expect(getReviewHtml("films", "missing-review", "pt-BR")).toBeNull();
   });
 });

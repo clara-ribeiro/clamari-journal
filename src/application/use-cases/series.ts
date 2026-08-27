@@ -25,9 +25,14 @@ import {
   formatShortRuntime,
 } from "@/lib/formatters/formatDuration";
 import { buildDetailMeta } from "@/lib/detail-meta";
+import {
+  DEFAULT_REVIEW_LOCALE,
+  tmdbLanguageForLocale,
+  type ReviewLocale,
+} from "@/lib/review-locale";
 import { tmdbImageUrl } from "@/lib/tmdb-image";
 import { yearsSeriesCountsToward } from "./goal-years";
-import { getReviewHtml } from "./reviews";
+import { defaultDetailLocale, resolveDetailLocale } from "./review-locale";
 
 /** Used when an episode has no known runtime (common for older TV Time rows). */
 export const DEFAULT_EPISODE_RUNTIME_MINUTES = 45;
@@ -295,9 +300,13 @@ export function mapSeriesDetail(
   seasons: TmdbSeasonMetadata[],
   metadataNotice: string | null,
   reviewHtml: string | null = null,
+  localeContext = defaultDetailLocale(),
 ): SeriesDetail {
   const copy = seriesCopy.detail;
-  const title = metadata?.title?.trim() || entry.title;
+  const title =
+    localeContext.workTitle?.trim() ||
+    metadata?.title?.trim() ||
+    entry.title;
   const originalTitleRaw = metadata?.originalTitle?.trim() || null;
   const originalTitle =
     originalTitleRaw &&
@@ -360,6 +369,7 @@ export function mapSeriesDetail(
     synopsis,
     reviewHtml,
     copy: copy.meta,
+    seoCopy: localeContext.seoCopy,
   });
 
   return {
@@ -412,6 +422,10 @@ export function mapSeriesDetail(
     reviewSlug,
     reviewHtml,
     reviewEmptyLabel: reviewSlug ? copy.review.pending : copy.review.empty,
+    reviewLocale: localeContext.reviewLocale,
+    reviewHeading: localeContext.reviewHeading,
+    alternateReviewHref: localeContext.alternateReviewHref,
+    alternateReviewLabel: localeContext.alternateReviewLabel,
     metaTitle,
     metaDescription,
   };
@@ -420,6 +434,7 @@ export function mapSeriesDetail(
 async function loadSeriesSeasons(
   tmdbId: number,
   metadata: TmdbSeriesMetadata,
+  language?: string,
 ): Promise<TmdbSeasonMetadata[]> {
   const seasonNumbers = metadata.seasons
     .map((season) => season.seasonNumber)
@@ -431,7 +446,9 @@ async function loadSeriesSeasons(
   const results = await Promise.all(
     unique.map(async (seasonNumber) => {
       try {
-        return await getSeason(tmdbId, seasonNumber);
+        return language
+          ? await getSeason(tmdbId, seasonNumber, language)
+          : await getSeason(tmdbId, seasonNumber);
       } catch {
         return null;
       }
@@ -443,7 +460,10 @@ async function loadSeriesSeasons(
   );
 }
 
-async function loadSeriesMetadata(tmdbId: number | undefined): Promise<{
+async function loadSeriesMetadata(
+  tmdbId: number | undefined,
+  language?: string,
+): Promise<{
   metadata: TmdbSeriesMetadata | null;
   seasons: TmdbSeasonMetadata[];
   notice: string | null;
@@ -457,8 +477,10 @@ async function loadSeriesMetadata(tmdbId: number | undefined): Promise<{
   }
 
   try {
-    const metadata = await getSeriesById(tmdbId);
-    const seasons = await loadSeriesSeasons(tmdbId, metadata);
+    const metadata = language
+      ? await getSeriesById(tmdbId, language)
+      : await getSeriesById(tmdbId);
+    const seasons = await loadSeriesSeasons(tmdbId, metadata, language);
     return { metadata, seasons, notice: null };
   } catch (error) {
     if (error instanceof TmdbError && error.code === "not_found") {
@@ -477,23 +499,38 @@ async function loadSeriesMetadata(tmdbId: number | undefined): Promise<{
 }
 
 /**
- * Series detail for `/series/[slug]`. Cached per request so metadata
- * and the page share one TMDB fetch tree.
+ * Series detail for `/series/[slug]` (and `/pt/series/[slug]`). Cached per
+ * request so metadata and the page share one TMDB fetch tree.
  */
 export const getSeriesDetail = cache(
-  async (slug: string): Promise<SeriesDetail | undefined> => {
+  async (
+    slug: string,
+    locale: ReviewLocale = DEFAULT_REVIEW_LOCALE,
+  ): Promise<SeriesDetail | undefined> => {
     const entry = getSeriesBySlug(slug);
     if (!entry) return undefined;
 
+    const localeContext = resolveDetailLocale(
+      "series",
+      entry.slug,
+      entry.reviewSlug,
+      locale,
+    );
+    if (!localeContext) return undefined;
+
+    const language =
+      locale === "pt-BR" ? tmdbLanguageForLocale(locale) : undefined;
     const { metadata, seasons, notice } = await loadSeriesMetadata(
       entry.tmdbId,
+      language,
     );
     return mapSeriesDetail(
       entry,
       metadata,
       seasons,
       notice,
-      getReviewHtml("series", entry.reviewSlug),
+      localeContext.reviewHtml,
+      localeContext,
     );
   },
 );

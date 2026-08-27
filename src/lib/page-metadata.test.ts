@@ -18,6 +18,7 @@ describe("pageMetadata", () => {
       url: "/films",
       siteName: siteCopy.brand.fullName,
       type: "website",
+      locale: "en_US",
     });
     expect(metadata.twitter).toMatchObject({
       card: "summary_large_image",
@@ -132,5 +133,35 @@ describe("detailPageMetadata", () => {
         alt: siteCopy.metadata.ogImageAlt,
       },
     ]);
+  });
+
+  it("sets Portuguese OG locale and hreflang when both essays exist", () => {
+    const metadata = detailPageMetadata({
+      title: "Resenha de Gata em Telhado de Zinco Quente (1958)",
+      description: "Uma resenha pessoal.",
+      path: "/pt/films/cat-on-a-hot-tin-roof",
+      imageUrl: null,
+      hasReview: true,
+      locale: "pt-BR",
+      languages: {
+        en: "/films/cat-on-a-hot-tin-roof",
+        "pt-BR": "/pt/films/cat-on-a-hot-tin-roof",
+        "x-default": "/films/cat-on-a-hot-tin-roof",
+      },
+    });
+
+    expect(metadata.alternates).toEqual({
+      canonical: "/pt/films/cat-on-a-hot-tin-roof",
+      languages: {
+        en: "/films/cat-on-a-hot-tin-roof",
+        "pt-BR": "/pt/films/cat-on-a-hot-tin-roof",
+        "x-default": "/films/cat-on-a-hot-tin-roof",
+      },
+    });
+    expect(metadata.openGraph).toMatchObject({
+      locale: "pt_BR",
+      alternateLocale: ["en_US"],
+      type: "article",
+    });
   });
 });

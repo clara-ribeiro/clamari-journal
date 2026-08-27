@@ -2,16 +2,20 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import LocaleSwitch from "@/components/atoms/LocaleSwitch";
 import { siteCopy } from "@/content/copy";
 import { chromeForPath } from "@/lib/chrome-tone";
+import { stripLocalePrefix } from "@/lib/review-locale";
 import { useStatusChrome } from "@/components/providers/StatusChromeProvider";
 import {
   Bar,
   Brand,
   BrandLink,
+  End,
   Nav,
   NavLink,
   Spacer,
+  Start,
 } from "./styles";
 
 export type SiteHeaderProps = {
@@ -24,26 +28,32 @@ const revealPrefixes = copy.revealOnScrollPrefixes;
 const catalogSentinels = copy.catalogHeroSentinelIds;
 
 function isActivePath(pathname: string, href: string) {
-  return pathname === href || pathname.startsWith(`${href}/`);
+  const canonical = stripLocalePrefix(pathname);
+  return canonical === href || canonical.startsWith(`${href}/`);
 }
 
 function usesRevealOnScroll(pathname: string) {
-  if (revealOnScroll.has(pathname)) return true;
-  return revealPrefixes.some((prefix) => pathname.startsWith(prefix));
+  const canonical = stripLocalePrefix(pathname);
+  if (revealOnScroll.has(canonical)) return true;
+  return revealPrefixes.some(
+    (prefix) =>
+      canonical.startsWith(prefix) || pathname.startsWith(prefix),
+  );
 }
 
 function resolveSentinelId(pathname: string): string | null {
-  if (pathname === copy.homeHref) return copy.brandSentinelId;
-  if (pathname in catalogSentinels) {
-    return catalogSentinels[pathname as keyof typeof catalogSentinels];
+  const canonical = stripLocalePrefix(pathname);
+  if (canonical === copy.homeHref) return copy.brandSentinelId;
+  if (canonical in catalogSentinels) {
+    return catalogSentinels[canonical as keyof typeof catalogSentinels];
   }
-  if (pathname.startsWith("/films/")) {
+  if (canonical.startsWith("/films/")) {
     return copy.filmDetailHeroSentinelId;
   }
-  if (pathname.startsWith("/series/")) {
+  if (canonical.startsWith("/series/")) {
     return copy.seriesDetailHeroSentinelId;
   }
-  if (pathname.startsWith("/books/")) {
+  if (canonical.startsWith("/books/")) {
     return copy.bookDetailHeroSentinelId;
   }
   return null;
@@ -51,7 +61,7 @@ function resolveSentinelId(pathname: string): string | null {
 
 export default function SiteHeader({ className }: SiteHeaderProps) {
   const pathname = usePathname() ?? copy.homeHref;
-  const isHome = pathname === copy.homeHref;
+  const isHome = stripLocalePrefix(pathname) === copy.homeHref;
   const usesReveal = usesRevealOnScroll(pathname);
   const { active: statusChrome } = useStatusChrome();
   const tone = statusChrome ? "clear" : chromeForPath(pathname).header;
@@ -91,19 +101,21 @@ export default function SiteHeader({ className }: SiteHeaderProps) {
   return (
     <>
       <Bar className={className} visible={visible} tone={tone}>
-        <Nav aria-label={copy.navAriaLabel}>
-          {copy.items.map((item) => (
-            <NavLink
-              key={item.href}
-              href={item.href}
-              prefetch={false}
-              active={isActivePath(pathname, item.href)}
-              tone={tone}
-            >
-              {item.label}
-            </NavLink>
-          ))}
-        </Nav>
+        <Start>
+          <Nav aria-label={copy.navAriaLabel}>
+            {copy.items.map((item) => (
+              <NavLink
+                key={item.href}
+                href={item.href}
+                prefetch={false}
+                active={isActivePath(pathname, item.href)}
+                tone={tone}
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </Nav>
+        </Start>
 
         {isHome ? (
           <Brand>{copy.brand}</Brand>
@@ -116,6 +128,10 @@ export default function SiteHeader({ className }: SiteHeaderProps) {
             {copy.brand}
           </BrandLink>
         )}
+
+        <End>
+          <LocaleSwitch tone={tone} />
+        </End>
       </Bar>
 
       {!statusChrome && !usesReveal ? <Spacer aria-hidden /> : null}

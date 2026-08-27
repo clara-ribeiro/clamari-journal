@@ -7,8 +7,10 @@ import {
   listMovieCatalogItems,
   mapMovieDetail,
 } from "@/application/use-cases/movies";
+import { defaultDetailLocale } from "@/application/use-cases/review-locale";
 import { catalogCopy } from "@/content/copy/catalog";
 import { filmsCopy } from "@/content/copy/films";
+import { reviewLocaleCopy } from "@/content/copy/review-content";
 
 const baseMovie: MovieEntry = {
   slug: "fight-club",
@@ -183,6 +185,8 @@ describe("mapMovieDetail", () => {
     expect(detail.reviewSlug).toBe("fight-club");
     expect(detail.reviewHtml).toBeNull();
     expect(detail.reviewEmptyLabel).toBe(filmsCopy.detail.review.pending);
+    expect(detail.reviewLocale).toBe("en");
+    expect(detail.alternateReviewHref).toBeNull();
     expect(detail.metadataNotice).toBeNull();
     expect(detail.metaTitle).toBe("Fight Club");
     expect(detail.metaDescription.length).toBeGreaterThan(0);
@@ -231,6 +235,37 @@ describe("mapMovieDetail", () => {
     expect(detail.metaTitle).toBe("Fight Club (1999) review");
     expect(detail.metaDescription).toBe(
       "A personal review of Fight Club (1999). A quiet masterpiece.",
+    );
+  });
+
+  it("uses a Portuguese work title and SEO copy for a pt-BR review", () => {
+    const localeContext = {
+      ...defaultDetailLocale(),
+      locale: "pt-BR" as const,
+      reviewLocale: "pt-BR" as const,
+      workTitle: "Clube da Luta",
+      reviewHeading: reviewLocaleCopy["pt-BR"].reviewHeading,
+      alternateReviewHref: "/films/fight-club",
+      alternateReviewLabel: reviewLocaleCopy["pt-BR"].switchToLabel,
+      seoCopy: reviewLocaleCopy["pt-BR"].seo,
+    };
+
+    const detail = mapMovieDetail(
+      baseMovie,
+      { ...baseMetadata, title: "Clube da Luta", originalTitle: "Fight Club" },
+      null,
+      "<p>Uma obra quieta.</p>",
+      localeContext,
+    );
+
+    expect(detail.title).toBe("Clube da Luta");
+    expect(detail.originalTitle).toBe("Fight Club");
+    expect(detail.reviewLocale).toBe("pt-BR");
+    expect(detail.reviewHeading).toBe("Resenha");
+    expect(detail.alternateReviewHref).toBe("/films/fight-club");
+    expect(detail.metaTitle).toBe("Resenha de Clube da Luta (1999)");
+    expect(detail.metaDescription).toBe(
+      "Uma resenha pessoal de Clube da Luta (1999). Uma obra quieta.",
     );
   });
 

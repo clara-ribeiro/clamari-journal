@@ -1,12 +1,10 @@
-import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Anton, Instrument_Serif, Monsieur_La_Doulaise } from "next/font/google";
 import localFont from "next/font/local";
+import type { ReactNode } from "react";
 import "./globals.css";
 import AppShell from "@/components/organisms/AppShell";
-import { siteCopy } from "@/content/copy";
-import { allowSearchIndexing, getSiteUrl } from "@/lib/site-url";
 import StitchesRegistry from "./stitches-registry";
 
 const anton = Anton({
@@ -41,53 +39,15 @@ const bivaque = localFont({
   preload: false,
 });
 
-export const metadata: Metadata = {
-  metadataBase: getSiteUrl(),
-  title: {
-    default: siteCopy.metadata.titleDefault,
-    template: siteCopy.metadata.titleTemplate,
-  },
-  description: siteCopy.metadata.description,
-  applicationName: siteCopy.brand.fullName,
-  authors: [{ name: siteCopy.metadata.author }],
-  robots: allowSearchIndexing()
-    ? { index: true, follow: true }
-    : { index: false, follow: false },
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    siteName: siteCopy.brand.fullName,
-    title: siteCopy.metadata.titleDefault,
-    description: siteCopy.metadata.description,
-    images: [
-      {
-        url: siteCopy.metadata.ogImage,
-        alt: siteCopy.metadata.ogImageAlt,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteCopy.metadata.titleDefault,
-    description: siteCopy.metadata.description,
-    images: [siteCopy.metadata.ogImage],
-  },
+export type RootDocumentProps = {
+  lang: string;
+  children: ReactNode;
 };
 
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  themeColor: siteCopy.themeColor,
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export function RootDocument({ lang, children }: RootDocumentProps) {
   return (
     <html
-      lang="en"
+      lang={lang}
       suppressHydrationWarning
       className={`${anton.variable} ${monsieur.variable} ${instrumentSerif.variable} ${bivaque.variable}`}
     >

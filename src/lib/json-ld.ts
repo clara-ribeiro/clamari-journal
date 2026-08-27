@@ -5,6 +5,11 @@ import {
   extractReviewImages,
   isLocalSiteImage,
 } from "@/lib/review-images";
+import {
+  DEFAULT_REVIEW_LOCALE,
+  reviewPagePath,
+  type ReviewLocale,
+} from "@/lib/review-locale";
 import { absoluteUrl } from "@/lib/site-url";
 
 export type JsonLd = Record<string, unknown>;
@@ -91,6 +96,7 @@ type WorkJsonLdInput = {
   numberOfPages?: string | null;
   reviewHtml?: string | null;
   reviewName: string;
+  reviewLocale?: ReviewLocale;
   rating?: number;
   actors?: string[];
 };
@@ -156,7 +162,7 @@ function buildDetailJsonLd(input: WorkJsonLdInput): JsonLd {
     name: input.reviewName,
     headline: input.reviewName,
     url: absoluteUrl(input.path),
-    inLanguage: "en",
+    inLanguage: input.reviewLocale === "pt-BR" ? "pt-BR" : "en",
     author: {
       "@type": "Person",
       name: siteCopy.metadata.author,
@@ -169,9 +175,10 @@ function buildDetailJsonLd(input: WorkJsonLdInput): JsonLd {
 }
 
 export function buildMovieJsonLd(detail: MovieDetail): JsonLd {
+  const locale = detail.reviewLocale ?? DEFAULT_REVIEW_LOCALE;
   return buildDetailJsonLd({
     type: "Movie",
-    path: `/films/${detail.slug}`,
+    path: reviewPagePath("films", detail.slug, locale),
     name: detail.title,
     alternateName: detail.originalTitle,
     description: detail.synopsis,
@@ -182,14 +189,16 @@ export function buildMovieJsonLd(detail: MovieDetail): JsonLd {
     actors: detail.cast.map((person) => person.name),
     reviewHtml: detail.reviewHtml,
     reviewName: detail.metaTitle,
+    reviewLocale: locale,
     rating: detail.rating,
   });
 }
 
 export function buildSeriesJsonLd(detail: SeriesDetail): JsonLd {
+  const locale = detail.reviewLocale ?? DEFAULT_REVIEW_LOCALE;
   return buildDetailJsonLd({
     type: "TVSeries",
-    path: `/series/${detail.slug}`,
+    path: reviewPagePath("series", detail.slug, locale),
     name: detail.title,
     alternateName: detail.originalTitle,
     description: detail.synopsis,
@@ -200,14 +209,16 @@ export function buildSeriesJsonLd(detail: SeriesDetail): JsonLd {
     actors: detail.cast.map((person) => person.name),
     reviewHtml: detail.reviewHtml,
     reviewName: detail.metaTitle,
+    reviewLocale: locale,
     rating: detail.rating,
   });
 }
 
 export function buildBookJsonLd(detail: BookDetail): JsonLd {
+  const locale = detail.reviewLocale ?? DEFAULT_REVIEW_LOCALE;
   return buildDetailJsonLd({
     type: "Book",
-    path: `/books/${detail.slug}`,
+    path: reviewPagePath("books", detail.slug, locale),
     name: detail.title,
     alternateName: detail.subtitle,
     description: detail.synopsis,
@@ -221,6 +232,7 @@ export function buildBookJsonLd(detail: BookDetail): JsonLd {
     numberOfPages: detail.pageCountLabel,
     reviewHtml: detail.reviewHtml,
     reviewName: detail.metaTitle,
+    reviewLocale: locale,
     rating: detail.rating,
   });
 }

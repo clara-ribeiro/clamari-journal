@@ -14,9 +14,14 @@ import { getMovieById, TmdbError } from "@/infrastructure/tmdb/client";
 import { formatDate } from "@/lib/formatters/formatDate";
 import { formatShortRuntime } from "@/lib/formatters/formatDuration";
 import { buildDetailMeta } from "@/lib/detail-meta";
+import {
+  DEFAULT_REVIEW_LOCALE,
+  tmdbLanguageForLocale,
+  type ReviewLocale,
+} from "@/lib/review-locale";
 import { tmdbImageUrl } from "@/lib/tmdb-image";
 import { yearsMovieCountsToward } from "./goal-years";
-import { getReviewHtml } from "./reviews";
+import { defaultDetailLocale, resolveDetailLocale } from "./review-locale";
 
 export function listMovies(): MovieEntry[] {
   return movieRepository.findAll();
@@ -165,9 +170,13 @@ export function mapMovieDetail(
   metadata: TmdbMovieMetadata | null,
   metadataNotice: string | null,
   reviewHtml: string | null = null,
+  localeContext = defaultDetailLocale(),
 ): MovieDetail {
   const copy = filmsCopy.detail;
-  const title = metadata?.title?.trim() || movie.title;
+  const title =
+    localeContext.workTitle?.trim() ||
+    metadata?.title?.trim() ||
+    movie.title;
   const originalTitleRaw = metadata?.originalTitle?.trim() || null;
   const originalTitle =
     originalTitleRaw &&
@@ -205,6 +214,7 @@ export function mapMovieDetail(
     synopsis,
     reviewHtml,
     copy: copy.meta,
+    seoCopy: localeContext.seoCopy,
   });
 
   return {
@@ -248,6 +258,10 @@ export function mapMovieDetail(
     reviewSlug,
     reviewHtml,
     reviewEmptyLabel: reviewSlug ? copy.review.pending : copy.review.empty,
+    reviewLocale: localeContext.reviewLocale,
+    reviewHeading: localeContext.reviewHeading,
+    alternateReviewHref: localeContext.alternateReviewHref,
+    alternateReviewLabel: localeContext.alternateReviewLabel,
     metaTitle,
     metaDescription,
   };
@@ -255,6 +269,7 @@ export function mapMovieDetail(
 
 async function loadMovieMetadata(
   tmdbId: number | undefined,
+  language?: string,
 ): Promise<{ metadata: TmdbMovieMetadata | null; notice: string | null }> {
   if (tmdbId == null) {
     return {
@@ -264,7 +279,9 @@ async function loadMovieMetadata(
   }
 
   try {
-    const metadata = await getMovieById(tmdbId);
+    const metadata = language
+      ? await getMovieById(tmdbId, language)
+      : await getMovieById(tmdbId);
     return { metadata, notice: null };
   } catch (error) {
     if (error instanceof TmdbError && error.code === "not_found") {
@@ -281,20 +298,34 @@ async function loadMovieMetadata(
 }
 
 /**
- * Film detail for `/films/[slug]`. Cached per request so `generateMetadata`
- * and the page share one TMDB fetch.
+ * Film detail for `/films/[slug]` (and `/pt/films/[slug]`). Cached per
+ * request so `generateMetadata` and the page share one TMDB fetch.
  */
 export const getMovieDetail = cache(
-  async (slug: string): Promise<MovieDetail | undefined> => {
+  async (
+    slug: string,
+    locale: ReviewLocale = DEFAULT_REVIEW_LOCALE,
+  ): Promise<MovieDetail | undefined> => {
     const movie = getMovieBySlug(slug);
     if (!movie) return undefined;
 
-    const { metadata, notice } = await loadMovieMetadata(movie.tmdbId);
+    const localeContext = resolveDetailLocale(
+      "films",
+      movie.slug,
+      movie.reviewSlug,
+      locale,
+    );
+    if (!localeContext) return undefined;
+
+    const language =
+      locale === "pt-BR" ? tmdbLanguageForLocale(locale) : undefined;
+    const { metadata, notice } = await loadMovieMetadata(movie.tmdbId, language);
     return mapMovieDetail(
       movie,
       metadata,
       notice,
-      getReviewHtml("films", movie.reviewSlug),
+      localeContext.reviewHtml,
+      localeContext,
     );
   },
 );

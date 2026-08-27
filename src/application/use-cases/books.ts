@@ -18,8 +18,12 @@ import {
 import { formatDate } from "@/lib/formatters/formatDate";
 import { buildDetailMeta } from "@/lib/detail-meta";
 import { stripHtml } from "@/lib/plain-text";
+import {
+  DEFAULT_REVIEW_LOCALE,
+  type ReviewLocale,
+} from "@/lib/review-locale";
 import { yearsBookCountsToward } from "./goal-years";
-import { getReviewHtml } from "./reviews";
+import { defaultDetailLocale, resolveDetailLocale } from "./review-locale";
 
 /** Cap for the typographic hero backdrop — keeps DOM/paint light. */
 export const HERO_EXCERPT_MAX = 500;
@@ -193,10 +197,14 @@ export function mapBookDetail(
   metadata: GoogleBooksMetadata | null,
   metadataNotice: string | null,
   reviewHtml: string | null = null,
+  localeContext = defaultDetailLocale(),
 ): BookDetail {
   const copy = booksCopy.detail;
   const title =
-    metadata?.title?.trim() || entry.title?.trim() || entry.slug;
+    localeContext.workTitle?.trim() ||
+    metadata?.title?.trim() ||
+    entry.title?.trim() ||
+    entry.slug;
   const subtitle = metadata?.subtitle?.trim() || null;
   const synopsisRaw = metadata?.description
     ? stripHtml(metadata.description)
@@ -224,6 +232,7 @@ export function mapBookDetail(
     synopsis,
     reviewHtml,
     copy: copy.meta,
+    seoCopy: localeContext.seoCopy,
   });
 
   return {
@@ -270,6 +279,10 @@ export function mapBookDetail(
     reviewSlug,
     reviewHtml,
     reviewEmptyLabel: reviewSlug ? copy.review.pending : copy.review.empty,
+    reviewLocale: localeContext.reviewLocale,
+    reviewHeading: localeContext.reviewHeading,
+    alternateReviewHref: localeContext.alternateReviewHref,
+    alternateReviewLabel: localeContext.alternateReviewLabel,
     metaTitle,
     metaDescription,
   };
@@ -302,13 +315,24 @@ async function loadBookMetadata(
 }
 
 /**
- * Book detail for `/books/[slug]`. Cached per request so metadata
- * and the page share one Google Books fetch.
+ * Book detail for `/books/[slug]` (and `/pt/books/[slug]`). Cached per
+ * request so metadata and the page share one Google Books fetch.
  */
 export const getBookDetail = cache(
-  async (slug: string): Promise<BookDetail | undefined> => {
+  async (
+    slug: string,
+    locale: ReviewLocale = DEFAULT_REVIEW_LOCALE,
+  ): Promise<BookDetail | undefined> => {
     const entry = getBookBySlug(slug);
     if (!entry) return undefined;
+
+    const localeContext = resolveDetailLocale(
+      "books",
+      entry.slug,
+      entry.reviewSlug,
+      locale,
+    );
+    if (!localeContext) return undefined;
 
     const { metadata, notice } = await loadBookMetadata(
       entry.googleBooksId,
@@ -318,7 +342,8 @@ export const getBookDetail = cache(
       entry,
       metadata,
       notice,
-      getReviewHtml("books", entry.reviewSlug),
+      localeContext.reviewHtml,
+      localeContext,
     );
   },
 );

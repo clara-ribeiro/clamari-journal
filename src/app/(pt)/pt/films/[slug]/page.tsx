@@ -1,47 +1,49 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { hasPublishedReview } from "@/application/use-cases/reviews";
 import {
   getMovieDetail,
   listMovies,
 } from "@/application/use-cases/movies";
 import JsonLdScript from "@/components/atoms/JsonLdScript";
 import FilmDetailTemplate from "@/components/templates/FilmDetailTemplate";
-import { detailPageMetadata, pageMetadata } from "@/lib/page-metadata";
-import { reviewStillMetadata } from "@/lib/review-images";
 import { buildMovieJsonLd } from "@/lib/json-ld";
-import { statesCopy } from "@/content/copy/states";
+import {
+  missingDetailMetadata,
+  reviewDetailMetadata,
+} from "@/lib/review-detail-metadata";
 
 type Props = { params: Promise<{ slug: string }> };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
-  return listMovies().map((movie) => ({ slug: movie.slug }));
+  return listMovies()
+    .filter((movie) => hasPublishedReview("films", movie.reviewSlug, "pt-BR"))
+    .map((movie) => ({ slug: movie.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const detail = await getMovieDetail(slug);
+  const detail = await getMovieDetail(slug, "pt-BR");
   if (!detail) {
-    return pageMetadata({
-      title: statesCopy.notFound.title,
-      description: statesCopy.notFound.description,
-      path: `/films/${slug}`,
-      index: false,
-    });
+    return missingDetailMetadata("films", slug, "pt-BR");
   }
 
-  return detailPageMetadata({
-    title: detail.metaTitle,
-    description: detail.metaDescription,
-    path: `/films/${detail.slug}`,
+  return reviewDetailMetadata("films", {
+    slug: detail.slug,
+    metaTitle: detail.metaTitle,
+    metaDescription: detail.metaDescription,
     imageUrl: detail.posterUrl ?? detail.backdropUrl,
-    extraImages: reviewStillMetadata(detail.reviewHtml),
-    hasReview: Boolean(detail.reviewHtml?.trim()),
+    reviewHtml: detail.reviewHtml,
+    reviewLocale: detail.reviewLocale,
+    alternateReviewHref: detail.alternateReviewHref,
   });
 }
 
-export default async function FilmDetailPage({ params }: Props) {
+export default async function PortugueseFilmDetailPage({ params }: Props) {
   const { slug } = await params;
-  const detail = await getMovieDetail(slug);
+  const detail = await getMovieDetail(slug, "pt-BR");
   if (!detail) {
     notFound();
     return null;

@@ -402,7 +402,7 @@ export default function FilmDetailTemplate({
 
         {hasReview ? (
           <ReviewRenderer
-            heading={copy.review.heading}
+            heading={detail.reviewHeading}
             headingId={copy.review.headingId}
             emptyLabel={detail.reviewEmptyLabel}
             html={detail.reviewHtml}

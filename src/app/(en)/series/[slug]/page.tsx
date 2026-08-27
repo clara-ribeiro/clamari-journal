@@ -6,10 +6,11 @@ import {
 } from "@/application/use-cases/series";
 import JsonLdScript from "@/components/atoms/JsonLdScript";
 import SeriesDetailTemplate from "@/components/templates/SeriesDetailTemplate";
-import { detailPageMetadata, pageMetadata } from "@/lib/page-metadata";
-import { reviewStillMetadata } from "@/lib/review-images";
 import { buildSeriesJsonLd } from "@/lib/json-ld";
-import { statesCopy } from "@/content/copy/states";
+import {
+  missingDetailMetadata,
+  reviewDetailMetadata,
+} from "@/lib/review-detail-metadata";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -21,21 +22,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const detail = await getSeriesDetail(slug);
   if (!detail) {
-    return pageMetadata({
-      title: statesCopy.notFound.title,
-      description: statesCopy.notFound.description,
-      path: `/series/${slug}`,
-      index: false,
-    });
+    return missingDetailMetadata("series", slug, "en");
   }
 
-  return detailPageMetadata({
-    title: detail.metaTitle,
-    description: detail.metaDescription,
-    path: `/series/${detail.slug}`,
+  return reviewDetailMetadata("series", {
+    slug: detail.slug,
+    metaTitle: detail.metaTitle,
+    metaDescription: detail.metaDescription,
     imageUrl: detail.posterUrl ?? detail.backdropUrl,
-    extraImages: reviewStillMetadata(detail.reviewHtml),
-    hasReview: Boolean(detail.reviewHtml?.trim()),
+    reviewHtml: detail.reviewHtml,
+    reviewLocale: detail.reviewLocale,
+    alternateReviewHref: detail.alternateReviewHref,
   });
 }
 

@@ -60,4 +60,27 @@ describe("getMovieDetail", () => {
     const detail = await getMovieDetail("10-things-i-hate-about-you");
     expect(detail?.metadataNotice).toBe(filmsCopy.detail.metadata.unavailable);
   });
+
+  it("loads the Portuguese sibling when a .pt.md file exists", async () => {
+    getMovieByIdMock.mockClear();
+    getMovieByIdMock.mockResolvedValueOnce(
+      normalizeMovie(movieFixture as TmdbRawMovie),
+    );
+
+    const detail = await getMovieDetail("cat-on-a-hot-tin-roof", "pt-BR");
+    expect(detail?.reviewLocale).toBe("pt-BR");
+    expect(detail?.title).toBe("Gata em Telhado de Zinco Quente");
+    expect(detail?.reviewHtml).toContain("Cole aqui");
+    expect(detail?.alternateReviewHref).toBe("/films/cat-on-a-hot-tin-roof");
+    expect(detail?.metaTitle).toContain("Resenha de");
+    expect(getMovieByIdMock).toHaveBeenCalledWith(261, "pt-BR");
+  });
+
+  it("returns undefined for Portuguese when no .pt.md sibling exists", async () => {
+    getMovieByIdMock.mockClear();
+    await expect(
+      getMovieDetail("10-things-i-hate-about-you", "pt-BR"),
+    ).resolves.toBeUndefined();
+    expect(getMovieByIdMock).not.toHaveBeenCalled();
+  });
 });

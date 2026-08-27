@@ -7,9 +7,9 @@ export const Bar = styled("header", {
   left: 0,
   right: 0,
   zIndex: "$sticky",
-  display: "flex",
+  display: "grid",
+  gridTemplateColumns: "1fr auto 1fr",
   alignItems: "center",
-  justifyContent: "space-between",
   gap: "$md",
   height: "$headerHeight",
   px: "$md",
@@ -85,6 +85,21 @@ export const Spacer = styled("div", {
   flexShrink: 0,
 });
 
+export const Start = styled("div", {
+  display: "flex",
+  alignItems: "center",
+  justifySelf: "start",
+  minWidth: 0,
+});
+
+export const End = styled("div", {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "flex-end",
+  justifySelf: "end",
+  flexShrink: 0,
+});
+
 export const Nav = styled("nav", {
   display: "flex",
   alignItems: "center",
@@ -152,6 +167,7 @@ export const NavLink = styled(Link, {
 
 const brandStyles = {
   margin: 0,
+  justifySelf: "center",
   fontFamily: "$display",
   fontWeight: 400,
   fontSize: "clamp(1.75rem, 4vw, 2.5rem)",

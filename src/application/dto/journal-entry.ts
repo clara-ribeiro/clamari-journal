@@ -50,6 +50,14 @@ export type MovieCastMember = {
   profileUrl: string | null;
 };
 
+/** Locale-specific review presentation shared by film / series / book detail. */
+export type ReviewLocaleFields = {
+  reviewLocale: "en" | "pt-BR";
+  reviewHeading: string;
+  alternateReviewHref: string | null;
+  alternateReviewLabel: string | null;
+};
+
 /**
  * Complete film detail DTO — TMDB metadata + personal journal fields.
  * Built by `getMovieDetail`; UI must not assemble URLs or summary strings.
@@ -90,6 +98,10 @@ export type MovieDetail = {
   /** Sanitized HTML from the review file; null when the file is missing */
   reviewHtml: string | null;
   reviewEmptyLabel: string;
+  reviewLocale: ReviewLocaleFields["reviewLocale"];
+  reviewHeading: string;
+  alternateReviewHref: string | null;
+  alternateReviewLabel: string | null;
 
   metaTitle: string;
   metaDescription: string;
@@ -162,6 +174,10 @@ export type SeriesDetail = {
   reviewSlug: string | null;
   reviewHtml: string | null;
   reviewEmptyLabel: string;
+  reviewLocale: ReviewLocaleFields["reviewLocale"];
+  reviewHeading: string;
+  alternateReviewHref: string | null;
+  alternateReviewLabel: string | null;
 
   metaTitle: string;
   metaDescription: string;
@@ -234,6 +250,10 @@ export type BookDetail = {
   reviewSlug: string | null;
   reviewHtml: string | null;
   reviewEmptyLabel: string;
+  reviewLocale: ReviewLocaleFields["reviewLocale"];
+  reviewHeading: string;
+  alternateReviewHref: string | null;
+  alternateReviewLabel: string | null;
 
   metaTitle: string;
   metaDescription: string;
