@@ -70,7 +70,7 @@ describe("getMovieDetail", () => {
     const detail = await getMovieDetail("cat-on-a-hot-tin-roof", "pt-BR");
     expect(detail?.reviewLocale).toBe("pt-BR");
     expect(detail?.title).toBe("Gata em Telhado de Zinco Quente");
-    expect(detail?.reviewHtml).toContain("Cole aqui");
+    expect(detail?.reviewHtml).toContain("Como alguém que está se afogando");
     expect(detail?.alternateReviewHref).toBe("/films/cat-on-a-hot-tin-roof");
     expect(detail?.metaTitle).toContain("Resenha de");
     expect(getMovieByIdMock).toHaveBeenCalledWith(261, "pt-BR");
