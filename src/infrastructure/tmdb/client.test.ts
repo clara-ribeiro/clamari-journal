@@ -109,4 +109,14 @@ describe("tmdb client", () => {
     expect(series.title).toBeTruthy();
     expect(series.seasons.length).toBeGreaterThan(0);
   });
+
+  it("can request movie details in a specific TMDB language", async () => {
+    const fetchMock = vi.fn().mockResolvedValue(jsonResponse(movieFixture));
+    vi.stubGlobal("fetch", fetchMock);
+
+    const { getMovieById } = await import("./client");
+    await getMovieById(550, "pt-BR");
+
+    expect(String(fetchMock.mock.calls[0]![0])).toContain("language=pt-BR");
+  });
 });

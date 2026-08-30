@@ -6,6 +6,10 @@ describe("formatDate", () => {
     expect(formatDate("2024-06-01")).toBe("June 1, 2024");
   });
 
+  it("formats ISO calendar dates in pt-BR long form", () => {
+    expect(formatDate("2024-06-01", "pt-BR")).toBe("1 de junho de 2024");
+  });
+
   it("returns an em dash for empty values", () => {
     expect(formatDate(undefined)).toBe("—");
     expect(formatDate(null)).toBe("—");

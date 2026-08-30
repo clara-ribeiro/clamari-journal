@@ -1,7 +1,22 @@
 // @vitest-environment jsdom
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import ReviewRenderer from "./index";
+
+vi.mock("next/link", () => ({
+  default: ({
+    children,
+    href,
+    ...rest
+  }: {
+    children: React.ReactNode;
+    href: string;
+  }) => (
+    <a href={href} {...rest}>
+      {children}
+    </a>
+  ),
+}));
 
 describe("ReviewRenderer", () => {
   it("shows the empty fallback when there is no review body", () => {
@@ -57,5 +72,23 @@ describe("ReviewRenderer", () => {
       />,
     );
     expect(screen.getByText("Review on the way.")).toBeInTheDocument();
+  });
+
+  it("links to the other locale when an alternate essay exists", () => {
+    render(
+      <ReviewRenderer
+        heading="Resenha"
+        headingId="review-heading"
+        emptyLabel="Resenha a caminho."
+        html="<p>Ensaio em português.</p>"
+        alternateHref="/films/heat"
+        alternateLabel="English Version"
+        alternateLang="en"
+      />,
+    );
+    const link = screen.getByRole("link", { name: "English Version" });
+    expect(link).toHaveAttribute("href", "/films/heat");
+    expect(link).toHaveAttribute("hrefLang", "en");
+    expect(link).toHaveAttribute("lang", "en");
   });
 });

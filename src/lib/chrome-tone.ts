@@ -25,19 +25,24 @@ function isPrefix(pathname: string, root: string) {
 
 /** Resolve header + footer tones from the current pathname. */
 export function chromeForPath(pathname: string): PageChrome {
-  if (pathname === "/") {
+  if (pathname === "/" || pathname === "/pt") {
     return { header: "navy", footer: "ink" };
   }
 
-  if (pathname === "/stats") {
+  if (pathname === "/stats" || pathname === "/pt/stats") {
     return { header: "stats", footer: "white" };
   }
 
-  if (isPrefix(pathname, "/films")) {
+  if (isPrefix(pathname, "/films") || isPrefix(pathname, "/pt/films")) {
     return { header: "films", footer: "films" };
   }
 
-  if (isPrefix(pathname, "/series") || isPrefix(pathname, "/books")) {
+  if (
+    isPrefix(pathname, "/series") ||
+    isPrefix(pathname, "/books") ||
+    isPrefix(pathname, "/pt/series") ||
+    isPrefix(pathname, "/pt/books")
+  ) {
     return { header: "paper", footer: "paper" };
   }
 

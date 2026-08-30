@@ -1,7 +1,7 @@
 "use client";
 
 import type { GoalMetric, StatsMetric } from "@/application/dto";
-import { statsCopy } from "@/content/copy";
+import { useLocaleCopy } from "@/content/copy/use-copy";
 import GoalsGauge from "@/components/organisms/GoalsGauge";
 import StatsCollage from "@/components/organisms/StatsCollage";
 import StatsHero from "@/components/organisms/StatsHero";
@@ -12,7 +12,8 @@ export type StatsTemplateProps = {
 };
 
 export default function StatsTemplate({ metrics, goals }: StatsTemplateProps) {
-  const collage = statsCopy.collage;
+  const { copy } = useLocaleCopy();
+  const collage = copy.stats.collage;
 
   return (
     <>

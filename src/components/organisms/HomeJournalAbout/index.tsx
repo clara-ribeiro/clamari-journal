@@ -1,4 +1,6 @@
-import { homeCopy } from "@/content/copy";
+"use client";
+
+import { useLocaleCopy } from "@/content/copy/use-copy";
 import {
   Body,
   EmailLink,
@@ -14,9 +16,9 @@ export type HomeJournalAboutProps = {
   className?: string;
 };
 
-const copy = homeCopy.journalAbout;
-
 export default function HomeJournalAbout({ className }: HomeJournalAboutProps) {
+  const { copy: bundle } = useLocaleCopy();
+  const copy = bundle.home.journalAbout;
   const [intro, closing] = copy.paragraphs;
 
   return (

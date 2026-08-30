@@ -48,6 +48,8 @@ export const catalogCopy = {
     startedOn: "Started on {date}",
     finishedOn: "Finished on {date}",
     noActivityDate: "No date logged",
+    episodeCount: "{count} eps",
+    pageCount: "{count} pages",
   },
   status: {
     films: {

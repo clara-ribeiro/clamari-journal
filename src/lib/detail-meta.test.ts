@@ -85,4 +85,25 @@ describe("buildDetailMeta", () => {
     );
     expect(meta.metaDescription).not.toContain("almost make it");
   });
+
+  it("uses Portuguese SEO templates when provided", () => {
+    const meta = buildDetailMeta({
+      title: "Gata em Telhado de Zinco Quente",
+      year: "1958",
+      synopsis: null,
+      reviewHtml: "<p>Como um homem que se afoga.</p>",
+      copy,
+      seoCopy: {
+        titleWithReview: "Resenha de {title}",
+        descriptionFromReview: "Uma resenha pessoal de {title}. {excerpt}",
+      },
+    });
+
+    expect(meta.metaTitle).toBe(
+      "Resenha de Gata em Telhado de Zinco Quente (1958)",
+    );
+    expect(meta.metaDescription).toBe(
+      "Uma resenha pessoal de Gata em Telhado de Zinco Quente (1958). Como um homem que se afoga.",
+    );
+  });
 });

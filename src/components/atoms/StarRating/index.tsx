@@ -1,5 +1,7 @@
+"use client";
+
 import { Star } from "lucide-react";
-import { starRatingCopy } from "@/content/copy";
+import { useLocaleCopy } from "@/content/copy/use-copy";
 import { Root } from "./styles";
 
 export type StarRatingProps = {
@@ -13,13 +15,14 @@ export default function StarRating({
   max = 5,
   className,
 }: StarRatingProps) {
+  const { copy } = useLocaleCopy();
   const stars = Math.round(Math.min(max, Math.max(0, value)));
   const label =
     stars > 0
-      ? starRatingCopy.rated
+      ? copy.starRating.rated
           .replace("{value}", String(stars))
           .replace("{max}", String(max))
-      : starRatingCopy.noRating;
+      : copy.starRating.noRating;
 
   return (
     <Root className={className} role="img" aria-label={label}>

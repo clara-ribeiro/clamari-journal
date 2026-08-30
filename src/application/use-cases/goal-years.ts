@@ -4,6 +4,11 @@ import type {
   MovieEntry,
   SeriesEntry,
 } from "@/domain/entities";
+import {
+  DEFAULT_REVIEW_LOCALE,
+  pathForLocale,
+  type ReviewLocale,
+} from "@/lib/review-locale";
 
 function isoYear(iso?: string | null): number | null {
   if (!iso || iso.length < 4) return null;
@@ -15,10 +20,11 @@ function isoYear(iso?: string | null): number | null {
 export function goalCatalogHref(
   key: GoalProgress["key"] | string,
   year: number,
+  locale: ReviewLocale = DEFAULT_REVIEW_LOCALE,
 ): string {
   const path =
     key === "movies" ? "/films" : key === "series" ? "/series" : "/books";
-  return `${path}?year=${year}#main-content`;
+  return `${pathForLocale(path, locale)}?year=${year}#main-content`;
 }
 
 export function movieCountsTowardYearGoal(

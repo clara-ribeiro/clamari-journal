@@ -1,8 +1,9 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { siteCopy } from "@/content/copy";
+import { useLocaleCopy } from "@/content/copy/use-copy";
 import { chromeForPath } from "@/lib/chrome-tone";
+import { stripLocalePrefix } from "@/lib/review-locale";
 import { useStatusChrome } from "@/components/providers/StatusChromeProvider";
 import {
   Brand,
@@ -19,8 +20,6 @@ import {
 export type SiteFooterProps = {
   className?: string;
 };
-
-const copy = siteCopy.footer;
 
 function LinkedInIcon() {
   return (
@@ -62,8 +61,10 @@ const socialIcons = {
 } as const;
 
 export default function SiteFooter({ className }: SiteFooterProps) {
+  const { copy: bundle, href } = useLocaleCopy();
+  const copy = bundle.site.footer;
   const pathname = usePathname() ?? copy.homeHref;
-  const isHome = pathname === copy.homeHref;
+  const isHome = stripLocalePrefix(pathname) === copy.homeHref;
   const { active: statusChrome } = useStatusChrome();
   const tone = statusChrome ? "clear" : chromeForPath(pathname).footer;
 
@@ -72,7 +73,7 @@ export default function SiteFooter({ className }: SiteFooterProps) {
       {isHome ? (
         <Brand>{copy.brand}</Brand>
       ) : (
-        <BrandLink href={copy.homeHref} prefetch={false} aria-label={siteCopy.brand.fullName}>
+        <BrandLink href={href(copy.homeHref)} prefetch={false} aria-label={bundle.site.brand.fullName}>
           {copy.brand}
         </BrandLink>
       )}

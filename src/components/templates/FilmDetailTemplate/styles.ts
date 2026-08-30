@@ -187,8 +187,8 @@ export const HeroText = styled("div", {
   display: "flex",
   flexDirection: "column",
   gap: "$sm",
+  flex: 1,
   minWidth: 0,
-  maxWidth: "28rem",
   paddingBottom: "$xs",
   textAlign: "left",
 });
@@ -202,10 +202,14 @@ export const TitleRow = styled("div", {
 
 export const Title = styled("h1", {
   fontFamily: "$section",
-  fontSize: "clamp(1.75rem, 5vw, 2.75rem)",
+  fontSize: "clamp(1.75rem, 4.2vw, 2.5rem)",
   lineHeight: 1.1,
   color: "$catalogTextOnDark",
   margin: 0,
+
+  "@md": {
+    whiteSpace: "nowrap",
+  },
 });
 
 export const YearRuntime = styled("p", {
@@ -219,7 +223,8 @@ export const OriginalTitle = styled("p", {
   fontSize: "$body2",
   color: "$catalogMutedOnDark",
   display: "flex",
-  flexWrap: "wrap",
+  flexDirection: "column",
+  alignItems: "flex-start",
   gap: "$xs",
   justifyContent: "flex-start",
 

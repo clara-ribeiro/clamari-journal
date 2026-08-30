@@ -24,6 +24,8 @@ vi.mock("next/link", () => ({
 
 vi.mock("next/navigation", () => ({
   useRouter: () => ({ refresh: vi.fn() }),
+  usePathname: () => "/books/the-titans-curse",
+  useSearchParams: () => new URLSearchParams(),
 }));
 
 function bookDetail(overrides: Partial<BookDetail> = {}): BookDetail {
@@ -83,6 +85,10 @@ function bookDetail(overrides: Partial<BookDetail> = {}): BookDetail {
     reviewSlug: null,
     reviewHtml: null,
     reviewEmptyLabel: booksCopy.detail.review.empty,
+    reviewLocale: "en",
+    reviewHeading: "Review",
+    alternateReviewHref: null,
+    alternateReviewLabel: null,
     metaTitle: "The Titan's Curse",
     metaDescription: "Artemis goes missing.",
     ...overrides,

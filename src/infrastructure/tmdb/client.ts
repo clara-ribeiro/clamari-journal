@@ -118,9 +118,12 @@ async function tmdbFetch<T>(
   }
 }
 
-function languageParams(extra?: Record<string, string>): URLSearchParams {
+function languageParams(
+  extra?: Record<string, string>,
+  language?: string,
+): URLSearchParams {
   return new URLSearchParams({
-    language: getTmdbLanguage(),
+    language: language?.trim() || getTmdbLanguage(),
     ...extra,
   });
 }
@@ -143,14 +146,26 @@ export async function searchSeries(query: string): Promise<TmdbSearchPage> {
   return normalizeSearchPage(raw);
 }
 
-export async function getMovieById(id: number): Promise<TmdbMovieMetadata> {
-  const params = languageParams({ append_to_response: "credits,videos" });
+export async function getMovieById(
+  id: number,
+  language?: string,
+): Promise<TmdbMovieMetadata> {
+  const params = languageParams(
+    { append_to_response: "credits,videos" },
+    language,
+  );
   const raw = await tmdbFetch<TmdbRawMovie>(`/movie/${id}?${params}`, "detail");
   return normalizeMovie(raw);
 }
 
-export async function getSeriesById(id: number): Promise<TmdbSeriesMetadata> {
-  const params = languageParams({ append_to_response: "credits,videos" });
+export async function getSeriesById(
+  id: number,
+  language?: string,
+): Promise<TmdbSeriesMetadata> {
+  const params = languageParams(
+    { append_to_response: "credits,videos" },
+    language,
+  );
   const raw = await tmdbFetch<TmdbRawSeries>(`/tv/${id}?${params}`, "detail");
   return normalizeSeries(raw);
 }
@@ -158,8 +173,9 @@ export async function getSeriesById(id: number): Promise<TmdbSeriesMetadata> {
 export async function getSeason(
   seriesId: number,
   seasonNumber: number,
+  language?: string,
 ): Promise<TmdbSeasonMetadata> {
-  const params = languageParams();
+  const params = languageParams(undefined, language);
   const raw = await tmdbFetch<TmdbRawSeason>(
     `/tv/${seriesId}/season/${seasonNumber}?${params}`,
     "detail",

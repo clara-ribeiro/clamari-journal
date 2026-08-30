@@ -11,6 +11,7 @@ export type {
   JournalMedium,
   MovieCastMember,
   MovieDetail,
+  ReviewLocaleFields,
   MovieViewingRecord,
   SeriesDetail,
   SeriesEpisodeDetail,

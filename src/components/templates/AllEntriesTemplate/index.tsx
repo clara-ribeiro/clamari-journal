@@ -7,7 +7,8 @@ import { isStorybookRuntime } from "@/lib/is-storybook";
 import { preload } from "react-dom";
 import type { CatalogCardItem } from "@/application/dto";
 import type { CatalogCopy } from "@/content/copy";
-import { allEntriesCopy, catalogCopy } from "@/content/copy";
+import { allEntriesCopy } from "@/content/copy";
+import { useLocaleCopy } from "@/content/copy/use-copy";
 import CatalogEntryCard from "@/components/molecules/CatalogEntryCard";
 import CatalogToolbar, {
   type CatalogSortId,
@@ -46,14 +47,16 @@ export type AllEntriesTemplateProps = {
   showFavoriteFilter?: boolean;
 };
 
-function mixedStatusOptions(): { value: string; label: string }[] {
+function mixedStatusOptions(
+  catalog: ReturnType<typeof useLocaleCopy>["copy"]["catalog"],
+): { value: string; label: string }[] {
   const seen = new Set<string>();
   const options: { value: string; label: string }[] = [];
 
   for (const group of [
-    catalogCopy.status.films,
-    catalogCopy.status.series,
-    catalogCopy.status.books,
+    catalog.status.films,
+    catalog.status.series,
+    catalog.status.books,
   ] as const) {
     for (const [value, label] of Object.entries(group)) {
       if (seen.has(value)) continue;
@@ -95,6 +98,8 @@ export default function AllEntriesTemplate({
   showReviewFilter = true,
   showFavoriteFilter = true,
 }: AllEntriesTemplateProps) {
+  const { copy: bundle } = useLocaleCopy();
+  const catalog = bundle.catalog;
   const router = useRouter();
   const pathname = usePathname();
   const lastSyncedUrl = useRef<string | null>(null);
@@ -232,7 +237,7 @@ export default function AllEntriesTemplate({
         onSearchChange={setSearch}
         statusFilter={statusFilter}
         onStatusFilterChange={setStatusFilter}
-        statusOptions={mixedStatusOptions()}
+        statusOptions={mixedStatusOptions(catalog)}
         yearFilter={yearFilter}
         onYearFilterChange={setYearFilter}
         yearOptions={yearOptions}
@@ -265,7 +270,7 @@ export default function AllEntriesTemplate({
               type="button"
               onClick={() => setVisibleCount(visibleItems.length)}
             >
-              {catalogCopy.toolbar.seeAll}
+              {catalog.toolbar.seeAll}
             </LoadMore>
           ) : null}
         </>
@@ -283,7 +288,7 @@ export default function AllEntriesTemplate({
               type="button"
               onClick={() => setVisibleCount(visibleItems.length)}
             >
-              {catalogCopy.toolbar.seeAll}
+              {catalog.toolbar.seeAll}
             </LoadMore>
           ) : null}
         </>

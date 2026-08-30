@@ -18,6 +18,7 @@ describe("sitemap", () => {
 
     for (const path of INDEXABLE_STATIC_PATHS) {
       expect(urls).toContain(path);
+      expect(urls).toContain(path === "/" ? "/pt" : `/pt${path}`);
     }
 
     expect(urls.some((path) => path.startsWith("/films/"))).toBe(true);
@@ -27,8 +28,10 @@ describe("sitemap", () => {
   });
 
   it("advertises local review stills on the film that has them", () => {
-    const film = sitemap().find((entry) =>
-      entry.url.includes("/films/cat-on-a-hot-tin-roof"),
+    const film = sitemap().find(
+      (entry) =>
+        entry.url.includes("/films/cat-on-a-hot-tin-roof") &&
+        !entry.url.includes("/pt/"),
     );
 
     expect(film?.priority).toBe(0.8);
@@ -38,6 +41,26 @@ describe("sitemap", () => {
         url.includes("brick-and-maggie-elizabeth-taylor-paul-newman"),
       ),
     ).toBe(true);
+  });
+
+  it("lists Portuguese counterparts and reciprocal hreflang on every public URL", () => {
+    const entries = sitemap();
+    const pt = entries.find((entry) =>
+      entry.url.includes("/pt/films/cat-on-a-hot-tin-roof"),
+    );
+    const en = entries.find(
+      (entry) =>
+        entry.url.includes("/films/cat-on-a-hot-tin-roof") &&
+        !entry.url.includes("/pt/"),
+    );
+
+    expect(pt?.priority).toBe(0.8);
+    expect(en?.alternates?.languages?.["pt-BR"]).toMatch(
+      /\/pt\/films\/cat-on-a-hot-tin-roof$/,
+    );
+    expect(pt?.alternates?.languages?.en).toMatch(
+      /\/films\/cat-on-a-hot-tin-roof$/,
+    );
   });
 });
 
@@ -59,7 +82,7 @@ describe("provider secrets stay server-only", () => {
   });
 
   it("does not expose provider tokens via NEXT_PUBLIC_* in app code", () => {
-    const layout = readFileSync("src/app/layout.tsx", "utf8");
+    const layout = readFileSync("src/app/root-document.tsx", "utf8");
     expect(layout).not.toMatch(/NEXT_PUBLIC_(TMDB_|GOOGLE_BOOKS_)/);
     expect(layout).not.toMatch(/TMDB_ACCESS_TOKEN/);
     expect(layout).not.toMatch(/GOOGLE_BOOKS_API_KEY/);

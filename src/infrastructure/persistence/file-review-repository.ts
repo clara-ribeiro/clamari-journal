@@ -7,8 +7,15 @@ import type {
   ReviewMedium,
   ReviewRepository,
 } from "@/application/repositories/review-repository";
+import { reviewLocaleCopy } from "@/content/copy/review-content";
 import { isReviewSlug } from "@/domain/value-objects/review-slug";
+import {
+  DEFAULT_REVIEW_LOCALE,
+  reviewFileName,
+  type ReviewLocale,
+} from "@/lib/review-locale";
 import { compileReviewMarkdown } from "./compile-review-markdown";
+import { parseReviewSource } from "./parse-review-source";
 
 /**
  * Reviews live on disk, not in the JS bundle. After `next build`,
@@ -24,10 +31,11 @@ export class FileReviewRepository implements ReviewRepository {
   findByMediumAndSlug(
     medium: ReviewMedium,
     slug: string,
+    locale: ReviewLocale = DEFAULT_REVIEW_LOCALE,
   ): ReviewDocument | undefined {
     if (!isReviewSlug(slug)) return undefined;
 
-    const filePath = path.resolve(this.root, medium, `${slug}.md`);
+    const filePath = path.resolve(this.root, medium, reviewFileName(slug, locale));
     const relative = path.relative(this.root, filePath);
     if (relative.startsWith("..") || path.isAbsolute(relative)) {
       return undefined;
@@ -41,10 +49,19 @@ export class FileReviewRepository implements ReviewRepository {
       throw error;
     }
 
-    const html = compileReviewMarkdown(source);
+    const parsed = parseReviewSource(source);
+    const html = compileReviewMarkdown(parsed.body, {
+      spoilerLabel: reviewLocaleCopy[locale].spoilerSummary,
+    });
     if (!html) return undefined;
 
-    return { medium, slug, html };
+    return {
+      medium,
+      slug,
+      locale,
+      html,
+      workTitle: parsed.workTitle,
+    };
   }
 }
 

@@ -64,6 +64,10 @@ function movieDetail(overrides: Partial<MovieDetail> = {}): MovieDetail {
     reviewSlug: null,
     reviewHtml: null,
     reviewEmptyLabel: "No review yet",
+    reviewLocale: "en",
+    reviewHeading: "Review",
+    alternateReviewHref: null,
+    alternateReviewLabel: null,
     metaTitle: "Heat",
     metaDescription: "A group of professional bank robbers.",
     ...overrides,
@@ -151,8 +155,6 @@ describe("FilmDetailTemplate cast disclosure", () => {
       />,
     );
     expect(screen.getByText("A quiet masterpiece.")).toBeInTheDocument();
-    expect(
-      screen.queryByText(filmsCopy.detail.review.pending),
-    ).toBeNull();
+    expect(screen.queryByText(filmsCopy.detail.review.pending)).toBeNull();
   });
 });

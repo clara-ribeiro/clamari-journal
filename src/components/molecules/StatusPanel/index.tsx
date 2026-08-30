@@ -1,7 +1,7 @@
 "use client";
 
 import StateShell from "@/components/molecules/StateShell";
-import { statesCopy } from "@/content/copy/states";
+import { useLocaleCopy } from "@/content/copy/use-copy";
 import {
   Actions,
   HomeLink,
@@ -25,12 +25,16 @@ export default function StatusPanel({
   title,
   message,
   titleId = "status-heading",
-  homeHref = statesCopy.actions.homeHref,
-  homeLabel = statesCopy.actions.home,
+  homeHref,
+  homeLabel,
   onRetry,
-  retryLabel = statesCopy.actions.retry,
+  retryLabel,
   className,
 }: StatusPanelProps) {
+  const { copy, href } = useLocaleCopy();
+  const resolvedHomeHref = homeHref ?? href(copy.states.actions.homeHref);
+  const resolvedHomeLabel = homeLabel ?? copy.states.actions.home;
+  const resolvedRetry = retryLabel ?? copy.states.actions.retry;
   return (
     <StateShell
       className={className}
@@ -43,11 +47,11 @@ export default function StatusPanel({
       <Actions>
         {onRetry ? (
           <RetryButton type="button" onClick={onRetry}>
-            {retryLabel}
+            {resolvedRetry}
           </RetryButton>
         ) : null}
-        <HomeLink href={homeHref} prefetch={false}>
-          ← {homeLabel}
+        <HomeLink href={resolvedHomeHref} prefetch={false}>
+          ← {resolvedHomeLabel}
         </HomeLink>
       </Actions>
     </StateShell>

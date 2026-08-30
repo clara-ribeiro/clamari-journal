@@ -58,6 +58,17 @@ export const Stats: Story = {
   },
 };
 
+export const PortugueseReview: Story = {
+  parameters: {
+    nextjs: {
+      navigation: {
+        pathname: "/pt/films/cat-on-a-hot-tin-roof",
+      },
+    },
+    backgrounds: { value: "films" },
+  },
+};
+
 /**
  * Home reveal: header stays hidden while the brand sentinel is on screen.
  * Scroll the canvas until the sentinel leaves to reveal the bar.

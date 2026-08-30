@@ -5,6 +5,8 @@ import {
   buildBookJsonLd,
   buildMovieJsonLd,
   buildSeriesJsonLd,
+  buildWebPageJsonLd,
+  buildWebsiteJsonLd,
   serializeJsonLd,
 } from "./json-ld";
 
@@ -40,6 +42,10 @@ function movie(overrides: Partial<MovieDetail> = {}): MovieDetail {
     reviewSlug: null,
     reviewHtml: null,
     reviewEmptyLabel: "No review",
+    reviewLocale: "en",
+    reviewHeading: "Review",
+    alternateReviewHref: null,
+    alternateReviewLabel: null,
     metaTitle: "Heat",
     metaDescription: "A crime epic.",
     ...overrides,
@@ -79,6 +85,10 @@ function series(overrides: Partial<SeriesDetail> = {}): SeriesDetail {
     reviewSlug: null,
     reviewHtml: null,
     reviewEmptyLabel: "No review",
+    reviewLocale: "en",
+    reviewHeading: "Review",
+    alternateReviewHref: null,
+    alternateReviewLabel: null,
     metaTitle: "The Wire",
     metaDescription: "Baltimore.",
     ...overrides,
@@ -121,6 +131,10 @@ function book(overrides: Partial<BookDetail> = {}): BookDetail {
     reviewSlug: null,
     reviewHtml: null,
     reviewEmptyLabel: "No review",
+    reviewLocale: "en",
+    reviewHeading: "Review",
+    alternateReviewHref: null,
+    alternateReviewLabel: null,
     metaTitle: "The Titan's Curse",
     metaDescription: "Artemis goes missing.",
     ...overrides,
@@ -131,6 +145,53 @@ describe("serializeJsonLd", () => {
   it("escapes < so markup cannot break out of the script tag", () => {
     expect(serializeJsonLd({ name: "</script><p>x</p>" })).toContain("\\u003c");
     expect(serializeJsonLd({ name: "</script><p>x</p>" })).not.toContain("</");
+  });
+});
+
+describe("buildWebsiteJsonLd", () => {
+  afterEach(() => {
+    vi.unstubAllEnvs();
+  });
+
+  it("sets Portuguese inLanguage and /pt url on pt-BR", () => {
+    vi.stubEnv("SITE_URL", "https://clamari.com.br");
+    const jsonLd = buildWebsiteJsonLd("pt-BR");
+    expect(jsonLd["@type"]).toBe("WebSite");
+    expect(jsonLd.inLanguage).toBe("pt-BR");
+    expect(jsonLd.url).toBe("https://clamari.com.br/pt");
+    expect(jsonLd.description).toContain("Diário pessoal");
+  });
+
+  it("keeps English home unprefixed", () => {
+    vi.stubEnv("SITE_URL", "https://clamari.com.br");
+    const jsonLd = buildWebsiteJsonLd("en");
+    expect(jsonLd.inLanguage).toBe("en");
+    expect(jsonLd.url).toBe("https://clamari.com.br");
+  });
+});
+
+describe("buildWebPageJsonLd", () => {
+  afterEach(() => {
+    vi.unstubAllEnvs();
+  });
+
+  it("emits a CollectionPage with locale url and inLanguage", () => {
+    vi.stubEnv("SITE_URL", "https://clamari.com.br");
+    const jsonLd = buildWebPageJsonLd({
+      type: "CollectionPage",
+      name: "Filmes",
+      description: "Catálogo de filmes.",
+      path: "/films",
+      locale: "pt-BR",
+    });
+    expect(jsonLd["@type"]).toBe("CollectionPage");
+    expect(jsonLd.inLanguage).toBe("pt-BR");
+    expect(jsonLd.url).toBe("https://clamari.com.br/pt/films");
+    expect(jsonLd.isPartOf).toEqual({
+      "@type": "WebSite",
+      name: "CLAMARI Journal",
+      url: "https://clamari.com.br/pt",
+    });
   });
 });
 
@@ -170,6 +231,7 @@ describe("buildMovieJsonLd", () => {
     });
     expect(jsonLd.reviewBody).toBe("Precision first.");
     expect(jsonLd.reviewBody).not.toContain("almost make it");
+    expect(jsonLd.inLanguage).toBe("en");
     expect(jsonLd.reviewRating).toEqual({
       "@type": "Rating",
       ratingValue: 4,
@@ -177,6 +239,27 @@ describe("buildMovieJsonLd", () => {
       worstRating: 1,
     });
     expect((jsonLd.itemReviewed as JsonLdLike)["@type"]).toBe("Movie");
+  });
+
+  it("uses Portuguese inLanguage and path on a pt-BR review page", () => {
+    vi.stubEnv("SITE_URL", "https://clamari.com.br");
+    const jsonLd = buildMovieJsonLd(
+      movie({
+        title: "Gata em Telhado de Zinco Quente",
+        reviewHtml: "<p>Como um homem que se afoga.</p>",
+        metaTitle: "Resenha de Gata em Telhado de Zinco Quente (1958)",
+        reviewLocale: "pt-BR",
+      }),
+    );
+
+    expect(jsonLd["@type"]).toBe("Review");
+    expect(jsonLd.inLanguage).toBe("pt-BR");
+    expect(jsonLd.url).toBe(
+      "https://clamari.com.br/pt/films/heat",
+    );
+    expect(jsonLd.name).toBe(
+      "Resenha de Gata em Telhado de Zinco Quente (1958)",
+    );
   });
 
   it("describes review stills and names the principal cast", () => {

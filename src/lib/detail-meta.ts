@@ -1,4 +1,5 @@
 import { reviewContentCopy } from "@/content/copy/review-content";
+import type { ReviewSeoCopy } from "@/content/copy/review-content";
 import {
   META_DESCRIPTION_MAX,
   reviewExcerpt,
@@ -16,6 +17,7 @@ export type DetailMetaInput = {
   synopsis: string | null;
   reviewHtml: string | null;
   copy: DetailMetaCopy;
+  seoCopy?: ReviewSeoCopy;
 };
 
 export type DetailMeta = {
@@ -40,13 +42,14 @@ export function buildDetailMeta(input: DetailMetaInput): DetailMeta {
   const publishedReview = Boolean(input.reviewHtml?.trim());
   const excerpt = input.reviewHtml ? reviewExcerpt(input.reviewHtml) : null;
   const reviewedAs = workTitle(input.title, input.year);
+  const seo = input.seoCopy ?? reviewContentCopy.seo;
 
   const metaTitle = publishedReview
-    ? reviewContentCopy.seo.titleWithReview.replace("{title}", reviewedAs)
+    ? seo.titleWithReview.replace("{title}", reviewedAs)
     : input.title;
 
   const descriptionSource = excerpt
-    ? reviewContentCopy.seo.descriptionFromReview
+    ? seo.descriptionFromReview
         .replace("{title}", reviewedAs)
         .replace("{excerpt}", excerpt)
     : input.synopsis

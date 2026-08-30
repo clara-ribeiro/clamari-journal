@@ -18,6 +18,7 @@ describe("formatDuration", () => {
     // 1 year + 2 months + 3 days
     const minutes = 365 * 24 * 60 + 2 * 30 * 24 * 60 + 3 * 24 * 60;
     expect(formatDuration(minutes)).toBe("1y 2mo 3d");
+    expect(formatDuration(minutes, "pt-BR")).toBe("1a 2mês 3d");
   });
 
   it("handles zero and negatives", () => {

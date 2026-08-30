@@ -15,6 +15,8 @@ describe("FileReviewRepository", () => {
     const review = repository.findByMediumAndSlug("films", "heat");
     expect(review?.slug).toBe("heat");
     expect(review?.medium).toBe("films");
+    expect(review?.locale).toBe("en");
+    expect(review?.workTitle).toBeNull();
     expect(review?.html).toContain("<em>emphasis</em>");
     expect(review?.html).toContain('<details class="review-spoiler">');
     expect(review?.html).toContain("<summary>The ending</summary>");
@@ -29,6 +31,17 @@ describe("FileReviewRepository", () => {
   it("rejects unsafe slugs", () => {
     expect(repository.findByMediumAndSlug("films", "../heat")).toBeUndefined();
     expect(repository.findByMediumAndSlug("films", "heat.md")).toBeUndefined();
+  });
+
+  it("loads a Portuguese sibling without mixing it into the English file", () => {
+    const review = repository.findByMediumAndSlug("films", "heat", "pt-BR");
+    expect(review?.locale).toBe("pt-BR");
+    expect(review?.workTitle).toBe("Fogo Contra Fogo");
+    expect(review?.html).toContain("<em>emphasis</em>");
+    expect(review?.html).toContain("<summary>Alerta de spoilers</summary>");
+    expect(repository.findByMediumAndSlug("films", "heat")?.html).not.toContain(
+      "Alerta de spoilers",
+    );
   });
 
   it("loads journal reviews from src/content when cwd is the project root", () => {

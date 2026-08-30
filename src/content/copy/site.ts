@@ -26,7 +26,14 @@ export const siteCopy = {
     /** List pages where the header stays hidden until the hero scrolls out of view. */
     revealOnScrollHrefs: ["/", "/films", "/series", "/books", "/stats"],
     /** Detail route prefixes that also reveal the header after the first scroll. */
-    revealOnScrollPrefixes: ["/films/", "/series/", "/books/"],
+    revealOnScrollPrefixes: [
+      "/films/",
+      "/series/",
+      "/books/",
+      "/pt/films/",
+      "/pt/series/",
+      "/pt/books/",
+    ],
     catalogHeroSentinelIds: {
       "/films": "films-catalog-hero",
       "/series": "series-catalog-hero",
@@ -42,6 +49,13 @@ export const siteCopy = {
       { href: "/series", label: "Series" },
       { href: "/books", label: "Books" },
     ],
+    locale: {
+      ariaLabel: "Language",
+      en: "EN",
+      enName: "English",
+      pt: "PT",
+      ptName: "Português",
+    },
   },
   footer: {
     brand: "CLAMARI",

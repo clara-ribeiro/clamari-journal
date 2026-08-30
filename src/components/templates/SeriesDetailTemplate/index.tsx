@@ -11,7 +11,8 @@ import type {
 import RefreshButton from "@/components/atoms/RefreshButton";
 import StarRating from "@/components/atoms/StarRating";
 import ReviewRenderer from "@/components/molecules/ReviewRenderer";
-import { seriesCopy } from "@/content/copy/series";
+import { copyFor } from "@/content/copy/for-locale";
+import { pathForLocale, type ReviewLocale } from "@/lib/review-locale";
 import { isTmdbImageUrl, tmdbImageLoader } from "@/lib/tmdb-image";
 import {
   Backdrop,
@@ -170,11 +171,13 @@ function CastSection({
 function SeasonsPanel({
   seasons,
   emptyLabel,
+  locale,
 }: {
   seasons: SeriesSeasonDetail[];
   emptyLabel: string;
+  locale: ReviewLocale;
 }) {
-  const copy = seriesCopy.detail.seasons;
+  const copy = copyFor(locale).series.detail.seasons;
 
   if (seasons.length === 0) {
     return (
@@ -240,7 +243,7 @@ export default function SeriesDetailTemplate({
   detail,
   className,
 }: SeriesDetailTemplateProps) {
-  const copy = seriesCopy.detail;
+  const copy = copyFor(detail.reviewLocale).series.detail;
   const [showPosterPlaceholder, setShowPosterPlaceholder] = useState(
     !detail.posterUrl,
   );
@@ -298,15 +301,14 @@ export default function SeriesDetailTemplate({
             <HeroText>
               <TitleRow>
                 <Title id={titleId}>{detail.title}</Title>
+                {detail.originalTitle ? (
+                  <OriginalTitle>
+                    <span>{copy.metadata.originalTitle}</span>
+                    {detail.originalTitle}
+                  </OriginalTitle>
+                ) : null}
                 {yearLabel ? <YearRuntime>{yearLabel}</YearRuntime> : null}
               </TitleRow>
-
-              {detail.originalTitle ? (
-                <OriginalTitle>
-                  <span>{copy.metadata.originalTitle}</span>
-                  {detail.originalTitle}
-                </OriginalTitle>
-              ) : null}
 
               {detail.genres.length > 0 ? (
                 <GenreRow aria-label={copy.metadata.genres}>
@@ -465,19 +467,23 @@ export default function SeriesDetailTemplate({
           <SeasonsPanel
             seasons={detail.seasons}
             emptyLabel={detail.seasonsEmptyLabel}
+            locale={detail.reviewLocale}
           />
         </SplitRow>
 
         {hasReview ? (
           <ReviewRenderer
-            heading={copy.review.heading}
+            heading={detail.reviewHeading}
             headingId={copy.review.headingId}
             emptyLabel={detail.reviewEmptyLabel}
             html={detail.reviewHtml}
+            alternateHref={detail.alternateReviewHref}
+            alternateLabel={detail.alternateReviewLabel}
+            alternateLang={detail.reviewLocale === "pt-BR" ? "en" : "pt-BR"}
           />
         ) : null}
 
-        <BackLink href={copy.backHref} prefetch={false}>
+        <BackLink href={pathForLocale(copy.backHref, detail.reviewLocale)} prefetch={false}>
           {copy.backLabel}
         </BackLink>
       </Shell>
