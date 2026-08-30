@@ -9,8 +9,7 @@ import type {
 } from "@/application/dto";
 import type { GoogleBooksMetadata } from "@/application/dto/google-books-metadata";
 import type { BookEntry, BookFormat } from "@/domain/entities";
-import { booksCopy } from "@/content/copy/books";
-import { catalogCopy } from "@/content/copy/catalog";
+import { copyFor } from "@/content/copy/for-locale";
 import {
   getBookById,
   GoogleBooksError,
@@ -20,8 +19,15 @@ import { buildDetailMeta } from "@/lib/detail-meta";
 import { stripHtml } from "@/lib/plain-text";
 import {
   DEFAULT_REVIEW_LOCALE,
+  intlLocale,
   type ReviewLocale,
 } from "@/lib/review-locale";
+import {
+  catalogCopyFor,
+  catalogHasReview,
+  catalogHref,
+  localizedWorkTitle,
+} from "./catalog-locale";
 import { yearsBookCountsToward } from "./goal-years";
 import { defaultDetailLocale, resolveDetailLocale } from "./review-locale";
 
@@ -66,28 +72,43 @@ function bookStatusTone(
   return "neutral";
 }
 
-function toBookCatalogCard(book: BookEntry): CatalogCardItem {
-  const title = book.title ?? book.slug;
-  const statusLabel = catalogCopy.status.books[book.status];
-  const hasReview = Boolean(book.reviewSlug);
+function toBookCatalogCard(
+  book: BookEntry,
+  locale: ReviewLocale = DEFAULT_REVIEW_LOCALE,
+): CatalogCardItem {
+  const catalog = catalogCopyFor(locale);
+  const fallbackTitle = book.title ?? book.slug;
+  const title = localizedWorkTitle(
+    "books",
+    book.reviewSlug,
+    fallbackTitle,
+    locale,
+  );
+  const statusLabel = catalog.status.books[book.status];
+  const hasReview = catalogHasReview("books", book.reviewSlug, locale);
   const favorite = Boolean(book.favorite);
   const activityDate = book.finishedAt ?? book.startedAt ?? null;
   const activityLabel = book.finishedAt
-    ? catalogCopy.card.finishedOn.replace(
+    ? catalog.card.finishedOn.replace(
         "{date}",
-        formatDate(book.finishedAt),
+        formatDate(book.finishedAt, locale),
       )
     : book.startedAt
-      ? catalogCopy.card.startedOn.replace(
+      ? catalog.card.startedOn.replace(
           "{date}",
-          formatDate(book.startedAt),
+          formatDate(book.startedAt, locale),
         )
-      : catalogCopy.card.noActivityDate;
+      : catalog.card.noActivityDate;
   const pagesLabel =
-    book.customPageCount != null ? `${book.customPageCount} pages` : null;
+    book.customPageCount != null
+      ? catalog.card.pageCount.replace("{count}", String(book.customPageCount))
+      : null;
+  const formatLabel = book.format
+    ? copyFor(locale).books.detail.format[book.format]
+    : null;
 
   const metaTags = [
-    book.format ?? null,
+    formatLabel,
     pagesLabel,
     ...(book.tags ?? []).slice(0, 2),
     statusLabel,
@@ -97,7 +118,7 @@ function toBookCatalogCard(book: BookEntry): CatalogCardItem {
     medium: "book",
     slug: book.slug,
     title,
-    href: `/books/${book.slug}`,
+    href: catalogHref("books", book.slug, locale),
     posterUrl: book.coverUrl ?? null,
     rating: book.rating,
     favorite,
@@ -107,11 +128,11 @@ function toBookCatalogCard(book: BookEntry): CatalogCardItem {
     yearLabel: null,
     activityLabel,
     favoriteLabel: favorite
-      ? catalogCopy.card.favorite
-      : catalogCopy.card.notFavorite,
+      ? catalog.card.favorite
+      : catalog.card.notFavorite,
     reviewLabel: hasReview
-      ? catalogCopy.card.withReview
-      : catalogCopy.card.noReview,
+      ? catalog.card.withReview
+      : catalog.card.noReview,
     metaTags,
     statusKey: book.status,
     sortTitle: title,
@@ -123,10 +144,14 @@ function toBookCatalogCard(book: BookEntry): CatalogCardItem {
   };
 }
 
-export function listBookCatalogItems(): CatalogCardItem[] {
+export function listBookCatalogItems(
+  locale: ReviewLocale = DEFAULT_REVIEW_LOCALE,
+): CatalogCardItem[] {
   return listBooks()
-    .map(toBookCatalogCard)
-    .sort((a, b) => a.sortTitle.localeCompare(b.sortTitle));
+    .map((book) => toBookCatalogCard(book, locale))
+    .sort((a, b) =>
+      a.sortTitle.localeCompare(b.sortTitle, intlLocale(locale)),
+    );
 }
 
 function joinNames(names: string[]): string | null {
@@ -150,44 +175,62 @@ export function buildHeroExcerpt(
   return `${clipped}…`;
 }
 
-function formatLabel(format: BookFormat | undefined): string | null {
+function formatLabel(
+  format: BookFormat | undefined,
+  locale: ReviewLocale,
+): string | null {
   if (!format) return null;
-  return booksCopy.detail.format[format];
+  return copyFor(locale).books.detail.format[format];
 }
 
-function pageLabel(page: number | undefined): string | null {
+function pageLabel(
+  page: number | undefined,
+  locale: ReviewLocale,
+): string | null {
   if (page == null) return null;
-  return booksCopy.detail.history.page.replace("{page}", String(page));
+  return copyFor(locale).books.detail.history.page.replace(
+    "{page}",
+    String(page),
+  );
 }
 
-function buildQuotes(entry: BookEntry): BookQuoteRecord[] {
+function buildQuotes(
+  entry: BookEntry,
+  locale: ReviewLocale,
+): BookQuoteRecord[] {
   return (entry.quotes ?? []).map((quote, index) => ({
     id: `quote-${index}`,
     text: quote.text,
-    pageLabel: pageLabel(quote.page),
+    pageLabel: pageLabel(quote.page, locale),
     note: quote.note?.trim() || null,
   }));
 }
 
-function buildHistory(entry: BookEntry): BookHistoryRecord[] {
+function buildHistory(
+  entry: BookEntry,
+  locale: ReviewLocale,
+): BookHistoryRecord[] {
   const rows = [...(entry.readingHistory ?? [])].sort((a, b) =>
     a.date.localeCompare(b.date),
   );
   return rows.map((row, index) => ({
     id: `history-${index}-${row.date}`,
-    dateLabel: formatDate(row.date),
-    pageLabel: pageLabel(row.page),
+    dateLabel: formatDate(row.date, locale),
+    pageLabel: pageLabel(row.page, locale),
     note: row.note?.trim() || null,
   }));
 }
 
-function buildNotes(entry: BookEntry): BookNoteRecord[] {
+function buildNotes(
+  entry: BookEntry,
+  locale: ReviewLocale,
+): BookNoteRecord[] {
   const rows = [...(entry.readingHistory ?? [])]
     .filter((row) => Boolean(row.note?.trim()))
     .sort((a, b) => a.date.localeCompare(b.date));
   return rows.map((row, index) => ({
     id: `note-${index}-${row.date}`,
-    dateLabel: formatDate(row.date),
+    dateLabel: formatDate(row.date, locale),
     text: row.note!.trim(),
   }));
 }
@@ -199,7 +242,9 @@ export function mapBookDetail(
   reviewHtml: string | null = null,
   localeContext = defaultDetailLocale(),
 ): BookDetail {
-  const copy = booksCopy.detail;
+  const locale = localeContext.reviewLocale;
+  const copy = copyFor(locale).books.detail;
+  const catalog = catalogCopyFor(locale);
   const title =
     localeContext.workTitle?.trim() ||
     metadata?.title?.trim() ||
@@ -251,16 +296,18 @@ export function mapBookDetail(
     isbn10Label: metadata?.identifiers.isbn10 ?? null,
     isbn13Label: metadata?.identifiers.isbn13 ?? null,
     metadataNotice,
-    statusLabel: catalogCopy.status.books[entry.status],
+    statusLabel: catalog.status.books[entry.status],
     rating: entry.rating,
     favorite,
     favoriteLabel: favorite
-      ? catalogCopy.card.favorite
-      : catalogCopy.card.notFavorite,
-    formatLabel: formatLabel(entry.format),
+      ? catalog.card.favorite
+      : catalog.card.notFavorite,
+    formatLabel: formatLabel(entry.format, locale),
     tags: entry.tags ?? [],
-    startedLabel: entry.startedAt ? formatDate(entry.startedAt) : null,
-    finishedLabel: entry.finishedAt ? formatDate(entry.finishedAt) : null,
+    startedLabel: entry.startedAt ? formatDate(entry.startedAt, locale) : null,
+    finishedLabel: entry.finishedAt
+      ? formatDate(entry.finishedAt, locale)
+      : null,
     currentPageLabel:
       currentPage != null
         ? pageCount != null
@@ -270,11 +317,11 @@ export function mapBookDetail(
     progressLabel:
       progressPercent != null ? `${progressPercent}%` : null,
     progressPercent,
-    quotes: buildQuotes(entry),
+    quotes: buildQuotes(entry, locale),
     quotesEmptyLabel: copy.quotes.empty,
-    history: buildHistory(entry),
+    history: buildHistory(entry, locale),
     historyEmptyLabel: copy.history.empty,
-    notes: buildNotes(entry),
+    notes: buildNotes(entry, locale),
     notesEmptyLabel: copy.notes.empty,
     reviewSlug,
     reviewHtml,
@@ -291,10 +338,12 @@ export function mapBookDetail(
 async function loadBookMetadata(
   googleBooksId: string,
   customPageCount: number | undefined,
+  locale: ReviewLocale = DEFAULT_REVIEW_LOCALE,
 ): Promise<{
   metadata: GoogleBooksMetadata | null;
   notice: string | null;
 }> {
+  const notices = copyFor(locale).books.detail.metadata;
   try {
     const metadata = await getBookById(googleBooksId, {
       customPageCount: customPageCount ?? null,
@@ -304,12 +353,12 @@ async function loadBookMetadata(
     if (error instanceof GoogleBooksError && error.code === "not_found") {
       return {
         metadata: null,
-        notice: booksCopy.detail.metadata.unresolved,
+        notice: notices.unresolved,
       };
     }
     return {
       metadata: null,
-      notice: booksCopy.detail.metadata.unavailable,
+      notice: notices.unavailable,
     };
   }
 }
@@ -332,11 +381,11 @@ export const getBookDetail = cache(
       entry.reviewSlug,
       locale,
     );
-    if (!localeContext) return undefined;
 
     const { metadata, notice } = await loadBookMetadata(
       entry.googleBooksId,
       entry.customPageCount,
+      locale,
     );
     return mapBookDetail(
       entry,

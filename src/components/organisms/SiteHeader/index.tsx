@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import LocaleSwitch from "@/components/atoms/LocaleSwitch";
-import { siteCopy } from "@/content/copy";
+import { useLocaleCopy } from "@/content/copy/use-copy";
 import { chromeForPath } from "@/lib/chrome-tone";
 import { stripLocalePrefix } from "@/lib/review-locale";
 import { useStatusChrome } from "@/components/providers/StatusChromeProvider";
@@ -22,46 +22,43 @@ export type SiteHeaderProps = {
   className?: string;
 };
 
-const copy = siteCopy.header;
-const revealOnScroll = new Set<string>(copy.revealOnScrollHrefs);
-const revealPrefixes = copy.revealOnScrollPrefixes;
-const catalogSentinels = copy.catalogHeroSentinelIds;
-
 function isActivePath(pathname: string, href: string) {
   const canonical = stripLocalePrefix(pathname);
   return canonical === href || canonical.startsWith(`${href}/`);
 }
 
-function usesRevealOnScroll(pathname: string) {
-  const canonical = stripLocalePrefix(pathname);
-  if (revealOnScroll.has(canonical)) return true;
-  return revealPrefixes.some(
-    (prefix) =>
-      canonical.startsWith(prefix) || pathname.startsWith(prefix),
-  );
-}
-
-function resolveSentinelId(pathname: string): string | null {
-  const canonical = stripLocalePrefix(pathname);
-  if (canonical === copy.homeHref) return copy.brandSentinelId;
-  if (canonical in catalogSentinels) {
-    return catalogSentinels[canonical as keyof typeof catalogSentinels];
-  }
-  if (canonical.startsWith("/films/")) {
-    return copy.filmDetailHeroSentinelId;
-  }
-  if (canonical.startsWith("/series/")) {
-    return copy.seriesDetailHeroSentinelId;
-  }
-  if (canonical.startsWith("/books/")) {
-    return copy.bookDetailHeroSentinelId;
-  }
-  return null;
-}
-
 export default function SiteHeader({ className }: SiteHeaderProps) {
+  const { copy: bundle, href } = useLocaleCopy();
+  const copy = bundle.site.header;
+  const revealOnScroll = new Set<string>(copy.revealOnScrollHrefs);
+  const revealPrefixes = copy.revealOnScrollPrefixes;
+  const catalogSentinels = copy.catalogHeroSentinelIds;
   const pathname = usePathname() ?? copy.homeHref;
   const isHome = stripLocalePrefix(pathname) === copy.homeHref;
+
+  function usesRevealOnScroll(path: string) {
+    const canonical = stripLocalePrefix(path);
+    if (revealOnScroll.has(canonical)) return true;
+    return revealPrefixes.some(
+      (prefix) =>
+        canonical.startsWith(prefix) || path.startsWith(prefix),
+    );
+  }
+
+  function resolveSentinelId(path: string): string | null {
+    const canonical = stripLocalePrefix(path);
+    if (canonical === copy.homeHref) return copy.brandSentinelId;
+    if (canonical in catalogSentinels) {
+      return catalogSentinels[canonical as keyof typeof catalogSentinels];
+    }
+    if (canonical.startsWith("/films/")) return copy.filmDetailHeroSentinelId;
+    if (canonical.startsWith("/series/")) {
+      return copy.seriesDetailHeroSentinelId;
+    }
+    if (canonical.startsWith("/books/")) return copy.bookDetailHeroSentinelId;
+    return null;
+  }
+
   const usesReveal = usesRevealOnScroll(pathname);
   const { active: statusChrome } = useStatusChrome();
   const tone = statusChrome ? "clear" : chromeForPath(pathname).header;
@@ -74,8 +71,6 @@ export default function SiteHeader({ className }: SiteHeaderProps) {
   }
 
   const sentinelId = resolveSentinelId(pathname);
-  // Reveal-on-scroll pages stay hidden until the hero sentinel leaves; status chrome always shows.
-  // No sentinel id means there is nothing to wait for — show immediately.
   const visible =
     statusChrome || !usesReveal || pastHero || (usesReveal && !sentinelId);
 
@@ -83,7 +78,6 @@ export default function SiteHeader({ className }: SiteHeaderProps) {
     if (statusChrome || !usesReveal || !sentinelId) return;
 
     const sentinel = document.getElementById(sentinelId);
-    // No hero on the page (e.g. Storybook isolation) — show the bar.
     if (!sentinel) {
       const frame = requestAnimationFrame(() => setPastHero(true));
       return () => cancelAnimationFrame(frame);
@@ -106,7 +100,7 @@ export default function SiteHeader({ className }: SiteHeaderProps) {
             {copy.items.map((item) => (
               <NavLink
                 key={item.href}
-                href={item.href}
+                href={href(item.href)}
                 prefetch={false}
                 active={isActivePath(pathname, item.href)}
                 tone={tone}
@@ -121,9 +115,9 @@ export default function SiteHeader({ className }: SiteHeaderProps) {
           <Brand>{copy.brand}</Brand>
         ) : (
           <BrandLink
-            href={copy.homeHref}
+            href={href(copy.homeHref)}
             prefetch={false}
-            aria-label={siteCopy.brand.fullName}
+            aria-label={bundle.site.brand.fullName}
           >
             {copy.brand}
           </BrandLink>

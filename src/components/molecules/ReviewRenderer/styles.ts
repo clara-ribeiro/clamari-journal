@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { styled } from "@/styles/stitches.config";
 
 export const Root = styled("section", {
@@ -23,6 +24,19 @@ export const Title = styled("h2", {
   border: 0,
   fontSize: 0,
   lineHeight: 0,
+});
+
+export const Alternate = styled(Link, {
+  display: "inline-flex",
+  alignSelf: "flex-end",
+  margin: 0,
+  fontFamily: "$body",
+  fontSize: "$body1",
+  lineHeight: 1.7,
+  color: "inherit",
+  opacity: 0.8,
+  textDecoration: "underline",
+  textUnderlineOffset: "0.2em",
 });
 
 export const Empty = styled("p", {
@@ -52,12 +66,15 @@ export const Prose = styled("div", {
     lineHeight: 1.2,
     textAlign: "center",
     color: "inherit",
-    textWrap: "balance",
   },
 
   "& h3": {
-    fontSize: "clamp(2rem, 4.8vw, 3.25rem)",
+    fontSize: "clamp(1.5rem, 2.4vw, 2.15rem)",
     paddingBottom: "$sm",
+
+    "@md": {
+      whiteSpace: "nowrap",
+    },
   },
 
   "& h4": {

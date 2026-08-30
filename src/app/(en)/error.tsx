@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import StatusPanel from "@/components/molecules/StatusPanel";
-import { statesCopy } from "@/content/copy/states";
+import { useLocaleCopy } from "@/content/copy/use-copy";
 
 type ErrorPageProps = {
   error: Error & { digest?: string };
@@ -10,19 +10,22 @@ type ErrorPageProps = {
 };
 
 export default function ErrorPage({ error, retry }: ErrorPageProps) {
-  const copy = statesCopy.error;
+  const { copy, href } = useLocaleCopy();
+  const panel = copy.states.error;
 
   useEffect(() => {
-    // Keep provider payloads / stacks out of the UI — log digest only.
     console.error(error.digest ?? error.message);
   }, [error]);
 
   return (
     <StatusPanel
-      titleId={copy.titleId}
-      title={copy.title}
-      message={copy.message}
+      titleId={panel.titleId}
+      title={panel.title}
+      message={panel.message}
       onRetry={retry}
+      retryLabel={copy.states.actions.retry}
+      homeHref={href(copy.states.actions.homeHref)}
+      homeLabel={copy.states.actions.home}
     />
   );
 }

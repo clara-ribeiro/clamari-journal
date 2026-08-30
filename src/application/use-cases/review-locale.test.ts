@@ -19,13 +19,14 @@ describe("resolveDetailLocale", () => {
     const context = resolveDetailLocale("films", "heat", "heat", "en");
     expect(context?.reviewHtml).toContain("<strong>strong</strong>");
     expect(context?.alternateReviewHref).toBe("/pt/films/heat");
-    expect(context?.alternateReviewLabel).toBe("Português");
+    expect(context?.alternateReviewLabel).toBe("Versão em Português");
   });
 
-  it("returns null for Portuguese when the sibling file is missing", () => {
-    expect(
-      resolveDetailLocale("films", "missing", "missing", "pt-BR"),
-    ).toBeNull();
+  it("still renders Portuguese chrome when the sibling essay is missing", () => {
+    const context = resolveDetailLocale("films", "missing", "missing", "pt-BR");
+    expect(context.reviewHtml).toBeNull();
+    expect(context.reviewHeading).toBe("Resenha");
+    expect(context.alternateReviewHref).toBeNull();
   });
 
   it("uses front matter title and English as the alternate on pt-BR", () => {
@@ -33,6 +34,6 @@ describe("resolveDetailLocale", () => {
     expect(context?.workTitle).toBe("Fogo Contra Fogo");
     expect(context?.reviewHeading).toBe("Resenha");
     expect(context?.alternateReviewHref).toBe("/films/heat");
-    expect(context?.alternateReviewLabel).toBe("English");
+    expect(context?.alternateReviewLabel).toBe("English Version");
   });
 });

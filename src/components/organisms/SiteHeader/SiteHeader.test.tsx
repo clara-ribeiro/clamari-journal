@@ -9,6 +9,7 @@ const navigation = vi.hoisted(() => ({ pathname: "/all-entries" }));
 
 vi.mock("next/navigation", () => ({
   usePathname: () => navigation.pathname,
+  useSearchParams: () => new URLSearchParams(),
 }));
 
 vi.mock("next/link", () => ({

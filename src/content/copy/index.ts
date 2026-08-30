@@ -19,3 +19,10 @@ export type {
   MediumCatalogCopy,
   MediumCatalogHeroCopy,
 } from "./types";
+export {
+  copyFor,
+  englishCopy,
+  portugueseCopy,
+  type AppCopy,
+} from "./for-locale";
+export { useLocaleCopy } from "./use-copy";

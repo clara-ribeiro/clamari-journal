@@ -1,4 +1,8 @@
 import type { CatalogCardItem } from "@/application/dto";
+import {
+  DEFAULT_REVIEW_LOCALE,
+  type ReviewLocale,
+} from "@/lib/review-locale";
 import { listBookCatalogItems } from "./books";
 import { listMovieCatalogItems } from "./movies";
 import { listSeriesCatalogItems } from "./series";
@@ -8,20 +12,26 @@ function compareDateNewest(a: CatalogCardItem, b: CatalogCardItem) {
 }
 
 /** All media as catalog cards, newest activity first. */
-export function listMixedCatalogItems(): CatalogCardItem[] {
+export function listMixedCatalogItems(
+  locale: ReviewLocale = DEFAULT_REVIEW_LOCALE,
+): CatalogCardItem[] {
   return [
-    ...listMovieCatalogItems(),
-    ...listSeriesCatalogItems(),
-    ...listBookCatalogItems(),
+    ...listMovieCatalogItems(locale),
+    ...listSeriesCatalogItems(locale),
+    ...listBookCatalogItems(locale),
   ].sort(compareDateNewest);
 }
 
 /** Favorited entries across media, newest activity first. */
-export function listFavoriteCatalogItems(): CatalogCardItem[] {
-  return listMixedCatalogItems().filter((item) => item.favorite);
+export function listFavoriteCatalogItems(
+  locale: ReviewLocale = DEFAULT_REVIEW_LOCALE,
+): CatalogCardItem[] {
+  return listMixedCatalogItems(locale).filter((item) => item.favorite);
 }
 
-/** Entries with a review across media, newest activity first. */
-export function listReviewCatalogItems(): CatalogCardItem[] {
-  return listMixedCatalogItems().filter((item) => item.hasReview);
+/** Entries with a review in this locale, newest activity first. */
+export function listReviewCatalogItems(
+  locale: ReviewLocale = DEFAULT_REVIEW_LOCALE,
+): CatalogCardItem[] {
+  return listMixedCatalogItems(locale).filter((item) => item.hasReview);
 }

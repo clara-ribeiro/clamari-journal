@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   htmlLang,
   isReviewLocale,
+  languageAlternates,
   localeFromPathname,
   ogLocale,
   otherReviewLocale,
@@ -42,6 +43,19 @@ describe("review locale helpers", () => {
       en: "/films/heat",
       "pt-BR": "/pt/films/heat",
       "x-default": "/films/heat",
+    });
+  });
+
+  it("builds hreflang for any public path", () => {
+    expect(languageAlternates("/films")).toEqual({
+      en: "/films",
+      "pt-BR": "/pt/films",
+      "x-default": "/films",
+    });
+    expect(languageAlternates("/pt")).toEqual({
+      en: "/",
+      "pt-BR": "/pt",
+      "x-default": "/",
     });
   });
 

@@ -1,4 +1,7 @@
-import { statsCopy } from "@/content/copy";
+"use client";
+
+import { copyFor } from "@/content/copy/for-locale";
+import { useLocaleCopy } from "@/content/copy/use-copy";
 import { Figure, Section, Title } from "./styles";
 
 export type StatsHeroProps = {
@@ -9,7 +12,7 @@ export type StatsHeroProps = {
   className?: string;
 };
 
-const copy = statsCopy.hero;
+const copy = copyFor("en").stats.hero;
 
 /** Intrinsic aspect from source art (3558×1848). */
 const BALLERINA_W = 720;
@@ -26,15 +29,25 @@ const BALLERINA_SRCSET = [
 const BALLERINA_SIZES = "(max-width: 1023px) 60vw, min(60vw, 48rem)";
 
 export default function StatsHero({
-  titleId = copy.titleId,
-  title = copy.title,
-  sentinelId = copy.sentinelId,
+  titleId,
+  title,
+  sentinelId,
   imageSrc = copy.image.src,
   className,
 }: StatsHeroProps) {
+  const { copy: bundle } = useLocaleCopy();
+  const hero = bundle.stats.hero;
+  const resolvedTitleId = titleId ?? hero.titleId;
+  const resolvedTitle = title ?? hero.title;
+  const resolvedSentinel = sentinelId ?? hero.sentinelId;
+
   return (
-    <Section id={sentinelId} className={className} aria-labelledby={titleId}>
-      <Title id={titleId}>{title}</Title>
+    <Section
+      id={resolvedSentinel}
+      className={className}
+      aria-labelledby={resolvedTitleId}
+    >
+      <Title id={resolvedTitleId}>{resolvedTitle}</Title>
       <Figure>
         {/*
           Native img + srcSet: Next Image `unoptimized` cannot emit a

@@ -68,12 +68,12 @@ APIs (TMDB / Google Books) live under `infrastructure`, marked `server-only`, an
 
 | Path | Purpose |
 |---|---|
-| `/` | Home (hero, carousels, stats collage) |
-| `/all-entries` | Full entry grid |
-| `/favorites` | Favorites grid |
-| `/films`, `/series`, `/books` | Medium catalogs |
-| `/films/[slug]`, `/series/[slug]`, `/books/[slug]` | Medium detail |
-| `/stats` | Lifetime stats |
+| `/`, `/pt` | Home (hero, carousels, stats collage) |
+| `/all-entries`, `/pt/all-entries` | Full entry grid |
+| `/favorites`, `/pt/favorites` | Favorites grid |
+| `/films`, `/series`, `/books` and `/pt/...` | Medium catalogs |
+| `/films/[slug]`, `/series/[slug]`, `/books/[slug]` and `/pt/...` | Medium detail |
+| `/stats`, `/pt/stats` | Lifetime stats |
 | `/sitemap.xml`, `/robots.txt` | Generated crawl files (`src/app/sitemap.ts`, `src/app/robots.ts`) |
 
 ## Conventions
@@ -181,10 +181,10 @@ Until a database exists, reviews ship with the Git deploy:
 
 1. Set `reviewSlug` on the journal entry in `movies.json` / `series.json` / `books.json` (kebab-case, matching the filename).
 2. Add `src/content/reviews/{films,series,books}/{reviewSlug}.md`.
-3. Optional Portuguese sibling: add `src/content/reviews/{films,series,books}/{reviewSlug}.pt.md`. That publishes a second page at `/pt/{films|series|books}/{slug}` with `lang="pt-BR"`, Portuguese title/description, and `hreflang` both ways. Do not put both languages in one file. Translate by hand.
+3. Optional Portuguese sibling: add `src/content/reviews/{films,series,books}/{reviewSlug}.pt.md`. That is the essay for `/pt/{films|series|books}/{slug}` (`lang="pt-BR"`). Do not put both languages in one file. Translate by hand. Without the `.pt.md` file the Portuguese detail page still exists (PT chrome, pending/empty resenha) so Google can pair it with the English URL.
 4. Commit and deploy.
 
-The Portuguese file may start with optional front matter for the localized work title (used in the H1 and `<title>` when TMDB `pt-BR` is unavailable):
+The Portuguese file may start with optional front matter for the localized work title (used in the H1, `<title>`, and PT catalog cards when TMDB `pt-BR` is unavailable):
 
 ```md
 ---
@@ -194,7 +194,7 @@ title: Gata em Telhado de Zinco Quente
 Texto da resenha em português.
 ```
 
-Reuse the same stills as the English essay (`/images/reviews/...`). The English URL stays the canonical `en` page; `/pt/...` is `pt-BR`. The header language switch (EN | PT) is always available and maps the current path to the other locale. Without a `.pt.md` file, the English detail page has no `hreflang`, and the Portuguese URL 404s until the sibling exists.
+Reuse the same stills as the English essay (`/images/reviews/...`). The English URL stays the canonical `en` page; `/pt/...` is `pt-BR`. Every public route has a Portuguese counterpart. Reciprocal `hreflang` (`en` ↔ `pt-BR`, English as `x-default`) is on every indexable URL. The header language switch (EN | PT) is always available, keeps the current path (and catalog filters), and does not require a `.pt.md` file.
 
 Spoiler blocks (`:::spoiler`) stay collapsed on the page and are **omitted** from the meta description and JSON-LD `reviewBody`. On Portuguese pages the default summary is “Alerta de spoilers”.
 
@@ -226,9 +226,22 @@ Shared rules: ratings are whole stars `1`–`5`; never use negative runtimes, pa
 ### Routing
 
 - App Router under `src/app/`.
-- Thin `page.tsx` + template for every screen.
+- Thin `page.tsx` + template for every screen. Shared locale screens live in `src/lib/locale-screens.tsx`.
+- English is unprefixed (`/films`). Portuguese is `/pt/...` (`/pt/films`).
 - Route segments: kebab-case (`/all-entries`, `/films/[slug]`, `/pt/films/[slug]`).
 - Prefer `prefetch={false}` on dense internal link lists unless there is a reason to prefetch.
+
+### Locales (en + pt-BR)
+
+The two languages exist so the journal can rank in both English and Brazilian search. They are **separate URLs**, never mixed on one page.
+
+- `src/app/(en)/` — English, `lang="en"`, `og:locale` `en_US`.
+- `src/app/(pt)/pt/` — Portuguese, `lang="pt-BR"`, `og:locale` `pt_BR`.
+- Pick copy with `copyFor(locale)` (server) or `useLocaleCopy()` (client). English modules stay in `src/content/copy/*.ts`; Portuguese siblings live in `src/content/copy/pt/`. Keep the same keys and unprefixed `href`s (`/films`, not `/pt/films`); prefix at render with `pathForLocale`.
+- To add a string: put the English key in the matching `src/content/copy/*.ts` module, then the Portuguese translation in `src/content/copy/pt/*.ts`, then read it through `copyFor` / `useLocaleCopy`. Do not hardcode UI copy in components.
+- Detail pages prefer a localized title from the `.pt.md` front matter, then TMDB/Google Books `pt-BR`. Catalog cards use the PT front-matter title when a Portuguese review exists; otherwise they keep the journal title. Missing PT essays show pending/empty copy, not the English body.
+- Unmatched `/pt/...` URLs render the Portuguese 404 (`lang="pt-BR"`, `noindex`), not the English Next.js fallback.
+- Dates use `formatDate(value, locale)` (`pt-BR` → “1 de junho de 2024”).
 
 ### Naming
 
@@ -367,9 +380,9 @@ Detail pages are statically generated at build time; without `TMDB_ACCESS_TOKEN`
 
 - **Canonicals:** `metadataBase` comes from `SITE_URL` (or Vercel’s production host). List and detail pages set `alternates.canonical` to the clean path (filter query strings are not canonical).
 - **Indexing:** Production allows crawlers (`src/app/robots.ts` + `robots` metadata). Vercel Preview sets `VERCEL_ENV=preview` and is `noindex`.
-- **Sitemap:** `src/app/sitemap.ts` lists home, catalogs, stats, feeds (`/all-entries`, `/favorites`, `/reviews`), every film/series/book detail slug, and Portuguese review siblings (`/pt/...`) when a `.pt.md` file exists. Reciprocal `hreflang` is set on both URLs.
+- **Sitemap:** `src/app/sitemap.ts` lists home, catalogs, stats, feeds (`/all-entries`, `/favorites`, `/reviews`) and every film/series/book detail slug in **both** locales. Reciprocal `hreflang` (`en`, `pt-BR`, `x-default` → English) is set on every public URL.
 - **Open Graph / Twitter:** site defaults in the root layout; film/series/book detail pages prefer poster or cover images. A published review switches the detail Open Graph type to `article` and uses `{title} review` (or `Resenha de {title}` on `pt-BR`) plus a spoiler-free excerpt. Portuguese pages set `og:locale` to `pt_BR`.
-- **JSON-LD:** detail pages emit `Movie` / `TVSeries` / `Book` structured data. When review markdown exists, the page is a personal `Review` of that work (`reviewRating` only if the journal has stars). Never `AggregateRating`. Portuguese reviews set `inLanguage` to `pt-BR`.
+- **JSON-LD:** home emits `WebSite`; catalogs/feeds/stats emit `CollectionPage` or `WebPage` with `inLanguage` (`en` or `pt-BR`). Detail pages emit `Movie` / `TVSeries` / `Book`. When review markdown exists, the page is a personal `Review` of that work (`reviewRating` only if the journal has stars). Never `AggregateRating`. Portuguese reviews set `inLanguage` to `pt-BR`.
 - **Analytics:** `@vercel/analytics` and `@vercel/speed-insights` load in the root layout. They need **no env vars and no tokens**. In the Vercel project: **Analytics** and **Speed Insights** → enable for Production (and Preview if you want Web Vitals there).
 - Provider secrets (`TMDB_ACCESS_TOKEN`, `GOOGLE_BOOKS_API_KEY`) stay server-only (`import "server-only"`). Never prefix them with `NEXT_PUBLIC_`.
 

@@ -1,13 +1,7 @@
 import { RootDocument } from "../root-document";
-import { rootMetadata, rootViewport } from "../root-metadata";
+import { rootMetadataFor, rootViewport } from "../root-metadata";
 
-export const metadata = {
-  ...rootMetadata,
-  openGraph: {
-    ...rootMetadata.openGraph,
-    locale: "pt_BR",
-  },
-};
+export const metadata = rootMetadataFor("pt-BR");
 export const viewport = rootViewport;
 
 export default function PortugueseRootLayout({

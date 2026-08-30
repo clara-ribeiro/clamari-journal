@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { GoalMetric } from "@/application/dto";
 import { statsCopy } from "@/content/copy";
+import { useLocaleCopy } from "@/content/copy/use-copy";
 import {
   Circle,
   Figure,
@@ -96,16 +97,20 @@ function useCountUp(target: number, active: boolean, durationMs: number) {
   return active ? value : 0;
 }
 
-function goalLinkLabel(goal: GoalMetric) {
+function goalLinkLabel(
+  goal: GoalMetric,
+  stats: ReturnType<typeof useLocaleCopy>["copy"]["stats"],
+) {
   const label =
-    statsCopy.goalLabels[goal.key as keyof typeof statsCopy.goalLabels] ??
-    goal.key;
-  return statsCopy.goalLinkAriaLabel
+    stats.goalLabels[goal.key as keyof typeof stats.goalLabels] ?? goal.key;
+  return stats.goalLinkAriaLabel
     .replace("{label}", label)
     .replace("{year}", String(goal.year));
 }
 
 function GoalItem({ goal }: { goal: GoalMetric }) {
+  const { copy } = useLocaleCopy();
+  const stats = copy.stats;
   const itemRef = useRef<HTMLLIElement | null>(null);
   const startedRef = useRef(false);
   const [filling, setFilling] = useState(false);
@@ -158,7 +163,7 @@ function GoalItem({ goal }: { goal: GoalMetric }) {
         href={goal.href}
         prefetch={false}
         scroll={false}
-        aria-label={goalLinkLabel(goal)}
+        aria-label={goalLinkLabel(goal, stats)}
       >
         <Stage
           aria-hidden
@@ -199,13 +204,16 @@ function GoalItem({ goal }: { goal: GoalMetric }) {
 }
 
 export default function GoalsGauge({ goals, className }: GoalsGaugeProps) {
+  const { copy } = useLocaleCopy();
+  const stats = copy.stats;
+
   return (
     <Section
       id="goals-section"
       className={className}
-      aria-labelledby={statsCopy.goalsHeadingId}
+      aria-labelledby={stats.goalsHeadingId}
     >
-      <Title id={statsCopy.goalsHeadingId}>{statsCopy.goalsAriaLabel}</Title>
+      <Title id={stats.goalsHeadingId}>{stats.goalsAriaLabel}</Title>
       <Row>
         {goals.map((goal) => (
           <GoalItem key={goal.key} goal={goal} />

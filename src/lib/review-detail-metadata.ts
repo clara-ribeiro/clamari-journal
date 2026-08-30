@@ -1,5 +1,5 @@
 import type { ReviewMedium } from "@/application/repositories/review-repository";
-import { statesCopy } from "@/content/copy/states";
+import { copyFor } from "@/content/copy/for-locale";
 import { detailPageMetadata, pageMetadata } from "@/lib/page-metadata";
 import { reviewStillMetadata } from "@/lib/review-images";
 import {
@@ -23,9 +23,10 @@ export function missingDetailMetadata(
   slug: string,
   locale: ReviewLocale,
 ) {
+  const states = copyFor(locale).states;
   return pageMetadata({
-    title: statesCopy.notFound.title,
-    description: statesCopy.notFound.description,
+    title: states.notFound.title,
+    description: states.notFound.description,
     path: reviewPagePath(medium, slug, locale),
     index: false,
     locale,
@@ -44,8 +45,6 @@ export function reviewDetailMetadata(
     extraImages: reviewStillMetadata(detail.reviewHtml),
     hasReview: Boolean(detail.reviewHtml?.trim()),
     locale: detail.reviewLocale,
-    languages: detail.alternateReviewHref
-      ? reviewLanguageAlternates(medium, detail.slug)
-      : undefined,
+    languages: reviewLanguageAlternates(medium, detail.slug),
   });
 }

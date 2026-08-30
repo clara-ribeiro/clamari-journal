@@ -4,8 +4,9 @@ import HomeHero from "@/components/organisms/HomeHero";
 import EntriesCarousel from "@/components/organisms/EntriesCarousel";
 import HomeJournalAbout from "@/components/organisms/HomeJournalAbout";
 import StatsCollage from "@/components/organisms/StatsCollage";
-import { homeCopy } from "@/content/copy";
+import { useLocaleCopy } from "@/content/copy/use-copy";
 import type { JournalEntry } from "@/application/dto";
+import { intlLocale } from "@/lib/review-locale";
 import { Root } from "./styles";
 
 export type HomeTemplateProps = {
@@ -17,10 +18,6 @@ export type HomeTemplateProps = {
   className?: string;
 };
 
-function formatCount(value: number) {
-  return value.toLocaleString("en-US");
-}
-
 export default function HomeTemplate({
   recentEntries,
   reviewEntries,
@@ -29,37 +26,50 @@ export default function HomeTemplate({
   watchedHours,
   className,
 }: HomeTemplateProps) {
-  const collage = homeCopy.statsCollage;
+  const { locale, copy, href } = useLocaleCopy();
+  const home = copy.home;
+  const collage = home.statsCollage;
+  const formatCount = (value: number) =>
+    value.toLocaleString(intlLocale(locale));
 
   return (
     <Root className={className}>
-      <HomeHero />
+      <HomeHero
+        titleId={home.hero.titleId}
+        title={home.hero.title}
+        script={home.hero.script}
+        navAriaLabel={home.hero.nav.ariaLabel}
+        navItems={home.hero.nav.items.map((item) => ({
+          ...item,
+          href: href(item.href),
+        }))}
+      />
       <EntriesCarousel
         entries={recentEntries}
-        titleId={homeCopy.recentEntries.titleId}
-        title={homeCopy.recentEntries.title}
-        listAriaLabel={homeCopy.recentEntries.listAriaLabel}
-        showAllLabel={homeCopy.recentEntries.showAllLabel}
-        showAllHref={homeCopy.recentEntries.showAllHref}
+        titleId={home.recentEntries.titleId}
+        title={home.recentEntries.title}
+        listAriaLabel={home.recentEntries.listAriaLabel}
+        showAllLabel={home.recentEntries.showAllLabel}
+        showAllHref={href(home.recentEntries.showAllHref)}
         priorityCount={1}
       />
       <HomeJournalAbout />
       <EntriesCarousel
         entries={reviewEntries}
-        titleId={homeCopy.reviews.titleId}
-        title={homeCopy.reviews.title}
-        listAriaLabel={homeCopy.reviews.listAriaLabel}
-        showAllLabel={homeCopy.reviews.showAllLabel}
-        showAllHref={homeCopy.reviews.showAllHref}
+        titleId={home.reviews.titleId}
+        title={home.reviews.title}
+        listAriaLabel={home.reviews.listAriaLabel}
+        showAllLabel={home.reviews.showAllLabel}
+        showAllHref={href(home.reviews.showAllHref)}
         priorityCount={0}
       />
       <EntriesCarousel
         entries={favoriteEntries}
-        titleId={homeCopy.favorites.titleId}
-        title={homeCopy.favorites.title}
-        listAriaLabel={homeCopy.favorites.listAriaLabel}
-        showAllLabel={homeCopy.favorites.showAllLabel}
-        showAllHref={homeCopy.favorites.showAllHref}
+        titleId={home.favorites.titleId}
+        title={home.favorites.title}
+        listAriaLabel={home.favorites.listAriaLabel}
+        showAllLabel={home.favorites.showAllLabel}
+        showAllHref={href(home.favorites.showAllHref)}
         priorityCount={0}
       />
       <StatsCollage
@@ -78,7 +88,7 @@ export default function HomeTemplate({
         images={collage.images}
         titleId={collage.titleId}
         ariaLabel={collage.ariaLabel}
-        statsHref={collage.statsHref}
+        statsHref={href(collage.statsHref)}
       />
     </Root>
   );

@@ -12,8 +12,7 @@ import type {
   TmdbSeriesMetadata,
 } from "@/application/dto/tmdb-metadata";
 import type { SeriesEntry, WatchedEpisode } from "@/domain/entities";
-import { catalogCopy } from "@/content/copy/catalog";
-import { seriesCopy } from "@/content/copy/series";
+import { copyFor } from "@/content/copy/for-locale";
 import {
   getSeason,
   getSeriesById,
@@ -27,10 +26,17 @@ import {
 import { buildDetailMeta } from "@/lib/detail-meta";
 import {
   DEFAULT_REVIEW_LOCALE,
+  intlLocale,
   tmdbLanguageForLocale,
   type ReviewLocale,
 } from "@/lib/review-locale";
 import { tmdbImageUrl } from "@/lib/tmdb-image";
+import {
+  catalogCopyFor,
+  catalogHasReview,
+  catalogHref,
+  localizedWorkTitle,
+} from "./catalog-locale";
 import { yearsSeriesCountsToward } from "./goal-years";
 import { defaultDetailLocale, resolveDetailLocale } from "./review-locale";
 
@@ -88,10 +94,14 @@ export function getSeriesStats() {
   return computeSeriesStats(seriesRepository.findAll());
 }
 
-export function listSeriesCatalogItems(): CatalogCardItem[] {
+export function listSeriesCatalogItems(
+  locale: ReviewLocale = DEFAULT_REVIEW_LOCALE,
+): CatalogCardItem[] {
   return listSeries()
-    .map(toSeriesCatalogCard)
-    .sort((a, b) => a.sortTitle.localeCompare(b.sortTitle));
+    .map((entry) => toSeriesCatalogCard(entry, locale))
+    .sort((a, b) =>
+      a.sortTitle.localeCompare(b.sortTitle, intlLocale(locale)),
+    );
 }
 
 function seriesStatusTone(
@@ -108,26 +118,39 @@ function seriesStatusTone(
   return "neutral";
 }
 
-function toSeriesCatalogCard(entry: SeriesEntry): CatalogCardItem {
-  const statusLabel = catalogCopy.status.series[entry.status];
-  const hasReview = Boolean(entry.reviewSlug);
+function toSeriesCatalogCard(
+  entry: SeriesEntry,
+  locale: ReviewLocale = DEFAULT_REVIEW_LOCALE,
+): CatalogCardItem {
+  const catalog = catalogCopyFor(locale);
+  const statusLabel = catalog.status.series[entry.status];
+  const hasReview = catalogHasReview("series", entry.reviewSlug, locale);
   const favorite = Boolean(entry.favorite);
   const activityDate = entry.finishedAt ?? entry.startedAt ?? null;
   const activityLabel = entry.finishedAt
-    ? catalogCopy.card.finishedOn.replace(
+    ? catalog.card.finishedOn.replace(
         "{date}",
-        formatDate(entry.finishedAt),
+        formatDate(entry.finishedAt, locale),
       )
     : entry.startedAt
-      ? catalogCopy.card.startedOn.replace(
+      ? catalog.card.startedOn.replace(
           "{date}",
-          formatDate(entry.startedAt),
+          formatDate(entry.startedAt, locale),
         )
-      : catalogCopy.card.noActivityDate;
+      : catalog.card.noActivityDate;
   const episodeTag =
     entry.watchedEpisodes.length > 0
-      ? `${entry.watchedEpisodes.length} eps`
+      ? catalog.card.episodeCount.replace(
+          "{count}",
+          String(entry.watchedEpisodes.length),
+        )
       : null;
+  const title = localizedWorkTitle(
+    "series",
+    entry.reviewSlug,
+    entry.title,
+    locale,
+  );
 
   const metaTags = [episodeTag, statusLabel].filter(
     (tag): tag is string => Boolean(tag),
@@ -136,8 +159,8 @@ function toSeriesCatalogCard(entry: SeriesEntry): CatalogCardItem {
   return {
     medium: "series",
     slug: entry.slug,
-    title: entry.title,
-    href: `/series/${entry.slug}`,
+    title,
+    href: catalogHref("series", entry.slug, locale),
     posterUrl: tmdbImageUrl(entry.posterPath, "w342"),
     rating: entry.rating,
     favorite,
@@ -147,14 +170,14 @@ function toSeriesCatalogCard(entry: SeriesEntry): CatalogCardItem {
     yearLabel: null,
     activityLabel,
     favoriteLabel: favorite
-      ? catalogCopy.card.favorite
-      : catalogCopy.card.notFavorite,
+      ? catalog.card.favorite
+      : catalog.card.notFavorite,
     reviewLabel: hasReview
-      ? catalogCopy.card.withReview
-      : catalogCopy.card.noReview,
+      ? catalog.card.withReview
+      : catalog.card.noReview,
     metaTags,
     statusKey: entry.status,
-    sortTitle: entry.title,
+    sortTitle: title,
     sortDate: activityDate,
     sortRating: entry.rating ?? 0,
     sortYear: null,
@@ -220,8 +243,9 @@ function buildSeasonDetails(
   seasons: TmdbSeasonMetadata[],
   watched: WatchedEpisode[],
   next: ReturnType<typeof findNextUnwatchedEpisode>,
+  locale: ReviewLocale = DEFAULT_REVIEW_LOCALE,
 ): SeriesSeasonDetail[] {
-  const copy = seriesCopy.detail.seasons;
+  const copy = copyFor(locale).series.detail.seasons;
   const seen = watchedMap(watched);
 
   const ordered = [...seasons].sort((a, b) => {
@@ -262,12 +286,14 @@ function buildSeasonDetails(
           title,
           runtimeLabel:
             runtimeMinutes != null && runtimeMinutes > 0
-              ? formatShortRuntime(runtimeMinutes)
+              ? formatShortRuntime(runtimeMinutes, locale)
               : null,
-          airDateLabel: episode.airDate ? formatDate(episode.airDate) : null,
+          airDateLabel: episode.airDate
+            ? formatDate(episode.airDate, locale)
+            : null,
           watched: watchedFlag,
           watchedDateLabel: personal?.watchedAt
-            ? formatDate(personal.watchedAt)
+            ? formatDate(personal.watchedAt, locale)
             : null,
           rating: personal?.rating,
           isNext,
@@ -302,7 +328,9 @@ export function mapSeriesDetail(
   reviewHtml: string | null = null,
   localeContext = defaultDetailLocale(),
 ): SeriesDetail {
-  const copy = seriesCopy.detail;
+  const locale = localeContext.reviewLocale;
+  const copy = copyFor(locale).series.detail;
+  const catalog = catalogCopyFor(locale);
   const title =
     localeContext.workTitle?.trim() ||
     metadata?.title?.trim() ||
@@ -361,6 +389,7 @@ export function mapSeriesDetail(
     seasons,
     entry.watchedEpisodes,
     next,
+    locale,
   );
 
   const { metaTitle, metaDescription } = buildDetailMeta({
@@ -397,20 +426,24 @@ export function mapSeriesDetail(
       ? { name: metadata.trailer.name, url: metadata.trailer.url }
       : null,
     metadataNotice,
-    statusLabel: catalogCopy.status.series[entry.status],
+    statusLabel: catalog.status.series[entry.status],
     rating: entry.rating,
     favorite,
     favoriteLabel: favorite
-      ? catalogCopy.card.favorite
-      : catalogCopy.card.notFavorite,
-    startedLabel: entry.startedAt ? formatDate(entry.startedAt) : null,
-    finishedLabel: entry.finishedAt ? formatDate(entry.finishedAt) : null,
+      ? catalog.card.favorite
+      : catalog.card.notFavorite,
+    startedLabel: entry.startedAt ? formatDate(entry.startedAt, locale) : null,
+    finishedLabel: entry.finishedAt
+      ? formatDate(entry.finishedAt, locale)
+      : null,
     watchedEpisodesLabel:
       totalEpisodes != null
         ? `${watchedCount} / ${totalEpisodes}`
         : String(watchedCount),
     watchedTimeLabel:
-      watchedTimeMinutes > 0 ? formatDuration(watchedTimeMinutes) : null,
+      watchedTimeMinutes > 0
+        ? formatDuration(watchedTimeMinutes, locale)
+        : null,
     progressLabel:
       progressPercent != null ? `${progressPercent}%` : null,
     progressPercent,
@@ -463,16 +496,18 @@ async function loadSeriesSeasons(
 async function loadSeriesMetadata(
   tmdbId: number | undefined,
   language?: string,
+  locale: ReviewLocale = DEFAULT_REVIEW_LOCALE,
 ): Promise<{
   metadata: TmdbSeriesMetadata | null;
   seasons: TmdbSeasonMetadata[];
   notice: string | null;
 }> {
+  const notices = copyFor(locale).series.detail.metadata;
   if (tmdbId == null) {
     return {
       metadata: null,
       seasons: [],
-      notice: seriesCopy.detail.metadata.unresolved,
+      notice: notices.unresolved,
     };
   }
 
@@ -487,13 +522,13 @@ async function loadSeriesMetadata(
       return {
         metadata: null,
         seasons: [],
-        notice: seriesCopy.detail.metadata.unresolved,
+        notice: notices.unresolved,
       };
     }
     return {
       metadata: null,
       seasons: [],
-      notice: seriesCopy.detail.metadata.unavailable,
+      notice: notices.unavailable,
     };
   }
 }
@@ -516,13 +551,13 @@ export const getSeriesDetail = cache(
       entry.reviewSlug,
       locale,
     );
-    if (!localeContext) return undefined;
 
     const language =
       locale === "pt-BR" ? tmdbLanguageForLocale(locale) : undefined;
     const { metadata, seasons, notice } = await loadSeriesMetadata(
       entry.tmdbId,
       language,
+      locale,
     );
     return mapSeriesDetail(
       entry,

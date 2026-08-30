@@ -7,6 +7,7 @@ const navigation = vi.hoisted(() => ({ pathname: "/films/heat" }));
 
 vi.mock("next/navigation", () => ({
   usePathname: () => navigation.pathname,
+  useSearchParams: () => new URLSearchParams(),
 }));
 
 import LocaleSwitch from "./index";

@@ -12,6 +12,13 @@ const nextConfig: NextConfig = {
     "/pt/films/[slug]": ["./src/content/reviews/films/**/*.md"],
     "/pt/series/[slug]": ["./src/content/reviews/series/**/*.md"],
     "/pt/books/[slug]": ["./src/content/reviews/books/**/*.md"],
+    "/pt/films": ["./src/content/reviews/films/**/*.md"],
+    "/pt/series": ["./src/content/reviews/series/**/*.md"],
+    "/pt/books": ["./src/content/reviews/books/**/*.md"],
+    "/pt": ["./src/content/reviews/**/*.md"],
+    "/pt/all-entries": ["./src/content/reviews/**/*.md"],
+    "/pt/favorites": ["./src/content/reviews/**/*.md"],
+    "/pt/reviews": ["./src/content/reviews/**/*.md"],
     "/sitemap.xml": ["./src/content/reviews/**/*.md"],
   },
   images: {

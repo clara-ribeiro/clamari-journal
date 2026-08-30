@@ -7,7 +7,7 @@ import { isStorybookRuntime } from "@/lib/is-storybook";
 import { preload } from "react-dom";
 import type { CatalogCardItem } from "@/application/dto";
 import type { MediumCatalogCopy } from "@/content/copy";
-import { catalogCopy } from "@/content/copy/catalog";
+import { useLocaleCopy } from "@/content/copy/use-copy";
 import CatalogEntryCard from "@/components/molecules/CatalogEntryCard";
 import CatalogToolbar, {
   type CatalogSortId,
@@ -50,8 +50,11 @@ function toneForMedium(medium: CatalogMedium): CatalogTone {
   return medium === "films" ? "dark" : "light";
 }
 
-function statusOptionsFor(medium: CatalogMedium) {
-  return Object.entries(catalogCopy.status[medium]).map(([value, label]) => ({
+function statusOptionsFor(
+  medium: CatalogMedium,
+  catalog: ReturnType<typeof useLocaleCopy>["copy"]["catalog"],
+) {
+  return Object.entries(catalog.status[medium]).map(([value, label]) => ({
     value,
     label,
   }));
@@ -87,6 +90,8 @@ export default function MediumCatalogTemplate({
   initialStatus = "",
   initialYear = null,
 }: MediumCatalogTemplateProps) {
+  const { copy: bundle } = useLocaleCopy();
+  const catalog = bundle.catalog;
   const tone = toneForMedium(medium);
   const router = useRouter();
   const pathname = usePathname();
@@ -228,7 +233,7 @@ export default function MediumCatalogTemplate({
           onSearchChange={setSearch}
           statusFilter={statusFilter}
           onStatusFilterChange={setStatusFilter}
-          statusOptions={statusOptionsFor(medium)}
+          statusOptions={statusOptionsFor(medium, catalog)}
           yearFilter={yearFilter}
           onYearFilterChange={setYearFilter}
           yearOptions={yearOptions}
@@ -262,7 +267,7 @@ export default function MediumCatalogTemplate({
                 tone={tone}
                 onClick={() => setVisibleCount(visibleItems.length)}
               >
-                {catalogCopy.toolbar.seeAll}
+                {catalog.toolbar.seeAll}
               </LoadMore>
             ) : null}
           </>
@@ -286,7 +291,7 @@ export default function MediumCatalogTemplate({
                 tone={tone}
                 onClick={() => setVisibleCount(visibleItems.length)}
               >
-                {catalogCopy.toolbar.seeAll}
+                {catalog.toolbar.seeAll}
               </LoadMore>
             ) : null}
           </>

@@ -1,9 +1,10 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import { siteCopy } from "@/content/copy";
+import { Suspense } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useLocaleCopy } from "@/content/copy/use-copy";
 import type { HeaderChromeTone } from "@/lib/chrome-tone";
-import { localeFromPathname, pathForLocale } from "@/lib/review-locale";
+import { pathForLocaleWithSearch } from "@/lib/review-locale";
 import { Choice, Current, Divider, Root } from "./styles";
 
 export type LocaleSwitchTone = HeaderChromeTone | "clear";
@@ -13,36 +14,36 @@ export type LocaleSwitchProps = {
   className?: string;
 };
 
-const copy = siteCopy.header.locale;
-
-export default function LocaleSwitch({
+function LocaleSwitchLinks({
   tone = "navy",
   className,
-}: LocaleSwitchProps) {
+  search,
+}: LocaleSwitchProps & { search: string }) {
   const pathname = usePathname() ?? "/";
-  const locale = localeFromPathname(pathname);
+  const { locale, copy } = useLocaleCopy();
+  const labels = copy.site.header.locale;
 
   return (
-    <Root className={className} aria-label={copy.ariaLabel}>
+    <Root className={className} aria-label={labels.ariaLabel}>
       {locale === "en" ? (
         <Current
           tone={tone}
           current
           aria-current="true"
-          aria-label={copy.enName}
+          aria-label={labels.enName}
           lang="en"
         >
-          {copy.en}
+          {labels.en}
         </Current>
       ) : (
         <Choice
-          href={pathForLocale(pathname, "en")}
+          href={pathForLocaleWithSearch(pathname, "en", search)}
           hrefLang="en"
           lang="en"
-          aria-label={copy.enName}
+          aria-label={labels.enName}
           tone={tone}
         >
-          {copy.en}
+          {labels.en}
         </Choice>
       )}
       <Divider aria-hidden="true">|</Divider>
@@ -51,22 +52,36 @@ export default function LocaleSwitch({
           tone={tone}
           current
           aria-current="true"
-          aria-label={copy.ptName}
+          aria-label={labels.ptName}
           lang="pt-BR"
         >
-          {copy.pt}
+          {labels.pt}
         </Current>
       ) : (
         <Choice
-          href={pathForLocale(pathname, "pt-BR")}
+          href={pathForLocaleWithSearch(pathname, "pt-BR", search)}
           hrefLang="pt-BR"
           lang="pt-BR"
-          aria-label={copy.ptName}
+          aria-label={labels.ptName}
           tone={tone}
         >
-          {copy.pt}
+          {labels.pt}
         </Choice>
       )}
     </Root>
+  );
+}
+
+function LocaleSwitchWithSearch(props: LocaleSwitchProps) {
+  const searchParams = useSearchParams();
+  const search = searchParams?.toString() ?? "";
+  return <LocaleSwitchLinks {...props} search={search} />;
+}
+
+export default function LocaleSwitch(props: LocaleSwitchProps) {
+  return (
+    <Suspense fallback={<LocaleSwitchLinks {...props} search="" />}>
+      <LocaleSwitchWithSearch {...props} />
+    </Suspense>
   );
 }

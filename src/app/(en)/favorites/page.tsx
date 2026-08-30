@@ -1,15 +1,7 @@
 import type { Metadata } from "next";
-import { listFavoriteCatalogItems } from "@/application/use-cases/mixed-catalog";
-import AllEntriesTemplate from "@/components/templates/AllEntriesTemplate";
-import { favoritesCopy } from "@/content/copy";
-import { pageMetadata } from "@/lib/page-metadata";
-import { parseCatalogSearchParams } from "@/lib/catalog-search-params";
+import { FavoritesScreen, favoritesMetadata } from "@/lib/locale-screens";
 
-export const metadata: Metadata = pageMetadata({
-  title: favoritesCopy.title,
-  description: favoritesCopy.description,
-  path: "/favorites",
-});
+export const metadata: Metadata = favoritesMetadata("en");
 
 type FavoritesPageProps = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
@@ -18,15 +10,5 @@ type FavoritesPageProps = {
 export default async function FavoritesPage({
   searchParams,
 }: FavoritesPageProps) {
-  const initialFilters = parseCatalogSearchParams(await searchParams);
-
-  return (
-    <AllEntriesTemplate
-      items={listFavoriteCatalogItems()}
-      copy={favoritesCopy}
-      initialStatus={initialFilters.status}
-      initialYear={initialFilters.year}
-      showFavoriteFilter={false}
-    />
-  );
+  return FavoritesScreen({ locale: "en", searchParams });
 }

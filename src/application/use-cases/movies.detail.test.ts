@@ -76,11 +76,19 @@ describe("getMovieDetail", () => {
     expect(getMovieByIdMock).toHaveBeenCalledWith(261, "pt-BR");
   });
 
-  it("returns undefined for Portuguese when no .pt.md sibling exists", async () => {
+  it("loads Portuguese chrome without a .pt.md sibling", async () => {
     getMovieByIdMock.mockClear();
-    await expect(
-      getMovieDetail("10-things-i-hate-about-you", "pt-BR"),
-    ).resolves.toBeUndefined();
-    expect(getMovieByIdMock).not.toHaveBeenCalled();
+    getMovieByIdMock.mockResolvedValueOnce(
+      normalizeMovie(movieFixture as TmdbRawMovie),
+    );
+
+    const detail = await getMovieDetail(
+      "10-things-i-hate-about-you",
+      "pt-BR",
+    );
+    expect(detail?.reviewLocale).toBe("pt-BR");
+    expect(detail?.reviewHtml).toBeNull();
+    expect(detail?.reviewEmptyLabel).toBeTruthy();
+    expect(getMovieByIdMock).toHaveBeenCalled();
   });
 });

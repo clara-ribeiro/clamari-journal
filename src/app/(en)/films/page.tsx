@@ -1,29 +1,11 @@
-import { listMovieCatalogItems } from "@/application/use-cases/movies";
-import MediumCatalogTemplate from "@/components/templates/MediumCatalogTemplate";
-import { filmsCopy } from "@/content/copy";
-import { pageMetadata } from "@/lib/page-metadata";
-import { parseCatalogSearchParams } from "@/lib/catalog-search-params";
+import { FilmsCatalogScreen, filmsCatalogMetadata } from "@/lib/locale-screens";
 
-export const metadata = pageMetadata({
-  title: filmsCopy.list.title,
-  description: filmsCopy.list.description,
-  path: "/films",
-});
+export const metadata = filmsCatalogMetadata("en");
 
 type FilmsPageProps = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
 
 export default async function FilmsPage({ searchParams }: FilmsPageProps) {
-  const initialFilters = parseCatalogSearchParams(await searchParams);
-
-  return (
-    <MediumCatalogTemplate
-      medium="films"
-      copy={filmsCopy.list}
-      items={listMovieCatalogItems()}
-      initialStatus={initialFilters.status}
-      initialYear={initialFilters.year}
-    />
-  );
+  return FilmsCatalogScreen({ locale: "en", searchParams });
 }

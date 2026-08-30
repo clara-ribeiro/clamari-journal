@@ -7,7 +7,8 @@ import type { MovieCastMember, MovieDetail } from "@/application/dto";
 import RefreshButton from "@/components/atoms/RefreshButton";
 import StarRating from "@/components/atoms/StarRating";
 import ReviewRenderer from "@/components/molecules/ReviewRenderer";
-import { filmsCopy } from "@/content/copy/films";
+import { copyFor } from "@/content/copy/for-locale";
+import { pathForLocale } from "@/lib/review-locale";
 import { isTmdbImageUrl, tmdbImageLoader } from "@/lib/tmdb-image";
 import {
   Backdrop,
@@ -162,7 +163,7 @@ export default function FilmDetailTemplate({
   detail,
   className,
 }: FilmDetailTemplateProps) {
-  const copy = filmsCopy.detail;
+  const copy = copyFor(detail.reviewLocale).films.detail;
   const [showPosterPlaceholder, setShowPosterPlaceholder] = useState(
     !detail.posterUrl,
   );
@@ -222,15 +223,14 @@ export default function FilmDetailTemplate({
             <HeroText>
               <TitleRow>
                 <Title id={titleId}>{detail.title}</Title>
+                {detail.originalTitle ? (
+                  <OriginalTitle>
+                    <span>{copy.metadata.originalTitle}</span>
+                    {detail.originalTitle}
+                  </OriginalTitle>
+                ) : null}
                 {yearRuntime ? <YearRuntime>{yearRuntime}</YearRuntime> : null}
               </TitleRow>
-
-              {detail.originalTitle ? (
-                <OriginalTitle>
-                  <span>{copy.metadata.originalTitle}</span>
-                  {detail.originalTitle}
-                </OriginalTitle>
-              ) : null}
 
               {detail.genres.length > 0 ? (
                 <GenreRow aria-label={copy.metadata.genres}>
@@ -406,10 +406,13 @@ export default function FilmDetailTemplate({
             headingId={copy.review.headingId}
             emptyLabel={detail.reviewEmptyLabel}
             html={detail.reviewHtml}
+            alternateHref={detail.alternateReviewHref}
+            alternateLabel={detail.alternateReviewLabel}
+            alternateLang={detail.reviewLocale === "pt-BR" ? "en" : "pt-BR"}
           />
         ) : null}
 
-        <BackLink href={copy.backHref} prefetch={false}>
+        <BackLink href={pathForLocale(copy.backHref, detail.reviewLocale)} prefetch={false}>
           {copy.backLabel}
         </BackLink>
       </Shell>

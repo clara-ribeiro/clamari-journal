@@ -17,22 +17,20 @@ export type DetailLocaleContext = ReviewLocaleFields & {
 };
 
 /**
- * Resolve the essay for this locale. Portuguese pages only exist when a
- * compiled `.pt.md` sibling is present; English pages still render without
- * a review file.
+ * Resolve essay + chrome for this locale. Portuguese pages always exist
+ * (pending copy when `.pt.md` is missing); English never 404s for a
+ * missing review file either.
  */
 export function resolveDetailLocale(
   medium: ReviewMedium,
   catalogSlug: string,
   reviewSlug: string | null | undefined,
   locale: ReviewLocale = DEFAULT_REVIEW_LOCALE,
-): DetailLocaleContext | null {
+): DetailLocaleContext {
   const review = getReview(medium, reviewSlug, locale);
-  if (locale === "pt-BR" && !review?.html?.trim()) return null;
-
   const copy = reviewLocaleCopy[locale];
   const other = otherReviewLocale(locale);
-  const hasAlternate = hasPublishedReview(medium, reviewSlug, other);
+  const hasAlternateEssay = hasPublishedReview(medium, reviewSlug, other);
 
   return {
     locale,
@@ -40,24 +38,14 @@ export function resolveDetailLocale(
     reviewHtml: review?.html ?? null,
     reviewLocale: locale,
     reviewHeading: copy.reviewHeading,
-    alternateReviewHref: hasAlternate
+    alternateReviewHref: hasAlternateEssay
       ? reviewPagePath(medium, catalogSlug, other)
       : null,
-    alternateReviewLabel: hasAlternate ? copy.switchToLabel : null,
+    alternateReviewLabel: hasAlternateEssay ? copy.switchToLabel : null,
     seoCopy: copy.seo,
   };
 }
 
 export function defaultDetailLocale(): DetailLocaleContext {
-  const copy = reviewLocaleCopy[DEFAULT_REVIEW_LOCALE];
-  return {
-    locale: DEFAULT_REVIEW_LOCALE,
-    workTitle: null,
-    reviewHtml: null,
-    reviewLocale: DEFAULT_REVIEW_LOCALE,
-    reviewHeading: copy.reviewHeading,
-    alternateReviewHref: null,
-    alternateReviewLabel: null,
-    seoCopy: copy.seo,
-  };
+  return resolveDetailLocale("films", "", null, DEFAULT_REVIEW_LOCALE);
 }

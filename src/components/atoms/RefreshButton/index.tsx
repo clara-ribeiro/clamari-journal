@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { statesCopy } from "@/content/copy/states";
+import { useLocaleCopy } from "@/content/copy/use-copy";
 import { Button } from "./styles";
 
 export type RefreshButtonProps = {
@@ -11,10 +11,12 @@ export type RefreshButtonProps = {
 
 /** Client-only refresh for soft provider failures (retryable). */
 export default function RefreshButton({
-  label = statesCopy.actions.retry,
+  label,
   className,
 }: RefreshButtonProps) {
   const router = useRouter();
+  const { copy } = useLocaleCopy();
+  const resolved = label ?? copy.states.actions.retry;
 
   return (
     <Button
@@ -22,7 +24,7 @@ export default function RefreshButton({
       className={className}
       onClick={() => router.refresh()}
     >
-      {label}
+      {resolved}
     </Button>
   );
 }

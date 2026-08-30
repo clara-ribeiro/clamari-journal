@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { siteCopy } from "@/content/copy";
+import { copyFor } from "@/content/copy/for-locale";
 import { allowSearchIndexing } from "@/lib/site-url";
 import {
   DEFAULT_REVIEW_LOCALE,
+  languageAlternates,
   ogAlternateLocale,
   ogLocale,
+  pathForLocale,
   type ReviewLocale,
 } from "@/lib/review-locale";
 
@@ -22,11 +24,12 @@ export type PageMetadataInput = {
   languages?: Record<string, string>;
 };
 
-function defaultImages(title: string) {
+function defaultImages(title: string, locale: ReviewLocale) {
+  const site = copyFor(locale).site;
   return [
     {
-      url: siteCopy.metadata.ogImage,
-      alt: siteCopy.metadata.ogImageAlt || title,
+      url: site.metadata.ogImage,
+      alt: site.metadata.ogImageAlt || title,
     },
   ];
 }
@@ -34,30 +37,35 @@ function defaultImages(title: string) {
 /** Shared title, description, canonical, Open Graph, and Twitter tags. */
 export function pageMetadata(input: PageMetadataInput): Metadata {
   const index = input.index ?? allowSearchIndexing();
+  const locale = input.locale ?? DEFAULT_REVIEW_LOCALE;
+  const site = copyFor(locale).site;
   const images = (
-    input.images?.length ? [...input.images] : defaultImages(input.title)
+    input.images?.length
+      ? [...input.images]
+      : defaultImages(input.title, locale)
   ).map((image) => ({
     url: image.url,
     alt: image.alt ?? input.title,
   }));
-  const locale = input.locale ?? DEFAULT_REVIEW_LOCALE;
-  const hasLanguages = Boolean(
-    input.languages && Object.keys(input.languages).length > 0,
-  );
+  const languages =
+    input.index === false
+      ? input.languages
+      : (input.languages ?? languageAlternates(input.path));
+  const hasLanguages = Boolean(languages && Object.keys(languages).length > 0);
 
   return {
     title: input.absoluteTitle ? { absolute: input.title } : input.title,
     description: input.description,
     alternates: {
       canonical: input.path,
-      ...(hasLanguages ? { languages: input.languages } : {}),
+      ...(hasLanguages ? { languages } : {}),
     },
     robots: { index, follow: index },
     openGraph: {
       title: input.title,
       description: input.description,
       url: input.path,
-      siteName: siteCopy.brand.fullName,
+      siteName: site.brand.fullName,
       locale: ogLocale(locale),
       ...(hasLanguages
         ? { alternateLocale: [ogAlternateLocale(locale)] }
@@ -72,6 +80,20 @@ export function pageMetadata(input: PageMetadataInput): Metadata {
       images: images.map((image) => image.url),
     },
   };
+}
+
+/**
+ * Listing/home metadata. `path` is the unprefixed English route; the
+ * canonical and hreflang pair are derived from `locale`.
+ */
+export function localePageMetadata(
+  input: PageMetadataInput & { locale: ReviewLocale },
+): Metadata {
+  return pageMetadata({
+    ...input,
+    path: pathForLocale(input.path, input.locale),
+    languages: input.languages ?? languageAlternates(input.path),
+  });
 }
 
 export function detailPageMetadata(input: {

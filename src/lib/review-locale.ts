@@ -6,8 +6,19 @@ export type ReviewLocale = (typeof REVIEW_LOCALES)[number];
 
 export const DEFAULT_REVIEW_LOCALE: ReviewLocale = "en";
 
-/** URL prefix for Portuguese pages. Issue 51 will reuse this for catalogs/home. */
+/** URL prefix for Portuguese pages. */
 export const PT_PATH_PREFIX = "/pt";
+
+export const INDEXABLE_STATIC_PATHS = [
+  "/",
+  "/films",
+  "/series",
+  "/books",
+  "/stats",
+  "/all-entries",
+  "/favorites",
+  "/reviews",
+] as const;
 
 export function isReviewLocale(value: string): value is ReviewLocale {
   return (REVIEW_LOCALES as readonly string[]).includes(value);
@@ -80,14 +91,39 @@ export function pathForLocale(
   return canonical === "/" ? PT_PATH_PREFIX : `${PT_PATH_PREFIX}${canonical}`;
 }
 
-/** hreflang map when both essay languages exist. English is x-default. */
+/** Intl locale tag for dates and number formatting. */
+export function intlLocale(locale: ReviewLocale): string {
+  return locale === "pt-BR" ? "pt-BR" : "en-US";
+}
+
+/**
+ * Reciprocal hreflang map for any public path. English stays x-default
+ * so unprefixed URLs remain the fallback for unknown languages.
+ */
+export function languageAlternates(pathname: string): Record<string, string> {
+  const canonical = stripLocalePrefix(pathname);
+  return {
+    en: pathForLocale(canonical, "en"),
+    "pt-BR": pathForLocale(canonical, "pt-BR"),
+    "x-default": pathForLocale(canonical, "en"),
+  };
+}
+
+/** hreflang map for a film/series/book detail. English is x-default. */
 export function reviewLanguageAlternates(
   medium: ReviewMedium,
   slug: string,
 ): Record<string, string> {
-  return {
-    en: reviewPagePath(medium, slug, "en"),
-    "pt-BR": reviewPagePath(medium, slug, "pt-BR"),
-    "x-default": reviewPagePath(medium, slug, "en"),
-  };
+  return languageAlternates(reviewPagePath(medium, slug, "en"));
+}
+
+/** Keep catalog filters when switching locale. */
+export function pathForLocaleWithSearch(
+  pathname: string,
+  locale: ReviewLocale,
+  search?: string | null,
+): string {
+  const path = pathForLocale(pathname, locale);
+  if (!search) return path;
+  return `${path}?${search}`;
 }

@@ -1,0 +1,92 @@
+export const booksCopyPt = {
+  list: {
+    titleId: "books-heading",
+    title: "Livros",
+    description:
+      "Livros que estou lendo, terminei, pausei ou quero ler — catálogo pessoal com notas e resenhas no clamari journal.",
+    listAriaLabel: "Entradas de livros",
+    empty: "Nenhum livro ainda. Adicione entradas em src/data/books.json.",
+    noResults: "Nenhum livro combina com esses filtros.",
+    summary: "{finished} lidos · {reading} em andamento · {total} no total",
+    hero: {
+      titleId: "books-hero-heading",
+      title: "Livros",
+      sentinelId: "books-catalog-hero",
+      image: {
+        src: "/images/books/clarice-hero.webp",
+        alt: "",
+      },
+    },
+  },
+  detail: {
+    titleId: "book-detail-heading",
+    heroSentinelId: "book-detail-hero",
+    backLabel: "Todos os livros",
+    backHref: "/books",
+    metadata: {
+      heading: "Sobre o livro",
+      headingId: "book-metadata-heading",
+      unresolved:
+        "Esta entrada não foi encontrada no Google Books. Capa e créditos aparecem depois do enriquecimento.",
+      unavailable:
+        "Não foi possível carregar os metadados do Google Books. Os dados pessoais do diário continuam abaixo.",
+      authors: "Autoria",
+      publisher: "Editora",
+      year: "Publicação",
+      pages: "Páginas",
+      language: "Idioma",
+      categories: "Categorias",
+      isbn10: "ISBN-10",
+      isbn13: "ISBN-13",
+      synopsis: "Sinopse",
+      noSynopsis: "Sem sinopse disponível.",
+    },
+    journal: {
+      heading: "No diário",
+      headingId: "book-journal-heading",
+      status: "Status",
+      rating: "Sua nota",
+      favorite: "Favorito",
+      format: "Formato",
+      tags: "Tags",
+      started: "Começou",
+      finished: "Terminou",
+      currentPage: "Página atual",
+      progress: "Progresso",
+      noRating: "Sem nota",
+      noTags: "Sem tags",
+    },
+    format: {
+      physical: "Físico",
+      ebook: "E-book",
+      audiobook: "Audiolivro",
+    },
+    quotes: {
+      heading: "Citações",
+      headingId: "book-quotes-heading",
+      empty: "Nenhuma citação salva ainda.",
+      page: "p. {page}",
+    },
+    history: {
+      heading: "Histórico de leitura",
+      headingId: "book-history-heading",
+      empty: "Nenhuma data de leitura registrada ainda.",
+      page: "p. {page}",
+    },
+    notes: {
+      heading: "Notas",
+      headingId: "book-notes-heading",
+      empty: "Ainda sem notas.",
+    },
+    review: {
+      heading: "Resenha",
+      headingId: "book-review-heading",
+      empty: "Ainda sem resenha.",
+      pending: "Resenha a caminho.",
+    },
+    meta: {
+      descriptionFallback: "Entrada pessoal do diário sobre {title}.",
+      descriptionFromSynopsis: "{synopsis}",
+    },
+  },
+} as const;

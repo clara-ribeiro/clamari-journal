@@ -12,13 +12,21 @@ describe("pageMetadata", () => {
 
     expect(metadata.title).toBe("Films");
     expect(metadata.description).toBe("Logged films.");
-    expect(metadata.alternates).toEqual({ canonical: "/films" });
+    expect(metadata.alternates).toEqual({
+      canonical: "/films",
+      languages: {
+        en: "/films",
+        "pt-BR": "/pt/films",
+        "x-default": "/films",
+      },
+    });
     expect(metadata.openGraph).toMatchObject({
       title: "Films",
       url: "/films",
       siteName: siteCopy.brand.fullName,
       type: "website",
       locale: "en_US",
+      alternateLocale: ["pt_BR"],
     });
     expect(metadata.twitter).toMatchObject({
       card: "summary_large_image",

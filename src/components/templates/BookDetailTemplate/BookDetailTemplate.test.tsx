@@ -24,6 +24,8 @@ vi.mock("next/link", () => ({
 
 vi.mock("next/navigation", () => ({
   useRouter: () => ({ refresh: vi.fn() }),
+  usePathname: () => "/books/the-titans-curse",
+  useSearchParams: () => new URLSearchParams(),
 }));
 
 function bookDetail(overrides: Partial<BookDetail> = {}): BookDetail {

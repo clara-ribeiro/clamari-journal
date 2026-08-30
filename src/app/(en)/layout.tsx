@@ -1,7 +1,7 @@
 import { RootDocument } from "../root-document";
-import { rootMetadata, rootViewport } from "../root-metadata";
+import { rootMetadataFor, rootViewport } from "../root-metadata";
 
-export const metadata = rootMetadata;
+export const metadata = rootMetadataFor("en");
 export const viewport = rootViewport;
 
 export default function EnglishRootLayout({

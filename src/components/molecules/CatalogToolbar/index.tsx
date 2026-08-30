@@ -11,7 +11,7 @@ import {
   PencilLine,
   Search,
 } from "lucide-react";
-import { catalogCopy } from "@/content/copy/catalog";
+import { useLocaleCopy } from "@/content/copy/use-copy";
 import type { CatalogSortId } from "@/lib/catalog-items";
 import {
   ClearAllButton,
@@ -116,7 +116,8 @@ export default function CatalogToolbar({
   onClearAll,
   className,
 }: CatalogToolbarProps) {
-  const copy = catalogCopy.toolbar;
+  const { copy: bundle } = useLocaleCopy();
+  const copy = bundle.catalog.toolbar;
 
   const statusLabel =
     statusOptions.find((option) => option.value === statusFilter)?.label ??

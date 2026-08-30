@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { CatalogCardItem } from "@/application/dto";
 import { filmsCopy } from "@/content/copy/films";
+import { filmsCopyPt } from "@/content/copy/pt/films";
 import { homeCopy } from "@/content/copy/home";
 import { seriesCopy } from "@/content/copy/series";
 import { booksCopy } from "@/content/copy/books";
@@ -36,6 +37,7 @@ vi.mock("next/link", () => ({
 vi.mock("next/navigation", () => ({
   useRouter: () => ({ replace: vi.fn(), push: vi.fn() }),
   usePathname: () => "/films",
+  useSearchParams: () => new URLSearchParams(),
   notFound: vi.fn(),
 }));
 
@@ -168,6 +170,20 @@ describe("route smoke", () => {
     expect(screen.getByText("Heat")).toBeInTheDocument();
   });
 
+  it("renders Portuguese Films catalog copy", async () => {
+    const { default: PortugueseFilmsPage } = await import(
+      "@/app/(pt)/pt/films/page"
+    );
+    render(
+      await PortugueseFilmsPage({
+        searchParams: Promise.resolve({}),
+      }),
+    );
+    expect(
+      screen.getAllByText(filmsCopyPt.list.title).length,
+    ).toBeGreaterThan(0);
+  });
+
   it("renders Series catalog", async () => {
     const { default: SeriesPage } = await import("@/app/(en)/series/page");
     render(
@@ -298,7 +314,7 @@ describe("detail route slugs", () => {
     expect(notFound).toHaveBeenCalled();
   });
 
-  it("calls notFound for a Portuguese film page without a review", async () => {
+  it("calls notFound for a missing Portuguese film slug", async () => {
     const { notFound } = await import("next/navigation");
     const { getMovieDetail } = await import("@/application/use-cases/movies");
     vi.mocked(getMovieDetail).mockResolvedValueOnce(undefined);
@@ -309,6 +325,15 @@ describe("detail route slugs", () => {
     await PortugueseFilmDetailPage({
       params: Promise.resolve({ slug: "missing-film" }),
     });
+    expect(notFound).toHaveBeenCalled();
+  });
+
+  it("calls notFound for unmatched Portuguese paths", async () => {
+    const { notFound } = await import("next/navigation");
+    const { default: PortugueseUnmatched } = await import(
+      "@/app/(pt)/pt/[...rest]/page"
+    );
+    PortugueseUnmatched();
     expect(notFound).toHaveBeenCalled();
   });
 });

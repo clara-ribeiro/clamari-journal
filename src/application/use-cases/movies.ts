@@ -8,18 +8,24 @@ import type {
 } from "@/application/dto";
 import type { TmdbMovieMetadata } from "@/application/dto/tmdb-metadata";
 import type { MovieEntry } from "@/domain/entities";
-import { catalogCopy } from "@/content/copy/catalog";
-import { filmsCopy } from "@/content/copy/films";
+import { copyFor } from "@/content/copy/for-locale";
 import { getMovieById, TmdbError } from "@/infrastructure/tmdb/client";
 import { formatDate } from "@/lib/formatters/formatDate";
 import { formatShortRuntime } from "@/lib/formatters/formatDuration";
 import { buildDetailMeta } from "@/lib/detail-meta";
 import {
   DEFAULT_REVIEW_LOCALE,
+  intlLocale,
   tmdbLanguageForLocale,
   type ReviewLocale,
 } from "@/lib/review-locale";
 import { tmdbImageUrl } from "@/lib/tmdb-image";
+import {
+  catalogCopyFor,
+  catalogHasReview,
+  catalogHref,
+  localizedWorkTitle,
+} from "./catalog-locale";
 import { yearsMovieCountsToward } from "./goal-years";
 import { defaultDetailLocale, resolveDetailLocale } from "./review-locale";
 
@@ -68,20 +74,30 @@ function filmStatusTone(
   return "neutral";
 }
 
-function toFilmCatalogCard(movie: MovieEntry): CatalogCardItem {
-  const labels = catalogCopy.status.films;
+function toFilmCatalogCard(
+  movie: MovieEntry,
+  locale: ReviewLocale = DEFAULT_REVIEW_LOCALE,
+): CatalogCardItem {
+  const catalog = catalogCopyFor(locale);
+  const labels = catalog.status.films;
   const statusLabel = labels[movie.status];
   const yearLabel = movie.releaseDate?.slice(0, 4) ?? null;
   const lastWatched = movie.watchedDates?.at(-1) ?? null;
   const activityLabel = lastWatched
-    ? catalogCopy.card.watchedOn.replace("{date}", formatDate(lastWatched))
-    : catalogCopy.card.noActivityDate;
+    ? catalog.card.watchedOn.replace("{date}", formatDate(lastWatched, locale))
+    : catalog.card.noActivityDate;
   const durationLabel =
     movie.runtimeMinutes != null && movie.runtimeMinutes > 0
-      ? formatShortRuntime(movie.runtimeMinutes)
+      ? formatShortRuntime(movie.runtimeMinutes, locale)
       : null;
-  const hasReview = Boolean(movie.reviewSlug);
+  const hasReview = catalogHasReview("films", movie.reviewSlug, locale);
   const favorite = Boolean(movie.favorite);
+  const title = localizedWorkTitle(
+    "films",
+    movie.reviewSlug,
+    movie.title,
+    locale,
+  );
 
   const metaTags = [
     yearLabel,
@@ -93,8 +109,8 @@ function toFilmCatalogCard(movie: MovieEntry): CatalogCardItem {
   return {
     medium: "movie",
     slug: movie.slug,
-    title: movie.title,
-    href: `/films/${movie.slug}`,
+    title,
+    href: catalogHref("films", movie.slug, locale),
     posterUrl: tmdbImageUrl(movie.posterPath, "w342"),
     rating: movie.rating,
     favorite,
@@ -104,14 +120,14 @@ function toFilmCatalogCard(movie: MovieEntry): CatalogCardItem {
     yearLabel,
     activityLabel,
     favoriteLabel: favorite
-      ? catalogCopy.card.favorite
-      : catalogCopy.card.notFavorite,
+      ? catalog.card.favorite
+      : catalog.card.notFavorite,
     reviewLabel: hasReview
-      ? catalogCopy.card.withReview
-      : catalogCopy.card.noReview,
+      ? catalog.card.withReview
+      : catalog.card.noReview,
     metaTags,
     statusKey: movie.status,
-    sortTitle: movie.title,
+    sortTitle: title,
     sortDate: lastWatched,
     sortRating: movie.rating ?? 0,
     sortYear: yearLabel && /^\d{4}$/.test(yearLabel) ? Number(yearLabel) : null,
@@ -120,10 +136,14 @@ function toFilmCatalogCard(movie: MovieEntry): CatalogCardItem {
   };
 }
 
-export function listMovieCatalogItems(): CatalogCardItem[] {
+export function listMovieCatalogItems(
+  locale: ReviewLocale = DEFAULT_REVIEW_LOCALE,
+): CatalogCardItem[] {
   return listMovies()
-    .map(toFilmCatalogCard)
-    .sort((a, b) => a.sortTitle.localeCompare(b.sortTitle));
+    .map((movie) => toFilmCatalogCard(movie, locale))
+    .sort((a, b) =>
+      a.sortTitle.localeCompare(b.sortTitle, intlLocale(locale)),
+    );
 }
 
 function joinNames(names: string[]): string | null {
@@ -135,24 +155,24 @@ function joinNames(names: string[]): string | null {
 /** Pure — chronological viewing rows with first/rewatch labels. */
 export function buildMovieViewings(
   watchedDates: string[] | undefined,
+  locale: ReviewLocale = DEFAULT_REVIEW_LOCALE,
 ): MovieViewingRecord[] {
   if (!watchedDates?.length) return [];
+  const copy = copyFor(locale).films.detail.viewings;
 
   return [...watchedDates]
     .sort((a, b) => a.localeCompare(b))
     .map((date, index) => ({
-      dateLabel: formatDate(date),
-      kindLabel:
-        index === 0
-          ? filmsCopy.detail.viewings.first
-          : filmsCopy.detail.viewings.rewatch,
+      dateLabel: formatDate(date, locale),
+      kindLabel: index === 0 ? copy.first : copy.rewatch,
     }));
 }
 
-function viewingCountLabel(count: number): string {
-  if (count <= 0) return filmsCopy.detail.viewings.countNone;
-  if (count === 1) return filmsCopy.detail.viewings.countOne;
-  return filmsCopy.detail.viewings.countMany.replace("{count}", String(count));
+function viewingCountLabel(count: number, locale: ReviewLocale): string {
+  const copy = copyFor(locale).films.detail.viewings;
+  if (count <= 0) return copy.countNone;
+  if (count === 1) return copy.countOne;
+  return copy.countMany.replace("{count}", String(count));
 }
 
 function mapCast(metadata: TmdbMovieMetadata | null): MovieCastMember[] {
@@ -172,7 +192,9 @@ export function mapMovieDetail(
   reviewHtml: string | null = null,
   localeContext = defaultDetailLocale(),
 ): MovieDetail {
-  const copy = filmsCopy.detail;
+  const locale = localeContext.reviewLocale;
+  const copy = copyFor(locale).films.detail;
+  const catalog = catalogCopyFor(locale);
   const title =
     localeContext.workTitle?.trim() ||
     metadata?.title?.trim() ||
@@ -194,7 +216,7 @@ export function mapMovieDetail(
     metadata?.runtimeMinutes ?? movie.runtimeMinutes ?? null;
   const runtimeLabel =
     runtimeMinutes != null && runtimeMinutes > 0
-      ? formatShortRuntime(runtimeMinutes)
+      ? formatShortRuntime(runtimeMinutes, locale)
       : null;
 
   const posterUrl =
@@ -204,7 +226,7 @@ export function mapMovieDetail(
   const genres = metadata?.genres.map((genre) => genre.name) ?? [];
   const synopsis = metadata?.overview?.trim() || null;
 
-  const viewings = buildMovieViewings(movie.watchedDates);
+  const viewings = buildMovieViewings(movie.watchedDates, locale);
   const favorite = Boolean(movie.favorite);
   const reviewSlug = movie.reviewSlug ?? null;
 
@@ -242,17 +264,17 @@ export function mapMovieDetail(
       ? { name: metadata.trailer.name, url: metadata.trailer.url }
       : null,
     metadataNotice,
-    statusLabel: catalogCopy.status.films[movie.status],
+    statusLabel: catalog.status.films[movie.status],
     rating: movie.rating,
     favorite,
     favoriteLabel: favorite
-      ? catalogCopy.card.favorite
-      : catalogCopy.card.notFavorite,
+      ? catalog.card.favorite
+      : catalog.card.notFavorite,
     tags: movie.tags ?? [],
     watchLocation: movie.watchLocation?.trim() || null,
     streamingService: movie.streamingService?.trim() || null,
     viewingCount: viewings.length,
-    viewingCountLabel: viewingCountLabel(viewings.length),
+    viewingCountLabel: viewingCountLabel(viewings.length, locale),
     viewings,
     viewingsEmptyLabel: copy.viewings.empty,
     reviewSlug,
@@ -270,11 +292,13 @@ export function mapMovieDetail(
 async function loadMovieMetadata(
   tmdbId: number | undefined,
   language?: string,
+  locale: ReviewLocale = DEFAULT_REVIEW_LOCALE,
 ): Promise<{ metadata: TmdbMovieMetadata | null; notice: string | null }> {
+  const notices = copyFor(locale).films.detail.metadata;
   if (tmdbId == null) {
     return {
       metadata: null,
-      notice: filmsCopy.detail.metadata.unresolved,
+      notice: notices.unresolved,
     };
   }
 
@@ -287,12 +311,12 @@ async function loadMovieMetadata(
     if (error instanceof TmdbError && error.code === "not_found") {
       return {
         metadata: null,
-        notice: filmsCopy.detail.metadata.unresolved,
+        notice: notices.unresolved,
       };
     }
     return {
       metadata: null,
-      notice: filmsCopy.detail.metadata.unavailable,
+      notice: notices.unavailable,
     };
   }
 }
@@ -315,11 +339,14 @@ export const getMovieDetail = cache(
       movie.reviewSlug,
       locale,
     );
-    if (!localeContext) return undefined;
 
     const language =
       locale === "pt-BR" ? tmdbLanguageForLocale(locale) : undefined;
-    const { metadata, notice } = await loadMovieMetadata(movie.tmdbId, language);
+    const { metadata, notice } = await loadMovieMetadata(
+      movie.tmdbId,
+      language,
+      locale,
+    );
     return mapMovieDetail(
       movie,
       metadata,

@@ -7,7 +7,8 @@ import type { BookDetail } from "@/application/dto";
 import RefreshButton from "@/components/atoms/RefreshButton";
 import StarRating from "@/components/atoms/StarRating";
 import ReviewRenderer from "@/components/molecules/ReviewRenderer";
-import { booksCopy } from "@/content/copy/books";
+import { copyFor } from "@/content/copy/for-locale";
+import { pathForLocale } from "@/lib/review-locale";
 import {
   Authors,
   BackLink,
@@ -102,7 +103,7 @@ export default function BookDetailTemplate({
   detail,
   className,
 }: BookDetailTemplateProps) {
-  const copy = booksCopy.detail;
+  const copy = copyFor(detail.reviewLocale).books.detail;
   const [showCoverPlaceholder, setShowCoverPlaceholder] = useState(
     !detail.coverUrl,
   );
@@ -374,10 +375,13 @@ export default function BookDetailTemplate({
             headingId={copy.review.headingId}
             emptyLabel={detail.reviewEmptyLabel}
             html={detail.reviewHtml}
+            alternateHref={detail.alternateReviewHref}
+            alternateLabel={detail.alternateReviewLabel}
+            alternateLang={detail.reviewLocale === "pt-BR" ? "en" : "pt-BR"}
           />
         ) : null}
 
-        <BackLink href={copy.backHref} prefetch={false}>
+        <BackLink href={pathForLocale(copy.backHref, detail.reviewLocale)} prefetch={false}>
           {copy.backLabel}
         </BackLink>
       </Shell>

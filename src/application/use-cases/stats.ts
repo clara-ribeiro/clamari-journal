@@ -12,8 +12,13 @@ import type {
   MovieEntry,
   SeriesEntry,
 } from "@/domain/entities";
-import { statsCopy } from "@/content/copy/stats";
+import { copyFor } from "@/content/copy/for-locale";
 import { formatDuration } from "@/lib/formatters/formatDuration";
+import {
+  DEFAULT_REVIEW_LOCALE,
+  intlLocale,
+  type ReviewLocale,
+} from "@/lib/review-locale";
 import { computeBookStats } from "./books";
 import {
   bookCountsTowardYearGoal,
@@ -118,13 +123,16 @@ export function getLifetimeStats() {
   );
 }
 
-export function getStatsPageData(): {
+export function getStatsPageData(
+  locale: ReviewLocale = DEFAULT_REVIEW_LOCALE,
+): {
   metrics: StatsMetric[];
   goals: GoalMetric[];
 } {
   const movieEntries = movieRepository.findAll();
   const seriesEntries = seriesRepository.findAll();
   const bookEntries = bookRepository.findAll();
+  const stats = copyFor(locale).stats;
 
   const movies = computeMovieStats(movieEntries);
   const series = computeSeriesStats(seriesEntries);
@@ -137,49 +145,50 @@ export function getStatsPageData(): {
     bookEntries,
   );
 
-  const formatCount = (value: number) => value.toLocaleString("en-US");
+  const formatCount = (value: number) =>
+    value.toLocaleString(intlLocale(locale));
 
   /** Collage order matches the stats page layout (alternating image/stat rows). */
   const metrics: StatsMetric[] = [
     {
       id: "works",
       value: formatCount(movies.total + series.total + books.total),
-      label: statsCopy.metrics.works,
+      label: stats.metrics.works,
     },
     {
       id: "film-time",
-      value: formatDuration(movies.totalRuntimeMinutes),
-      label: statsCopy.metrics.filmWatchTime,
+      value: formatDuration(movies.totalRuntimeMinutes, locale),
+      label: stats.metrics.filmWatchTime,
     },
     {
       id: "series-time",
-      value: formatDuration(series.totalRuntimeMinutes),
-      label: statsCopy.metrics.seriesWatchTime,
+      value: formatDuration(series.totalRuntimeMinutes, locale),
+      label: stats.metrics.seriesWatchTime,
     },
     {
       id: "pages",
       value: formatCount(books.pagesRead),
-      label: statsCopy.metrics.pagesRead,
+      label: stats.metrics.pagesRead,
     },
     {
       id: "films-watched",
       value: formatCount(movies.watched),
-      label: statsCopy.metrics.filmsWatched,
+      label: stats.metrics.filmsWatched,
     },
     {
       id: "series-completed",
       value: formatCount(series.completed),
-      label: statsCopy.metrics.seriesCompleted,
+      label: stats.metrics.seriesCompleted,
     },
     {
       id: "episodes",
       value: formatCount(series.watchedEpisodes),
-      label: statsCopy.metrics.episodesWatched,
+      label: stats.metrics.episodesWatched,
     },
     {
       id: "books-finished",
       value: formatCount(books.finished),
-      label: statsCopy.metrics.booksFinished,
+      label: stats.metrics.booksFinished,
     },
   ];
 
@@ -188,13 +197,13 @@ export function getStatsPageData(): {
     goals: goals.map((goal) => ({
       key: goal.key,
       value: `${goal.current}/${goal.target}`,
-      label: `${statsCopy.goalLabels[goal.key]} · ${goal.percent}% · ${goal.remaining} ${statsCopy.remainingSuffix}`,
+      label: `${stats.goalLabels[goal.key]} · ${goal.percent}% · ${goal.remaining} ${stats.remainingSuffix}`,
       current: goal.current,
       target: goal.target,
       percent: goal.percent,
       exceeded: goal.exceeded,
       year: goalsConfig.year,
-      href: goalCatalogHref(goal.key, goalsConfig.year),
+      href: goalCatalogHref(goal.key, goalsConfig.year, locale),
     })),
   };
 }

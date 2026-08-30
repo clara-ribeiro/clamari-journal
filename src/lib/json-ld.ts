@@ -1,4 +1,5 @@
 import type { BookDetail, MovieDetail, SeriesDetail } from "@/application/dto";
+import { copyFor } from "@/content/copy/for-locale";
 import { siteCopy } from "@/content/copy";
 import { reviewPlainText } from "@/lib/plain-text";
 import {
@@ -7,16 +8,64 @@ import {
 } from "@/lib/review-images";
 import {
   DEFAULT_REVIEW_LOCALE,
+  htmlLang,
+  pathForLocale,
   reviewPagePath,
   type ReviewLocale,
 } from "@/lib/review-locale";
-import { absoluteUrl } from "@/lib/site-url";
+import { absoluteUrl, getSiteUrl } from "@/lib/site-url";
 
 export type JsonLd = Record<string, unknown>;
 
 /** Serialize JSON-LD and escape `<` so the payload cannot break out of the script tag. */
 export function serializeJsonLd(data: unknown): string {
   return JSON.stringify(data).replace(/</g, "\\u003c");
+}
+
+function localeHomeUrl(locale: ReviewLocale): string {
+  if (locale === "en") return getSiteUrl().origin;
+  return absoluteUrl(pathForLocale("/", locale));
+}
+
+/** Home page: site identity + document language for search engines. */
+export function buildWebsiteJsonLd(locale: ReviewLocale): JsonLd {
+  const site = copyFor(locale).site;
+  return omitEmpty({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: site.brand.fullName,
+    url: localeHomeUrl(locale),
+    inLanguage: htmlLang(locale),
+    description: site.metadata.description,
+    publisher: {
+      "@type": "Person",
+      name: site.metadata.author,
+    },
+  });
+}
+
+/** Catalogs, stats, and feeds: a language-scoped page in the locale site. */
+export function buildWebPageJsonLd(input: {
+  type?: "WebPage" | "CollectionPage";
+  name: string;
+  description: string;
+  path: string;
+  locale: ReviewLocale;
+}): JsonLd {
+  const site = copyFor(input.locale).site;
+  return omitEmpty({
+    "@context": "https://schema.org",
+    "@type": input.type ?? "WebPage",
+    name: input.name,
+    description: input.description,
+    url: absoluteUrl(pathForLocale(input.path, input.locale)),
+    inLanguage: htmlLang(input.locale),
+    isPartOf: {
+      "@type": "WebSite",
+      name: site.brand.fullName,
+      url: localeHomeUrl(input.locale),
+    },
+  });
 }
 
 function splitNames(label: string | null): string[] {

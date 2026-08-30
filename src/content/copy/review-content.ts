@@ -13,7 +13,7 @@ export type ReviewLocaleCopy = {
 const englishLocaleCopy = {
   spoilerSummary: "Spoilers",
   reviewHeading: "Review",
-  switchToLabel: "Português",
+  switchToLabel: "Versão em Português",
   seo: {
     titleWithReview: "{title} review",
     descriptionFromReview: "A personal review of {title}. {excerpt}",
@@ -23,7 +23,7 @@ const englishLocaleCopy = {
 const portugueseLocaleCopy = {
   spoilerSummary: "Alerta de spoilers",
   reviewHeading: "Resenha",
-  switchToLabel: "English",
+  switchToLabel: "English Version",
   seo: {
     titleWithReview: "Resenha de {title}",
     descriptionFromReview: "Uma resenha pessoal de {title}. {excerpt}",

@@ -18,6 +18,7 @@ describe("sitemap", () => {
 
     for (const path of INDEXABLE_STATIC_PATHS) {
       expect(urls).toContain(path);
+      expect(urls).toContain(path === "/" ? "/pt" : `/pt${path}`);
     }
 
     expect(urls.some((path) => path.startsWith("/films/"))).toBe(true);
@@ -27,8 +28,10 @@ describe("sitemap", () => {
   });
 
   it("advertises local review stills on the film that has them", () => {
-    const film = sitemap().find((entry) =>
-      entry.url.includes("/films/cat-on-a-hot-tin-roof"),
+    const film = sitemap().find(
+      (entry) =>
+        entry.url.includes("/films/cat-on-a-hot-tin-roof") &&
+        !entry.url.includes("/pt/"),
     );
 
     expect(film?.priority).toBe(0.8);
@@ -40,7 +43,7 @@ describe("sitemap", () => {
     ).toBe(true);
   });
 
-  it("lists the Portuguese sibling and reciprocal hreflang when a .pt.md exists", () => {
+  it("lists Portuguese counterparts and reciprocal hreflang on every public URL", () => {
     const entries = sitemap();
     const pt = entries.find((entry) =>
       entry.url.includes("/pt/films/cat-on-a-hot-tin-roof"),
