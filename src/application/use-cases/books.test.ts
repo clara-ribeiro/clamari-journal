@@ -102,6 +102,16 @@ describe("mapBookDetail", () => {
     expect(detail.metadataNotice).toBeNull();
   });
 
+  it("prefers the journal cover over the Google Books cover", () => {
+    const detail = mapBookDetail(
+      { ...baseEntry, coverUrl: "/images/books/custom.webp" },
+      baseMetadata,
+      null,
+    );
+
+    expect(detail.coverUrl).toBe("/images/books/custom.webp");
+  });
+
   it("surfaces a notice and falls back to entry fields when metadata is missing", () => {
     const detail = mapBookDetail(
       { ...baseEntry, coverUrl: "https://example.com/cover.jpg" },

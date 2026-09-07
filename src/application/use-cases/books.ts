@@ -256,7 +256,7 @@ export function mapBookDetail(
     : null;
   const synopsis = synopsisRaw || null;
   const heroExcerpt = buildHeroExcerpt(metadata?.description);
-  const coverUrl = metadata?.coverUrl ?? entry.coverUrl ?? null;
+  const coverUrl = entry.coverUrl ?? metadata?.coverUrl ?? null;
   const favorite = Boolean(entry.favorite);
   const reviewSlug = entry.reviewSlug ?? null;
 
