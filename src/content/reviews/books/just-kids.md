@@ -55,7 +55,18 @@ Just Kids by Patti Smith
 - Robert was fascinated by that story;
 > I was a bad girl trying to be good and he was a good boy trying to be bad.
 >
-- 
+- Patti's thoughts would often wonder when she was in classes. That would make her have punishments, humiliating ones.
+    - She would draw these moments for Robert:
+    > He delighted in them, seeming to appreciate all the qualities that repelled or alienated me from others. Through this visual dialog, my youthful memories became his
+    >
+- Then, Patti's younger sister was born, Kimberly;
+- Despite beeing poor, her parents seems to try to give them a good childhood - the father introduced her to sci-fi, for exemple. She talks about her family with love;
+- She started to write stories after reading Little Women and seeing that Jo could support her family throught writing;
+- Her parents made a huge effort to take all the kids to the museum, and that really had a impact on Patti's life. Not only the father made the sacrifice to take them there, bur he also discussed art with her, talking about what he liked and didn't like;
+- After the museum visit, she was changed. She saw other people's view of the world and she wanted to externalize hers also;
+    > I wondered if I had been called as an artist. I didn't mind the misery of a vocation, but I dreaded not beeig called
+    >
+
 
 
 ## What made me want to read this book
