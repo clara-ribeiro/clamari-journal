@@ -16,6 +16,7 @@ Just Kids by Patti Smith
 ## Possible Tiles:
 - I have lived for love, I have lived for Art
 - I was a bad girl trying to be good and he was a good boy trying to be bad
+- I held to the hope that I was an artist
 
 ## Foreword:
 
@@ -66,8 +67,113 @@ Just Kids by Patti Smith
 - After the museum visit, she was changed. She saw other people's view of the world and she wanted to externalize hers also;
     > I wondered if I had been called as an artist. I didn't mind the misery of a vocation, but I dreaded not beeig called
     >
+    - Her biggest fear is to not be able to express herself through her art - any type of art form;
+- On high school, she wasn't popular. According to her, she was on the lowest rung of high school's social ladder. To be able to get through this period of her life, Patti immersed herself in books and rock'n'roll - James Brown, the Shrielles, Hank Balland and The Midnighters;
+- Unlike many other artists that I know, she wasn't naturally great in anything, and yet, she drew, danced and wrote poems;
+> I imagined myself as Frida to Diego, both muse and maker. I dreamed of meeting an artist to love and support and work with side by side
+>
+    - I have a take on this passage. I think it's beautiful how she wants to someone else to understand her. She wants to poor all of herself out on someone. This remindes of the song Oceano of Djavan. She wanted someone who would see all of her and her be all of herself with him;
+    - Also, something tells me that she found that with Robert
+- After talking about her childhood, she change the subject and tryed to talk about his;
+    - They bouth were born in the same year, 1946;
+    - He was fascinated with beauty since he was born;
+    > He contained, even at an early age, a stirring and the desire to stir
+    >
+
+    > Colloring excited him, not the act of filling in space, but choosing colors that no one else would select
+    >
+    - He liked for his art to disturb others (initially, his siblings);
+        - Both used the siblings/family as audience for their artistics expressions;
+    - He was a natural draftsman, unlike Patti, who, accordingly to her, wasn't naturally good in anything;
+    > He was an artist, and he knew it. It was not a childish notion. He merely acknowledged what was his
+    >
+    - Apparently, he always had a desire to bother inside of him;
+        > The trill of the battle between good and evil, attracted him, perhaps because it mirrored his interior conflict, and revealed a line that he might yet need to cross
+        >
+    - Their family was very different. He liked hearing her stories with her siblings and parents because he didn't had any worht telling;
+- In 1966 she got pregnant;
+- Despite growing up on a Christian household that valued marrige, her parents supported and loved her throught that phase;
+- She was studing to become a teacher, even though she didn't see herself working with that;
+    - Her parents were proud of her studies and work (at a factory). The pregnancy announciment was a great blow; 
+- The father of her child was younger and she didn't asked anything of him. The whole responsability would be hers;
+- She coudn't raise the kid well, so she found a good family to take the child in;
+- She made an important decision when she was about to tell her parents about her baby: she would go after her dream. No more college or work at a factory. She promised herself to be an artist;
+- Janet Hamill was a friend from college, who came to live with her family. She helped Patti throughout the pregnancy;
+    - They shared a love for rock music;
+- Patti had to leave home, not because of her parents, but thanks to the neighbours, who made their life a living hell;
+- She went to live with the family that would adopt her baby;
+    - A house full of music and art;
+- Her parents gave her support during the birth, but it was very difficult and she was very neglected;
+    - The nurses neglected her and left her suffering for hours before calling the doctor;
+- She knew that the child would grow up happy, and that gave her strengh to go after her dream;
+    > Young Jean (of Arc) whom I had known through books and the child whom I would never know. I vowed to both of them that I would make something of myself
+    >
+- The same day that she was having birth, Robert was also having an intense experience: dropping a large ammout of acid;
+    - He tried to do that before, but the drugas took him to a dark place in his mind and he didn't stop to think about it, he just avoided his negative thoughts;
+- Just like Patti described her labor, Robert described what he felt after taking LSD;
+    > He had past through the phase of antecipation and nervous agitation. He loved that feeling. He traced the thrill and fear blossoming in his stomach. He used to experience it as an altar boy as he stood behind the velvet courtains in his small robe holding the processional cross, reading to march
+    >
+    > He noticed his own breath like the breath of a collapsing god
+    >
+- The drugs worked that time. He could see a drawing on an empty canvas;
+- Both experiences (labor and drugs) brought them the clarity to follow ther dream to be an artist;
+- In 67, Patti was a college dropout working on a minimum wage job in a textbook factory;
+- While Robert was 100% sure of his artistery, Patti still said:
+    > I held to the hope that I was an artist
+    >
+    - She had her parents support, but not the means to follow that carrer in rural South Jersey;
+- An important influence for her was Arthur Rimbald, through the book Illuminations (that she stole from a book shop);
+- That next quote reminds me of a lyric from Ilicit Affairs by Taylor Swift:
+    > Rimbald held the keys to a mystical language that I devoured even as I could not fully decipher it
+    >
+    - Probably she couldn't decipher fully because of the language barrier, but she surely had a deep connection with his words;
+- Rimbald's words followed her wherever she went
+    > My unrequited love for him was as real to me as anything I had experienced
+    >
+- They harrassed her for reading a foreign book, accusing her of communism;
+    > It was for him that I wrote and dreamed. He became my archangel, delivering me from the mundane horrors of factory life. His hands had chiseled a manual of heaven and I held them fast
+    >
+    > I tossed my copy of Illuminations in a plaid suitcase. We would escape together
+    >
+- She wanted to be in an enviroment surrounded by art, so she could learn. That's why she wanted to go to New York;
+- She took the oportunity to go when she was laid off;
+- The plan was to spend all her money buying an one way ticket no New York and go work in a bookstore;
+- Then, she realized that the price of the ticked to NY had almost doubled. She didn't give up going because she found 32 dolars on a lost purse and took it as a sign;
+    > I can only thank, as I have within myself many times through the years, this unknown benefector
+    >
+    > I accepted the grant of the small white purse as the hand of fate pushing me on
+    >
+- This was her chance to make her break;
+    > No one expected me. Everything awaited me
+    >
+- She hoped to crash in her friend's apartment. They had moved;
+- She spent a long time without a place to stay, without food. She spent all her time looking for a job;
+    - As time passed, she got more beat and more hungry;
+- Saint was also a homeless person who helped her with food, conversations, and advices;
+    > -- Hey sister, what's your situation?
+    > -- On Earth or in the universe?
+    >
+
+    > -- A real prision breakfast -- I said
+    > -- Yeah, but at least we are free
+    > And that summed it up
+    >
+- When Saint left she said:
+    > I wasn't sad, because everythime I though of him I'd smile
+    >
+    - It is better to have loved and lost them to not have loved at all;
+- John Coltrane's death was a huge deal for her (and other americans);
+    > It was if a saint had died, one who had offered up healing musiv yet was not permitted to heal himself
+    >
+- She still didn't have a job nor a place to sleep
+    > That wasn't much fun, but I had my mantra: "I'm free, I'm free". Although after several days, my other mantra:"I'm hungry, I'm hungry" seemed to be in the forefront
+    >
+- Finally, Patti and Robert meet;
+- (I just realized that maybe the chapter's name - Monday's Children - is because they bouth were born on Monday. Given that she is supperstitious and thinks that Mondays are a lucky day, she must've felt like Robert and her were meant to meet);
 
 
+
+## Writting Assignemts
 
 ## What made me want to read this book
 
