@@ -152,6 +152,59 @@ describe("mapSeriesDetail", () => {
     expect(detail.metadataNotice).toBeNull();
   });
 
+  it("counts unique regular episodes and will not label incomplete shows completed", () => {
+    const detail = mapSeriesDetail(
+      {
+        ...baseEntry,
+        status: "completed",
+        finishedAt: "2020-01-01",
+        watchedEpisodes: [
+          { season: 1, episode: 1, watchedAt: "2020-01-01" },
+          { season: 1, episode: 1, watchedAt: "2020-06-01" },
+        ],
+      },
+      baseMetadata,
+      [seasonOne],
+      null,
+    );
+
+    expect(detail.statusLabel).toBe("Paused");
+    expect(detail.finishedLabel).toBeNull();
+    expect(detail.watchedEpisodesLabel).toBe("1 / 62");
+  });
+
+  it("promotes watching to completed when unique watches cover the released total", () => {
+    const detail = mapSeriesDetail(
+      {
+        ...baseEntry,
+        status: "watching",
+        numberOfEpisodes: 2,
+      },
+      { ...baseMetadata, numberOfEpisodes: 2 },
+      [seasonOne],
+      null,
+    );
+
+    expect(detail.statusLabel).toBe("Completed");
+    expect(detail.watchedEpisodesLabel).toBe("2 / 2");
+    expect(detail.finishedLabel).toBe("January 2, 2020");
+  });
+
+  it("promotes abandoned to completed when unique watches cover the released total", () => {
+    const detail = mapSeriesDetail(
+      {
+        ...baseEntry,
+        status: "abandoned",
+        numberOfEpisodes: 2,
+      },
+      { ...baseMetadata, numberOfEpisodes: 2 },
+      [seasonOne],
+      null,
+    );
+
+    expect(detail.statusLabel).toBe("Completed");
+  });
+
   it("surfaces a metadata notice when TMDB is unavailable", () => {
     const detail = mapSeriesDetail(
       { ...baseEntry, tmdbId: undefined, posterPath: undefined },

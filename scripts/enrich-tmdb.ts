@@ -11,6 +11,8 @@
 
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { resolveJournalSeriesStatus, lastRegularWatchDate } from "../src/domain/series-progress";
+import type { SeriesStatus, WatchedEpisode } from "../src/domain/entities/series";
 
 const ROOT = resolve(import.meta.dirname, "..");
 const TMDB_BASE = "https://api.themoviedb.org/3";
@@ -22,6 +24,9 @@ type SeriesEntry = {
   numberOfSeasons?: number;
   numberOfEpisodes?: number;
   title: string;
+  status?: SeriesStatus;
+  finishedAt?: string;
+  watchedEpisodes?: WatchedEpisode[];
   [key: string]: unknown;
 };
 
@@ -175,6 +180,35 @@ async function enrichSeries() {
       console.warn(`series fail: ${entry.title}`, error);
     }
     await sleep(120);
+  }
+
+  for (const entry of series) {
+    if (entry.status == null) continue;
+    const next = resolveJournalSeriesStatus(
+      entry.status,
+      entry.watchedEpisodes ?? [],
+      entry.numberOfEpisodes,
+    );
+    if (next === entry.status && next !== "completed") continue;
+    if (next !== entry.status) {
+      entry.status = next;
+      updated += 1;
+      console.log(`series status ${entry.title} → ${next}`);
+    }
+    if (next !== "completed") {
+      if (entry.finishedAt) {
+        delete entry.finishedAt;
+        updated += 1;
+      }
+      continue;
+    }
+    if (!entry.finishedAt) {
+      const finishedAt = lastRegularWatchDate(entry.watchedEpisodes ?? []);
+      if (finishedAt) {
+        entry.finishedAt = finishedAt;
+        updated += 1;
+      }
+    }
   }
 
   writeFileSync(path, JSON.stringify(series, null, 2) + "\n");

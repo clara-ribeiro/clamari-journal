@@ -13,6 +13,7 @@ import type {
 } from "@/domain/entities";
 import type { RatingValue } from "@/domain/value-objects/rating";
 import { isValidRating } from "@/domain/value-objects/rating";
+import { resolveJournalSeriesStatus, lastRegularWatchDate } from "@/domain/series-progress";
 
 const MOVIE_STATUSES = [
   "watchlist",
@@ -298,6 +299,34 @@ function parseWatchedEpisode(
   };
 }
 
+/** One row per season+episode; earliest watch date wins. Rewatches do not stack. */
+function collapseWatchedEpisodes(episodes: WatchedEpisode[]): WatchedEpisode[] {
+  const best = new Map<string, WatchedEpisode>();
+  for (const episode of episodes) {
+    const key = `${episode.season}-${episode.episode}`;
+    const current = best.get(key);
+    if (!current) {
+      best.set(key, episode);
+      continue;
+    }
+    const watchedAt =
+      current.watchedAt && episode.watchedAt
+        ? episode.watchedAt < current.watchedAt
+          ? episode.watchedAt
+          : current.watchedAt
+        : (current.watchedAt ?? episode.watchedAt);
+    best.set(key, {
+      ...current,
+      watchedAt,
+      runtimeMinutes: current.runtimeMinutes ?? episode.runtimeMinutes,
+      rating: current.rating ?? episode.rating,
+    });
+  }
+  return [...best.values()].sort(
+    (a, b) => a.season - b.season || a.episode - b.episode,
+  );
+}
+
 function parseReadingUpdate(value: unknown, path: string): ReadingUpdate {
   if (!isRecord(value)) {
     fail(path, `must be an object`);
@@ -443,26 +472,46 @@ export function parseSeriesEntries(data: unknown): SeriesEntry[] {
       fail(path, `"watchedEpisodes" must be an array`);
     }
 
-    const watchedEpisodes = watchedEpisodesRaw.map((episode, episodeIndex) =>
-      parseWatchedEpisode(
-        episode,
-        `${path}.watchedEpisodes[${episodeIndex}]`,
+    const watchedEpisodes = collapseWatchedEpisodes(
+      watchedEpisodesRaw.map((episode, episodeIndex) =>
+        parseWatchedEpisode(
+          episode,
+          `${path}.watchedEpisodes[${episodeIndex}]`,
+        ),
       ),
     );
 
     const startedAt = optionalIsoDate(item, "startedAt", path);
-    const finishedAt = optionalIsoDate(item, "finishedAt", path);
+    const finishedAtRaw = optionalIsoDate(item, "finishedAt", path);
+
+    const numberOfEpisodes = optionalPositiveInteger(
+      item,
+      "numberOfEpisodes",
+      path,
+    );
+    const recordedStatus = requireOneOf(item, "status", path, SERIES_STATUSES);
+    const status = resolveJournalSeriesStatus(
+      recordedStatus,
+      watchedEpisodes,
+      numberOfEpisodes,
+    );
+    const finishedAt =
+      status === "completed"
+        ? (finishedAtRaw ?? lastRegularWatchDate(watchedEpisodes))
+        : recordedStatus === "completed"
+          ? undefined
+          : finishedAtRaw;
     assertChronology(startedAt, finishedAt, path, "startedAt", "finishedAt");
 
     return {
       tmdbId: optionalPositiveInteger(item, "tmdbId", path),
       posterPath: optionalString(item, "posterPath", path),
       numberOfSeasons: optionalPositiveInteger(item, "numberOfSeasons", path),
-      numberOfEpisodes: optionalPositiveInteger(item, "numberOfEpisodes", path),
+      numberOfEpisodes,
       tvdbId: requirePositiveInteger(item, "tvdbId", path),
       slug: requireString(item, "slug", path),
       title: requireString(item, "title", path),
-      status: requireOneOf(item, "status", path, SERIES_STATUSES),
+      status,
       rating: optionalRating(item, path),
       favorite: optionalBoolean(item, "favorite", path),
       startedAt,

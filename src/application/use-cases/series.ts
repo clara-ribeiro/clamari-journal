@@ -12,6 +12,11 @@ import type {
   TmdbSeriesMetadata,
 } from "@/application/dto/tmdb-metadata";
 import type { SeriesEntry, WatchedEpisode } from "@/domain/entities";
+import {
+  lastRegularWatchDate,
+  resolveJournalSeriesStatus,
+  uniqueRegularWatchedCount,
+} from "@/domain/series-progress";
 import { copyFor } from "@/content/copy/for-locale";
 import {
   getSeason,
@@ -58,7 +63,9 @@ export function getEpisodeRuntimeMinutes(runtimeMinutes?: number): number {
 }
 
 export function computeSeriesStats(all: SeriesEntry[]) {
-  const withProgress = all.filter((s) => s.watchedEpisodes.length > 0);
+  const withProgress = all.filter(
+    (s) => uniqueRegularWatchedCount(s.watchedEpisodes) > 0,
+  );
 
   const totalRuntimeMinutes = all.reduce(
     (sum, entry) =>
@@ -72,7 +79,7 @@ export function computeSeriesStats(all: SeriesEntry[]) {
   );
 
   const watchedEpisodes = all.reduce(
-    (total, entry) => total + entry.watchedEpisodes.length,
+    (total, entry) => total + uniqueRegularWatchedCount(entry.watchedEpisodes),
     0,
   );
 
@@ -123,14 +130,23 @@ function toSeriesCatalogCard(
   locale: ReviewLocale = DEFAULT_REVIEW_LOCALE,
 ): CatalogCardItem {
   const catalog = catalogCopyFor(locale);
-  const statusLabel = catalog.status.series[entry.status];
+  const status = resolveJournalSeriesStatus(
+    entry.status,
+    entry.watchedEpisodes,
+    entry.numberOfEpisodes,
+  );
+  const statusLabel = catalog.status.series[status];
   const hasReview = catalogHasReview("series", entry.reviewSlug, locale);
   const favorite = Boolean(entry.favorite);
-  const activityDate = entry.finishedAt ?? entry.startedAt ?? null;
-  const activityLabel = entry.finishedAt
+  const finishedAt =
+    status === "completed"
+      ? (entry.finishedAt ?? lastRegularWatchDate(entry.watchedEpisodes))
+      : undefined;
+  const activityDate = finishedAt ?? entry.startedAt ?? null;
+  const activityLabel = finishedAt
     ? catalog.card.finishedOn.replace(
         "{date}",
-        formatDate(entry.finishedAt, locale),
+        formatDate(finishedAt, locale),
       )
     : entry.startedAt
       ? catalog.card.startedOn.replace(
@@ -138,12 +154,10 @@ function toSeriesCatalogCard(
           formatDate(entry.startedAt, locale),
         )
       : catalog.card.noActivityDate;
+  const watchedCount = uniqueRegularWatchedCount(entry.watchedEpisodes);
   const episodeTag =
-    entry.watchedEpisodes.length > 0
-      ? catalog.card.episodeCount.replace(
-          "{count}",
-          String(entry.watchedEpisodes.length),
-        )
+    watchedCount > 0
+      ? catalog.card.episodeCount.replace("{count}", String(watchedCount))
       : null;
   const title = localizedWorkTitle(
     "series",
@@ -166,7 +180,7 @@ function toSeriesCatalogCard(
     favorite,
     hasReview,
     statusLabel,
-    statusTone: seriesStatusTone(entry.status),
+    statusTone: seriesStatusTone(status),
     yearLabel: null,
     activityLabel,
     favoriteLabel: favorite
@@ -176,13 +190,13 @@ function toSeriesCatalogCard(
       ? catalog.card.withReview
       : catalog.card.noReview,
     metaTags,
-    statusKey: entry.status,
+    statusKey: status,
     sortTitle: title,
     sortDate: activityDate,
     sortRating: entry.rating ?? 0,
     sortYear: null,
     goalYears: yearsSeriesCountsToward(entry),
-    watchedEpisodeCount: entry.watchedEpisodes.length,
+    watchedEpisodeCount: uniqueRegularWatchedCount(entry.watchedEpisodes),
   };
 }
 
@@ -357,7 +371,7 @@ export function mapSeriesDetail(
 
   const favorite = Boolean(entry.favorite);
   const reviewSlug = entry.reviewSlug ?? null;
-  const watchedCount = entry.watchedEpisodes.length;
+  const watchedCount = uniqueRegularWatchedCount(entry.watchedEpisodes);
 
   const totalEpisodes =
     metadata?.numberOfEpisodes ??
@@ -401,6 +415,16 @@ export function mapSeriesDetail(
     seoCopy: localeContext.seoCopy,
   });
 
+  const status = resolveJournalSeriesStatus(
+    entry.status,
+    entry.watchedEpisodes,
+    totalEpisodes ?? undefined,
+  );
+  const finishedAt =
+    status === "completed"
+      ? (entry.finishedAt ?? lastRegularWatchDate(entry.watchedEpisodes))
+      : undefined;
+
   return {
     slug: entry.slug,
     title,
@@ -426,16 +450,14 @@ export function mapSeriesDetail(
       ? { name: metadata.trailer.name, url: metadata.trailer.url }
       : null,
     metadataNotice,
-    statusLabel: catalog.status.series[entry.status],
+    statusLabel: catalog.status.series[status],
     rating: entry.rating,
     favorite,
     favoriteLabel: favorite
       ? catalog.card.favorite
       : catalog.card.notFavorite,
     startedLabel: entry.startedAt ? formatDate(entry.startedAt, locale) : null,
-    finishedLabel: entry.finishedAt
-      ? formatDate(entry.finishedAt, locale)
-      : null,
+    finishedLabel: finishedAt ? formatDate(finishedAt, locale) : null,
     watchedEpisodesLabel:
       totalEpisodes != null
         ? `${watchedCount} / ${totalEpisodes}`

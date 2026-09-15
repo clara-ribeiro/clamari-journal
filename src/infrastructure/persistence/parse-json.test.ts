@@ -118,6 +118,72 @@ describe("parseSeriesEntries", () => {
       },
     ]);
     expect(series.watchedEpisodes[0]?.season).toBe(1);
+    expect(series.status).toBe("completed");
+  });
+
+  it("collapses rewatches and demotes completed when unique watches miss the released total", () => {
+    const [incomplete] = parseSeriesEntries([
+      {
+        ...base,
+        numberOfEpisodes: 5,
+        startedAt: "2018-01-01",
+        finishedAt: "2018-06-01",
+        watchedEpisodes: [
+          { season: 1, episode: 1, watchedAt: "2018-02-01" },
+          { season: 1, episode: 1, watchedAt: "2018-01-01" },
+        ],
+      },
+    ]);
+    expect(incomplete.watchedEpisodes).toHaveLength(1);
+    expect(incomplete.watchedEpisodes[0]?.watchedAt).toBe("2018-01-01");
+    expect(incomplete.status).toBe("paused");
+    expect(incomplete.finishedAt).toBeUndefined();
+
+    const [complete] = parseSeriesEntries([
+      {
+        ...base,
+        numberOfEpisodes: 1,
+        finishedAt: "2018-06-01",
+        watchedEpisodes: [
+          { season: 1, episode: 1, watchedAt: "2018-01-01" },
+          { season: 1, episode: 1, watchedAt: "2018-06-01" },
+        ],
+      },
+    ]);
+    expect(complete.status).toBe("completed");
+    expect(complete.finishedAt).toBe("2018-06-01");
+    expect(complete.watchedEpisodes).toHaveLength(1);
+  });
+
+  it("promotes watching to completed and fills finishedAt from the last unique watch", () => {
+    const [series] = parseSeriesEntries([
+      {
+        ...base,
+        status: "watching",
+        numberOfEpisodes: 1,
+        startedAt: "2018-01-01",
+        watchedEpisodes: [
+          { season: 1, episode: 1, watchedAt: "2018-06-01" },
+          { season: 1, episode: 1, watchedAt: "2018-01-01" },
+        ],
+      },
+    ]);
+    expect(series.status).toBe("completed");
+    expect(series.finishedAt).toBe("2018-01-01");
+  });
+
+  it("promotes abandoned to completed when unique watches cover the released total", () => {
+    const [series] = parseSeriesEntries([
+      {
+        ...base,
+        status: "abandoned",
+        numberOfEpisodes: 1,
+        startedAt: "2021-01-01",
+        watchedEpisodes: [{ season: 1, episode: 1, watchedAt: "2021-01-01" }],
+      },
+    ]);
+    expect(series.status).toBe("completed");
+    expect(series.finishedAt).toBe("2021-01-01");
   });
 
   it("rejects invalid episode numbers and inverted dates", () => {

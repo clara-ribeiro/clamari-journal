@@ -1,3 +1,4 @@
+import { uniqueRegularWatchedCount } from "@/domain/series-progress";
 import type { SeriesEntry } from "@/domain/entities";
 import type { SeriesRepository } from "@/application/repositories/series-repository";
 import seriesData from "@/data/series.json";
@@ -20,7 +21,8 @@ export class FileSeriesRepository implements SeriesRepository {
 
   countWatchedEpisodes(): number {
     return series.reduce(
-      (total, entry) => total + entry.watchedEpisodes.length,
+      (total, entry) =>
+        total + uniqueRegularWatchedCount(entry.watchedEpisodes),
       0,
     );
   }

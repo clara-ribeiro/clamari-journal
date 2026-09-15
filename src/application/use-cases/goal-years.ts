@@ -4,6 +4,7 @@ import type {
   MovieEntry,
   SeriesEntry,
 } from "@/domain/entities";
+import { hasWatchedAllReleasedEpisodes } from "@/domain/series-progress";
 import {
   DEFAULT_REVIEW_LOCALE,
   pathForLocale,
@@ -56,15 +57,22 @@ function regularWatchedEpisodeKeys(series: SeriesEntry): Set<string> {
 }
 
 /**
- * Caught up with everything released so far: finished show, marked up-to-date,
- * or watched at least as many regular episodes as TMDB reports (preferred),
- * else every season number through `numberOfSeasons`.
+ * Caught up with everything released so far: unique regular watches cover
+ * TMDB's released total (preferred), else every season through
+ * `numberOfSeasons`, else a `completed` / `up-to-date` mark when totals are unknown.
+ * Incomplete paused / abandoned / watchlist never count. Rewatches do not add coverage.
  * When a new season/episode lands in TMDB, catch-up fails until watched again.
  */
 export function isSeriesCaughtUp(series: SeriesEntry): boolean {
-  if (series.status === "completed" || series.status === "up-to-date") {
+  if (
+    hasWatchedAllReleasedEpisodes(
+      series.watchedEpisodes,
+      series.numberOfEpisodes,
+    )
+  ) {
     return true;
   }
+
   if (
     series.status === "abandoned" ||
     series.status === "watchlist" ||
@@ -73,10 +81,17 @@ export function isSeriesCaughtUp(series: SeriesEntry): boolean {
     return false;
   }
 
-  const watched = regularWatchedEpisodeKeys(series);
   if (series.numberOfEpisodes !== undefined) {
-    return watched.size >= series.numberOfEpisodes;
+    return hasWatchedAllReleasedEpisodes(
+      series.watchedEpisodes,
+      series.numberOfEpisodes,
+    );
   }
+  if (series.status === "completed" || series.status === "up-to-date") {
+    return true;
+  }
+
+  const watched = regularWatchedEpisodeKeys(series);
   if (series.numberOfSeasons !== undefined) {
     const seasons = new Set(
       [...watched].map((key) => Number(key.split("-")[0])),

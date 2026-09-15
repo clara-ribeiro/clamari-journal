@@ -39,6 +39,7 @@ export type SeriesEntry = {
   rating?: RatingValue;
   favorite?: boolean;
   startedAt?: string;
+  /** Set when `status` is `completed`. */
   finishedAt?: string;
   watchedEpisodes: WatchedEpisode[];
   reviewSlug?: string;

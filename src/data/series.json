@@ -3307,7 +3307,7 @@
     "tvdbId": 73739,
     "slug": "lost",
     "title": "Lost",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -3462,7 +3462,6 @@
       }
     ],
     "startedAt": "2021-06-15",
-    "finishedAt": "2021-06-26",
     "tmdbId": 4607,
     "posterPath": "/og6S0aTZU6YUJAbqxeKjCa3kY1E.jpg",
     "numberOfSeasons": 6,
@@ -6413,7 +6412,7 @@
     "tvdbId": 74256,
     "slug": "winx-club",
     "title": "Winx Club",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -7223,7 +7222,6 @@
       }
     ],
     "startedAt": "2017-10-15",
-    "finishedAt": "2018-08-12",
     "tmdbId": 1848,
     "posterPath": "/iAEh0rhHfq0oPdsZbsCSNPRBHXW.jpg",
     "numberOfSeasons": 8,
@@ -7233,7 +7231,7 @@
     "tvdbId": 75340,
     "slug": "prison-break",
     "title": "Prison Break",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -7633,7 +7631,6 @@
       }
     ],
     "startedAt": "2016-02-01",
-    "finishedAt": "2016-02-01",
     "tmdbId": 2288,
     "posterPath": "/wnmNPaLvhnMeOqnWlhNkYCZxtda.jpg",
     "numberOfSeasons": 5,
@@ -15330,7 +15327,7 @@
     "tvdbId": 78804,
     "slug": "doctor-who-2005",
     "title": "Doctor Who (2005)",
-    "status": "completed",
+    "status": "paused",
     "favorite": true,
     "watchedEpisodes": [
       {
@@ -15797,7 +15794,6 @@
       }
     ],
     "startedAt": "2019-08-17",
-    "finishedAt": "2021-04-30",
     "tmdbId": 57243,
     "posterPath": "/m6G92osOtSeXwjSfL21jZCUOvxe.jpg",
     "numberOfSeasons": 13,
@@ -15807,7 +15803,7 @@
     "tvdbId": 78901,
     "slug": "supernatural",
     "title": "Supernatural",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -15962,7 +15958,6 @@
       }
     ],
     "startedAt": "2016-02-10",
-    "finishedAt": "2016-06-24",
     "tmdbId": 1622,
     "posterPath": "/8iixmfGx5EIFPdpNvB2JvI3VIqX.jpg",
     "numberOfSeasons": 15,
@@ -17458,7 +17453,7 @@
     "tvdbId": 80547,
     "slug": "gossip-girl",
     "title": "Gossip Girl",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -17788,7 +17783,6 @@
       }
     ],
     "startedAt": "2016-02-25",
-    "finishedAt": "2016-02-25",
     "tmdbId": 1395,
     "posterPath": "/mRvSUuU1VQQkZZ578jKJpcUCuL8.jpg",
     "numberOfSeasons": 6,
@@ -18136,7 +18130,7 @@
     "tvdbId": 82851,
     "slug": "tipping-the-velvet",
     "title": "Tipping the Velvet",
-    "status": "abandoned",
+    "status": "completed",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -18159,7 +18153,8 @@
     "tmdbId": 13894,
     "posterPath": "/o2xWfAWTh8akVaKrQ7Alsu1MhU2.jpg",
     "numberOfSeasons": 1,
-    "numberOfEpisodes": 3
+    "numberOfEpisodes": 3,
+    "finishedAt": "2019-08-04"
   },
   {
     "tvdbId": 85002,
@@ -19443,7 +19438,7 @@
     "tvdbId": 95491,
     "slug": "the-vampire-diaries",
     "title": "The Vampire Diaries",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -20108,7 +20103,6 @@
       }
     ],
     "startedAt": "2016-02-01",
-    "finishedAt": "2016-02-01",
     "tmdbId": 18165,
     "posterPath": "/b3vl6wV1W8PBezFfntKTrhrehCY.jpg",
     "numberOfSeasons": 8,
@@ -20540,7 +20534,7 @@
     "tvdbId": 146711,
     "slug": "pretty-little-liars",
     "title": "Pretty Little Liars",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -21345,7 +21339,6 @@
       }
     ],
     "startedAt": "2016-01-27",
-    "finishedAt": "2018-02-14",
     "tmdbId": 31917,
     "posterPath": "/aUPbHiLS3hCHKjtLsncFa9g0viV.jpg",
     "numberOfSeasons": 7,
@@ -21355,7 +21348,7 @@
     "tvdbId": 153021,
     "slug": "the-walking-dead",
     "title": "The Walking Dead",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -21815,7 +21808,6 @@
       }
     ],
     "startedAt": "2016-01-28",
-    "finishedAt": "2017-01-05",
     "tmdbId": 1402,
     "posterPath": "/aN29llVoCFtBTwDZFtqdD9d8dHb.jpg",
     "numberOfSeasons": 11,
@@ -21825,7 +21817,7 @@
     "tvdbId": 161511,
     "slug": "shameless-us",
     "title": "Shameless (US)",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -22316,7 +22308,6 @@
       }
     ],
     "startedAt": "2021-11-19",
-    "finishedAt": "2022-03-14",
     "tmdbId": 34307,
     "posterPath": "/ifo31fMWLmyOVpdak9K0kY4jldQ.jpg",
     "numberOfSeasons": 11,
@@ -22352,7 +22343,7 @@
     "tvdbId": 175001,
     "slug": "teen-wolf",
     "title": "Teen Wolf",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -22772,7 +22763,6 @@
       }
     ],
     "startedAt": "2016-01-27",
-    "finishedAt": "2017-01-05",
     "tmdbId": 34524,
     "posterPath": "/wjKBTcNy1xihmExqJI8kM2qvavP.jpg",
     "numberOfSeasons": 6,
@@ -22808,7 +22798,7 @@
     "tvdbId": 197231,
     "slug": "lip-service",
     "title": "Lip Service",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -22853,7 +22843,6 @@
       }
     ],
     "startedAt": "2019-05-12",
-    "finishedAt": "2019-05-29",
     "tmdbId": 31420,
     "posterPath": "/hgv0kvFsbyd7Sm58wIDyOGKmiFw.jpg",
     "numberOfSeasons": 2,
@@ -22876,7 +22865,7 @@
     "tvdbId": 247773,
     "slug": "switched-at-birth",
     "title": "Switched at Birth",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -23136,7 +23125,6 @@
       }
     ],
     "startedAt": "2016-02-01",
-    "finishedAt": "2016-02-01",
     "tmdbId": 37632,
     "posterPath": "/db5XnOxGcUHeNhBRNbHfqTlzXmk.jpg",
     "numberOfSeasons": 5,
@@ -23159,7 +23147,7 @@
     "tvdbId": 247897,
     "slug": "homeland",
     "title": "Homeland",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -23339,7 +23327,6 @@
       }
     ],
     "startedAt": "2020-12-22",
-    "finishedAt": "2021-05-10",
     "tmdbId": 1407,
     "posterPath": "/6GAvS2e6VIRsms9FpVt33PsCoEW.jpg",
     "numberOfSeasons": 8,
@@ -23520,7 +23507,7 @@
     "tvdbId": 248835,
     "slug": "once-upon-a-time-2011",
     "title": "Once Upon a Time (2011)",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -23980,7 +23967,6 @@
       }
     ],
     "startedAt": "2016-02-10",
-    "finishedAt": "2016-02-10",
     "tmdbId": 39272,
     "posterPath": "/u95scYysMZvBoekSLmMNJjeqXcY.jpg",
     "numberOfSeasons": 7,
@@ -24178,7 +24164,7 @@
     "tvdbId": 250749,
     "slug": "3",
     "title": "3%",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -24273,7 +24259,6 @@
       }
     ],
     "startedAt": "2017-07-20",
-    "finishedAt": "2018-05-27",
     "tmdbId": 68467,
     "posterPath": "/uLBJSLuAQ8UqLIKZVWG3uNEXwjt.jpg",
     "numberOfSeasons": 4,
@@ -24283,7 +24268,7 @@
     "tvdbId": 253463,
     "slug": "black-mirror",
     "title": "Black Mirror",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -24343,7 +24328,6 @@
       }
     ],
     "startedAt": "2016-03-08",
-    "finishedAt": "2017-02-18",
     "tmdbId": 42009,
     "posterPath": "/seN6rRfN0I6n8iDXjlSMk1QjNcq.jpg",
     "numberOfSeasons": 7,
@@ -24379,7 +24363,7 @@
     "tvdbId": 257655,
     "slug": "arrow",
     "title": "Arrow",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -24784,7 +24768,6 @@
       }
     ],
     "startedAt": "2016-01-28",
-    "finishedAt": "2016-02-01",
     "tmdbId": 1412,
     "posterPath": "/u8ZHFj1jC384JEkTt3vNg1DfWEb.jpg",
     "numberOfSeasons": 8,
@@ -24794,7 +24777,7 @@
     "tvdbId": 258541,
     "slug": "chicago-fire",
     "title": "Chicago Fire",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -24919,7 +24902,6 @@
       }
     ],
     "startedAt": "2016-02-25",
-    "finishedAt": "2016-02-25",
     "tmdbId": 44006,
     "posterPath": "/r915sk2JpthZSjHEgZKifWxgo6L.jpg",
     "numberOfSeasons": 15,
@@ -24929,7 +24911,7 @@
     "tvdbId": 258959,
     "slug": "beauty-and-the-beast-2012",
     "title": "Beauty and the Beast (2012)",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -25154,7 +25136,6 @@
       }
     ],
     "startedAt": "2016-02-01",
-    "finishedAt": "2016-02-01",
     "tmdbId": 44606,
     "posterPath": "/6rZ2I1xRemLORb65spepVmsvnf7.jpg",
     "numberOfSeasons": 4,
@@ -25203,7 +25184,7 @@
     "tvdbId": 260315,
     "slug": "orphan-black",
     "title": "Orphan Black",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -25403,7 +25384,6 @@
       }
     ],
     "startedAt": "2016-02-24",
-    "finishedAt": "2016-08-02",
     "tmdbId": 56296,
     "posterPath": "/tjFYkWMafg71sihs1aa7IDx17aS.jpg",
     "numberOfSeasons": 5,
@@ -25413,7 +25393,7 @@
     "tvdbId": 260449,
     "slug": "vikings",
     "title": "Vikings",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -25463,7 +25443,6 @@
       }
     ],
     "startedAt": "2016-02-10",
-    "finishedAt": "2016-02-24",
     "tmdbId": 44217,
     "posterPath": "/bQLrHIRNEkE3PdIWQrZHynQZazu.jpg",
     "numberOfSeasons": 6,
@@ -25512,7 +25491,7 @@
     "tvdbId": 264234,
     "slug": "wentworth",
     "title": "Wentworth",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -25867,7 +25846,6 @@
       }
     ],
     "startedAt": "2018-09-27",
-    "finishedAt": "2018-12-04",
     "tmdbId": 44856,
     "posterPath": "/3nikr0NE3t8UMgI1Ba6hXaeEgKr.jpg",
     "numberOfSeasons": 9,
@@ -26596,7 +26574,7 @@
     "tvdbId": 266189,
     "slug": "the-blacklist",
     "title": "The Blacklist",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -26741,7 +26719,6 @@
       }
     ],
     "startedAt": "2016-06-24",
-    "finishedAt": "2016-08-30",
     "tmdbId": 46952,
     "posterPath": "/4HTfd1PhgFUenJxVuBDNdLmdr0c.jpg",
     "numberOfSeasons": 10,
@@ -26751,7 +26728,7 @@
     "tvdbId": 266883,
     "slug": "the-originals",
     "title": "The Originals",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -26976,7 +26953,6 @@
       }
     ],
     "startedAt": "2016-02-01",
-    "finishedAt": "2016-02-01",
     "tmdbId": 46896,
     "posterPath": "/keJOhJXGiLL54EW6QocbyvQGquA.jpg",
     "numberOfSeasons": 5,
@@ -27669,7 +27645,7 @@
     "tvdbId": 268592,
     "slug": "the-100",
     "title": "The 100",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -27859,7 +27835,6 @@
       }
     ],
     "startedAt": "2016-01-27",
-    "finishedAt": "2016-03-14",
     "tmdbId": 48866,
     "posterPath": "/wHIMMLFsk32wIzDmawWkYVbxFCS.jpg",
     "numberOfSeasons": 7,
@@ -27882,7 +27857,7 @@
     "tvdbId": 269586,
     "slug": "brooklyn-nine-nine",
     "title": "Brooklyn Nine-Nine",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -28602,7 +28577,6 @@
       }
     ],
     "startedAt": "2020-07-11",
-    "finishedAt": "2020-09-06",
     "tmdbId": 48891,
     "posterPath": "/mpjlDzVjp7oyHUe2LaF9ltKe6f1.jpg",
     "numberOfSeasons": 8,
@@ -28612,7 +28586,7 @@
     "tvdbId": 269602,
     "slug": "reign-2013",
     "title": "Reign (2013)",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -28927,7 +28901,6 @@
       }
     ],
     "startedAt": "2016-02-01",
-    "finishedAt": "2017-01-05",
     "tmdbId": 48865,
     "posterPath": "/epNfFs0gPyrpekecpzyX0XTkZgI.jpg",
     "numberOfSeasons": 4,
@@ -30093,7 +30066,7 @@
     "tvdbId": 270408,
     "slug": "outlander",
     "title": "Outlander",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -30373,7 +30346,6 @@
       }
     ],
     "startedAt": "2017-01-05",
-    "finishedAt": "2020-01-25",
     "tmdbId": 56570,
     "posterPath": "/oftZNfyTVNU7IfOqoGLoT8MGvNs.jpg",
     "numberOfSeasons": 8,
@@ -30409,7 +30381,7 @@
     "tvdbId": 274431,
     "slug": "gotham",
     "title": "Gotham",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -30449,7 +30421,6 @@
       }
     ],
     "startedAt": "2016-02-25",
-    "finishedAt": "2016-06-24",
     "tmdbId": 60708,
     "posterPath": "/zLpSNnVoL2bjQdc1PcaHUPUzttP.jpg",
     "numberOfSeasons": 5,
@@ -30498,7 +30469,7 @@
     "tvdbId": 279121,
     "slug": "the-flash-2014",
     "title": "The Flash (2014)",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -30693,7 +30664,6 @@
       }
     ],
     "startedAt": "2016-01-27",
-    "finishedAt": "2016-02-26",
     "tmdbId": 60735,
     "posterPath": "/yZevl2vHQgmosfwUdVNzviIfaWS.jpg",
     "numberOfSeasons": 9,
@@ -30755,7 +30725,7 @@
     "tvdbId": 281551,
     "slug": "csi-cyber",
     "title": "CSI: Cyber",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -30825,7 +30795,6 @@
       }
     ],
     "startedAt": "2016-02-25",
-    "finishedAt": "2016-02-25",
     "tmdbId": 61811,
     "posterPath": "/p56xB5YJDeYaGGOaYFtsjWycTYl.jpg",
     "numberOfSeasons": 2,
@@ -31118,7 +31087,7 @@
     "tvdbId": 281620,
     "slug": "how-to-get-away-with-murder",
     "title": "How to Get Away with Murder",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -31423,7 +31392,6 @@
       }
     ],
     "startedAt": "2016-02-18",
-    "finishedAt": "2018-08-18",
     "tmdbId": 61056,
     "posterPath": "/bJs8Y6T88NcgksxA8UaVl4YX8p8.jpg",
     "numberOfSeasons": 6,
@@ -31446,7 +31414,7 @@
     "tvdbId": 281662,
     "slug": "marvel-s-daredevil",
     "title": "Marvel's Daredevil",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -31581,7 +31549,6 @@
       }
     ],
     "startedAt": "2016-01-28",
-    "finishedAt": "2016-04-28",
     "tmdbId": 61889,
     "posterPath": "/QWbPaDxiB6LW2LjASknzYBvjMj.jpg",
     "numberOfSeasons": 3,
@@ -31630,7 +31597,7 @@
     "tvdbId": 282254,
     "slug": "bojack-horseman",
     "title": "BoJack Horseman",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -31770,7 +31737,6 @@
       }
     ],
     "startedAt": "2018-12-21",
-    "finishedAt": "2019-03-06",
     "tmdbId": 61222,
     "posterPath": "/6JFWzlChcGgLiIUo2COgNlWGFKy.jpg",
     "numberOfSeasons": 6,
@@ -31806,7 +31772,7 @@
     "tvdbId": 284190,
     "slug": "marvel-s-jessica-jones",
     "title": "Marvel's Jessica Jones",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -31881,7 +31847,6 @@
       }
     ],
     "startedAt": "2016-01-28",
-    "finishedAt": "2018-03-11",
     "tmdbId": 38472,
     "posterPath": "/oxnWofiE9fHOgUfs9NJa6nG6NTR.jpg",
     "numberOfSeasons": 3,
@@ -31903,7 +31868,7 @@
     "tvdbId": 289096,
     "slug": "the-shannara-chronicles",
     "title": "The Shannara Chronicles",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -31958,7 +31923,6 @@
       }
     ],
     "startedAt": "2017-07-20",
-    "finishedAt": "2017-07-25",
     "tmdbId": 64122,
     "posterPath": "/yzoaoBSMww5D22Kfrd2LEJumIzl.jpg",
     "numberOfSeasons": 2,
@@ -32052,7 +32016,7 @@
     "tvdbId": 294417,
     "slug": "scream-the-tv-series",
     "title": "Scream: The TV Series",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -32167,7 +32131,6 @@
       }
     ],
     "startedAt": "2016-06-24",
-    "finishedAt": "2016-08-21",
     "tmdbId": 62823,
     "posterPath": "/cb2WD75HjajBmFtPzfU5ukGqfeo.jpg",
     "numberOfSeasons": 3,
@@ -32392,7 +32355,7 @@
     "tvdbId": 295515,
     "slug": "quantico",
     "title": "Quantico",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -32547,7 +32510,6 @@
       }
     ],
     "startedAt": "2016-02-10",
-    "finishedAt": "2017-01-05",
     "tmdbId": 62816,
     "posterPath": "/3ofY2mALEiE0QDyRlVOV3sDNMYC.jpg",
     "numberOfSeasons": 3,
@@ -32696,7 +32658,7 @@
     "tvdbId": 296762,
     "slug": "westworld",
     "title": "Westworld",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -32751,7 +32713,6 @@
       }
     ],
     "startedAt": "2018-03-06",
-    "finishedAt": "2018-03-21",
     "tmdbId": 63247,
     "posterPath": "/ALlSU9du9iRiKIIoY1sREGNqQ5.jpg",
     "numberOfSeasons": 4,
@@ -32914,7 +32875,7 @@
     "tvdbId": 301236,
     "slug": "fuller-house",
     "title": "Fuller House",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -33204,7 +33165,6 @@
       }
     ],
     "startedAt": "2019-01-24",
-    "finishedAt": "2019-02-25",
     "tmdbId": 63623,
     "posterPath": "/n4ZZB471d2UueUFEaOWnKetCxnY.jpg",
     "numberOfSeasons": 5,
@@ -33251,7 +33211,7 @@
     "tvdbId": 303786,
     "slug": "skam",
     "title": "Skam",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -33411,7 +33371,6 @@
       }
     ],
     "startedAt": "2020-10-03",
-    "finishedAt": "2020-10-06",
     "tmdbId": 65320,
     "posterPath": "/mkgQX2mRSn7aDSlFtnpUtNintbA.jpg",
     "numberOfSeasons": 4,
@@ -33434,7 +33393,7 @@
     "tvdbId": 305288,
     "slug": "stranger-things",
     "title": "Stranger Things",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -33617,7 +33576,6 @@
       }
     ],
     "startedAt": "2016-07-22",
-    "finishedAt": "2022-07-16",
     "tmdbId": 66732,
     "posterPath": "/uKYUR8GPkKRCksczYDJb3pwZauo.jpg",
     "numberOfSeasons": 5,
@@ -33640,7 +33598,7 @@
     "tvdbId": 305378,
     "slug": "love",
     "title": "Love",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -33670,7 +33628,6 @@
       }
     ],
     "startedAt": "2018-04-21",
-    "finishedAt": "2018-04-21",
     "tmdbId": 53606,
     "posterPath": "/wvtW9YoMkovpMqyZCWUbQC6FJlg.jpg",
     "numberOfSeasons": 3,
@@ -33680,7 +33637,7 @@
     "tvdbId": 305574,
     "slug": "the-crown",
     "title": "The Crown",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -33820,7 +33777,6 @@
       }
     ],
     "startedAt": "2020-12-24",
-    "finishedAt": "2021-01-15",
     "tmdbId": 65494,
     "posterPath": "/1M876KPjulVwppEpldhdc8V4o68.jpg",
     "numberOfSeasons": 6,
@@ -33830,7 +33786,7 @@
     "tvdbId": 305582,
     "slug": "wynonna-earp",
     "title": "Wynonna Earp",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -33900,7 +33856,6 @@
       }
     ],
     "startedAt": "2017-04-18",
-    "finishedAt": "2017-04-30",
     "tmdbId": 65988,
     "posterPath": "/qnIaDelA81dmFaXrhpz6M6dpGSD.jpg",
     "numberOfSeasons": 4,
@@ -34008,7 +33963,7 @@
     "tvdbId": 306304,
     "slug": "a-series-of-unfortunate-events",
     "title": "A Series of Unfortunate Events",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -34078,7 +34033,6 @@
       }
     ],
     "startedAt": "2017-07-20",
-    "finishedAt": "2018-05-21",
     "tmdbId": 65294,
     "posterPath": "/qg7WXAatXyQq6zO3SnWnRJEayeZ.jpg",
     "numberOfSeasons": 3,
@@ -34405,7 +34359,7 @@
     "tvdbId": 311711,
     "slug": "the-good-place",
     "title": "The Good Place",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -34546,7 +34500,6 @@
       }
     ],
     "startedAt": "2018-01-13",
-    "finishedAt": "2018-02-02",
     "tmdbId": 66573,
     "posterPath": "/qIhsuhoIYR5yTnDta0IL4senbeN.jpg",
     "numberOfSeasons": 4,
@@ -34556,7 +34509,7 @@
     "tvdbId": 311714,
     "slug": "this-is-us",
     "title": "This Is Us",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -35001,7 +34954,6 @@
       }
     ],
     "startedAt": "2019-04-05",
-    "finishedAt": "2021-06-28",
     "tmdbId": 67136,
     "posterPath": "/huxmY6Dmzwpv5Q2hnNft0UMK7vf.jpg",
     "numberOfSeasons": 6,
@@ -35050,7 +35002,7 @@
     "tvdbId": 313999,
     "slug": "atlanta",
     "title": "Atlanta",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -35100,7 +35052,6 @@
       }
     ],
     "startedAt": "2019-01-24",
-    "finishedAt": "2019-01-31",
     "tmdbId": 65495,
     "posterPath": "/8HZyGMnPLVVb00rmrh6A2SbK9NX.jpg",
     "numberOfSeasons": 4,
@@ -35110,7 +35061,7 @@
     "tvdbId": 314572,
     "slug": "masterchef-professionals-br",
     "title": "MasterChef: Professionals (BR)",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -35337,7 +35288,6 @@
       }
     ],
     "startedAt": "2022-12-24",
-    "finishedAt": "2023-01-09",
     "tmdbId": 68689,
     "posterPath": "/4oIA7MWmCV66tSlhiaj0dWit8aX.jpg",
     "numberOfSeasons": 5,
@@ -35598,7 +35548,7 @@
     "tvdbId": 318363,
     "slug": "one-day-at-a-time-2017",
     "title": "One Day at a Time (2017)",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -35798,7 +35748,6 @@
       }
     ],
     "startedAt": "2018-07-01",
-    "finishedAt": "2019-02-16",
     "tmdbId": 69017,
     "posterPath": "/yiQcmPm6pTYyAAp3Q9Ge2xMkf8b.jpg",
     "numberOfSeasons": 4,
@@ -35821,7 +35770,7 @@
     "tvdbId": 320450,
     "slug": "santa-clarita-diet",
     "title": "Santa Clarita Diet",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -35876,7 +35825,6 @@
       }
     ],
     "startedAt": "2017-02-19",
-    "finishedAt": "2017-02-19",
     "tmdbId": 69470,
     "posterPath": "/5rBjNm2sRubaXKBnU904NInFi7P.jpg",
     "numberOfSeasons": 3,
@@ -35899,7 +35847,7 @@
     "tvdbId": 321060,
     "slug": "the-oa",
     "title": "The OA",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -35944,7 +35892,6 @@
       }
     ],
     "startedAt": "2017-01-05",
-    "finishedAt": "2017-01-05",
     "tmdbId": 69061,
     "posterPath": "/rueY4slMeKtTGitm0raFUJvgaa5.jpg",
     "numberOfSeasons": 2,
@@ -35954,7 +35901,7 @@
     "tvdbId": 321239,
     "slug": "the-handmaid-s-tale",
     "title": "The Handmaid's Tale",
-    "status": "completed",
+    "status": "paused",
     "favorite": true,
     "watchedEpisodes": [
       {
@@ -36189,7 +36136,6 @@
       }
     ],
     "startedAt": "2017-10-03",
-    "finishedAt": "2021-06-19",
     "tmdbId": 69478,
     "posterPath": "/eGUT7j3n3rn5yGihlCgwUnD70HV.jpg",
     "numberOfSeasons": 6,
@@ -36349,7 +36295,7 @@
     "tvdbId": 323168,
     "slug": "13-reasons-why",
     "title": "13 Reasons Why",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -36419,7 +36365,6 @@
       }
     ],
     "startedAt": "2017-07-20",
-    "finishedAt": "2017-07-20",
     "tmdbId": 66788,
     "posterPath": "/nel144y4dIOdFFid6twN5mAX9Yd.jpg",
     "numberOfSeasons": 4,
@@ -36429,7 +36374,7 @@
     "tvdbId": 323225,
     "slug": "cable-girls",
     "title": "Cable Girls",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -36594,7 +36539,6 @@
       }
     ],
     "startedAt": "2017-09-22",
-    "finishedAt": "2019-10-11",
     "tmdbId": 71225,
     "posterPath": "/lAwLmgq1zy0xJnusszmvWTLjFlO.jpg",
     "numberOfSeasons": 5,
@@ -36604,7 +36548,7 @@
     "tvdbId": 323385,
     "slug": "the-bold-type",
     "title": "The Bold Type",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -36854,7 +36798,6 @@
       }
     ],
     "startedAt": "2018-07-25",
-    "finishedAt": "2021-06-14",
     "tmdbId": 69630,
     "posterPath": "/cKloQpl6zE7kdFf8SUeYU2qPT9H.jpg",
     "numberOfSeasons": 5,
@@ -36864,7 +36807,7 @@
     "tvdbId": 323855,
     "slug": "dear-white-people",
     "title": "Dear White People",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -36969,7 +36912,6 @@
       }
     ],
     "startedAt": "2017-08-31",
-    "finishedAt": "2018-05-24",
     "tmdbId": 70767,
     "posterPath": "/thHk9AncE8g2Hsb1iK1xHnlq23j.jpg",
     "numberOfSeasons": 4,
@@ -37239,7 +37181,7 @@
     "tvdbId": 326866,
     "slug": "the-sinner",
     "title": "The Sinner",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -37284,7 +37226,6 @@
       }
     ],
     "startedAt": "2017-12-10",
-    "finishedAt": "2017-12-10",
     "tmdbId": 39852,
     "posterPath": "/rmibFGdqOe0kKKhPls0jVOdZCWw.jpg",
     "numberOfSeasons": 4,
@@ -37359,7 +37300,7 @@
     "tvdbId": 327417,
     "slug": "money-heist",
     "title": "Money Heist",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -37444,7 +37385,6 @@
       }
     ],
     "startedAt": "2018-08-10",
-    "finishedAt": "2018-10-20",
     "tmdbId": 71446,
     "posterPath": "/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg",
     "numberOfSeasons": 3,
@@ -37584,7 +37524,7 @@
     "tvdbId": 328577,
     "slug": "good-girls",
     "title": "Good Girls",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -37644,7 +37584,6 @@
       }
     ],
     "startedAt": "2018-07-23",
-    "finishedAt": "2019-07-02",
     "tmdbId": 71715,
     "posterPath": "/wpgg6G3UHXepH2Zgpt4W60d6gxR.jpg",
     "numberOfSeasons": 4,
@@ -37654,7 +37593,7 @@
     "tvdbId": 328634,
     "slug": "the-good-doctor",
     "title": "The Good Doctor",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -37689,7 +37628,6 @@
       }
     ],
     "startedAt": "2019-03-04",
-    "finishedAt": "2019-03-15",
     "tmdbId": 71712,
     "posterPath": "/luhKkdD80qe62fwop6sdrXK9jUT.jpg",
     "numberOfSeasons": 7,
@@ -37699,7 +37637,7 @@
     "tvdbId": 328708,
     "slug": "mindhunter",
     "title": "MINDHUNTER",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -37754,7 +37692,6 @@
       }
     ],
     "startedAt": "2017-10-19",
-    "finishedAt": "2017-12-17",
     "tmdbId": 67744,
     "posterPath": "/fbKE87mojpIETWepSbD5Qt741fp.jpg",
     "numberOfSeasons": 2,
@@ -38294,7 +38231,7 @@
     "tvdbId": 332027,
     "slug": "marvel-s-runaways",
     "title": "Marvel's Runaways",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -38388,7 +38325,6 @@
       }
     ],
     "startedAt": "2021-12-25",
-    "finishedAt": "2022-01-13",
     "tmdbId": 67466,
     "posterPath": "/hnHEhbzh0F7kN3Ah1lzRjtQuW16.jpg",
     "numberOfSeasons": 3,
@@ -38411,7 +38347,7 @@
     "tvdbId": 334824,
     "slug": "dark",
     "title": "Dark",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -38486,7 +38422,6 @@
       }
     ],
     "startedAt": "2018-01-01",
-    "finishedAt": "2020-06-27",
     "tmdbId": 70523,
     "posterPath": "/apbrbWs8M9lyOpJYU5WXrpFbk1Z.jpg",
     "numberOfSeasons": 3,
@@ -38576,7 +38511,7 @@
     "tvdbId": 338186,
     "slug": "succession",
     "title": "Succession",
-    "status": "paused",
+    "status": "completed",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -38789,13 +38724,14 @@
     "tmdbId": 76331,
     "posterPath": "/z0XiwdrCQ9yVIr4O0pxzaAYRxdW.jpg",
     "numberOfSeasons": 4,
-    "numberOfEpisodes": 39
+    "numberOfEpisodes": 39,
+    "finishedAt": "2024-03-15"
   },
   {
     "tvdbId": 338947,
     "slug": "chilling-adventures-of-sabrina",
     "title": "Chilling Adventures of Sabrina",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -38855,7 +38791,6 @@
       }
     ],
     "startedAt": "2019-02-16",
-    "finishedAt": "2019-02-16",
     "tmdbId": 79242,
     "posterPath": "/yxMpoHO0CXP5o9gB7IfsciilQS4.jpg",
     "numberOfSeasons": 2,
@@ -38865,7 +38800,7 @@
     "tvdbId": 339273,
     "slug": "on-my-block",
     "title": "On My Block",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -38970,7 +38905,6 @@
       }
     ],
     "startedAt": "2018-04-09",
-    "finishedAt": "2019-05-05",
     "tmdbId": 76747,
     "posterPath": "/w6oviv65UEducvjAdH3sYYaxdu2.jpg",
     "numberOfSeasons": 4,
@@ -38980,7 +38914,7 @@
     "tvdbId": 340959,
     "slug": "killing-eve",
     "title": "Killing Eve",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -39065,7 +38999,6 @@
       }
     ],
     "startedAt": "2019-07-24",
-    "finishedAt": "2019-08-13",
     "tmdbId": 72750,
     "posterPath": "/4wKhTVw8aGq5AZMa0Q1spERdi7n.jpg",
     "numberOfSeasons": 4,
@@ -39154,7 +39087,7 @@
     "tvdbId": 341852,
     "slug": "station-19",
     "title": "Station 19",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -39404,7 +39337,6 @@
       }
     ],
     "startedAt": "2020-08-30",
-    "finishedAt": "2021-04-09",
     "tmdbId": 76773,
     "posterPath": "/3gs9wBsvv1GJ3EzLheh5yGuTQis.jpg",
     "numberOfSeasons": 7,
@@ -39649,7 +39581,7 @@
     "tvdbId": 348443,
     "slug": "gentleman-jack",
     "title": "Gentleman Jack",
-    "status": "completed",
+    "status": "paused",
     "favorite": true,
     "watchedEpisodes": [
       {
@@ -39694,7 +39626,6 @@
       }
     ],
     "startedAt": "2019-07-15",
-    "finishedAt": "2019-07-17",
     "tmdbId": 86163,
     "posterPath": "/hLQl8LKLXdA4gF4ArR8TXzXGRYV.jpg",
     "numberOfSeasons": 2,
@@ -39773,7 +39704,7 @@
     "tvdbId": 349272,
     "slug": "new-amsterdam-2018",
     "title": "New Amsterdam (2018)",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -39998,7 +39929,6 @@
       }
     ],
     "startedAt": "2021-08-04",
-    "finishedAt": "2021-09-26",
     "tmdbId": 80350,
     "posterPath": "/jsH4AeGZn5Q6h314A3OTUHKxHhR.jpg",
     "numberOfSeasons": 5,
@@ -40008,7 +39938,7 @@
     "tvdbId": 349303,
     "slug": "invisible-city",
     "title": "Invisible City",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -40048,7 +39978,6 @@
       }
     ],
     "startedAt": "2021-02-18",
-    "finishedAt": "2021-03-08",
     "tmdbId": 110529,
     "posterPath": "/i6v77Rcez8BEbsQ2FbUVfzs3yT2.jpg",
     "numberOfSeasons": 2,
@@ -40197,7 +40126,7 @@
     "tvdbId": 351911,
     "slug": "baby",
     "title": "Baby",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -40232,7 +40161,6 @@
       }
     ],
     "startedAt": "2018-12-08",
-    "finishedAt": "2018-12-18",
     "tmdbId": 82700,
     "posterPath": "/xswkOJni9tJYda2yN1QQtgBVaVJ.jpg",
     "numberOfSeasons": 3,
@@ -40287,7 +40215,7 @@
     "tvdbId": 353764,
     "slug": "the-umbrella-academy",
     "title": "The Umbrella Academy",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -40387,7 +40315,6 @@
       }
     ],
     "startedAt": "2021-01-01",
-    "finishedAt": "2021-01-01",
     "tmdbId": 75006,
     "posterPath": "/qhcwrnnCnN8NE1N6XXKHFmveJR9.jpg",
     "numberOfSeasons": 4,
@@ -40476,7 +40403,7 @@
     "tvdbId": 355567,
     "slug": "the-boys",
     "title": "The Boys",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -40561,7 +40488,6 @@
       }
     ],
     "startedAt": "2021-01-12",
-    "finishedAt": "2021-01-29",
     "tmdbId": 76479,
     "posterPath": "/in1R2dDc421JxsoRWaIIAqVI2KE.jpg",
     "numberOfSeasons": 5,
@@ -40571,7 +40497,7 @@
     "tvdbId": 356317,
     "slug": "sex-education",
     "title": "Sex Education",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -40661,7 +40587,6 @@
       }
     ],
     "startedAt": "2019-01-17",
-    "finishedAt": "2021-09-19",
     "tmdbId": 81356,
     "posterPath": "/bc3bmTdnoKcRuO9xdQKgAbB7Y9Z.jpg",
     "numberOfSeasons": 4,
@@ -40671,7 +40596,7 @@
     "tvdbId": 357222,
     "slug": "modern-love",
     "title": "Modern Love",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -40731,7 +40656,6 @@
       }
     ],
     "startedAt": "2020-04-08",
-    "finishedAt": "2021-09-12",
     "tmdbId": 91602,
     "posterPath": "/cP9CJ9nvPT3cnnBSlGFgwq7odIR.jpg",
     "numberOfSeasons": 2,
@@ -40763,7 +40687,7 @@
     "tvdbId": 360261,
     "slug": "euphoria-us",
     "title": "Euphoria (US)",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -40854,7 +40778,6 @@
       }
     ],
     "startedAt": "2019-07-12",
-    "finishedAt": "2022-04-06",
     "tmdbId": 85552,
     "posterPath": "/ypmtwojDd751Peszi62DVLytqqC.jpg",
     "numberOfSeasons": 3,
@@ -40864,7 +40787,7 @@
     "tvdbId": 360295,
     "slug": "his-dark-materials",
     "title": "His Dark Materials",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -40905,7 +40828,6 @@
       }
     ],
     "startedAt": "2022-08-12",
-    "finishedAt": "2022-09-04",
     "tmdbId": 68507,
     "posterPath": "/g6tIKGc3f1H5QMz1dcgCwADKpZ7.jpg",
     "numberOfSeasons": 3,
@@ -40915,7 +40837,7 @@
     "tvdbId": 360388,
     "slug": "when-they-see-us",
     "title": "When They See Us",
-    "status": "abandoned",
+    "status": "completed",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -40943,7 +40865,8 @@
     "tmdbId": 81355,
     "posterPath": "/oPv3nNtkuc6EPEql5lgdOuQNHuG.jpg",
     "numberOfSeasons": 1,
-    "numberOfEpisodes": 4
+    "numberOfEpisodes": 4,
+    "finishedAt": "2021-01-01"
   },
   {
     "tvdbId": 360733,
@@ -41083,7 +41006,7 @@
     "tvdbId": 361558,
     "slug": "the-society",
     "title": "The Society",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -41136,7 +41059,6 @@
       }
     ],
     "startedAt": "2023-03-15",
-    "finishedAt": "2023-03-17",
     "tmdbId": 84647,
     "posterPath": "/mxOlnFEQMpxjIltr9Ox06iyjjvK.jpg",
     "numberOfSeasons": 1,
@@ -41146,7 +41068,7 @@
     "tvdbId": 361563,
     "slug": "the-morning-show",
     "title": "The Morning Show",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -41312,7 +41234,6 @@
       }
     ],
     "startedAt": "2023-09-08",
-    "finishedAt": "2023-12-06",
     "tmdbId": 90282,
     "posterPath": "/y9x2R87yt2U616736NJrP0d56dt.jpg",
     "numberOfSeasons": 5,
@@ -41435,7 +41356,7 @@
     "tvdbId": 362472,
     "slug": "loki",
     "title": "Loki",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -41470,7 +41391,6 @@
       }
     ],
     "startedAt": "2021-07-14",
-    "finishedAt": "2021-07-19",
     "tmdbId": 84958,
     "posterPath": "/rX1wQMTKFqF0gvZyS0DDQqgnQPB.jpg",
     "numberOfSeasons": 2,
@@ -41535,7 +41455,7 @@
     "tvdbId": 364082,
     "slug": "trinkets",
     "title": "Trinkets",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -41590,7 +41510,6 @@
       }
     ],
     "startedAt": "2019-06-30",
-    "finishedAt": "2019-06-30",
     "tmdbId": 89852,
     "posterPath": "/1KD2zNV04SI6pvfbPnBOr6eFlam.jpg",
     "numberOfSeasons": 2,
@@ -41600,7 +41519,7 @@
     "tvdbId": 364477,
     "slug": "the-l-word-generation-q",
     "title": "The L Word: Generation Q",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -41645,7 +41564,6 @@
       }
     ],
     "startedAt": "2020-02-18",
-    "finishedAt": "2020-02-28",
     "tmdbId": 89630,
     "posterPath": "/riq4xVG3FflKAB7JlIQPs9bkFw5.jpg",
     "numberOfSeasons": 3,
@@ -41687,7 +41605,7 @@
     "tvdbId": 366529,
     "slug": "station-eleven",
     "title": "Station Eleven",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -41722,7 +41640,6 @@
       }
     ],
     "startedAt": "2022-05-02",
-    "finishedAt": "2022-05-22",
     "tmdbId": 90972,
     "posterPath": "/xWlhMOzRxUpu4uzkWcDQOaESCE.jpg",
     "numberOfSeasons": 1,
@@ -41941,7 +41858,7 @@
     "tvdbId": 367147,
     "slug": "what-if",
     "title": "What If…?",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -41974,7 +41891,6 @@
       }
     ],
     "startedAt": "2021-12-30",
-    "finishedAt": "2022-06-11",
     "tmdbId": 91363,
     "posterPath": "/zaqfFDUrSfIljdD0OBxSjcutX8n.jpg",
     "numberOfSeasons": 3,
@@ -42034,7 +41950,7 @@
     "tvdbId": 368188,
     "slug": "love-victor",
     "title": "Love, Victor",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -42139,7 +42055,6 @@
       }
     ],
     "startedAt": "2021-05-21",
-    "finishedAt": "2021-06-16",
     "tmdbId": 97186,
     "posterPath": "/pcT1vivabBnBk0tZgVBO1I8aK75.jpg",
     "numberOfSeasons": 3,
@@ -42244,7 +42159,7 @@
     "tvdbId": 371028,
     "slug": "arcane",
     "title": "Arcane",
-    "status": "paused",
+    "status": "completed",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -42360,7 +42275,8 @@
     "tmdbId": 94605,
     "posterPath": "/fqldf2t8ztc9aiwn3k6mlX3tvRT.jpg",
     "numberOfSeasons": 2,
-    "numberOfEpisodes": 18
+    "numberOfEpisodes": 18,
+    "finishedAt": "2025-01-15"
   },
   {
     "tvdbId": 371572,
@@ -42513,7 +42429,7 @@
     "tvdbId": 371806,
     "slug": "normal-people",
     "title": "Normal People",
-    "status": "paused",
+    "status": "completed",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -42593,13 +42509,14 @@
     "tmdbId": 89905,
     "posterPath": "/c4mk4EQVIM11yd3W43DDdqDazDU.jpg",
     "numberOfSeasons": 1,
-    "numberOfEpisodes": 12
+    "numberOfEpisodes": 12,
+    "finishedAt": "2024-06-14"
   },
   {
     "tvdbId": 371980,
     "slug": "severance",
     "title": "Severance",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -42616,7 +42533,6 @@
       }
     ],
     "startedAt": "2022-12-07",
-    "finishedAt": "2022-12-10",
     "tmdbId": 95396,
     "posterPath": "/pPHpeI2X1qEd1CS1SeyrdhZ4qnT.jpg",
     "numberOfSeasons": 3,
@@ -42626,7 +42542,7 @@
     "tvdbId": 372081,
     "slug": "hunters-2020",
     "title": "Hunters (2020)",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -42681,7 +42597,6 @@
       }
     ],
     "startedAt": "2020-08-07",
-    "finishedAt": "2020-08-11",
     "tmdbId": 79622,
     "posterPath": "/mjsz10d1abJXZwT9b8CTgniRJh9.jpg",
     "numberOfSeasons": 2,
@@ -42691,7 +42606,7 @@
     "tvdbId": 372100,
     "slug": "we-are-five",
     "title": "We Are Five",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -42736,7 +42651,6 @@
       }
     ],
     "startedAt": "2020-11-19",
-    "finishedAt": "2021-01-04",
     "tmdbId": 112468,
     "posterPath": "/3vWANjNHJvgkwBzE2x6kWOiKSXo.jpg",
     "numberOfSeasons": 3,
@@ -42870,7 +42784,7 @@
     "tvdbId": 376459,
     "slug": "love-is-blind",
     "title": "Love is Blind",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -42930,7 +42844,6 @@
       }
     ],
     "startedAt": "2020-03-27",
-    "finishedAt": "2020-03-27",
     "tmdbId": 99353,
     "posterPath": "/8XhV6ke8ltRYoG4SYmibF2bGwrC.jpg",
     "numberOfSeasons": 10,
@@ -42940,7 +42853,7 @@
     "tvdbId": 376815,
     "slug": "nine-perfect-strangers",
     "title": "Nine Perfect Strangers",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -42985,7 +42898,6 @@
       }
     ],
     "startedAt": "2021-10-22",
-    "finishedAt": "2021-11-19",
     "tmdbId": 88989,
     "posterPath": "/oPcqsZIFHrv7HoGgFQnsGDiPulD.jpg",
     "numberOfSeasons": 2,
@@ -42995,7 +42907,7 @@
     "tvdbId": 377294,
     "slug": "feel-good",
     "title": "Feel Good",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -43020,7 +42932,6 @@
       }
     ],
     "startedAt": "2020-03-27",
-    "finishedAt": "2020-03-28",
     "tmdbId": 99610,
     "posterPath": "/ri3dx91b3QeRGB35gnEiHGhXxdP.jpg",
     "numberOfSeasons": 2,
@@ -43277,7 +43188,7 @@
     "tvdbId": 382556,
     "slug": "cruel-summer",
     "title": "Cruel Summer",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -43332,7 +43243,6 @@
       }
     ],
     "startedAt": "2021-09-03",
-    "finishedAt": "2021-09-11",
     "tmdbId": 98201,
     "posterPath": "/x7CMVS7kjWJFdt1wdtj5rdvTwss.jpg",
     "numberOfSeasons": 2,
@@ -43407,7 +43317,7 @@
     "tvdbId": 383275,
     "slug": "squid-game",
     "title": "Squid Game",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -43457,7 +43367,6 @@
       }
     ],
     "startedAt": "2021-10-05",
-    "finishedAt": "2021-10-11",
     "tmdbId": 93405,
     "posterPath": "/1QdXdRYfktUSONkl1oD5gc6Be0s.jpg",
     "numberOfSeasons": 3,
@@ -43532,7 +43441,7 @@
     "tvdbId": 386256,
     "slug": "good-morning-veronica",
     "title": "Good Morning, Verônica",
-    "status": "paused",
+    "status": "completed",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -43641,7 +43550,8 @@
     "tmdbId": 110115,
     "posterPath": "/pCjXfCDnbO46N0My7rJ23zQ5K1c.jpg",
     "numberOfSeasons": 3,
-    "numberOfEpisodes": 17
+    "numberOfEpisodes": 17,
+    "finishedAt": "2024-03-06"
   },
   {
     "tvdbId": 387115,
@@ -43717,7 +43627,7 @@
     "tvdbId": 390430,
     "slug": "the-white-lotus",
     "title": "The White Lotus",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -43752,7 +43662,6 @@
       }
     ],
     "startedAt": "2021-08-29",
-    "finishedAt": "2021-10-12",
     "tmdbId": 111803,
     "posterPath": "/gbSaK9v1CbcYH1ISgbM7XObD2dW.jpg",
     "numberOfSeasons": 3,
@@ -43866,7 +43775,7 @@
     "tvdbId": 393625,
     "slug": "ginny-georgia",
     "title": "Ginny & Georgia",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -43921,7 +43830,6 @@
       }
     ],
     "startedAt": "2021-03-11",
-    "finishedAt": "2021-03-13",
     "tmdbId": 117581,
     "posterPath": "/vOwunzW4dx3n0J5mH40n9jTRSwY.jpg",
     "numberOfSeasons": 4,
@@ -43965,7 +43873,7 @@
     "tvdbId": 395494,
     "slug": "heartstopper",
     "title": "Heartstopper",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -44018,7 +43926,6 @@
       }
     ],
     "startedAt": "2022-04-24",
-    "finishedAt": "2022-04-24",
     "tmdbId": 124834,
     "posterPath": "/dQc0QbDiHjGmWxTfKtBgYtS4bj5.jpg",
     "numberOfSeasons": 3,
@@ -44028,7 +43935,7 @@
     "tvdbId": 396115,
     "slug": "heartbreak-high-2022",
     "title": "Heartbreak High (2022)",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -44075,7 +43982,6 @@
       }
     ],
     "startedAt": "2022-09-26",
-    "finishedAt": "2022-10-01",
     "tmdbId": 158154,
     "posterPath": "/1KTYMK7N2vRe8PowCyb799DbDRR.jpg",
     "numberOfSeasons": 3,
@@ -44085,7 +43991,7 @@
     "tvdbId": 396505,
     "slug": "the-summer-i-turned-pretty",
     "title": "The Summer I Turned Pretty",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -44179,7 +44085,6 @@
       }
     ],
     "startedAt": "2023-07-08",
-    "finishedAt": "2023-08-24",
     "tmdbId": 194766,
     "posterPath": "/xBIz53wYWsKfFpN0TaizVAjKJ0z.jpg",
     "numberOfSeasons": 3,
@@ -44472,7 +44377,7 @@
     "tvdbId": 399959,
     "slug": "only-murders-in-the-building",
     "title": "Only Murders in the Building",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -44537,7 +44442,6 @@
       }
     ],
     "startedAt": "2022-04-06",
-    "finishedAt": "2022-05-21",
     "tmdbId": 107113,
     "posterPath": "/1yjFVQZuW8aofZ5Cgol8iImsVFp.jpg",
     "numberOfSeasons": 5,
@@ -44617,7 +44521,7 @@
     "tvdbId": 403294,
     "slug": "the-bear",
     "title": "The Bear",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -44670,7 +44574,6 @@
       }
     ],
     "startedAt": "2022-11-13",
-    "finishedAt": "2023-02-24",
     "tmdbId": 136315,
     "posterPath": "/eKfVzzEazSIjJMrw9ADa2x8ksLz.jpg",
     "numberOfSeasons": 5,
@@ -44680,7 +44583,7 @@
     "tvdbId": 404833,
     "slug": "the-watcher-2022",
     "title": "The Watcher (2022)",
-    "status": "abandoned",
+    "status": "completed",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -44730,7 +44633,8 @@
     "tmdbId": 210232,
     "posterPath": "/6RrseODZo2e66XOzC1XMzMuecnf.jpg",
     "numberOfSeasons": 1,
-    "numberOfEpisodes": 7
+    "numberOfEpisodes": 7,
+    "finishedAt": "2022-10-31"
   },
   {
     "tvdbId": 407281,
@@ -44894,7 +44798,7 @@
     "tvdbId": 420341,
     "slug": "never-give-up",
     "title": "Never Give Up",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -45601,7 +45505,6 @@
       }
     ],
     "startedAt": "2023-02-10",
-    "finishedAt": "2023-07-05",
     "tmdbId": 209117,
     "posterPath": "/wevHki0kVgbsDaTcgyTeZ9CcC40.jpg",
     "numberOfSeasons": 1,
@@ -45691,7 +45594,7 @@
     "tvdbId": 423581,
     "slug": "the-mole-2022",
     "title": "The Mole (2022)",
-    "status": "completed",
+    "status": "paused",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -45732,7 +45635,6 @@
       }
     ],
     "startedAt": "2022-11-15",
-    "finishedAt": "2022-11-17",
     "tmdbId": 210939,
     "posterPath": "/wVipX97HY7UYiWIR6BdmnQLKEXy.jpg",
     "numberOfSeasons": 2,
@@ -45774,7 +45676,7 @@
     "tvdbId": 425386,
     "slug": "under-the-bridge",
     "title": "Under the Bridge",
-    "status": "paused",
+    "status": "completed",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -45830,13 +45732,14 @@
     "tmdbId": 211358,
     "posterPath": "/4YMpCGsAAHXWGScHsK1sbd7wprE.jpg",
     "numberOfSeasons": 1,
-    "numberOfEpisodes": 8
+    "numberOfEpisodes": 8,
+    "finishedAt": "2024-07-12"
   },
   {
     "tvdbId": 438638,
     "slug": "we-were-liars",
     "title": "We Were Liars",
-    "status": "paused",
+    "status": "completed",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -45892,13 +45795,14 @@
     "tmdbId": 215522,
     "posterPath": "/3RQoNwSkJkh92KL2TwpMlHP5FkT.jpg",
     "numberOfSeasons": 1,
-    "numberOfEpisodes": 8
+    "numberOfEpisodes": 8,
+    "finishedAt": "2025-07-06"
   },
   {
     "tvdbId": 440564,
     "slug": "the-stolen-girl",
     "title": "The Stolen Girl",
-    "status": "paused",
+    "status": "completed",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -45936,7 +45840,8 @@
     "tmdbId": 233256,
     "posterPath": "/jfEEnO3zHWrJNVMQuv3TCNLrIzZ.jpg",
     "numberOfSeasons": 1,
-    "numberOfEpisodes": 5
+    "numberOfEpisodes": 5,
+    "finishedAt": "2025-08-15"
   },
   {
     "tvdbId": 443586,
@@ -45992,7 +45897,7 @@
     "tvdbId": 446149,
     "slug": "all-her-fault",
     "title": "All Her Fault",
-    "status": "watching",
+    "status": "completed",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -46048,7 +45953,8 @@
     "tmdbId": 246386,
     "posterPath": "/o8vZKZlc8H4OcgpbJuqP0iK4B2.jpg",
     "numberOfSeasons": 1,
-    "numberOfEpisodes": 8
+    "numberOfEpisodes": 8,
+    "finishedAt": "2026-01-06"
   },
   {
     "tvdbId": 448176,
@@ -46200,7 +46106,7 @@
     "tvdbId": 449950,
     "slug": "steal",
     "title": "Steal",
-    "status": "watching",
+    "status": "completed",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -46244,13 +46150,14 @@
     "tmdbId": 254071,
     "posterPath": "/6KmlaPhsohh3Ki9XJUq0jiUYbf3.jpg",
     "numberOfSeasons": 1,
-    "numberOfEpisodes": 6
+    "numberOfEpisodes": 6,
+    "finishedAt": "2026-02-16"
   },
   {
     "tvdbId": 451423,
     "slug": "tremembe",
     "title": "Tremembé",
-    "status": "paused",
+    "status": "completed",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -46288,13 +46195,14 @@
     "tmdbId": 279013,
     "posterPath": "/eVqBFACBpovk0sEtjx3HEb3jOYS.jpg",
     "numberOfSeasons": 1,
-    "numberOfEpisodes": 5
+    "numberOfEpisodes": 5,
+    "finishedAt": "2025-11-09"
   },
   {
     "tvdbId": 452467,
     "slug": "adolescence",
     "title": "Adolescence",
-    "status": "paused",
+    "status": "completed",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -46326,13 +46234,14 @@
     "tmdbId": 249042,
     "posterPath": "/20i4nShZZg1g1VFHSB8xpaYM4r7.jpg",
     "numberOfSeasons": 1,
-    "numberOfEpisodes": 4
+    "numberOfEpisodes": 4,
+    "finishedAt": "2025-04-04"
   },
   {
     "tvdbId": 453614,
     "slug": "masterchef-brazil-dessert-masters",
     "title": "MasterChef Brazil Dessert Masters",
-    "status": "paused",
+    "status": "completed",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -46460,7 +46369,8 @@
     "tmdbId": 262306,
     "posterPath": "/wcMNYAnFGolZircBt96wi4ANTty.jpg",
     "numberOfSeasons": 2,
-    "numberOfEpisodes": 20
+    "numberOfEpisodes": 20,
+    "finishedAt": "2025-11-14"
   },
   {
     "tvdbId": 461305,
@@ -46750,7 +46660,7 @@
     "tvdbId": 464461,
     "slug": "heated-rivalry",
     "title": "Heated Rivalry",
-    "status": "watching",
+    "status": "completed",
     "favorite": false,
     "watchedEpisodes": [
       {
@@ -46794,6 +46704,7 @@
     "tmdbId": 301507,
     "posterPath": "/3YCKbtAkYWCMDLHvkUjGhG7eWoS.jpg",
     "numberOfSeasons": 1,
-    "numberOfEpisodes": 6
+    "numberOfEpisodes": 6,
+    "finishedAt": "2026-01-13"
   }
 ]

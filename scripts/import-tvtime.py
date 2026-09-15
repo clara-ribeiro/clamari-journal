@@ -114,9 +114,21 @@ def dedupe_episodes(eps: list[dict]) -> list[dict]:
     return sorted(best.values(), key=lambda x: (x["season"], x["episode"]))
 
 
+def unique_regular_count(eps: list[dict]) -> int:
+    return len(
+        {
+            (e["season"], e["episode"])
+            for e in eps
+            if int(e.get("season") or 0) > 0
+        }
+    )
+
+
 def infer_series_status(eps, followed_info, nb_seen: int) -> str:
+    unique = unique_regular_count(eps)
     if followed_info and followed_info.get("archived"):
-        return "abandoned" if nb_seen > 0 else "watchlist"
+        # 100% vs TMDB totals is applied at parse / enrich:tmdb (archived + finished → completed).
+        return "abandoned" if unique > 0 else "watchlist"
     if not eps and nb_seen == 0:
         return "watchlist"
     if not eps:
@@ -128,7 +140,8 @@ def infer_series_status(eps, followed_info, nb_seen: int) -> str:
     if latest and latest >= "2025-01-01":
         return "paused"
     if latest and latest < "2024-01-01":
-        return "completed" if nb_seen >= 5 else "abandoned"
+        # Completeness vs TMDB totals is applied at parse / enrich:tmdb.
+        return "completed" if unique >= 5 else "abandoned"
     return "paused"
 
 
@@ -196,7 +209,9 @@ def build_series(source: Path) -> list[dict]:
             or f"series-{sid}"
         )
         eps = dedupe_episodes(series_eps.get(sid, []))
-        nb = show_data.get(sid, {}).get("nb_seen", len(eps))
+        nb = unique_regular_count(eps) or show_data.get(sid, {}).get(
+            "nb_seen", 0
+        )
         status = infer_series_status(eps, followed.get(sid), nb)
         dates = [e["watchedAt"] for e in eps if e.get("watchedAt")]
 

@@ -72,6 +72,57 @@ describe("yearsSeriesCountsToward", () => {
       }),
     ).toEqual([]);
   });
+
+  it("does not treat completed as caught up when unique watches miss the released total", () => {
+    expect(
+      isSeriesCaughtUp({
+        tvdbId: 5,
+        slug: "e",
+        title: "E",
+        status: "completed",
+        numberOfEpisodes: 10,
+        finishedAt: "2020-01-01",
+        watchedEpisodes: [
+          { season: 1, episode: 1, watchedAt: "2019-01-01" },
+          { season: 1, episode: 1, watchedAt: "2019-06-01" },
+        ],
+      }),
+    ).toBe(false);
+  });
+
+  it("counts a rewatch of the same episode once toward the released total", () => {
+    expect(
+      isSeriesCaughtUp({
+        tvdbId: 6,
+        slug: "f",
+        title: "F",
+        status: "watching",
+        numberOfEpisodes: 1,
+        watchedEpisodes: [
+          { season: 1, episode: 1, watchedAt: "2026-01-01" },
+          { season: 1, episode: 1, watchedAt: "2026-06-01" },
+        ],
+      }),
+    ).toBe(true);
+  });
+
+  it("treats 100% coverage as caught up even if the row was marked abandoned", () => {
+    expect(
+      isSeriesCaughtUp({
+        tvdbId: 7,
+        slug: "when-they-see-us",
+        title: "When They See Us",
+        status: "abandoned",
+        numberOfEpisodes: 4,
+        watchedEpisodes: [
+          { season: 1, episode: 1, watchedAt: "2021-01-01" },
+          { season: 1, episode: 2, watchedAt: "2021-01-01" },
+          { season: 1, episode: 3, watchedAt: "2021-01-01" },
+          { season: 1, episode: 4, watchedAt: "2021-01-01" },
+        ],
+      }),
+    ).toBe(true);
+  });
 });
 
 describe("isSeriesCaughtUp", () => {

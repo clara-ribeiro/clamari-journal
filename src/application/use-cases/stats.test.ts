@@ -131,7 +131,7 @@ describe("year goal filters", () => {
     ).toBe(false);
   });
 
-  it("does not count paused or incomplete watching series", () => {
+  it("does not count incomplete paused or watching series", () => {
     expect(
       seriesCountsTowardYearGoal(
         seriesEntry({
@@ -143,10 +143,6 @@ describe("year goal filters", () => {
           watchedEpisodes: [
             { season: 1, episode: 1, watchedAt: "2026-01-01" },
             { season: 1, episode: 2, watchedAt: "2026-01-02" },
-            { season: 1, episode: 3, watchedAt: "2026-01-03" },
-            { season: 1, episode: 4, watchedAt: "2026-01-04" },
-            { season: 1, episode: 5, watchedAt: "2026-01-05" },
-            { season: 1, episode: 6, watchedAt: "2026-01-06" },
           ],
         }),
         2026,
