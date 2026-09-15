@@ -192,6 +192,7 @@ async function enrichSeries() {
       entry.status,
       entry.watchedEpisodes ?? [],
       entry.numberOfEpisodes,
+      { startedAt: entry.startedAt },
     );
     if (next === entry.status && next !== "completed") continue;
     if (next !== entry.status) {

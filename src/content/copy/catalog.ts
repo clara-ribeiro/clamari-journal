@@ -80,20 +80,21 @@ export const catalogCopy = {
     },
     series: {
       watchlist: "On the list. No episode has been logged yet.",
-      watching: "Started and currently being followed. Still unfinished.",
+      watching:
+        "An episode was logged in the last 60 days. Still unfinished.",
       paused:
-        "Started, then put on hold. Unfinished, but not dropped.",
+        "No episode in 60 days, but not yet two years. Still unfinished.",
       completed:
         "Every released episode has been watched. Each episode counts once.",
-      abandoned: "Started, then dropped. Not coming back to it.",
+      abandoned: "No episode in two years. Treated as dropped.",
     },
     books: {
       "want-to-read": "On the list. No pages have been logged yet.",
-      reading: "Started and currently being read. Still unfinished.",
+      reading: "A page was logged in the last 60 days. Still unfinished.",
       paused:
-        "Started, then put on hold. Unfinished, but not dropped.",
+        "No page in 60 days, but not yet two years. Still unfinished.",
       finished: "The last page has been reached.",
-      abandoned: "Started, then dropped. Not coming back to it.",
+      abandoned: "No page in two years. Treated as dropped.",
     },
   },
 } as const;

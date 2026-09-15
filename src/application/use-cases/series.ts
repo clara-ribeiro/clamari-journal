@@ -399,10 +399,13 @@ export function mapSeriesDetail(
     seoCopy: localeContext.seoCopy,
   });
 
+  // Catalog uses the daily in-memory status. Detail re-checks coverage
+  // against the live TMDB total, which can differ from series.json.
   const status = resolveJournalSeriesStatus(
     entry.status,
     entry.watchedEpisodes,
     totalEpisodes ?? undefined,
+    { startedAt: entry.startedAt },
   );
   const finishedAt =
     status === "completed"

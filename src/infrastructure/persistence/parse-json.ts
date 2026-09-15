@@ -490,6 +490,7 @@ export function parseSeriesEntries(data: unknown): SeriesEntry[] {
       recordedStatus,
       watchedEpisodes,
       numberOfEpisodes,
+      { startedAt },
     );
     const finishedAt =
       status === "completed"
@@ -600,6 +601,7 @@ export function parseBookEntries(data: unknown): BookEntry[] {
       currentPage: currentPageRaw,
       customPageCount,
       readingHistory,
+      startedAt,
     });
 
     return {

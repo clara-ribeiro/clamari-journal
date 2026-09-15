@@ -148,7 +148,7 @@ describe("parseSeriesEntries", () => {
     ]);
     expect(incomplete.watchedEpisodes).toHaveLength(1);
     expect(incomplete.watchedEpisodes[0]?.watchedAt).toBe("2018-01-01");
-    expect(incomplete.status).toBe("paused");
+    expect(incomplete.status).toBe("abandoned");
     expect(incomplete.finishedAt).toBeUndefined();
 
     const [complete] = parseSeriesEntries([
@@ -184,12 +184,19 @@ describe("parseSeriesEntries", () => {
     expect(series.finishedAt).toBe("2018-01-01");
   });
 
-  it("resolves the legacy up-to-date status to watching", () => {
+  it("resolves the legacy up-to-date status through idle time", () => {
     const [series] = parseSeriesEntries([
       {
         ...base,
         status: "up-to-date",
         numberOfEpisodes: 10,
+        watchedEpisodes: [
+          {
+            season: 1,
+            episode: 1,
+            watchedAt: new Date().toISOString().slice(0, 10),
+          },
+        ],
       },
     ]);
     expect(series.status).toBe("watching");

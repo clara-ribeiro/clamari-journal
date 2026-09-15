@@ -15,6 +15,12 @@ import {
 import { catalogCopy } from "@/content/copy/catalog";
 import { seriesCopy } from "@/content/copy/series";
 
+function isoDaysAgo(days: number): string {
+  const date = new Date();
+  date.setUTCDate(date.getUTCDate() - days);
+  return date.toISOString().slice(0, 10);
+}
+
 const baseEntry: SeriesEntry = {
   slug: "breaking-bad",
   title: "Breaking Bad",
@@ -27,8 +33,18 @@ const baseEntry: SeriesEntry = {
   startedAt: "2020-01-01",
   numberOfEpisodes: 62,
   watchedEpisodes: [
-    { season: 1, episode: 1, watchedAt: "2020-01-01", runtimeMinutes: 58 },
-    { season: 1, episode: 2, watchedAt: "2020-01-02", runtimeMinutes: 48 },
+    {
+      season: 1,
+      episode: 1,
+      watchedAt: isoDaysAgo(2),
+      runtimeMinutes: 58,
+    },
+    {
+      season: 1,
+      episode: 2,
+      watchedAt: isoDaysAgo(1),
+      runtimeMinutes: 48,
+    },
   ],
 };
 
@@ -169,8 +185,8 @@ describe("mapSeriesDetail", () => {
       null,
     );
 
-    expect(detail.statusLabel).toBe("Paused");
-    expect(detail.statusHint).toBe(catalogCopy.statusHint.series.paused);
+    expect(detail.statusLabel).toBe("Abandoned");
+    expect(detail.statusHint).toBe(catalogCopy.statusHint.series.abandoned);
     expect(detail.finishedLabel).toBeNull();
     expect(detail.watchedEpisodesLabel).toBe("1 / 62");
   });
@@ -181,6 +197,10 @@ describe("mapSeriesDetail", () => {
         ...baseEntry,
         status: "watching",
         numberOfEpisodes: 2,
+        watchedEpisodes: [
+          { season: 1, episode: 1, watchedAt: "2020-01-01", runtimeMinutes: 58 },
+          { season: 1, episode: 2, watchedAt: "2020-01-02", runtimeMinutes: 48 },
+        ],
       },
       { ...baseMetadata, numberOfEpisodes: 2 },
       [seasonOne],
@@ -297,14 +317,23 @@ describe("computeSeriesStats", () => {
         slug: "paused",
         title: "Paused",
         status: "paused",
-        watchedEpisodes: [{ season: 1, episode: 1, runtimeMinutes: 30 }],
+        watchedEpisodes: [
+          {
+            season: 1,
+            episode: 1,
+            watchedAt: isoDaysAgo(100),
+            runtimeMinutes: 30,
+          },
+        ],
       },
       {
         tvdbId: 5,
         slug: "abandoned",
         title: "Abandoned",
         status: "abandoned",
-        watchedEpisodes: [],
+        watchedEpisodes: [
+          { season: 1, episode: 1, watchedAt: isoDaysAgo(800) },
+        ],
       },
     ]);
 
@@ -316,9 +345,10 @@ describe("computeSeriesStats", () => {
       abandoned: 1,
       watchlist: 1,
       favorites: 1,
-      watchedEpisodes: 4,
-      withProgress: 3,
-      totalRuntimeMinutes: 40 + DEFAULT_EPISODE_RUNTIME_MINUTES + 50 + 30,
+      watchedEpisodes: 5,
+      withProgress: 4,
+      totalRuntimeMinutes:
+        40 + DEFAULT_EPISODE_RUNTIME_MINUTES + 50 + 30 + DEFAULT_EPISODE_RUNTIME_MINUTES,
     });
   });
 });

@@ -15,6 +15,7 @@ import {
   uniqueRegularWatchedCount,
   uniqueWatchDates,
   watchedSeasonNumbers,
+  applyResolvedSeriesStatus,
 } from "./journal-status";
 
 const s1e1: WatchedEpisode = { season: 1, episode: 1 };
@@ -57,13 +58,24 @@ describe("hasWatchedAllReleasedEpisodes", () => {
 });
 
 describe("resolveJournalSeriesStatus", () => {
+  const today = "2026-09-15";
+  const clock = { today };
+  const watched = (watchedAt: string): WatchedEpisode => ({
+    season: 1,
+    episode: 1,
+    watchedAt,
+  });
+
   it("keeps completed only when unique watches cover the released total", () => {
     expect(resolveJournalSeriesStatus("completed", [s1e1, s1e2], 2)).toBe(
       "completed",
     );
-    expect(resolveJournalSeriesStatus("completed", [s1e1, s1e1], 2)).toBe(
-      "paused",
-    );
+    expect(
+      resolveJournalSeriesStatus("completed", [watched("2018-01-01")], 2, clock),
+    ).toBe("abandoned");
+    expect(
+      resolveJournalSeriesStatus("completed", [watched("2026-07-01")], 2, clock),
+    ).toBe("paused");
   });
 
   it("promotes any in-progress status to completed at 100% coverage", () => {
@@ -79,16 +91,38 @@ describe("resolveJournalSeriesStatus", () => {
     expect(resolveJournalSeriesStatus("watchlist", [s1e1, s1e2], 2)).toBe(
       "completed",
     );
-    expect(resolveJournalSeriesStatus("watching", [s1e1], 2)).toBe("watching");
-    expect(resolveJournalSeriesStatus("paused", [s1e1], 10)).toBe("paused");
-    expect(resolveJournalSeriesStatus("abandoned", [s1e1], 10)).toBe(
-      "abandoned",
+  });
+
+  it("classifies incomplete shows from idle time, not the JSON mark", () => {
+    expect(
+      resolveJournalSeriesStatus("watching", [watched("2026-09-01")], 10, clock),
+    ).toBe("watching");
+    expect(
+      resolveJournalSeriesStatus("watching", [watched("2026-07-18")], 10, clock),
+    ).toBe("watching");
+    expect(
+      resolveJournalSeriesStatus("watching", [watched("2026-07-17")], 10, clock),
+    ).toBe("paused");
+    expect(
+      resolveJournalSeriesStatus("abandoned", [watched("2024-09-16")], 10, clock),
+    ).toBe("paused");
+    expect(
+      resolveJournalSeriesStatus("watching", [watched("2024-09-15")], 10, clock),
+    ).toBe("abandoned");
+    expect(
+      resolveJournalSeriesStatus("abandoned", [watched("2026-09-01")], 10, clock),
+    ).toBe("watching");
+    expect(resolveJournalSeriesStatus("paused", [s1e1], 10, clock)).toBe(
+      "watching",
     );
   });
 
   it("keeps an empty watchlist and does not invent coverage", () => {
     expect(resolveJournalSeriesStatus("watchlist", [], 2)).toBe("watchlist");
     expect(resolveJournalSeriesStatus("watchlist", [s1e1], 2)).toBe("watching");
+    expect(
+      resolveJournalSeriesStatus("watching", [], 10, clock),
+    ).toBe("watchlist");
   });
 
   it("keeps completed when the released total is unknown", () => {
@@ -97,10 +131,10 @@ describe("resolveJournalSeriesStatus", () => {
     );
   });
 
-  it("resolves the legacy up-to-date alias to watching, or completed at 100%", () => {
-    expect(resolveJournalSeriesStatus("up-to-date", [s1e1], 10)).toBe(
-      "watching",
-    );
+  it("resolves the legacy up-to-date alias through idle time, or completed at 100%", () => {
+    expect(
+      resolveJournalSeriesStatus("up-to-date", [watched("2026-09-01")], 10, clock),
+    ).toBe("watching");
     expect(resolveJournalSeriesStatus("up-to-date", [s1e1, s1e2], 2)).toBe(
       "completed",
     );
@@ -217,34 +251,57 @@ describe("resolveJournalBookStatus", () => {
     ).toEqual({ status: "reading", currentPage: 12 });
   });
 
-  it("keeps paused and abandoned while pages remain", () => {
+  it("classifies incomplete books from idle time, not the JSON mark", () => {
+    const today = "2026-09-15";
     expect(
-      resolveJournalBookStatus({
-        status: "paused",
-        currentPage: 40,
-        customPageCount: 300,
-      }),
+      resolveJournalBookStatus(
+        {
+          status: "abandoned",
+          currentPage: 12,
+          customPageCount: 300,
+          readingHistory: [{ date: "2026-09-01", page: 12 }],
+        },
+        { today },
+      ),
+    ).toEqual({ status: "reading", currentPage: 12 });
+    expect(
+      resolveJournalBookStatus(
+        {
+          status: "reading",
+          currentPage: 40,
+          customPageCount: 300,
+          readingHistory: [{ date: "2026-07-17", page: 40 }],
+        },
+        { today },
+      ),
     ).toEqual({ status: "paused", currentPage: 40 });
     expect(
-      resolveJournalBookStatus({
-        status: "abandoned",
-        currentPage: 12,
-        customPageCount: 300,
-      }),
+      resolveJournalBookStatus(
+        {
+          status: "paused",
+          currentPage: 12,
+          customPageCount: 300,
+          startedAt: "2020-01-01",
+        },
+        { today },
+      ),
     ).toEqual({ status: "abandoned", currentPage: 12 });
   });
 
   it("takes the furthest page from the reading history", () => {
     expect(
-      resolveJournalBookStatus({
-        status: "reading",
-        currentPage: 80,
-        customPageCount: 300,
-        readingHistory: [
-          { date: "2026-01-01", page: 120 },
-          { date: "2026-02-01" },
-        ],
-      }),
+      resolveJournalBookStatus(
+        {
+          status: "reading",
+          currentPage: 80,
+          customPageCount: 300,
+          readingHistory: [
+            { date: "2026-09-01", page: 120 },
+            { date: "2026-09-10" },
+          ],
+        },
+        { today: "2026-09-15" },
+      ),
     ).toEqual({ status: "reading", currentPage: 120 });
   });
 });
@@ -256,5 +313,40 @@ describe("journalProgressPercent", () => {
     expect(journalProgressPercent(4, 3)).toBe(100);
     expect(journalProgressPercent(10, undefined)).toBeNull();
     expect(journalProgressPercent(undefined, 320)).toBeNull();
+  });
+});
+
+describe("applyResolvedSeriesStatus", () => {
+  it("reuses the same object when the day does not change the status", () => {
+    const entry = {
+      tvdbId: 1,
+      slug: "hotd",
+      title: "House of the Dragon",
+      status: "paused" as const,
+      watchedEpisodes: [
+        { season: 1, episode: 1, watchedAt: "2026-07-01" },
+      ],
+      numberOfEpisodes: 20,
+    };
+    const live = applyResolvedSeriesStatus(entry, "2026-09-15");
+    expect(live).toBe(entry);
+    expect(live.status).toBe("paused");
+  });
+
+  it("moves an idle show to abandoned on a later day", () => {
+    const entry = {
+      tvdbId: 1,
+      slug: "hotd",
+      title: "House of the Dragon",
+      status: "paused" as const,
+      watchedEpisodes: [
+        { season: 1, episode: 1, watchedAt: "2026-07-01" },
+      ],
+      numberOfEpisodes: 20,
+    };
+    const live = applyResolvedSeriesStatus(entry, "2028-07-02");
+    expect(live).not.toBe(entry);
+    expect(live.status).toBe("abandoned");
+    expect(live.finishedAt).toBeUndefined();
   });
 });

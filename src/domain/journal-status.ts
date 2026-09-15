@@ -1,7 +1,9 @@
 import type {
+  BookEntry,
   BookStatus,
   MovieStatus,
   ReadingUpdate,
+  SeriesEntry,
   SeriesStatus,
   WatchedEpisode,
 } from "./entities";
@@ -11,8 +13,12 @@ import type {
  *
  * Progress always wins over the recorded mark: a film's watch dates, a series'
  * unique regular episodes vs TMDB's released total, a book's furthest page vs
- * its total. Every reader (JSON parse, CLI, enrich scripts) resolves through
- * here so the site can never show a status its own progress contradicts.
+ * its total. Incomplete series and books then follow idle time (TV Time's
+ * Watch Next → "Haven't watched for a while" after ~60 days; auto-drop after
+ * two years, since TV Time's "Stopped watching" was manual). Every reader
+ * (JSON parse, the file repositories once per calendar day, detail coverage,
+ * CLI) resolves through here against today's date, so statuses move without
+ * rewriting the JSON or touching every page request.
  */
 
 export const MOVIE_STATUSES = [
@@ -56,8 +62,58 @@ export function isWatchedMovieStatus(
   return status === "watched" || status === "rewatch";
 }
 
-function liveSeriesStatus(status: SeriesStatusInput): SeriesStatus {
-  return status === "up-to-date" ? "watching" : status;
+/**
+ * TV Time moves a show from Watch Next to "Haven't watched for a while"
+ * after about two months idle. Same window for books still in progress.
+ */
+export const JOURNAL_PAUSE_AFTER_IDLE_DAYS = 60;
+
+/**
+ * TV Time's "Stopped watching" was a tap, not a timer. Two years idle is the
+ * automatic drop (Trakt/Simkl also treat drop as manual; a new log undrops).
+ */
+export const JOURNAL_ABANDON_AFTER_IDLE_DAYS = 730;
+
+export type JournalStatusClock = {
+  today?: string;
+  startedAt?: string;
+};
+
+export function isoToday(now = new Date()): string {
+  return now.toISOString().slice(0, 10);
+}
+
+function utcDayNumber(iso: string): number | null {
+  const match = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso);
+  if (!match) return null;
+  return (
+    Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3])) /
+    86_400_000
+  );
+}
+
+function calendarDaysBetween(from: string, to: string): number | null {
+  const start = utcDayNumber(from);
+  const end = utcDayNumber(to);
+  if (start == null || end == null) return null;
+  return end - start;
+}
+
+/**
+ * Last regular watch (or `startedAt`) vs today.
+ * Undated progress stays `watching` — there is no idle clock to run.
+ */
+export function resolveInactivityStatus(
+  lastActivity: string | undefined,
+  today: string,
+): "watching" | "paused" | "abandoned" {
+  if (!lastActivity) return "watching";
+  const days = calendarDaysBetween(lastActivity, today);
+  if (days == null || days < JOURNAL_PAUSE_AFTER_IDLE_DAYS) {
+    return "watching";
+  }
+  if (days < JOURNAL_ABANDON_AFTER_IDLE_DAYS) return "paused";
+  return "abandoned";
 }
 
 export function episodeKey(season: number, episode: number): string {
@@ -145,28 +201,31 @@ export function resolveJournalMovieStatus(
 /**
  * Series: coverage of TMDB's released total wins.
  * Full coverage is always `completed`, including rows imported as abandoned.
- * A `completed` mark that misses the total falls back to `paused`, unless the
- * total is unknown and there is nothing to contradict it.
- * `watching` / `paused` / `abandoned` stay as intent while progress is partial.
+ * A `completed` mark that misses the total uses idle time, unless the total is
+ * unknown and there is nothing to contradict it. Incomplete shows ignore the
+ * JSON watching/paused/abandoned mark and classify from the last regular watch.
  */
 export function resolveJournalSeriesStatus(
   status: SeriesStatusInput,
   episodes: readonly WatchedEpisode[],
   releasedCount: number | undefined,
+  clock?: JournalStatusClock,
 ): SeriesStatus {
   const unique = uniqueRegularWatchedCount(episodes);
   if (releasedCount != null && releasedCount >= 1 && unique >= releasedCount) {
     return "completed";
   }
 
-  if (status === "completed") {
-    const totalIsKnown = releasedCount != null && releasedCount > 0;
-    return totalIsKnown ? "paused" : "completed";
+  const totalUnknown = releasedCount == null || releasedCount <= 0;
+  if (unique === 0) {
+    return status === "completed" && totalUnknown ? "completed" : "watchlist";
   }
+  if (status === "completed" && totalUnknown) return "completed";
 
-  const live = liveSeriesStatus(status);
-  if (live === "watchlist" && unique > 0) return "watching";
-  return live;
+  return resolveInactivityStatus(
+    lastRegularWatchDate(episodes) ?? clock?.startedAt,
+    clock?.today ?? isoToday(),
+  );
 }
 
 export type BookProgress = {
@@ -174,6 +233,7 @@ export type BookProgress = {
   currentPage?: number;
   customPageCount?: number;
   readingHistory?: readonly ReadingUpdate[];
+  startedAt?: string;
 };
 
 export type ResolvedBookProgress = {
@@ -189,14 +249,32 @@ function furthestPage(progress: BookProgress): number | undefined {
   return pages.length > 0 ? Math.max(...pages) : undefined;
 }
 
+function lastBookActivityDate(progress: BookProgress): string | undefined {
+  const historyDates = (progress.readingHistory ?? [])
+    .map((entry) => entry.date)
+    .filter((date): date is string => Boolean(date))
+    .sort();
+  return historyDates.at(-1) ?? progress.startedAt;
+}
+
+function resolveBookInactivityStatus(
+  lastActivity: string | undefined,
+  today: string,
+): Extract<BookStatus, "reading" | "paused" | "abandoned"> {
+  const live = resolveInactivityStatus(lastActivity, today);
+  return live === "watching" ? "reading" : live;
+}
+
 /**
  * Books: page progress against `customPageCount` wins when both are known.
  * Reaching the total is always `finished`. A `finished` mark stays finished
  * and `currentPage` fills to the total; earlier history pages are checkpoints,
- * not leftover unread progress.
+ * not leftover unread progress. Incomplete books then follow the same idle
+ * windows as series (`reading` / `paused` / `abandoned`).
  */
 export function resolveJournalBookStatus(
   progress: BookProgress,
+  clock?: JournalStatusClock,
 ): ResolvedBookProgress {
   const { status, customPageCount } = progress;
   const page = furthestPage(progress);
@@ -212,9 +290,57 @@ export function resolveJournalBookStatus(
     };
   }
 
-  if (status === "want-to-read" && page != null && page > 0) {
-    return { status: "reading", currentPage: page };
+  if (page == null || page <= 0) {
+    return { status: "want-to-read", currentPage: page };
   }
 
-  return { status, currentPage: page };
+  return {
+    status: resolveBookInactivityStatus(
+      lastBookActivityDate(progress),
+      clock?.today ?? isoToday(),
+    ),
+    currentPage: page,
+  };
+}
+
+/** Re-apply live series status (and finishedAt) for a calendar day. */
+export function applyResolvedSeriesStatus(
+  entry: SeriesEntry,
+  today?: string,
+): SeriesEntry {
+  const status = resolveJournalSeriesStatus(
+    entry.status,
+    entry.watchedEpisodes,
+    entry.numberOfEpisodes,
+    { startedAt: entry.startedAt, today },
+  );
+  const finishedAt =
+    status === "completed"
+      ? (entry.finishedAt ?? lastRegularWatchDate(entry.watchedEpisodes))
+      : undefined;
+  if (status === entry.status && finishedAt === entry.finishedAt) {
+    return entry;
+  }
+  return { ...entry, status, finishedAt };
+}
+
+/** Re-apply live book status (and currentPage) for a calendar day. */
+export function applyResolvedBookStatus(
+  book: BookEntry,
+  today?: string,
+): BookEntry {
+  const { status, currentPage } = resolveJournalBookStatus(
+    {
+      status: book.status,
+      currentPage: book.currentPage,
+      customPageCount: book.customPageCount,
+      readingHistory: book.readingHistory,
+      startedAt: book.startedAt,
+    },
+    { today },
+  );
+  if (status === book.status && currentPage === book.currentPage) {
+    return book;
+  }
+  return { ...book, status, currentPage };
 }

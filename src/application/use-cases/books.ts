@@ -89,7 +89,8 @@ function toBookCatalogCard(
     fallbackTitle,
     locale,
   );
-  const statusLabel = catalog.status.books[book.status];
+  const status = book.status;
+  const statusLabel = catalog.status.books[status];
   const hasReview = catalogHasReview("books", book.reviewSlug, locale);
   const favorite = Boolean(book.favorite);
   const activityDate = book.finishedAt ?? book.startedAt ?? null;
@@ -129,8 +130,8 @@ function toBookCatalogCard(
     favorite,
     hasReview,
     statusLabel,
-    statusHint: catalogStatusHint(catalog, "books", book.status),
-    statusTone: bookStatusTone(book.status),
+    statusHint: catalogStatusHint(catalog, "books", status),
+    statusTone: bookStatusTone(status),
     yearLabel: null,
     activityLabel,
     favoriteLabel: favorite
@@ -140,7 +141,7 @@ function toBookCatalogCard(
       ? catalog.card.withReview
       : catalog.card.noReview,
     metaTags,
-    statusKey: book.status,
+    statusKey: status,
     sortTitle: title,
     sortDate: activityDate,
     sortRating: book.rating ?? 0,
@@ -267,11 +268,14 @@ export function mapBookDetail(
   const reviewSlug = entry.reviewSlug ?? null;
 
   const pageCount = metadata?.pageCount ?? entry.customPageCount ?? null;
+  // Catalog uses the daily in-memory status. Detail re-checks pages
+  // against the live Google Books total.
   const { status, currentPage: resolvedPage } = resolveJournalBookStatus({
     status: entry.status,
     currentPage: entry.currentPage,
     customPageCount: pageCount ?? undefined,
     readingHistory: entry.readingHistory,
+    startedAt: entry.startedAt,
   });
   const currentPage = resolvedPage ?? null;
   const progressPercent = journalProgressPercent(currentPage, pageCount);

@@ -81,20 +81,21 @@ export const catalogCopyPt = {
     series: {
       watchlist: "Na lista. Ainda não há episódio registrado.",
       watching:
-        "Já começou e está em acompanhamento agora. Ainda não terminou.",
+        "Um episódio foi registrado nos últimos 60 dias. Ainda não terminou.",
       paused:
-        "Já começou e está em espera. Não terminou — e não foi desistida.",
+        "Nenhum episódio há 60 dias, mas ainda não faz dois anos. Ainda não terminou.",
       completed:
         "Todos os episódios lançados já foram assistidos. Cada episódio conta uma vez.",
-      abandoned: "Já começou e foi desistida. Não volta para ela.",
+      abandoned: "Nenhum episódio há dois anos. Tratada como desistida.",
     },
     books: {
       "want-to-read": "Na lista. Ainda não há páginas registradas.",
-      reading: "Já começou e está sendo lido agora. Ainda não terminou.",
+      reading:
+        "Uma página foi registrada nos últimos 60 dias. Ainda não terminou.",
       paused:
-        "Já começou e está em espera. Não terminou — e não foi desistido.",
+        "Nenhuma página há 60 dias, mas ainda não faz dois anos. Ainda não terminou.",
       finished: "Chegou à última página.",
-      abandoned: "Já começou e foi desistido. Não volta para ele.",
+      abandoned: "Nenhuma página há dois anos. Tratado como desistido.",
     },
   },
 } as const;
