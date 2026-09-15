@@ -49,19 +49,21 @@ export type AllEntriesTemplateProps = {
 
 function mixedStatusOptions(
   catalog: ReturnType<typeof useLocaleCopy>["copy"]["catalog"],
-): { value: string; label: string }[] {
+): { value: string; label: string; hint: string }[] {
   const seen = new Set<string>();
-  const options: { value: string; label: string }[] = [];
+  const options: { value: string; label: string; hint: string }[] = [];
 
-  for (const group of [
-    catalog.status.films,
-    catalog.status.series,
-    catalog.status.books,
-  ] as const) {
-    for (const [value, label] of Object.entries(group)) {
+  for (const medium of ["films", "series", "books"] as const) {
+    const labels = catalog.status[medium];
+    const hints = catalog.statusHint[medium];
+    for (const [value, label] of Object.entries(labels)) {
       if (seen.has(value)) continue;
       seen.add(value);
-      options.push({ value, label });
+      options.push({
+        value,
+        label,
+        hint: (hints as Record<string, string>)[value] ?? "",
+      });
     }
   }
 

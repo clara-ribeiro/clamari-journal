@@ -7,6 +7,7 @@ import type {
   SeriesDetail,
   StatsMetric,
 } from "@/application/dto";
+import { catalogCopy } from "@/content/copy/catalog";
 
 export const journalHeat: JournalEntry = {
   medium: "movie",
@@ -48,12 +49,13 @@ export function catalogCard(
   overrides: Partial<CatalogCardItem> &
     Pick<CatalogCardItem, "slug" | "title" | "medium" | "href">,
 ): CatalogCardItem {
-  return {
+  const item: CatalogCardItem = {
     posterUrl: null,
     rating: 4,
     favorite: false,
     hasReview: false,
     statusLabel: "Watched",
+    statusHint: "",
     statusTone: "positive",
     yearLabel: "1995",
     activityLabel: "Watched on June 1, 2024",
@@ -69,6 +71,16 @@ export function catalogCard(
     watchedEpisodeCount: 0,
     ...overrides,
   };
+  if (!item.statusHint) {
+    const group =
+      item.medium === "movie"
+        ? catalogCopy.statusHint.films
+        : item.medium === "series"
+          ? catalogCopy.statusHint.series
+          : catalogCopy.statusHint.books;
+    item.statusHint = (group as Record<string, string>)[item.statusKey] ?? "";
+  }
+  return item;
 }
 
 export const catalogHeat = catalogCard({
@@ -146,22 +158,62 @@ export const catalogItems: CatalogCardItem[] = [
 ];
 
 export const filmStatusOptions = [
-  { value: "watched", label: "Watched" },
-  { value: "rewatch", label: "Rewatch" },
-  { value: "watchlist", label: "Watchlist" },
+  {
+    value: "watched",
+    label: "Watched",
+    hint: catalogCopy.statusHint.films.watched,
+  },
+  {
+    value: "rewatch",
+    label: "Rewatch",
+    hint: catalogCopy.statusHint.films.rewatch,
+  },
+  {
+    value: "watchlist",
+    label: "Watchlist",
+    hint: catalogCopy.statusHint.films.watchlist,
+  },
 ];
 
 export const seriesStatusOptions = [
-  { value: "watching", label: "Watching" },
-  { value: "completed", label: "Completed" },
-  { value: "watchlist", label: "Watchlist" },
-  { value: "paused", label: "Paused" },
+  {
+    value: "watching",
+    label: "Watching",
+    hint: catalogCopy.statusHint.series.watching,
+  },
+  {
+    value: "completed",
+    label: "Completed",
+    hint: catalogCopy.statusHint.series.completed,
+  },
+  {
+    value: "watchlist",
+    label: "Watchlist",
+    hint: catalogCopy.statusHint.series.watchlist,
+  },
+  {
+    value: "paused",
+    label: "Paused",
+    hint: catalogCopy.statusHint.series.paused,
+  },
 ];
 
 export const bookStatusOptions = [
-  { value: "finished", label: "Finished" },
-  { value: "reading", label: "Reading" },
-  { value: "want-to-read", label: "Want to read" },
+  {
+    value: "finished",
+    label: "Finished",
+    hint: catalogCopy.statusHint.books.finished,
+  },
+  {
+    value: "reading",
+    label: "Reading",
+    hint: catalogCopy.statusHint.books.reading,
+  },
+  {
+    value: "want-to-read",
+    label: "Want to read",
+    hint: catalogCopy.statusHint.books["want-to-read"],
+  },
 ];
 
 export const allStatusOptions = [
@@ -257,6 +309,7 @@ export const movieDetail: MovieDetail = {
   },
   metadataNotice: null,
   statusLabel: "Watched",
+  statusHint: catalogCopy.statusHint.films.watched,
   rating: 5,
   favorite: true,
   favoriteLabel: "Favorite",
@@ -302,6 +355,7 @@ export const seriesDetail: SeriesDetail = {
   trailer: null,
   metadataNotice: null,
   statusLabel: "Completed",
+  statusHint: catalogCopy.statusHint.series.completed,
   rating: 5,
   favorite: true,
   favoriteLabel: "Favorite",
@@ -380,6 +434,7 @@ export const bookDetail: BookDetail = {
   isbn13Label: "9781423101451",
   metadataNotice: null,
   statusLabel: "Finished",
+  statusHint: catalogCopy.statusHint.books.finished,
   rating: 5,
   favorite: true,
   favoriteLabel: "Favorite",

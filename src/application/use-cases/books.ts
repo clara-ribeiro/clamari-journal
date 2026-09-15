@@ -9,6 +9,10 @@ import type {
 } from "@/application/dto";
 import type { GoogleBooksMetadata } from "@/application/dto/google-books-metadata";
 import type { BookEntry, BookFormat } from "@/domain/entities";
+import {
+  journalProgressPercent,
+  resolveJournalBookStatus,
+} from "@/domain/journal-status";
 import { copyFor } from "@/content/copy/for-locale";
 import {
   getBookById,
@@ -26,6 +30,7 @@ import {
   catalogCopyFor,
   catalogHasReview,
   catalogHref,
+  catalogStatusHint,
   localizedWorkTitle,
 } from "./catalog-locale";
 import { yearsBookCountsToward } from "./goal-years";
@@ -84,14 +89,16 @@ function toBookCatalogCard(
     fallbackTitle,
     locale,
   );
-  const statusLabel = catalog.status.books[book.status];
+  const status = book.status;
+  const statusLabel = catalog.status.books[status];
   const hasReview = catalogHasReview("books", book.reviewSlug, locale);
   const favorite = Boolean(book.favorite);
-  const activityDate = book.finishedAt ?? book.startedAt ?? null;
-  const activityLabel = book.finishedAt
+  const finishedAt = status === "finished" ? book.finishedAt : undefined;
+  const activityDate = finishedAt ?? book.startedAt ?? null;
+  const activityLabel = finishedAt
     ? catalog.card.finishedOn.replace(
         "{date}",
-        formatDate(book.finishedAt, locale),
+        formatDate(finishedAt, locale),
       )
     : book.startedAt
       ? catalog.card.startedOn.replace(
@@ -124,7 +131,8 @@ function toBookCatalogCard(
     favorite,
     hasReview,
     statusLabel,
-    statusTone: bookStatusTone(book.status),
+    statusHint: catalogStatusHint(catalog, "books", status),
+    statusTone: bookStatusTone(status),
     yearLabel: null,
     activityLabel,
     favoriteLabel: favorite
@@ -134,7 +142,7 @@ function toBookCatalogCard(
       ? catalog.card.withReview
       : catalog.card.noReview,
     metaTags,
-    statusKey: book.status,
+    statusKey: status,
     sortTitle: title,
     sortDate: activityDate,
     sortRating: book.rating ?? 0,
@@ -260,14 +268,16 @@ export function mapBookDetail(
   const favorite = Boolean(entry.favorite);
   const reviewSlug = entry.reviewSlug ?? null;
 
-  const pageCount = metadata?.pageCount ?? entry.customPageCount ?? null;
-  const currentPage = entry.currentPage ?? null;
-  const progressPercent =
-    pageCount != null && pageCount > 0 && currentPage != null
-      ? Math.min(100, Math.round((currentPage / pageCount) * 100))
-      : entry.status === "finished" && pageCount != null
-        ? 100
-        : null;
+  const pageCount = entry.customPageCount ?? metadata?.pageCount ?? null;
+  const { status, currentPage: resolvedPage } = resolveJournalBookStatus({
+    status: entry.status,
+    currentPage: entry.currentPage,
+    customPageCount: pageCount ?? undefined,
+    readingHistory: entry.readingHistory,
+    startedAt: entry.startedAt,
+  });
+  const currentPage = resolvedPage ?? null;
+  const progressPercent = journalProgressPercent(currentPage, pageCount);
 
   const yearLabel = metadata?.year != null ? String(metadata.year) : null;
 
@@ -296,7 +306,8 @@ export function mapBookDetail(
     isbn10Label: metadata?.identifiers.isbn10 ?? null,
     isbn13Label: metadata?.identifiers.isbn13 ?? null,
     metadataNotice,
-    statusLabel: catalog.status.books[entry.status],
+    statusLabel: catalog.status.books[status],
+    statusHint: catalogStatusHint(catalog, "books", status),
     rating: entry.rating,
     favorite,
     favoriteLabel: favorite
@@ -305,9 +316,10 @@ export function mapBookDetail(
     formatLabel: formatLabel(entry.format, locale),
     tags: entry.tags ?? [],
     startedLabel: entry.startedAt ? formatDate(entry.startedAt, locale) : null,
-    finishedLabel: entry.finishedAt
-      ? formatDate(entry.finishedAt, locale)
-      : null,
+    finishedLabel:
+      status === "finished" && entry.finishedAt
+        ? formatDate(entry.finishedAt, locale)
+        : null,
     currentPageLabel:
       currentPage != null
         ? pageCount != null

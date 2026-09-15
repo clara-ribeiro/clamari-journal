@@ -11,6 +11,12 @@
 
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
+import {
+  lastRegularWatchDate,
+  resolveJournalSeriesStatus,
+  type SeriesStatusInput,
+} from "../src/domain/journal-status";
+import type { WatchedEpisode } from "../src/domain/entities/series";
 
 const ROOT = resolve(import.meta.dirname, "..");
 const TMDB_BASE = "https://api.themoviedb.org/3";
@@ -22,6 +28,10 @@ type SeriesEntry = {
   numberOfSeasons?: number;
   numberOfEpisodes?: number;
   title: string;
+  status?: SeriesStatusInput;
+  startedAt?: string;
+  finishedAt?: string;
+  watchedEpisodes?: WatchedEpisode[];
   [key: string]: unknown;
 };
 
@@ -155,26 +165,50 @@ async function enrichSeries() {
       }
 
       if (entry.tmdbId) {
-        const needsCounts =
-          entry.numberOfSeasons === undefined ||
-          entry.numberOfEpisodes === undefined;
-        const needsPoster = !entry.posterPath;
-        if (needsCounts || needsPoster) {
-          const detail = await tmdb<TmdbTvDetail>(
-            `/tv/${entry.tmdbId}?language=en-US`,
+        const detail = await tmdb<TmdbTvDetail>(
+          `/tv/${entry.tmdbId}?language=en-US`,
+        );
+        if (applyTvDetail(entry, detail)) {
+          updated += 1;
+          console.log(
+            `series counts ${entry.title} → S${detail.number_of_seasons}/E${detail.number_of_episodes}`,
           );
-          if (applyTvDetail(entry, detail)) {
-            updated += 1;
-            console.log(
-              `series counts ${entry.title} → S${detail.number_of_seasons}/E${detail.number_of_episodes}`,
-            );
-          }
         }
       }
     } catch (error) {
       console.warn(`series fail: ${entry.title}`, error);
     }
     await sleep(120);
+  }
+
+  for (const entry of series) {
+    if (entry.status == null) continue;
+    const next = resolveJournalSeriesStatus(
+      entry.status,
+      entry.watchedEpisodes ?? [],
+      entry.numberOfEpisodes,
+      { startedAt: entry.startedAt },
+    );
+    if (next === entry.status && next !== "completed") continue;
+    if (next !== entry.status) {
+      entry.status = next;
+      updated += 1;
+      console.log(`series status ${entry.title} → ${next}`);
+    }
+    if (next !== "completed") {
+      if (entry.finishedAt) {
+        delete entry.finishedAt;
+        updated += 1;
+      }
+      continue;
+    }
+    if (!entry.finishedAt) {
+      const finishedAt = lastRegularWatchDate(entry.watchedEpisodes ?? []);
+      if (finishedAt) {
+        entry.finishedAt = finishedAt;
+        updated += 1;
+      }
+    }
   }
 
   writeFileSync(path, JSON.stringify(series, null, 2) + "\n");

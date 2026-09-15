@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { SeriesDetail } from "@/application/dto";
+import { catalogCopy } from "@/content/copy/catalog";
 import { seriesCopy } from "@/content/copy/series";
 import SeriesDetailTemplate from "./index";
 
@@ -47,6 +48,7 @@ function seriesDetail(overrides: Partial<SeriesDetail> = {}): SeriesDetail {
     trailer: null,
     metadataNotice: null,
     statusLabel: "Completed",
+    statusHint: catalogCopy.statusHint.series.completed,
     favorite: false,
     favoriteLabel: "Favorite",
     startedLabel: null,

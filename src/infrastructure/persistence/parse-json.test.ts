@@ -57,6 +57,18 @@ describe("parseMovieEntries", () => {
     expect(movie.watchedDates).toEqual(["2024-01-02"]);
   });
 
+  it("sorts unique watch dates and promotes two viewings to rewatch", () => {
+    const [movie] = parseMovieEntries([
+      {
+        ...base,
+        status: "watched",
+        watchedDates: ["2026-08-25", "2026-08-09", "2026-08-25"],
+      },
+    ]);
+    expect(movie.status).toBe("rewatch");
+    expect(movie.watchedDates).toEqual(["2026-08-09", "2026-08-25"]);
+  });
+
   it("rejects invalid status, rating, and negatives", () => {
     expect(() =>
       parseMovieEntries([{ ...base, status: "finished" }]),
@@ -118,6 +130,111 @@ describe("parseSeriesEntries", () => {
       },
     ]);
     expect(series.watchedEpisodes[0]?.season).toBe(1);
+    expect(series.status).toBe("completed");
+  });
+
+  it("collapses rewatches and demotes completed when unique watches miss the released total", () => {
+    const [incomplete] = parseSeriesEntries([
+      {
+        ...base,
+        numberOfEpisodes: 5,
+        startedAt: "2018-01-01",
+        finishedAt: "2018-06-01",
+        watchedEpisodes: [
+          { season: 1, episode: 1, watchedAt: "2018-02-01" },
+          { season: 1, episode: 1, watchedAt: "2018-01-01" },
+        ],
+      },
+    ]);
+    expect(incomplete.watchedEpisodes).toHaveLength(1);
+    expect(incomplete.watchedEpisodes[0]?.watchedAt).toBe("2018-01-01");
+    expect(incomplete.status).toBe("abandoned");
+    expect(incomplete.finishedAt).toBeUndefined();
+
+    const [complete] = parseSeriesEntries([
+      {
+        ...base,
+        numberOfEpisodes: 1,
+        finishedAt: "2018-06-01",
+        watchedEpisodes: [
+          { season: 1, episode: 1, watchedAt: "2018-01-01" },
+          { season: 1, episode: 1, watchedAt: "2018-06-01" },
+        ],
+      },
+    ]);
+    expect(complete.status).toBe("completed");
+    expect(complete.finishedAt).toBe("2018-06-01");
+    expect(complete.watchedEpisodes).toHaveLength(1);
+  });
+
+  it("promotes watching to completed and fills finishedAt from the last unique watch", () => {
+    const [series] = parseSeriesEntries([
+      {
+        ...base,
+        status: "watching",
+        numberOfEpisodes: 1,
+        startedAt: "2018-01-01",
+        watchedEpisodes: [
+          { season: 1, episode: 1, watchedAt: "2018-06-01" },
+          { season: 1, episode: 1, watchedAt: "2018-01-01" },
+        ],
+      },
+    ]);
+    expect(series.status).toBe("completed");
+    expect(series.finishedAt).toBe("2018-01-01");
+  });
+
+  it("resolves the legacy up-to-date status through idle time", () => {
+    const [series] = parseSeriesEntries([
+      {
+        ...base,
+        status: "up-to-date",
+        numberOfEpisodes: 10,
+        watchedEpisodes: [
+          {
+            season: 1,
+            episode: 1,
+            watchedAt: new Date().toISOString().slice(0, 10),
+          },
+        ],
+      },
+    ]);
+    expect(series.status).toBe("watching");
+  });
+
+  it("drops finishedAt when the resolved series status is not completed", () => {
+    const [series] = parseSeriesEntries([
+      {
+        ...base,
+        status: "watching",
+        numberOfEpisodes: 10,
+        startedAt: "2026-09-01",
+        finishedAt: "2026-09-02",
+        watchedEpisodes: [
+          {
+            season: 1,
+            episode: 1,
+            watchedAt: new Date().toISOString().slice(0, 10),
+          },
+        ],
+      },
+    ]);
+    expect(series.status).toBe("watching");
+    expect(series.finishedAt).toBeUndefined();
+  });
+
+  it("promotes abandoned to completed when unique watches cover the released total", () => {
+    const [series] = parseSeriesEntries([
+      {
+        ...base,
+        status: "abandoned",
+        numberOfEpisodes: 1,
+        startedAt: "2021-01-01",
+        watchedEpisodes: [{ season: 1, episode: 1, watchedAt: "2021-01-01" }],
+      },
+    ]);
+    expect(series.status).toBe("completed");
+    expect(series.finishedAt).toBe("2021-01-01");
   });
 
   it("rejects invalid episode numbers and inverted dates", () => {
@@ -181,6 +298,30 @@ describe("parseBookEntries", () => {
     ]);
     expect(book.readingHistory?.[0]?.page).toBe(20);
     expect(book.quotes?.[0]?.text).toMatch(/Fear/);
+  });
+
+  it("fills currentPage for finished books and promotes when pages reach the total", () => {
+    const [finished] = parseBookEntries([
+      { ...base, status: "finished", currentPage: undefined },
+    ]);
+    expect(finished.status).toBe("finished");
+    expect(finished.currentPage).toBe(100);
+
+    const [finishedWithHistory] = parseBookEntries([
+      {
+        ...base,
+        status: "finished",
+        currentPage: 40,
+        readingHistory: [{ date: "2024-03-01", page: 40 }],
+      },
+    ]);
+    expect(finishedWithHistory.currentPage).toBe(100);
+
+    const [caughtUp] = parseBookEntries([
+      { ...base, status: "reading", currentPage: 100 },
+    ]);
+    expect(caughtUp.status).toBe("finished");
+    expect(caughtUp.currentPage).toBe(100);
   });
 
   it("rejects progress beyond customPageCount and bad format", () => {

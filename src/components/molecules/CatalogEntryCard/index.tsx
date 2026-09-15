@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Heart, PencilLine } from "lucide-react";
 import StarRating from "@/components/atoms/StarRating";
+import StatusHint from "@/components/atoms/StatusHint";
 import type { CatalogCardItem } from "@/application/dto";
 import type {
   CatalogTone,
@@ -57,9 +58,11 @@ export default function CatalogEntryCard({
         <ListLink href={item.href} prefetch={false}>
           <Title tone={tone}>{item.title}</Title>
           <Year tone={tone}>{item.yearLabel ?? ""}</Year>
-          <StatusBadge tone={item.statusTone} align="list">
-            {item.statusLabel}
-          </StatusBadge>
+          <StatusHint hint={item.statusHint}>
+            <StatusBadge tone={item.statusTone} align="list">
+              {item.statusLabel}
+            </StatusBadge>
+          </StatusHint>
           <ListFlags>
             {item.favorite ? (
               <ListFlag
@@ -110,7 +113,9 @@ export default function CatalogEntryCard({
             />
           )}
           <BadgeSlot>
-            <StatusBadge tone={item.statusTone}>{item.statusLabel}</StatusBadge>
+            <StatusHint hint={item.statusHint} placement="stretch">
+              <StatusBadge tone={item.statusTone}>{item.statusLabel}</StatusBadge>
+            </StatusHint>
           </BadgeSlot>
         </PosterFrame>
 

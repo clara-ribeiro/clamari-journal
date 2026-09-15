@@ -1,4 +1,5 @@
 import type { CatalogCardItem } from "@/application/dto";
+import { isWatchedMovieStatus } from "@/domain/journal-status";
 
 type CatalogSummaryMedium = "films" | "series" | "books";
 
@@ -11,8 +12,8 @@ export function formatCatalogSummary(
   const total = items.length;
 
   if (medium === "films") {
-    const watched = items.filter(
-      (item) => item.statusKey === "watched" || item.statusKey === "rewatch",
+    const watched = items.filter((item) =>
+      isWatchedMovieStatus(item.statusKey),
     ).length;
     const watchlist = items.filter(
       (item) => item.statusKey === "watchlist",

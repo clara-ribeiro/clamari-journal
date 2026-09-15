@@ -184,6 +184,16 @@ describe("buildMovieEntry", () => {
     expect(entry.watchLocation).toBeUndefined();
     expect(entry.slug).toBe("x");
   });
+
+  it("promotes two unique watch dates to rewatch", () => {
+    const entry = buildMovieEntry(
+      { tmdbId: 261, title: "Cat on a Hot Tin Roof" },
+      { watchedDates: ["2026-08-25", "2026-08-09"] },
+      [],
+    );
+    expect(entry.status).toBe("rewatch");
+    expect(entry.watchedDates).toEqual(["2026-08-09", "2026-08-25"]);
+  });
 });
 
 describe("mergeMovieJournal / json helpers", () => {
@@ -204,6 +214,7 @@ describe("mergeMovieJournal / json helpers", () => {
       tags: ["horror"],
     });
     expect(merged.watchedDates).toEqual(["2021-01-02", "2026-08-25"]);
+    expect(merged.status).toBe("rewatch");
     expect(merged.rating).toBe(5);
     expect(merged.tvtimeUuid).toBe("abc");
     expect(merged.reviewSlug).toBe("hereditary");

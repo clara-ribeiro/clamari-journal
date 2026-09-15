@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Heart, PencilLine } from "lucide-react";
 import StarRating from "@/components/atoms/StarRating";
+import StatusHint from "@/components/atoms/StatusHint";
 import type { CatalogCardItem } from "@/application/dto";
 import { isTmdbImageUrl, tmdbImageLoader } from "@/lib/tmdb-image";
 import {
@@ -60,7 +61,9 @@ export default function MixedEntryCard({
             />
           )}
           <BadgeSlot>
-            <StatusBadge tone={item.statusTone}>{item.statusLabel}</StatusBadge>
+            <StatusHint hint={item.statusHint} placement="stretch">
+              <StatusBadge tone={item.statusTone}>{item.statusLabel}</StatusBadge>
+            </StatusHint>
           </BadgeSlot>
         </PosterFrame>
 

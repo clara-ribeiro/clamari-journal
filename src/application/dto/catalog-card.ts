@@ -16,6 +16,8 @@ export type CatalogCardItem = {
   favorite: boolean;
   hasReview: boolean;
   statusLabel: string;
+  /** Localized explanation for the status tag tooltip */
+  statusHint: string;
   statusTone: CatalogStatusTone;
   yearLabel: string | null;
   activityLabel: string;

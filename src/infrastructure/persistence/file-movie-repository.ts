@@ -1,4 +1,5 @@
 import type { MovieEntry } from "@/domain/entities";
+import { isWatchedMovieStatus } from "@/domain/journal-status";
 import type { MovieRepository } from "@/application/repositories/movie-repository";
 import moviesData from "@/data/movies.json";
 import { parseMovieEntries } from "./parse-json";
@@ -19,9 +20,7 @@ export class FileMovieRepository implements MovieRepository {
   }
 
   countWatched(): number {
-    return movies.filter(
-      (movie) => movie.status === "watched" || movie.status === "rewatch",
-    ).length;
+    return movies.filter((movie) => isWatchedMovieStatus(movie.status)).length;
   }
 }
 

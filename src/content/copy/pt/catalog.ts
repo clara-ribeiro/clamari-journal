@@ -1,3 +1,5 @@
+import { JOURNAL_PAUSE_AFTER_IDLE_DAYS } from "@/domain/journal-status";
+
 export const catalogCopyPt = {
   toolbar: {
     searchAriaLabel: "Buscar no catálogo",
@@ -60,7 +62,6 @@ export const catalogCopyPt = {
     series: {
       watchlist: "Quero assistir",
       watching: "Assistindo",
-      "up-to-date": "Em dia",
       paused: "Pausada",
       completed: "Completa",
       abandoned: "Abandonada",
@@ -71,6 +72,28 @@ export const catalogCopyPt = {
       paused: "Pausado",
       finished: "Lido",
       abandoned: "Abandonado",
+    },
+  },
+  statusHint: {
+    films: {
+      watched: "Registrado com uma data de exibição.",
+      rewatch: "Registrado com duas ou mais datas de exibição.",
+      watchlist: "Na lista. Ainda não há data de exibição.",
+    },
+    series: {
+      watchlist: "Na lista. Ainda não há episódio registrado.",
+      watching: `Um episódio foi registrado nos últimos ${JOURNAL_PAUSE_AFTER_IDLE_DAYS} dias, ou o progresso ainda não tem data. Ainda não terminou.`,
+      paused: `Nenhum episódio há ${JOURNAL_PAUSE_AFTER_IDLE_DAYS} dias, mas ainda não faz dois anos. Ainda não terminou.`,
+      completed:
+        "Todos os episódios lançados já foram assistidos. Um episódio novo sai daqui até ser assistido. Cada episódio conta uma vez.",
+      abandoned: "Nenhum episódio há dois anos. Tratada como desistida.",
+    },
+    books: {
+      "want-to-read": "Na lista. Ainda não há páginas registradas.",
+      reading: `Uma página foi registrada nos últimos ${JOURNAL_PAUSE_AFTER_IDLE_DAYS} dias, ou o progresso ainda não tem data. Ainda não terminou.`,
+      paused: `Nenhuma página há ${JOURNAL_PAUSE_AFTER_IDLE_DAYS} dias, mas ainda não faz dois anos. Ainda não terminou.`,
+      finished: "Chegou à última página.",
+      abandoned: "Nenhuma página há dois anos. Tratado como desistido.",
     },
   },
 } as const;

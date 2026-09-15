@@ -3,7 +3,6 @@ import type { RatingValue } from "@/domain/value-objects/rating";
 export type SeriesStatus =
   | "watchlist"
   | "watching"
-  | "up-to-date"
   | "paused"
   | "completed"
   | "abandoned";
@@ -39,6 +38,7 @@ export type SeriesEntry = {
   rating?: RatingValue;
   favorite?: boolean;
   startedAt?: string;
+  /** Set when `status` is `completed`. */
   finishedAt?: string;
   watchedEpisodes: WatchedEpisode[];
   reviewSlug?: string;

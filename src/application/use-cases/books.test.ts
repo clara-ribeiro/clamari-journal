@@ -91,15 +91,38 @@ describe("mapBookDetail", () => {
     expect(detail.heroExcerpt).toContain("goddess Artemis");
     expect(detail.heroExcerpt).not.toContain("<p>");
     expect(detail.statusLabel).toBe("Finished");
+    expect(detail.statusHint).toBe(catalogCopy.statusHint.books.finished);
     expect(detail.favorite).toBe(true);
     expect(detail.formatLabel).toBe("Physical");
     expect(detail.progressPercent).toBe(100);
+    expect(detail.currentPageLabel).toBe("320 / 320");
     expect(detail.quotes).toHaveLength(1);
     expect(detail.history).toHaveLength(2);
     expect(detail.history[0]?.dateLabel).toContain("2020");
     expect(detail.notes).toHaveLength(1);
     expect(detail.notes[0]?.text).toBe("Halfway and hooked.");
     expect(detail.metadataNotice).toBeNull();
+  });
+
+  it("does not show a finished date unless the resolved status is finished", () => {
+    const detail = mapBookDetail(
+      {
+        ...baseEntry,
+        status: "reading",
+        finishedAt: "2020-02-01",
+        currentPage: 40,
+        customPageCount: 320,
+        readingHistory: [
+          { date: new Date().toISOString().slice(0, 10), page: 40 },
+        ],
+      },
+      baseMetadata,
+      null,
+    );
+
+    expect(detail.statusLabel).toBe("Reading");
+    expect(detail.finishedLabel).toBeNull();
+    expect(detail.progressPercent).toBe(13);
   });
 
   it("surfaces a notice and falls back to entry fields when metadata is missing", () => {
@@ -126,6 +149,7 @@ describe("mapBookDetail", () => {
         finishedAt: undefined,
         currentPage: 80,
         customPageCount: 320,
+        readingHistory: undefined,
       },
       { ...baseMetadata, pageCount: 320 },
       null,
@@ -133,6 +157,13 @@ describe("mapBookDetail", () => {
 
     expect(detail.progressPercent).toBe(25);
     expect(detail.currentPageLabel).toBe("80 / 320");
+  });
+
+  it("does not treat earlier reading history as unread pages on a finished book", () => {
+    const detail = mapBookDetail(baseEntry, baseMetadata, null);
+    expect(detail.statusLabel).toBe("Finished");
+    expect(detail.currentPageLabel).toBe("320 / 320");
+    expect(detail.progressPercent).toBe(100);
   });
 
   it("uses the pending review label when a reviewSlug is set", () => {
@@ -215,6 +246,7 @@ describe("listBookCatalogItems", () => {
       medium: "book",
       href: "/books/the-lightning-thief",
       statusLabel: catalogCopy.status.books.finished,
+      statusHint: catalogCopy.statusHint.books.finished,
       statusTone: "positive",
     });
     expect(sample?.sortTitle.length).toBeGreaterThan(0);

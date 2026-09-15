@@ -15,6 +15,12 @@ import {
 import { catalogCopy } from "@/content/copy/catalog";
 import { seriesCopy } from "@/content/copy/series";
 
+function isoDaysAgo(days: number): string {
+  const date = new Date();
+  date.setUTCDate(date.getUTCDate() - days);
+  return date.toISOString().slice(0, 10);
+}
+
 const baseEntry: SeriesEntry = {
   slug: "breaking-bad",
   title: "Breaking Bad",
@@ -27,8 +33,18 @@ const baseEntry: SeriesEntry = {
   startedAt: "2020-01-01",
   numberOfEpisodes: 62,
   watchedEpisodes: [
-    { season: 1, episode: 1, watchedAt: "2020-01-01", runtimeMinutes: 58 },
-    { season: 1, episode: 2, watchedAt: "2020-01-02", runtimeMinutes: 48 },
+    {
+      season: 1,
+      episode: 1,
+      watchedAt: isoDaysAgo(2),
+      runtimeMinutes: 58,
+    },
+    {
+      season: 1,
+      episode: 2,
+      watchedAt: isoDaysAgo(1),
+      runtimeMinutes: 48,
+    },
   ],
 };
 
@@ -142,6 +158,7 @@ describe("mapSeriesDetail", () => {
     expect(detail.title).toBe("Breaking Bad");
     expect(detail.creatorsLabel).toBe("Vince Gilligan");
     expect(detail.statusLabel).toBe("Watching");
+    expect(detail.statusHint).toBe(catalogCopy.statusHint.series.watching);
     expect(detail.favorite).toBe(true);
     expect(detail.watchedEpisodesLabel).toBe("2 / 62");
     expect(detail.progressPercent).toBe(3);
@@ -150,6 +167,97 @@ describe("mapSeriesDetail", () => {
     expect(detail.seasons[0]?.watchedCount).toBe(2);
     expect(detail.seasons[0]?.episodes[2]?.isNext).toBe(true);
     expect(detail.metadataNotice).toBeNull();
+  });
+
+  it("counts unique regular episodes and will not label incomplete shows completed", () => {
+    const detail = mapSeriesDetail(
+      {
+        ...baseEntry,
+        status: "completed",
+        finishedAt: "2020-01-01",
+        watchedEpisodes: [
+          { season: 1, episode: 1, watchedAt: "2020-01-01" },
+          { season: 1, episode: 1, watchedAt: "2020-06-01" },
+        ],
+      },
+      baseMetadata,
+      [seasonOne],
+      null,
+    );
+
+    expect(detail.statusLabel).toBe("Abandoned");
+    expect(detail.statusHint).toBe(catalogCopy.statusHint.series.abandoned);
+    expect(detail.finishedLabel).toBeNull();
+    expect(detail.watchedEpisodesLabel).toBe("1 / 62");
+  });
+
+  it("promotes watching to completed when unique watches cover the released total", () => {
+    const detail = mapSeriesDetail(
+      {
+        ...baseEntry,
+        status: "watching",
+        numberOfEpisodes: 2,
+        watchedEpisodes: [
+          { season: 1, episode: 1, watchedAt: "2020-01-01", runtimeMinutes: 58 },
+          { season: 1, episode: 2, watchedAt: "2020-01-02", runtimeMinutes: 48 },
+        ],
+      },
+      { ...baseMetadata, numberOfEpisodes: 2 },
+      [seasonOne],
+      null,
+    );
+
+    expect(detail.statusLabel).toBe("Completed");
+    expect(detail.watchedEpisodesLabel).toBe("2 / 2");
+    expect(detail.finishedLabel).toBe("January 2, 2020");
+  });
+
+  it("promotes abandoned to completed when unique watches cover the released total", () => {
+    const detail = mapSeriesDetail(
+      {
+        ...baseEntry,
+        status: "abandoned",
+        numberOfEpisodes: 2,
+      },
+      { ...baseMetadata, numberOfEpisodes: 2 },
+      [seasonOne],
+      null,
+    );
+
+    expect(detail.statusLabel).toBe("Completed");
+  });
+
+  it("leaves completed when TMDB reports a newly released episode", () => {
+    const detail = mapSeriesDetail(
+      {
+        ...baseEntry,
+        status: "completed",
+        numberOfEpisodes: 2,
+        finishedAt: "2020-01-02",
+        watchedEpisodes: [
+          {
+            season: 1,
+            episode: 1,
+            watchedAt: isoDaysAgo(1),
+            runtimeMinutes: 58,
+          },
+          {
+            season: 1,
+            episode: 2,
+            watchedAt: isoDaysAgo(1),
+            runtimeMinutes: 48,
+          },
+        ],
+      },
+      { ...baseMetadata, numberOfEpisodes: 3 },
+      [seasonOne],
+      null,
+    );
+
+    expect(detail.statusLabel).toBe("Watching");
+    expect(detail.statusHint).toBe(catalogCopy.statusHint.series.watching);
+    expect(detail.finishedLabel).toBeNull();
+    expect(detail.watchedEpisodesLabel).toBe("2 / 3");
   });
 
   it("surfaces a metadata notice when TMDB is unavailable", () => {
@@ -242,14 +350,23 @@ describe("computeSeriesStats", () => {
         slug: "paused",
         title: "Paused",
         status: "paused",
-        watchedEpisodes: [{ season: 1, episode: 1, runtimeMinutes: 30 }],
+        watchedEpisodes: [
+          {
+            season: 1,
+            episode: 1,
+            watchedAt: isoDaysAgo(100),
+            runtimeMinutes: 30,
+          },
+        ],
       },
       {
         tvdbId: 5,
         slug: "abandoned",
         title: "Abandoned",
         status: "abandoned",
-        watchedEpisodes: [],
+        watchedEpisodes: [
+          { season: 1, episode: 1, watchedAt: isoDaysAgo(800) },
+        ],
       },
     ]);
 
@@ -261,9 +378,10 @@ describe("computeSeriesStats", () => {
       abandoned: 1,
       watchlist: 1,
       favorites: 1,
-      watchedEpisodes: 4,
-      withProgress: 3,
-      totalRuntimeMinutes: 40 + DEFAULT_EPISODE_RUNTIME_MINUTES + 50 + 30,
+      watchedEpisodes: 5,
+      withProgress: 4,
+      totalRuntimeMinutes:
+        40 + DEFAULT_EPISODE_RUNTIME_MINUTES + 50 + 30 + DEFAULT_EPISODE_RUNTIME_MINUTES,
     });
   });
 });
@@ -283,8 +401,12 @@ describe("listSeriesCatalogItems", () => {
       statusTone: expect.stringMatching(/positive|warning|neutral/),
     });
     expect(sample?.statusLabel).toBeTruthy();
+    expect(sample?.statusHint).toBeTruthy();
     expect(
       Object.values(catalogCopy.status.series),
     ).toContain(sample?.statusLabel);
+    expect(
+      Object.values(catalogCopy.statusHint.series),
+    ).toContain(sample?.statusHint);
   });
 });

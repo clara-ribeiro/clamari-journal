@@ -39,6 +39,12 @@ export type CatalogTone = "light" | "dark";
 
 export type CatalogViewMode = "cards" | "list";
 
+export type CatalogStatusOption = {
+  value: string;
+  label: string;
+  hint?: string;
+};
+
 export type CatalogToolbarProps = {
   tone: CatalogTone;
   medium: "films" | "series" | "books" | "all";
@@ -46,7 +52,7 @@ export type CatalogToolbarProps = {
   onSearchChange: (value: string) => void;
   statusFilter: string;
   onStatusFilterChange: (value: string) => void;
-  statusOptions: readonly { value: string; label: string }[];
+  statusOptions: readonly CatalogStatusOption[];
   yearFilter: number | null;
   onYearFilterChange: (value: number | null) => void;
   yearOptions: readonly number[];
@@ -119,9 +125,10 @@ export default function CatalogToolbar({
   const { copy: bundle } = useLocaleCopy();
   const copy = bundle.catalog.toolbar;
 
-  const statusLabel =
-    statusOptions.find((option) => option.value === statusFilter)?.label ??
-    copy.filtersAll;
+  const statusOption =
+    statusOptions.find((option) => option.value === statusFilter);
+  const statusLabel = statusOption?.label ?? copy.filtersAll;
+  const statusHint = statusOption?.hint;
   const yearLabel =
     yearFilter != null ? String(yearFilter) : copy.yearAll;
   const sortLabel = copy.sortOptions[sort];
@@ -227,7 +234,7 @@ export default function CatalogToolbar({
           </NativeSelect>
         </Control>
 
-        <Control tone={tone}>
+        <Control tone={tone} title={statusHint}>
           <ControlFace>
             <IconWrap aria-hidden>
               <ListFilter />
@@ -242,7 +249,11 @@ export default function CatalogToolbar({
           >
             <option value="">{copy.filtersAll}</option>
             {statusOptions.map((option) => (
-              <option key={option.value} value={option.value}>
+              <option
+                key={option.value}
+                value={option.value}
+                title={option.hint}
+              >
                 {option.label}
               </option>
             ))}

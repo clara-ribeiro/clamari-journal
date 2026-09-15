@@ -27,6 +27,7 @@ import json
 import re
 import sys
 import zipfile
+from datetime import date
 from collections import defaultdict
 from pathlib import Path
 
@@ -34,6 +35,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "src" / "data"
 DEFAULT_SOURCE = DATA_DIR / "gdpr-data.zip"
+
+# Keep in sync with src/domain/journal-status.ts
+PAUSE_AFTER_IDLE_DAYS = 60
+ABANDON_AFTER_IDLE_DAYS = 730
 
 
 def slugify(text: str) -> str:
@@ -114,22 +119,42 @@ def dedupe_episodes(eps: list[dict]) -> list[dict]:
     return sorted(best.values(), key=lambda x: (x["season"], x["episode"]))
 
 
-def infer_series_status(eps, followed_info, nb_seen: int) -> str:
-    if followed_info and followed_info.get("archived"):
-        return "abandoned" if nb_seen > 0 else "watchlist"
-    if not eps and nb_seen == 0:
-        return "watchlist"
-    if not eps:
-        return "watching"
+def unique_regular_count(eps: list[dict]) -> int:
+    return len(
+        {
+            (e["season"], e["episode"])
+            for e in eps
+            if int(e.get("season") or 0) > 0
+        }
+    )
+
+
+def latest_watch_date(eps) -> str | None:
     dates = [e["watchedAt"] for e in eps if e.get("watchedAt")]
-    latest = max(dates) if dates else None
-    if latest and latest >= "2026-01-01":
+    return max(dates) if dates else None
+
+
+def infer_in_progress(latest: str | None, today: date | None = None) -> str:
+    """Rolling TV Time windows: 60 days watching, then paused, drop after 2 years."""
+    if not latest:
         return "watching"
-    if latest and latest >= "2025-01-01":
+    last = date.fromisoformat(str(latest)[:10])
+    days = ((today or date.today()) - last).days
+    if days < PAUSE_AFTER_IDLE_DAYS:
+        return "watching"
+    if days < ABANDON_AFTER_IDLE_DAYS:
         return "paused"
-    if latest and latest < "2024-01-01":
-        return "completed" if nb_seen >= 5 else "abandoned"
-    return "paused"
+    return "abandoned"
+
+
+def infer_series_status(eps, followed_info, nb_seen: int) -> str:
+    unique = unique_regular_count(eps)
+    if unique == 0:
+        if followed_info and followed_info.get("archived"):
+            return "watchlist"
+        return "watchlist" if nb_seen == 0 else "watching"
+    # Completeness vs TMDB totals is applied at parse / enrich:tmdb.
+    return infer_in_progress(latest_watch_date(eps))
 
 
 def build_series(source: Path) -> list[dict]:
@@ -196,7 +221,9 @@ def build_series(source: Path) -> list[dict]:
             or f"series-{sid}"
         )
         eps = dedupe_episodes(series_eps.get(sid, []))
-        nb = show_data.get(sid, {}).get("nb_seen", len(eps))
+        nb = unique_regular_count(eps) or show_data.get(sid, {}).get(
+            "nb_seen", 0
+        )
         status = infer_series_status(eps, followed.get(sid), nb)
         dates = [e["watchedAt"] for e in eps if e.get("watchedAt")]
 

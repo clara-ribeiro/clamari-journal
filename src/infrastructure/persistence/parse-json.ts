@@ -2,40 +2,24 @@ import type {
   BookEntry,
   BookFormat,
   BookQuote,
-  BookStatus,
   Goals,
   MovieEntry,
-  MovieStatus,
   ReadingUpdate,
   SeriesEntry,
-  SeriesStatus,
   WatchedEpisode,
 } from "@/domain/entities";
 import type { RatingValue } from "@/domain/value-objects/rating";
 import { isValidRating } from "@/domain/value-objects/rating";
-
-const MOVIE_STATUSES = [
-  "watchlist",
-  "watched",
-  "rewatch",
-] as const satisfies readonly MovieStatus[];
-
-const SERIES_STATUSES = [
-  "watchlist",
-  "watching",
-  "up-to-date",
-  "paused",
-  "completed",
-  "abandoned",
-] as const satisfies readonly SeriesStatus[];
-
-const BOOK_STATUSES = [
-  "want-to-read",
-  "reading",
-  "paused",
-  "finished",
-  "abandoned",
-] as const satisfies readonly BookStatus[];
+import {
+  BOOK_STATUSES,
+  lastRegularWatchDate,
+  MOVIE_STATUSES,
+  resolveJournalBookStatus,
+  resolveJournalMovieStatus,
+  resolveJournalSeriesStatus,
+  SERIES_STATUS_INPUTS,
+  uniqueWatchDates,
+} from "@/domain/journal-status";
 
 const BOOK_FORMATS = [
   "physical",
@@ -298,6 +282,34 @@ function parseWatchedEpisode(
   };
 }
 
+/** One row per season+episode; earliest watch date wins. Rewatches do not stack. */
+function collapseWatchedEpisodes(episodes: WatchedEpisode[]): WatchedEpisode[] {
+  const best = new Map<string, WatchedEpisode>();
+  for (const episode of episodes) {
+    const key = `${episode.season}-${episode.episode}`;
+    const current = best.get(key);
+    if (!current) {
+      best.set(key, episode);
+      continue;
+    }
+    const watchedAt =
+      current.watchedAt && episode.watchedAt
+        ? episode.watchedAt < current.watchedAt
+          ? episode.watchedAt
+          : current.watchedAt
+        : (current.watchedAt ?? episode.watchedAt);
+    best.set(key, {
+      ...current,
+      watchedAt,
+      runtimeMinutes: current.runtimeMinutes ?? episode.runtimeMinutes,
+      rating: current.rating ?? episode.rating,
+    });
+  }
+  return [...best.values()].sort(
+    (a, b) => a.season - b.season || a.episode - b.episode,
+  );
+}
+
 function parseReadingUpdate(value: unknown, path: string): ReadingUpdate {
   if (!isRecord(value)) {
     fail(path, `must be an object`);
@@ -381,6 +393,14 @@ export function parseMovieEntries(data: unknown): MovieEntry[] {
       "runtimeMinutes",
       path,
     );
+    const uniqueDates = uniqueWatchDates(
+      optionalIsoDateArray(item, "watchedDates", path),
+    );
+    const watchedDates = uniqueDates.length > 0 ? uniqueDates : undefined;
+    const status = resolveJournalMovieStatus(
+      requireOneOf(item, "status", path, MOVIE_STATUSES),
+      watchedDates,
+    );
 
     return {
       tmdbId,
@@ -388,10 +408,10 @@ export function parseMovieEntries(data: unknown): MovieEntry[] {
       tvtimeUuid: optionalString(item, "tvtimeUuid", path),
       slug: requireString(item, "slug", path),
       title: requireString(item, "title", path),
-      status: requireOneOf(item, "status", path, MOVIE_STATUSES),
+      status,
       rating: optionalRating(item, path),
       favorite: optionalBoolean(item, "favorite", path),
-      watchedDates: optionalIsoDateArray(item, "watchedDates", path),
+      watchedDates,
       tags: optionalStringArray(item, "tags", path),
       watchLocation: optionalString(item, "watchLocation", path),
       streamingService: optionalString(item, "streamingService", path),
@@ -443,26 +463,50 @@ export function parseSeriesEntries(data: unknown): SeriesEntry[] {
       fail(path, `"watchedEpisodes" must be an array`);
     }
 
-    const watchedEpisodes = watchedEpisodesRaw.map((episode, episodeIndex) =>
-      parseWatchedEpisode(
-        episode,
-        `${path}.watchedEpisodes[${episodeIndex}]`,
+    const watchedEpisodes = collapseWatchedEpisodes(
+      watchedEpisodesRaw.map((episode, episodeIndex) =>
+        parseWatchedEpisode(
+          episode,
+          `${path}.watchedEpisodes[${episodeIndex}]`,
+        ),
       ),
     );
 
     const startedAt = optionalIsoDate(item, "startedAt", path);
-    const finishedAt = optionalIsoDate(item, "finishedAt", path);
+    const finishedAtRaw = optionalIsoDate(item, "finishedAt", path);
+
+    const numberOfEpisodes = optionalPositiveInteger(
+      item,
+      "numberOfEpisodes",
+      path,
+    );
+    const recordedStatus = requireOneOf(
+      item,
+      "status",
+      path,
+      SERIES_STATUS_INPUTS,
+    );
+    const status = resolveJournalSeriesStatus(
+      recordedStatus,
+      watchedEpisodes,
+      numberOfEpisodes,
+      { startedAt },
+    );
+    const finishedAt =
+      status === "completed"
+        ? (finishedAtRaw ?? lastRegularWatchDate(watchedEpisodes))
+        : undefined;
     assertChronology(startedAt, finishedAt, path, "startedAt", "finishedAt");
 
     return {
       tmdbId: optionalPositiveInteger(item, "tmdbId", path),
       posterPath: optionalString(item, "posterPath", path),
       numberOfSeasons: optionalPositiveInteger(item, "numberOfSeasons", path),
-      numberOfEpisodes: optionalPositiveInteger(item, "numberOfEpisodes", path),
+      numberOfEpisodes,
       tvdbId: requirePositiveInteger(item, "tvdbId", path),
       slug: requireString(item, "slug", path),
       title: requireString(item, "title", path),
-      status: requireOneOf(item, "status", path, SERIES_STATUSES),
+      status,
       rating: optionalRating(item, path),
       favorite: optionalBoolean(item, "favorite", path),
       startedAt,
@@ -530,10 +574,14 @@ export function parseBookEntries(data: unknown): BookEntry[] {
     }
 
     const startedAt = optionalIsoDate(item, "startedAt", path);
-    const finishedAt = optionalIsoDate(item, "finishedAt", path);
-    assertChronology(startedAt, finishedAt, path, "startedAt", "finishedAt");
+    const finishedAtRaw = optionalIsoDate(item, "finishedAt", path);
+    assertChronology(startedAt, finishedAtRaw, path, "startedAt", "finishedAt");
 
-    const currentPage = optionalNonNegativeNumber(item, "currentPage", path);
+    const currentPageRaw = optionalNonNegativeNumber(
+      item,
+      "currentPage",
+      path,
+    );
     const customPageCount = optionalPositiveInteger(
       item,
       "customPageCount",
@@ -541,17 +589,25 @@ export function parseBookEntries(data: unknown): BookEntry[] {
     );
     assertPageProgress(
       path,
-      currentPage,
+      currentPageRaw,
       customPageCount,
       readingHistory,
       quotes,
     );
+    const { status, currentPage } = resolveJournalBookStatus({
+      status: requireOneOf(item, "status", path, BOOK_STATUSES),
+      currentPage: currentPageRaw,
+      customPageCount,
+      readingHistory,
+      startedAt,
+    });
+    const finishedAt = status === "finished" ? finishedAtRaw : undefined;
 
     return {
       googleBooksId: requireString(item, "googleBooksId", path),
       slug: requireString(item, "slug", path),
       title: optionalString(item, "title", path),
-      status: requireOneOf(item, "status", path, BOOK_STATUSES),
+      status,
       rating: optionalRating(item, path),
       favorite: optionalBoolean(item, "favorite", path),
       startedAt,

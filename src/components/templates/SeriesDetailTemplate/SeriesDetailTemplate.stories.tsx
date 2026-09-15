@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import { catalogCopy } from "@/content/copy/catalog";
 import { seriesCopy } from "@/content/copy/series";
 import { seriesDetail } from "@/stories/fixtures";
 import SeriesDetailTemplate from "./index";
@@ -28,6 +29,7 @@ export const Watching: Story = {
     detail: {
       ...seriesDetail,
       statusLabel: "Watching",
+      statusHint: catalogCopy.statusHint.series.watching,
       finishedLabel: null,
       progressLabel: "50%",
       progressPercent: 50,

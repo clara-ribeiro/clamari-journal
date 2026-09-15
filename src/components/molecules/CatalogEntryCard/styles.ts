@@ -7,8 +7,13 @@ export const Root = styled("article", {
   gap: "$sm",
   minWidth: 0,
   height: "100%",
+  isolation: "isolate",
   py: "$sm",
   px: "$sm",
+
+  "&:hover, &:focus-within": {
+    zIndex: 2,
+  },
 
   "@md": {
     py: "$md",
@@ -80,12 +85,16 @@ export const PosterFrame = styled("div", {
   display: "grid",
   width: "100%",
   aspectRatio: "2 / 3",
-  overflow: "hidden",
+  overflow: "visible",
 
   "& > *": {
     gridArea: "1 / 1",
     minWidth: 0,
     minHeight: 0,
+  },
+
+  "& > *:not(:last-child)": {
+    overflow: "hidden",
   },
 
   "& img": {
@@ -120,6 +129,7 @@ export const BadgeSlot = styled("div", {
   display: "flex",
   justifyContent: "flex-end",
   alignItems: "flex-start",
+  width: "100%",
   padding: "$sm",
   pointerEvents: "none",
 });

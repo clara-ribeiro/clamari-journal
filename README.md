@@ -145,7 +145,7 @@ templates/   → page shells (HomeTemplate, MediumCatalogTemplate, StatsTemplate
 
 - Personal records: `src/data/*.json`, validated at load in `infrastructure/persistence/parse-json.ts`.
 - Use-cases return **ready-to-render DTOs** from `application/dto` (e.g. `JournalEntry`, `CatalogListItem`). UI must not build `href` / `posterUrl` / summary strings.
-- Movie/series art: offline `npm run enrich:tmdb` writes `tmdbId` + `posterPath`.
+- Movie/series art: offline `npm run enrich:tmdb` writes `tmdbId` + `posterPath` and refreshes series episode totals.
 - Book covers: offline `npm run enrich:google-books` writes `coverUrl` from Google Books (no per-request API in listings).
 - Repository interfaces in `application/repositories`; wire implementations only in `composition/repositories.ts`.
 - External API clients (`tmdb`, `google-books`) import `server-only`.
@@ -216,9 +216,9 @@ Edit files under `src/data/` carefully; malformed entries fail at repository loa
 
 | File | Identity | Notes |
 |---|---|---|
-| `movies.json` | unique `slug`; unique `tvtimeUuid` / `tmdbId` when set | `status`: `watchlist` \| `watched` \| `rewatch`. Dates `YYYY-MM-DD`. `tmdbId` / `posterPath` optional until enrichment. Optional `reviewSlug` matches `src/content/reviews/films/{slug}.md` (Portuguese sibling: `{slug}.pt.md`). |
-| `series.json` | unique `slug`, `tvdbId`; unique `tmdbId` when set | `status`: `watchlist` \| `watching` \| `up-to-date` \| `paused` \| `completed` \| `abandoned`. `watchedEpisodes[].season` / `episode` integers ≥ 1. `startedAt` ≤ `finishedAt` when both set. Optional `reviewSlug` matches `src/content/reviews/series/{slug}.md`. |
-| `books.json` | unique `slug`, `googleBooksId` | `status`: `want-to-read` \| `reading` \| `paused` \| `finished` \| `abandoned`. Optional `format`: `physical` \| `ebook` \| `audiobook`. `currentPage` / history / quote pages cannot exceed `customPageCount` when that total is set. Optional `reviewSlug` matches `src/content/reviews/books/{slug}.md`. |
+| `movies.json` | unique `slug`; unique `tvtimeUuid` / `tmdbId` when set | `status`: `watchlist` (no dates) \| `watched` (one unique date, or an explicit mark with none) \| `rewatch` (two or more unique dates). Parse unique-sorts `watchedDates`. Optional `reviewSlug` matches `src/content/reviews/films/{slug}.md` (Portuguese sibling: `{slug}.pt.md`). |
+| `series.json` | unique `slug`, `tvdbId`; unique `tmdbId` when set | `status` in JSON is a hint. Live status: `watchlist` (no regular episode) \| `watching` (last regular watch within 60 days) \| `paused` (idle 60 days–2 years) \| `completed` (unique regular `watchedEpisodes` cover the released total) \| `abandoned` (idle 2+ years). 100% coverage is always `completed`. A newly released episode (higher total) leaves completed and then uses idle time. Incomplete `completed` uses idle time. `up-to-date` in JSON is accepted as an alias of watching (or completed at 100%). Logging a new episode returns the show to watching if that watch is within 60 days. Rewatches do not add. `watchedEpisodes[].season` / `episode` integers ≥ 1. `startedAt` ≤ `finishedAt` when both set. Optional `reviewSlug` matches `src/content/reviews/series/{slug}.md`. |
+| `books.json` | unique `slug`, `googleBooksId` | `status` in JSON is a hint. Live status: `want-to-read` (no pages) \| `reading` (last page log within 60 days) \| `paused` (idle 60 days–2 years) \| `finished` (furthest page reaches `customPageCount`) \| `abandoned` (idle 2+ years). Pages at `customPageCount` are always `finished`. Finished without a page fills `currentPage` from that total. Optional `format`: `physical` \| `ebook` \| `audiobook`. `currentPage` / history / quote pages cannot exceed `customPageCount` when that total is set. Optional `reviewSlug` matches `src/content/reviews/books/{slug}.md`. |
 | `goals.json` | single object | Integer `year` (1900–2100) and non-negative integer targets: `movies`, `books`, `series`, `pages`. |
 
 Shared rules: ratings are whole stars `1`–`5`; never use negative runtimes, page counts, or goal targets; do not invent progress percentages when page totals are unknown.
@@ -300,6 +300,8 @@ The TV Time GDPR export was converted into:
 | `src/data/books.json` | personal book entries (`googleBooksId`; optional `coverUrl`) |
 | `src/data/goals.json` | yearly goals |
 
+Series watching / paused / abandoned are not frozen from that export. TV Time moved a show out of Watch Next after about 60 days idle (“Haven’t watched for a while”); “Stopped watching” was a manual tap. This journal applies the 60-day pause automatically, then treats two years idle as dropped. A new episode (or page) log moves it back to watching / reading. Live status is computed once per UTC calendar day in process memory (not on every page load, and not via cron). Catalog, stats, and yearly catch-up goals use that cache. Opening a series detail records the live TMDB episode total into the same cache, so a newly released episode demotes `completed` on the catalog too. `npm run enrich:tmdb` always refreshes `numberOfEpisodes` in JSON so the snapshot stays current across deploys.
+
 Re-run TMDB enrichment after re-importing:
 
 ```bash
@@ -308,7 +310,7 @@ cp .env.example .env.local
 npm run enrich:tmdb
 ```
 
-The enrich script writes `tmdbId` and `posterPath` into the JSON so listing pages build poster URLs without calling TMDB per request.
+The enrich script writes `tmdbId`, `posterPath`, and current `numberOfEpisodes` / `numberOfSeasons` into the JSON so listing pages can resolve completed vs in-progress without calling TMDB per card.
 
 Re-import the GDPR zip (default: `src/data/gdpr-data.zip`):
 
@@ -331,7 +333,7 @@ npm run test:run       # vitest run (CI-friendly; no live APIs)
 npm run test:coverage  # unit tests + coverage thresholds
 npm run import:tvtime  # regenerate movies.json / series.json
 npm run add:movie            # interactive: search TMDB and add a watched film
-npm run enrich:tmdb          # fill tmdbId + posterPath (requires token)
+npm run enrich:tmdb          # tmdbId + posterPath + series episode totals (requires token)
 npm run enrich:google-books  # fill coverUrl (+ title) from Google Books
 npm run storybook            # Storybook dev server (:6006)
 npm run build-storybook      # static Storybook → storybook-static/
@@ -357,21 +359,19 @@ push / pull request
         ├─ GitHub Actions  CI / quality     (lint, types, coverage, build)
         ├─ GitHub Actions  Storybook / build
         │
-        └─ Vercel Git integration
-              ├─ Preview  → every pull request
-              └─ Production → default branch (master / main) after merge
+        └─ Vercel Git integration → Production on `master` only
 ```
 
 1. **CI is the merge gate.** Mark **`CI / quality`** as a required status check on the default branch (GitHub **Settings → Rules → Rulesets**, or classic branch protection). Do not merge or treat a commit as production-ready without a green run. Optionally also require **`Storybook / build`**.
-2. **Vercel is the CD surface.** With Git integration enabled, Preview Deployments build each PR and Production builds the default branch. Leave **Ignored Build Step** unset — skipping docs-only paths is not worth hiding app risk at launch.
+2. **Vercel is the CD surface.** Git deploys run only from `master` (`vercel.json` → `git.deploymentEnabled`). Feature branches and pull requests do not create Preview Deployments.
 3. **Env vars on both Preview and Production** (available at **Build** time): `TMDB_ACCESS_TOKEN`, optional `TMDB_LANGUAGE`, optional `GOOGLE_BOOKS_API_KEY`. Never `NEXT_PUBLIC_*` for secrets. CI itself uses empty tokens so the pipeline does not call live APIs or print credentials.
 4. **Broken commits stay off production.** A failed `CI / quality` run blocks merge when the check is required. A failed Vercel Production build does not promote that commit. Do not deploy Production from a branch that skipped CI.
 
 ### App (production site)
 
 1. Import this repository into a Vercel project (Framework: Next.js).
-2. Set env vars for **Production** and **Preview**, available at **Build** time: `TMDB_ACCESS_TOKEN` (required for live TMDB metadata / hero backdrops), optional `TMDB_LANGUAGE`, `GOOGLE_BOOKS_API_KEY`. Never use `NEXT_PUBLIC_*` for secrets. Confirm both environments have the same keys (values may differ).
-3. Deploy the default branch. Attach the apex / `www` domain in **Settings → Domains**. Node version comes from `.nvmrc` (`22`).
+2. Set env vars for **Production** (and **Preview** only if you later re-enable branch deploys), available at **Build** time: `TMDB_ACCESS_TOKEN` (required for live TMDB metadata / hero backdrops), optional `TMDB_LANGUAGE`, `GOOGLE_BOOKS_API_KEY`. Never use `NEXT_PUBLIC_*` for secrets.
+3. Production branch must be `master`. Attach the apex / `www` domain in **Settings → Domains**. Node version comes from `.nvmrc` (`22`).
 4. Optional: set `SITE_URL` (e.g. `https://clamari.com.br`) for Production so canonicals and the sitemap use the public domain. If unset, the build uses `VERCEL_PROJECT_PRODUCTION_URL`.
 
 Detail pages are statically generated at build time; without `TMDB_ACCESS_TOKEN` during the build, posters from `posterPath` still work but synopsis / credits / backdrop stay empty.
@@ -396,9 +396,9 @@ Use a **second** Vercel project on the **same** GitHub repo so the Next app and 
    - Build Command: `npm run build-storybook`
    - Output Directory: `storybook-static`
    - Install Command: `npm ci`
-3. Optional: paste the contents of `vercel.storybook.json` into that project’s **Settings → JSON**, or keep overrides only in the dashboard (do **not** rename it to `vercel.json` on `master` — that would break the Next app project).
+3. Optional: paste the contents of `vercel.storybook.json` into that project’s **Settings → JSON**, or keep overrides only in the dashboard. The repo `vercel.json` is Git deploy rules for the Next app only — do **not** replace it with the Storybook build settings.
 4. **Settings → Domains** → add `storybook.<your-domain>` (e.g. `storybook.clamari.com.br`) and create the DNS record Vercel shows (usually a CNAME).
-5. Each push to the default branch rebuilds Storybook on that project (same as the app project).
+5. Storybook rebuilds on pushes to `master` only (same Git rule as the app project).
 
 Local check: `npm run build-storybook` then serve `storybook-static/` with any static server.
 

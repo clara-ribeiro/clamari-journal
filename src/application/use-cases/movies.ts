@@ -8,6 +8,10 @@ import type {
 } from "@/application/dto";
 import type { TmdbMovieMetadata } from "@/application/dto/tmdb-metadata";
 import type { MovieEntry } from "@/domain/entities";
+import {
+  isWatchedMovieStatus,
+  uniqueWatchDates,
+} from "@/domain/journal-status";
 import { copyFor } from "@/content/copy/for-locale";
 import { getMovieById, TmdbError } from "@/infrastructure/tmdb/client";
 import { formatDate } from "@/lib/formatters/formatDate";
@@ -24,6 +28,7 @@ import {
   catalogCopyFor,
   catalogHasReview,
   catalogHref,
+  catalogStatusHint,
   localizedWorkTitle,
 } from "./catalog-locale";
 import { yearsMovieCountsToward } from "./goal-years";
@@ -38,9 +43,7 @@ export function getMovieBySlug(slug: string): MovieEntry | undefined {
 }
 
 export function computeMovieStats(all: MovieEntry[]) {
-  const watched = all.filter(
-    (m) => m.status === "watched" || m.status === "rewatch",
-  );
+  const watched = all.filter((m) => isWatchedMovieStatus(m.status));
   const ratings = watched
     .map((m) => m.rating)
     .filter((r): r is NonNullable<typeof r> => typeof r === "number");
@@ -70,8 +73,7 @@ function filmStatusTone(
   status: MovieEntry["status"],
 ): CatalogCardItem["statusTone"] {
   if (status === "watchlist") return "warning";
-  if (status === "watched" || status === "rewatch") return "positive";
-  return "neutral";
+  return isWatchedMovieStatus(status) ? "positive" : "neutral";
 }
 
 function toFilmCatalogCard(
@@ -82,7 +84,7 @@ function toFilmCatalogCard(
   const labels = catalog.status.films;
   const statusLabel = labels[movie.status];
   const yearLabel = movie.releaseDate?.slice(0, 4) ?? null;
-  const lastWatched = movie.watchedDates?.at(-1) ?? null;
+  const lastWatched = uniqueWatchDates(movie.watchedDates).at(-1) ?? null;
   const activityLabel = lastWatched
     ? catalog.card.watchedOn.replace("{date}", formatDate(lastWatched, locale))
     : catalog.card.noActivityDate;
@@ -116,6 +118,7 @@ function toFilmCatalogCard(
     favorite,
     hasReview,
     statusLabel,
+    statusHint: catalogStatusHint(catalog, "films", movie.status),
     statusTone: filmStatusTone(movie.status),
     yearLabel,
     activityLabel,
@@ -160,9 +163,7 @@ export function buildMovieViewings(
   if (!watchedDates?.length) return [];
   const copy = copyFor(locale).films.detail.viewings;
 
-  return [...watchedDates]
-    .sort((a, b) => a.localeCompare(b))
-    .map((date, index) => ({
+  return uniqueWatchDates(watchedDates).map((date, index) => ({
       dateLabel: formatDate(date, locale),
       kindLabel: index === 0 ? copy.first : copy.rewatch,
     }));
@@ -265,6 +266,7 @@ export function mapMovieDetail(
       : null,
     metadataNotice,
     statusLabel: catalog.status.films[movie.status],
+    statusHint: catalogStatusHint(catalog, "films", movie.status),
     rating: movie.rating,
     favorite,
     favoriteLabel: favorite
