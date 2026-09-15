@@ -29,6 +29,7 @@ type SeriesEntry = {
   numberOfEpisodes?: number;
   title: string;
   status?: SeriesStatusInput;
+  startedAt?: string;
   finishedAt?: string;
   watchedEpisodes?: WatchedEpisode[];
   [key: string]: unknown;
