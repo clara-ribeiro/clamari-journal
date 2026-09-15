@@ -227,6 +227,39 @@ describe("mapSeriesDetail", () => {
     expect(detail.statusLabel).toBe("Completed");
   });
 
+  it("leaves completed when TMDB reports a newly released episode", () => {
+    const detail = mapSeriesDetail(
+      {
+        ...baseEntry,
+        status: "completed",
+        numberOfEpisodes: 2,
+        finishedAt: "2020-01-02",
+        watchedEpisodes: [
+          {
+            season: 1,
+            episode: 1,
+            watchedAt: isoDaysAgo(1),
+            runtimeMinutes: 58,
+          },
+          {
+            season: 1,
+            episode: 2,
+            watchedAt: isoDaysAgo(1),
+            runtimeMinutes: 48,
+          },
+        ],
+      },
+      { ...baseMetadata, numberOfEpisodes: 3 },
+      [seasonOne],
+      null,
+    );
+
+    expect(detail.statusLabel).toBe("Watching");
+    expect(detail.statusHint).toBe(catalogCopy.statusHint.series.watching);
+    expect(detail.finishedLabel).toBeNull();
+    expect(detail.watchedEpisodesLabel).toBe("2 / 3");
+  });
+
   it("surfaces a metadata notice when TMDB is unavailable", () => {
     const detail = mapSeriesDetail(
       { ...baseEntry, tmdbId: undefined, posterPath: undefined },

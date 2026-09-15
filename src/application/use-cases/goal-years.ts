@@ -5,10 +5,9 @@ import type {
   SeriesEntry,
 } from "@/domain/entities";
 import {
-  hasWatchedAllReleasedEpisodes,
+  isJournalSeriesCompleted,
   isWatchedMovieStatus,
   lastRegularWatchDate,
-  watchedSeasonNumbers,
 } from "@/domain/journal-status";
 import {
   DEFAULT_REVIEW_LOCALE,
@@ -52,35 +51,13 @@ export function yearsMovieCountsToward(movie: MovieEntry): number[] {
 }
 
 /**
- * Caught up with everything released so far. TMDB's released total is the only
- * reliable signal: unique regular watches must cover it, and a newly released
- * episode breaks catch-up until it is watched. Rewatches do not add coverage.
- * Without that total, trust a `completed` mark, else require every season
- * through `numberOfSeasons` to have been started.
+ * Caught up with everything released so far: same rule as journal status
+ * `completed`. Unique regular watches must cover the released total. A newly
+ * released episode (higher total) breaks catch-up until it is watched.
+ * Without a total, only an explicit completed mark counts.
  */
 export function isSeriesCaughtUp(series: SeriesEntry): boolean {
-  if (series.numberOfEpisodes !== undefined) {
-    return hasWatchedAllReleasedEpisodes(
-      series.watchedEpisodes,
-      series.numberOfEpisodes,
-    );
-  }
-
-  if (series.status === "completed") return true;
-  if (
-    series.status === "abandoned" ||
-    series.status === "watchlist" ||
-    series.status === "paused"
-  ) {
-    return false;
-  }
-  if (series.numberOfSeasons === undefined) return false;
-
-  const seasons = watchedSeasonNumbers(series.watchedEpisodes);
-  for (let season = 1; season <= series.numberOfSeasons; season += 1) {
-    if (!seasons.has(season)) return false;
-  }
-  return series.numberOfSeasons > 0;
+  return isJournalSeriesCompleted(series);
 }
 
 function seriesCompletionDate(series: SeriesEntry): string | undefined {

@@ -126,7 +126,7 @@ describe("yearsSeriesCountsToward", () => {
 });
 
 describe("isSeriesCaughtUp", () => {
-  it("treats specials as irrelevant to season coverage fallback", () => {
+  it("does not treat started seasons as caught up without a released total", () => {
     expect(
       isSeriesCaughtUp({
         tvdbId: 4,
@@ -140,7 +140,7 @@ describe("isSeriesCaughtUp", () => {
           { season: 2, episode: 1 },
         ],
       }),
-    ).toBe(true);
+    ).toBe(false);
   });
 });
 

@@ -7,8 +7,13 @@ export const Root = styled("article", {
   gap: "$sm",
   minWidth: 0,
   height: "100%",
+  isolation: "isolate",
   py: "$sm",
   px: "$sm",
+
+  "&:hover, &:focus-within": {
+    zIndex: 2,
+  },
 
   "@md": {
     py: "$md",
@@ -124,6 +129,7 @@ export const BadgeSlot = styled("div", {
   display: "flex",
   justifyContent: "flex-end",
   alignItems: "flex-start",
+  width: "100%",
   padding: "$sm",
   pointerEvents: "none",
 });

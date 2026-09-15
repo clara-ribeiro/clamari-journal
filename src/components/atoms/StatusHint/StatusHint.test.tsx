@@ -40,4 +40,16 @@ describe("StatusHint", () => {
     expect(container.textContent).toBe("Watching");
     expect(container.querySelector("[data-status-hint]")).toBeNull();
   });
+
+  it("stretches the hint across the poster overlay", () => {
+    render(
+      <StatusHint hint="Every released episode has been watched." placement="stretch">
+        Completed
+      </StatusHint>,
+    );
+
+    expect(
+      screen.getByText("Every released episode has been watched."),
+    ).toHaveAttribute("data-placement", "stretch");
+  });
 });

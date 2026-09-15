@@ -113,7 +113,7 @@ export default function CatalogEntryCard({
             />
           )}
           <BadgeSlot>
-            <StatusHint hint={item.statusHint}>
+            <StatusHint hint={item.statusHint} placement="stretch">
               <StatusBadge tone={item.statusTone}>{item.statusLabel}</StatusBadge>
             </StatusHint>
           </BadgeSlot>

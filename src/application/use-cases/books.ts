@@ -93,11 +93,12 @@ function toBookCatalogCard(
   const statusLabel = catalog.status.books[status];
   const hasReview = catalogHasReview("books", book.reviewSlug, locale);
   const favorite = Boolean(book.favorite);
-  const activityDate = book.finishedAt ?? book.startedAt ?? null;
-  const activityLabel = book.finishedAt
+  const finishedAt = status === "finished" ? book.finishedAt : undefined;
+  const activityDate = finishedAt ?? book.startedAt ?? null;
+  const activityLabel = finishedAt
     ? catalog.card.finishedOn.replace(
         "{date}",
-        formatDate(book.finishedAt, locale),
+        formatDate(finishedAt, locale),
       )
     : book.startedAt
       ? catalog.card.startedOn.replace(
@@ -267,9 +268,7 @@ export function mapBookDetail(
   const favorite = Boolean(entry.favorite);
   const reviewSlug = entry.reviewSlug ?? null;
 
-  const pageCount = metadata?.pageCount ?? entry.customPageCount ?? null;
-  // Catalog uses the daily in-memory status. Detail re-checks pages
-  // against the live Google Books total.
+  const pageCount = entry.customPageCount ?? metadata?.pageCount ?? null;
   const { status, currentPage: resolvedPage } = resolveJournalBookStatus({
     status: entry.status,
     currentPage: entry.currentPage,
@@ -317,9 +316,10 @@ export function mapBookDetail(
     formatLabel: formatLabel(entry.format, locale),
     tags: entry.tags ?? [],
     startedLabel: entry.startedAt ? formatDate(entry.startedAt, locale) : null,
-    finishedLabel: entry.finishedAt
-      ? formatDate(entry.finishedAt, locale)
-      : null,
+    finishedLabel:
+      status === "finished" && entry.finishedAt
+        ? formatDate(entry.finishedAt, locale)
+        : null,
     currentPageLabel:
       currentPage != null
         ? pageCount != null

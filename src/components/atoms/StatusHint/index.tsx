@@ -9,8 +9,8 @@ export type StatusHintProps = {
   children: ReactNode;
   /** Keyboard-focusable wrapper — use on detail facts, not inside links. */
   focusable?: boolean;
-  /** `end` aligns to the badge; `start` keeps detail-page copy in the value column. */
-  placement?: "start" | "end";
+  /** `end` aligns to the badge; `start` keeps detail-page copy in the value column; `stretch` fills the poster overlay. */
+  placement?: "start" | "end" | "stretch";
   className?: string;
 };
 
@@ -28,6 +28,7 @@ export default function StatusHint({
   return (
     <Root
       className={className}
+      placement={placement}
       tabIndex={focusable ? 0 : undefined}
       aria-describedby={focusable ? tooltipId : undefined}
     >
@@ -35,6 +36,7 @@ export default function StatusHint({
       <Bubble
         id={focusable ? tooltipId : undefined}
         data-status-hint
+        data-placement={placement}
         placement={placement}
         role={focusable ? "tooltip" : undefined}
         aria-hidden={focusable ? undefined : true}

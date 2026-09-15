@@ -174,6 +174,36 @@ export function lastRegularWatchDate(
     .at(-1);
 }
 
+/**
+ * Prefer a live provider total when it is known (new episodes).
+ * Fall back to the JSON snapshot so catalog can resolve without TMDB.
+ */
+export function pickReleasedEpisodeTotal(
+  snapshot?: number,
+  live?: number | null,
+): number | undefined {
+  if (live != null && live > 0) return live;
+  if (snapshot != null && snapshot > 0) return snapshot;
+  return undefined;
+}
+
+export function isJournalSeriesCompleted(
+  series: Pick<
+    SeriesEntry,
+    "status" | "watchedEpisodes" | "numberOfEpisodes" | "startedAt"
+  >,
+  clock?: JournalStatusClock & { releasedCount?: number },
+): boolean {
+  return (
+    resolveJournalSeriesStatus(
+      series.status,
+      series.watchedEpisodes,
+      clock?.releasedCount ?? series.numberOfEpisodes,
+      clock,
+    ) === "completed"
+  );
+}
+
 /** Whole-number percent, capped at 100. Missing totals stay unknown. */
 export function journalProgressPercent(
   current: number | null | undefined,
@@ -307,24 +337,33 @@ export function resolveJournalBookStatus(
 export function applyResolvedSeriesStatus(
   entry: SeriesEntry,
   today?: string,
+  liveReleasedCount?: number,
 ): SeriesEntry {
+  const numberOfEpisodes = pickReleasedEpisodeTotal(
+    entry.numberOfEpisodes,
+    liveReleasedCount,
+  );
   const status = resolveJournalSeriesStatus(
     entry.status,
     entry.watchedEpisodes,
-    entry.numberOfEpisodes,
+    numberOfEpisodes,
     { startedAt: entry.startedAt, today },
   );
   const finishedAt =
     status === "completed"
       ? (entry.finishedAt ?? lastRegularWatchDate(entry.watchedEpisodes))
       : undefined;
-  if (status === entry.status && finishedAt === entry.finishedAt) {
+  if (
+    status === entry.status &&
+    finishedAt === entry.finishedAt &&
+    numberOfEpisodes === entry.numberOfEpisodes
+  ) {
     return entry;
   }
-  return { ...entry, status, finishedAt };
+  return { ...entry, status, finishedAt, numberOfEpisodes };
 }
 
-/** Re-apply live book status (and currentPage) for a calendar day. */
+/** Re-apply live book status (and currentPage / finishedAt) for a calendar day. */
 export function applyResolvedBookStatus(
   book: BookEntry,
   today?: string,
@@ -339,8 +378,13 @@ export function applyResolvedBookStatus(
     },
     { today },
   );
-  if (status === book.status && currentPage === book.currentPage) {
+  const finishedAt = status === "finished" ? book.finishedAt : undefined;
+  if (
+    status === book.status &&
+    currentPage === book.currentPage &&
+    finishedAt === book.finishedAt
+  ) {
     return book;
   }
-  return { ...book, status, currentPage };
+  return { ...book, status, currentPage, finishedAt };
 }

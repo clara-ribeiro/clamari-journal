@@ -16,5 +16,8 @@ describe("memoizeByCalendarDay", () => {
     expect(read()).toBe("live-2026-09-16-2");
     expect(read()).toBe("live-2026-09-16-2");
     expect(runs).toBe(2);
+    read.invalidate();
+    expect(read()).toBe("live-2026-09-16-3");
+    expect(runs).toBe(3);
   });
 });

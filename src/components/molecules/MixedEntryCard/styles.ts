@@ -11,12 +11,17 @@ export const Root = styled("article", {
   border: "none",
   outline: "2px solid $buttonText",
   outlineOffset: "-0.625rem",
-  overflow: "hidden",
+  overflow: "visible",
+  isolation: "isolate",
   transition: "transform $normal, box-shadow $normal",
   boxShadow: "0 0 0 0 rgba(245, 210, 58, 0)",
 
   "& img": {
     transition: "transform $slow ease, filter $normal ease",
+  },
+
+  "&:hover, &:focus-within": {
+    zIndex: 2,
   },
 
   "&:hover": {
@@ -77,13 +82,17 @@ export const PosterFrame = styled("div", {
   display: "grid",
   width: "100%",
   aspectRatio: "2 / 3",
-  overflow: "hidden",
+  overflow: "visible",
   backgroundColor: "$surfaceAlt",
 
   "& > *": {
     gridArea: "1 / 1",
     minWidth: 0,
     minHeight: 0,
+  },
+
+  "& > *:not(:last-child)": {
+    overflow: "hidden",
   },
 
   "& img": {
@@ -107,6 +116,7 @@ export const BadgeSlot = styled("div", {
   display: "flex",
   justifyContent: "flex-end",
   alignItems: "flex-start",
+  width: "100%",
   padding: "$sm",
   pointerEvents: "none",
 });

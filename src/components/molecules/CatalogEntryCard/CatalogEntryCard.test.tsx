@@ -99,5 +99,25 @@ describe("CatalogEntryCard", () => {
     expect(
       screen.getByText(catalogCopy.statusHint.series.paused),
     ).toHaveAttribute("aria-hidden", "true");
+    expect(
+      screen.getByText(catalogCopy.statusHint.series.paused),
+    ).toHaveAttribute("data-placement", "stretch");
+  });
+
+  it("keeps list-row hints aligned to the badge", () => {
+    render(
+      <CatalogEntryCard
+        item={item({
+          statusLabel: "Paused",
+          statusHint: catalogCopy.statusHint.series.paused,
+        })}
+        tone="light"
+        layout="list"
+      />,
+    );
+
+    expect(
+      screen.getByText(catalogCopy.statusHint.series.paused),
+    ).toHaveAttribute("data-placement", "end");
   });
 });

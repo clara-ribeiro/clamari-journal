@@ -202,6 +202,27 @@ describe("parseSeriesEntries", () => {
     expect(series.status).toBe("watching");
   });
 
+  it("drops finishedAt when the resolved series status is not completed", () => {
+    const [series] = parseSeriesEntries([
+      {
+        ...base,
+        status: "watching",
+        numberOfEpisodes: 10,
+        startedAt: "2026-09-01",
+        finishedAt: "2026-09-02",
+        watchedEpisodes: [
+          {
+            season: 1,
+            episode: 1,
+            watchedAt: new Date().toISOString().slice(0, 10),
+          },
+        ],
+      },
+    ]);
+    expect(series.status).toBe("watching");
+    expect(series.finishedAt).toBeUndefined();
+  });
+
   it("promotes abandoned to completed when unique watches cover the released total", () => {
     const [series] = parseSeriesEntries([
       {

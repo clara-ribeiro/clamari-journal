@@ -1,3 +1,5 @@
+import { JOURNAL_PAUSE_AFTER_IDLE_DAYS } from "@/domain/journal-status";
+
 export const catalogCopyPt = {
   toolbar: {
     searchAriaLabel: "Buscar no catálogo",
@@ -80,20 +82,16 @@ export const catalogCopyPt = {
     },
     series: {
       watchlist: "Na lista. Ainda não há episódio registrado.",
-      watching:
-        "Um episódio foi registrado nos últimos 60 dias. Ainda não terminou.",
-      paused:
-        "Nenhum episódio há 60 dias, mas ainda não faz dois anos. Ainda não terminou.",
+      watching: `Um episódio foi registrado nos últimos ${JOURNAL_PAUSE_AFTER_IDLE_DAYS} dias, ou o progresso ainda não tem data. Ainda não terminou.`,
+      paused: `Nenhum episódio há ${JOURNAL_PAUSE_AFTER_IDLE_DAYS} dias, mas ainda não faz dois anos. Ainda não terminou.`,
       completed:
-        "Todos os episódios lançados já foram assistidos. Cada episódio conta uma vez.",
+        "Todos os episódios lançados já foram assistidos. Um episódio novo sai daqui até ser assistido. Cada episódio conta uma vez.",
       abandoned: "Nenhum episódio há dois anos. Tratada como desistida.",
     },
     books: {
       "want-to-read": "Na lista. Ainda não há páginas registradas.",
-      reading:
-        "Uma página foi registrada nos últimos 60 dias. Ainda não terminou.",
-      paused:
-        "Nenhuma página há 60 dias, mas ainda não faz dois anos. Ainda não terminou.",
+      reading: `Uma página foi registrada nos últimos ${JOURNAL_PAUSE_AFTER_IDLE_DAYS} dias, ou o progresso ainda não tem data. Ainda não terminou.`,
+      paused: `Nenhuma página há ${JOURNAL_PAUSE_AFTER_IDLE_DAYS} dias, mas ainda não faz dois anos. Ainda não terminou.`,
       finished: "Chegou à última página.",
       abandoned: "Nenhuma página há dois anos. Tratado como desistido.",
     },

@@ -104,6 +104,27 @@ describe("mapBookDetail", () => {
     expect(detail.metadataNotice).toBeNull();
   });
 
+  it("does not show a finished date unless the resolved status is finished", () => {
+    const detail = mapBookDetail(
+      {
+        ...baseEntry,
+        status: "reading",
+        finishedAt: "2020-02-01",
+        currentPage: 40,
+        customPageCount: 320,
+        readingHistory: [
+          { date: new Date().toISOString().slice(0, 10), page: 40 },
+        ],
+      },
+      baseMetadata,
+      null,
+    );
+
+    expect(detail.statusLabel).toBe("Reading");
+    expect(detail.finishedLabel).toBeNull();
+    expect(detail.progressPercent).toBe(13);
+  });
+
   it("surfaces a notice and falls back to entry fields when metadata is missing", () => {
     const detail = mapBookDetail(
       { ...baseEntry, coverUrl: "https://example.com/cover.jpg" },

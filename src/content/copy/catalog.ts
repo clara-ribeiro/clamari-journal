@@ -1,3 +1,5 @@
+import { JOURNAL_PAUSE_AFTER_IDLE_DAYS } from "@/domain/journal-status";
+
 export const catalogCopy = {
   toolbar: {
     searchAriaLabel: "Search catalog",
@@ -80,19 +82,16 @@ export const catalogCopy = {
     },
     series: {
       watchlist: "On the list. No episode has been logged yet.",
-      watching:
-        "An episode was logged in the last 60 days. Still unfinished.",
-      paused:
-        "No episode in 60 days, but not yet two years. Still unfinished.",
+      watching: `An episode was logged in the last ${JOURNAL_PAUSE_AFTER_IDLE_DAYS} days, or progress has no date yet. Still unfinished.`,
+      paused: `No episode in ${JOURNAL_PAUSE_AFTER_IDLE_DAYS} days, but not yet two years. Still unfinished.`,
       completed:
-        "Every released episode has been watched. Each episode counts once.",
+        "Every released episode has been watched. A newly released episode leaves this until it is watched. Each episode counts once.",
       abandoned: "No episode in two years. Treated as dropped.",
     },
     books: {
       "want-to-read": "On the list. No pages have been logged yet.",
-      reading: "A page was logged in the last 60 days. Still unfinished.",
-      paused:
-        "No page in 60 days, but not yet two years. Still unfinished.",
+      reading: `A page was logged in the last ${JOURNAL_PAUSE_AFTER_IDLE_DAYS} days, or progress has no date yet. Still unfinished.`,
+      paused: `No page in ${JOURNAL_PAUSE_AFTER_IDLE_DAYS} days, but not yet two years. Still unfinished.`,
       finished: "The last page has been reached.",
       abandoned: "No page in two years. Treated as dropped.",
     },

@@ -15,7 +15,10 @@ import {
   uniqueRegularWatchedCount,
   uniqueWatchDates,
   watchedSeasonNumbers,
+  applyResolvedBookStatus,
   applyResolvedSeriesStatus,
+  isJournalSeriesCompleted,
+  pickReleasedEpisodeTotal,
 } from "./journal-status";
 
 const s1e1: WatchedEpisode = { season: 1, episode: 1 };
@@ -138,6 +141,23 @@ describe("resolveJournalSeriesStatus", () => {
     expect(resolveJournalSeriesStatus("up-to-date", [s1e1, s1e2], 2)).toBe(
       "completed",
     );
+  });
+
+  it("drops completed when a newly released episode raises the total", () => {
+    expect(
+      resolveJournalSeriesStatus("completed", [s1e1, s1e2], 3, {
+        today: "2026-09-15",
+        startedAt: "2026-09-01",
+      }),
+    ).toBe("watching");
+    expect(
+      resolveJournalSeriesStatus(
+        "completed",
+        [{ season: 1, episode: 1, watchedAt: "2025-01-01" }],
+        2,
+        { today: "2026-09-15" },
+      ),
+    ).toBe("paused");
   });
 });
 
@@ -304,6 +324,60 @@ describe("resolveJournalBookStatus", () => {
       ),
     ).toEqual({ status: "reading", currentPage: 120 });
   });
+
+  it("demotes reading with no pages to want-to-read", () => {
+    expect(
+      resolveJournalBookStatus({ status: "reading", customPageCount: 300 }),
+    ).toEqual({ status: "want-to-read", currentPage: undefined });
+  });
+
+  it("uses the same idle day boundaries as series", () => {
+    const today = "2026-09-15";
+    expect(
+      resolveJournalBookStatus(
+        {
+          status: "reading",
+          currentPage: 10,
+          customPageCount: 300,
+          readingHistory: [{ date: "2026-07-18", page: 10 }],
+        },
+        { today },
+      ).status,
+    ).toBe("reading");
+    expect(
+      resolveJournalBookStatus(
+        {
+          status: "reading",
+          currentPage: 10,
+          customPageCount: 300,
+          readingHistory: [{ date: "2026-07-17", page: 10 }],
+        },
+        { today },
+      ).status,
+    ).toBe("paused");
+    expect(
+      resolveJournalBookStatus(
+        {
+          status: "reading",
+          currentPage: 10,
+          customPageCount: 300,
+          readingHistory: [{ date: "2024-09-16", page: 10 }],
+        },
+        { today },
+      ).status,
+    ).toBe("paused");
+    expect(
+      resolveJournalBookStatus(
+        {
+          status: "reading",
+          currentPage: 10,
+          customPageCount: 300,
+          readingHistory: [{ date: "2024-09-15", page: 10 }],
+        },
+        { today },
+      ).status,
+    ).toBe("abandoned");
+  });
 });
 
 describe("journalProgressPercent", () => {
@@ -346,6 +420,75 @@ describe("applyResolvedSeriesStatus", () => {
     };
     const live = applyResolvedSeriesStatus(entry, "2028-07-02");
     expect(live).not.toBe(entry);
+    expect(live.status).toBe("abandoned");
+    expect(live.finishedAt).toBeUndefined();
+  });
+
+  it("demotes completed when a live released total is higher than coverage", () => {
+    const entry = {
+      tvdbId: 1,
+      slug: "steal",
+      title: "Steal",
+      status: "completed" as const,
+      finishedAt: "2026-02-16",
+      numberOfEpisodes: 6,
+      watchedEpisodes: [
+        { season: 1, episode: 1, watchedAt: "2026-02-16" },
+        { season: 1, episode: 2, watchedAt: "2026-02-16" },
+        { season: 1, episode: 3, watchedAt: "2026-02-16" },
+        { season: 1, episode: 4, watchedAt: "2026-02-16" },
+        { season: 1, episode: 5, watchedAt: "2026-02-16" },
+        { season: 1, episode: 6, watchedAt: "2026-02-16" },
+      ],
+    };
+    const live = applyResolvedSeriesStatus(entry, "2026-09-15", 7);
+    expect(live.status).toBe("paused");
+    expect(live.numberOfEpisodes).toBe(7);
+    expect(live.finishedAt).toBeUndefined();
+  });
+});
+
+describe("pickReleasedEpisodeTotal", () => {
+  it("prefers a live total when present", () => {
+    expect(pickReleasedEpisodeTotal(6, 7)).toBe(7);
+    expect(pickReleasedEpisodeTotal(6, null)).toBe(6);
+    expect(pickReleasedEpisodeTotal(undefined, 7)).toBe(7);
+    expect(pickReleasedEpisodeTotal(undefined, null)).toBeUndefined();
+  });
+});
+
+describe("isJournalSeriesCompleted", () => {
+  it("matches resolveJournalSeriesStatus completed", () => {
+    expect(
+      isJournalSeriesCompleted({
+        status: "watching",
+        watchedEpisodes: [s1e1, s1e2],
+        numberOfEpisodes: 2,
+      }),
+    ).toBe(true);
+    expect(
+      isJournalSeriesCompleted({
+        status: "completed",
+        watchedEpisodes: [s1e1],
+        numberOfEpisodes: 2,
+        startedAt: "2020-01-01",
+      }),
+    ).toBe(false);
+  });
+});
+
+describe("applyResolvedBookStatus", () => {
+  it("clears finishedAt when idle time leaves finished", () => {
+    const book = {
+      googleBooksId: "1",
+      slug: "dune",
+      status: "reading" as const,
+      currentPage: 40,
+      customPageCount: 300,
+      finishedAt: "2024-01-01",
+      readingHistory: [{ date: "2024-01-01", page: 40 }],
+    };
+    const live = applyResolvedBookStatus(book, "2026-09-15");
     expect(live.status).toBe("abandoned");
     expect(live.finishedAt).toBeUndefined();
   });

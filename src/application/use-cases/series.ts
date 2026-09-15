@@ -16,6 +16,7 @@ import {
   episodeKey,
   journalProgressPercent,
   lastRegularWatchDate,
+  pickReleasedEpisodeTotal,
   resolveJournalSeriesStatus,
   uniqueRegularWatchedCount,
 } from "@/domain/journal-status";
@@ -318,6 +319,21 @@ function buildSeasonDetails(
   });
 }
 
+export function seriesReleasedTotal(
+  entry: Pick<SeriesEntry, "numberOfEpisodes">,
+  metadata: TmdbSeriesMetadata | null,
+  seasons: TmdbSeasonMetadata[],
+): number | undefined {
+  const fromSeasons =
+    seasons
+      .filter((season) => season.seasonNumber > 0)
+      .reduce((sum, season) => sum + season.episodes.length, 0) || undefined;
+  return pickReleasedEpisodeTotal(
+    entry.numberOfEpisodes,
+    metadata?.numberOfEpisodes ?? fromSeasons ?? null,
+  );
+}
+
 export function mapSeriesDetail(
   entry: SeriesEntry,
   metadata: TmdbSeriesMetadata | null,
@@ -357,13 +373,7 @@ export function mapSeriesDetail(
   const reviewSlug = entry.reviewSlug ?? null;
   const watchedCount = uniqueRegularWatchedCount(entry.watchedEpisodes);
 
-  const totalEpisodes =
-    metadata?.numberOfEpisodes ??
-    entry.numberOfEpisodes ??
-    (seasons
-      .filter((season) => season.seasonNumber > 0)
-      .reduce((sum, season) => sum + season.episodes.length, 0) ||
-      null);
+  const totalEpisodes = seriesReleasedTotal(entry, metadata, seasons);
 
   const progressPercent = journalProgressPercent(
     watchedCount,
@@ -399,8 +409,7 @@ export function mapSeriesDetail(
     seoCopy: localeContext.seoCopy,
   });
 
-  // Catalog uses the daily in-memory status. Detail re-checks coverage
-  // against the live TMDB total, which can differ from series.json.
+  // Live TMDB total wins; same function catalog uses after rememberReleasedEpisodeCount.
   const status = resolveJournalSeriesStatus(
     entry.status,
     entry.watchedEpisodes,
@@ -569,8 +578,13 @@ export const getSeriesDetail = cache(
       language,
       locale,
     );
+    const released = seriesReleasedTotal(entry, metadata, seasons);
+    if (released != null) {
+      seriesRepository.rememberReleasedEpisodeCount(entry.slug, released);
+    }
+    const liveEntry = getSeriesBySlug(slug) ?? entry;
     return mapSeriesDetail(
-      entry,
+      liveEntry,
       metadata,
       seasons,
       notice,

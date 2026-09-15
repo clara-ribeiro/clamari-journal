@@ -123,6 +123,11 @@ export const ListGrid = styled("ul", {
 
 export const Cell = styled("li", {
   minWidth: 0,
+  overflow: "visible",
+
+  "&:hover, &:focus-within": {
+    zIndex: 2,
+  },
 
   variants: {
     tone: {

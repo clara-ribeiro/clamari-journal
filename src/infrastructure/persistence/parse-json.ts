@@ -495,9 +495,7 @@ export function parseSeriesEntries(data: unknown): SeriesEntry[] {
     const finishedAt =
       status === "completed"
         ? (finishedAtRaw ?? lastRegularWatchDate(watchedEpisodes))
-        : recordedStatus === "completed"
-          ? undefined
-          : finishedAtRaw;
+        : undefined;
     assertChronology(startedAt, finishedAt, path, "startedAt", "finishedAt");
 
     return {
@@ -576,8 +574,8 @@ export function parseBookEntries(data: unknown): BookEntry[] {
     }
 
     const startedAt = optionalIsoDate(item, "startedAt", path);
-    const finishedAt = optionalIsoDate(item, "finishedAt", path);
-    assertChronology(startedAt, finishedAt, path, "startedAt", "finishedAt");
+    const finishedAtRaw = optionalIsoDate(item, "finishedAt", path);
+    assertChronology(startedAt, finishedAtRaw, path, "startedAt", "finishedAt");
 
     const currentPageRaw = optionalNonNegativeNumber(
       item,
@@ -603,6 +601,7 @@ export function parseBookEntries(data: unknown): BookEntry[] {
       readingHistory,
       startedAt,
     });
+    const finishedAt = status === "finished" ? finishedAtRaw : undefined;
 
     return {
       googleBooksId: requireString(item, "googleBooksId", path),

@@ -23,6 +23,22 @@ export const Root = styled("span", {
     outline: "0.125rem solid $focus",
     outlineOffset: "0.15rem",
   },
+
+  variants: {
+    placement: {
+      start: {},
+      end: {},
+      stretch: {
+        display: "flex",
+        width: "100%",
+        justifyContent: "flex-end",
+      },
+    },
+  },
+
+  defaultVariants: {
+    placement: "end",
+  },
 });
 
 export const Bubble = styled("span", {
@@ -61,6 +77,12 @@ export const Bubble = styled("span", {
       start: {
         left: 0,
         right: "auto",
+      },
+      stretch: {
+        left: 0,
+        right: 0,
+        width: "auto",
+        maxWidth: "100%",
       },
     },
   },

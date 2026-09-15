@@ -5,4 +5,5 @@ export interface SeriesRepository {
   findBySlug(slug: string): SeriesEntry | undefined;
   findByStatus(status: SeriesEntry["status"]): SeriesEntry[];
   countWatchedEpisodes(): number;
+  rememberReleasedEpisodeCount(slug: string, count: number): void;
 }

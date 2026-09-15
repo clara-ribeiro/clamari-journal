@@ -164,20 +164,14 @@ async function enrichSeries() {
       }
 
       if (entry.tmdbId) {
-        const needsCounts =
-          entry.numberOfSeasons === undefined ||
-          entry.numberOfEpisodes === undefined;
-        const needsPoster = !entry.posterPath;
-        if (needsCounts || needsPoster) {
-          const detail = await tmdb<TmdbTvDetail>(
-            `/tv/${entry.tmdbId}?language=en-US`,
+        const detail = await tmdb<TmdbTvDetail>(
+          `/tv/${entry.tmdbId}?language=en-US`,
+        );
+        if (applyTvDetail(entry, detail)) {
+          updated += 1;
+          console.log(
+            `series counts ${entry.title} → S${detail.number_of_seasons}/E${detail.number_of_episodes}`,
           );
-          if (applyTvDetail(entry, detail)) {
-            updated += 1;
-            console.log(
-              `series counts ${entry.title} → S${detail.number_of_seasons}/E${detail.number_of_episodes}`,
-            );
-          }
         }
       }
     } catch (error) {
