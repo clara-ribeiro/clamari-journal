@@ -13,7 +13,13 @@ import type {
 } from "@/domain/entities";
 import type { RatingValue } from "@/domain/value-objects/rating";
 import { isValidRating } from "@/domain/value-objects/rating";
-import { resolveJournalSeriesStatus, lastRegularWatchDate } from "@/domain/series-progress";
+import {
+  lastRegularWatchDate,
+  resolveJournalBookStatus,
+  resolveJournalMovieStatus,
+  resolveJournalSeriesStatus,
+  uniqueWatchDates,
+} from "@/domain/journal-status";
 
 const MOVIE_STATUSES = [
   "watchlist",
@@ -410,6 +416,14 @@ export function parseMovieEntries(data: unknown): MovieEntry[] {
       "runtimeMinutes",
       path,
     );
+    const uniqueDates = uniqueWatchDates(
+      optionalIsoDateArray(item, "watchedDates", path),
+    );
+    const watchedDates = uniqueDates.length > 0 ? uniqueDates : undefined;
+    const status = resolveJournalMovieStatus(
+      requireOneOf(item, "status", path, MOVIE_STATUSES),
+      watchedDates,
+    );
 
     return {
       tmdbId,
@@ -417,10 +431,10 @@ export function parseMovieEntries(data: unknown): MovieEntry[] {
       tvtimeUuid: optionalString(item, "tvtimeUuid", path),
       slug: requireString(item, "slug", path),
       title: requireString(item, "title", path),
-      status: requireOneOf(item, "status", path, MOVIE_STATUSES),
+      status,
       rating: optionalRating(item, path),
       favorite: optionalBoolean(item, "favorite", path),
-      watchedDates: optionalIsoDateArray(item, "watchedDates", path),
+      watchedDates,
       tags: optionalStringArray(item, "tags", path),
       watchLocation: optionalString(item, "watchLocation", path),
       streamingService: optionalString(item, "streamingService", path),
@@ -582,7 +596,11 @@ export function parseBookEntries(data: unknown): BookEntry[] {
     const finishedAt = optionalIsoDate(item, "finishedAt", path);
     assertChronology(startedAt, finishedAt, path, "startedAt", "finishedAt");
 
-    const currentPage = optionalNonNegativeNumber(item, "currentPage", path);
+    const currentPageRaw = optionalNonNegativeNumber(
+      item,
+      "currentPage",
+      path,
+    );
     const customPageCount = optionalPositiveInteger(
       item,
       "customPageCount",
@@ -590,17 +608,23 @@ export function parseBookEntries(data: unknown): BookEntry[] {
     );
     assertPageProgress(
       path,
-      currentPage,
+      currentPageRaw,
       customPageCount,
       readingHistory,
       quotes,
+    );
+    const { status, currentPage } = resolveJournalBookStatus(
+      requireOneOf(item, "status", path, BOOK_STATUSES),
+      currentPageRaw,
+      customPageCount,
+      readingHistory,
     );
 
     return {
       googleBooksId: requireString(item, "googleBooksId", path),
       slug: requireString(item, "slug", path),
       title: optionalString(item, "title", path),
-      status: requireOneOf(item, "status", path, BOOK_STATUSES),
+      status,
       rating: optionalRating(item, path),
       favorite: optionalBoolean(item, "favorite", path),
       startedAt,

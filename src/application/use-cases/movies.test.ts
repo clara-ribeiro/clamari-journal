@@ -137,6 +137,12 @@ describe("listMovieCatalogItems", () => {
     });
     expect(sample?.goalYears.length).toBeGreaterThan(0);
     expect(sample?.posterUrl).toContain("image.tmdb.org");
+
+    const rewatch = items.find((item) => item.slug === "cat-on-a-hot-tin-roof");
+    expect(rewatch).toMatchObject({
+      statusKey: "rewatch",
+      statusLabel: catalogCopy.status.films.rewatch,
+    });
   });
 });
 

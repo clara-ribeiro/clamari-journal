@@ -1,4 +1,8 @@
 import type { MovieEntry, MovieStatus } from "@/domain/entities";
+import {
+  resolveJournalMovieStatus,
+  uniqueWatchDates,
+} from "@/domain/journal-status";
 import { isValidRating, type RatingValue } from "@/domain/value-objects/rating";
 import { isReviewSlug } from "@/domain/value-objects/review-slug";
 import { slugify } from "@/lib/slug";
@@ -144,16 +148,17 @@ export function buildMovieEntry(
   const year = yearFromDate(details.releaseDate);
   const slug = allocateMovieSlug(title, year, existingSlugs);
   const reviewSlug = journal.reviewSlug ?? undefined;
+  const watchedDates = uniqueSortedDates(journal.watchedDates);
 
   return compactMovieEntry({
     tmdbId: details.tmdbId,
     posterPath: cleanOptionalString(details.posterPath),
     slug,
     title,
-    status,
+    status: resolveJournalMovieStatus(status, watchedDates),
     rating: journal.rating,
     favorite: journal.favorite || undefined,
-    watchedDates: uniqueSortedDates(journal.watchedDates),
+    watchedDates,
     tags: cleanStringList(journal.tags),
     watchLocation: cleanOptionalString(journal.watchLocation),
     streamingService: cleanOptionalString(journal.streamingService),
@@ -201,7 +206,10 @@ export function mergeMovieJournal(
 
   return compactMovieEntry({
     ...current,
-    status: patch.status ?? current.status,
+    status: resolveJournalMovieStatus(
+      patch.status ?? current.status,
+      watchedDates,
+    ),
     rating: patch.rating ?? current.rating,
     favorite: patch.favorite ?? current.favorite,
     watchedDates,
@@ -265,8 +273,8 @@ function yearFromDate(value: string | undefined): number | undefined {
 }
 
 function uniqueSortedDates(values: string[] | undefined): string[] | undefined {
-  if (!values?.length) return undefined;
-  return [...new Set(values)].sort((a, b) => a.localeCompare(b));
+  const dates = uniqueWatchDates(values);
+  return dates.length > 0 ? dates : undefined;
 }
 
 function uniquePreserveOrder(values: string[]): string[] | undefined {

@@ -2,9 +2,12 @@ import { describe, expect, it } from "vitest";
 import type { WatchedEpisode } from "./entities/series";
 import {
   hasWatchedAllReleasedEpisodes,
+  resolveJournalBookStatus,
+  resolveJournalMovieStatus,
   resolveJournalSeriesStatus,
   uniqueRegularWatchedCount,
-} from "./series-progress";
+  uniqueWatchDates,
+} from "./journal-status";
 
 const s1e1: WatchedEpisode = { season: 1, episode: 1 };
 const s1e2: WatchedEpisode = { season: 1, episode: 2 };
@@ -84,5 +87,74 @@ describe("resolveJournalSeriesStatus", () => {
     expect(resolveJournalSeriesStatus("completed", [s1e1], undefined)).toBe(
       "completed",
     );
+  });
+
+  it("treats up-to-date as watching when coverage is incomplete", () => {
+    expect(resolveJournalSeriesStatus("up-to-date", [s1e1], 10)).toBe(
+      "watching",
+    );
+    expect(resolveJournalSeriesStatus("up-to-date", [s1e1, s1e2], 2)).toBe(
+      "completed",
+    );
+  });
+});
+
+describe("uniqueWatchDates / resolveJournalMovieStatus", () => {
+  it("dedupes and sorts dates", () => {
+    expect(
+      uniqueWatchDates(["2026-08-25", "2026-08-09", "2026-08-25"]),
+    ).toEqual(["2026-08-09", "2026-08-25"]);
+  });
+
+  it("derives watched and rewatch from unique date count", () => {
+    expect(resolveJournalMovieStatus("watchlist", ["2024-01-01"])).toBe(
+      "watched",
+    );
+    expect(
+      resolveJournalMovieStatus("watched", ["2026-08-25", "2026-08-09"]),
+    ).toBe("rewatch");
+    expect(resolveJournalMovieStatus("rewatch", ["2024-01-01"])).toBe(
+      "watched",
+    );
+  });
+
+  it("keeps an explicit watched mark with no dates, and a watchlist with none", () => {
+    expect(resolveJournalMovieStatus("watched", undefined)).toBe("watched");
+    expect(resolveJournalMovieStatus("watchlist", [])).toBe("watchlist");
+    expect(resolveJournalMovieStatus("rewatch", [])).toBe("watched");
+  });
+});
+
+describe("resolveJournalBookStatus", () => {
+  it("promotes to finished when the furthest page reaches the total", () => {
+    expect(
+      resolveJournalBookStatus("reading", 380, 380, undefined),
+    ).toEqual({ status: "finished", currentPage: 380 });
+    expect(
+      resolveJournalBookStatus("abandoned", 10, 200, [
+        { page: 200 },
+      ]),
+    ).toEqual({ status: "finished", currentPage: 200 });
+  });
+
+  it("fills currentPage for finished books when only the total is known", () => {
+    expect(
+      resolveJournalBookStatus("finished", undefined, 416, undefined),
+    ).toEqual({ status: "finished", currentPage: 416 });
+  });
+
+  it("promotes want-to-read once a page is recorded", () => {
+    expect(
+      resolveJournalBookStatus("want-to-read", 12, 300, undefined),
+    ).toEqual({ status: "reading", currentPage: 12 });
+  });
+
+  it("keeps paused and abandoned while pages remain", () => {
+    expect(
+      resolveJournalBookStatus("paused", 40, 300, undefined),
+    ).toEqual({ status: "paused", currentPage: 40 });
+    expect(
+      resolveJournalBookStatus("abandoned", 12, 300, undefined),
+    ).toEqual({ status: "abandoned", currentPage: 12 });
   });
 });

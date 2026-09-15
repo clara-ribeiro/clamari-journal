@@ -57,6 +57,18 @@ describe("parseMovieEntries", () => {
     expect(movie.watchedDates).toEqual(["2024-01-02"]);
   });
 
+  it("sorts unique watch dates and promotes two viewings to rewatch", () => {
+    const [movie] = parseMovieEntries([
+      {
+        ...base,
+        status: "watched",
+        watchedDates: ["2026-08-25", "2026-08-09", "2026-08-25"],
+      },
+    ]);
+    expect(movie.status).toBe("rewatch");
+    expect(movie.watchedDates).toEqual(["2026-08-09", "2026-08-25"]);
+  });
+
   it("rejects invalid status, rating, and negatives", () => {
     expect(() =>
       parseMovieEntries([{ ...base, status: "finished" }]),
@@ -247,6 +259,20 @@ describe("parseBookEntries", () => {
     ]);
     expect(book.readingHistory?.[0]?.page).toBe(20);
     expect(book.quotes?.[0]?.text).toMatch(/Fear/);
+  });
+
+  it("fills currentPage for finished books and promotes when pages reach the total", () => {
+    const [finished] = parseBookEntries([
+      { ...base, status: "finished", currentPage: undefined },
+    ]);
+    expect(finished.status).toBe("finished");
+    expect(finished.currentPage).toBe(100);
+
+    const [caughtUp] = parseBookEntries([
+      { ...base, status: "reading", currentPage: 100 },
+    ]);
+    expect(caughtUp.status).toBe("finished");
+    expect(caughtUp.currentPage).toBe(100);
   });
 
   it("rejects progress beyond customPageCount and bad format", () => {

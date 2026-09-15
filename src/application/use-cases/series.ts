@@ -16,7 +16,7 @@ import {
   lastRegularWatchDate,
   resolveJournalSeriesStatus,
   uniqueRegularWatchedCount,
-} from "@/domain/series-progress";
+} from "@/domain/journal-status";
 import { copyFor } from "@/content/copy/for-locale";
 import {
   getSeason,
@@ -111,6 +111,14 @@ export function listSeriesCatalogItems(
     );
 }
 
+function seriesStatusLabel(
+  catalog: ReturnType<typeof catalogCopyFor>,
+  status: SeriesEntry["status"],
+): string {
+  if (status === "up-to-date") return catalog.status.series.watching;
+  return catalog.status.series[status];
+}
+
 function seriesStatusTone(
   status: SeriesEntry["status"],
 ): CatalogCardItem["statusTone"] {
@@ -130,12 +138,8 @@ function toSeriesCatalogCard(
   locale: ReviewLocale = DEFAULT_REVIEW_LOCALE,
 ): CatalogCardItem {
   const catalog = catalogCopyFor(locale);
-  const status = resolveJournalSeriesStatus(
-    entry.status,
-    entry.watchedEpisodes,
-    entry.numberOfEpisodes,
-  );
-  const statusLabel = catalog.status.series[status];
+  const status = entry.status;
+  const statusLabel = seriesStatusLabel(catalog, status);
   const hasReview = catalogHasReview("series", entry.reviewSlug, locale);
   const favorite = Boolean(entry.favorite);
   const finishedAt =
@@ -450,7 +454,7 @@ export function mapSeriesDetail(
       ? { name: metadata.trailer.name, url: metadata.trailer.url }
       : null,
     metadataNotice,
-    statusLabel: catalog.status.series[status],
+    statusLabel: seriesStatusLabel(catalog, status),
     rating: entry.rating,
     favorite,
     favoriteLabel: favorite

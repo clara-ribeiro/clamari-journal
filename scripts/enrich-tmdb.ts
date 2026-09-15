@@ -11,7 +11,7 @@
 
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { resolveJournalSeriesStatus, lastRegularWatchDate } from "../src/domain/series-progress";
+import { resolveJournalSeriesStatus, lastRegularWatchDate } from "../src/domain/journal-status";
 import type { SeriesStatus, WatchedEpisode } from "../src/domain/entities/series";
 
 const ROOT = resolve(import.meta.dirname, "..");

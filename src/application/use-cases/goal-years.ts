@@ -4,7 +4,7 @@ import type {
   MovieEntry,
   SeriesEntry,
 } from "@/domain/entities";
-import { hasWatchedAllReleasedEpisodes } from "@/domain/series-progress";
+import { hasWatchedAllReleasedEpisodes } from "@/domain/journal-status";
 import {
   DEFAULT_REVIEW_LOCALE,
   pathForLocale,

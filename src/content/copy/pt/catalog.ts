@@ -60,7 +60,6 @@ export const catalogCopyPt = {
     series: {
       watchlist: "Quero assistir",
       watching: "Assistindo",
-      "up-to-date": "Em dia",
       paused: "Pausada",
       completed: "Completa",
       abandoned: "Abandonada",

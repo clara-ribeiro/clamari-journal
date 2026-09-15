@@ -60,7 +60,6 @@ export const catalogCopy = {
     series: {
       watchlist: "Watchlist",
       watching: "Watching",
-      "up-to-date": "Up to date",
       paused: "Paused",
       completed: "Completed",
       abandoned: "Abandoned",

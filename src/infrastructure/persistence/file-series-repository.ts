@@ -1,4 +1,4 @@
-import { uniqueRegularWatchedCount } from "@/domain/series-progress";
+import { uniqueRegularWatchedCount } from "@/domain/journal-status";
 import type { SeriesEntry } from "@/domain/entities";
 import type { SeriesRepository } from "@/application/repositories/series-repository";
 import seriesData from "@/data/series.json";
