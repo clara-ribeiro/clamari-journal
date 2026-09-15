@@ -11,8 +11,12 @@
 
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { resolveJournalSeriesStatus, lastRegularWatchDate } from "../src/domain/journal-status";
-import type { SeriesStatus, WatchedEpisode } from "../src/domain/entities/series";
+import {
+  lastRegularWatchDate,
+  resolveJournalSeriesStatus,
+  type SeriesStatusInput,
+} from "../src/domain/journal-status";
+import type { WatchedEpisode } from "../src/domain/entities/series";
 
 const ROOT = resolve(import.meta.dirname, "..");
 const TMDB_BASE = "https://api.themoviedb.org/3";
@@ -24,7 +28,7 @@ type SeriesEntry = {
   numberOfSeasons?: number;
   numberOfEpisodes?: number;
   title: string;
-  status?: SeriesStatus;
+  status?: SeriesStatusInput;
   finishedAt?: string;
   watchedEpisodes?: WatchedEpisode[];
   [key: string]: unknown;

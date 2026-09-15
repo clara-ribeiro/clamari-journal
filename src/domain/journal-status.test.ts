@@ -1,12 +1,20 @@
 import { describe, expect, it } from "vitest";
+import { catalogCopy } from "@/content/copy/catalog";
+import { catalogCopyPt } from "@/content/copy/pt/catalog";
 import type { WatchedEpisode } from "./entities/series";
 import {
+  BOOK_STATUSES,
   hasWatchedAllReleasedEpisodes,
+  journalProgressPercent,
+  isWatchedMovieStatus,
+  MOVIE_STATUSES,
   resolveJournalBookStatus,
   resolveJournalMovieStatus,
   resolveJournalSeriesStatus,
+  SERIES_STATUSES,
   uniqueRegularWatchedCount,
   uniqueWatchDates,
+  watchedSeasonNumbers,
 } from "./journal-status";
 
 const s1e1: WatchedEpisode = { season: 1, episode: 1 };
@@ -89,13 +97,45 @@ describe("resolveJournalSeriesStatus", () => {
     );
   });
 
-  it("treats up-to-date as watching when coverage is incomplete", () => {
+  it("resolves the legacy up-to-date alias to watching, or completed at 100%", () => {
     expect(resolveJournalSeriesStatus("up-to-date", [s1e1], 10)).toBe(
       "watching",
     );
     expect(resolveJournalSeriesStatus("up-to-date", [s1e1, s1e2], 2)).toBe(
       "completed",
     );
+  });
+});
+
+describe("isWatchedMovieStatus", () => {
+  it("counts any viewing, and excludes the watchlist", () => {
+    expect(isWatchedMovieStatus("watched")).toBe(true);
+    expect(isWatchedMovieStatus("rewatch")).toBe(true);
+    expect(isWatchedMovieStatus("watchlist")).toBe(false);
+  });
+});
+
+describe("watchedSeasonNumbers", () => {
+  it("collects regular seasons and ignores specials", () => {
+    expect([
+      ...watchedSeasonNumbers([s1e1, s1e2, { season: 3, episode: 1 }, special]),
+    ]).toEqual([1, 3]);
+  });
+});
+
+describe("status vocabularies", () => {
+  it("labels every resolvable status in both locales, and nothing else", () => {
+    for (const catalog of [catalogCopy, catalogCopyPt]) {
+      expect(Object.keys(catalog.status.films).sort()).toEqual(
+        [...MOVIE_STATUSES].sort(),
+      );
+      expect(Object.keys(catalog.status.series).sort()).toEqual(
+        [...SERIES_STATUSES].sort(),
+      );
+      expect(Object.keys(catalog.status.books).sort()).toEqual(
+        [...BOOK_STATUSES].sort(),
+      );
+    }
   });
 });
 
@@ -128,33 +168,84 @@ describe("uniqueWatchDates / resolveJournalMovieStatus", () => {
 describe("resolveJournalBookStatus", () => {
   it("promotes to finished when the furthest page reaches the total", () => {
     expect(
-      resolveJournalBookStatus("reading", 380, 380, undefined),
+      resolveJournalBookStatus({
+        status: "reading",
+        currentPage: 380,
+        customPageCount: 380,
+      }),
     ).toEqual({ status: "finished", currentPage: 380 });
     expect(
-      resolveJournalBookStatus("abandoned", 10, 200, [
-        { page: 200 },
-      ]),
+      resolveJournalBookStatus({
+        status: "abandoned",
+        currentPage: 10,
+        customPageCount: 200,
+        readingHistory: [{ date: "2026-01-01", page: 200 }],
+      }),
     ).toEqual({ status: "finished", currentPage: 200 });
   });
 
-  it("fills currentPage for finished books when only the total is known", () => {
+  it("fills currentPage to the total for finished books, even with earlier history", () => {
     expect(
-      resolveJournalBookStatus("finished", undefined, 416, undefined),
+      resolveJournalBookStatus({ status: "finished", customPageCount: 416 }),
     ).toEqual({ status: "finished", currentPage: 416 });
+    expect(
+      resolveJournalBookStatus({
+        status: "finished",
+        currentPage: 100,
+        customPageCount: 320,
+        readingHistory: [{ date: "2020-01-15", page: 100 }],
+      }),
+    ).toEqual({ status: "finished", currentPage: 320 });
   });
 
   it("promotes want-to-read once a page is recorded", () => {
     expect(
-      resolveJournalBookStatus("want-to-read", 12, 300, undefined),
+      resolveJournalBookStatus({
+        status: "want-to-read",
+        currentPage: 12,
+        customPageCount: 300,
+      }),
     ).toEqual({ status: "reading", currentPage: 12 });
   });
 
   it("keeps paused and abandoned while pages remain", () => {
     expect(
-      resolveJournalBookStatus("paused", 40, 300, undefined),
+      resolveJournalBookStatus({
+        status: "paused",
+        currentPage: 40,
+        customPageCount: 300,
+      }),
     ).toEqual({ status: "paused", currentPage: 40 });
     expect(
-      resolveJournalBookStatus("abandoned", 12, 300, undefined),
+      resolveJournalBookStatus({
+        status: "abandoned",
+        currentPage: 12,
+        customPageCount: 300,
+      }),
     ).toEqual({ status: "abandoned", currentPage: 12 });
+  });
+
+  it("takes the furthest page from the reading history", () => {
+    expect(
+      resolveJournalBookStatus({
+        status: "reading",
+        currentPage: 80,
+        customPageCount: 300,
+        readingHistory: [
+          { date: "2026-01-01", page: 120 },
+          { date: "2026-02-01" },
+        ],
+      }),
+    ).toEqual({ status: "reading", currentPage: 120 });
+  });
+});
+
+describe("journalProgressPercent", () => {
+  it("rounds a known fraction and stays null without a total", () => {
+    expect(journalProgressPercent(80, 320)).toBe(25);
+    expect(journalProgressPercent(6, 6)).toBe(100);
+    expect(journalProgressPercent(4, 3)).toBe(100);
+    expect(journalProgressPercent(10, undefined)).toBeNull();
+    expect(journalProgressPercent(undefined, 320)).toBeNull();
   });
 });

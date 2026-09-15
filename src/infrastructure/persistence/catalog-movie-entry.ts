@@ -1,13 +1,12 @@
 import type { MovieEntry, MovieStatus } from "@/domain/entities";
 import {
+  isMovieStatus,
   resolveJournalMovieStatus,
   uniqueWatchDates,
 } from "@/domain/journal-status";
 import { isValidRating, type RatingValue } from "@/domain/value-objects/rating";
 import { isReviewSlug } from "@/domain/value-objects/review-slug";
 import { slugify } from "@/lib/slug";
-
-const MOVIE_STATUSES = ["watchlist", "watched", "rewatch"] as const;
 
 export type MovieSearchHit = {
   id: number;
@@ -260,10 +259,6 @@ function titlesMatch(hit: MovieSearchHit, query: string): boolean {
   const expected = query.trim().toLowerCase();
   if (hit.title.trim().toLowerCase() === expected) return true;
   return hit.originalTitle?.trim().toLowerCase() === expected;
-}
-
-function isMovieStatus(value: string): value is MovieStatus {
-  return (MOVIE_STATUSES as readonly string[]).includes(value);
 }
 
 function yearFromDate(value: string | undefined): number | undefined {

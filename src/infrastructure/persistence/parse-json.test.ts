@@ -184,6 +184,17 @@ describe("parseSeriesEntries", () => {
     expect(series.finishedAt).toBe("2018-01-01");
   });
 
+  it("resolves the legacy up-to-date status to watching", () => {
+    const [series] = parseSeriesEntries([
+      {
+        ...base,
+        status: "up-to-date",
+        numberOfEpisodes: 10,
+      },
+    ]);
+    expect(series.status).toBe("watching");
+  });
+
   it("promotes abandoned to completed when unique watches cover the released total", () => {
     const [series] = parseSeriesEntries([
       {
@@ -267,6 +278,16 @@ describe("parseBookEntries", () => {
     ]);
     expect(finished.status).toBe("finished");
     expect(finished.currentPage).toBe(100);
+
+    const [finishedWithHistory] = parseBookEntries([
+      {
+        ...base,
+        status: "finished",
+        currentPage: 40,
+        readingHistory: [{ date: "2024-03-01", page: 40 }],
+      },
+    ]);
+    expect(finishedWithHistory.currentPage).toBe(100);
 
     const [caughtUp] = parseBookEntries([
       { ...base, status: "reading", currentPage: 100 },

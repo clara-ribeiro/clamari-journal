@@ -9,6 +9,10 @@ import type {
 } from "@/application/dto";
 import type { GoogleBooksMetadata } from "@/application/dto/google-books-metadata";
 import type { BookEntry, BookFormat } from "@/domain/entities";
+import {
+  journalProgressPercent,
+  resolveJournalBookStatus,
+} from "@/domain/journal-status";
 import { copyFor } from "@/content/copy/for-locale";
 import {
   getBookById,
@@ -261,13 +265,14 @@ export function mapBookDetail(
   const reviewSlug = entry.reviewSlug ?? null;
 
   const pageCount = metadata?.pageCount ?? entry.customPageCount ?? null;
-  const currentPage = entry.currentPage ?? null;
-  const progressPercent =
-    pageCount != null && pageCount > 0 && currentPage != null
-      ? Math.min(100, Math.round((currentPage / pageCount) * 100))
-      : entry.status === "finished" && pageCount != null
-        ? 100
-        : null;
+  const { status, currentPage: resolvedPage } = resolveJournalBookStatus({
+    status: entry.status,
+    currentPage: entry.currentPage,
+    customPageCount: pageCount ?? undefined,
+    readingHistory: entry.readingHistory,
+  });
+  const currentPage = resolvedPage ?? null;
+  const progressPercent = journalProgressPercent(currentPage, pageCount);
 
   const yearLabel = metadata?.year != null ? String(metadata.year) : null;
 
@@ -296,7 +301,7 @@ export function mapBookDetail(
     isbn10Label: metadata?.identifiers.isbn10 ?? null,
     isbn13Label: metadata?.identifiers.isbn13 ?? null,
     metadataNotice,
-    statusLabel: catalog.status.books[entry.status],
+    statusLabel: catalog.status.books[status],
     rating: entry.rating,
     favorite,
     favoriteLabel: favorite

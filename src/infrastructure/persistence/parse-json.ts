@@ -2,47 +2,24 @@ import type {
   BookEntry,
   BookFormat,
   BookQuote,
-  BookStatus,
   Goals,
   MovieEntry,
-  MovieStatus,
   ReadingUpdate,
   SeriesEntry,
-  SeriesStatus,
   WatchedEpisode,
 } from "@/domain/entities";
 import type { RatingValue } from "@/domain/value-objects/rating";
 import { isValidRating } from "@/domain/value-objects/rating";
 import {
+  BOOK_STATUSES,
   lastRegularWatchDate,
+  MOVIE_STATUSES,
   resolveJournalBookStatus,
   resolveJournalMovieStatus,
   resolveJournalSeriesStatus,
+  SERIES_STATUS_INPUTS,
   uniqueWatchDates,
 } from "@/domain/journal-status";
-
-const MOVIE_STATUSES = [
-  "watchlist",
-  "watched",
-  "rewatch",
-] as const satisfies readonly MovieStatus[];
-
-const SERIES_STATUSES = [
-  "watchlist",
-  "watching",
-  "up-to-date",
-  "paused",
-  "completed",
-  "abandoned",
-] as const satisfies readonly SeriesStatus[];
-
-const BOOK_STATUSES = [
-  "want-to-read",
-  "reading",
-  "paused",
-  "finished",
-  "abandoned",
-] as const satisfies readonly BookStatus[];
 
 const BOOK_FORMATS = [
   "physical",
@@ -503,7 +480,12 @@ export function parseSeriesEntries(data: unknown): SeriesEntry[] {
       "numberOfEpisodes",
       path,
     );
-    const recordedStatus = requireOneOf(item, "status", path, SERIES_STATUSES);
+    const recordedStatus = requireOneOf(
+      item,
+      "status",
+      path,
+      SERIES_STATUS_INPUTS,
+    );
     const status = resolveJournalSeriesStatus(
       recordedStatus,
       watchedEpisodes,
@@ -613,12 +595,12 @@ export function parseBookEntries(data: unknown): BookEntry[] {
       readingHistory,
       quotes,
     );
-    const { status, currentPage } = resolveJournalBookStatus(
-      requireOneOf(item, "status", path, BOOK_STATUSES),
-      currentPageRaw,
+    const { status, currentPage } = resolveJournalBookStatus({
+      status: requireOneOf(item, "status", path, BOOK_STATUSES),
+      currentPage: currentPageRaw,
       customPageCount,
       readingHistory,
-    );
+    });
 
     return {
       googleBooksId: requireString(item, "googleBooksId", path),

@@ -50,7 +50,7 @@ describe("yearsSeriesCountsToward", () => {
       tvdbId: 2,
       slug: "b",
       title: "B",
-      status: "up-to-date",
+      status: "completed",
       watchedEpisodes: [
         { season: 0, episode: 1, watchedAt: "2024-01-01" },
         { season: 1, episode: 1, watchedAt: "2026-03-01" },

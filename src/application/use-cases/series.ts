@@ -13,6 +13,8 @@ import type {
 } from "@/application/dto/tmdb-metadata";
 import type { SeriesEntry, WatchedEpisode } from "@/domain/entities";
 import {
+  episodeKey,
+  journalProgressPercent,
   lastRegularWatchDate,
   resolveJournalSeriesStatus,
   uniqueRegularWatchedCount,
@@ -63,38 +65,32 @@ export function getEpisodeRuntimeMinutes(runtimeMinutes?: number): number {
 }
 
 export function computeSeriesStats(all: SeriesEntry[]) {
-  const withProgress = all.filter(
-    (s) => uniqueRegularWatchedCount(s.watchedEpisodes) > 0,
-  );
-
-  const totalRuntimeMinutes = all.reduce(
-    (sum, entry) =>
-      sum +
-      entry.watchedEpisodes.reduce(
-        (episodeSum, episode) =>
-          episodeSum + getEpisodeRuntimeMinutes(episode.runtimeMinutes),
-        0,
-      ),
-    0,
-  );
-
-  const watchedEpisodes = all.reduce(
-    (total, entry) => total + uniqueRegularWatchedCount(entry.watchedEpisodes),
-    0,
-  );
-
-  return {
-    total: all.length,
-    watching: all.filter((s) => s.status === "watching").length,
-    completed: all.filter((s) => s.status === "completed").length,
-    paused: all.filter((s) => s.status === "paused").length,
-    abandoned: all.filter((s) => s.status === "abandoned").length,
-    watchlist: all.filter((s) => s.status === "watchlist").length,
-    favorites: all.filter((s) => s.favorite).length,
-    watchedEpisodes,
-    withProgress: withProgress.length,
-    totalRuntimeMinutes,
+  const counts = {
+    watching: 0,
+    completed: 0,
+    paused: 0,
+    abandoned: 0,
+    watchlist: 0,
+    favorites: 0,
+    watchedEpisodes: 0,
+    withProgress: 0,
+    totalRuntimeMinutes: 0,
   };
+
+  for (const entry of all) {
+    const unique = uniqueRegularWatchedCount(entry.watchedEpisodes);
+    counts.watchedEpisodes += unique;
+    if (unique > 0) counts.withProgress += 1;
+    if (entry.favorite) counts.favorites += 1;
+    counts[entry.status] += 1;
+    for (const episode of entry.watchedEpisodes) {
+      counts.totalRuntimeMinutes += getEpisodeRuntimeMinutes(
+        episode.runtimeMinutes,
+      );
+    }
+  }
+
+  return { total: all.length, ...counts };
 }
 
 export function getSeriesStats() {
@@ -111,25 +107,11 @@ export function listSeriesCatalogItems(
     );
 }
 
-function seriesStatusLabel(
-  catalog: ReturnType<typeof catalogCopyFor>,
-  status: SeriesEntry["status"],
-): string {
-  if (status === "up-to-date") return catalog.status.series.watching;
-  return catalog.status.series[status];
-}
-
 function seriesStatusTone(
   status: SeriesEntry["status"],
 ): CatalogCardItem["statusTone"] {
   if (status === "watchlist") return "warning";
-  if (
-    status === "completed" ||
-    status === "watching" ||
-    status === "up-to-date"
-  ) {
-    return "positive";
-  }
+  if (status === "completed" || status === "watching") return "positive";
   return "neutral";
 }
 
@@ -139,7 +121,7 @@ function toSeriesCatalogCard(
 ): CatalogCardItem {
   const catalog = catalogCopyFor(locale);
   const status = entry.status;
-  const statusLabel = seriesStatusLabel(catalog, status);
+  const statusLabel = catalog.status.series[status];
   const hasReview = catalogHasReview("series", entry.reviewSlug, locale);
   const favorite = Boolean(entry.favorite);
   const finishedAt =
@@ -200,7 +182,7 @@ function toSeriesCatalogCard(
     sortRating: entry.rating ?? 0,
     sortYear: null,
     goalYears: yearsSeriesCountsToward(entry),
-    watchedEpisodeCount: uniqueRegularWatchedCount(entry.watchedEpisodes),
+    watchedEpisodeCount: watchedCount,
   };
 }
 
@@ -208,10 +190,6 @@ function joinNames(names: string[]): string | null {
   const cleaned = names.map((name) => name.trim()).filter(Boolean);
   if (cleaned.length === 0) return null;
   return cleaned.join(", ");
-}
-
-function episodeKey(season: number, episode: number) {
-  return `${season}-${episode}`;
 }
 
 function watchedMap(watched: WatchedEpisode[]) {
@@ -385,10 +363,10 @@ export function mapSeriesDetail(
       .reduce((sum, season) => sum + season.episodes.length, 0) ||
       null);
 
-  const progressPercent =
-    totalEpisodes != null && totalEpisodes > 0
-      ? Math.min(100, Math.round((watchedCount / totalEpisodes) * 100))
-      : null;
+  const progressPercent = journalProgressPercent(
+    watchedCount,
+    totalEpisodes,
+  );
 
   const watchedTimeMinutes = entry.watchedEpisodes.reduce((sum, episode) => {
     const fromSeason = seasons
@@ -454,7 +432,7 @@ export function mapSeriesDetail(
       ? { name: metadata.trailer.name, url: metadata.trailer.url }
       : null,
     metadataNotice,
-    statusLabel: seriesStatusLabel(catalog, status),
+    statusLabel: catalog.status.series[status],
     rating: entry.rating,
     favorite,
     favoriteLabel: favorite

@@ -94,6 +94,7 @@ describe("mapBookDetail", () => {
     expect(detail.favorite).toBe(true);
     expect(detail.formatLabel).toBe("Physical");
     expect(detail.progressPercent).toBe(100);
+    expect(detail.currentPageLabel).toBe("320 / 320");
     expect(detail.quotes).toHaveLength(1);
     expect(detail.history).toHaveLength(2);
     expect(detail.history[0]?.dateLabel).toContain("2020");
@@ -126,6 +127,7 @@ describe("mapBookDetail", () => {
         finishedAt: undefined,
         currentPage: 80,
         customPageCount: 320,
+        readingHistory: undefined,
       },
       { ...baseMetadata, pageCount: 320 },
       null,
@@ -133,6 +135,13 @@ describe("mapBookDetail", () => {
 
     expect(detail.progressPercent).toBe(25);
     expect(detail.currentPageLabel).toBe("80 / 320");
+  });
+
+  it("does not treat earlier reading history as unread pages on a finished book", () => {
+    const detail = mapBookDetail(baseEntry, baseMetadata, null);
+    expect(detail.statusLabel).toBe("Finished");
+    expect(detail.currentPageLabel).toBe("320 / 320");
+    expect(detail.progressPercent).toBe(100);
   });
 
   it("uses the pending review label when a reviewSlug is set", () => {

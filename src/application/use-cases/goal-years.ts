@@ -4,7 +4,12 @@ import type {
   MovieEntry,
   SeriesEntry,
 } from "@/domain/entities";
-import { hasWatchedAllReleasedEpisodes } from "@/domain/journal-status";
+import {
+  hasWatchedAllReleasedEpisodes,
+  isWatchedMovieStatus,
+  lastRegularWatchDate,
+  watchedSeasonNumbers,
+} from "@/domain/journal-status";
 import {
   DEFAULT_REVIEW_LOCALE,
   pathForLocale,
@@ -37,7 +42,7 @@ export function movieCountsTowardYearGoal(
 
 /** Years a film counts toward annual watch goals. */
 export function yearsMovieCountsToward(movie: MovieEntry): number[] {
-  if (movie.status !== "watched" && movie.status !== "rewatch") return [];
+  if (!isWatchedMovieStatus(movie.status)) return [];
   const years = new Set<number>();
   for (const date of movie.watchedDates ?? []) {
     const year = isoYear(date);
@@ -46,33 +51,22 @@ export function yearsMovieCountsToward(movie: MovieEntry): number[] {
   return [...years].sort((a, b) => a - b);
 }
 
-/** Regular (non-special) watched episodes, unique by season+episode. */
-function regularWatchedEpisodeKeys(series: SeriesEntry): Set<string> {
-  const keys = new Set<string>();
-  for (const episode of series.watchedEpisodes) {
-    if (episode.season <= 0) continue;
-    keys.add(`${episode.season}-${episode.episode}`);
-  }
-  return keys;
-}
-
 /**
- * Caught up with everything released so far: unique regular watches cover
- * TMDB's released total (preferred), else every season through
- * `numberOfSeasons`, else a `completed` / `up-to-date` mark when totals are unknown.
- * Incomplete paused / abandoned / watchlist never count. Rewatches do not add coverage.
- * When a new season/episode lands in TMDB, catch-up fails until watched again.
+ * Caught up with everything released so far. TMDB's released total is the only
+ * reliable signal: unique regular watches must cover it, and a newly released
+ * episode breaks catch-up until it is watched. Rewatches do not add coverage.
+ * Without that total, trust a `completed` mark, else require every season
+ * through `numberOfSeasons` to have been started.
  */
 export function isSeriesCaughtUp(series: SeriesEntry): boolean {
-  if (
-    hasWatchedAllReleasedEpisodes(
+  if (series.numberOfEpisodes !== undefined) {
+    return hasWatchedAllReleasedEpisodes(
       series.watchedEpisodes,
       series.numberOfEpisodes,
-    )
-  ) {
-    return true;
+    );
   }
 
+  if (series.status === "completed") return true;
   if (
     series.status === "abandoned" ||
     series.status === "watchlist" ||
@@ -80,38 +74,17 @@ export function isSeriesCaughtUp(series: SeriesEntry): boolean {
   ) {
     return false;
   }
+  if (series.numberOfSeasons === undefined) return false;
 
-  if (series.numberOfEpisodes !== undefined) {
-    return hasWatchedAllReleasedEpisodes(
-      series.watchedEpisodes,
-      series.numberOfEpisodes,
-    );
+  const seasons = watchedSeasonNumbers(series.watchedEpisodes);
+  for (let season = 1; season <= series.numberOfSeasons; season += 1) {
+    if (!seasons.has(season)) return false;
   }
-  if (series.status === "completed" || series.status === "up-to-date") {
-    return true;
-  }
-
-  const watched = regularWatchedEpisodeKeys(series);
-  if (series.numberOfSeasons !== undefined) {
-    const seasons = new Set(
-      [...watched].map((key) => Number(key.split("-")[0])),
-    );
-    for (let season = 1; season <= series.numberOfSeasons; season += 1) {
-      if (!seasons.has(season)) return false;
-    }
-    return series.numberOfSeasons > 0;
-  }
-  return false;
+  return series.numberOfSeasons > 0;
 }
 
 function seriesCompletionDate(series: SeriesEntry): string | undefined {
-  const lastRegularWatch = series.watchedEpisodes
-    .filter((episode) => episode.season > 0 && episode.watchedAt)
-    .map((episode) => episode.watchedAt as string)
-    .sort()
-    .at(-1);
-
-  return series.finishedAt ?? lastRegularWatch;
+  return series.finishedAt ?? lastRegularWatchDate(series.watchedEpisodes);
 }
 
 export function seriesCountsTowardYearGoal(

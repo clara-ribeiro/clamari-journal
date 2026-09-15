@@ -8,7 +8,10 @@ import type {
 } from "@/application/dto";
 import type { TmdbMovieMetadata } from "@/application/dto/tmdb-metadata";
 import type { MovieEntry } from "@/domain/entities";
-import { uniqueWatchDates } from "@/domain/journal-status";
+import {
+  isWatchedMovieStatus,
+  uniqueWatchDates,
+} from "@/domain/journal-status";
 import { copyFor } from "@/content/copy/for-locale";
 import { getMovieById, TmdbError } from "@/infrastructure/tmdb/client";
 import { formatDate } from "@/lib/formatters/formatDate";
@@ -39,9 +42,7 @@ export function getMovieBySlug(slug: string): MovieEntry | undefined {
 }
 
 export function computeMovieStats(all: MovieEntry[]) {
-  const watched = all.filter(
-    (m) => m.status === "watched" || m.status === "rewatch",
-  );
+  const watched = all.filter((m) => isWatchedMovieStatus(m.status));
   const ratings = watched
     .map((m) => m.rating)
     .filter((r): r is NonNullable<typeof r> => typeof r === "number");
@@ -71,8 +72,7 @@ function filmStatusTone(
   status: MovieEntry["status"],
 ): CatalogCardItem["statusTone"] {
   if (status === "watchlist") return "warning";
-  if (status === "watched" || status === "rewatch") return "positive";
-  return "neutral";
+  return isWatchedMovieStatus(status) ? "positive" : "neutral";
 }
 
 function toFilmCatalogCard(

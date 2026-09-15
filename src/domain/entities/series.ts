@@ -3,7 +3,6 @@ import type { RatingValue } from "@/domain/value-objects/rating";
 export type SeriesStatus =
   | "watchlist"
   | "watching"
-  | "up-to-date"
   | "paused"
   | "completed"
   | "abandoned";
