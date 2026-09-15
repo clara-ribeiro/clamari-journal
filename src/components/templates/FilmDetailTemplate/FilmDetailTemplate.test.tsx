@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { MovieDetail } from "@/application/dto";
+import { catalogCopy } from "@/content/copy/catalog";
 import { filmsCopy } from "@/content/copy/films";
 import FilmDetailTemplate from "./index";
 
@@ -52,6 +53,7 @@ function movieDetail(overrides: Partial<MovieDetail> = {}): MovieDetail {
     trailer: null,
     metadataNotice: null,
     statusLabel: "Watched",
+    statusHint: catalogCopy.statusHint.films.watched,
     favorite: false,
     favoriteLabel: "Favorite",
     tags: [],
@@ -113,6 +115,14 @@ describe("FilmDetailTemplate cast disclosure", () => {
       }),
     );
     expect(screen.queryByText("Actor 8")).toBeNull();
+  });
+
+  it("exposes a status explanation on the journal status value", () => {
+    render(<FilmDetailTemplate detail={movieDetail()} />);
+    expect(screen.getByText("Watched")).toBeInTheDocument();
+    expect(
+      screen.getByText(catalogCopy.statusHint.films.watched),
+    ).toBeInTheDocument();
   });
 
   it("shows the empty cast fallback", () => {

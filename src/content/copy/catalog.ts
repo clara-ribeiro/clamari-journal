@@ -72,6 +72,30 @@ export const catalogCopy = {
       abandoned: "Abandoned",
     },
   },
+  statusHint: {
+    films: {
+      watched: "Logged with one watch date.",
+      rewatch: "Logged with two or more watch dates.",
+      watchlist: "On the list. No watch date logged yet.",
+    },
+    series: {
+      watchlist: "On the list. No episode has been logged yet.",
+      watching: "Started and currently being followed. Still unfinished.",
+      paused:
+        "Started, then put on hold. Unfinished, but not dropped.",
+      completed:
+        "Every released episode has been watched. Each episode counts once.",
+      abandoned: "Started, then dropped. Not coming back to it.",
+    },
+    books: {
+      "want-to-read": "On the list. No pages have been logged yet.",
+      reading: "Started and currently being read. Still unfinished.",
+      paused:
+        "Started, then put on hold. Unfinished, but not dropped.",
+      finished: "The last page has been reached.",
+      abandoned: "Started, then dropped. Not coming back to it.",
+    },
+  },
 } as const;
 
 export type CatalogUiCopy = typeof catalogCopy;

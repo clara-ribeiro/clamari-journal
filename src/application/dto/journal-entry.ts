@@ -82,6 +82,8 @@ export type MovieDetail = {
   metadataNotice: string | null;
 
   statusLabel: string;
+  /** Localized explanation for the status tag tooltip */
+  statusHint: string;
   rating?: number;
   favorite: boolean;
   favoriteLabel: string;
@@ -157,6 +159,8 @@ export type SeriesDetail = {
   metadataNotice: string | null;
 
   statusLabel: string;
+  /** Localized explanation for the status tag tooltip */
+  statusHint: string;
   rating?: number;
   favorite: boolean;
   favoriteLabel: string;
@@ -229,6 +233,8 @@ export type BookDetail = {
   metadataNotice: string | null;
 
   statusLabel: string;
+  /** Localized explanation for the status tag tooltip */
+  statusHint: string;
   rating?: number;
   favorite: boolean;
   favoriteLabel: string;

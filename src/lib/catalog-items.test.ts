@@ -15,6 +15,7 @@ function card(
     posterUrl: null,
     statusKey: "watched",
     statusLabel: "Watched",
+    statusHint: "",
     statusTone: "positive",
     yearLabel: null,
     activityLabel: "No date logged",

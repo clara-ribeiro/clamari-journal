@@ -54,9 +54,12 @@ function statusOptionsFor(
   medium: CatalogMedium,
   catalog: ReturnType<typeof useLocaleCopy>["copy"]["catalog"],
 ) {
-  return Object.entries(catalog.status[medium]).map(([value, label]) => ({
+  const labels = catalog.status[medium];
+  const hints = catalog.statusHint[medium];
+  return Object.entries(labels).map(([value, label]) => ({
     value,
     label,
+    hint: hints[value as keyof typeof hints],
   }));
 }
 

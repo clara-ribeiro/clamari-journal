@@ -30,6 +30,7 @@ import {
   catalogCopyFor,
   catalogHasReview,
   catalogHref,
+  catalogStatusHint,
   localizedWorkTitle,
 } from "./catalog-locale";
 import { yearsBookCountsToward } from "./goal-years";
@@ -128,6 +129,7 @@ function toBookCatalogCard(
     favorite,
     hasReview,
     statusLabel,
+    statusHint: catalogStatusHint(catalog, "books", book.status),
     statusTone: bookStatusTone(book.status),
     yearLabel: null,
     activityLabel,
@@ -302,6 +304,7 @@ export function mapBookDetail(
     isbn13Label: metadata?.identifiers.isbn13 ?? null,
     metadataNotice,
     statusLabel: catalog.status.books[status],
+    statusHint: catalogStatusHint(catalog, "books", status),
     rating: entry.rating,
     favorite,
     favoriteLabel: favorite

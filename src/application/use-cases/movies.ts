@@ -28,6 +28,7 @@ import {
   catalogCopyFor,
   catalogHasReview,
   catalogHref,
+  catalogStatusHint,
   localizedWorkTitle,
 } from "./catalog-locale";
 import { yearsMovieCountsToward } from "./goal-years";
@@ -117,6 +118,7 @@ function toFilmCatalogCard(
     favorite,
     hasReview,
     statusLabel,
+    statusHint: catalogStatusHint(catalog, "films", movie.status),
     statusTone: filmStatusTone(movie.status),
     yearLabel,
     activityLabel,
@@ -264,6 +266,7 @@ export function mapMovieDetail(
       : null,
     metadataNotice,
     statusLabel: catalog.status.films[movie.status],
+    statusHint: catalogStatusHint(catalog, "films", movie.status),
     rating: movie.rating,
     favorite,
     favoriteLabel: favorite

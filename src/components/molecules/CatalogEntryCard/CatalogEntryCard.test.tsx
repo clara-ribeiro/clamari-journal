@@ -2,6 +2,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import type { CatalogCardItem } from "@/application/dto";
+import { catalogCopy } from "@/content/copy/catalog";
 import CatalogEntryCard from "./index";
 
 vi.mock("next/image", () => ({
@@ -42,6 +43,7 @@ function item(
     favorite: false,
     hasReview: false,
     statusLabel: "Watched",
+    statusHint: "",
     statusTone: "positive",
     yearLabel: "1995",
     activityLabel: "No date logged",
@@ -80,5 +82,22 @@ describe("CatalogEntryCard", () => {
       "href",
       "/films/heat",
     );
+  });
+
+  it("shows a status hint on the badge without changing the link name", () => {
+    render(
+      <CatalogEntryCard
+        item={item({
+          statusLabel: "Paused",
+          statusHint: catalogCopy.statusHint.series.paused,
+        })}
+        tone="light"
+      />,
+    );
+
+    expect(screen.getByRole("link", { name: /Heat/ })).toBeInTheDocument();
+    expect(
+      screen.getByText(catalogCopy.statusHint.series.paused),
+    ).toHaveAttribute("aria-hidden", "true");
   });
 });

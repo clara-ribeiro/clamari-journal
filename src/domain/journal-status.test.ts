@@ -135,6 +135,15 @@ describe("status vocabularies", () => {
       expect(Object.keys(catalog.status.books).sort()).toEqual(
         [...BOOK_STATUSES].sort(),
       );
+      expect(Object.keys(catalog.statusHint.films).sort()).toEqual(
+        [...MOVIE_STATUSES].sort(),
+      );
+      expect(Object.keys(catalog.statusHint.series).sort()).toEqual(
+        [...SERIES_STATUSES].sort(),
+      );
+      expect(Object.keys(catalog.statusHint.books).sort()).toEqual(
+        [...BOOK_STATUSES].sort(),
+      );
     }
   });
 });

@@ -13,6 +13,15 @@ export function catalogCopyFor(
   return copyFor(locale).catalog;
 }
 
+export function catalogStatusHint(
+  catalog: ReturnType<typeof catalogCopyFor>,
+  medium: "films" | "series" | "books",
+  status: string,
+): string {
+  const hints = catalog.statusHint[medium] as Record<string, string>;
+  return hints[status] ?? "";
+}
+
 export function localizedWorkTitle(
   medium: ReviewMedium,
   reviewSlug: string | null | undefined,

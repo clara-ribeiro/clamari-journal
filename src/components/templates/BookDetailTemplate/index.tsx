@@ -6,6 +6,7 @@ import { Heart } from "lucide-react";
 import type { BookDetail } from "@/application/dto";
 import RefreshButton from "@/components/atoms/RefreshButton";
 import StarRating from "@/components/atoms/StarRating";
+import StatusHint from "@/components/atoms/StatusHint";
 import ReviewRenderer from "@/components/molecules/ReviewRenderer";
 import { copyFor } from "@/content/copy/for-locale";
 import { pathForLocale } from "@/lib/review-locale";
@@ -276,7 +277,11 @@ export default function BookDetailTemplate({
             <FactList>
               <Fact>
                 <FactLabel>{copy.journal.status}</FactLabel>
-                <FactValue>{detail.statusLabel}</FactValue>
+                <FactValue>
+                  <StatusHint hint={detail.statusHint} focusable placement="start">
+                    {detail.statusLabel}
+                  </StatusHint>
+                </FactValue>
               </Fact>
               <Fact>
                 <FactLabel>{copy.journal.rating}</FactLabel>

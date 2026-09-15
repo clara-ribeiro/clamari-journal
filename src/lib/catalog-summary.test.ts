@@ -13,6 +13,7 @@ function item(
     favorite: false,
     hasReview: false,
     statusLabel: overrides.statusKey,
+    statusHint: "",
     statusTone: "neutral",
     yearLabel: null,
     activityLabel: "",

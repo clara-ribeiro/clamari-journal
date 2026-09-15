@@ -80,12 +80,16 @@ export const PosterFrame = styled("div", {
   display: "grid",
   width: "100%",
   aspectRatio: "2 / 3",
-  overflow: "hidden",
+  overflow: "visible",
 
   "& > *": {
     gridArea: "1 / 1",
     minWidth: 0,
     minHeight: 0,
+  },
+
+  "& > *:not(:last-child)": {
+    overflow: "hidden",
   },
 
   "& img": {

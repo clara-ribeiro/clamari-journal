@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import type { BookDetail } from "@/application/dto";
 import { booksCopy } from "@/content/copy/books";
+import { catalogCopy } from "@/content/copy/catalog";
 import BookDetailTemplate from "./index";
 
 vi.mock("next/image", () => ({
@@ -47,6 +48,7 @@ function bookDetail(overrides: Partial<BookDetail> = {}): BookDetail {
     isbn13Label: null,
     metadataNotice: null,
     statusLabel: "Finished",
+    statusHint: catalogCopy.statusHint.books.finished,
     favorite: true,
     favoriteLabel: "Favorite",
     formatLabel: "Physical",

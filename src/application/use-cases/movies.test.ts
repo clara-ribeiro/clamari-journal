@@ -133,6 +133,7 @@ describe("listMovieCatalogItems", () => {
       medium: "movie",
       href: "/films/10-things-i-hate-about-you",
       statusLabel: catalogCopy.status.films.watched,
+      statusHint: catalogCopy.statusHint.films.watched,
       statusTone: "positive",
     });
     expect(sample?.goalYears.length).toBeGreaterThan(0);
@@ -142,6 +143,7 @@ describe("listMovieCatalogItems", () => {
     expect(rewatch).toMatchObject({
       statusKey: "rewatch",
       statusLabel: catalogCopy.status.films.rewatch,
+      statusHint: catalogCopy.statusHint.films.rewatch,
     });
   });
 });
@@ -180,6 +182,7 @@ describe("mapMovieDetail", () => {
     expect(detail.cast).toHaveLength(1);
     expect(detail.trailer?.url).toContain("youtube.com");
     expect(detail.favorite).toBe(true);
+    expect(detail.statusHint).toBe(catalogCopy.statusHint.films.watched);
     expect(detail.tags).toEqual(["mind-bender"]);
     expect(detail.watchLocation).toBe("Home");
     expect(detail.streamingService).toBe("Criterion Channel");

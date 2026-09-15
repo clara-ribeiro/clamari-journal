@@ -91,6 +91,7 @@ describe("mapBookDetail", () => {
     expect(detail.heroExcerpt).toContain("goddess Artemis");
     expect(detail.heroExcerpt).not.toContain("<p>");
     expect(detail.statusLabel).toBe("Finished");
+    expect(detail.statusHint).toBe(catalogCopy.statusHint.books.finished);
     expect(detail.favorite).toBe(true);
     expect(detail.formatLabel).toBe("Physical");
     expect(detail.progressPercent).toBe(100);
@@ -224,6 +225,7 @@ describe("listBookCatalogItems", () => {
       medium: "book",
       href: "/books/the-lightning-thief",
       statusLabel: catalogCopy.status.books.finished,
+      statusHint: catalogCopy.statusHint.books.finished,
       statusTone: "positive",
     });
     expect(sample?.sortTitle.length).toBeGreaterThan(0);

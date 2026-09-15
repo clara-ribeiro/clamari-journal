@@ -142,6 +142,7 @@ describe("mapSeriesDetail", () => {
     expect(detail.title).toBe("Breaking Bad");
     expect(detail.creatorsLabel).toBe("Vince Gilligan");
     expect(detail.statusLabel).toBe("Watching");
+    expect(detail.statusHint).toBe(catalogCopy.statusHint.series.watching);
     expect(detail.favorite).toBe(true);
     expect(detail.watchedEpisodesLabel).toBe("2 / 62");
     expect(detail.progressPercent).toBe(3);
@@ -169,6 +170,7 @@ describe("mapSeriesDetail", () => {
     );
 
     expect(detail.statusLabel).toBe("Paused");
+    expect(detail.statusHint).toBe(catalogCopy.statusHint.series.paused);
     expect(detail.finishedLabel).toBeNull();
     expect(detail.watchedEpisodesLabel).toBe("1 / 62");
   });
@@ -336,8 +338,12 @@ describe("listSeriesCatalogItems", () => {
       statusTone: expect.stringMatching(/positive|warning|neutral/),
     });
     expect(sample?.statusLabel).toBeTruthy();
+    expect(sample?.statusHint).toBeTruthy();
     expect(
       Object.values(catalogCopy.status.series),
     ).toContain(sample?.statusLabel);
+    expect(
+      Object.values(catalogCopy.statusHint.series),
+    ).toContain(sample?.statusHint);
   });
 });

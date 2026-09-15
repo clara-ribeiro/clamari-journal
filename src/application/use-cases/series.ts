@@ -42,6 +42,7 @@ import {
   catalogCopyFor,
   catalogHasReview,
   catalogHref,
+  catalogStatusHint,
   localizedWorkTitle,
 } from "./catalog-locale";
 import { yearsSeriesCountsToward } from "./goal-years";
@@ -166,6 +167,7 @@ function toSeriesCatalogCard(
     favorite,
     hasReview,
     statusLabel,
+    statusHint: catalogStatusHint(catalog, "series", status),
     statusTone: seriesStatusTone(status),
     yearLabel: null,
     activityLabel,
@@ -433,6 +435,7 @@ export function mapSeriesDetail(
       : null,
     metadataNotice,
     statusLabel: catalog.status.series[status],
+    statusHint: catalogStatusHint(catalog, "series", status),
     rating: entry.rating,
     favorite,
     favoriteLabel: favorite
