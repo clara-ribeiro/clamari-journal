@@ -315,7 +315,8 @@ The enrich script writes `tmdbId`, `posterPath`, and current `numberOfEpisodes` 
 Re-import the GDPR zip (default: `src/data/gdpr-data.zip`):
 
 ```bash
-npm run import:tvtime
+npm run import:tvtime -- --ratings-only   # remap existing movie stars; leave unrated films alone
+npm run import:tvtime                     # full rewrite of movies.json / series.json
 ```
 
 `src/data/gdpr-data.zip` is gitignored (personal data).
@@ -331,7 +332,8 @@ npm run typecheck      # tsc --noEmit
 npm test               # vitest watch
 npm run test:run       # vitest run (CI-friendly; no live APIs)
 npm run test:coverage  # unit tests + coverage thresholds
-npm run import:tvtime  # regenerate movies.json / series.json
+npm run test:tvtime    # TV Time GDPR rating-id mapping
+npm run import:tvtime  # GDPR import; pass -- --ratings-only to remap stars only
 npm run add:movie            # interactive: search TMDB and add a watched film
 npm run enrich:tmdb          # tmdbId + posterPath + series episode totals (requires token)
 npm run enrich:google-books  # fill coverUrl (+ title) from Google Books

@@ -51,6 +51,9 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
 
+      - name: Test TV Time import mapping
+        run: npm run test:tvtime
+
       - name: Test
         run: npm run test:coverage
 
