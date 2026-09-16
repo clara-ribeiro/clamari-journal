@@ -6,8 +6,14 @@ Usage:
   python3 scripts/import-tvtime.py
   python3 scripts/import-tvtime.py /path/to/gdpr-data.zip
   python3 scripts/import-tvtime.py /path/to/extracted-folder
+  python3 scripts/import-tvtime.py --ratings-only
+  python3 scripts/import-tvtime.py --ratings-only /path/to/gdpr-data.zip
 
 Default source: src/data/gdpr-data.zip
+
+--ratings-only remaps `rating` on movies that already have one (keeps TMDB
+ids, posters, reviews). Unrated films stay unrated. A full import still
+rewrites movies.json and series.json.
 
 Only uses the files needed for personal journal entries:
   - followed_tv_show.csv
@@ -16,7 +22,7 @@ Only uses the files needed for personal journal entries:
   - tv_show_rate.csv
   - tracking-prod-records.csv      (movies)
   - tracking-prod-records-v2.csv   (episodes)
-  - ratings-live-votes.csv         (movie ratings 1–5)
+  - ratings-live-votes.csv         (movie ratings; see TVTIME_RATING_ID_TO_STARS)
   - lists-prod-lists.csv           (favorite-movies / favorite-series)
 """
 
@@ -40,6 +46,15 @@ DEFAULT_SOURCE = DATA_DIR / "gdpr-data.zip"
 PAUSE_AFTER_IDLE_DAYS = 60
 ABANDON_AFTER_IDLE_DAYS = 730
 
+# TV Time stars_wording_scalev2: the vote_key suffix is a rating id, not 1–5.
+TVTIME_RATING_ID_TO_STARS = {
+    1: 1,  # bad
+    27: 2,  # ok
+    28: 3,  # good
+    29: 4,  # great
+    3: 5,  # wow
+}
+
 
 def slugify(text: str) -> str:
     text = text.lower().strip()
@@ -62,6 +77,18 @@ def unique_slug(base: str, used: set[str]) -> str:
     return slug
 
 
+def tvtime_stars_from_vote_key(vote_key: str) -> int | None:
+    """Map a ratings-live-votes vote_key suffix to journal stars 1–5."""
+    if not vote_key:
+        return None
+    suffix = vote_key.rsplit("-", 1)[-1]
+    try:
+        rating_id = int(suffix)
+    except ValueError:
+        return None
+    return TVTIME_RATING_ID_TO_STARS.get(rating_id)
+
+
 def open_csv(source: Path, name: str):
     if source.is_file() and source.suffix == ".zip":
         with zipfile.ZipFile(source) as zf:
@@ -74,6 +101,16 @@ def open_csv(source: Path, name: str):
 
 def load_rows(source: Path, name: str) -> list[dict]:
     return list(open_csv(source, name))
+
+
+def load_movie_ratings(source: Path) -> dict[str, int]:
+    ratings: dict[str, int] = {}
+    for row in load_rows(source, "ratings-live-votes.csv"):
+        uid = row.get("uuid") or ""
+        stars = tvtime_stars_from_vote_key(row.get("vote_key") or "")
+        if uid and stars is not None:
+            ratings[uid] = stars
+    return ratings
 
 
 def load_favorite_lists(source: Path) -> tuple[set[str], set[str]]:
@@ -283,11 +320,7 @@ def build_movies(source: Path) -> list[dict]:
             if date:
                 m["watchedDates"].append(date)
 
-    movie_ratings: dict[str, float] = {}
-    for row in load_rows(source, "ratings-live-votes.csv"):
-        score = int(row["vote_key"].rsplit("-", 1)[-1])
-        if 1 <= score <= 5:
-            movie_ratings[row["uuid"]] = float(score)
+    movie_ratings = load_movie_ratings(source)
 
     used_slugs: set[str] = set()
     entries: list[dict] = []
@@ -319,22 +352,74 @@ def build_movies(source: Path) -> list[dict]:
     return entries
 
 
+def parse_cli(argv: list[str]) -> tuple[Path, bool] | None:
+    ratings_only = "--ratings-only" in argv
+    unknown = [a for a in argv if a.startswith("-") and a != "--ratings-only"]
+    paths = [a for a in argv if not a.startswith("-")]
+    if unknown or len(paths) > 1:
+        return None
+    source = (
+        Path(paths[0]).expanduser().resolve() if paths else DEFAULT_SOURCE
+    )
+    return source, ratings_only
+
+
+def remap_existing_ratings(
+    movies: list[dict], ratings: dict[str, int]
+) -> tuple[int, int]:
+    """Correct existing ratings in place. Never add a rating to an unrated film."""
+    updated = 0
+    remapped = 0
+    for movie in movies:
+        if "rating" not in movie:
+            continue
+        uid = movie.get("tvtimeUuid")
+        if not uid or uid not in ratings:
+            continue
+        remapped += 1
+        next_rating = ratings[uid]
+        if movie.get("rating") != next_rating:
+            movie["rating"] = next_rating
+            updated += 1
+    return updated, remapped
+
+
+def apply_movie_ratings(source: Path) -> tuple[int, int]:
+    """Write mapped TV Time ratings onto existing movies.json by tvtimeUuid."""
+    ratings = load_movie_ratings(source)
+    path = DATA_DIR / "movies.json"
+    movies = json.loads(path.read_text(encoding="utf-8"))
+    updated, remapped = remap_existing_ratings(movies, ratings)
+    if updated:
+        path.write_text(
+            json.dumps(movies, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+    return updated, remapped
+
+
 def main() -> int:
-    if len(sys.argv) > 2:
+    parsed = parse_cli(sys.argv[1:])
+    if parsed is None:
         print(__doc__)
         return 1
 
-    source = (
-        Path(sys.argv[1]).expanduser().resolve()
-        if len(sys.argv) == 2
-        else DEFAULT_SOURCE
-    )
+    source, ratings_only = parsed
     if not source.exists():
         print(f"Source not found: {source}")
         print(f"Place the TV Time export at {DEFAULT_SOURCE} or pass a path.")
         return 1
 
     print(f"Importing from {source}")
+
+    if ratings_only:
+        updated, remapped = apply_movie_ratings(source)
+        print(
+            f"Updated {updated} movie rating(s) "
+            f"({remapped} already-rated titles remapped) "
+            f"→ src/data/movies.json"
+        )
+        return 0
 
     series = build_series(source)
     movies = build_movies(source)

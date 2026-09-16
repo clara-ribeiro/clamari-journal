@@ -14,6 +14,7 @@
     "test": "vitest -c vitest.config.mts --project=unit",
     "test:run": "vitest run -c vitest.config.mts --project=unit",
     "test:coverage": "vitest run -c vitest.config.mts --project=unit --coverage",
+    "test:tvtime": "python3 scripts/import-tvtime.test.py",
     "test:storybook": "vitest run -c vitest.config.mts --project=storybook",
     "import:tvtime": "python3 scripts/import-tvtime.py src/data/gdpr-data.zip",
     "add:movie": "tsx scripts/add-movie.ts",

@@ -41,6 +41,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# python
+__pycache__/
+*.pyc
+
 # TV Time GDPR export (personal data — keep local only)
 src/data/gdpr-data.zip
 
